@@ -1,24 +1,33 @@
 {
-  "id": "module",
-  "title": "New Module",
-  "description": "",
-  "version": "#{VERSION}#",
+  "id": "sw5e-module-test",
+  "title": "SW5e module test",
+  "description": "Test",
+  "version": "0.1",
   "library": "false",
   "manifestPlusVersion": "1.2.0",
   "compatibility": {
-    "minimum": 10,
-    "verified": 10,
-    "maximum": 11
+    "minimum": 11,
+    "verified": 12
   },
   "authors": [
     {
-      "name": "The League of Extraordinary FVTT Developers",
-      "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+      "name": "The Dev Team",
+      "url": "https://github.com/sw5e-foundry/sw5e",
+      "discord": "https://discord.gg/HUNHVhDQka",
+      "flags": {}
     }
   ],
   "relationships": {
-    "systems": [],
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "3.0.0",
+          "verified": "3.3.0"
+        }
+      }
+    ],
     "requires": []
   },
   "esmodules": [
@@ -29,6 +38,192 @@
   ],
   "styles": [
     "styles/module.css"
+  ],
+  "packs": [
+    {
+      "name": "monsters",
+      "label": "Example Monsters",
+      "system": "dnd5e",
+      "path": "packs/monsters",
+      "type": "Actor",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["npc"]
+        }
+      }
+    },
+    {
+      "name": "items",
+      "label": "Example Items",
+      "system": "dnd5e",
+      "path": "packs/items",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["weapon", "equipment", "consumable", "tool", "loot", "feat", "container"]
+        }
+      }
+    },
+    {
+      "name": "tradegoods",
+      "label": "Example Trade Goods",
+      "system": "dnd5e",
+      "path": "packs/tradegoods",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["loot"]
+        }
+      }
+    },
+    {
+      "name": "powers",
+      "label": "Example Powers",
+      "system": "dnd5e",
+      "path": "packs/powers",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["spell"]
+        }
+      }
+    },
+    {
+      "name": "backgrounds",
+      "label": "Example Backgrounds",
+      "system": "dnd5e",
+      "path": "packs/backgrounds",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["background", "feat"]
+        }
+      }
+    },
+    {
+      "name": "classes",
+      "label": "Example Classes",
+      "system": "dnd5e",
+      "path": "packs/classes",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["class"]
+        }
+      }
+    },
+    {
+      "name": "archetypes",
+      "label": "Example Archetypes",
+      "system": "dnd5e",
+      "path": "packs/archetypes",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["subclass"]
+        }
+      }
+    },
+    {
+      "name": "classfeatures",
+      "label": "Example Class & Archetype Features",
+      "system": "dnd5e",
+      "path": "packs/classfeatures",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat", "weapon"]
+        }
+      }
+    },
+    {
+      "name": "species",
+      "label": "Example Species",
+      "system": "dnd5e",
+      "path": "packs/species",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["race", "feat"]
+        }
+      }
+    },
+    {
+      "name": "monsterfeatures",
+      "label": "Example Monster Features",
+      "system": "dnd5e",
+      "path": "packs/monsterfeatures",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat", "weapon"]
+        }
+      }
+    },
+    {
+      "name": "rules",
+      "label": "Example Rules",
+      "system": "dnd5e",
+      "path": "packs/rules",
+      "type": "JournalEntry",
+      "private": false,
+      "flags": {
+        "display": "table-of-contents"
+      }
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "SW5e Example Content",
+      "sorting": "m",
+      "color": "#cd2c1e",
+      "packs": [
+        "rules"
+      ],
+      "folders": [
+        {
+          "name": "Character Features",
+          "sorting": "m",
+          "color": "#b72c1f",
+          "packs": [
+            "classes",
+            "archetypes",
+            "classfeatures",
+            "backgrounds",
+            "species"
+          ]
+        },
+        {
+          "name": "Items & Powers",
+          "sorting": "m",
+          "color": "#941919 ",
+          "packs": [
+            "items",
+            "powers",
+            "tradegoods"
+          ]
+        },
+        {
+          "name": "Monsters",
+          "sorting": "m",
+          "color": "#7d160c",
+          "packs": [
+            "monsters",
+            "monsterfeatures"
+          ]
+        }
+      ]
+    }
   ],
   "languages": [
     {
@@ -45,7 +240,7 @@
   "media": [
     {
       "type": "icon",
-      "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
+      "url": "https://avatars.githubusercontent.com/u/124887587?s=48&v=4"
     }
   ]
 }
