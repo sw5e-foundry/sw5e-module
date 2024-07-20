@@ -1366,8 +1366,8 @@ export function patchConfig(config, strict=true) {
 	// Cover
 	config.cover[.25] = "SW5E.CoverOneQuarter";
 	// Conditions
-	config.conditions = {
-		...config.conditions,
+	config.conditionTypes = {
+		...config.conditionTypes,
 		corroded: {
 			label: "SW5E.ConCorroded",
 			icon: "systems/sw5e/icons/svg/statuses/corroded.svg"
