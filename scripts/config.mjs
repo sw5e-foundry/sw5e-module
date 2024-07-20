@@ -1341,10 +1341,10 @@ export function patchConfig(config, strict=true) {
 	};
 	preLocalize( "weaponStandardTypes" );
 	config.weaponStarshipTypes = {
-		"primary (starship)": "SW5E.WeaponPrimarySW",
-		"secondary (starship)": "SW5E.WeaponSecondarySW",
-		"tertiary (starship)": "SW5E.WeaponTertiarySW",
-		"quaternary (starship)": "SW5E.WeaponQuaternarySW"
+		"primary (starship)": "SW5E.WeaponPrimarySS",
+		"secondary (starship)": "SW5E.WeaponSecondarySS",
+		"tertiary (starship)": "SW5E.WeaponTertiarySS",
+		"quaternary (starship)": "SW5E.WeaponQuaternarySS"
 	};
 	preLocalize( "weaponStarshipTypes" );
 	config.weaponTypes = {
