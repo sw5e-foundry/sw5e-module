@@ -14,6 +14,22 @@ function adjustDataModels() {
 	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.actor.CreatureTemplate.defineSchema', function (wrapped, ...args) {
 		const result = wrapped(...args);
 		result.skills.model.fields.value.max = 5;
+		result.abilities.model.fields.proficient.max = 5;
+		return result;
+	}, 'MIXED' );
+
+	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.WeaponData.defineSchema', function (wrapped, ...args) {
+		const result = wrapped(...args);
+		result.proficient.integer = false;
+		result.proficient.step = 0.5;
+		return result;
+	}, 'MIXED' );
+
+	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.ToolData.defineSchema', function (wrapped, ...args) {
+		const result = wrapped(...args);
+		result.proficient.max = 5;
+		result.proficient.integer = false;
+		result.proficient.step = 0.5;
 		return result;
 	}, 'MIXED' );
 }
