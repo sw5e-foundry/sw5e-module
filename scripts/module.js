@@ -1,11 +1,13 @@
 import { patchConfig } from "./config.mjs";
 import { patchProficiencyInit, patchProficiencyReady } from "./proficiency.mjs";
+import { patchProperties } from "./properties.mjs";
 
 const strict = true;
 
 Hooks.once('init', async function() {
 	patchConfig(CONFIG.DND5E, strict);
 	patchProficiencyInit();
+	patchProperties();
 });
 
 Hooks.once('ready', async function() {
