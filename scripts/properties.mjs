@@ -30,7 +30,7 @@ export function patchProperties() {
 				numericNode.setAttribute("class", `form-group grid ${tag}`);
 				for (const prop of numericProperties) {
 					const config = CONFIG.DND5E.itemProperties[prop];
-					const path = `flags.sw5e-module-test.${prop}`;
+					const path = `flags.sw5e-module-test.properties.${prop}`;
 					const value = foundry.utils.getProperty(app.item, path) ?? config.default;
 					const labelNode = document.createElement("label");
 					labelNode.setAttribute("class", "number");
