@@ -1,6 +1,6 @@
-import { patchConfig } from "./config.mjs";
-import { patchProficiencyInit, patchProficiencyReady } from "./proficiency.mjs";
-import { patchProperties } from "./properties.mjs";
+import { patchConfig } from "./patch/config.mjs";
+import { patchProficiencyInit, patchProficiencyReady } from "./patch/proficiency.mjs";
+import { patchProperties } from "./patch/properties.mjs";
 
 const strict = true;
 
