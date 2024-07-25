@@ -7,6 +7,12 @@ Test module for the implementation of the sw5e system as a module for dnd5e.
 
 ## Changelog
 
+### [UNRELEASED]
+
+### Changed
+
+- Force/Tech Powers now use the proper ability scores and respect max power level.
+
 ### [0.13] - 2024-07-24
 
 #### Added

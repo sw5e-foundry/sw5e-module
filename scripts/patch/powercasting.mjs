@@ -250,6 +250,43 @@ function patchItemSheet() {
 	});
 }
 
+function patchPowerAbilityScore() {
+	libWrapper.register('sw5e-module-test', 'dnd5e.documents.Actor5e.prototype.spellcastingClasses', function (wrapped, ...args) {
+		const preCalculated = this._spellcastingClasses !== undefined;
+		const result = wrapped(...args);
+		if (preCalculated) return result;
+		for (const [identifier, cls] of Object.entries(this.classes)) for (const castType of ["force", "tech"]) {
+			if (cls.spellcasting && (cls.spellcasting[`${castType}Progression`] !== "none")) result[identifier] = cls;
+		}
+		return result;
+	}, 'WRAPPER');
+
+	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.SpellData.prototype._typeAbilityMod', function (wrapped, ...args) {
+		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
+			if (this.school in typeConfig.schools) {
+				return this.parent.actor.system.powercasting[castType].schools[this.school].attr;
+			}
+		}
+		return wrapped(...args);
+	}, 'MIXED');
+}
+
+function patchAbilityUseDialog() {
+	libWrapper.register('sw5e-module-test', 'dnd5e.applications.item.AbilityUseDialog._createResourceOptions', function (wrapped, ...args) {
+		const result = wrapped(...args);
+		const spell = args[0];
+		const actor = spell?.actor;
+		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
+			if (spell.system.school in typeConfig.schools) {
+				const maxPowerLevel = actor.system.powercasting[castType].maxPowerLevel;
+				const newResult = Object.fromEntries(Object.entries(result).filter(e => e[0] <= (maxPowerLevel+1)));
+				return newResult;
+			}
+		}
+		return result;
+	}, 'WRAPPER');
+}
+
 function recoverPowerPoints() {
 	Hooks.on("dnd5e.shortRest", (actor, config) => {
 		for (const [castType, castConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
@@ -276,11 +313,12 @@ function makePowerPointsConsumable() {
 	});
 }
 
-
 export function patchPowercasting() {
 	adjustItemSpellcastingGetter();
 	makePowerPointsConsumable();
 	patchItemSheet();
+	patchPowerAbilityScore();
+	patchAbilityUseDialog();
 	preparePowercasting();
 	recoverPowerPoints();
 	showPowercastingStats();
