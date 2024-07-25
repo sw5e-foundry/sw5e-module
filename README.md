@@ -7,6 +7,12 @@ Test module for the implementation of the sw5e system as a module for dnd5e.
 
 ## Changelog
 
+### [0.13] - 2024-07-24
+
+#### Added
+
+- Powercasting
+
 ### [0.1] - 2024-07-22
 
 #### Added

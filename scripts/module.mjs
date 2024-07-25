@@ -1,4 +1,6 @@
 import { patchConfig } from "./patch/config.mjs";
+import { patchDataModels } from "./patch/dataModels.mjs";
+import { patchPowercasting } from "./patch/powercasting.mjs";
 import { patchProficiencyInit, patchProficiencyReady } from "./patch/proficiency.mjs";
 import { patchProperties } from "./patch/properties.mjs";
 
@@ -6,6 +8,9 @@ const strict = true;
 
 Hooks.once('init', async function() {
 	patchConfig(CONFIG.DND5E, strict);
+	patchDataModels();
+
+	patchPowercasting();
 	patchProficiencyInit();
 	patchProperties();
 });

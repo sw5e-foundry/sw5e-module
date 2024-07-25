@@ -1292,33 +1292,136 @@ export function patchConfig(config, strict=true) {
 		}
 	};
 	// Powercasting
+	config.spellPreparationModes.powerCasting = {
+		label: "SW5E.Powercasting.Label",
+		usesPoints: true
+	};	
+	config.powerCasting = {
+		force: {
+			label: "SW5E.Powercasting.Force.Label",
+			img: "systems/dnd5e/icons/power-tiers/{id}.webp",
+			attr: ["wis", "cha"],
+			focus: {
+				label: "SW5E.Powercasting.Force.Focus",
+				id: "focusgenerator",
+				property: "bolstering"
+			},
+			progression: {
+				full: {
+					label: "SW5E.Powercasting.Force.Prog.Full",
+					powerPoints: 4,
+					powerMaxLevel: [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 9],
+					powerLimit: 6,
+					divisor: 1,
+					powersKnown: [0, 9, 11, 13, 15, 17, 19, 21, 23, 25, 26, 28, 29, 31, 32, 34, 35, 37, 38, 39, 40]
+				},
+				"3/4": {
+					label: "SW5E.Powercasting.Force.Prog.3/4",
+					powerPoints: 3,
+					powerMaxLevel: [0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7],
+					powerLimit: 5,
+					divisor: 9 / 7,
+					powersKnown: [0, 7, 9, 11, 13, 15, 17, 18, 19, 21, 22, 24, 25, 26, 28, 29, 30, 32, 33, 34, 35]
+				},
+				half: {
+					label: "SW5E.Powercasting.Force.Prog.Half",
+					powerPoints: 2,
+					powerMaxLevel: [0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5],
+					powerLimit: 4,
+					divisor: 9 / 5,
+					powersKnown: [0, 5, 7, 9, 10, 12, 13, 14, 15, 17, 18, 19, 20, 22, 23, 24, 25, 27, 28, 29, 30]
+				},
+				arch: {
+					label: "SW5E.Powercasting.Force.Prog.Arch",
+					powerPoints: 1,
+					powerMaxLevel: [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4],
+					powerLimit: 4,
+					divisor: 9 / 4,
+					powersKnown: [0, 0, 0, 4, 6, 7, 8, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 22, 23, 24, 25]
+				}
+			},
+			schools: {
+				lgt: {
+					label: "SW5E.Powercasting.Force.School.Lgt.Label",
+					attr: ["wis"],
+					fullKey: "light"
+				},
+				uni: {
+					label: "SW5E.Powercasting.Force.School.Uni.Label",
+					attr: ["wis", "cha"],
+					fullKey: "universal"
+				},
+				drk: {
+					label: "SW5E.Powercasting.Force.School.Drk.Label",
+					attr: ["cha"],
+					fullKey: "dark"
+				}
+			}
+		},
+		tech: {
+			label: "SW5E.Powercasting.Tech.Label",
+			img: "systems/sw5e/icons/power-tiers/{id}.webp",
+			attr: ["int"],
+			focus: {
+				label: "SW5E.Powercasting.Tech.Focus",
+				id: "wristpad",
+				property: "surging"
+			},
+			progression: {
+				full: {
+					label: "SW5E.Powercasting.Tech.Prog.Full",
+					powerPoints: 2,
+					powerMaxLevel: [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 9],
+					powerLimit: 6,
+					divisor: 1,
+					powersKnown: [0, 6, 7, 9, 10, 12, 13, 15, 16, 18, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+				},
+				"3/4": {
+					label: "SW5E.Powercasting.Tech.Prog.3/4",
+					powerPoints: 1.5,
+					powerMaxLevel: [0, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 7],
+					powerLimit: 5,
+					divisor: 9 / 4,
+					powersKnown: [0, 0, 0, 7, 8, 9, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+				},
+				half: {
+					label: "SW5E.Powercasting.Tech.Prog.Half",
+					powerPoints: 1,
+					powerMaxLevel: [0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5],
+					powerLimit: 4,
+					divisor: 9 / 5,
+					powersKnown: [0, 0, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+				},
+				arch: {
+					label: "SW5E.Powercasting.Tech.Prog.Arch",
+					powerPoints: 0.5,
+					powerMaxLevel: [0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4],
+					powerLimit: 4,
+					divisor: 9 / 4,
+					powersKnown: [0, 0, 0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+				}
+			},
+			schools: {
+				tec: {
+					label: "SW5E.Powercasting.Tech.School.Tec.Label",
+					attr: ["int"],
+					fullKey: "tech"
+				}
+			},
+			shortRest: true
+		}
+	}
+	preLocalize( "powercasting", { key: "label", sort: true } );
+	preLocalize( "powercasting.force.progression", { key: "label" } );
+	preLocalize( "powercasting.tech.progression", { key: "label" } );
+	preLocalize( "powercasting.force.schools", { key: "label", sort: true } );
+	preLocalize( "powercasting.tech.schools", { key: "label", sort: true } );
+
 	if (strict) config.spellSchools = {};
-	config.powerSchoolsForce = {
-		lgt: {
-			label: "SW5E.SchoolLgt",
-			fullKey: "light"
-		},
-		uni: {
-			label: "SW5E.SchoolUni",
-			fullKey: "universal"
-		},
-		drk: {
-			label: "SW5E.SchoolDrk",
-			fullKey: "dark"
-		}
-	};
-	preLocalize( "powerSchoolsForce", { key: "label", sort: true } );
-	config.powerSchoolsTech = {
-		tec: {
-			label: "SW5E.SchoolTec",
-			fullKey: "tech"
-		}
-	};
-	preLocalize( "powerSchoolsTech", { key: "label", sort: true } );
 	config.spellSchools = {
 		...config.spellSchools,
-		...config.powerSchoolsForce,
-		...config.powerSchoolsTech
+		...config.powerCasting.force.schools,
+		...config.powerCasting.tech.schools
 	};
 	// Weapons
 	if (strict) {
