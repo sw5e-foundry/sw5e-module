@@ -2,7 +2,7 @@
   "_id": "Aq421AKVuVHZjFJQ",
   "name": "Lightning carbine",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Simple%20Blasters/LightningCarbine.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Simple%20Blasters/LightningCarbine.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:52:13.4484552+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-lightning_carbine.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 60/240",
+        "penetrating": 6,
+        "rel": 12,
+        "strRq": 11
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 1150,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +98,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,20 +126,13 @@
       ]
     },
     "properties": [
-      "pcl",
-      "pen",
+      "powerCell",
+      "penetrating",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "pcl": "range 60/240",
-      "pen": 6,
-      "rel": 12,
-      "str": 11,
-      "two": true
-    },
     "type": {
       "value": "simpleB",
       "subtype": ""
@@ -154,8 +155,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961242,
     "modifiedTime": 1720418047021,

@@ -2,7 +2,7 @@
   "_id": "tcQGKy45P0iVYHeU",
   "name": "Shoulder Cannon (Fine) (Burst)",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/ShoulderCannon.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/ShoulderCannon.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:52:05.379134+00:00",
       "importer_version": 3,
       "uid": "EnhancedItem.name-shoulder_cannon_fine.subtype-shoulder_cannon.mode-burst"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "burst": 8,
+        "powerCell": "range 60/240",
+        "rel": 8,
+        "smart": "16, +2"
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 1625,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -118,13 +126,13 @@
       ]
     },
     "properties": [
-      "aut",
-      "bur",
-      "pcl",
+      "auto",
+      "burst",
+      "powerCell",
       "rel",
-      "smr",
-      "spc",
-      "str"
+      "smart",
+      "special",
+      "strRq"
     ],
     "proficient": 0,
     "type": {
@@ -138,15 +146,6 @@
       "bonus": "1",
       "flat": false
     },
-    "_propertyValues": {
-      "aut": true,
-      "bur": 8,
-      "pcl": "range 60/240",
-      "rel": 8,
-      "smr": "16, +2",
-      "spc": true,
-      "str": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -158,8 +157,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493965003,
     "modifiedTime": 1720553680815,

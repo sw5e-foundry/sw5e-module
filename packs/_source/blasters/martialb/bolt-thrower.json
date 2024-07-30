@@ -2,7 +2,7 @@
   "_id": "9VhsUL3z9o62lUsT",
   "name": "Bolt-thrower",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/Bolt-Thrower.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/Bolt-Thrower.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,13 @@
       "timestamp": "2023-03-09T01:52:13.4514536+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-bolt_thrower.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "rel": 1,
+        "special": "range 90/360",
+        "strRq": 13
+      }
     }
   },
   "system": {
@@ -28,7 +35,7 @@
     },
     "price": {
       "value": 1825,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -85,7 +92,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -114,11 +121,11 @@
     },
     "properties": [
       "rel",
-      "sil",
-      "spc",
-      "str",
+      "silentWeapon",
+      "special",
+      "strRq",
       "two",
-      "spz"
+      "specialized"
     ],
     "proficient": null,
     "type": {
@@ -132,14 +139,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "rel": 1,
-      "sil": true,
-      "spc": "range 90/360",
-      "str": 13,
-      "two": true,
-      "spz": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -151,8 +150,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961239,
     "modifiedTime": 1720553653784,

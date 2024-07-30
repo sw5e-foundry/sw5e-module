@@ -2,7 +2,7 @@
   "_id": "i1d3IODE5XVAeLuw",
   "name": "Radrifle",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Exotic%20Blasters/Radrifle.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Exotic%20Blasters/Radrifle.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,13 @@
       "timestamp": "2023-03-09T01:52:13.4624479+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-radrifle.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 120/480",
+        "rel": 8,
+        "strRq": 13
+      }
     }
   },
   "system": {
@@ -28,7 +35,7 @@
     },
     "price": {
       "value": 1575,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +97,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,20 +125,13 @@
       ]
     },
     "properties": [
-      "dis",
-      "pcl",
+      "disintegrate",
+      "powerCell",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "dis": true,
-      "pcl": "range 120/480",
-      "rel": 8,
-      "str": 13,
-      "two": true
-    },
     "type": {
       "value": "exoticB",
       "subtype": ""
@@ -154,8 +154,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961298,
     "modifiedTime": 1720418047021,

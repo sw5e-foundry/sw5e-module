@@ -2,7 +2,7 @@
   "_id": "cwpvXGU2KpC86zba",
   "name": "ARC caster (Rapid)",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/ArcCaster.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/ArcCaster.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,15 @@
       "timestamp": "2023-03-09T01:52:13.4514536+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-arc_caster.equipmentCategory-weapon.mode-rapid"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 60/240",
+        "burst": 8,
+        "rapid": 4,
+        "rel": 9,
+        "strRq": 11
+      }
     }
   },
   "system": {
@@ -28,7 +37,7 @@
     },
     "price": {
       "value": 2125,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -118,11 +127,11 @@
       ]
     },
     "properties": [
-      "pcl",
-      "bur",
-      "rap",
+      "powerCell",
+      "burst",
+      "rapid",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
@@ -137,14 +146,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "pcl": "range 60/240",
-      "bur": 8,
-      "rap": 4,
-      "rel": 9,
-      "str": 11,
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -156,8 +157,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961288,
     "modifiedTime": 1720553654461,

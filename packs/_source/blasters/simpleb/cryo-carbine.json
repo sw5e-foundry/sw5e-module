@@ -2,7 +2,7 @@
   "_id": "PkRIfISeSwgqXOBf",
   "name": "Cryo carbine",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Simple%20Blasters/CryoCarbine.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Simple%20Blasters/CryoCarbine.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,13 @@
       "timestamp": "2023-03-09T01:52:06.0917209+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-cryo_carbine.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 45/180",
+        "rel": 12,
+        "vicious": 1
+      }
     }
   },
   "system": {
@@ -28,7 +35,7 @@
     },
     "price": {
       "value": 1250,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +97,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,18 +125,12 @@
       ]
     },
     "properties": [
-      "pcl",
+      "powerCell",
       "rel",
       "two",
-      "vic"
+      "vicious"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "pcl": "range 45/180",
-      "rel": 12,
-      "two": true,
-      "vic": 1
-    },
     "type": {
       "value": "simpleB",
       "subtype": ""
@@ -152,8 +153,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961270,
     "modifiedTime": 1720418047021,

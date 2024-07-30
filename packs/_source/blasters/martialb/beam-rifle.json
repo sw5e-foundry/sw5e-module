@@ -2,7 +2,7 @@
   "_id": "eU07RkTEbHfAkaCn",
   "name": "Beam rifle",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/BeamRifle.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/BeamRifle.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:51:54.3925051+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-beam_rifle.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "penetrating": 2,
+        "powerCell": "range 150/600",
+        "rel": 2,
+        "strRq": 15
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 1850,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +98,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,10 +126,10 @@
       ]
     },
     "properties": [
-      "pen",
-      "pcl",
+      "penetrating",
+      "powerCell",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
@@ -136,13 +144,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "pen": 2,
-      "pcl": "range 150/600",
-      "rel": 2,
-      "str": 15,
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -154,8 +155,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961289,
     "modifiedTime": 1720553654486,

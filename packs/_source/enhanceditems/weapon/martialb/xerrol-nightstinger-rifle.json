@@ -2,7 +2,7 @@
   "_id": "0dZh5U8Pi9eldNTy",
   "name": "Xerrol Nightstinger Rifle",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/NightstingerRifle.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/NightstingerRifle.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,13 @@
       "timestamp": "2023-03-09T01:52:05.3801336+00:00",
       "importer_version": 3,
       "uid": "EnhancedItem.name-xerrol_nightstinger_rifle.subtype-nightstinger_rifle"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 125/500",
+        "rel": 2,
+        "strRq": 11
+      }
     }
   },
   "system": {
@@ -28,7 +35,7 @@
     },
     "price": {
       "value": 1075,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -118,10 +125,10 @@
       ]
     },
     "properties": [
-      "pcl",
+      "powerCell",
       "rel",
-      "sil",
-      "str",
+      "silentWeapon",
+      "strRq",
       "two"
     ],
     "proficient": null,
@@ -136,13 +143,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "pcl": "range 125/500",
-      "rel": 2,
-      "sil": true,
-      "str": 11,
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -154,8 +154,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493964357,
     "modifiedTime": 1720553659797,

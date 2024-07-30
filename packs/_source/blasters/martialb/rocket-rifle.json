@@ -2,7 +2,7 @@
   "_id": "q5JrhC2pyO64xhbu",
   "name": "Rocket rifle",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/RocketRifle.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/RocketRifle.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,13 @@
       "timestamp": "2023-03-09T01:52:13.453452+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-rocket_rifle.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "rel": 6,
+        "special": "range 60/240",
+        "strRq": 11
+      }
     }
   },
   "system": {
@@ -28,7 +35,7 @@
     },
     "price": {
       "value": 2250,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -85,7 +92,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -114,10 +121,10 @@
     },
     "properties": [
       "rel",
-      "spc",
-      "str",
+      "special",
+      "strRq",
       "two",
-      "spz"
+      "specialized"
     ],
     "proficient": null,
     "type": {
@@ -131,13 +138,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "rel": 6,
-      "spc": "range 60/240",
-      "str": 11,
-      "two": true,
-      "spz": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -149,8 +149,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961310,
     "modifiedTime": 1720553654797,

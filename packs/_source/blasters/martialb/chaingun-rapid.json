@@ -2,7 +2,7 @@
   "_id": "cchq3Zp6gDRHCPmJ",
   "name": "Chaingun (Rapid)",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/Chaingun.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/Chaingun.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,15 @@
       "timestamp": "2023-03-09T01:52:06.0927198+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-chaingun.equipmentCategory-weapon.mode-rapid"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "rapid": 2,
+        "rel": 8,
+        "range": 80,
+        "strRq": 13,
+        "vicious": 1
+      }
     }
   },
   "system": {
@@ -28,7 +37,7 @@
     },
     "price": {
       "value": 1325,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -118,13 +127,13 @@
       ]
     },
     "properties": [
-      "aut",
-      "rap",
+      "auto",
+      "rapid",
       "rel",
-      "ran",
-      "str",
+      "range",
+      "strRq",
       "two",
-      "vic"
+      "vicious"
     ],
     "proficient": null,
     "type": {
@@ -138,15 +147,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "aut": true,
-      "rap": 2,
-      "rel": 8,
-      "ran": 80,
-      "str": 13,
-      "two": true,
-      "vic": 1
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -158,8 +158,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961287,
     "modifiedTime": 1720553654400,

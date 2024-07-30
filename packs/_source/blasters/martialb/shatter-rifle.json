@@ -2,7 +2,7 @@
   "_id": "Ger4Tz2ZQHBsvIdD",
   "name": "Shatter rifle",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/ShatterRifle.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/ShatterRifle.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,13 @@
       "timestamp": "2023-03-09T01:52:13.453452+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-shatter_rifle.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "range": 100,
+        "rel": 8,
+        "strRq": 11
+      }
     }
   },
   "system": {
@@ -28,7 +35,7 @@
     },
     "price": {
       "value": 750,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +97,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,20 +125,13 @@
       ]
     },
     "properties": [
-      "ran",
+      "range",
       "rel",
-      "sil",
-      "str",
+      "silentWeapon",
+      "strRq",
       "two"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "ran": 100,
-      "rel": 8,
-      "sil": true,
-      "str": 11,
-      "two": true
-    },
     "type": {
       "value": "martialB",
       "subtype": ""
@@ -154,8 +154,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961255,
     "modifiedTime": 1720418047021,

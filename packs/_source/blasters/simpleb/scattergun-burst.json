@@ -2,7 +2,7 @@
   "_id": "Ca3q4CHFXZkZWMed",
   "name": "Scattergun (Burst)",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Simple%20Blasters/Scattergun.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Simple%20Blasters/Scattergun.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:51:54.3915052+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-scattergun.equipmentCategory-weapon.mode-burst"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "burst": 2,
+        "rel": 8,
+        "range": 30,
+        "strRq": 11
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 625,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -118,10 +126,10 @@
       ]
     },
     "properties": [
-      "bur",
+      "burst",
       "rel",
-      "ran",
-      "str"
+      "range",
+      "strRq"
     ],
     "proficient": null,
     "type": {
@@ -135,12 +143,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "bur": 2,
-      "rel": 8,
-      "ran": 30,
-      "str": 11
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -152,8 +154,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961249,
     "modifiedTime": 1720553653898,

@@ -2,7 +2,7 @@
   "_id": "3MuBVRCfB4j2pmm1",
   "name": "Light pistol",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Simple%20Blasters/LightPistol.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Simple%20Blasters/LightPistol.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:51:54.3905058+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-light_pistol.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 40/160",
+        "rel": 8
+      }
     }
   },
   "system": {
@@ -28,7 +34,7 @@
     },
     "price": {
       "value": 250,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +96,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -119,7 +125,7 @@
     },
     "properties": [
       "lgt",
-      "pcl",
+      "powerCell",
       "rel"
     ],
     "proficient": null,
@@ -134,11 +140,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "lgt": true,
-      "pcl": "range 40/160",
-      "rel": 8
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -150,8 +151,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961230,
     "modifiedTime": 1720553653657,

@@ -2,7 +2,7 @@
   "_id": "Q45OrdLhguL9OWNU",
   "name": "Sniper rifle",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/SniperRifle.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/SniperRifle.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,13 @@
       "timestamp": "2023-03-09T01:51:54.3945039+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-sniper_rifle.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 150/600",
+        "rel": 2,
+        "strRq": 13
+      }
     }
   },
   "system": {
@@ -28,7 +35,7 @@
     },
     "price": {
       "value": 1300,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +97,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,9 +125,9 @@
       ]
     },
     "properties": [
-      "pcl",
+      "powerCell",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
@@ -135,12 +142,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "pcl": "range 150/600",
-      "rel": 2,
-      "str": 13,
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -152,8 +153,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961271,
     "modifiedTime": 1720553654172,

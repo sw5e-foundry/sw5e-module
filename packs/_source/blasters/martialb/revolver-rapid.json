@@ -2,7 +2,7 @@
   "_id": "KGY7W9ckhHlCmTLI",
   "name": "Revolver (Rapid)",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/Revolver.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/Revolver.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:52:13.4524542+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-revolver.equipmentCategory-weapon.mode-rapid"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "range": 60,
+        "rapid": 4,
+        "rel": 8,
+        "strRq": 11
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 625,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -118,18 +126,12 @@
       ]
     },
     "properties": [
-      "ran",
-      "rap",
+      "range",
+      "rapid",
       "rel",
-      "str"
+      "strRq"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "ran": 60,
-      "rap": 4,
-      "rel": 8,
-      "str": 11
-    },
     "type": {
       "value": "martialB",
       "subtype": ""
@@ -152,8 +154,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961262,
     "modifiedTime": 1720418047021,

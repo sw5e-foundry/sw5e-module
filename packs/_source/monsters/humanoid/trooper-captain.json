@@ -1,7 +1,7 @@
 {
   "name": "Trooper, Captain",
   "type": "npc",
-  "img": "systems/sw5e/packs/Icons/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
+  "img": "modules/sw5e-module-test/icons/packs/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
   "items": [
     {
       "_id": "ODRiYTkxY2IwMDJi",
@@ -9,7 +9,7 @@
       "type": "feat",
       "sort": 0,
       "flags": {},
-      "img": "systems/sw5e/packs/Icons/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
+      "img": "modules/sw5e-module-test/icons/packs/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
       "effects": [],
       "folder": null,
       "system": {
@@ -72,7 +72,7 @@
         "save": {
           "ability": "",
           "dc": null,
-          "scaling": "power"
+          "scaling": "spell"
         },
         "type": {
           "value": "",
@@ -118,7 +118,7 @@
       "type": "feat",
       "sort": 0,
       "flags": {},
-      "img": "systems/sw5e/packs/Icons/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
+      "img": "modules/sw5e-module-test/icons/packs/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
       "effects": [],
       "folder": null,
       "system": {
@@ -181,7 +181,7 @@
         "save": {
           "ability": "",
           "dc": null,
-          "scaling": "power"
+          "scaling": "spell"
         },
         "type": {
           "value": "",
@@ -290,7 +290,7 @@
         "save": {
           "ability": "",
           "dc": null,
-          "scaling": "power"
+          "scaling": "spell"
         },
         "type": {
           "value": "",
@@ -405,7 +405,7 @@
           }
         }
       },
-      "img": "systems/sw5e/packs/Icons/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
+      "img": "modules/sw5e-module-test/icons/packs/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
       "effects": [],
       "folder": null,
       "system": {
@@ -423,7 +423,7 @@
         },
         "price": {
           "value": 0,
-          "denomination": "gc"
+          "denomination": "gp"
         },
         "attunement": "",
         "equipped": true,
@@ -485,7 +485,7 @@
         "save": {
           "ability": "",
           "dc": null,
-          "scaling": "power"
+          "scaling": "spell"
         },
         "armor": {
           "value": 10
@@ -514,7 +514,6 @@
         },
         "properties": [],
         "proficient": 1,
-        "_propertyValues": {},
         "type": {
           "value": "natural",
           "subtype": ""
@@ -610,7 +609,7 @@
           "teleDist": 30
         }
       },
-      "img": "systems/sw5e/packs/Icons/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
+      "img": "modules/sw5e-module-test/icons/packs/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
       "effects": [],
       "folder": null,
       "system": {
@@ -724,7 +723,7 @@
       "type": "weapon",
       "sort": 0,
       "flags": {},
-      "img": "systems/sw5e/packs/Icons/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
+      "img": "modules/sw5e-module-test/icons/packs/monsters/048_-_Trooper_2C_Captain/Avatar.webp",
       "effects": [],
       "folder": null,
       "system": {
@@ -742,7 +741,7 @@
         },
         "price": {
           "value": 0,
-          "denomination": "gc"
+          "denomination": "gp"
         },
         "attunement": "",
         "equipped": true,
@@ -804,7 +803,7 @@
         "save": {
           "ability": "",
           "dc": null,
-          "scaling": "power"
+          "scaling": "spell"
         },
         "armor": {
           "value": 10
@@ -833,7 +832,6 @@
         },
         "properties": [],
         "proficient": 1,
-        "_propertyValues": {},
         "type": {
           "value": "natural",
           "subtype": ""
@@ -869,7 +867,7 @@
       "_id": "ItDKve4zf4BvQaNY",
       "name": "Battle armor",
       "type": "equipment",
-      "img": "systems/sw5e/packs/Icons/Armor/PHB/BattleArmor.webp",
+      "img": "modules/sw5e-module-test/icons/packs/Armor/PHB/BattleArmor.webp",
       "effects": [],
       "folder": null,
       "sort": 0,
@@ -880,6 +878,11 @@
           "migratedProperties": [
             "stealthDisadvantage"
           ]
+        },
+        "sw5e-module-test": {
+          "properties": {
+            "strength": 13
+          }
         }
       },
       "system": {
@@ -897,7 +900,7 @@
         },
         "price": {
           "value": 750,
-          "denomination": "gc"
+          "denomination": "gp"
         },
         "attunement": "",
         "equipped": true,
@@ -954,7 +957,7 @@
         "save": {
           "ability": "",
           "dc": null,
-          "scaling": "power"
+          "scaling": "spell"
         },
         "armor": {
           "value": 16,
@@ -1004,14 +1007,10 @@
         },
         "strength": null,
         "properties": [
-          "Bulky",
-          "Strength"
+          "bulky",
+          "strength"
         ],
         "proficient": 1,
-        "_propertyValues": {
-          "Bulky": true,
-          "Strength": 13
-        },
         "type": {
           "value": "heavy",
           "baseItem": "battlearmor"
@@ -1032,8 +1031,8 @@
         "default": 0
       },
       "_stats": {
-        "systemId": "sw5e",
-        "systemVersion": "2.0.3.2.3.6",
+        "systemId": "dnd5e",
+        "systemVersion": "3.3.1",
         "coreVersion": "10.291",
         "createdTime": 1674493960313,
         "modifiedTime": 1674582004902,
@@ -1712,8 +1711,8 @@
     "prependAdjective": false
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493984390,
     "modifiedTime": 1720552776781,

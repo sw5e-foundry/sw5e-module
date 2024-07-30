@@ -2,7 +2,7 @@
   "_id": "JYXfficatrRxiL2j",
   "name": "Assault cannon (Burst)",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/AssaultCannon.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/AssaultCannon.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:51:54.3925051+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-assault_cannon.equipmentCategory-weapon.mode-burst"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "burst": 4,
+        "powerCell": "range 90/360",
+        "rel": 4,
+        "strRq": 15
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 1550,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -118,10 +126,10 @@
       ]
     },
     "properties": [
-      "bur",
-      "pcl",
+      "burst",
+      "powerCell",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
@@ -136,13 +144,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "bur": 4,
-      "pcl": "range 90/360",
-      "rel": 4,
-      "str": 15,
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -154,8 +155,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961260,
     "modifiedTime": 1720553654029,

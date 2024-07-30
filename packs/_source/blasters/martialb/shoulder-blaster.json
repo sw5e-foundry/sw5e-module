@@ -2,7 +2,7 @@
   "_id": "W9dZwJA9S6GuupCx",
   "name": "Shoulder blaster",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/ShoulderBlaster.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/ShoulderBlaster.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:52:06.0957188+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-shoulder_blaster.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 40/160",
+        "rapid": 4,
+        "rel": 16,
+        "smart": "15/+2"
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 1275,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +98,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,25 +126,17 @@
       ]
     },
     "properties": [
-      "pcl",
-      "rap",
+      "powerCell",
+      "rapid",
       "rel",
-      "smr",
-      "spc",
-      "str"
+      "smart",
+      "special",
+      "strRq"
     ],
     "proficient": 0,
     "attack": {
       "flat": true,
       "bonus": "2 + 2"
-    },
-    "_propertyValues": {
-      "pcl": "range 40/160",
-      "rap": 4,
-      "rel": 16,
-      "smr": "15/+2",
-      "spc": true,
-      "str": true
     },
     "type": {
       "value": "martialB",
@@ -156,8 +156,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961279,
     "modifiedTime": 1720418047021,

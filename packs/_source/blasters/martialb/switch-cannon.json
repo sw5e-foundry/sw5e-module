@@ -2,7 +2,7 @@
   "_id": "KO4QzzK90ddtTCeP",
   "name": "Switch cannon",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/SwitchCannon.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/SwitchCannon.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,15 @@
       "timestamp": "2023-03-09T01:52:13.4544518+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-switch_cannon.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 100/400",
+        "burst": 2,
+        "rel": 4,
+        "strRq": 15,
+        "switch": "2d4 acid/cold/fire/lightning"
+      }
     }
   },
   "system": {
@@ -28,7 +37,7 @@
     },
     "price": {
       "value": 3350,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +99,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,11 +127,11 @@
       ]
     },
     "properties": [
-      "pcl",
-      "bur",
+      "powerCell",
+      "burst",
       "rel",
-      "str",
-      "swi",
+      "strRq",
+      "switch",
       "two"
     ],
     "proficient": null,
@@ -137,14 +146,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "pcl": "range 100/400",
-      "bur": 2,
-      "rel": 4,
-      "str": 15,
-      "swi": "2d4 acid/cold/fire/lightning",
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -156,8 +157,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961263,
     "modifiedTime": 1720553654067,

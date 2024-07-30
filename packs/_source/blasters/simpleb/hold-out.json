@@ -2,7 +2,7 @@
   "_id": "V7uuRrAqCINlkgFk",
   "name": "Hold-out",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Simple%20Blasters/Hold-Out.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Simple%20Blasters/Hold-Out.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:51:54.3905058+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-hold_out.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 30/120",
+        "rel": 8
+      }
     }
   },
   "system": {
@@ -28,7 +34,7 @@
     },
     "price": {
       "value": 225,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +96,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,9 +124,9 @@
       ]
     },
     "properties": [
-      "hid",
+      "hidden",
       "lgt",
-      "pcl",
+      "powerCell",
       "rel"
     ],
     "proficient": null,
@@ -135,12 +141,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "hid": true,
-      "lgt": true,
-      "pcl": "range 30/120",
-      "rel": 8
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -152,8 +152,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961279,
     "modifiedTime": 1720553654281,

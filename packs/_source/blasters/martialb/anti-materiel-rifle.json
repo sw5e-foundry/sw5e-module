@@ -2,7 +2,7 @@
   "_id": "LXfN4Frdg9Neip42",
   "name": "Anti-materiel rifle",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/Anti-MaterielRifle.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/Anti-MaterielRifle.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:52:13.4514536+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-anti_materiel_rifle.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "range": 180,
+        "rel": 2,
+        "penetrating": 2,
+        "strRq": 19
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 1900,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +98,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,20 +126,13 @@
       ]
     },
     "properties": [
-      "ran",
+      "range",
       "rel",
-      "pen",
-      "str",
+      "penetrating",
+      "strRq",
       "two"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "ran": 180,
-      "rel": 2,
-      "pen": 2,
-      "str": 19,
-      "two": true
-    },
     "type": {
       "value": "martialB",
       "subtype": ""
@@ -154,8 +155,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961263,
     "modifiedTime": 1720418047021,

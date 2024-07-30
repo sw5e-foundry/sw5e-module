@@ -2,7 +2,7 @@
   "_id": "pYsmiZ98tXTfdbt0",
   "name": "Rocket launcher",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/RocketLauncher.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/RocketLauncher.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:06.0957188+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-rocket_launcher.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "rel": 1,
+        "special": "range 150/600"
+      }
     }
   },
   "system": {
@@ -28,7 +34,7 @@
     },
     "price": {
       "value": 2250,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -85,7 +91,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -114,11 +120,11 @@
     },
     "properties": [
       "rel",
-      "spc",
-      "str",
+      "special",
+      "strRq",
       "two",
-      "spz",
-      "ran"
+      "specialized",
+      "range"
     ],
     "proficient": null,
     "type": {
@@ -132,14 +138,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "rel": 1,
-      "spc": "range 150/600",
-      "str": true,
-      "two": true,
-      "spz": true,
-      "ran": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -151,8 +149,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961309,
     "modifiedTime": 1720553654786,

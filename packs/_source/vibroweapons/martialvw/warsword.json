@@ -5,10 +5,17 @@
       "timestamp": "2023-03-09T01:52:06.1017149+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-warsword.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "dexRq": 15,
+        "reckless": 1,
+        "vicious": 1
+      }
     }
   },
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Vibroweapons/Warsword.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Vibroweapons/Warsword.webp",
   "system": {
     "description": {
       "value": "<h3>Dexterity 15</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\nReckless 1\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>\n<h3>Vicious 1</h3>\n<p>Whenever you deal damage with a weapon with the vicious property and roll the maximum on a weapon damage die, you gain a bonus to damage equal to the vicious number.</p>",
@@ -24,7 +31,7 @@
     },
     "price": {
       "value": 1650,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -62,10 +69,10 @@
       "versatile": ""
     },
     "properties": [
-      "dex",
-      "rck",
+      "dexRq",
+      "reckless",
       "two",
-      "vic"
+      "vicious"
     ],
     "weaponClass": "crushing",
     "ammo": {
@@ -73,12 +80,6 @@
       "target": "",
       "value": null,
       "use": null
-    },
-    "_propertyValues": {
-      "dex": 15,
-      "rck": 1,
-      "two": true,
-      "vic": 1
     },
     "unidentified": {
       "description": ""
@@ -119,7 +120,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "summons": null,
     "armor": {
@@ -150,8 +151,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1720296019804,
     "modifiedTime": 1720553881889,

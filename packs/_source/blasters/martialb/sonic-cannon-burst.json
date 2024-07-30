@@ -2,7 +2,7 @@
   "_id": "KD3gzWdE6oAai4SR",
   "name": "Sonic cannon (Burst)",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/SonicCannon.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/SonicCannon.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:52:13.453452+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-sonic_cannon.equipmentCategory-weapon.mode-burst"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 90/360",
+        "burst": 2,
+        "rel": 4,
+        "strRq": 17
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 2100,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -118,24 +126,15 @@
       ]
     },
     "properties": [
-      "pcl",
-      "aut",
-      "bur",
-      "dpt",
+      "powerCell",
+      "auto",
+      "burst",
+      "disruptive",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "pcl": "range 90/360",
-      "aut": true,
-      "bur": 2,
-      "dpt": true,
-      "rel": 4,
-      "str": 17,
-      "two": true
-    },
     "type": {
       "value": "martialB",
       "subtype": ""
@@ -158,8 +157,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961261,
     "modifiedTime": 1720418047021,

@@ -2,7 +2,7 @@
   "_id": "es7oacLob9VulqVC",
   "name": "Lightning rifle",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/LightningRifle.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/LightningRifle.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:52:13.4524542+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-lightning_rifle.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 60/240",
+        "penetrating": 2,
+        "rel": 8,
+        "strRq": 11
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 2125,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +98,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,20 +126,13 @@
       ]
     },
     "properties": [
-      "pcl",
-      "pen",
+      "powerCell",
+      "penetrating",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "pcl": "range 60/240",
-      "pen": 2,
-      "rel": 8,
-      "str": 11,
-      "two": true
-    },
     "type": {
       "value": "martialB",
       "subtype": ""
@@ -154,8 +155,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961291,
     "modifiedTime": 1720418047021,

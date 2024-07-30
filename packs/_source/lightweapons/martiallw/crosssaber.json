@@ -5,10 +5,16 @@
       "timestamp": "2023-03-09T01:52:13.456451+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-crosssaber.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "dexRq": 15,
+        "double": "2d4 energy"
+      }
     }
   },
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Lightweapons/Crosssaber.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Lightweapons/Crosssaber.webp",
   "effects": [],
   "system": {
     "description": {
@@ -25,7 +31,7 @@
     },
     "price": {
       "value": 1650,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -87,7 +93,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -113,20 +119,13 @@
       "types": []
     },
     "properties": [
-      "dex",
-      "dou",
+      "dexRq",
+      "double",
       "hvy",
-      "lum",
+      "luminous",
       "rch"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "dex": 15,
-      "dou": "2d4 energy",
-      "hvy": true,
-      "lum": true,
-      "rch": true
-    },
     "type": {
       "value": "martialLW",
       "subtype": ""
@@ -151,8 +150,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1667426099439,
     "modifiedTime": 1720418047287,

@@ -2,7 +2,7 @@
   "_id": "PhJpjuTtS0E2dR5M",
   "name": "Vapor projector",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/VaporProjector.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/VaporProjector.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,12 @@
       "timestamp": "2023-05-30T20:15:17.4263736+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-vapor_projector.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "rel": 6,
+        "special": "range special"
+      }
     }
   },
   "system": {
@@ -28,7 +34,7 @@
     },
     "price": {
       "value": 2300,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -85,7 +91,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -114,10 +120,10 @@
     },
     "properties": [
       "rel",
-      "spc",
-      "str",
+      "special",
+      "strRq",
       "two",
-      "spz"
+      "specialized"
     ],
     "proficient": null,
     "type": {
@@ -131,13 +137,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "rel": 6,
-      "spc": "range special",
-      "str": true,
-      "two": true,
-      "spz": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -149,8 +148,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961269,
     "modifiedTime": 1720553654142,

@@ -2,7 +2,7 @@
   "_id": "Iv36Kvf4Twtr0WQf",
   "name": "Sonic rifle",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/SonicRifle.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/SonicRifle.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,13 @@
       "timestamp": "2023-03-09T01:52:13.453452+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-sonic_rifle.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 80/320",
+        "rel": 8,
+        "strRq": 11
+      }
     }
   },
   "system": {
@@ -28,7 +35,7 @@
     },
     "price": {
       "value": 875,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +97,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,10 +125,10 @@
       ]
     },
     "properties": [
-      "pcl",
-      "dpt",
+      "powerCell",
+      "disruptive",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
@@ -136,13 +143,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "pcl": "range 80/320",
-      "dpt": true,
-      "rel": 8,
-      "str": 11,
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -154,8 +154,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961259,
     "modifiedTime": 1720553654019,

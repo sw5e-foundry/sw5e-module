@@ -2,7 +2,7 @@
   "_id": "hiD9yXYbGr9qpEHP",
   "name": "Rotary cannon (Rapid)",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/RotaryCannon.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/RotaryCannon.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:51:54.3945039+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-rotary_cannon.equipmentCategory-weapon.mode-rapid"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "powerCell": "range 75/300",
+        "rapid": 2,
+        "rel": 8,
+        "strRq": 13
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 1500,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -118,11 +126,11 @@
       ]
     },
     "properties": [
-      "aut",
-      "pcl",
-      "rap",
+      "auto",
+      "powerCell",
+      "rapid",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
@@ -137,14 +145,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "aut": true,
-      "pcl": "range 75/300",
-      "rap": 2,
-      "rel": 8,
-      "str": 13,
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -156,8 +156,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961297,
     "modifiedTime": 1720553654606,

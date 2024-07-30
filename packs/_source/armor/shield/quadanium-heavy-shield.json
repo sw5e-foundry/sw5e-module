@@ -2,7 +2,7 @@
   "_id": "gVWwV5xMJjt7IWqE",
   "name": "Quadanium heavy shield",
   "type": "equipment",
-  "img": "systems/sw5e/packs/Icons/Armor/WH/QuadaniumHeavyShield.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Armor/WH/QuadaniumHeavyShield.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:06.1077116+00:00",
       "importer_version": 3,
       "uid": "Equipment.name-quadanium_heavy_shield.equipmentCategory-armor"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "charging": 1,
+        "strength": 15
+      }
     }
   },
   "system": {
@@ -28,7 +34,7 @@
     },
     "price": {
       "value": 2000,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -85,7 +91,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 3,
@@ -137,18 +143,12 @@
     },
     "strength": null,
     "properties": [
-      "Charging",
-      "Cumbersome",
-      "Obtrusive",
-      "Strength"
+      "charging",
+      "cumbersome",
+      "obtrusive",
+      "strength"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "Charging": 1,
-      "Cumbersome": true,
-      "Obtrusive": true,
-      "Strength": 15
-    },
     "type": {
       "value": "shield",
       "baseItem": "heavyphysicalshield"
@@ -169,8 +169,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493960305,
     "modifiedTime": 1720418051102,

@@ -5,10 +5,15 @@
       "timestamp": "2023-03-09T01:52:13.4584497+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-electroprod.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "shocking": 13
+      }
     }
   },
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Simple%20Vibroweapons/Electroprod.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Simple%20Vibroweapons/Electroprod.webp",
   "system": {
     "description": {
       "value": "<h3>Disruptive</h3>\n<p>When a creature is forced to make a Constitution saving throw to maintain concentration due to taking damage from a weapon with the disruptive property, the DC for the check equals 10 or the full damage taken, whichever number is higher, instead of only half.</p>\n<h3>Shocking 13</h3>\n<p>When you hit a creature with a weapon with the shocking property, you can force it to make a Dexterity saving throw, DC equal to the shocking number. On a failed save, the creature takes an additional [[/r 1d4]] lightning damage and becomes shocked until the end of its next turn.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>",
@@ -24,7 +29,7 @@
     },
     "price": {
       "value": 650,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -62,8 +67,8 @@
       "versatile": ""
     },
     "properties": [
-      "dpt",
-      "shk",
+      "disruptive",
+      "shocking",
       "two"
     ],
     "weaponClass": "polearm",
@@ -72,11 +77,6 @@
       "target": "",
       "value": null,
       "use": null
-    },
-    "_propertyValues": {
-      "dpt": true,
-      "shk": 13,
-      "two": true
     },
     "unidentified": {
       "description": ""
@@ -117,7 +117,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "summons": null,
     "armor": {
@@ -148,8 +148,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1720296019804,
     "modifiedTime": 1720553882011,

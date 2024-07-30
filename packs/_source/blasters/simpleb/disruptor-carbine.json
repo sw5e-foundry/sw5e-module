@@ -2,7 +2,7 @@
   "_id": "9ayhGXQJLdIiaTMF",
   "name": "Disruptor carbine",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Simple%20Blasters/DisruptorCarbine.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Simple%20Blasters/DisruptorCarbine.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:52:06.0917209+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-disruptor_carbine.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "disintegrate": 13,
+        "powerCell": "range 60/240",
+        "rel": 8,
+        "strRq": 11
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 1450,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +98,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,10 +126,10 @@
       ]
     },
     "properties": [
-      "dis",
-      "pcl",
+      "disintegrate",
+      "powerCell",
       "rel",
-      "str",
+      "strRq",
       "two"
     ],
     "proficient": null,
@@ -136,13 +144,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "dis": 13,
-      "pcl": "range 60/240",
-      "rel": 8,
-      "str": 11,
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -154,8 +155,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961239,
     "modifiedTime": 1720553653793,

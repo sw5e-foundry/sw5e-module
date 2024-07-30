@@ -2,7 +2,7 @@
   "_id": "Gf4x0PAKYQ2XUzLY",
   "name": "Shatter cannon (Burst)",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/ShatterCannon.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/ShatterCannon.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:52:13.453452+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-shatter_cannon.equipmentCategory-weapon.mode-burst"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "range": 75,
+        "burst": 4,
+        "rel": 8,
+        "strRq": 15
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 1625,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -118,12 +126,12 @@
       ]
     },
     "properties": [
-      "ran",
-      "aut",
-      "bur",
+      "range",
+      "auto",
+      "burst",
       "rel",
-      "sil",
-      "str",
+      "silentWeapon",
+      "strRq",
       "two"
     ],
     "proficient": null,
@@ -138,15 +146,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "ran": 75,
-      "aut": true,
-      "bur": 4,
-      "rel": 8,
-      "sil": true,
-      "str": 15,
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -158,8 +157,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961256,
     "modifiedTime": 1720553653990,

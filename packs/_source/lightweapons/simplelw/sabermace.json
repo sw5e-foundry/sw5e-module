@@ -2,7 +2,7 @@
   "_id": "bfKWgOJsnedKQZMT",
   "name": "Sabermace",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Simple%20Lightweapons/Sabermace.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Simple%20Lightweapons/Sabermace.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:06.1017149+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-sabermace.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "brutal": 1,
+        "dexRq": 13
+      }
     }
   },
   "system": {
@@ -28,7 +34,7 @@
     },
     "price": {
       "value": 950,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +96,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -116,20 +122,13 @@
       "types": []
     },
     "properties": [
-      "bru",
-      "dex",
-      "hid",
-      "lum",
+      "brutal",
+      "dexRq",
+      "hidden",
+      "luminous",
       "ver"
     ],
     "proficient": null,
-    "_propertyValues": {
-      "bru": 1,
-      "dex": 13,
-      "hid": true,
-      "lum": true,
-      "ver": true
-    },
     "type": {
       "value": "simpleLW",
       "subtype": ""
@@ -152,8 +151,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493982797,
     "modifiedTime": 1720418047287,

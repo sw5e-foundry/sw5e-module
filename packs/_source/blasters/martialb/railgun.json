@@ -2,7 +2,7 @@
   "_id": "zuPhwZGH0j2ovgG7",
   "name": "Railgun",
   "type": "weapon",
-  "img": "systems/sw5e/packs/Icons/Martial%20Blasters/Railgun.webp",
+  "img": "modules/sw5e-module-test/icons/packs/Martial%20Blasters/Railgun.webp",
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -11,6 +11,14 @@
       "timestamp": "2023-03-09T01:52:06.0957188+00:00",
       "importer_version": 3,
       "uid": "Weapon.name-railgun.equipmentCategory-weapon"
+    },
+    "sw5e-module-test": {
+      "properties": {
+        "piercing": 1,
+        "rel": 2,
+        "range": 150,
+        "strRq": 17
+      }
     }
   },
   "system": {
@@ -28,7 +36,7 @@
     },
     "price": {
       "value": 1900,
-      "denomination": "gc"
+      "denomination": "gp"
     },
     "attunement": "",
     "equipped": false,
@@ -90,7 +98,7 @@
     "save": {
       "ability": "",
       "dc": null,
-      "scaling": "power"
+      "scaling": "spell"
     },
     "armor": {
       "value": 10
@@ -118,10 +126,10 @@
       ]
     },
     "properties": [
-      "pic",
+      "piercing",
       "rel",
-      "ran",
-      "str",
+      "range",
+      "strRq",
       "two"
     ],
     "proficient": null,
@@ -136,13 +144,6 @@
       "bonus": "",
       "flat": false
     },
-    "_propertyValues": {
-      "pic": 1,
-      "rel": 2,
-      "ran": 150,
-      "str": 17,
-      "two": true
-    },
     "container": null,
     "attuned": false,
     "enchantment": null,
@@ -154,8 +155,8 @@
     "default": 0
   },
   "_stats": {
-    "systemId": "sw5e",
-    "systemVersion": "3.2.1.2.8.0",
+    "systemId": "dnd5e",
+    "systemVersion": "3.3.1",
     "coreVersion": "11.315",
     "createdTime": 1674493961319,
     "modifiedTime": 1720553654935,
