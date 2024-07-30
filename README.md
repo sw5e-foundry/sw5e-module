@@ -15,6 +15,16 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [0.15] - 2024-07-30
+
+### Added
+
+- Compendium Packs - This is highly experimental and untested, the majority of the items are untested.
+
+### Fixed
+
+- NPC sheets and unowned powers should no longer fail to open.
+
 ### [0.14] - 2024-07-29
 
 ### Changed
