@@ -1,0 +1,223 @@
+{
+  "_id": "23Y313ViDLjYZhN6",
+  "name": "Explorer Pursuit",
+  "type": "archetype",
+  "img": "systems/sw5e/packs/Icons/Archetypes/ExplorerPursuit.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "sw5e-importer": {
+      "timestamp": "2023-03-09T01:52:15.1784519+00:00",
+      "importer_version": 3,
+      "uid": "Archetype.name-explorer_pursuit"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<h1>Explorer Pursuit</h1>\n<p>The explorer strives to navigate past the known to discover new planets, forgotten ruins, or forbidden locations. Those scholars who choose the Explorer Pursuit spend their time studying maps, landmarks, architecture blue prints, or even history books, using them to effectively lead the way for their companions.</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "EC"
+    },
+    "identifier": "explorerpursuit",
+    "classIdentifier": "scholar",
+    "advancement": [
+      {
+        "_id": "1QvagTTiPhNS1hXs",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.sw5e.archetypefeatures.Fu2aqFTGJ5Q7n25w",
+              "optional": false
+            },
+            {
+              "uuid": "Compendium.sw5e.archetypefeatures.jKiBiuMk3P99GgWf",
+              "optional": false
+            }
+          ],
+          "optional": false,
+          "power": null
+        },
+        "value": {},
+        "level": 3,
+        "title": "Features"
+      },
+      {
+        "_id": "qllkU2HXzcifKwxR",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.sw5e.archetypefeatures.JOvOKdoAbqk0WvJ2",
+              "optional": false
+            }
+          ],
+          "optional": false,
+          "power": null
+        },
+        "value": {},
+        "level": 6,
+        "title": "Features"
+      },
+      {
+        "_id": "MiiJhQn2f9BOJxll",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.sw5e.archetypefeatures.TQ7URl0pKOkScno8",
+              "optional": false
+            }
+          ],
+          "optional": false,
+          "power": null
+        },
+        "value": {},
+        "level": 9,
+        "title": "Features"
+      },
+      {
+        "_id": "1ExPW6xsvpui8wJG",
+        "type": "ItemGrant",
+        "configuration": {
+          "items": [
+            {
+              "uuid": "Compendium.sw5e.archetypefeatures.0A1mJxDpF6jQjeyJ",
+              "optional": false
+            }
+          ],
+          "optional": false,
+          "power": null
+        },
+        "value": {},
+        "level": 17,
+        "title": "Features"
+      },
+      {
+        "_id": "1Opz3yCUmU8LuyMf",
+        "type": "Trait",
+        "configuration": {
+          "choices": [],
+          "grants": [
+            "skills:prc",
+            "skills:pil",
+            "skills:sur",
+            "skills:acr"
+          ],
+          "mode": "default",
+          "allowReplacements": false
+        },
+        "value": {
+          "chosen": []
+        },
+        "level": 3
+      },
+      {
+        "_id": "1nX5xeskvVHxCRUi",
+        "type": "ItemChoice",
+        "configuration": {
+          "hint": "As you adventure, your studies have helped you discover new practices you can apply to your skills. You master two discoveries of your choice. Your discovery options are detailed at the end of the class description. When you gain certain scholar levels, you gain additional discoveries of your choice, as shown in the Discoveries column of the scholar table.\nAdditionally, when you gain a level in this class, you can choose one of the discoveries you know and replace it with another discovery that you could learn at that level.",
+          "choices": {
+            "2": {
+              "count": 2,
+              "replacement": false
+            },
+            "3": {
+              "count": 2,
+              "replacement": false
+            },
+            "5": {
+              "count": 1,
+              "replacement": false
+            },
+            "9": {
+              "count": 1,
+              "replacement": false
+            },
+            "11": {
+              "count": 1,
+              "replacement": false
+            },
+            "13": {
+              "count": 1,
+              "replacement": false
+            },
+            "17": {
+              "count": 1,
+              "replacement": false
+            }
+          },
+          "allowDrops": true,
+          "type": "feat",
+          "pool": [
+            {
+              "uuid": "Compendium.sw5e.invocations.F7bq8pZnhwdy7u2d"
+            },
+            {
+              "uuid": "Compendium.sw5e.invocations.AAUOm8go7CNIavWq"
+            },
+            {
+              "uuid": "Compendium.sw5e.invocations.mXJPjBkraVFjJQBB"
+            },
+            {
+              "uuid": "Compendium.sw5e.invocations.oeeJz6iCFMXgbMnz"
+            },
+            {
+              "uuid": "Compendium.sw5e.invocations.I2TZXqZP4RHmlMlg"
+            },
+            {
+              "uuid": "Compendium.sw5e.invocations.HkoimFl6iKhQ4sI5"
+            },
+            {
+              "uuid": "Compendium.sw5e.invocations.NysRc9C3MkuKkPRt"
+            }
+          ],
+          "power": {
+            "ability": [
+              ""
+            ],
+            "preparation": "",
+            "uses": {
+              "per": "",
+              "max": ""
+            }
+          },
+          "restriction": {
+            "type": "class",
+            "subtype": "explorer pursuitInvocation",
+            "level": ""
+          }
+        },
+        "value": {
+          "added": {},
+          "replaced": {}
+        },
+        "title": "Explorer Discoveries"
+      }
+    ],
+    "powercasting": {
+      "force": "none",
+      "forceOverride": "",
+      "tech": "none",
+      "techOverride": ""
+    },
+    "superiority": {
+      "progression": 0
+    }
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "sw5e",
+    "systemVersion": "3.2.1.2.8.0",
+    "coreVersion": "11.315",
+    "createdTime": 1674493959707,
+    "modifiedTime": 1720552688951,
+    "lastModifiedBy": "dnd5ebuilder0000"
+  },
+  "_key": "!items!23Y313ViDLjYZhN6"
+}

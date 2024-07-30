@@ -308,7 +308,7 @@ export function patchConfig(config, strict=true) {
 			isCharacter: true,
 			isStarship: true
 		},
-		heavy: {
+		hvy: {
 			label: "SW5E.Item.Property.Heavy",
 			full: "SW5E.Item.Property.HeavyFull",
 			type: "Boolean",
@@ -361,7 +361,7 @@ export function patchConfig(config, strict=true) {
 			isCharacter: true,
 			isStarship: true
 		},
-		reload: {
+		rel: {
 			label: "SW5E.Item.Property.Reload",
 			full: "SW5E.Item.Property.ReloadFull",
 			type: "Number",
@@ -482,7 +482,7 @@ export function patchConfig(config, strict=true) {
 			reference: "SW5E.Item.Property.DoubleDesc",
 			isCharacter: true
 		},
-		finesse: {
+		fin: {
 			label: "SW5E.Item.Property.Finesse",
 			full: "SW5E.Item.Property.FinesseFull",
 			type: "Boolean",
@@ -503,7 +503,7 @@ export function patchConfig(config, strict=true) {
 			reference: "SW5E.Item.Property.InterlockingWeaponDesc",
 			isCharacter: true
 		},
-		light: {
+		lgt: {
 			label: "SW5E.Item.Property.Light",
 			full: "SW5E.Item.Property.LightFull",
 			type: "Boolean",
@@ -554,7 +554,7 @@ export function patchConfig(config, strict=true) {
 			reference: "SW5E.Item.Property.PowerCellDesc",
 			isCharacter: true
 		},
-		reach: {
+		rch: {
 			label: "SW5E.Item.Property.Reach",
 			full: "SW5E.Item.Property.ReachFull",
 			type: "Boolean",
@@ -569,7 +569,7 @@ export function patchConfig(config, strict=true) {
 			min: 0,
 			isCharacter: true
 		},
-		returning: {
+		ret: {
 			label: "SW5E.Item.Property.Returning",
 			full: "SW5E.Item.Property.ReturningFull",
 			type: "Boolean",
@@ -629,21 +629,21 @@ export function patchConfig(config, strict=true) {
 			reference: "SW5E.Item.Property.SwitchDesc",
 			isCharacter: true
 		},
-		thrown: {
+		thr: {
 			label: "SW5E.Item.Property.Thrown",
 			full: "SW5E.Item.Property.ThrownFull",
 			type: "Boolean",
 			reference: "SW5E.Item.Property.ThrownDesc",
 			isCharacter: true
 		},
-		twoHanded: {
+		two: {
 			label: "SW5E.Item.Property.TwoHanded",
 			full: "SW5E.Item.Property.TwoHandedFull",
 			type: "Boolean",
 			reference: "SW5E.Item.Property.TwoHandedDesc",
 			isCharacter: true
 		},
-		versatileWeapon: {
+		ver: {
 			label: "SW5E.Item.Property.VersatileWeapon",
 			full: "SW5E.Item.Property.VersatileWeaponFull",
 			type: "Boolean",
@@ -1190,13 +1190,13 @@ export function patchConfig(config, strict=true) {
 			"auto",
 			"burst",
 			"dire",
-			"heavy",
+			"hvy",
 			"hidden",
 			"keen",
 			"piercing",
 			"range",
 			"rapid",
-			"reload",
+			"rel",
 			"smart",
 			"special",
 			"vicious",
@@ -1211,19 +1211,19 @@ export function patchConfig(config, strict=true) {
 			"disintegrate",
 			"disruptive",
 			"double",
-			"finesse",
+			"fin",
 			"fixed",
 			"interlockingWeapon",
-			"light",
+			"lgt",
 			"luminous",
 			"mighty",
 			"modal",
 			"neuralizing",
 			"penetrating",
 			"powerCell",
-			"reach",
+			"rch",
 			"reckless",
-			"returning",
+			"ret",
 			"shocking",
 			"silentWeapon",
 			"slug",
@@ -1231,9 +1231,9 @@ export function patchConfig(config, strict=true) {
 			"specialized",
 			"strRq",
 			"switch",
-			"thrown",
-			"twoHanded",
-			"versatileWeapon",
+			"thr",
+			"two",
+			"ver",
 			"conRq",
 			"explosive",
 			"homing",

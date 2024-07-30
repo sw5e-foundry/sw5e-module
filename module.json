@@ -47,86 +47,47 @@
   ],
   "packs": [
     {
-      "name": "monsters",
-      "label": "Example Monsters",
+      "name": "adventuringgear",
+      "label": "Adventuring Gear",
       "system": "dnd5e",
-      "path": "packs/monsters",
-      "type": "Actor",
-      "private": false,
-      "flags": {
-        "dnd5e": {
-          "types": ["npc"]
-        }
-      }
-    },
-    {
-      "name": "items",
-      "label": "Example Items",
-      "system": "dnd5e",
-      "path": "packs/items",
+      "path": "packs/adventuringgear",
       "type": "Item",
       "private": false,
       "flags": {
         "dnd5e": {
-          "types": ["weapon", "equipment", "consumable", "tool", "loot", "feat", "container"]
+          "types": ["equipment", "consumable", "tool", "loot", "container"]
         }
       }
     },
     {
-      "name": "tradegoods",
-      "label": "Example Trade Goods",
+      "name": "ammo",
+      "label": "Ammo",
       "system": "dnd5e",
-      "path": "packs/tradegoods",
+      "path": "packs/ammo",
       "type": "Item",
       "private": false,
       "flags": {
         "dnd5e": {
-          "types": ["loot"]
+          "types": ["consumable"]
         }
       }
     },
     {
-      "name": "powers",
-      "label": "Example Powers",
+      "name": "archetypefeatures",
+      "label": "Archetype Features",
       "system": "dnd5e",
-      "path": "packs/powers",
+      "path": "packs/archetypefeatures",
       "type": "Item",
       "private": false,
       "flags": {
         "dnd5e": {
-          "types": ["spell"]
-        }
-      }
-    },
-    {
-      "name": "backgrounds",
-      "label": "Example Backgrounds",
-      "system": "dnd5e",
-      "path": "packs/backgrounds",
-      "type": "Item",
-      "private": false,
-      "flags": {
-        "dnd5e": {
-          "types": ["background", "feat"]
-        }
-      }
-    },
-    {
-      "name": "classes",
-      "label": "Example Classes",
-      "system": "dnd5e",
-      "path": "packs/classes",
-      "type": "Item",
-      "private": false,
-      "flags": {
-        "dnd5e": {
-          "types": ["class"]
+          "types": ["feat"]
         }
       }
     },
     {
       "name": "archetypes",
-      "label": "Example Archetypes",
+      "label": "Archetypes",
       "system": "dnd5e",
       "path": "packs/archetypes",
       "type": "Item",
@@ -138,85 +99,632 @@
       }
     },
     {
+      "name": "armor",
+      "label": "Armor",
+      "system": "dnd5e",
+      "path": "packs/armor",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["equipment"]
+        }
+      }
+    },
+    {
+      "name": "armorproperties",
+      "label": "Armor Properties",
+      "system": "dnd5e",
+      "path": "packs/armorproperties",
+      "type": "JournalEntry",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "backgrounds",
+      "label": "Backgrounds",
+      "system": "dnd5e",
+      "path": "packs/backgrounds",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["background"]
+        }
+      }
+    },
+    {
+      "name": "blasters",
+      "label": "Blasters",
+      "system": "dnd5e",
+      "path": "packs/blasters",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["weapon"]
+        }
+      }
+    },
+    {
+      "name": "classes",
+      "label": "Classes",
+      "system": "dnd5e",
+      "path": "packs/classes",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["class"]
+        }
+      }
+    },
+    {
       "name": "classfeatures",
-      "label": "Example Class & Archetype Features",
+      "label": "Class Features",
       "system": "dnd5e",
       "path": "packs/classfeatures",
       "type": "Item",
       "private": false,
       "flags": {
         "dnd5e": {
-          "types": ["feat", "weapon"]
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "conditions",
+      "label": "Conditions",
+      "system": "dnd5e",
+      "path": "packs/conditions",
+      "type": "JournalEntry",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "consumables",
+      "label": "Consumables",
+      "system": "dnd5e",
+      "path": "packs/consumables",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["consumable"]
+        }
+      }
+    },
+    {
+      "name": "deploymentfeatures",
+      "label": "Deployment Features",
+      "system": "dnd5e",
+      "path": "packs/deploymentfeatures",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "deployments",
+      "label": "Deployments",
+      "system": "dnd5e",
+      "path": "packs/deployments",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["deployment"]
+        }
+      }
+    },
+    {
+      "name": "enhanceditems",
+      "label": "Enhanced Items",
+      "system": "dnd5e",
+      "path": "packs/enhanceditems",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["weapon", "equipment", "consumable", "loot", "container"]
+        }
+      }
+    },
+    {
+      "name": "explosives",
+      "label": "Explosives",
+      "system": "dnd5e",
+      "path": "packs/explosives",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["consumable"]
+        }
+      }
+    },
+    {
+      "name": "feats",
+      "label": "Feats",
+      "system": "dnd5e",
+      "path": "packs/feats",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "fightingstyles",
+      "label": "Fighting Styles",
+      "system": "dnd5e",
+      "path": "packs/fightingstyles",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "fightingmasteries",
+      "label": "Fighting Masteries",
+      "system": "dnd5e",
+      "path": "packs/fightingmasteries",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "fistoscodex",
+      "label": "Fisto's Codex",
+      "system": "dnd5e",
+      "path": "packs/fistoscodex",
+      "type": "Actor",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["npc"]
+        }
+      }
+    },
+    {
+      "name": "forcepowers",
+      "label": "Force Powers",
+      "system": "dnd5e",
+      "path": "packs/forcepowers",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["spell"]
+        }
+      }
+    },
+    {
+      "name": "gamingsets",
+      "label": "Gaming Sets",
+      "system": "dnd5e",
+      "path": "packs/gamingsets",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["tool"]
+        }
+      }
+    },
+    {
+      "name": "implements",
+      "label": "Artisan's Implements",
+      "system": "dnd5e",
+      "path": "packs/implements",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["tool"]
+        }
+      }
+    },
+    {
+      "name": "invocations",
+      "label": "Class Invocations",
+      "system": "dnd5e",
+      "path": "packs/invocations",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "kits",
+      "label": "Specialist's Kits",
+      "system": "dnd5e",
+      "path": "packs/kits",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["tool"]
+        }
+      }
+    },
+    {
+      "name": "lightsaberforms",
+      "label": "Lightsaber Forms",
+      "system": "dnd5e",
+      "path": "packs/lightsaberforms",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "lightweapons",
+      "label": "Lightweapons",
+      "system": "dnd5e",
+      "path": "packs/lightweapons",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["weapon"]
+        }
+      }
+    },
+    {
+      "name": "maneuvers",
+      "label": "Maneuvers",
+      "system": "dnd5e",
+      "path": "packs/maneuvers",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["maneuver"]
+        }
+      }
+    },
+    {
+      "name": "monsters",
+      "label": "Monsters",
+      "system": "dnd5e",
+      "path": "packs/monsters",
+      "type": "Actor",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["npc"]
+        }
+      }
+    },
+    {
+      "name": "monstertraits",
+      "label": "Monster Traits",
+      "system": "dnd5e",
+      "path": "packs/monstertraits",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "monsters_temp",
+      "label": "Monsters Temp",
+      "system": "dnd5e",
+      "path": "packs/monsters_temp",
+      "type": "Actor",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["npc"]
+        }
+      }
+    },
+    {
+      "name": "modifications",
+      "label": "Modifications",
+      "system": "dnd5e",
+      "path": "packs/modifications",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["loot"]
+        }
+      }
+    },
+    {
+      "name": "musicalinstruments",
+      "label": "Musical Instruments",
+      "system": "dnd5e",
+      "path": "packs/musicalinstruments",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["tool"]
         }
       }
     },
     {
       "name": "species",
-      "label": "Example Species",
+      "label": "Species",
       "system": "dnd5e",
       "path": "packs/species",
       "type": "Item",
       "private": false,
       "flags": {
         "dnd5e": {
-          "types": ["race", "feat"]
+          "types": ["race"]
         }
       }
     },
     {
-      "name": "monsterfeatures",
-      "label": "Example Monster Features",
+      "name": "speciesfeatures",
+      "label": "Species Features",
       "system": "dnd5e",
-      "path": "packs/monsterfeatures",
+      "path": "packs/speciesfeatures",
       "type": "Item",
       "private": false,
       "flags": {
         "dnd5e": {
-          "types": ["feat", "weapon"]
+          "types": ["feat"]
         }
       }
     },
     {
-      "name": "rules",
-      "label": "Example Rules",
+      "name": "drakes-shipyard",
+      "label": "Drakes Shipyard",
       "system": "dnd5e",
-      "path": "packs/rules",
-      "type": "JournalEntry",
+      "path": "packs/drakes-shipyard",
+      "type": "Actor",
       "private": false,
       "flags": {
-        "display": "table-of-contents"
+        "dnd5e": {
+          "types": ["starship"]
+        }
       }
+    },
+    {
+      "name": "starshipactions",
+      "label": "Starship Actions",
+      "system": "dnd5e",
+      "path": "packs/starshipactions",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "starshiparmor",
+      "label": "Starship Armor",
+      "system": "dnd5e",
+      "path": "packs/starshiparmor",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["equipment"]
+        }
+      }
+    },
+    {
+      "name": "starshipequipment",
+      "label": "Starship Equipment",
+      "system": "dnd5e",
+      "path": "packs/starshipequipment",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["equipment"]
+        }
+      }
+    },
+    {
+      "name": "starshipfeatures",
+      "label": "Starship Features",
+      "system": "dnd5e",
+      "path": "packs/starshipfeatures",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "starshipmodifications",
+      "label": "Starship Modifications",
+      "system": "dnd5e",
+      "path": "packs/starshipmodifications",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["loot"]
+        }
+      }
+    },
+    {
+      "name": "starships",
+      "label": "Starship Types",
+      "system": "dnd5e",
+      "path": "packs/starships",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["starship"]
+        }
+      }
+    },
+    {
+      "name": "starshipweapons",
+      "label": "Starship Weapons",
+      "system": "dnd5e",
+      "path": "packs/starshipweapons",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["weapon"]
+        }
+      }
+    },
+    {
+      "name": "tables",
+      "label": "Tables",
+      "system": "dnd5e",
+      "path": "packs/tables",
+      "type": "RollTable",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "techpowers",
+      "label": "Tech Powers",
+      "system": "dnd5e",
+      "path": "packs/techpowers",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["spell"]
+        }
+      }
+    },
+    {
+      "name": "ventures",
+      "label": "Ventures",
+      "system": "dnd5e",
+      "path": "packs/ventures",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["feat"]
+        }
+      }
+    },
+    {
+      "name": "vibroweapons",
+      "label": "Vibroweapons",
+      "system": "dnd5e",
+      "path": "packs/vibroweapons",
+      "type": "Item",
+      "private": false,
+      "flags": {
+        "dnd5e": {
+          "types": ["weapon"]
+        }
+      }
+    },
+    {
+      "name": "weaponproperties",
+      "label": "Weapon Properties",
+      "system": "dnd5e",
+      "path": "packs/weaponproperties",
+      "type": "JournalEntry",
+      "private": false,
+      "flags": {}
     }
   ],
   "packFolders": [
     {
-      "name": "SW5E Example Content",
+      "name": "sw5e System Content",
       "sorting": "m",
       "color": "#cd2c1e",
-      "packs": [
-        "rules"
-      ],
+      "packs": [],
       "folders": [
         {
-          "name": "Character Features",
+          "name": "Equipment",
           "sorting": "m",
           "color": "#b72c1f",
           "packs": [
-            "classes",
-            "archetypes",
-            "classfeatures",
-            "backgrounds",
-            "species"
+            "adventuringgear",
+            "ammo",
+            "armor",
+            "consumables",
+            "enhanceditems",
+            "explosives",
+            "modifications"
+          ],
+          "folders": [
+            {
+              "name": "Tools",
+              "sorting": "m",
+              "color": "#b72c1f",
+              "packs": [
+                "implements",
+                "gamingsets",
+                "musicalinstruments",
+                "kits"
+              ]
+            },
+            {
+              "name": "Weapons",
+              "sorting": "m",
+              "color": "#b72c1f",
+              "packs": [
+                "blasters",
+                "lightweapons",
+                "vibroweapons"
+              ]
+            }
           ]
         },
         {
-          "name": "Items & Powers",
+          "name": "Features",
           "sorting": "m",
-          "color": "#941919 ",
+          "color": "#b72c1f",
           "packs": [
-            "items",
-            "powers",
-            "tradegoods"
+            "archetypefeatures",
+            "archetypes",
+            "backgrounds",
+            "classfeatures",
+            "invocations",
+            "classes",
+            "feats",
+            "speciesfeatures",
+            "species"
+          ],
+          "folders": [
+            {
+              "name": "Customization Options",
+              "sorting": "m",
+              "color": "#941919",
+              "packs": [
+                "fightingmasteries",
+                "fightingstyles",
+                "lightsaberforms"
+              ]
+            }
           ]
         },
         {
@@ -225,7 +733,48 @@
           "color": "#7d160c",
           "packs": [
             "monsters",
-            "monsterfeatures"
+            "monstertraits",
+            "fistoscodex",
+            "monsters_temp"
+          ]
+        },
+        {
+          "name": "Powers & Maneuvers",
+          "sorting": "m",
+          "color": "#941919",
+          "packs": [
+            "forcepowers",
+            "techpowers",
+            "maneuvers"
+          ]
+        },
+        {
+          "name": "Notes",
+          "sorting": "m",
+          "color": "#941919",
+          "packs": [
+            "armorproperties",
+            "weaponproperties",
+            "conditions",
+            "tables"
+          ]
+        },
+        {
+          "name": "Starships of the Galaxy",
+          "sorting": "m",
+          "color": "#941919",
+          "packs": [
+            "deployments",
+            "deploymentfeatures",
+            "drakes-shipyard",
+            "starshipactions",
+            "starshiparmor",
+            "starshipequipment",
+            "starshipfeatures",
+            "starshipmodifications",
+            "starships",
+            "starshipweapons",
+            "ventures"
           ]
         }
       ]

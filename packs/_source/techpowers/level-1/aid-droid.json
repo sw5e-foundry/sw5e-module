@@ -1,0 +1,118 @@
+{
+  "name": "Aid Droid",
+  "flags": {
+    "sw5e-importer": {
+      "timestamp": "2023-03-09T01:52:03.1874053+00:00",
+      "importer_version": 3,
+      "uid": "Power.name-aid_droid.level-1"
+    }
+  },
+  "type": "power",
+  "img": "systems/sw5e/packs/Icons/Tech%20Powers/AidDroid.webp",
+  "system": {
+    "description": {
+      "value": "<p>Choose one droid or construct that you can see within range. The target can immediately use its reaction to regain hit points equal to [[/r 1d6]] + your techcasting ability modifier.</p>\n<p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 2nd level or higher, the healing increases by [[/r 1d6]] for each slot level above 1st.</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "EC"
+    },
+    "activation": {
+      "type": "bonus",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "target": {
+      "value": "1",
+      "width": null,
+      "units": "",
+      "type": "droid",
+      "prompt": true
+    },
+    "range": {
+      "value": 60,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "heal",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d6 + @mod",
+          "healing"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "power"
+    },
+    "level": 1,
+    "school": "tec",
+    "properties": [],
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "level",
+      "formula": "1d6"
+    },
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null
+  },
+  "effects": [],
+  "_id": "tFu9B84rlm9ZozVQ",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "sw5e",
+    "systemVersion": "3.2.1.2.8.0",
+    "coreVersion": "11.315",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1720418052195,
+    "lastModifiedBy": "dnd5ebuilder0000"
+  },
+  "_key": "!items!tFu9B84rlm9ZozVQ"
+}

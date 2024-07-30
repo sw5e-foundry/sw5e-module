@@ -1,0 +1,124 @@
+{
+  "_id": "s0Bf6Sv2exQNH7vK",
+  "name": "Unlimited Power",
+  "type": "feat",
+  "img": "systems/sw5e/packs/Icons/Class%20Features/CSLR-ARCH-Action.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "sw5e-importer": {
+      "timestamp": "?",
+      "importer_version": 3,
+      "uid": "Feature.name-unlimited_power.source-archetype.sourceName-way_of_lightning.level-18"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p><em><strong>Way of Lightning:</strong> 18th level</em></p>\n<p>You can increase the power of your simpler lightning force powers. When you cast a force power of 1st through 6th level that deals lightning damage, you can deal maximum damage with that power.</p>\n<p>You can use this feature with no adverse effects a number of times equal to your Wisdom or Charisma modifier (your choice, a minimum of once). If you use this feature beyond this before you finish a long rest, you take [[/r 2d12]] true damage for each level of the power, immediately after you cast it. Each time you use this feature again before finishing a long rest, the damage increases by [[/r 1d12]].</p>",
+      "chat": ""
+    },
+    "requirements": "Consular (Way of Lightning) 18",
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "special",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "max(max(@abilities.wis.mod, @abilities.cha.mod), 1)",
+      "per": "lr",
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "other",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "2d12",
+          "true"
+        ],
+        [
+          "1d12",
+          ""
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "power"
+    },
+    "type": {
+      "value": "class",
+      "subtype": ""
+    },
+    "recharge": {
+      "value": null,
+      "charged": false
+    },
+    "attributes": {
+      "speed": {
+        "space": null,
+        "turn": null
+      }
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
+    "prerequisites": {
+      "level": null
+    },
+    "properties": []
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "sw5e",
+    "systemVersion": "3.2.1.2.8.0",
+    "coreVersion": "11.315",
+    "createdTime": 1674493958174,
+    "modifiedTime": 1720368715159,
+    "lastModifiedBy": "dnd5ebuilder0000"
+  },
+  "_key": "!items!s0Bf6Sv2exQNH7vK"
+}

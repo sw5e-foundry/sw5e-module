@@ -1,0 +1,120 @@
+{
+  "_id": "NqFLpV9FLK9SQGhD",
+  "name": "Scout",
+  "type": "feat",
+  "img": "systems/sw5e/packs/Icons/Classes/Scout.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "sw5e-importer": {
+      "timestamp": "2023-03-09T01:52:20.7842023+00:00",
+      "importer_version": 3,
+      "uid": "ClassImprovement.name-scout"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>As an action, you can reduce your exhaustion level by 1 and give yourself a number of temporary hit points equal to [[/r 1d10]] + your scout level. </p>\n<p>Once you've used this feature, you must complete a short or long rest before you can use it again.</p>",
+      "chat": ""
+    },
+    "requirements": "At least 3 levels in scout",
+    "source": {
+      "custom": "EC"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "1",
+      "per": "sr",
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "heal",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d10 + @classes.scout.levels",
+          "temphp"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "power"
+    },
+    "type": {
+      "value": "customizationOption",
+      "subtype": "classImprovement"
+    },
+    "recharge": {
+      "value": null,
+      "charged": false
+    },
+    "attributes": {
+      "speed": {
+        "space": null,
+        "turn": null
+      }
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
+    "prerequisites": {
+      "level": null
+    },
+    "properties": []
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "sw5e",
+    "systemVersion": "3.2.1.2.8.0",
+    "coreVersion": "11.315",
+    "createdTime": 1674493966791,
+    "modifiedTime": 1720368759921,
+    "lastModifiedBy": "dnd5ebuilder0000"
+  },
+  "_key": "!items!NqFLpV9FLK9SQGhD"
+}

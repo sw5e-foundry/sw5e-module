@@ -1,0 +1,120 @@
+{
+  "_id": "3dWwFKH5VJTKYLSk",
+  "name": "Jamming Phased Array",
+  "type": "feat",
+  "img": "systems/sw5e/packs/Icons/Class%20Features/ENGR-Reaction.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "sw5e-importer": {
+      "timestamp": "2023-05-30T20:14:19.9941241+00:00",
+      "importer_version": 3,
+      "uid": "Feature.name-jamming_phased_array.source-archetypeinvocation.sourceName-astrotech_engineering.level-None"
+    }
+  },
+  "system": {
+    "description": {
+      "value": "<p>While your jamming field is active, as an action, you can choose a number of creatures concentrating on a power equal to your Intelligence modifier (a minimum of one) within your field, and force them to make a Concentration saving throw. If you cause at least one creature to lose concentration on a power using this feature, you can use your reaction to make all creatures that lost concentration take ion damage equal to your Intelligence modifier.</p>",
+      "chat": ""
+    },
+    "requirements": "Engineer (Astrotech Engineering)",
+    "source": {
+      "custom": "EC"
+    },
+    "activation": {
+      "type": "reaction",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "other",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "@abilities.int.mod",
+          "ion"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "power"
+    },
+    "type": {
+      "value": "class",
+      "subtype": "engineerInvocation"
+    },
+    "recharge": {
+      "value": null,
+      "charged": false
+    },
+    "attributes": {
+      "speed": {
+        "space": null,
+        "turn": null
+      }
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
+    "prerequisites": {
+      "level": null
+    },
+    "properties": []
+  },
+  "ownership": {
+    "default": 0
+  },
+  "_stats": {
+    "systemId": "sw5e",
+    "systemVersion": "3.2.1.2.8.0",
+    "coreVersion": "11.315",
+    "createdTime": 1674493980970,
+    "modifiedTime": 1720368784665,
+    "lastModifiedBy": "dnd5ebuilder0000"
+  },
+  "_key": "!items!3dWwFKH5VJTKYLSk"
+}
