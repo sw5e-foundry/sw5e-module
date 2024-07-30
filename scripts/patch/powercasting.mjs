@@ -48,13 +48,13 @@ function preparePowercasting() {
 		for (const [castType, obj] of Object.entries(charProgression)) {
 			const typeConfig = CONFIG.DND5E.powerCasting[castType];
 			if (isNPC) {
-				const level = this.system.details?.[`power${progression.castType.capitalize()}Level`];
+				const level = this.system.details?.[`power${castType.capitalize()}Level`];
 				if (level) {
-					progression.classes = 1;
-					progression.points = level * typeConfig.progression.full.powerPoints;
-					progression.casterLevel = level;
-					progression.maxClassLevel = level;
-					progression.maxClassProg = "full";
+					obj.classes = 1;
+					obj.points = level * typeConfig.obj.full.powerPoints;
+					obj.casterLevel = level;
+					obj.maxClassLevel = level;
+					obj.maxClassProg = "full";
 				}
 			} else {
 				// Translate the list of classes into power-casting progression
@@ -264,7 +264,8 @@ function patchPowerAbilityScore() {
 	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.SpellData.prototype._typeAbilityMod', function (wrapped, ...args) {
 		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
 			if (this.school in typeConfig.schools) {
-				return this.parent.actor.system.powercasting[castType].schools[this.school].attr;
+				if (this.parent?.actor) return this.parent.actor.system?.powercasting?.[castType]?.schools?.[this.school]?.attr ?? "int";
+				return typeConfig.schools[this.school]?.attr?.[0] ?? "int";
 			}
 		}
 		return wrapped(...args);
