@@ -15,6 +15,12 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [0.16] - 2024-08-01
+
+### Fixed
+
+- Compendium Packs should now actually be included in the release.
+
 ### [0.15] - 2024-07-30
 
 ### Added
