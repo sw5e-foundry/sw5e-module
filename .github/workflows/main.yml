@@ -103,6 +103,26 @@ jobs:
           DOWNLOAD: ${{ env.release_module_url }}
 
 
+      # Set up Node
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+
+
+      # `npm ci` is recommended:
+      # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+      - name: Install Dependencies
+        run: npm ci
+
+
+      # Run our `build` script
+      - name: Build All
+        run: |
+          npm run build:db
+
+
       # Create a "module.zip" archive containing all the module's required files.
       # If you have other directories or files that will need to be added to
       # your packaged module, add them here.
@@ -122,7 +142,8 @@ jobs:
             languages/                           \
             packs/                               \
             scripts/                             \
-            styles/                              
+            styles/                              \
+            --exclude "packs/_source/*"
           # Don't forget to add a backslash at the end of the line for any
           # additional files or directories!
 
