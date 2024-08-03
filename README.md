@@ -15,6 +15,13 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [UNRELEASED]
+
+### Added
+
+- Reload Property automation.
+- Very minor rapid/burst automation (when the item action is set to 'saving throw', the base ammo cost is set to the rapid/burst value).
+
 ### [0.16] - 2024-08-01
 
 ### Fixed

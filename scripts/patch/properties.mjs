@@ -1,3 +1,14 @@
+import { getFlag } from "../utils.mjs";
+
+import { patchKeen } from "./properties/keen.mjs";
+import { patchReload } from "./properties/reload.mjs";
+
+function addHelper() {
+	dnd5e.dataModels.ItemDataModel.prototype.getProperty = function (prop) {
+		return getFlag(this?.parent, `properties.${prop}`);
+	};
+}
+
 function patchSheet() {
 	Hooks.on("renderItemSheet5e", (app, html, data) => {
 		for (const type of ["equipment", "weapon"]) {
@@ -65,17 +76,10 @@ function patchSheet() {
 	});
 }
 
-function patchKeen() {
-	function useKeen(wrapped, ...args) {
-		const keen = this.parent?.flags?.["sw5e-module-test"]?.properties?.keen ?? 0;
-		const result = wrapped(...args);
-		return result === Infinity ? Math.max(15, 20 - keen) : result;
-	}
-	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.WeaponData.prototype._typeCriticalThreshold', useKeen, 'MIXED' );
-	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.ConsumableData.prototype._typeCriticalThreshold', useKeen, 'MIXED' );
-}
-
 export function patchProperties() {
+	addHelper();
 	patchSheet();
+
+	patchReload();
 	patchKeen();
 }
