@@ -105,10 +105,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!ObiVsnbF6pm0xTus.ZWUyYjc2MDg0NjE1"
     },
@@ -214,10 +216,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!ObiVsnbF6pm0xTus.OGI4MTJlMzg1YTU3"
     },
@@ -323,10 +327,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!ObiVsnbF6pm0xTus.YjRjYmViN2RhZTBi"
     },
@@ -437,10 +443,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": "Compendium.sw5e.techpowers.UACmTGjhcYjQyLj3",
+        "duplicateSource": null
       },
       "_key": "!actors.items!ObiVsnbF6pm0xTus.bP1oLBKD2iczml4w"
     },
@@ -551,10 +559,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": "Compendium.sw5e.techpowers.Aa2O05OQeMjizQXq",
+        "duplicateSource": null
       },
       "_key": "!actors.items!ObiVsnbF6pm0xTus.hu6UzSxdURt1FDeg"
     },
@@ -665,10 +675,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": "Compendium.sw5e.techpowers.E6OviwnCfEjRTx3X",
+        "duplicateSource": null
       },
       "_key": "!actors.items!ObiVsnbF6pm0xTus.CzKr9Vzwy0xKZA5j"
     },
@@ -784,10 +796,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": "Compendium.sw5e.techpowers.bp55Q4R0gBpd0FiM",
+        "duplicateSource": null
       },
       "_key": "!actors.items!ObiVsnbF6pm0xTus.s1bCba9HUg4XS7bC"
     },
@@ -903,10 +917,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": "Compendium.sw5e.techpowers.1zfQEQMJqirKT6tR",
+        "duplicateSource": null
       },
       "_key": "!actors.items!ObiVsnbF6pm0xTus.ASdWC7v7o40evHtF"
     },
@@ -1022,10 +1038,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": "Compendium.sw5e.techpowers.jBUTIsaIV0l0iFfR",
+        "duplicateSource": null
       },
       "_key": "!actors.items!ObiVsnbF6pm0xTus.e8xbTdcTak5wi5bG"
     }
@@ -1673,16 +1691,22 @@
       "darkness": {
         "min": 0,
         "max": 1
-      }
+      },
+      "negative": false,
+      "priority": 0
     },
     "texture": {
       "src": "systems/sw5e/packs/Icons/monsters/219_-_Jawa_Tinkerer/Token.webp",
-      "tint": null,
+      "tint": "#ffffff",
       "scaleX": 1,
       "scaleY": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "rotation": 0
+      "rotation": 0,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "alphaThreshold": 0.75
     },
     "sight": {
       "angle": 360,
@@ -1697,15 +1721,32 @@
     },
     "detectionModes": [],
     "appendNumber": false,
-    "prependAdjective": false
+    "prependAdjective": false,
+    "hexagonalShape": 0,
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.330",
     "createdTime": 1674493984179,
     "modifiedTime": 1720552769792,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!actors!ObiVsnbF6pm0xTus"
 }

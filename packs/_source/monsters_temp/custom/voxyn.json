@@ -114,10 +114,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!Zi7m1MaDOdGnSXZU.mKPP3V52HHD13boS"
     },
@@ -137,7 +139,7 @@
       "img": "icons/svg/hazard.svg",
       "system": {
         "description": {
-          "value": "<section class=\"secret\">\n<p> Bite. Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 15 ([[/r 3d8 + 5]]) kinetic damage & 12 ([[/r 2d12]]) acid damage If the target is a creature, it must succeed on a DC 17 Strength saving throw or be knocked prone.</p>\n</section>",
+          "value": "<section class=\"secret\">\n<p> Bite. Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 15 ([[/r 3d8 + 5]]) kinetic damage &amp; 12 ([[/r 2d12]]) acid damage If the target is a creature, it must succeed on a DC 17 Strength saving throw or be knocked prone.</p>\n</section>",
           "chat": ""
         },
         "source": {
@@ -268,10 +270,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!Zi7m1MaDOdGnSXZU.1nTbh7NfGMmr11KO"
     },
@@ -422,10 +426,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!Zi7m1MaDOdGnSXZU.X4y7RlKV9N81hbjk"
     },
@@ -544,10 +550,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!Zi7m1MaDOdGnSXZU.LwAoHiVFIcelqgzh"
     }
@@ -1178,7 +1186,9 @@
         "max": 1
       },
       "attenuation": 0.5,
-      "color": null
+      "color": null,
+      "negative": false,
+      "priority": 0
     },
     "disposition": -1,
     "displayBars": 0,
@@ -1197,7 +1207,11 @@
       "offsetX": 0,
       "offsetY": 0,
       "rotation": 0,
-      "tint": null
+      "tint": "#ffffff",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "alphaThreshold": 0.75
     },
     "sight": {
       "angle": 360,
@@ -1212,15 +1226,32 @@
     },
     "detectionModes": [],
     "appendNumber": false,
-    "prependAdjective": false
+    "prependAdjective": false,
+    "hexagonalShape": 1,
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.330",
     "createdTime": 1674493994361,
-    "modifiedTime": 1720552792514,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1723517377152,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!actors!Zi7m1MaDOdGnSXZU"
 }

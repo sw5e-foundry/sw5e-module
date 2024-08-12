@@ -17,7 +17,10 @@
         "powerCell": "range 40/160",
         "rapid": 4,
         "rel": 16,
-        "smart": "15/+2"
+        "smart": "15/+2",
+        "reload": 16,
+        "special": true,
+        "strRq": true
       }
     }
   },
@@ -88,7 +91,7 @@
     "damage": {
       "parts": [
         [
-          "1d6 + 2",
+          "2d6 + @mod",
           "energy"
         ]
       ],
@@ -97,8 +100,8 @@
     "formula": "",
     "save": {
       "ability": "dex",
-      "dc": 12,
-      "scaling": "flat"
+      "dc": null,
+      "scaling": "dex"
     },
     "armor": {
       "value": 10
@@ -136,7 +139,8 @@
     "proficient": 0,
     "type": {
       "value": "martialB",
-      "subtype": ""
+      "subtype": "",
+      "baseItem": "shoulderblaster"
     },
     "unidentified": {
       "description": ""
@@ -158,10 +162,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.330",
     "createdTime": 1674493961313,
-    "modifiedTime": 1720418047021,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1723516563276,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!toA1uUGRVwWBpPZv"
 }

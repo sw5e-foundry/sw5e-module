@@ -19,7 +19,10 @@
         "rel": 4,
         "range": 75,
         "smart": "15/+2",
-        "strRq": 15
+        "strRq": 15,
+        "auto": true,
+        "reload": 4,
+        "two": true
       }
     }
   },
@@ -90,7 +93,7 @@
     "damage": {
       "parts": [
         [
-          "1d10 + 2",
+          "1d10 + @mod",
           "kinetic"
         ]
       ],
@@ -99,8 +102,8 @@
     "formula": "",
     "save": {
       "ability": "dex",
-      "dc": 12,
-      "scaling": "flat"
+      "dc": null,
+      "scaling": "dex"
     },
     "armor": {
       "value": 10
@@ -140,7 +143,8 @@
     "proficient": 0,
     "type": {
       "value": "martialB",
-      "subtype": ""
+      "subtype": "",
+      "baseItem": "smartcannon"
     },
     "unidentified": {
       "description": ""
@@ -162,10 +166,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.330",
     "createdTime": 1674493961234,
-    "modifiedTime": 1720553653716,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1723516563276,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!4vfy153wN4xKSues"
 }

@@ -105,10 +105,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!DgHD7qkQnpmmb65r.NWFmMzc5NzhmNjMy"
     },
@@ -214,10 +216,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!DgHD7qkQnpmmb65r.M2RiODc3OWIzZjIw"
     },
@@ -360,10 +364,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!DgHD7qkQnpmmb65r.NDRhMmNkMjFiMjUx"
     },
@@ -469,10 +475,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!DgHD7qkQnpmmb65r.MjU1OTEwMGM5MjA0"
     },
@@ -589,13 +597,26 @@
             "startRound": null,
             "startTurn": null
           },
-          "icon": "systems/dnd5e/icons/skills/blue_13.jpg",
           "origin": "Actor.EpoaWZEp9JQImEp7.Item.U9mmYyuLA70eaKUB",
-          "tint": null,
+          "tint": "#ffffff",
           "transfer": true,
           "name": "Aura of Command",
           "description": "",
           "statuses": [],
+          "_stats": {
+            "coreVersion": "12.330",
+            "systemId": null,
+            "systemVersion": null,
+            "createdTime": null,
+            "modifiedTime": null,
+            "lastModifiedBy": null,
+            "compendiumSource": null,
+            "duplicateSource": null
+          },
+          "img": "systems/dnd5e/icons/skills/blue_13.jpg",
+          "type": "base",
+          "system": {},
+          "sort": 0,
           "_key": "!actors.items.effects!DgHD7qkQnpmmb65r.661t29HwMYiYjPNJ.Pwq0j7VG4ePDGAWl"
         }
       ],
@@ -693,10 +714,12 @@
       "_stats": {
         "systemId": null,
         "systemVersion": null,
-        "coreVersion": null,
+        "coreVersion": "12.330",
         "createdTime": null,
         "modifiedTime": null,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": "Item.U9mmYyuLA70eaKUB",
+        "duplicateSource": null
       },
       "_key": "!actors.items!DgHD7qkQnpmmb65r.661t29HwMYiYjPNJ"
     },
@@ -857,10 +880,12 @@
       "_stats": {
         "systemId": "dnd5e",
         "systemVersion": "3.3.1",
-        "coreVersion": "10.291",
+        "coreVersion": "12.330",
         "createdTime": 1674493960308,
         "modifiedTime": 1674582004865,
-        "lastModifiedBy": null
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
       },
       "_key": "!actors.items!DgHD7qkQnpmmb65r.7Uwh0ehSqnhziVNy"
     }
@@ -910,13 +935,26 @@
         "rounds": null,
         "turns": null
       },
-      "icon": "systems/dnd5e/icons/skills/blue_13.jpg",
       "origin": "Actor.EpoaWZEp9JQImEp7.Item.661t29HwMYiYjPNJ",
-      "tint": null,
+      "tint": "#ffffff",
       "transfer": true,
       "name": "Aura of Command",
       "description": "",
       "statuses": [],
+      "_stats": {
+        "coreVersion": "12.330",
+        "systemId": null,
+        "systemVersion": null,
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null,
+        "compendiumSource": null,
+        "duplicateSource": null
+      },
+      "img": "systems/dnd5e/icons/skills/blue_13.jpg",
+      "type": "base",
+      "system": {},
+      "sort": 0,
       "_key": "!actors.effects!DgHD7qkQnpmmb65r.P7SEmWw3SgbGR0pj"
     }
   ],
@@ -1562,16 +1600,22 @@
       "darkness": {
         "min": 0,
         "max": 1
-      }
+      },
+      "negative": false,
+      "priority": 0
     },
     "texture": {
       "src": "systems/sw5e/packs/Icons/monsters/227_-_Officer_2C_Junior/Token.webp",
-      "tint": null,
+      "tint": "#ffffff",
       "scaleX": 1,
       "scaleY": 1,
       "offsetX": 0,
       "offsetY": 0,
-      "rotation": 0
+      "rotation": 0,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "fit": "contain",
+      "alphaThreshold": 0.75
     },
     "sight": {
       "angle": 360,
@@ -1586,15 +1630,32 @@
     },
     "detectionModes": [],
     "appendNumber": false,
-    "prependAdjective": false
+    "prependAdjective": false,
+    "hexagonalShape": 0,
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    }
   },
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.330",
     "createdTime": 1674493984085,
     "modifiedTime": 1720552766414,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!actors!DgHD7qkQnpmmb65r"
 }

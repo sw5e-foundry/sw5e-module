@@ -17,7 +17,11 @@
         "burst": 8,
         "powerCell": "range 60/240",
         "rel": 8,
-        "smart": "15/+2"
+        "smart": "15/+2",
+        "auto": true,
+        "reload": 8,
+        "special": true,
+        "strRq": true
       }
     }
   },
@@ -88,7 +92,7 @@
     "damage": {
       "parts": [
         [
-          "1d8 + 2",
+          "1d8 + @mod",
           "energy"
         ]
       ],
@@ -97,8 +101,8 @@
     "formula": "",
     "save": {
       "ability": "dex",
-      "dc": 12,
-      "scaling": "flat"
+      "dc": null,
+      "scaling": "dex"
     },
     "armor": {
       "value": 10
@@ -137,7 +141,8 @@
     "proficient": 0,
     "type": {
       "value": "martialB",
-      "subtype": ""
+      "subtype": "",
+      "baseItem": "shouldercannon"
     },
     "unidentified": {
       "description": ""
@@ -159,10 +164,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.330",
     "createdTime": 1674493961311,
-    "modifiedTime": 1720553654806,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1723516563276,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!quQ1kOTjP0Z4DkE7"
 }

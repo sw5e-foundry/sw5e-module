@@ -1484,7 +1484,7 @@ export function patchConfig(config, strict=true) {
 		shocked: {
 			label: "SW5E.ConShocked",
 			icon: "systems/sw5e/icons/svg/statuses/shocked.svg",
-			reference: "Compendium.sw5e.conditions.JournalEntry.HBSJojgAGu9Gsctd.JournalEntryPage.0000000000000000"
+			reference: "Compendium.sw5e-module-test.conditions.JournalEntry.HBSJojgAGu9Gsctd.JournalEntryPage.0000000000000000"
 			// reference: "" // TODO
 		},
 		slowed: {
