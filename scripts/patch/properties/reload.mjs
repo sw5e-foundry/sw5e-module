@@ -280,10 +280,18 @@ function addAmmoHelpers() {
 }
 
 function addAmmoConsumption() {
-	Hooks.on("dnd5e.preUseItem", (item, config, options) => { return item.hasAttack || item.system.canUseAmmo(); });
-	Hooks.on("dnd5e.useItem", (item, config, options, templates, effects, summoned) => { if (!item.hasAttack) item.system.useAmmo(); });
-	Hooks.on("dnd5e.preRollAttack", (item, rollConfig) => { return item.system.canUseAmmo(); });
+	Hooks.on("dnd5e.preUseItem", (item, config, options) => {
+		return (item.type !== "weapon") || item.hasAttack || item.system.canUseAmmo();
+	});
+	Hooks.on("dnd5e.useItem", (item, config, options, templates, effects, summoned) => {
+		if (item.type !== "weapon") return;
+		if (!item.hasAttack) item.system?.useAmmo();
+	});
+	Hooks.on("dnd5e.preRollAttack", (item, rollConfig) => {
+		return (item.type !== "weapon") || item.system.canUseAmmo();
+	});
 	Hooks.on("dnd5e.rollAttack", (item, roll, ammoUpdate) => {
+		if (item.type !== "weapon") return;
 		ammoUpdate.push({
 			...item.system.useAmmo({ update: false }),
 			_id: item.id,
