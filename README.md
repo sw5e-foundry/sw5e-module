@@ -25,7 +25,8 @@ If you wish to manually install the system, you must clone or extract it into th
 ### Fixed
 
 - Compendium items should now have the correct ids on the advancements.
-- Compendim species should no longer have active effects that change proficiencies, senses, movement, or any other traits handled by the species item and advancements.
+- Compendium species should no longer have active effects that change proficiencies, senses, movement, or any other traits handled by the species item and advancements.
+- Compendium classes and archetypes should have the proper powercasting progression.
 
 ### [0.16] - 2024-08-01
 
