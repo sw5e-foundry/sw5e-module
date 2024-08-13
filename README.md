@@ -15,7 +15,7 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
-### [UNRELEASED]
+### [0.17] - 2024-08-13
 
 ### Added
 
