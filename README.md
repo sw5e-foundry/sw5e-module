@@ -22,6 +22,11 @@ If you wish to manually install the system, you must clone or extract it into th
 - Reload Property automation.
 - Very minor rapid/burst automation (when the item action is set to 'saving throw', the base ammo cost is set to the rapid/burst value).
 
+### Fixed
+
+- Compendium items should now have the correct ids on the advancements.
+- Compendim species should no longer have active effects that change proficiencies, senses, movement, or any other traits handled by the species item and advancements.
+
 ### [0.16] - 2024-08-01
 
 ### Fixed
