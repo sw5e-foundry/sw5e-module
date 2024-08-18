@@ -67,6 +67,58 @@ function packageCommand() {
 /*  Clean Packs                              */
 /* ----------------------------------------- */
 
+function cleanEffects(data) {
+  if (!data.effects) return;
+
+  const key_blacklist = [
+    'system.details.background',
+    'system.details.species',
+    'system.traits.languages.value',
+    'system.traits.toolProf.value',
+  ];
+  const key_blacklist_re = [
+    /system\.tools\.\w+\.prof/,
+  ];
+  function blacklisted(key) {
+    if (key_blacklist.includes(key)) return true;
+    for (const k in key_blacklist_re) if (k.match(key)) return true;
+    return false;
+  }
+  const key_whitelist = [
+    'system.attributes.hp.bonuses.level',
+    'system.attributes.hp.bonuses.overall',
+    'system.traits.dr.value',
+    'system.traits.di.value',
+    'system.traits.dv.value',
+    'system.traits.ci.value',
+    'system.attributes.ac.value',
+  ];
+  const key_whitelist_re = [
+    /flags\.sw5e\..*/,
+  ];
+  function whitelisted(key) {
+    if (key_whitelist.includes(key)) return true;
+    for (const k in key_whitelist_re) if (k.match(key)) return true;
+    return false;
+  }
+
+  const hasAdvancements = data.advancement !== undefined;
+  if (hasAdvancements) for (const effect in data.effects) {
+    effect.changes = effect.changes.filter(change => !blacklisted(change.key));
+  }
+  data.effects = data.effects.filter(effect => effect.changes.length || !effect.transfer);
+  if (hasAdvancements && data.effects.length) {
+    const non_whitelisted = data.effects.reduce((acc, effect) => {
+      acc.push(...effect.changes.filter(change => !whitelisted(change.key)));
+      return acc;
+    }, []);
+    if (non_whitelisted.length) {
+      logger.info(`Item ${data.name1} still has non whitelisted effects:`);
+      logger.info(non_whitelisted)
+    }
+  }
+}
+
 /**
  * Convert an entry from the sw5e system format.
  * @param {object} data                           Data for a single entry to convert.
@@ -233,6 +285,8 @@ function convertSW5EPackEntry(data, { forceConvert=false }={}) {
 
   if ( data.system?.price?.denomination === "gc" ) data.system.price.denomination = "gp";
   if ( data.system?.save?.scaling === "power" ) data.system.save.scaling = "spell";
+
+  if ( data.effects ) cleanEffects(data);
 
   return true;
 }
