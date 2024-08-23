@@ -15,6 +15,17 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [0.18] - 2024-08-23
+
+### Added
+
+- Item IDs for specific proficiencies and base items.
+
+### Fixed
+
+- Compendium item advancements should now use the correct ids for tool and blaster proficiencies.
+- Compendium weapons should no longer have wrong properties due to their descriptions.
+
 ### [0.17] - 2024-08-13
 
 ### Added
