@@ -272,6 +272,84 @@ function patchPowerAbilityScore() {
 	}, 'MIXED');
 }
 
+function patchPowerbooks() {
+	libWrapper.register('sw5e-module-test', 'dnd5e.applications.actor.ActorSheet5e.prototype._prepareSpellbook', function (wrapped, ...args) {
+		const powerbook = wrapped(...args);
+		const [context, spells] = args;
+
+		// Format a powerbook entry for a certain indexed level
+		const registerSection = (sl, i, label) => {
+			if (powerbook.find(section => section.order === i)) return;
+			powerbook.push({
+				order: i,
+				label: label,
+				usesSlots: false,
+				canCreate: this.actor.isOwner,
+				canPrepare: (context.actor.type === "character") && (i >= 1),
+				spells: [],
+				uses: 0,
+				slots: 0,
+				override: 0,
+				dataset: {type: "spell", level: i, preparationMode: "powerCasting"},
+				prop: sl,
+				editable: context.editable
+			});
+		};
+
+		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
+			const castData = this.actor.system.powercasting[castType];
+			if (castData.level === 0) continue;
+			for (let lvl = 0; lvl <= castData.maxPowerLevel; lvl++) registerSection(`spell${lvl}`, lvl, CONFIG.DND5E.spellLevels[lvl]);
+		}
+
+
+		// Sort the powerbook by section level
+		return powerbook.sort((a, b) => a.order - b.order);
+	}, 'WRAPPER');
+
+	libWrapper.register('sw5e-module-test', 'dnd5e.applications.actor.ActorSheet5e.prototype._onDropSpell', function (wrapped, ...args) {
+		const powerbook = wrapped(...args);
+
+		const itemData = args[0];
+	    const prep = itemData.system.preparation;
+
+	    console.debug(itemData);
+	    console.debug(prep);
+	    console.debug(this.actor.system.powercasting);
+
+	    if (prep.mode !== "innate") return;
+
+		// Determine the section it is dropped on, if any.
+		let header = this._event.target.closest(".items-header"); // Dropped directly on the header.
+		if ( !header ) {
+			const list = this._event.target.closest(".item-list"); // Dropped inside an existing list.
+			header = list?.previousElementSibling;
+		}
+
+		const { level, preparationMode } = header?.closest("[data-level]")?.dataset ?? {};
+
+		// Determine if the actor is a powercaster.
+		const isCaster = Object.values(this.actor.system.powercasting).reduce(((acc, obj) => acc || !!obj.level), false);
+
+		console.debug(level);
+		console.debug(preparationMode);
+		console.debug(isCaster);
+
+		// Case 1: Drop a cantrip.
+		if ( itemData.system.level === 0 ) {
+			const modes = CONFIG.DND5E.spellPreparationModes;
+			if ( !preparationMode && isCaster ) prep.mode = "powerCasting";
+		}
+
+		// Case 2: Drop a leveled spell in a section without a mode.
+		else if ( (level === "0") || !preparationMode ) {
+			if ( this.document.type !== "npc" ) prep.mode = "powerCasting";
+		}
+
+
+	}, 'WRAPPER');
+}
+
 function patchAbilityUseDialog() {
 	libWrapper.register('sw5e-module-test', 'dnd5e.applications.item.AbilityUseDialog._createResourceOptions', function (wrapped, ...args) {
 		const result = wrapped(...args);
@@ -319,6 +397,7 @@ export function patchPowercasting() {
 	makePowerPointsConsumable();
 	patchItemSheet();
 	patchPowerAbilityScore();
+	patchPowerbooks();
 	patchAbilityUseDialog();
 	preparePowercasting();
 	recoverPowerPoints();

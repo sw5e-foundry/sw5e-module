@@ -15,6 +15,17 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [UNRELASED]
+
+### Added
+
+- Compendium Powers now have their resource consumption set to use power points.
+
+### Fixed
+
+- Adde missing localization for Power and Shield dice.
+- Powerbook tab should properly populate with sections for available powercasting levels.
+
 ### [0.18] - 2024-08-23
 
 ### Added
