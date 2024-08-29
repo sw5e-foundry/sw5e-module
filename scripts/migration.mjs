@@ -7,7 +7,7 @@ export const needsMigration = function() {
 	if (!game.user.isGM) return false;
 	const cv = game.settings.get("sw5e", "moduleMigrationVersion");
 	const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
-	const sw5eModule = game.modules.getName("sw5e");
+	const sw5eModule = game.modules.get("sw5e");
 	if (!cv && totalDocuments === 0) {
 		if (sw5eModule.version !== "#{VERSION}#") game.settings.set("sw5e", "moduleMigrationVersion", sw5eModule.version);
 		return false;
@@ -25,28 +25,26 @@ export const needsMigration = function() {
 
 /**
  * Perform a system migration for the entire World, applying migrations for Actors, Items, and Compendium packs
- * @param {boolean}  [migrateSystemCompendiums=false]
  * @returns {Promise}      A Promise which resolves once the migration is completed
  */
-export const migrateWorld = async function(migrateSystemCompendiums = false) {
-	const version = game.modules.getName("sw5e").version;
-	ui.notifications.info(game.i18n.format("MIGRATION.sw5eBegin", { version }), { permanent: true });
+export const migrateWorld = async function() {
+	const version = game.modules.get("sw5e").version;
+	ui.notifications.info(game.i18n.format("MIGRATION.sw5eBegin", {version}), {permanent: true});
 
 	const migrationData = await getMigrationData();
 
 	// Migrate World Actors
-	const actors = game.actors
-		.map(a => [a, true])
+	const actors = game.actors.map(a => [a, true])
 		.concat(Array.from(game.actors.invalidDocumentIds).map(id => [game.actors.getInvalid(id), false]));
-	for await (const [actor, valid] of actors) {
+	for ( const [actor, valid] of actors ) {
 		try {
 			const flags = { persistSourceMigration: false };
 			const source = valid ? actor.toObject() : game.data.actors.find(a => a._id === actor.id);
-			let updateData = await migrateActorData(source, migrationData, flags, { actorUuid: actor.uuid });
-			if (!foundry.utils.isEmpty(updateData)) {
+			let updateData = migrateActorData(source, migrationData, flags, { actorUuid: actor.uuid });
+			if ( !foundry.utils.isEmpty(updateData) ) {
 				console.log(`Migrating Actor document ${actor.name}`);
-				if (flags.persistSourceMigration) {
-					updateData = foundry.utils.mergeObject(source, updateData, { inplace: false });
+				if ( flags.persistSourceMigration ) {
+					updateData = foundry.utils.mergeObject(source, updateData, {inplace: false});
 				}
 				await actor.update(updateData, {
 					enforceTypes: false, diff: valid && !flags.persistSourceMigration, render: false
@@ -59,18 +57,17 @@ export const migrateWorld = async function(migrateSystemCompendiums = false) {
 	}
 
 	// Migrate World Items
-	const items = game.items
-		.map(i => [i, true])
+	const items = game.items.map(i => [i, true])
 		.concat(Array.from(game.items.invalidDocumentIds).map(id => [game.items.getInvalid(id), false]));
-	for await (const [item, valid] of items) {
+	for ( const [item, valid] of items ) {
 		try {
 			const flags = { persistSourceMigration: false };
 			const source = valid ? item.toObject() : game.data.items.find(i => i._id === item.id);
-			let updateData = await migrateItemData(source, migrationData, flags);
-			if (!foundry.utils.isEmpty(updateData)) {
+			let updateData = migrateItemData(source, migrationData, flags);
+			if ( !foundry.utils.isEmpty(updateData) ) {
 				console.log(`Migrating Item document ${item.name}`);
-				if (flags.persistSourceMigration) {
-					updateData = foundry.utils.mergeObject(source, updateData, { inplace: false });
+				if ( flags.persistSourceMigration ) {
+					updateData = foundry.utils.mergeObject(source, updateData, {inplace: false});
 				}
 				await item.update(updateData, {
 					enforceTypes: false, diff: valid && !flags.persistSourceMigration, render: false
@@ -83,12 +80,12 @@ export const migrateWorld = async function(migrateSystemCompendiums = false) {
 	}
 
 	// Migrate World Macros
-	for (const m of game.macros) {
+	for ( const m of game.macros ) {
 		try {
-			const updateData = await migrateMacroData(m.toObject(), migrationData);
-			if (!foundry.utils.isEmpty(updateData)) {
+			const updateData = migrateMacroData(m.toObject(), migrationData);
+			if ( !foundry.utils.isEmpty(updateData) ) {
 				console.log(`Migrating Macro document ${m.name}`);
-				await m.update(updateData, { enforceTypes: false, render: false });
+				await m.update(updateData, {enforceTypes: false, render: false});
 			}
 		} catch(err) {
 			err.message = `Failed sw5e module migration for Macro ${m.name}: ${err.message}`;
@@ -97,10 +94,10 @@ export const migrateWorld = async function(migrateSystemCompendiums = false) {
 	}
 
 	// Migrate World Roll Tables
-	for (const table of game.tables) {
+	for ( const table of game.tables ) {
 		try {
 			const updateData = migrateRollTableData(table.toObject(), migrationData);
-			if (!foundry.utils.isEmpty(updateData)) {
+			if ( !foundry.utils.isEmpty(updateData) ) {
 				console.log(`Migrating RollTable document ${table.name}`);
 				await table.update(updateData, { enforceTypes: false, render: false });
 			}
@@ -111,12 +108,12 @@ export const migrateWorld = async function(migrateSystemCompendiums = false) {
 	}
 
 	// Migrate Actor Override Tokens
-	for (const s of game.scenes) {
+	for ( const s of game.scenes ) {
 		try {
-			const updateData = await migrateSceneData(s, migrationData);
-			if (!foundry.utils.isEmpty(updateData)) {
+			const updateData = migrateSceneData(s, migrationData);
+			if ( !foundry.utils.isEmpty(updateData) ) {
 				console.log(`Migrating Scene document ${s.name}`);
-				await s.update(updateData, { enforceTypes: false, render: false });
+				await s.update(updateData, {enforceTypes: false, render: false});
 			}
 		} catch(err) {
 			err.message = `Failed sw5e module migration for Scene ${s.name}: ${err.message}`;
@@ -124,20 +121,20 @@ export const migrateWorld = async function(migrateSystemCompendiums = false) {
 		}
 
 		// Migrate ActorDeltas individually in order to avoid issues with ActorDelta bulk updates.
-		for (const token of s.tokens) {
-			if (token.actorLink || !token.actor) continue;
+		for ( const token of s.tokens ) {
+			if ( token.actorLink || !token.actor ) continue;
 			try {
 				const flags = { persistSourceMigration: false };
 				const source = token.actor.toObject();
 				let updateData = migrateActorData(source, migrationData, flags, { actorUuid: token.actor.uuid });
-				if (!foundry.utils.isEmpty(updateData)) {
+				if ( !foundry.utils.isEmpty(updateData) ) {
 					console.log(`Migrating ActorDelta document ${token.actor.name} [${token.delta.id}] in Scene ${s.name}`);
-					if (flags.persistSourceMigration) {
+					if ( flags.persistSourceMigration ) {
 						updateData = foundry.utils.mergeObject(source, updateData, { inplace: false });
 					} else {
 						// Workaround for core issue of bulk updating ActorDelta collections.
 						["items", "effects"].forEach(col => {
-							for (const [i, update] of (updateData[col] ?? []).entries()) {
+							for ( const [i, update] of (updateData[col] ?? []).entries() ) {
 								const original = token.actor[col].get(update._id);
 								updateData[col][i] = foundry.utils.mergeObject(original.toObject(), update, { inplace: false });
 							}
@@ -155,15 +152,15 @@ export const migrateWorld = async function(migrateSystemCompendiums = false) {
 	}
 
 	// Migrate World Compendium Packs
-	for (let p of game.packs) {
-		if (!p) continue;
-		if (p.metadata.packageType !== "world" && !migrateSystemCompendiums) continue;
-		if (!["Actor", "Item", "Scene"].includes(p.documentName)) continue;
+	for ( let p of game.packs ) {
+		if ( p.metadata.packageType !== "world" ) continue;
+		if ( !["Actor", "Item", "Scene"].includes(p.documentName) ) continue;
 		await migrateCompendium(p);
 	}
 
 	// Set the migration as complete
-	game.settings.set("sw5e", "moduleMigrationVersion", game.modules.getName("sw5e").version);
+	const moduleVersion = game.modules.get("sw5e").version;
+	if (moduleVersion !== "#{VERSION}#") game.settings.set("sw5e", "moduleMigrationVersion", moduleVersion);
 	ui.notifications.info(game.i18n.format("MIGRATION.sw5eComplete", { version }), { permanent: true });
 };
 
@@ -176,39 +173,39 @@ export const migrateWorld = async function(migrateSystemCompendiums = false) {
  */
 export const migrateCompendium = async function(pack) {
 	const documentName = pack.documentName;
-	if (!["Actor", "Item", "Scene"].includes(documentName)) return;
+	if ( !["Actor", "Item", "Scene"].includes(documentName) ) return;
 
 	const migrationData = await getMigrationData();
 
 	// Unlock the pack for editing
 	const wasLocked = pack.locked;
-	await pack.configure({ locked: false });
+	await pack.configure({locked: false});
 
 	// Begin by requesting server-side data model migration and get the migrated content
 	await pack.migrate();
 	const documents = await pack.getDocuments();
 
 	// Iterate over compendium entries - applying fine-tuned migration functions
-	for await (let doc of documents) {
+	for ( let doc of documents ) {
 		let updateData = {};
 		try {
 			const flags = { persistSourceMigration: false };
 			const source = doc.toObject();
-			switch (documentName) {
+			switch ( documentName ) {
 				case "Actor":
-					updateData = await migrateActorData(source, migrationData, flags, { actorUuid: doc.uuid });
+					updateData = migrateActorData(source, migrationData, flags, { actorUuid: doc.uuid });
 					break;
 				case "Item":
-					updateData = await migrateItemData(source, migrationData, flags);
+					updateData = migrateItemData(source, migrationData, flags);
 					break;
 				case "Scene":
-					updateData = await migrateSceneData(source, migrationData, flags);
+					updateData = migrateSceneData(source, migrationData, flags);
 					break;
 			}
 
 			// Save the entry, if data was changed
-			if (foundry.utils.isEmpty(updateData)) continue;
-			if (flags.persistSourceMigration) updateData = foundry.utils.mergeObject(source, updateData);
+			if ( foundry.utils.isEmpty(updateData) ) continue;
+			if ( flags.persistSourceMigration ) updateData = foundry.utils.mergeObject(source, updateData);
 			await doc.update(updateData, { diff: !flags.persistSourceMigration });
 			console.log(`Migrated ${documentName} document ${doc.name} in Compendium ${pack.collection}`);
 		}
@@ -221,7 +218,7 @@ export const migrateCompendium = async function(pack) {
 	}
 
 	// Apply the original locked status for the pack
-	await pack.configure({ locked: wasLocked });
+	await pack.configure({locked: wasLocked});
 	console.log(`Migrated all ${documentName} documents from Compendium ${pack.collection}`);
 };
 
@@ -260,31 +257,29 @@ export const migrateEffects = function(parent, migrationData) {
  * @param {string} [options.actorUuid]  The UUID of the actor.
  * @returns {object}                    The updateData to apply
  */
-export const migrateActorData = async function(actor, migrationData, flags = {}, { actorUuid } = {}) {
+export const migrateActorData = function(actor, migrationData, flags={}, { actorUuid }={}) {
 	const updateData = {};
 	_migrateImage(actor, updateData);
 	_migrateObjectFlags(actor, updateData);
 
 	// Migrate embedded effects
-	if (actor.effects) {
+	if ( actor.effects ) {
 		const effects = migrateEffects(actor, migrationData);
-		if (effects.length > 0) updateData.effects = effects;
+		if ( effects.length > 0 ) updateData.effects = effects;
 	}
 
 	// Migrate Owned Items
-	if (!actor.items) return updateData;
-	const items = await actor.items.reduce(async (memo, i) => {
-		const arr = await memo;
-
+	if ( !actor.items ) return updateData;
+	const items = actor.items.reduce((arr, i) => {
 		// Migrate the Owned Item
 		const itemData = i instanceof CONFIG.Item.documentClass ? i.toObject() : i;
 		const itemFlags = { persistSourceMigration: false };
 		let itemUpdate = migrateItemData(itemData, migrationData, itemFlags);
 
 		// Update the Owned Item
-		if (!foundry.utils.isEmpty(itemUpdate)) {
-			if (itemFlags.persistSourceMigration) {
-				itemUpdate = foundry.utils.mergeObject(itemData, itemUpdate, { inplace: false });
+		if ( !foundry.utils.isEmpty(itemUpdate) ) {
+			if ( itemFlags.persistSourceMigration ) {
+				itemUpdate = foundry.utils.mergeObject(itemData, itemUpdate, {inplace: false});
 				flags.persistSourceMigration = true;
 			}
 			arr.push({ ...itemUpdate, _id: itemData._id });
@@ -292,7 +287,7 @@ export const migrateActorData = async function(actor, migrationData, flags = {},
 
 		return arr;
 	}, []);
-	if (items.length > 0) updateData.items = items;
+	if ( items.length > 0 ) updateData.items = items;
 
 	return updateData;
 };
@@ -304,10 +299,10 @@ export const migrateActorData = async function(actor, migrationData, flags = {},
  *
  * @param {object} item             Item data to migrate
  * @param {object} [migrationData]  Additional data to perform the migration
- * @param {object} [flags={}] Track the needs migration flag.
+ * @param {object} [flags={}]       Track the needs migration flag.
  * @returns {object}                The updateData to apply
  */
-export async function migrateItemData(item, migrationData, flags = {}) {
+export function migrateItemData(item, migrationData, flags={}) {
 	const updateData = {};
 	_migrateImage(item, updateData);
 	_migrateObjectFlags(item, updateData);
@@ -316,14 +311,9 @@ export async function migrateItemData(item, migrationData, flags = {}) {
 	_migrateAdvancements(item, updateData);
 
 	// Migrate embedded effects
-	if (item.effects) {
+	if ( item.effects ) {
 		const effects = migrateEffects(item, migrationData);
-		if (effects.length > 0) updateData.effects = effects;
-	}
-
-	if (foundry.utils.getProperty(item, "flags.sw5e.persistSourceMigration")) {
-		flags.persistSourceMigration = true;
-		updateData["flags.sw5e.-=persistSourceMigration"] = null;
+		if ( effects.length > 0 ) updateData.effects = effects;
 	}
 
 	return updateData;
@@ -339,7 +329,7 @@ export async function migrateItemData(item, migrationData, flags = {}) {
  * @param {object} [options.parent]  Parent of this effect.
  * @returns {object}                 The updateData to apply.
  */
-export const migrateEffectData = function(effect, migrationData, { parent } = {}) {
+export const migrateEffectData = function(effect, migrationData, { parent }={}) {
 	const updateData = {};
 	_migrateImage(effect, updateData);
 	_cleanEffect(effect, updateData);
@@ -354,7 +344,7 @@ export const migrateEffectData = function(effect, migrationData, { parent } = {}
  * @param {object} [migrationData]  Additional data to perform the migration
  * @returns {object}                The updateData to apply
  */
-export const migrateMacroData = async function(macro, migrationData) {
+export const migrateMacroData = function(macro, migrationData) {
 	const updateData = {};
 	return updateData;
 };
@@ -381,16 +371,17 @@ export function migrateRollTableData(table, migrationData) {
  * @param {object} [migrationData]  Additional data to perform the migration
  * @returns {object}                The updateData to apply
  */
-export const migrateSceneData = async function(scene, migrationData) {
-	const tokens = await Promise.all(
-		scene.tokens.map(async token => {
-			const t = token instanceof foundry.abstract.DataModel ? token.toObject() : token;
-			const update = {};
-			_migrateImage(t, update);
-			_migrateObjectFlags(t, updateData);
-			return arr;
-		}));
-	if (tokens.length) return { tokens };
+export const migrateSceneData = function(scene, migrationData) {
+	const tokens = scene.tokens.reduce((arr, token) => {
+		const t = token instanceof foundry.abstract.DataModel ? token.toObject() : token;
+		const update = {};
+		_migrateImage(t, update);
+		_migrateObjectFlags(t, update);
+		if ( !game.actors.has(t.actorId) ) update.actorId = null;
+		if ( !foundry.utils.isEmpty(update) ) arr.push({ ...update, _id: t._id });
+		return arr;
+	}, []);
+	if ( tokens.length ) return { tokens };
 	return {};
 };
 
@@ -421,12 +412,15 @@ export const getMigrationData = async function() {
  * @private
  */
 function _migrateImage(objectData, updateData) {
-	for (let prop of ["img", "icon", "texture.src", "prototypeToken.texture.src"]) {
+	for (const prop of ["img", "icon", "texture.src", "prototypeToken.texture.src"]) {
 		const path = foundry.utils.getProperty(objectData, prop);
 
 		let newPath = path?.replace("systems/sw5e/packs/Icons", "modules/sw5e/icons/packs");
-		newPath = newPath?.replace("modules/sw5e-module-test/icons/packs", "modules/sw5e/icons/packs");
-		if (newPath !== path) updateData[prop] = newPath;
+		newPath = newPath?.replace("modules/sw5e-module-test/icons/", "modules/sw5e/icons/");
+		if (newPath !== path) {
+			updateData[prop] = newPath;
+			console.debug("Changed img path for item", objectData.name, "old", path, "new", newPath);
+		}
 	}
 	return updateData;
 }
@@ -635,9 +629,9 @@ function _migrateItemProperties(itemData, updateData) {
  * @private
  */
 function _migrateSpellScaling(itemData, updateData) {
-	if (item.type !== "spell") return updateData;
+	if (itemData.type !== "spell") return updateData;
 
-	if (item.system.scaling === "power") updateData["system.scaling"] = "spell";
+	if (itemData.system.scaling === "power") updateData["system.scaling"] = "spell";
 
 	return updateData;
 }
@@ -650,10 +644,10 @@ function _migrateSpellScaling(itemData, updateData) {
  * @private
  */
 function _migrateAdvancements(itemData, updateData) {
-	if (item.system.advancement === undefined) return updateData;
+	if (itemData.system.advancement === undefined) return updateData;
 
 	let changed = false;
-	for (const adv of item.system.advancement) {
+	for (const adv of itemData.system.advancement) {
 		for (const field of ["pool", "items", "grants"]) {
 			if (adv?.configuration?.[field]) {
 				adv.configuration[field] = adv.configuration[field].map(item => {
@@ -671,7 +665,7 @@ function _migrateAdvancements(itemData, updateData) {
 			}
 		}
 	}
-	if (changed) updateData["system.advancement"] = item.system.advancement;
+	if (changed) updateData["system.advancement"] = itemData.system.advancement;
 
 	return updateData;
 }

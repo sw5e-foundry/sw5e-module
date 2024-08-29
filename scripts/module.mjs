@@ -6,6 +6,10 @@ import { patchProperties } from "./patch/properties.mjs";
 import * as migrations from "./migration.mjs";
 import { registerModuleSettings } from "./settings.mjs";
 
+globalThis.sw5e = {
+	migrations
+};
+
 const strict = true;
 
 Hooks.once('init', async function() {

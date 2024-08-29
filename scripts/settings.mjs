@@ -1,7 +1,7 @@
 /**
  * Register all of the module's settings.
  */
-export function registerSystemSettings() {
+export function registerModuleSettings() {
 	// Internal Module Migration Version
 	game.settings.register("sw5e", "moduleMigrationVersion", {
 		name: "Module Migration Version",
