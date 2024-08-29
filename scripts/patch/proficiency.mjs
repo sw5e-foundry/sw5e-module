@@ -1,10 +1,10 @@
 function adjustProficiencyObject() {
-	libWrapper.register('sw5e-module-test', 'dnd5e.documents.Proficiency.prototype.flat', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.documents.Proficiency.prototype.flat', function (wrapped, ...args) {
 		this.multiplier = Math.min(this.multiplier, 2);
 		return wrapped(...args);
 	}, 'MIXED' );
 
-	libWrapper.register('sw5e-module-test', 'dnd5e.documents.Proficiency.prototype.dice', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.documents.Proficiency.prototype.dice', function (wrapped, ...args) {
 		this.multiplier = Math.min(this.multiplier, 2);
 		return wrapped(...args);
 	}, 'MIXED' );
@@ -110,7 +110,7 @@ function adjustProficiencyCycleElement() {
 		}
 	`;
 
-	libWrapper.register('sw5e-module-test', 'dnd5e.applications.components.ProficiencyCycleElement.prototype.type#set', function ( value ) {
+	libWrapper.register('sw5e', 'dnd5e.applications.components.ProficiencyCycleElement.prototype.type#set', function ( value ) {
 		if ( !["ability", "skill", "tool", "weapon"].includes( value ) ) throw new Error( "Type must be 'ability', 'skill', 'tool', or 'weapon'." );
 		this.setAttribute( "type", value );
 		this["#internals"].ariaValueMin = 0;
@@ -118,7 +118,7 @@ function adjustProficiencyCycleElement() {
 		this["#internals"].ariaValueStep = 0.5;
 	}, 'OVERRIDE' );
 
-	libWrapper.register('sw5e-module-test', 'dnd5e.applications.components.ProficiencyCycleElement.prototype.validValues', function () {
+	libWrapper.register('sw5e', 'dnd5e.applications.components.ProficiencyCycleElement.prototype.validValues', function () {
 		return this.type === "weapon" ? [0, 0.5, 1] : [0, 1, .5, 2, 3, 4, 5];
 	}, 'OVERRIDE' );
 }

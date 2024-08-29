@@ -3,10 +3,15 @@ import { patchDataModels } from "./patch/dataModels.mjs";
 import { patchPowercasting } from "./patch/powercasting.mjs";
 import { patchProficiencyInit, patchProficiencyReady } from "./patch/proficiency.mjs";
 import { patchProperties } from "./patch/properties.mjs";
+import * as migrations from "./migration.mjs";
+import { registerModuleSettings } from "./settings.mjs";
 
 const strict = true;
 
 Hooks.once('init', async function() {
+	// Register Module Settings
+	registerModuleSettings();
+
 	patchConfig(CONFIG.DND5E, strict);
 	patchDataModels();
 
@@ -26,4 +31,7 @@ Hooks.once('ready', async function() {
 		}
 		patchProficiencyReady();
 	}
+
+	// Perform module migration if it is required and feasible
+	if (migrations.needsMigration()) migrations.migrateWorld();
 });

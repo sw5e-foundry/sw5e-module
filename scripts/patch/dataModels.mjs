@@ -107,20 +107,20 @@ function changeProficiency(result, type) {
 
 export function patchDataModels() {
 	// Powercasting
-	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.ClassData.defineSchema', addProgression, 'WRAPPER');
-	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.SubclassData.defineSchema', addProgression, 'WRAPPER');
-	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.actor.CreatureTemplate.defineSchema', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.dataModels.item.ClassData.defineSchema', addProgression, 'WRAPPER');
+	libWrapper.register('sw5e', 'dnd5e.dataModels.item.SubclassData.defineSchema', addProgression, 'WRAPPER');
+	libWrapper.register('sw5e', 'dnd5e.dataModels.actor.CreatureTemplate.defineSchema', function (wrapped, ...args) {
 		const result = wrapped(...args);
 		addPowercasting(result);
 		changeProficiency(result, "creature");
 		return result;
 	}, 'WRAPPER');
-	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.ToolData.defineSchema', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.dataModels.item.ToolData.defineSchema', function (wrapped, ...args) {
 		const result = wrapped(...args);
 		changeProficiency(result, "tool");
 		return result;
 	}, 'WRAPPER');
-	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.WeaponData.defineSchema', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.dataModels.item.WeaponData.defineSchema', function (wrapped, ...args) {
 		const result = wrapped(...args);
 		changeProficiency(result, "weapon");
 		return result;

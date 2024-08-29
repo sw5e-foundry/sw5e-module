@@ -3,7 +3,7 @@
 // - spellcasting.force/techProgression to ClassData and SubclassData
 
 function adjustItemSpellcastingGetter() {
-	libWrapper.register('sw5e-module-test', 'dnd5e.documents.Item5e.prototype.spellcasting', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.documents.Item5e.prototype.spellcasting', function (wrapped, ...args) {
 		const result = wrapped(...args);
 
 		const spellcasting = this.system.spellcasting;
@@ -25,7 +25,7 @@ function adjustItemSpellcastingGetter() {
 }
 
 function preparePowercasting() {
-	libWrapper.register('sw5e-module-test', 'dnd5e.documents.Actor5e.prototype._prepareSpellcasting', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.documents.Actor5e.prototype._prepareSpellcasting', function (wrapped, ...args) {
 		if (!this.system.spells) return;
 		const isNPC = this.type === "npc";
 
@@ -171,7 +171,7 @@ function preparePowercasting() {
 			const overallBonus = simplifyBonus(cast.points.bonuses.overall ?? 0, rollData);
 			const focus = this.focuses?.[CONFIG.DND5E.powerCasting[castType].focus.label];
 			const focusProperty = CONFIG.DND5E.powerCasting[castType].focus.property;
-			const focusBonus = focus?.flags?.["sw5e-module-test"]?.properties?.[focusProperty] ?? 0;
+			const focusBonus = focus?.flags?.sw5e?.properties?.[focusProperty] ?? 0;
 
 			cast.points.max += levelBonus + overallBonus + focusBonus;
 		}
@@ -191,7 +191,7 @@ function makeProgOption(config) {
 
 function showPowercastingStats() {
 	const { simplifyBonus } = dnd5e.utils;
-	libWrapper.register('sw5e-module-test', 'dnd5e.applications.actor.ActorSheet5eCharacter2.prototype.getData', async function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.applications.actor.ActorSheet5eCharacter2.prototype.getData', async function (wrapped, ...args) {
 		const context = await wrapped(...args);
 		const msak = simplifyBonus(this.actor.system.bonuses.msak.attack, context.rollData);
 		const rsak = simplifyBonus(this.actor.system.bonuses.rsak.attack, context.rollData);
@@ -251,7 +251,7 @@ function patchItemSheet() {
 }
 
 function patchPowerAbilityScore() {
-	libWrapper.register('sw5e-module-test', 'dnd5e.documents.Actor5e.prototype.spellcastingClasses', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.documents.Actor5e.prototype.spellcastingClasses', function (wrapped, ...args) {
 		const preCalculated = this._spellcastingClasses !== undefined;
 		const result = wrapped(...args);
 		if (preCalculated) return result;
@@ -261,7 +261,7 @@ function patchPowerAbilityScore() {
 		return result;
 	}, 'WRAPPER');
 
-	libWrapper.register('sw5e-module-test', 'dnd5e.dataModels.item.SpellData.prototype._typeAbilityMod', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.dataModels.item.SpellData.prototype._typeAbilityMod', function (wrapped, ...args) {
 		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
 			if (this.school in typeConfig.schools) {
 				if (this.parent?.actor) return this.parent.actor.system?.powercasting?.[castType]?.schools?.[this.school]?.attr ?? "int";
@@ -273,7 +273,7 @@ function patchPowerAbilityScore() {
 }
 
 function patchPowerbooks() {
-	libWrapper.register('sw5e-module-test', 'dnd5e.applications.actor.ActorSheet5e.prototype._prepareSpellbook', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.applications.actor.ActorSheet5e.prototype._prepareSpellbook', function (wrapped, ...args) {
 		const powerbook = wrapped(...args);
 		const [context, spells] = args;
 
@@ -307,7 +307,7 @@ function patchPowerbooks() {
 		return powerbook.sort((a, b) => a.order - b.order);
 	}, 'WRAPPER');
 
-	libWrapper.register('sw5e-module-test', 'dnd5e.applications.actor.ActorSheet5e.prototype._onDropSpell', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.applications.actor.ActorSheet5e.prototype._onDropSpell', function (wrapped, ...args) {
 		const powerbook = wrapped(...args);
 
 		const itemData = args[0];
@@ -351,7 +351,7 @@ function patchPowerbooks() {
 }
 
 function patchAbilityUseDialog() {
-	libWrapper.register('sw5e-module-test', 'dnd5e.applications.item.AbilityUseDialog._createResourceOptions', function (wrapped, ...args) {
+	libWrapper.register('sw5e', 'dnd5e.applications.item.AbilityUseDialog._createResourceOptions', function (wrapped, ...args) {
 		const result = wrapped(...args);
 		const spell = args[0];
 		const actor = spell?.actor;

@@ -5,7 +5,7 @@ export function fromHTML(str) {
 }
 
 export function getFlag(obj, path, dnd5e=false) {
-	const flags = obj?.flags?.[dnd5e ? "dnd5e" : "sw5e-module-test"];
+	const flags = obj?.flags?.[dnd5e ? "dnd5e" : "sw5e"];
 	return foundry.utils.getProperty(flags, path);
 }
 

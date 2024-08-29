@@ -1,15 +1,15 @@
 ![](https://img.shields.io/badge/Foundry-v11-informational)
-![Latest Release Download Count](https://img.shields.io/github/downloads/Ikaguia/sw5e-module-test/latest/module.zip) 
+![Latest Release Download Count](https://img.shields.io/github/downloads/sw5e-foundry/sw5e-module/latest/module.zip) 
 
-# SW5E Module Test
+# SW5E
 
-Test module for the implementation of the sw5e system as a module for dnd5e.
+Implementation of the sw5e system as a module for dnd5e.
 
 ## Instalation
 
 To install and use the sw5e module for Foundry Virtual Tabletop, simply paste the following URL into the Install Module dialog on the Setup menu of the application.
 
-https://github.com/Ikaguia/sw5e-module-test/releases/latest/download/module.json
+https://github.com/sw5e-foundry/sw5e-module/releases/latest/download/module.json
 
 If you wish to manually install the system, you must clone or extract it into the `Data/modules/sw5e` folder. You may do this by cloning the repository or downloading a zip archive from the Releases Page.
 
@@ -20,6 +20,12 @@ If you wish to manually install the system, you must clone or extract it into th
 ### Added
 
 - Compendium Powers now have their resource consumption set to use power points.
+- Migration.
+
+### Changed
+
+- Module name changed from `sw5e-module-test` to `sw5e`.
+- Github repository ownership changed to the `sw5e-foundry` organization.
 
 ### Fixed
 

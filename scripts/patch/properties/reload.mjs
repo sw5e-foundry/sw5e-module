@@ -48,7 +48,7 @@ function buildReloadNode(item, app) {
 			// Select Loaded Ammo
 			...(reload.usesAmmo ? [["select", {
 				class: "weapon-select-ammo",
-				name: "flags.sw5e-module-test.reload.target",
+				name: "flags.sw5e.reload.target",
 				"data-tooltip": game.i18n.localize("SW5E.WeaponAmmo.Hint.Target"),
 				...disabled(!reload.hasChoices),
 				_children: Object.entries(reload.ammoChoices).map(([key,val]) => {
@@ -68,7 +68,7 @@ function buildReloadNode(item, app) {
 			// Loaded Ammo Ammount
 			["input", {
 				type: "text",
-				name: "flags.sw5e-module-test.reload.value",
+				name: "flags.sw5e.reload.value",
 				value: reload.value === null ? "" : reload.value,
 				"data-dtype": "Number",
 				"data-tooltip": game.i18n.localize("SW5E.WeaponAmmo.Hint.Value"),
@@ -97,7 +97,7 @@ function buildReloadNode(item, app) {
 			// Ammo Spent per Shot
 			["input", {
 				type: "text",
-				name: "flags.sw5e-module-test.reload.use",
+				name: "flags.sw5e.reload.use",
 				value: reload.use ?? "",
 				placeholder: reload.baseUse,
 				"data-dtype": "Number",
@@ -148,8 +148,8 @@ function addAmmoHelpers() {
 			if (newAmmoID === reload.target) return;
 
 			const wpnUpdates = {
-				"flags.sw5e-module-test.reload.target": newAmmoID,
-				"flags.sw5e-module-test.reload.value": 0,
+				"flags.sw5e.reload.target": newAmmoID,
+				"flags.sw5e.reload.value": 0,
 			};
 
 			if (oldAmmo && oldLoad) {
@@ -177,7 +177,7 @@ function addAmmoHelpers() {
 								defaultYes: true
 							});
 							if (!confirm) {
-								wpn.update({"flags.sw5e-module-test.reload.target": reload.target});
+								wpn.update({"flags.sw5e.reload.target": reload.target});
 								return;
 							}
 						}
@@ -232,7 +232,7 @@ function addAmmoHelpers() {
 			if (!foundry.utils.isEmpty(ammoUpdates)) await ammo.update(ammoUpdates);
 		}
 
-		if (toReload !== 0) wpnUpdates["flags.sw5e-module-test.reload.value"] = reload.value + toReload;
+		if (toReload !== 0) wpnUpdates["flags.sw5e.reload.value"] = reload.value + toReload;
 
 		if (!foundry.utils.isEmpty(wpnUpdates)) await this.parent.update(wpnUpdates);
 	};
@@ -249,7 +249,7 @@ function addAmmoHelpers() {
 			defaultSelect: reload.types,
 			disabled
 		});
-		if (result) this.parent.update({ "flags.sw5e-module-test.reload.types": result });
+		if (result) this.parent.update({ "flags.sw5e.reload.types": result });
 	};
 
 	dnd5e.dataModels.item.WeaponData.prototype.canUseAmmo = function({amount, error, warn} = { warn: true }) {
@@ -273,7 +273,7 @@ function addAmmoHelpers() {
 			else if (warn) ui.notifications.warn(game.i18n.localize("SW5E.WeaponAmmo.Warn.NoAmmo"));
 			return false;
 		}
-		const updates = { "flags.sw5e-module-test.reload.value": Math.clamp(reload.value - amount, 0, reload.max) };
+		const updates = { "flags.sw5e.reload.value": Math.clamp(reload.value - amount, 0, reload.max) };
 		if (update) this.parent.update(updates);
 		else return updates;
 	}
