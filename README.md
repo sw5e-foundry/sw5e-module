@@ -15,6 +15,12 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [Unreleased]
+
+### Fixed
+
+- Compendium Powers now have their resource consumption set to use the correct amount of power points.
+
 ### [1.0.0] - 2024-08-29
 
 ### Added
