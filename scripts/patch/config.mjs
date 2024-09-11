@@ -1779,7 +1779,7 @@ export function patchConfig(config, strict=true) {
 			},
 			shortRest: true
 		}
-	}
+	};
 	preLocalize( "powercasting", { key: "label", sort: true } );
 	preLocalize( "powercasting.force.progression", { key: "label" } );
 	preLocalize( "powercasting.tech.progression", { key: "label" } );
@@ -1792,6 +1792,46 @@ export function patchConfig(config, strict=true) {
 		...config.powerCasting.force.schools,
 		...config.powerCasting.tech.schools
 	};
+	// Superiority
+	config.superiority = {
+		label: "SW5E.Superiority.Label",
+		img: "systems/dnd5e/icons/power-tiers/{id}.webp",
+		// focus: {
+		// 	label: "SW5E.Superiority.Focus",
+		// 	id: "superiorityfocus",
+		// 	property: "superior"
+		// },
+		progression: {
+			full: {
+				label: "SW5E.Superiority.Prog.Full",
+				quant: [0, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12],
+				size: [0, 4, 4, 4, 4, 6, 6, 6, 6, 8, 8, 8, 8, 10, 10, 10, 10, 12, 12, 12, 12],
+				known: [0, 1, 2, 4, 5, 6, 7, 9, 10, 11, 12, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24]
+			},
+			half: {
+				label: "SW5E.Superiority.Prog.Half",
+				quant: [0, 0, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6],
+				size: [0, 0, 4, 4, 4, 6, 6, 6, 6, 8, 8, 8, 8, 10, 10, 10, 10, 12, 12, 12, 12],
+				known: [0, 0, 1, 2, 2, 4, 4, 5, 5, 6, 6, 7, 7, 9, 9, 10, 10, 11, 11, 12, 12]
+			}
+		},
+		types: {
+			physical: {
+				label: "SW5E.Superiority.Type.Physical.Label",
+				attr: ["str", "dex", "con"]
+			},
+			mental: {
+				label: "SW5E.Superiority.Type.Mental.Label",
+				attr: ["int", "wis", "cha"]
+			},
+			general: {
+				label: "SW5E.Superiority.Type.General.Label",
+				attr: ["str", "dex", "con", "int", "wis", "cha"]
+			}
+		}
+	};
+	preLocalize( "superiority.progression", { key: "label" } );
+	preLocalize( "superiority.types", { key: "label" } );
 	// Weapons
 	if (strict) {
 		delete config.weaponTypes.simpleM;
@@ -1822,7 +1862,7 @@ export function patchConfig(config, strict=true) {
 	config.weaponTypes = {
 		...config.weaponStandardTypes,
 		...config.weaponStarshipTypes
-	}
+	};
 	// Compendium Packs
 	config.sourcePacks.BACKGROUNDS = "sw5e.backgrounds";
 	config.sourcePacks.CLASSES = "sw5e.classes";

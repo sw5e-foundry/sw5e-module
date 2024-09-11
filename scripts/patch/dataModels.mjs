@@ -1,3 +1,6 @@
+import * as dataModels from "./../data/_module.mjs";
+import { ItemSheetSW5E } from "./../applications/item-sheet.mjs";
+
 const { NumberField, SchemaField, SetField, StringField } = foundry.data.fields;
 
 /**
@@ -94,6 +97,29 @@ function addPowercasting(result) {
 		}, { label: "SW5E.Powercasting.Tech.Label" })
 	}, { label: "SW5E.Powercasting.Label" });
 }
+function addSuperiority(result) {
+	result.super = new SchemaField({
+		known: new SchemaField({
+			max: new NumberField({ nullable: true, min: 0, initial: null, label: "SW5E.Superiority.Known.Max.Override" })
+		}),
+		dice: makePointsResource({ label: "SW5E.Superiority.Dice.Label", hasTemp: true }),
+		die: new NumberField({ nullable: true, min: 0, initial: null, label: "SW5E.Superiority.Die.Override" }),
+		types: new SchemaField({
+			physical: new SchemaField({
+				attr: new StringField({ nullable: true, initial: null, label: "SW5E.Superiority.Type.Physical.Attr.Override" }),
+				dc: new NumberField({ nullable: true, min: 0, initial: null, label: "SW5E.Superiority.Type.Physical.Dc.Override" })
+			}),
+			mental: new SchemaField({
+				attr: new StringField({ nullable: true, initial: null, label: "SW5E.Superiority.Type.Mental.Attr.Override" }),
+				dc: new NumberField({ nullable: true, min: 0, initial: null, label: "SW5E.Superiority.Type.Mental.Dc.Override" })
+			}),
+			general: new SchemaField({
+				attr: new StringField({ nullable: true, initial: null, label: "SW5E.Superiority.Type.General.Attr.Override" }),
+				dc: new NumberField({ nullable: true, min: 0, initial: null, label: "SW5E.Superiority.Type.General.Dc.Override" })
+			})
+		}, { label: "SW5E.Superiority.Type.Label" })
+	}, { label: "SW5E.Superiority.Label" });
+}
 function changeProficiency(result, type) {
 	if (type === "creature") {
 		result.skills.model.fields.value.max = 5;
@@ -112,6 +138,7 @@ export function patchDataModels() {
 	libWrapper.register('sw5e', 'dnd5e.dataModels.actor.CreatureTemplate.defineSchema', function (wrapped, ...args) {
 		const result = wrapped(...args);
 		addPowercasting(result);
+		addSuperiority(result);
 		changeProficiency(result, "creature");
 		return result;
 	}, 'WRAPPER');
@@ -124,6 +151,9 @@ export function patchDataModels() {
 		const result = wrapped(...args);
 		changeProficiency(result, "weapon");
 		return result;
-	}, 'WRAPPER');
+	});
 
+	Object.assign(CONFIG.Item.dataModels, dataModels.item.config);
+	const types = Object.keys(game.modules.get("sw5e").documentTypes.Item).map(t => `sw5e.${t}`);
+	DocumentSheetConfig.registerSheet(Item, "sw5e.maneuver", ItemSheetSW5E, { types, makeDefault: true });
 }
