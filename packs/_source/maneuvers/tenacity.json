@@ -1,7 +1,7 @@
 {
   "_id": "Xt7EUJvlkybGasXu",
   "name": "Tenacity",
-  "type": "maneuver",
+  "type": "sw5e.maneuver",
   "img": "modules/sw5e/icons/packs/Maneuvers/Tenacity.webp",
   "effects": [],
   "folder": null,
@@ -14,6 +14,11 @@
     }
   },
   "system": {
+    "htmlFields": [
+      "description.value",
+      "description.chat",
+      "unidentified.description"
+    ],
     "description": {
       "value": "<p>As a bonus action, you can expend and roll a superiority die and move to an unoccupied space you can see up to a distance equal to 5 x the result of the roll. If you begin this movement hidden from a creature, and you end this movement in a space that could be hidden from the creature, this movement does not reveal your presence to that creature.</p>",
       "chat": ""
@@ -53,9 +58,9 @@
       "prompt": true
     },
     "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
+      "type": "attribute",
+      "target": "superiority.dice.value",
+      "amount": 1,
       "scale": false
     },
     "ability": null,
@@ -69,7 +74,7 @@
       "parts": [],
       "versatile": ""
     },
-    "formula": "5 * (@scale.superiority.die)",
+    "formula": "5 * (1d@superiority.die)",
     "save": {
       "ability": "",
       "dc": null,
@@ -100,10 +105,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493983294,
-    "modifiedTime": 1720368793981,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1726267690801,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!Xt7EUJvlkybGasXu"
 }

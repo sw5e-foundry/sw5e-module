@@ -1,7 +1,7 @@
 {
   "_id": "UmMIijvw8HQ5KHnL",
   "name": "Distracting Blow",
-  "type": "maneuver",
+  "type": "sw5e.maneuver",
   "img": "modules/sw5e/icons/packs/Maneuvers/DistractingBlow.webp",
   "effects": [],
   "folder": null,
@@ -14,6 +14,11 @@
     }
   },
   "system": {
+    "htmlFields": [
+      "description.value",
+      "description.chat",
+      "unidentified.description"
+    ],
     "description": {
       "value": "<p>When you hit a creature with a weapon attack, you can expend one superiority die to distract the creature, giving your allies an opening. You add the superiority die to the attack's damage roll. The next attack roll against the target by an attacker other than you has advantage if the attack is made before the start of your next turn.</p>",
       "chat": ""
@@ -53,9 +58,9 @@
       "prompt": true
     },
     "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
+      "type": "attribute",
+      "target": "superiority.dice.value",
+      "amount": 1,
       "scale": false
     },
     "ability": null,
@@ -69,7 +74,7 @@
       "parts": [],
       "versatile": ""
     },
-    "formula": "@scale.superiority.die",
+    "formula": "1d@superiority.die",
     "save": {
       "ability": "",
       "dc": null,
@@ -100,10 +105,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493983290,
-    "modifiedTime": 1720368793945,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1726267690801,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!UmMIijvw8HQ5KHnL"
 }

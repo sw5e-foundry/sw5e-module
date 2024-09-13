@@ -20,3 +20,16 @@ export function makeElement(type, attributes={}) {
 	}
 	return el;
 }
+
+export function getBestAbility(actor, abilities, def=-Infinity) {
+	let best = { id: undefined, mod: -Infinity };
+	for (const ability of abilities) {
+		const cur = {
+			id: ability,
+			mod: actor?.system?.abilities?.[ability]?.mod ?? - Infinity
+		};
+		if (cur.mod > best.mod) best = cur;
+	}
+	if (best.id === undefined) best.mod = def;
+	return best;
+}

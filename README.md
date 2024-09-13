@@ -17,9 +17,14 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ### [Unreleased]
 
+### Added
+
+- Support for Maneuvers and Superiority 'casting'.
+
 ### Fixed
 
 - Compendium Powers now have their resource consumption set to use the correct amount of power points.
+- Powercasting and Superiority progression selectors will now be properly disabled on non editable class sheets (unowned or on locked compendia).
 
 ### [1.0.0] - 2024-08-29
 

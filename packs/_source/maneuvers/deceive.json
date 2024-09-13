@@ -7,10 +7,15 @@
       "uid": "Maneuvers.name-deceive"
     }
   },
-  "type": "maneuver",
+  "type": "sw5e.maneuver",
   "img": "modules/sw5e/icons/packs/Maneuvers/Deceive.webp",
   "effects": [],
   "system": {
+    "htmlFields": [
+      "description.value",
+      "description.chat",
+      "unidentified.description"
+    ],
     "description": {
       "value": "<p>When you make an Deception check, you can expend a superiority die, rolling the die and adding it to the [[/r d20]] roll. You can wait until after rolling the [[/r d20]] before doing so, but you must decide before the GM says whether the roll succeeds or fails.</p>",
       "chat": ""
@@ -50,9 +55,9 @@
       "prompt": true
     },
     "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
+      "type": "attribute",
+      "target": "superiority.dice.value",
+      "amount": 1,
       "scale": false
     },
     "ability": null,
@@ -66,7 +71,7 @@
       "parts": [],
       "versatile": ""
     },
-    "formula": "@scale.superiority.die",
+    "formula": "1d@superiority.die",
     "save": {
       "ability": "",
       "dc": null,
@@ -99,10 +104,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1667426102987,
-    "modifiedTime": 1720368793636,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1726267690801,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_id": "254gcdHKgCLfAjmx",
   "_key": "!items!254gcdHKgCLfAjmx"

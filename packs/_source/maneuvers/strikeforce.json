@@ -1,7 +1,7 @@
 {
   "_id": "iVAWC4i4TApm6wrK",
   "name": "Strikeforce",
-  "type": "maneuver",
+  "type": "sw5e.maneuver",
   "img": "modules/sw5e/icons/packs/Maneuvers/Strikeforce.webp",
   "effects": [],
   "folder": null,
@@ -14,6 +14,11 @@
     }
   },
   "system": {
+    "htmlFields": [
+      "description.value",
+      "description.chat",
+      "unidentified.description"
+    ],
     "description": {
       "value": "<p>When you make a melee weapon attack against a creature, you can expend one superiority die and add the number rolled to the attack roll. On a hit, the target takes additional force damage equal to the number rolled. </p>",
       "chat": ""
@@ -53,9 +58,9 @@
       "prompt": true
     },
     "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
+      "type": "attribute",
+      "target": "superiority.dice.value",
+      "amount": 1,
       "scale": false
     },
     "ability": null,
@@ -68,7 +73,7 @@
     "damage": {
       "parts": [
         [
-          "@scale.superiority.die",
+          "1d@superiority.die",
           "force"
         ]
       ],
@@ -105,10 +110,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493983309,
-    "modifiedTime": 1720368794170,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1726267690801,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!iVAWC4i4TApm6wrK"
 }

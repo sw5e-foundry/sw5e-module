@@ -1,7 +1,7 @@
 {
   "_id": "gWtiilzjVTk9gnXc",
   "name": "Incite",
-  "type": "maneuver",
+  "type": "sw5e.maneuver",
   "img": "modules/sw5e/icons/packs/Maneuvers/Incite.webp",
   "effects": [],
   "folder": null,
@@ -14,6 +14,11 @@
     }
   },
   "system": {
+    "htmlFields": [
+      "description.value",
+      "description.chat",
+      "unidentified.description"
+    ],
     "description": {
       "value": "<p>On your turn, you can use an action and expend one superiority die to bolster the resolve of one of an ally within 30 feet who can see or hear you. The ally can add your maneuver ability modifier to every damage roll they make until the start of your next turn. </p>",
       "chat": ""
@@ -53,9 +58,9 @@
       "prompt": true
     },
     "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
+      "type": "attribute",
+      "target": "superiority.dice.value",
+      "amount": 1,
       "scale": false
     },
     "ability": null,
@@ -100,10 +105,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493983308,
-    "modifiedTime": 1720368794150,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1726267690801,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!gWtiilzjVTk9gnXc"
 }

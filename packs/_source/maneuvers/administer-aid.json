@@ -1,7 +1,7 @@
 {
   "_id": "u1oADGkMWPBiFM9S",
   "name": "Administer Aid",
-  "type": "maneuver",
+  "type": "sw5e.maneuver",
   "img": "modules/sw5e/icons/packs/Maneuvers/AdministerAid.webp",
   "effects": [],
   "folder": null,
@@ -14,6 +14,11 @@
     }
   },
   "system": {
+    "htmlFields": [
+      "description.value",
+      "description.chat",
+      "unidentified.description"
+    ],
     "description": {
       "value": "<p>As an action, you can expend a superiority die to tend to a creature you can touch. The creature regains a number of hit points equal to the number rolled + your maneuver ability modifier.</p>",
       "chat": ""
@@ -53,9 +58,9 @@
       "prompt": true
     },
     "consume": {
-      "type": "",
-      "target": "",
-      "amount": null,
+      "type": "attribute",
+      "target": "superiority.dice.value",
+      "amount": 1,
       "scale": false
     },
     "ability": "",
@@ -68,7 +73,7 @@
     "damage": {
       "parts": [
         [
-          "@scale.superiority.die + @mod",
+          "1d@superiority.die + @mod",
           "healing"
         ]
       ],
@@ -105,10 +110,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493983321,
-    "modifiedTime": 1720368794307,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1726267690801,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!u1oADGkMWPBiFM9S"
 }

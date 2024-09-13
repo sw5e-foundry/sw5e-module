@@ -419,7 +419,7 @@ function _migrateImage(objectData, updateData) {
 		newPath = newPath?.replace("modules/sw5e-module-test/icons/", "modules/sw5e/icons/");
 		if (newPath !== path) {
 			updateData[prop] = newPath;
-			console.debug("Changed img path for item", objectData.name, "old", path, "new", newPath);
+			console.log("Changed img path for item", objectData.name, "old", path, "new", newPath);
 		}
 	}
 	return updateData;

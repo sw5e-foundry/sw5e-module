@@ -1,7 +1,7 @@
 {
   "_id": "DTvbPN5ogr114RFA",
   "name": "Befogging Ichor",
-  "type": "maneuver",
+  "type": "sw5e.maneuver",
   "img": "modules/sw5e/icons/packs/Maneuvers/BefoggingIchor.webp",
   "effects": [],
   "folder": null,
@@ -14,6 +14,11 @@
     }
   },
   "system": {
+    "htmlFields": [
+      "description.value",
+      "description.chat",
+      "unidentified.description"
+    ],
     "description": {
       "value": "<p>You can use a bonus action to expend a superiority die. When you do so, choose a creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target can't take reactions until the start of its next turn and on its turn must use its movement to move half its speed in a random direction. Roll a [[/r d8]] and assign a direction to each face. If the direction rolled is blocked, the target doesn't move.</p>",
       "chat": ""
@@ -53,9 +58,9 @@
       "prompt": true
     },
     "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
+      "type": "attribute",
+      "target": "superiority.dice.value",
+      "amount": 1,
       "scale": false
     },
     "ability": null,
@@ -100,10 +105,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493983274,
-    "modifiedTime": 1720368793801,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1726267690801,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!DTvbPN5ogr114RFA"
 }

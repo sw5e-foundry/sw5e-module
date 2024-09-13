@@ -1,6 +1,8 @@
+import { addHooks } from "./patch/addHooks.mjs";
 import { patchConfig } from "./patch/config.mjs";
 import { patchDataModels } from "./patch/dataModels.mjs";
 import { patchPacks } from "./patch/packs.mjs";
+import { patchManeuver } from "./patch/maneuver.mjs";
 import { patchPowercasting } from "./patch/powercasting.mjs";
 import { patchProficiencyInit, patchProficiencyReady } from "./patch/proficiency.mjs";
 import { patchProperties } from "./patch/properties.mjs";
@@ -16,22 +18,21 @@ const strict = true;
 Hooks.once('init', async function() {
 	// Register Module Settings
 	registerModuleSettings();
+	// Register lib-wrapper hooks
+	addHooks();
 
 	patchConfig(CONFIG.DND5E, strict);
 	patchDataModels();
 
+	patchManeuver();
 	patchPowercasting();
 	patchProficiencyInit();
 	patchProperties();
 });
 
 Hooks.once('ready', async function() {
-	if(!game.modules.get('lib-wrapper')?.active && game.user.isGM) {
-		ui.notifications.error("SW5E requires the 'libWrapper' module. Please install and activate it.");
-	} else {
-		patchPacks(strict);
-		patchProficiencyReady();
-	}
+	patchPacks(strict);
+	patchProficiencyReady();
 
 	// Perform module migration if it is required and feasible
 	if (migrations.needsMigration()) migrations.migrateWorld();

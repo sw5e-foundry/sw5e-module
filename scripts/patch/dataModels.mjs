@@ -51,6 +51,9 @@ function addProgression(wrapped, ...args) {
 	result.spellcasting.fields.techProgression = new StringField({
 		required: true, initial: "none", blank: false, label: "SW5E.Powercasting.Tech.Prog.Label"
 	});
+	result.spellcasting.fields.superiorityProgression = new StringField({
+		required: true, initial: "none", blank: false, label: "SW5E.Superiority.Prog.Label"
+	});
 	return result;
 }
 function addPowercasting(result) {
@@ -98,7 +101,7 @@ function addPowercasting(result) {
 	}, { label: "SW5E.Powercasting.Label" });
 }
 function addSuperiority(result) {
-	result.super = new SchemaField({
+	result.superiority = new SchemaField({
 		known: new SchemaField({
 			max: new NumberField({ nullable: true, min: 0, initial: null, label: "SW5E.Superiority.Known.Max.Override" })
 		}),

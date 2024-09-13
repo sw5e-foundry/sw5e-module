@@ -285,6 +285,7 @@ function convertSW5EPackEntry(data, { forceConvert=false }={}) {
 	if ( data.type === "power" ) data.type = "spell";
 	if ( data.type === "species" ) data.type = "race";
 	if ( data.type === "archetype" ) data.type = "subclass";
+	if ( data.type === "maneuver" ) data.type = "sw5e.maneuver";
 	if ( data.changes ) data.changes.forEach(ch => { if ( ch.key === "system.traits.languages.value" && ch.value === "basic" ) ch.value = "common"; });
 
 	if ( data.system?.price?.denomination === "gc" ) data.system.price.denomination = "gp";
