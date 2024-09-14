@@ -15,6 +15,12 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [Unreleased]
+
+### Added
+
+- Compatibility with dnd5e 4.0.0.
+
 ### [1.1.0] - 2024-09-13
 
 ### Added

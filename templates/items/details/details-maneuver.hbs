@@ -1,0 +1,39 @@
+<fieldset>
+    <legend>{{ localize "SW5E.Maneuver.Details" }}</legend>
+
+    {{!-- Maneuver Type --}}
+    {{ formField fields.type.fields.value value=source.type.value choices=config.superiority.types labelAttr="label" blank=""
+                 localize=true }}
+
+    {{!-- Maneuver Properties --}}
+    {{ formField fields.properties options=properties.options label="SW5E.Maneuver.Properties" localize=true
+                 input=inputs.createMultiCheckboxInput stacked=true classes="checkbox-grid checkbox-grid-3" }}
+
+    {{!-- Source Class --}}
+    {{#if isEmbedded}}
+    {{ formField fields.sourceClass value=source.sourceClass localize=true choices=item.parent.spellcastingClasses
+                 labelAttr="name" blank="" }}
+
+    {{ formField fields.ability value=source.ability localize=true choices=config.abilities
+                 labelAttr="label" blank=defaultAbility }}
+    {{/if}}
+</fieldset>
+
+<fieldset>
+    <legend>{{ localize "DND5E.Casting" }}</legend>
+
+    {{!-- Activation --}}
+    {{> "dnd5e.field-activation" activation=system.activation fields=fields.activation.fields data=source.activation
+        activationTypes=activationTypes inputs=inputs label="DND5E.SpellCastTime" }}
+
+    {{!-- Range --}}
+    {{> "dnd5e.field-range" range=system.range fields=fields.range.fields data=source.range rangeTypes=rangeTypes
+        inputs=inputs }}
+
+    {{!-- Duration --}}
+    {{> "dnd5e.field-duration" duration=system.duration fields=fields.duration.fields data=source.duration
+        durationUnits=durationUnits inputs=inputs }}
+</fieldset>
+
+{{> "dnd5e.field-targets" target=system.target fields=fields.target.fields data=source.target inputs=inputs
+    disabled=false }}

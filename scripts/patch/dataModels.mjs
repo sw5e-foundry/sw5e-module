@@ -158,5 +158,5 @@ export function patchDataModels() {
 
 	Object.assign(CONFIG.Item.dataModels, dataModels.item.config);
 	const types = Object.keys(game.modules.get("sw5e").documentTypes.Item).map(t => `sw5e.${t}`);
-	DocumentSheetConfig.registerSheet(Item, "sw5e.maneuver", ItemSheetSW5E, { types, makeDefault: true });
+	// DocumentSheetConfig.registerSheet(Item, "sw5e.maneuver", ItemSheetSW5E, { types, makeDefault: true });
 }

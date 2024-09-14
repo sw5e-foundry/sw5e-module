@@ -280,10 +280,12 @@ function addAmmoHelpers() {
 }
 
 function addAmmoConsumption() {
-	Hooks.on("dnd5e.preUseItem", (item, config, options) => {
+	Hooks.on("dnd5e.preUseActivity", (activity, usageConfig, dialogConfig, messageConfig) => {
+		const item = activity.item;
 		return (item.type !== "weapon") || item.hasAttack || item.system.canUseAmmo();
 	});
-	Hooks.on("dnd5e.useItem", (item, config, options, templates, effects, summoned) => {
+	Hooks.on("dnd5e.postUseActivity", (activity, usageConfig, results) => {
+		const item = activity.item;
 		if (item.type !== "weapon") return;
 		if (!item.hasAttack) item.system?.useAmmo();
 	});

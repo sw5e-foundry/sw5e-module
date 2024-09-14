@@ -7,6 +7,7 @@ import { patchPowercasting } from "./patch/powercasting.mjs";
 import { patchProficiencyInit, patchProficiencyReady } from "./patch/proficiency.mjs";
 import { patchProperties } from "./patch/properties.mjs";
 import * as migrations from "./migration.mjs";
+import { handleTemplates } from "./templates.mjs";
 import { registerModuleSettings } from "./settings.mjs";
 
 globalThis.sw5e = {
@@ -20,6 +21,8 @@ Hooks.once('init', async function() {
 	registerModuleSettings();
 	// Register lib-wrapper hooks
 	addHooks();
+	// Pre-load templates
+	handleTemplates();
 
 	patchConfig(CONFIG.DND5E, strict);
 	patchDataModels();

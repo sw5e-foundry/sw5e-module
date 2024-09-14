@@ -86,13 +86,11 @@ function prepareSuperiority() {
 
 		// Apply progression data
 		for (const [superType, obj] of Object.entries(charProgression)) {
-			if (obj.casterLevel === 0) continue;
-
 			const superConfig = CONFIG.DND5E.superiority;
 			const progConfig = superConfig.progression[obj.maxClassProg] ?? {};
 
 			// What is the size of your power dice
-			obj.diceSize = progConfig.size[obj.casterLevel];
+			obj.diceSize = progConfig.size?.[obj.casterLevel];
 
 			// Apply the calculated values to the sheet
 			const target = _this.system.superiority;
@@ -145,7 +143,7 @@ function showPowercastingStats() {
 		const rsak = simplifyBonus(_this.actor.system.bonuses.rsak.attack, context.rollData);
 		for (const superType of ["superiority"]) {
 			const superData = _this.actor.system.superiority;
-			if (superData.level === 0) continue;
+			if (!superData.level) continue;
 			const sc = superData.types.general ?? {};
 			const ability = _this.actor.system.abilities[sc.attr];
 			const mod = ability?.mod ?? 0;
@@ -288,7 +286,6 @@ function addSuperiorityScaleValues() {
 function addCompendiumBrowserTab() {
 	const tabs = game.dnd5e.applications.CompendiumBrowser.TABS;
 	const idx = tabs.findIndex(i => i.tab === "spells");
-	console.debug(tabs, idx);
 	tabs.splice(idx+1, 0, {
 		tab: "maneuvers",
 		label: "TYPES.Item.sw5e.maneuverPl",
