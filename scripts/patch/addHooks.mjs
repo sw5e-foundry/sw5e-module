@@ -43,6 +43,8 @@ export function addHooks() {
 	//-----------------//
 
 	// SpellData Hooks
+	addHookAsync('dnd5e.dataModels.item.SpellData.prototype.getSheetData', 'SpellData.getSheetData');
+	addHook('dnd5e.dataModels.item.SpellData.prototype.availableAbilities', 'SpellData.availableAbilities');
 	addHook('dnd5e.dataModels.item.SpellData.prototype._typeAbilityMod', 'SpellData._typeAbilityMod');
 
 	//-------------------//

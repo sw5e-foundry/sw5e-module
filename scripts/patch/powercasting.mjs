@@ -144,7 +144,7 @@ function preparePowercasting() {
 				const bonus = simplifyBonus(_this.system.bonuses?.power?.dc?.[school], rollData) + bonusAll;
 				ability[school] = getBestAbility(_this, schoolConfig.attr, 0);
 				if (ability[school].mod > (ability[castType]?.mod ?? -Infinity)) ability[castType] = ability[school];
-				schoolData.attr = ability[school]?.attr ?? "";
+				schoolData.attr = ability[school]?.id ?? "";
 				schoolData.dc = base + ability[school].mod + bonus;
 			}
 		}
@@ -191,7 +191,7 @@ function showPowercastingStats() {
 			const ability = _this.actor.system.abilities[sc.attr];
 			const mod = ability?.mod ?? 0;
 			const attackBonus = msak === rsak ? msak : 0;
-			context.spellcasting.push({
+			context.spellcasting?.push({
 				label: game.i18n.localize(`SW5E.Powercasting.${castType.capitalize()}.Label`) + ` (${castData.points.value}/${castData.points.max})`,
 				ability: { mod: ability?.mod ?? 0, ability: sc.attr ?? "" },
 				attack: mod + _this.actor.system.attributes.prof + attackBonus,
@@ -253,14 +253,29 @@ function patchPowerAbilityScore() {
 		}
 	});
 
-	Hooks.on('sw5e.SpellData._typeAbilityMod', function (_this, result, config, ...args) {
+	Hooks.on('sw5e.SpellData.getSheetData', function (_this, result, config, ...args) {
+		const context = args[0];
+		if ( _this.parent.actor ) {
+			for (const [castType, castData] of Object.entries(_this.parent.actor.system?.powercasting ?? {})) {
+				if (_this.school in castData.schools) {
+					const abl = castData.schools[_this.school].attr;
+					const ability = CONFIG.DND5E.abilities[abl]?.label?.toLowerCase();
+					if ( ability ) context.defaultAbility = game.i18n.format("DND5E.DefaultSpecific", { default: ability });
+				}
+			}
+		}
+	});
+	Hooks.on('sw5e.SpellData.availableAbilities', function (_this, result, config, ...args) {
+		if ( _this.ability ) return;
 		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
 			if (_this.school in typeConfig.schools) {
-				if (_this.parent?.actor) config.result = _this.parent.actor.system?.powercasting?.[castType]?.schools?.[_this.school]?.attr ?? "int";
-				else config.result = typeConfig.schools[_this.school]?.attr?.[0] ?? "int";
+				config.result = new Set(typeConfig.schools[_this.school].attr);
 				return;
 			}
 		}
+	});
+	Hooks.on('sw5e.SpellData._typeAbilityMod', function (_this, result, config, ...args) {
+		config.result = getBestAbility(_this.parent.actor, _this.availableAbilities).id ?? _this.availableAbilities.first() ?? "int";
 	});
 }
 
