@@ -285,6 +285,19 @@ function addSuperiorityScaleValues() {
 	});
 }
 
+function addCompendiumBrowserTab() {
+	const tabs = game.dnd5e.applications.CompendiumBrowser.TABS;
+	const idx = tabs.findIndex(i => i.tab === "spells");
+	console.debug(tabs, idx);
+	tabs.splice(idx+1, 0, {
+		tab: "maneuvers",
+		label: "TYPES.Item.sw5e.maneuverPl",
+		icon: "fas fa-tablet",
+		documentClass: "Item",
+		types: ["sw5e.maneuver"]
+	});
+}
+
 export function patchManeuver() {
 	adjustItemSpellcastingGetter();
 	patchItemSheet();
@@ -294,4 +307,5 @@ export function patchManeuver() {
 	recoverSuperiorityDice();
 	showPowercastingStats();
 	makeSuperiorityDiceConsumable();
+	addCompendiumBrowserTab();
 }

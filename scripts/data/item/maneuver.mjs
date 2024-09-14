@@ -10,8 +10,6 @@ const { BooleanField, NumberField, SchemaField, SetField, StringField } = foundr
  * @mixes ActivatedEffectTemplate
  * @mixes ActionTemplate
  *
- * @property {object} prerequisites
- * @property {number} prerequisites.level           Character or class level required to choose this maneuver.
  * @property {Set<string>} properties               General properties of a maneuver item.
  */
 export default class ManeuverData extends ItemDataModel.mixin(
@@ -21,9 +19,6 @@ export default class ManeuverData extends ItemDataModel.mixin(
 	static defineSchema() {
 		return this.mergeSchema(super.defineSchema(), {
 			type: new ItemTypeField({ baseItem: false }, { label: "SW5E.Superiority.Type.Label" }),
-			prerequisites: new SchemaField({
-				level: new NumberField({ integer: true, min: 0 })
-			}),
 			properties: new foundry.data.fields.SetField(new foundry.data.fields.StringField())
 		});
 	}
@@ -33,15 +28,6 @@ export default class ManeuverData extends ItemDataModel.mixin(
 	/** @override */
 	static get compendiumBrowserFilters() {
 		return new Map([
-			["level", {
-				label: "DND5E.Level",
-				type: "range",
-				config: {
-					keyPath: "system.prerequisites.level",
-					min: 0,
-					max: CONFIG.DND5E.maxLevel
-				}
-			}],
 			["type", {
 				label: "SW5E.Superiority.Type.Label",
 				type: "set",
