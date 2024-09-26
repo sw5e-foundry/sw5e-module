@@ -259,7 +259,7 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 	/** @inheritDoc */
 	_preCreate(data, options, user) {
 		if ( super._preCreate(data, options, user) === false ) return false;
-		const classes = new Set(Object.keys(this.parent.actor.spellcastingClasses));
+		const classes = new Set(Object.keys(this.parent.actor?.spellcastingClasses ?? {}));
 		if ( !classes.size ) return;
 
 		// Set the source class
