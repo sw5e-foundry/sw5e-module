@@ -4,66 +4,60 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1747317+00:00",
       "importer_version": 3,
-      "uid": "Power.name-onoff.level-0"
+      "uid": "Power.name-onoff"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/On-Off.webp",
   "system": {
+    "activities": {
+      "1eZqsDjhXJ9oxQAG": {
+        "type": "Utility",
+        "_id": "1eZqsDjhXJ9oxQAG",
+        "img": null,
+        "description": {
+          "value": "<p>This power allows you to activate or deactivate any electronic device within range, as long as the device is not being wielded by a creature, and has a clearly defined on or off function that can be easily accessed from the outside of the device. Any device that requires a software-based shutdown sequence to activate or deactivate cannot be affected by <em>on/off</em>.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "60"
+      }
+    },
     "description": {
       "value": "<p>This power allows you to activate or deactivate any electronic device within range, as long as the device is not being wielded by a creature, and has a clearly defined on or off function that can be easily accessed from the outside of the device. Any device that requires a software-based shutdown sequence to activate or deactivate cannot be affected by <em>on/off</em>.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
-      "value": "",
       "units": "inst"
     },
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": 60,
-      "long": null,
-      "units": "ft"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "ability": null,
-    "actionType": "other",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "tec",
-    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -74,40 +68,44 @@
       "mode": "prepared",
       "prepared": false
     },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+    "properties": [],
+    "range": {
+      "value": "60",
+      "units": "ft"
     },
-    "cover": null,
-    "crewed": false,
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
+    "school": "tec",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "uses": {
+      "spent": 0,
+      "recovery": []
     },
-    "chatFlavor": "",
-    "enchantment": null,
-    "summons": null
+    "identifier": "on-off"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/On-Off.webp",
   "effects": [],
-  "_id": "xB1gBT01FENx6xht",
+  "_id": "mQl4MwIlYQZn72FR",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1720296025398,
-    "modifiedTime": 1720368947921,
+    "createdTime": 1729983831335,
+    "modifiedTime": 1729984163435,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!xB1gBT01FENx6xht"
+  "_key": "!items!mQl4MwIlYQZn72FR"
 }

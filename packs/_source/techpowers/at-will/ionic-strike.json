@@ -4,71 +4,71 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1637382+00:00",
       "importer_version": 3,
-      "uid": "Power.name-ionic_strike.level-0"
+      "uid": "Power.name-ionic_strike"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/IonicStrike.webp",
   "system": {
+    "activities": {
+      "1poIC16M3aWRim5i": {
+        "type": "Damage",
+        "_id": "1poIC16M3aWRim5i",
+        "img": null,
+        "description": {
+          "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes wreathed in an ionic discharge. If the target willingly takes a reaction before the start of your next turn, it immediately takes [[/r 1d6]] ion damage, and the power ends. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d6]] ion damage to the target, and the damage the target takes for taking reactions increases to [[/r 2d6]]. Both damage rolls increase by [[/r 1d6]] at 11th level and 17th level.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "ion"
+            ]
+          ]
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        }
+      }
+    },
     "description": {
       "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes wreathed in an ionic discharge. If the target willingly takes a reaction before the start of your next turn, it immediately takes [[/r 1d6]] ion damage, and the power ends. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d6]] ion damage to the target, and the damage the target takes for taking reactions increases to [[/r 2d6]]. Both damage rolls increase by [[/r 1d6]] at 11th level and 17th level.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
       "value": "1",
       "units": "round"
     },
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": null,
-      "long": null,
-      "units": "touch"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "ability": null,
-    "actionType": "other",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [
-        [
-          "1d6",
-          "ion"
-        ]
-      ],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "tec",
-    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -79,40 +79,43 @@
       "mode": "prepared",
       "prepared": false
     },
-    "scaling": {
-      "mode": "atwill",
-      "formula": null
+    "properties": [],
+    "range": {
+      "units": "touch"
     },
-    "cover": null,
-    "crewed": false,
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
+    "school": "tec",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "uses": {
+      "spent": 0,
+      "recovery": []
     },
-    "chatFlavor": "",
-    "enchantment": null,
-    "summons": null
+    "identifier": "ionic-strike"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/IonicStrike.webp",
   "effects": [],
-  "_id": "qVjtctB4Z1woUlX3",
+  "_id": "O0NyEtuuch2Dk4wc",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1720296025398,
-    "modifiedTime": 1720368947666,
+    "createdTime": 1729983831335,
+    "modifiedTime": 1729984162084,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!qVjtctB4Z1woUlX3"
+  "_key": "!items!O0NyEtuuch2Dk4wc"
 }

@@ -4,7 +4,10 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:58.342215+00:00",
       "importer_version": 3,
-      "uid": "Feature.name-sentry_turret.source-archetypeinvocation.sourceName-gadgeteer_engineering.level-None"
+      "uid": "Feature.name-sentry_turret.source-archetypeinvocation.sourceName-gadgeteer_engineering"
+    },
+    "dnd5e": {
+      "migratedUses": null
     }
   },
   "type": "feat",
@@ -16,109 +19,42 @@
     },
     "requirements": "Engineer (Gadgeteer Engineering)",
     "source": {
-      "custom": "PHB"
-    },
-    "activation": {
-      "type": "bonus",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "1",
-      "units": "minute"
-    },
-    "cover": null,
-    "crewed": false,
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": 10,
-      "long": null,
-      "units": ""
-    },
-    "uses": {
-      "value": null,
-      "max": "@abilities.int.mod",
-      "per": "sr",
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
-    },
-    "ability": null,
-    "actionType": "save",
-    "chatFlavor": "",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [
-        [
-          "1d4",
-          "energy"
-        ],
-        [
-          "1d4",
-          ""
-        ]
-      ],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "dex",
-      "dc": null,
-      "scaling": "spell"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "type": {
       "value": "class",
       "subtype": "engineerInvocation"
     },
-    "recharge": {
-      "value": null,
-      "charged": false
+    "uses": {
+      "max": "@abilities.int.mod",
+      "spent": 0,
+      "recovery": []
     },
-    "attributes": {
-      "speed": {
-        "space": 300,
-        "turn": 250
-      }
-    },
-    "attack": {
-      "bonus": "",
-      "flat": false
-    },
-    "enchantment": null,
-    "summons": null,
+    "activities": {},
+    "identifier": "sentry-turret",
+    "enchant": {},
     "prerequisites": {
       "level": null
     },
     "properties": []
   },
   "effects": [],
+  "_id": "smuLkZjI8aqIHbST",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1684777309217,
-    "modifiedTime": 1720368784445,
+    "createdTime": 1729983888725,
+    "modifiedTime": 1729984217840,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_id": "18EkTqoKI75l9yos",
-  "_key": "!items!18EkTqoKI75l9yos"
+  "_key": "!items!smuLkZjI8aqIHbST"
 }

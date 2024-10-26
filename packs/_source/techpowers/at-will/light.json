@@ -4,66 +4,73 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1717332+00:00",
       "importer_version": 3,
-      "uid": "Power.name-light.level-0"
+      "uid": "Power.name-light"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/Light.webp",
   "system": {
+    "activities": {
+      "1TJ19z5k2KGV1Ttp": {
+        "type": "Save",
+        "_id": "1TJ19z5k2KGV1Ttp",
+        "img": null,
+        "description": {
+          "value": "<p>You touch one object that is no larger than 10 feet in any dimension. Until the power ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. Completely covering the object with something opaque blocks the light. The power ends if you cast it again or dismiss it as an action.</p>\n<p>If you target an object held or worn by a hostile creature, that creature must succeed on a Dexterity saving throw to avoid the power.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "hour"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": []
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        }
+      }
+    },
     "description": {
       "value": "<p>You touch one object that is no larger than 10 feet in any dimension. Until the power ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. Completely covering the object with something opaque blocks the light. The power ends if you cast it again or dismiss it as an action.</p>\n<p>If you target an object held or worn by a hostile creature, that creature must succeed on a Dexterity saving throw to avoid the power.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
       "value": "1",
       "units": "hour"
     },
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": null,
-      "long": null,
-      "units": "touch"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "ability": null,
-    "actionType": "save",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "dex",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "tec",
-    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -74,40 +81,43 @@
       "mode": "prepared",
       "prepared": false
     },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+    "properties": [],
+    "range": {
+      "units": "touch"
     },
-    "cover": null,
-    "crewed": false,
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
+    "school": "tec",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "uses": {
+      "spent": 0,
+      "recovery": []
     },
-    "chatFlavor": "",
-    "enchantment": null,
-    "summons": null
+    "identifier": "light"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/Light.webp",
   "effects": [],
-  "_id": "6Vq6Yt9GNUdw5mjr",
+  "_id": "CYstU0jb4XuDq2cI",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1720296025398,
-    "modifiedTime": 1720368945918,
+    "createdTime": 1729983831335,
+    "modifiedTime": 1729984161607,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!6Vq6Yt9GNUdw5mjr"
+  "_key": "!items!CYstU0jb4XuDq2cI"
 }

@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:20.4344049+00:00",
       "importer_version": 3,
       "uid": "EnhancedItem.name-grenade_flash_major.subtype-explosive"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -104,7 +110,117 @@
     "attuned": false,
     "enchantment": null,
     "summons": null,
-    "magicalBonus": null
+    "magicalBonus": null,
+    "activities": {
+      "1E87l2vDryD21atY": {
+        "type": "Save",
+        "_id": "1E87l2vDryD21atY",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 18 Constitution saving throw. On a failed save, a creature is blinded for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Grenade, flash</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Constitution saving throw. On a failed save, a creature is blinded for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        },
+        "target": {
+          "value": 10,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "30",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": []
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        }
+      },
+      "TJLnaeicVBH1EUWr": {
+        "type": "Save",
+        "_id": "TJLnaeicVBH1EUWr",
+        "img": null,
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "30",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": []
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "target": {
+          "value": 10,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 18 Constitution saving throw. On a failed save, a creature is blinded for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Grenade, flash</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Constitution saving throw. On a failed save, a creature is blinded for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        }
+      },
+      "hXzweuuz8PVgAPEu": {
+        "type": "Save",
+        "_id": "hXzweuuz8PVgAPEu",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 18 Constitution saving throw. On a failed save, a creature is blinded for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Grenade, flash</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Constitution saving throw. On a failed save, a creature is blinded for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": []
+        },
+        "target": {
+          "value": 10,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "range": "30"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -112,10 +228,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493964472,
-    "modifiedTime": 1720418048515,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1729984337414,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!9VENfJBiSAZVZPOM"
 }

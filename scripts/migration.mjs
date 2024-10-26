@@ -309,6 +309,7 @@ export function migrateItemData(item, migrationData, flags={}) {
 	_migrateItemProperties(item, updateData);
 	_migrateSpellScaling(item, updateData);
 	_migrateAdvancements(item, updateData);
+	_migrateWeaponData(item, updateData);
 
 	// Migrate embedded effects
 	if ( item.effects ) {
@@ -666,6 +667,21 @@ function _migrateAdvancements(itemData, updateData) {
 		}
 	}
 	if (changed) updateData["system.advancement"] = itemData.system.advancement;
+
+	return updateData;
+}
+
+/**
+ * Migrate weapon data from the sw5e test module or the old system.
+ * @param {object} itemData        Item data to migrate.
+ * @param {object} updateData      Existing update to expand upon.
+ * @returns {object}               The updateData to apply
+ * @private
+ */
+function _migrateWeaponData(itemData, updateData) {
+	if (itemData.type !== "weapon") return updateData;
+
+	if (["martialB", "simpleB", "exoticB"].includes(itemData.system.type.value)) updateData["system.type.value"] += "L";
 
 	return updateData;
 }

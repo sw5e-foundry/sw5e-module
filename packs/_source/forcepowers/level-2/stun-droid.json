@@ -16,6 +16,12 @@
       "migratedProperties": [
         "concentration"
       ]
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -108,7 +114,135 @@
       "flat": false
     },
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "lLbFVzqVnBRR0xGu": {
+        "type": "Save",
+        "_id": "lLbFVzqVnBRR0xGu",
+        "img": null,
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "range": "60",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "@mod",
+              "energy"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "droid"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>Choose a droid or construct that you can see within range. The target must succeed on a Constitution saving throw or be paralyzed for the duration. At the beginning of each of its turns, the target takes energy damage equal to your forcecasting ability modifier. At the end of each of its turns, the target can make another Constitution saving throw. On a success, the power ends on the target.</p>"
+        }
+      },
+      "10Iqm4ZJqH2Jzbw7": {
+        "type": "Save",
+        "_id": "10Iqm4ZJqH2Jzbw7",
+        "img": null,
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "60",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "@mod",
+              "energy"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "droid"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>Choose a droid or construct that you can see within range. The target must succeed on a Constitution saving throw or be paralyzed for the duration. At the beginning of each of its turns, the target takes energy damage equal to your forcecasting ability modifier. At the end of each of its turns, the target can make another Constitution saving throw. On a success, the power ends on the target.</p>"
+        }
+      },
+      "1PbXTFJfh3rqmrnY": {
+        "type": "Save",
+        "_id": "1PbXTFJfh3rqmrnY",
+        "img": null,
+        "description": {
+          "value": "<p>Choose a droid or construct that you can see within range. The target must succeed on a Constitution saving throw or be paralyzed for the duration. At the beginning of each of its turns, the target takes energy damage equal to your forcecasting ability modifier. At the end of each of its turns, the target can make another Constitution saving throw. On a success, the power ends on the target.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "@mod",
+              "energy"
+            ]
+          ]
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "droid"
+        },
+        "range": "60"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -118,7 +252,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979326,
-    "modifiedTime": 1725814714952,
+    "modifiedTime": 1729983827743,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

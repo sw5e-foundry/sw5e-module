@@ -1,18 +1,17 @@
 {
-  "_id": "7IT8z1HgmuLxQ6uJ",
   "name": "Absorption Shield",
-  "type": "feat",
-  "img": "modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp",
-  "effects": [],
-  "folder": null,
-  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:58.342215+00:00",
       "importer_version": 3,
-      "uid": "Feature.name-absorption_shield.source-archetypeinvocation.sourceName-armormech_engineering.level-None"
+      "uid": "Feature.name-absorption_shield.source-archetypeinvocation.sourceName-armormech_engineering"
+    },
+    "dnd5e": {
+      "migratedUses": null
     }
   },
+  "type": "feat",
+  "img": "modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp",
   "system": {
     "description": {
       "value": "<p><em><strong>Prerequisite:</strong> Physical Shield</em></p>\n<p>You modify your physical shield to block incoming damage. As a bonus action you can activate this ability and gain temporary hit points equal to [[/r 1d4]] + Intelligence modifier, which last for one hour.</p>\n<p>You can use this feature twice. You gain an additional use at 5th, 9th, 13th, and 17th level. You regain any expended uses when you finish a long rest.</p>",
@@ -20,101 +19,42 @@
     },
     "requirements": "Engineer (Armormech Engineering), Physical Shield",
     "source": {
-      "custom": "PHB"
-    },
-    "activation": {
-      "type": "bonus",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "1",
-      "units": "hour"
-    },
-    "cover": null,
-    "crewed": false,
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": null,
-      "long": null,
-      "units": ""
-    },
-    "uses": {
-      "value": null,
-      "max": "2",
-      "per": "lr",
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
-    },
-    "ability": null,
-    "actionType": "heal",
-    "chatFlavor": "",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [
-        [
-          "1d4",
-          "temphp"
-        ]
-      ],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "type": {
       "value": "class",
       "subtype": "engineerInvocation"
     },
-    "recharge": {
-      "value": null,
-      "charged": false
+    "uses": {
+      "max": "2",
+      "spent": 0,
+      "recovery": []
     },
-    "attributes": {
-      "speed": {
-        "space": null,
-        "turn": null
-      }
-    },
-    "attack": {
-      "bonus": "",
-      "flat": false
-    },
-    "enchantment": null,
-    "summons": null,
+    "activities": {},
+    "identifier": "absorption-shield",
+    "enchant": {},
     "prerequisites": {
       "level": null
     },
     "properties": []
   },
+  "effects": [],
+  "_id": "fkxtOa1R5DwmJrgR",
+  "folder": null,
+  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1674493980995,
-    "modifiedTime": 1720368785311,
+    "createdTime": 1729983888725,
+    "modifiedTime": 1729984216743,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!7IT8z1HgmuLxQ6uJ"
+  "_key": "!items!fkxtOa1R5DwmJrgR"
 }

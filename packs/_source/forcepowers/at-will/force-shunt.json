@@ -1,86 +1,81 @@
 {
-  "_id": "csJKPnGjFlC2D1XN",
   "name": "Force Shunt",
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/ForceShunt.webp",
-  "effects": [],
-  "folder": null,
-  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1537443+00:00",
       "importer_version": 3,
-      "uid": "Power.name-force_shunt.level-0"
+      "uid": "Power.name-force_shunt"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
+    "activities": {
+      "paJXb22lap9jKE0u": {
+        "type": "Save",
+        "_id": "paJXb22lap9jKE0u",
+        "img": null,
+        "description": {
+          "value": "<p>You use the Force to thrust a creature you can see to the ground. The target must make a Strength saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage and falls prone. </p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "str",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4",
+              "kinetic"
+            ]
+          ]
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "30"
+      }
+    },
     "description": {
       "value": "<p>You use the Force to thrust a creature you can see to the ground. The target must make a Strength saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage and falls prone. </p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
-      "value": "",
       "units": "inst"
     },
-    "cover": null,
-    "crewed": false,
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": 30,
-      "long": null,
-      "units": "ft"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
-    },
-    "ability": null,
-    "actionType": "save",
-    "chatFlavor": "",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [
-        [
-          "1d4",
-          "kinetic"
-        ]
-      ],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "str",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "uni",
     "materials": {
       "value": "",
       "consumed": false,
@@ -89,30 +84,46 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": true
+      "prepared": false
     },
-    "scaling": {
-      "mode": "atwill",
-      "formula": null
+    "properties": [],
+    "range": {
+      "value": "30",
+      "units": "ft"
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "school": "uni",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "enchantment": null,
-    "summons": null,
-    "properties": []
+    "uses": {
+      "spent": 0,
+      "recovery": []
+    },
+    "identifier": "force-shunt"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/ForceShunt.webp",
+  "effects": [],
+  "_id": "lh6okVjBQDCjA9Uk",
+  "folder": null,
+  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1674493979283,
-    "modifiedTime": 1720368782608,
+    "createdTime": 1729983828236,
+    "modifiedTime": 1729984159799,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!csJKPnGjFlC2D1XN"
+  "_key": "!items!lh6okVjBQDCjA9Uk"
 }

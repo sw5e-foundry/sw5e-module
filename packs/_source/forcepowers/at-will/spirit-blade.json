@@ -1,86 +1,80 @@
 {
-  "_id": "Ni3PTIVEyqriLgwg",
   "name": "Spirit Blade",
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/SpiritBlade.webp",
-  "effects": [],
-  "folder": null,
-  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1257603+00:00",
       "importer_version": 3,
-      "uid": "Power.name-spirit_blade.level-0"
+      "uid": "Power.name-spirit_blade"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
+    "activities": {
+      "1jv2oEjxRNwnksxn": {
+        "type": "Attack",
+        "_id": "1jv2oEjxRNwnksxn",
+        "img": null,
+        "description": {
+          "value": "<p>You conjure a blade of spirit energy and attempt to strike one creature. Make a melee force attack against the target. If the attack hits, the creature takes [[/r 1d10]] necrotic damage.</p>\n<p>This power can make multiple attacks at higher levels: two attacks at 5th level, three attacks at 11th level, and four attacks at 17th level. Each attack can target the same creature or different ones. Make a separate attack roll for each target.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d10",
+              "necrotic"
+            ]
+          ]
+        },
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "melee"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        }
+      }
+    },
     "description": {
       "value": "<p>You conjure a blade of spirit energy and attempt to strike one creature. Make a melee force attack against the target. If the attack hits, the creature takes [[/r 1d10]] necrotic damage.</p>\n<p>This power can make multiple attacks at higher levels: two attacks at 5th level, three attacks at 11th level, and four attacks at 17th level. Each attack can target the same creature or different ones. Make a separate attack roll for each target.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
-      "value": "",
       "units": "inst"
     },
-    "cover": null,
-    "crewed": false,
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": null,
-      "long": null,
-      "units": "touch"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
-    },
-    "ability": null,
-    "actionType": "mpak",
-    "chatFlavor": "",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [
-        [
-          "1d10",
-          "necrotic"
-        ]
-      ],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "uni",
     "materials": {
       "value": "",
       "consumed": false,
@@ -89,30 +83,45 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": true
+      "prepared": false
     },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+    "properties": [],
+    "range": {
+      "units": "touch"
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "school": "uni",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "enchantment": null,
-    "summons": null,
-    "properties": []
+    "uses": {
+      "spent": 0,
+      "recovery": []
+    },
+    "identifier": "spirit-blade"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/SpiritBlade.webp",
+  "effects": [],
+  "_id": "SKh5VcJ84oK2HFIW",
+  "folder": null,
+  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1674493979221,
-    "modifiedTime": 1720368781820,
+    "createdTime": 1729983828236,
+    "modifiedTime": 1729984158655,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!Ni3PTIVEyqriLgwg"
+  "_key": "!items!SKh5VcJ84oK2HFIW"
 }

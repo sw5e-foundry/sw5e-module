@@ -11,6 +11,13 @@
       "timestamp": "2023-03-09T01:51:54.5923893+00:00",
       "importer_version": 3,
       "uid": "Tool.name-poisoners_kit.equipmentCategory-kit"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      },
+      "persistSourceMigration": true
     }
   },
   "system": {
@@ -37,7 +44,7 @@
     "ability": "",
     "chatFlavor": "",
     "proficient": null,
-    "bonus": "",
+    "bonus": "0",
     "activation": {
       "type": "action",
       "cost": 1,
@@ -83,7 +90,64 @@
     "container": null,
     "attuned": false,
     "cover": null,
-    "crewed": false
+    "crewed": false,
+    "activities": {
+      "dnd5eactivity000": {
+        "activation": {
+          "type": "",
+          "value": null,
+          "condition": ""
+        },
+        "duration": {
+          "units": "inst",
+          "concentration": false,
+          "special": ""
+        },
+        "target": {
+          "template": {
+            "units": "ft",
+            "count": "",
+            "contiguous": false,
+            "type": "",
+            "size": "",
+            "width": "",
+            "height": ""
+          },
+          "affects": {
+            "count": "",
+            "type": "",
+            "choice": false,
+            "special": ""
+          },
+          "prompt": true
+        },
+        "_id": "dnd5eactivity000",
+        "type": "check",
+        "consumption": {
+          "targets": [],
+          "scaling": {
+            "allowed": false,
+            "max": ""
+          }
+        },
+        "description": {
+          "chatFlavor": ""
+        },
+        "effects": [],
+        "range": {
+          "units": "",
+          "special": ""
+        },
+        "uses": {
+          "spent": 0,
+          "max": "",
+          "recovery": []
+        },
+        "check": {
+          "ability": ""
+        }
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -91,10 +155,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493981985,
-    "modifiedTime": 1720368792749,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1727377270300,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!ofea5VziX4jBg5So"
 }

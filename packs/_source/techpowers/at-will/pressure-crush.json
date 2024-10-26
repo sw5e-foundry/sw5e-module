@@ -4,71 +4,77 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1777301+00:00",
       "importer_version": 3,
-      "uid": "Power.name-pressure_crush.level-0"
+      "uid": "Power.name-pressure_crush"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/PressureCrush.webp",
   "system": {
+    "activities": {
+      "1uMhGun5vBVOjCWE": {
+        "type": "Save",
+        "_id": "1uMhGun5vBVOjCWE",
+        "img": null,
+        "description": {
+          "value": "<p>You attempt to crush the body of a creature you touch. The target must make a Strength saving throw. If the creature is grappled or restrained by you or an effect you control, it makes the saving throw with disadvantage. On a failed save, the creature takes [[/r 1d12]] kinetic damage.</p>\n<p>This power's damage increases by [[/r 1d12]] when you reach 5th level ([[/r 2d12]]), 11th level ([[/r 3d12]]), and 17th level ([[/r 4d12]]).</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "str",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d12",
+              "kinetic"
+            ]
+          ]
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        }
+      }
+    },
     "description": {
       "value": "<p>You attempt to crush the body of a creature you touch. The target must make a Strength saving throw. If the creature is grappled or restrained by you or an effect you control, it makes the saving throw with disadvantage. On a failed save, the creature takes [[/r 1d12]] kinetic damage.</p>\n<p>This power's damage increases by [[/r 1d12]] when you reach 5th level ([[/r 2d12]]), 11th level ([[/r 3d12]]), and 17th level ([[/r 4d12]]).</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
-      "value": "",
       "units": "inst"
     },
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": null,
-      "long": null,
-      "units": "touch"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "ability": null,
-    "actionType": "save",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [
-        [
-          "1d12",
-          "kinetic"
-        ]
-      ],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "str",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "tec",
-    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -79,40 +85,43 @@
       "mode": "prepared",
       "prepared": false
     },
-    "scaling": {
-      "mode": "atwill",
-      "formula": null
+    "properties": [],
+    "range": {
+      "units": "touch"
     },
-    "cover": null,
-    "crewed": false,
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
+    "school": "tec",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "uses": {
+      "spent": 0,
+      "recovery": []
     },
-    "chatFlavor": "",
-    "enchantment": null,
-    "summons": null
+    "identifier": "pressure-crush"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/PressureCrush.webp",
   "effects": [],
-  "_id": "wo7gVqqFmaEwGyCX",
+  "_id": "ZZeNkFIRDJirAFgq",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1720296025398,
-    "modifiedTime": 1720368947903,
+    "createdTime": 1729983831335,
+    "modifiedTime": 1729984162638,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!wo7gVqqFmaEwGyCX"
+  "_key": "!items!ZZeNkFIRDJirAFgq"
 }

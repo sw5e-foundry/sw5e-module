@@ -16,6 +16,12 @@
       "migratedProperties": [
         "concentration"
       ]
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -108,7 +114,111 @@
       "flat": false
     },
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "wCQAmVKMS0W14aiG": {
+        "type": "Damage",
+        "_id": "wCQAmVKMS0W14aiG",
+        "img": null,
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4",
+              ""
+            ]
+          ]
+        },
+        "target": {
+          "value": 30,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Valor</em></p>\n<p>Envigorating energy radiates from you in a 30-foot radius. Until the power ends, the aura moves with you, centered on you. Each nonhostile creature in the aura (including you) deals an extra [[/r 1d4]] damage with weapon attacks.</p>"
+        }
+      },
+      "DkyZ8PefT0SR6Ax0": {
+        "type": "Damage",
+        "_id": "DkyZ8PefT0SR6Ax0",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4",
+              ""
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "target": {
+          "value": 30,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Valor</em></p>\n<p>Envigorating energy radiates from you in a 30-foot radius. Until the power ends, the aura moves with you, centered on you. Each nonhostile creature in the aura (including you) deals an extra [[/r 1d4]] damage with weapon attacks.</p>"
+        }
+      },
+      "1quXtJ2rbbWUHtAu": {
+        "type": "Damage",
+        "_id": "1quXtJ2rbbWUHtAu",
+        "img": null,
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Valor</em></p>\n<p>Envigorating energy radiates from you in a 30-foot radius. Until the power ends, the aura moves with you, centered on you. Each nonhostile creature in the aura (including you) deals an extra [[/r 1d4]] damage with weapon attacks.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4",
+              ""
+            ]
+          ]
+        },
+        "target": {
+          "value": 30,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        }
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -118,7 +228,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979321,
-    "modifiedTime": 1725814714952,
+    "modifiedTime": 1729983827628,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

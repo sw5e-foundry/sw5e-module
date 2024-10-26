@@ -1,86 +1,77 @@
 {
-  "_id": "oMQr9mzRJTjD71Xc",
   "name": "Affect Mind",
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/AffectMind.webp",
-  "effects": [],
-  "folder": null,
-  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1377525+00:00",
       "importer_version": 3,
-      "uid": "Power.name-affect_mind.level-0"
+      "uid": "Power.name-affect_mind"
     },
-    "sw5e": {
-      "migratedProperties": [
-        "concentration"
-      ]
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
+    "activities": {
+      "6jPkoXPSkPnzWipU": {
+        "type": "Save",
+        "_id": "6jPkoXPSkPnzWipU",
+        "img": null,
+        "description": {
+          "value": "<p>Choose a target within range that isn't hostile toward you. The target must make a Wisdom saving throw. On a failed save, you have advantage on all Charisma checks directed at that target. </p>\n<p>On a successful save, the creature does not realize that you tried to use the Force to influence its mood, but it becomes immune to this power for one day. This power has no effect on droids or constructs.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": []
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "30"
+      }
+    },
     "description": {
       "value": "<p>Choose a target within range that isn't hostile toward you. The target must make a Wisdom saving throw. On a failed save, you have advantage on all Charisma checks directed at that target. </p>\n<p>On a successful save, the creature does not realize that you tried to use the Force to influence its mood, but it becomes immune to this power for one day. This power has no effect on droids or constructs.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
       "value": "1",
       "units": "minute"
     },
-    "cover": null,
-    "crewed": false,
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": 30,
-      "long": null,
-      "units": "ft"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
-    },
-    "ability": null,
-    "actionType": "save",
-    "chatFlavor": "",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "wis",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "uni",
     "materials": {
       "value": "",
       "consumed": false,
@@ -89,32 +80,48 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": true
-    },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+      "prepared": false
     },
     "properties": [
       "concentration"
     ],
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "range": {
+      "value": "30",
+      "units": "ft"
     },
-    "enchantment": null,
-    "summons": null
+    "school": "uni",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
+    },
+    "uses": {
+      "spent": 0,
+      "recovery": []
+    },
+    "identifier": "affect-mind"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/AffectMind.webp",
+  "effects": [],
+  "_id": "Jtc9q1AYjlRQu6pZ",
+  "folder": null,
+  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1674493979314,
-    "modifiedTime": 1720368783163,
+    "createdTime": 1729983828236,
+    "modifiedTime": 1729984158222,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!oMQr9mzRJTjD71Xc"
+  "_key": "!items!Jtc9q1AYjlRQu6pZ"
 }

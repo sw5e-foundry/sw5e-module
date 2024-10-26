@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:52:03.1884037+00:00",
       "importer_version": 3,
       "uid": "Power.name-cryogenic_blow.level-1"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "spell",
@@ -99,7 +105,132 @@
     },
     "chatFlavor": "",
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "1fPZMouTEhsmnsfj": {
+        "type": "Save",
+        "_id": "1fPZMouTEhsmnsfj",
+        "img": null,
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "cold"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "str",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>The next time you hit a creature with a weapon attack during this power's duration, the attack deals an extra [[/r 1d6]] cold damage to the target. The target must make a Strength saving throw. On a failed save, it gains a level of slowed for the duration. At the start of each of its turns, the target can repeat the saving throw, ending the effect on itself on a success.</p>\n<p><strong><em>Overcharge Tech.</strong></em> If you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        }
+      },
+      "1idwrFxoup0316ai": {
+        "type": "Save",
+        "_id": "1idwrFxoup0316ai",
+        "img": null,
+        "save": {
+          "ability": "str",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "cold"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>The next time you hit a creature with a weapon attack during this power's duration, the attack deals an extra [[/r 1d6]] cold damage to the target. The target must make a Strength saving throw. On a failed save, it gains a level of slowed for the duration. At the start of each of its turns, the target can repeat the saving throw, ending the effect on itself on a success.</p>\n<p><strong><em>Overcharge Tech.</strong></em> If you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        }
+      },
+      "NFPEEX6mjs7zlLDx": {
+        "type": "Save",
+        "_id": "NFPEEX6mjs7zlLDx",
+        "img": null,
+        "description": {
+          "value": "<p>The next time you hit a creature with a weapon attack during this power's duration, the attack deals an extra [[/r 1d6]] cold damage to the target. The target must make a Strength saving throw. On a failed save, it gains a level of slowed for the duration. At the start of each of its turns, the target can repeat the saving throw, ending the effect on itself on a success.</p>\n<p><strong><em>Overcharge Tech.</strong></em> If you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        },
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "str",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "cold"
+            ]
+          ]
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        }
+      }
+    }
   },
   "effects": [],
   "_id": "W9IrWSKfnbsIj2QP",
@@ -113,7 +244,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1725814715249,
+    "modifiedTime": 1729984339984,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

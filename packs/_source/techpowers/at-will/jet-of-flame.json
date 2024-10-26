@@ -4,71 +4,78 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1637382+00:00",
       "importer_version": 3,
-      "uid": "Power.name-jet_of_flame.level-0"
+      "uid": "Power.name-jet_of_flame"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/JetOfFlame.webp",
   "system": {
+    "activities": {
+      "FHBRku5Oyj0eDF9u": {
+        "type": "Attack",
+        "_id": "FHBRku5Oyj0eDF9u",
+        "img": null,
+        "description": {
+          "value": "<p>A flickering flame appears in your hand. The flame remains there for the duration and harms neither you nor your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet. The power ends if you dismiss it as an action or if you cast it again.</p>\n<p>You can also attack with the flame, although doing so ends the power. When you cast this power, or as an action on a later turn, you can hurl the flame at a creature within 30 feet of you. Make a ranged tech attack. On a hit, the target takes [[/r 1d8]] fire damage. The fire ignites any flammable objects in the area that aren't being worn or carried.</p>\n<p>This power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": "10",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d8",
+              "fire"
+            ]
+          ]
+        },
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        }
+      }
+    },
     "description": {
       "value": "<p>A flickering flame appears in your hand. The flame remains there for the duration and harms neither you nor your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet. The power ends if you dismiss it as an action or if you cast it again.</p>\n<p>You can also attack with the flame, although doing so ends the power. When you cast this power, or as an action on a later turn, you can hurl the flame at a creature within 30 feet of you. Make a ranged tech attack. On a hit, the target takes [[/r 1d8]] fire damage. The fire ignites any flammable objects in the area that aren't being worn or carried.</p>\n<p>This power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
       "value": "10",
       "units": "minute"
     },
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": null,
-      "long": null,
-      "units": "self"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "ability": null,
-    "actionType": "rpak",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [
-        [
-          "1d8",
-          "fire"
-        ]
-      ],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "tec",
-    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -79,40 +86,43 @@
       "mode": "prepared",
       "prepared": false
     },
-    "scaling": {
-      "mode": "atwill",
-      "formula": null
+    "properties": [],
+    "range": {
+      "units": "self"
     },
-    "cover": null,
-    "crewed": false,
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
+    "school": "tec",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "uses": {
+      "spent": 0,
+      "recovery": []
     },
-    "chatFlavor": "",
-    "enchantment": null,
-    "summons": null
+    "identifier": "jet-of-flame"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/JetOfFlame.webp",
   "effects": [],
-  "_id": "X5E8vXmss3NgV8Tq",
+  "_id": "lxpgp9dd17BRRp7x",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1720296025398,
-    "modifiedTime": 1720368946873,
+    "createdTime": 1729983831335,
+    "modifiedTime": 1729984163404,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!X5E8vXmss3NgV8Tq"
+  "_key": "!items!lxpgp9dd17BRRp7x"
 }

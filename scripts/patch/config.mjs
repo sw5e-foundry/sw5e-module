@@ -117,13 +117,13 @@ export function patchConfig(config, strict=true) {
 	if (strict) config.weaponProficienciesMap = {};
 	config.weaponProficienciesMap = {
 		...config.weaponProficienciesMap,
-		simpleB: "sbl",
+		simpleBL: "sbl",
 		simpleLW: "slw",
 		simpleVW: "svb",
-		martialB: "mbl",
+		martialBL: "mbl",
 		martialLW: "mlw",
 		martialVW: "mvb",
-		exoticB: "ebl",
+		exoticBL: "ebl",
 		exoticLW: "elw",
 		exoticVW: "evw"
 	};

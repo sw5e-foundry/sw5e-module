@@ -1,81 +1,64 @@
 {
-  "_id": "EuSqtHDWzLMStByy",
   "name": "Force Whisper",
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/ForceWhisper.webp",
-  "effects": [],
-  "folder": null,
-  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1557424+00:00",
       "importer_version": 3,
-      "uid": "Power.name-force_whisper.level-0"
+      "uid": "Power.name-force_whisper"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
+    "activities": {
+      "1yr5HZsWkZPvyqJ6": {
+        "type": "Utility",
+        "_id": "1yr5HZsWkZPvyqJ6",
+        "img": null,
+        "description": {
+          "value": "<p>You use the Force to carry a message in your voice to another creature within range. The target (and only the target) hears the message and can reply in a whisper that only you can hear.</p>\n<p>You can cast this power through solid objects if you are familiar with the target and know it is beyond the barrier. An enhanced silence effect, 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood blocks the power. The power doesn't have to follow a straight line and can travel freely around corners or through openings.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "120"
+      }
+    },
     "description": {
       "value": "<p>You use the Force to carry a message in your voice to another creature within range. The target (and only the target) hears the message and can reply in a whisper that only you can hear.</p>\n<p>You can cast this power through solid objects if you are familiar with the target and know it is beyond the barrier. An enhanced silence effect, 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood blocks the power. The power doesn't have to follow a straight line and can travel freely around corners or through openings.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
       "value": "1",
       "units": "round"
     },
-    "cover": null,
-    "crewed": false,
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": 120,
-      "long": null,
-      "units": "ft"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
-    },
-    "ability": null,
-    "actionType": "other",
-    "chatFlavor": "",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "uni",
     "materials": {
       "value": "",
       "consumed": false,
@@ -84,30 +67,46 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": true
+      "prepared": false
     },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+    "properties": [],
+    "range": {
+      "value": "120",
+      "units": "ft"
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "school": "uni",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "enchantment": null,
-    "summons": null,
-    "properties": []
+    "uses": {
+      "spent": 0,
+      "recovery": []
+    },
+    "identifier": "force-whisper"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/ForceWhisper.webp",
+  "effects": [],
+  "_id": "V4aJvpgXQznWZogk",
+  "folder": null,
+  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1674493979197,
-    "modifiedTime": 1720368781357,
+    "createdTime": 1729983828236,
+    "modifiedTime": 1729984158818,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!EuSqtHDWzLMStByy"
+  "_key": "!items!V4aJvpgXQznWZogk"
 }

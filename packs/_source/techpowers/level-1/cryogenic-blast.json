@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:59.1477482+00:00",
       "importer_version": 3,
       "uid": "Power.name-cryogenic_blast.level-1"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "spell",
@@ -31,7 +37,12 @@
       "width": null,
       "units": "",
       "type": "",
-      "prompt": true
+      "prompt": true,
+      "template": {
+        "units": "ft",
+        "type": "radius",
+        "size": "5"
+      }
     },
     "range": {
       "value": 60,
@@ -101,7 +112,147 @@
     },
     "chatFlavor": "",
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "1CsxcrTOsasgBa9u": {
+        "type": "Attack",
+        "_id": "1CsxcrTOsasgBa9u",
+        "img": null,
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "range": "60",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d10",
+              "kinetic"
+            ],
+            [
+              "2d6",
+              "cold"
+            ]
+          ]
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You release a shard of cryogenic energy at one creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 1d10]] kinetic damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take [[/r 2d6]] cold damage.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the cold damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        }
+      },
+      "1FwjXn0hUqD71pHq": {
+        "type": "Attack",
+        "_id": "1FwjXn0hUqD71pHq",
+        "img": null,
+        "range": "60",
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d10",
+              "kinetic"
+            ],
+            [
+              "2d6",
+              "cold"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You release a shard of cryogenic energy at one creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 1d10]] kinetic damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take [[/r 2d6]] cold damage.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the cold damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        }
+      },
+      "OYkevsbhkfzXKNmP": {
+        "type": "Attack",
+        "_id": "OYkevsbhkfzXKNmP",
+        "img": null,
+        "description": {
+          "value": "<p>You release a shard of cryogenic energy at one creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 1d10]] kinetic damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take [[/r 2d6]] cold damage.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the cold damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d10",
+              "kinetic"
+            ],
+            [
+              "2d6",
+              "cold"
+            ]
+          ]
+        },
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "range": "60"
+      }
+    }
   },
   "effects": [],
   "_id": "BtPIWqiKDBC6FZng",
@@ -115,7 +266,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1725814715249,
+    "modifiedTime": 1729984339984,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

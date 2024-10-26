@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:06.0567417+00:00",
       "importer_version": 3,
       "uid": "Consumable.name-projector_tank_incendiary.equipmentCategory-ammunition"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -109,7 +115,129 @@
     "attuned": false,
     "enchantment": null,
     "summons": null,
-    "magicalBonus": null
+    "magicalBonus": null,
+    "activities": {
+      "BvkuhtDINtX18Mre": {
+        "type": "Save",
+        "_id": "BvkuhtDINtX18Mre",
+        "img": null,
+        "description": {
+          "value": "<p>When triggered, this vapor projector ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Dexterity saving throw, taking [[/r 2d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "cone"
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d8",
+              "fire"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        }
+      },
+      "yuLMp0lrOsHuhRhz": {
+        "type": "Save",
+        "_id": "yuLMp0lrOsHuhRhz",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d8",
+              "fire"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "cone"
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "description": {
+          "value": "<p>When triggered, this vapor projector ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Dexterity saving throw, taking [[/r 2d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
+        }
+      },
+      "NLwu6i0ofQyskohS": {
+        "type": "Save",
+        "_id": "NLwu6i0ofQyskohS",
+        "img": null,
+        "description": {
+          "value": "<p>When triggered, this vapor projector ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Dexterity saving throw, taking [[/r 2d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d8",
+              "fire"
+            ]
+          ]
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "cone"
+        }
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -117,10 +245,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493956740,
-    "modifiedTime": 1720368678518,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1729983824083,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!YcEOLA1eLtDmlJOI"
 }

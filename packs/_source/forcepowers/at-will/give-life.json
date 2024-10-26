@@ -1,81 +1,62 @@
 {
-  "_id": "osaJ5tsu7VYvU0qG",
   "name": "Give Life",
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/GiveLife.webp",
-  "effects": [],
-  "folder": null,
-  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1567429+00:00",
       "importer_version": 3,
-      "uid": "Power.name-give_life.level-0"
+      "uid": "Power.name-give_life"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
+    "activities": {
+      "HuG1pXGXBkP14U1s": {
+        "type": "Utility",
+        "_id": "HuG1pXGXBkP14U1s",
+        "img": null,
+        "description": {
+          "value": "<p>Placing your hand on another creature you can transfer your own life force to them. You spend and roll one of your Hit Dice and the creature regains that many hit points. This power has no effect on droids or constructs.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        }
+      }
+    },
     "description": {
       "value": "<p>Placing your hand on another creature you can transfer your own life force to them. You spend and roll one of your Hit Dice and the creature regains that many hit points. This power has no effect on droids or constructs.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
-      "value": "",
       "units": "inst"
     },
-    "cover": null,
-    "crewed": false,
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": null,
-      "long": null,
-      "units": "touch"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
-    },
-    "ability": null,
-    "actionType": "other",
-    "chatFlavor": "",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "lgt",
     "materials": {
       "value": "",
       "consumed": false,
@@ -84,30 +65,45 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": true
+      "prepared": false
     },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+    "properties": [],
+    "range": {
+      "units": "touch"
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "school": "lgt",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "enchantment": null,
-    "summons": null,
-    "properties": []
+    "uses": {
+      "spent": 0,
+      "recovery": []
+    },
+    "identifier": "give-life"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/GiveLife.webp",
+  "effects": [],
+  "_id": "mtz3tSjLllO32JJh",
+  "folder": null,
+  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1674493979315,
-    "modifiedTime": 1720368783174,
+    "createdTime": 1729983828236,
+    "modifiedTime": 1729984159932,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!osaJ5tsu7VYvU0qG"
+  "_key": "!items!mtz3tSjLllO32JJh"
 }

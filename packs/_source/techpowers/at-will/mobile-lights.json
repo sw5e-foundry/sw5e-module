@@ -4,68 +4,61 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1737327+00:00",
       "importer_version": 3,
-      "uid": "Power.name-mobile_lights.level-0"
+      "uid": "Power.name-mobile_lights"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/MobileLights.webp",
   "system": {
+    "activities": {
+      "1kgZnZ9hWsFVBSgP": {
+        "type": "Utility",
+        "_id": "1kgZnZ9hWsFVBSgP",
+        "img": null,
+        "description": {
+          "value": "<p>You create up to four orbs of light within range that hover in the air for the duration. You can also combine the four lights into one glowing vaguely humanoid form of Medium size. Whichever form you choose, each light sheds dim light in a 10-foot radius.</p>\n<p>As a bonus action on your turn, you can move the lights up to 60 feet to a new spot within range. A light must be within 20 feet of another light created by this power, and a light winks out if it exceeds the power's range.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "target": {
+          "value": 10,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "range": "120"
+      }
+    },
     "description": {
       "value": "<p>You create up to four orbs of light within range that hover in the air for the duration. You can also combine the four lights into one glowing vaguely humanoid form of Medium size. Whichever form you choose, each light sheds dim light in a 10-foot radius.</p>\n<p>As a bonus action on your turn, you can move the lights up to 60 feet to a new spot within range. A light must be within 20 feet of another light created by this power, and a light winks out if it exceeds the power's range.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
       "value": "1",
       "units": "minute"
     },
-    "target": {
-      "value": "10",
-      "width": null,
-      "units": "ft",
-      "type": "radius",
-      "prompt": true
-    },
-    "range": {
-      "value": 120,
-      "long": null,
-      "units": "ft"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "ability": null,
-    "actionType": "other",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "tec",
-    "properties": [
-      "concentration"
-    ],
     "materials": {
       "value": "",
       "consumed": false,
@@ -76,40 +69,48 @@
       "mode": "prepared",
       "prepared": false
     },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+    "properties": [
+      "concentration"
+    ],
+    "range": {
+      "value": "120",
+      "units": "ft"
     },
-    "cover": null,
-    "crewed": false,
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
+    "school": "tec",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "ft",
+        "type": "radius",
+        "size": "10",
+        "contiguous": false
+      }
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "uses": {
+      "spent": 0,
+      "recovery": []
     },
-    "chatFlavor": "",
-    "enchantment": null,
-    "summons": null
+    "identifier": "mobile-lights"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/MobileLights.webp",
   "effects": [],
-  "_id": "GaJF1vxg5KtncU65",
+  "_id": "bIDSLGCRKWmJofdk",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1720296025398,
-    "modifiedTime": 1720368946325,
+    "createdTime": 1729983831335,
+    "modifiedTime": 1729984162734,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!GaJF1vxg5KtncU65"
+  "_key": "!items!bIDSLGCRKWmJofdk"
 }

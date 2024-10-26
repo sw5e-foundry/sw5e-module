@@ -16,6 +16,12 @@
       "migratedProperties": [
         "concentration"
       ]
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -112,7 +118,147 @@
       "flat": false
     },
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "1sZLlmIYmRJ411fN": {
+        "type": "Save",
+        "_id": "1sZLlmIYmRJ411fN",
+        "img": null,
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "range": "150",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "necrotic"
+            ],
+            [
+              "2d6",
+              "poison"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "str",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Dark Side Tendrils</em></p>\n<p>You summon a 20-foot-radius sphere of inky blackness at a point within range. No light, enhanced or otherwise, can illuminate the area, creatures fully within the area are blinded, and the area is difficult terrain. Any creature that starts its turn in the area takes [[/r 2d6]] necrotic damage. Any creature that ends its turn in the area must succeed on a Strength saving throw or take [[/r 2d6]] poison damage as tendrils of dark energy caress it.</p>"
+        }
+      },
+      "1fXsWBKupBjXmzpB": {
+        "type": "Save",
+        "_id": "1fXsWBKupBjXmzpB",
+        "img": null,
+        "save": {
+          "ability": "str",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "150",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "necrotic"
+            ],
+            [
+              "2d6",
+              "poison"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Dark Side Tendrils</em></p>\n<p>You summon a 20-foot-radius sphere of inky blackness at a point within range. No light, enhanced or otherwise, can illuminate the area, creatures fully within the area are blinded, and the area is difficult terrain. Any creature that starts its turn in the area takes [[/r 2d6]] necrotic damage. Any creature that ends its turn in the area must succeed on a Strength saving throw or take [[/r 2d6]] poison damage as tendrils of dark energy caress it.</p>"
+        }
+      },
+      "U3FeVRe2UY117di0": {
+        "type": "Save",
+        "_id": "U3FeVRe2UY117di0",
+        "img": null,
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Dark Side Tendrils</em></p>\n<p>You summon a 20-foot-radius sphere of inky blackness at a point within range. No light, enhanced or otherwise, can illuminate the area, creatures fully within the area are blinded, and the area is difficult terrain. Any creature that starts its turn in the area takes [[/r 2d6]] necrotic damage. Any creature that ends its turn in the area must succeed on a Strength saving throw or take [[/r 2d6]] poison damage as tendrils of dark energy caress it.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "str",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "necrotic"
+            ],
+            [
+              "2d6",
+              "poison"
+            ]
+          ]
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "range": "150"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -122,7 +268,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979339,
-    "modifiedTime": 1725814714952,
+    "modifiedTime": 1729983828006,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

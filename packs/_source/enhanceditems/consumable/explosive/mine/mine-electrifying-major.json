@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:20.4064215+00:00",
       "importer_version": 3,
       "uid": "EnhancedItem.name-mine_electrifying_major.subtype-explosive"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -113,7 +119,144 @@
     "attuned": false,
     "enchantment": null,
     "summons": null,
-    "magicalBonus": null
+    "magicalBonus": null,
+    "activities": {
+      "1onjpb4TJuL1CdOd": {
+        "type": "Save",
+        "_id": "1onjpb4TJuL1CdOd",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 18 Dexterity saving throw. A creature takes [[/r 6d6]] lightning damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Mine, electrifying</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] lightning damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "15",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "lightning"
+            ],
+            [
+              "6d6",
+              "lightning"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        }
+      },
+      "ie87qHS5ajW1sAYI": {
+        "type": "Save",
+        "_id": "ie87qHS5ajW1sAYI",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "15",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "lightning"
+            ],
+            [
+              "6d6",
+              "lightning"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 18 Dexterity saving throw. A creature takes [[/r 6d6]] lightning damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Mine, electrifying</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] lightning damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        }
+      },
+      "JTWSqu3vWS1nSpMg": {
+        "type": "Save",
+        "_id": "JTWSqu3vWS1nSpMg",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 18 Dexterity saving throw. A creature takes [[/r 6d6]] lightning damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Mine, electrifying</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] lightning damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "lightning"
+            ],
+            [
+              "6d6",
+              "lightning"
+            ]
+          ]
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "range": "15"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -121,10 +264,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493964886,
-    "modifiedTime": 1720418048515,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1729984337414,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!gdKc6iX2VrOHXKUe"
 }

@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:59.189724+00:00",
       "importer_version": 3,
       "uid": "Power.name-toxic_cloud.level-5"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "spell",
@@ -99,7 +105,135 @@
     },
     "chatFlavor": "",
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "1SIUUqJRXdvgvyOj": {
+        "type": "Save",
+        "_id": "1SIUUqJRXdvgvyOj",
+        "img": null,
+        "duration": {
+          "value": "10",
+          "units": "minute"
+        },
+        "range": "120",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "5d8",
+              "poison"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You create a 20-foot-radius sphere of poisonous, yellow-green fog centered on a point you choose within range. The fog spreads around corners. It lasts for the duration or until strong wind disperses the fog, ending the power. Its area is heavily obscured.</p>\n<p>When a creature enters the power's area for the first time on a turn or starts its turn there, that creature must make a Constitution saving throw. The creature takes [[/r 5d8]] poison damage on a failed save, or half as much damage on a successful one. Creatures are affected even if they hold their breath or don't need to breathe.</p>\n<p>The fog moves 10 feet away from you at the start of each of your turns, rolling along the surface of the ground. The vapors, being heavier than air, sink to the lowest level of the land, even pouring down openings.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, the damage increases by [[/r 1d8]] for each slot level above 5th.</p>"
+        }
+      },
+      "HQf2887uM0F13Ara": {
+        "type": "Save",
+        "_id": "HQf2887uM0F13Ara",
+        "img": null,
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "120",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "5d8",
+              "poison"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "10",
+          "units": "minute"
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You create a 20-foot-radius sphere of poisonous, yellow-green fog centered on a point you choose within range. The fog spreads around corners. It lasts for the duration or until strong wind disperses the fog, ending the power. Its area is heavily obscured.</p>\n<p>When a creature enters the power's area for the first time on a turn or starts its turn there, that creature must make a Constitution saving throw. The creature takes [[/r 5d8]] poison damage on a failed save, or half as much damage on a successful one. Creatures are affected even if they hold their breath or don't need to breathe.</p>\n<p>The fog moves 10 feet away from you at the start of each of your turns, rolling along the surface of the ground. The vapors, being heavier than air, sink to the lowest level of the land, even pouring down openings.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, the damage increases by [[/r 1d8]] for each slot level above 5th.</p>"
+        }
+      },
+      "1CrsZePpCFkeoXK0": {
+        "type": "Save",
+        "_id": "1CrsZePpCFkeoXK0",
+        "img": null,
+        "description": {
+          "value": "<p>You create a 20-foot-radius sphere of poisonous, yellow-green fog centered on a point you choose within range. The fog spreads around corners. It lasts for the duration or until strong wind disperses the fog, ending the power. Its area is heavily obscured.</p>\n<p>When a creature enters the power's area for the first time on a turn or starts its turn there, that creature must make a Constitution saving throw. The creature takes [[/r 5d8]] poison damage on a failed save, or half as much damage on a successful one. Creatures are affected even if they hold their breath or don't need to breathe.</p>\n<p>The fog moves 10 feet away from you at the start of each of your turns, rolling along the surface of the ground. The vapors, being heavier than air, sink to the lowest level of the land, even pouring down openings.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, the damage increases by [[/r 1d8]] for each slot level above 5th.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "10",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "5d8",
+              "poison"
+            ]
+          ]
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "range": "120"
+      }
+    }
   },
   "effects": [],
   "_id": "gbNUF51juNl9hKao",
@@ -113,7 +247,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1725814715249,
+    "modifiedTime": 1729984339984,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

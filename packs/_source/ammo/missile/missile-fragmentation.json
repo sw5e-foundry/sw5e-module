@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:51:54.5933886+00:00",
       "importer_version": 3,
       "uid": "Consumable.name-missile_fragmentation.equipmentCategory-ammunition"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -113,7 +119,144 @@
     "attuned": false,
     "enchantment": null,
     "summons": null,
-    "magicalBonus": null
+    "magicalBonus": null,
+    "activities": {
+      "18uwniHPOUVP1DiG": {
+        "type": "Save",
+        "_id": "18uwniHPOUVP1DiG",
+        "img": null,
+        "description": {
+          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Additionally, hit or miss, the missile then explodes. The target and each creature within 5 feet must make a DC 14 Dexterity saving throw, taking [[/r 1d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "5",
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "kinetic"
+            ],
+            [
+              "1d10",
+              "kinetic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        }
+      },
+      "JnG15Bh3nCzGQIoA": {
+        "type": "Save",
+        "_id": "JnG15Bh3nCzGQIoA",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "5",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "kinetic"
+            ],
+            [
+              "1d10",
+              "kinetic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "description": {
+          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Additionally, hit or miss, the missile then explodes. The target and each creature within 5 feet must make a DC 14 Dexterity saving throw, taking [[/r 1d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
+        }
+      },
+      "1sBfjnTzAkLa14mL": {
+        "type": "Save",
+        "_id": "1sBfjnTzAkLa14mL",
+        "img": null,
+        "description": {
+          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Additionally, hit or miss, the missile then explodes. The target and each creature within 5 feet must make a DC 14 Dexterity saving throw, taking [[/r 1d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "kinetic"
+            ],
+            [
+              "1d10",
+              "kinetic"
+            ]
+          ]
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "range": "5"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -121,10 +264,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493956744,
-    "modifiedTime": 1720368678547,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1729983824107,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!dP1OJg8DNYwKRbbN"
 }

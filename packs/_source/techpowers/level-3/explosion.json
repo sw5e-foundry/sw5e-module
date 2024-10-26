@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:59.1547431+00:00",
       "importer_version": 3,
       "uid": "Power.name-explosion.level-3"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "spell",
@@ -97,7 +103,135 @@
     },
     "chatFlavor": "",
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "1upJMBZ0h6Md163V": {
+        "type": "Save",
+        "_id": "1upJMBZ0h6Md163V",
+        "img": null,
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "range": "150",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d6",
+              "fire"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You create an explosion at a point within range. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes [[/r 8d6]] fire damage on a failed save, or half as much damage on a successful one.</p>\n<p>The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the damage increases by [[/r 1d6]] for each slot level above 3rd.</p>"
+        }
+      },
+      "1uRG18lzaBK31QE5": {
+        "type": "Save",
+        "_id": "1uRG18lzaBK31QE5",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "150",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d6",
+              "fire"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You create an explosion at a point within range. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes [[/r 8d6]] fire damage on a failed save, or half as much damage on a successful one.</p>\n<p>The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the damage increases by [[/r 1d6]] for each slot level above 3rd.</p>"
+        }
+      },
+      "1D08cB5yOtN6YZ1g": {
+        "type": "Save",
+        "_id": "1D08cB5yOtN6YZ1g",
+        "img": null,
+        "description": {
+          "value": "<p>You create an explosion at a point within range. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes [[/r 8d6]] fire damage on a failed save, or half as much damage on a successful one.</p>\n<p>The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the damage increases by [[/r 1d6]] for each slot level above 3rd.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d6",
+              "fire"
+            ]
+          ]
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "range": "150"
+      }
+    }
   },
   "effects": [],
   "_id": "bRIhEQ3aXdUfhReD",
@@ -111,7 +245,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1725814715249,
+    "modifiedTime": 1729984339984,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -1,81 +1,77 @@
 {
-  "_id": "Pwh9nYTlJXLzoGGZ",
   "name": "Slow",
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/Slow.webp",
-  "effects": [],
-  "folder": null,
-  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1257603+00:00",
       "importer_version": 3,
-      "uid": "Power.name-slow.level-0"
+      "uid": "Power.name-slow"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
+    "activities": {
+      "15J54SAQgtIZpXGn": {
+        "type": "Save",
+        "_id": "15J54SAQgtIZpXGn",
+        "img": null,
+        "description": {
+          "value": "<p>A hostile creature of your choice must make a Constitution saving throw. On a failed save, the target gains 1 slowed level until the power ends. At the end of each of the creature's turns, it repeats this saving throw, ending the effect on a success.</p>\n<p>This power can affect multiple targets when you reach higher levels: two targets at 5th level, three targets at 11th level, and four targets at 17th level. </p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "hour"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": []
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "15"
+      }
+    },
     "description": {
       "value": "<p>A hostile creature of your choice must make a Constitution saving throw. On a failed save, the target gains 1 slowed level until the power ends. At the end of each of the creature's turns, it repeats this saving throw, ending the effect on a success.</p>\n<p>This power can affect multiple targets when you reach higher levels: two targets at 5th level, three targets at 11th level, and four targets at 17th level. </p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
       "value": "1",
       "units": "hour"
     },
-    "cover": null,
-    "crewed": false,
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": 15,
-      "long": null,
-      "units": "ft"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
-    },
-    "ability": null,
-    "actionType": "save",
-    "chatFlavor": "",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "con",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "drk",
     "materials": {
       "value": "",
       "consumed": false,
@@ -84,30 +80,46 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": true
+      "prepared": false
     },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+    "properties": [],
+    "range": {
+      "value": "15",
+      "units": "ft"
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "school": "drk",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "enchantment": null,
-    "summons": null,
-    "properties": []
+    "uses": {
+      "spent": 0,
+      "recovery": []
+    },
+    "identifier": "slow"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/Slow.webp",
+  "effects": [],
+  "_id": "wAl7hKB7QRRTKQNW",
+  "folder": null,
+  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1674493979227,
-    "modifiedTime": 1720368781935,
+    "createdTime": 1729983828236,
+    "modifiedTime": 1729984160481,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!Pwh9nYTlJXLzoGGZ"
+  "_key": "!items!wAl7hKB7QRRTKQNW"
 }

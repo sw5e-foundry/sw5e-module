@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:51:59.1277594+00:00",
       "importer_version": 3,
       "uid": "Power.name-tremor.level-1"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -101,7 +107,135 @@
     },
     "enchantment": null,
     "summons": null,
-    "properties": []
+    "properties": [],
+    "activities": {
+      "15aBsbKffRFTMrn8": {
+        "type": "Save",
+        "_id": "15aBsbKffRFTMrn8",
+        "img": null,
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "range": "10",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d8",
+              "kinetic"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Burst</em></p>\n<p>You cause a tremor in the ground within range. Each creature other than you in a 5-foot-radius sphere centered on that point must make a Dexterity saving throw. On a failed save, a creature takes [[/r 1d8]] kinetic damage and is knocked prone. On a successful save, the creature takes half as much damage and isn't knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the damage increases by [[/r 1d8]] for each slot level above 1st.</p>"
+        }
+      },
+      "1skd552Vpvvj1mcd": {
+        "type": "Save",
+        "_id": "1skd552Vpvvj1mcd",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "10",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d8",
+              "kinetic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Burst</em></p>\n<p>You cause a tremor in the ground within range. Each creature other than you in a 5-foot-radius sphere centered on that point must make a Dexterity saving throw. On a failed save, a creature takes [[/r 1d8]] kinetic damage and is knocked prone. On a successful save, the creature takes half as much damage and isn't knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the damage increases by [[/r 1d8]] for each slot level above 1st.</p>"
+        }
+      },
+      "1BQGyIit2Vg49A7p": {
+        "type": "Save",
+        "_id": "1BQGyIit2Vg49A7p",
+        "img": null,
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Burst</em></p>\n<p>You cause a tremor in the ground within range. Each creature other than you in a 5-foot-radius sphere centered on that point must make a Dexterity saving throw. On a failed save, a creature takes [[/r 1d8]] kinetic damage and is knocked prone. On a successful save, the creature takes half as much damage and isn't knocked prone. If the ground in that area is loose earth or stone, it becomes difficult terrain until cleared, with each 5-foot-diameter portion requiring at least 1 minute to clear by hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the damage increases by [[/r 1d8]] for each slot level above 1st.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d8",
+              "kinetic"
+            ]
+          ]
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "range": "10"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -111,7 +245,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979280,
-    "modifiedTime": 1725814714952,
+    "modifiedTime": 1729984339562,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

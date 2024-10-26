@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:13.463446+00:00",
       "importer_version": 3,
       "uid": "Consumable.name-arrow_combustive.equipmentCategory-ammunition"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -109,7 +115,129 @@
     "attuned": false,
     "enchantment": null,
     "summons": null,
-    "magicalBonus": null
+    "magicalBonus": null,
+    "activities": {
+      "1ToLqHjd94jJ1raS": {
+        "type": "Save",
+        "_id": "1ToLqHjd94jJ1raS",
+        "img": null,
+        "description": {
+          "value": "<p>A combustive arrow is a specialized arrow for use with bow weapons. When the arrow hits another creature, object, or surface it detonates. Each creature within 5ft of the arrows detonation must make a DC 14 Dexterity saving throw or take [[/r 1d8]] fire damage. On a successful save, a creature takes half damage. Once the arrow hits a target, it no longer gives a bonus.</p>"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d8",
+              "fire"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        }
+      },
+      "1Hd6QoWcFu4VkuFG": {
+        "type": "Save",
+        "_id": "1Hd6QoWcFu4VkuFG",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d8",
+              "fire"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "description": {
+          "value": "<p>A combustive arrow is a specialized arrow for use with bow weapons. When the arrow hits another creature, object, or surface it detonates. Each creature within 5ft of the arrows detonation must make a DC 14 Dexterity saving throw or take [[/r 1d8]] fire damage. On a successful save, a creature takes half damage. Once the arrow hits a target, it no longer gives a bonus.</p>"
+        }
+      },
+      "lWepHlBoGVK1Op3Y": {
+        "type": "Save",
+        "_id": "lWepHlBoGVK1Op3Y",
+        "img": null,
+        "description": {
+          "value": "<p>A combustive arrow is a specialized arrow for use with bow weapons. When the arrow hits another creature, object, or surface it detonates. Each creature within 5ft of the arrows detonation must make a DC 14 Dexterity saving throw or take [[/r 1d8]] fire damage. On a successful save, a creature takes half damage. Once the arrow hits a target, it no longer gives a bonus.</p>"
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d8",
+              "fire"
+            ]
+          ]
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        }
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -117,10 +245,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493956750,
-    "modifiedTime": 1720368678594,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1729983824149,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!n1gjy0mheXViYfsE"
 }

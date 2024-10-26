@@ -16,6 +16,12 @@
       "migratedProperties": [
         "concentration"
       ]
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -108,7 +114,135 @@
       "flat": false
     },
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "pFTgQnwI2uYvh3jy": {
+        "type": "Save",
+        "_id": "pFTgQnwI2uYvh3jy",
+        "img": null,
+        "duration": {
+          "value": "1",
+          "units": "hour"
+        },
+        "range": "60",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d8",
+              "psychic"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "creature"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>Choose one creature you can see. The target must make a Wisdom saving throw. A creature takes [[/r 3d8]] psychic damage on a failed save, or half as much damage on a successful one. Additionally, on a failed save, you always know the target's location, but only while the two of you are on the same planet. The target can't become hidden from you, and if it's invisible, it gains no benefits from this condition against you. This power has no effect on droids or constructs.</p>"
+        }
+      },
+      "1jwLhAzTFrxH9p3M": {
+        "type": "Save",
+        "_id": "1jwLhAzTFrxH9p3M",
+        "img": null,
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "60",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d8",
+              "psychic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "hour"
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "creature"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>Choose one creature you can see. The target must make a Wisdom saving throw. A creature takes [[/r 3d8]] psychic damage on a failed save, or half as much damage on a successful one. Additionally, on a failed save, you always know the target's location, but only while the two of you are on the same planet. The target can't become hidden from you, and if it's invisible, it gains no benefits from this condition against you. This power has no effect on droids or constructs.</p>"
+        }
+      },
+      "akkVSjC51bnPtmIL": {
+        "type": "Save",
+        "_id": "akkVSjC51bnPtmIL",
+        "img": null,
+        "description": {
+          "value": "<p>Choose one creature you can see. The target must make a Wisdom saving throw. A creature takes [[/r 3d8]] psychic damage on a failed save, or half as much damage on a successful one. Additionally, on a failed save, you always know the target's location, but only while the two of you are on the same planet. The target can't become hidden from you, and if it's invisible, it gains no benefits from this condition against you. This power has no effect on droids or constructs.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "hour"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d8",
+              "psychic"
+            ]
+          ]
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "creature"
+        },
+        "range": "60"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -118,7 +252,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979276,
-    "modifiedTime": 1725814714952,
+    "modifiedTime": 1729983826776,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

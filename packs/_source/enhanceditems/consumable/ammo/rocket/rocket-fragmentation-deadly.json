@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:20.3644457+00:00",
       "importer_version": 3,
       "uid": "EnhancedItem.name-rocket_fragmentation_deadly.subtype-ammunition"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -121,7 +127,168 @@
     "attuned": false,
     "enchantment": null,
     "summons": null,
-    "magicalBonus": null
+    "magicalBonus": null,
+    "activities": {
+      "1MMhukRXZ2Gd1JjA": {
+        "type": "Save",
+        "_id": "1MMhukRXZ2Gd1JjA",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced rocket launcher ammunition, which deals [[/r 2d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the rocket is fired, it no longer gives a bonus. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 20 Dexterity saving throw, taking [[/r 8d10]] kinetic damage on a failed save or half as much on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Rocket, fragmentation</h2>\n<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "15",
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "kinetic"
+            ],
+            [
+              "2d10",
+              "kinetic"
+            ],
+            [
+              "2d6",
+              "kinetic"
+            ],
+            [
+              "8d10",
+              "kinetic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
+        }
+      },
+      "vHOyhX3P17t1GO6q": {
+        "type": "Save",
+        "_id": "vHOyhX3P17t1GO6q",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "15",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "kinetic"
+            ],
+            [
+              "2d10",
+              "kinetic"
+            ],
+            [
+              "2d6",
+              "kinetic"
+            ],
+            [
+              "8d10",
+              "kinetic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "description": {
+          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced rocket launcher ammunition, which deals [[/r 2d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the rocket is fired, it no longer gives a bonus. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 20 Dexterity saving throw, taking [[/r 8d10]] kinetic damage on a failed save or half as much on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Rocket, fragmentation</h2>\n<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
+        }
+      },
+      "XQ6RryweH6Z1EgrU": {
+        "type": "Save",
+        "_id": "XQ6RryweH6Z1EgrU",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced rocket launcher ammunition, which deals [[/r 2d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the rocket is fired, it no longer gives a bonus. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 20 Dexterity saving throw, taking [[/r 8d10]] kinetic damage on a failed save or half as much on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Rocket, fragmentation</h2>\n<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "kinetic"
+            ],
+            [
+              "2d10",
+              "kinetic"
+            ],
+            [
+              "2d6",
+              "kinetic"
+            ],
+            [
+              "8d10",
+              "kinetic"
+            ]
+          ]
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "range": "15"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -129,10 +296,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493964667,
-    "modifiedTime": 1720418048515,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1729984337414,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!P41YSAEMKqaqVmzX"
 }

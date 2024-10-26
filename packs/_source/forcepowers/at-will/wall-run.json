@@ -1,81 +1,63 @@
 {
-  "_id": "OXCqf3AU8vB9cQMQ",
   "name": "Wall Run",
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/WallRun.webp",
-  "effects": [],
-  "folder": null,
-  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:52:02.9945172+00:00",
       "importer_version": 3,
-      "uid": "Power.name-wall_run.level-0"
+      "uid": "Power.name-wall_run"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
+    "activities": {
+      "Mqubdc7u6t81G7VL": {
+        "type": "Utility",
+        "_id": "Mqubdc7u6t81G7VL",
+        "img": null,
+        "description": {
+          "value": "<p>Until the end of the turn, you have a climbing speed equal to your walking speed and you have advantage on Dexterity (Acrobatics) and Strength (Athletics) checks that involve movement. For the same duration, you can move up, down, and across vertical surfaces while leaving your hands free. This does not allow you to move upside down along ceilings. If you are on a vertical surface when you no longer have a climbing speed, you immediately fall unless you have some other means of remaining there.</p>"
+        },
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "turn"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        }
+      }
+    },
     "description": {
       "value": "<p>Until the end of the turn, you have a climbing speed equal to your walking speed and you have advantage on Dexterity (Acrobatics) and Strength (Athletics) checks that involve movement. For the same duration, you can move up, down, and across vertical surfaces while leaving your hands free. This does not allow you to move upside down along ceilings. If you are on a vertical surface when you no longer have a climbing speed, you immediately fall unless you have some other means of remaining there.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "EC"
+      "custom": "EC",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "bonus",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
       "value": "1",
       "units": "turn"
     },
-    "cover": null,
-    "crewed": false,
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": null,
-      "long": null,
-      "units": "self"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
-    },
-    "ability": null,
-    "actionType": "other",
-    "chatFlavor": "",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "uni",
     "materials": {
       "value": "",
       "consumed": false,
@@ -84,30 +66,45 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": true
+      "prepared": false
     },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+    "properties": [],
+    "range": {
+      "units": "self"
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "school": "uni",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "enchantment": null,
-    "summons": null,
-    "properties": []
+    "uses": {
+      "spent": 0,
+      "recovery": []
+    },
+    "identifier": "wall-run"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/WallRun.webp",
+  "effects": [],
+  "_id": "dckBwP4hWaSlFgJS",
+  "folder": null,
+  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1674493979224,
-    "modifiedTime": 1720368781886,
+    "createdTime": 1729983828236,
+    "modifiedTime": 1729984159357,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!OXCqf3AU8vB9cQMQ"
+  "_key": "!items!dckBwP4hWaSlFgJS"
 }

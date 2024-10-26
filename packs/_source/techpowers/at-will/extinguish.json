@@ -4,71 +4,78 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1547431+00:00",
       "importer_version": 3,
-      "uid": "Power.name-extinguish.level-0"
+      "uid": "Power.name-extinguish"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/Extinguish.webp",
   "system": {
+    "activities": {
+      "19rDqBqcIyuK1Amb": {
+        "type": "Save",
+        "_id": "19rDqBqcIyuK1Amb",
+        "img": null,
+        "description": {
+          "value": "<p>You spray carbon foam in a 5-foot cube originating from a point within range. Flames within the affected area are instantly quenched, and objects within the affected area cannot be ignited for at least one minute. Any creature in the affected area must make a Constitution saving throw or take [[/r 1d4]] cold damage.</p>\n<p>When you reach 5th level, this power can instead target a 10-foot cube within range. You gain additional options of increasing size when you reach 11th level (15-foot cube), and 17th level (20-foot cube).</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4",
+              "cold"
+            ]
+          ]
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "cube"
+        },
+        "range": "30"
+      }
+    },
     "description": {
       "value": "<p>You spray carbon foam in a 5-foot cube originating from a point within range. Flames within the affected area are instantly quenched, and objects within the affected area cannot be ignited for at least one minute. Any creature in the affected area must make a Constitution saving throw or take [[/r 1d4]] cold damage.</p>\n<p>When you reach 5th level, this power can instead target a 10-foot cube within range. You gain additional options of increasing size when you reach 11th level (15-foot cube), and 17th level (20-foot cube).</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB"
+      "custom": "PHB",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
-      "value": "",
       "units": "inst"
     },
-    "target": {
-      "value": "5",
-      "width": null,
-      "units": "ft",
-      "type": "cube",
-      "prompt": true
-    },
-    "range": {
-      "value": 30,
-      "long": null,
-      "units": "ft"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "ability": null,
-    "actionType": "save",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [
-        [
-          "1d4",
-          "cold"
-        ]
-      ],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "con",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "tec",
-    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -79,40 +86,46 @@
       "mode": "prepared",
       "prepared": false
     },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+    "properties": [],
+    "range": {
+      "value": "30",
+      "units": "ft"
     },
-    "cover": null,
-    "crewed": false,
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
+    "school": "tec",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "ft",
+        "type": "cube",
+        "size": "5",
+        "contiguous": false
+      }
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "uses": {
+      "spent": 0,
+      "recovery": []
     },
-    "chatFlavor": "",
-    "enchantment": null,
-    "summons": null
+    "identifier": "extinguish"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/Extinguish.webp",
   "effects": [],
-  "_id": "7Hj2ZcTVNUUMr40E",
+  "_id": "1GJjQx5BioB2Au3f",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1720296025398,
-    "modifiedTime": 1720368945936,
+    "createdTime": 1729983831335,
+    "modifiedTime": 1729984160953,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!7Hj2ZcTVNUUMr40E"
+  "_key": "!items!1GJjQx5BioB2Au3f"
 }

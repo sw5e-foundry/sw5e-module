@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:20.4304087+00:00",
       "importer_version": 3,
       "uid": "EnhancedItem.name-grenade_cryo_major.subtype-explosive"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -113,7 +119,144 @@
     "attuned": false,
     "enchantment": null,
     "summons": null,
-    "magicalBonus": null
+    "magicalBonus": null,
+    "activities": {
+      "1KUhCRUJCykF14p0": {
+        "type": "Save",
+        "_id": "1KUhCRUJCykF14p0",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 18 Constitution saving throw. A creature takes [[/r 6d6]] cold damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature gains 1 slowed level for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Grenade, cryo</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Constitution saving throw. A creature takes [[/r 2d6]] cold damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, a creature gains 1 slowed level for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        },
+        "target": {
+          "value": 10,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "30",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "cold"
+            ],
+            [
+              "6d6",
+              "cold"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        }
+      },
+      "di2ShSZeZKacCo40": {
+        "type": "Save",
+        "_id": "di2ShSZeZKacCo40",
+        "img": null,
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "30",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "cold"
+            ],
+            [
+              "6d6",
+              "cold"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "target": {
+          "value": 10,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 18 Constitution saving throw. A creature takes [[/r 6d6]] cold damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature gains 1 slowed level for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Grenade, cryo</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Constitution saving throw. A creature takes [[/r 2d6]] cold damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, a creature gains 1 slowed level for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        }
+      },
+      "1EDECDyHQUKC1iVg": {
+        "type": "Save",
+        "_id": "1EDECDyHQUKC1iVg",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 18 Constitution saving throw. A creature takes [[/r 6d6]] cold damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature gains 1 slowed level for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Grenade, cryo</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Constitution saving throw. A creature takes [[/r 2d6]] cold damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, a creature gains 1 slowed level for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "cold"
+            ],
+            [
+              "6d6",
+              "cold"
+            ]
+          ]
+        },
+        "target": {
+          "value": 10,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "range": "30"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -121,10 +264,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493964850,
-    "modifiedTime": 1720418048515,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1729984337414,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!cxKV9ZvCDocCorV0"
 }

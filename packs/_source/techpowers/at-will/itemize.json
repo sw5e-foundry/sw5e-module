@@ -4,66 +4,60 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:52:03.1894037+00:00",
       "importer_version": 3,
-      "uid": "Power.name-itemize.level-0"
+      "uid": "Power.name-itemize"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/Itemize.webp",
   "system": {
+    "activities": {
+      "1IgqkrepNcZo1Ggs": {
+        "type": "Utility",
+        "_id": "1IgqkrepNcZo1Ggs",
+        "img": null,
+        "description": {
+          "value": "<p>You instantly learn the exact quantity of one type of item within 30 feet of you. It must be a type of item that you've handled in the past; you can't, for example, use <em>itemize</em> to find out how many <em>BKGs</em> are nearby if you've never handled such a weapon. The object being itemized must also be reasonably specific. You can learn how many meilooruns are nearby, for example, but not how much fruit.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "30"
+      }
+    },
     "description": {
       "value": "<p>You instantly learn the exact quantity of one type of item within 30 feet of you. It must be a type of item that you've handled in the past; you can't, for example, use <em>itemize</em> to find out how many <em>BKGs</em> are nearby if you've never handled such a weapon. The object being itemized must also be reasonably specific. You can learn how many meilooruns are nearby, for example, but not how much fruit.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "EC"
+      "custom": "EC",
+      "revision": 1,
+      "rules": "2024"
     },
     "activation": {
       "type": "action",
-      "cost": 1,
-      "condition": ""
+      "condition": "",
+      "value": 1
     },
     "duration": {
-      "value": "",
       "units": "inst"
     },
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": 30,
-      "long": null,
-      "units": "ft"
-    },
-    "uses": {
-      "value": null,
-      "max": "",
-      "per": null,
-      "recovery": "",
-      "prompt": true
-    },
-    "ability": null,
-    "actionType": "other",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
-    },
     "level": 0,
-    "school": "tec",
-    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -74,40 +68,44 @@
       "mode": "prepared",
       "prepared": false
     },
-    "scaling": {
-      "mode": "none",
-      "formula": null
+    "properties": [],
+    "range": {
+      "value": "30",
+      "units": "ft"
     },
-    "cover": null,
-    "crewed": false,
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
+    "school": "tec",
+    "target": {
+      "affects": {
+        "choice": false
+      },
+      "template": {
+        "units": "",
+        "contiguous": false
+      }
     },
-    "attack": {
-      "bonus": "",
-      "flat": false
+    "uses": {
+      "spent": 0,
+      "recovery": []
     },
-    "chatFlavor": "",
-    "enchantment": null,
-    "summons": null
+    "identifier": "itemize"
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/Itemize.webp",
   "effects": [],
-  "_id": "fqXVxe6xTCpWlM7I",
+  "_id": "tVlZ8f0v1P29S85Y",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1720296025398,
-    "modifiedTime": 1720368947267,
+    "createdTime": 1729983831335,
+    "modifiedTime": 1729984163833,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!fqXVxe6xTCpWlM7I"
+  "_key": "!items!tVlZ8f0v1P29S85Y"
 }

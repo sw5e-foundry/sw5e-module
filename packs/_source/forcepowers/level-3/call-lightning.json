@@ -16,6 +16,12 @@
       "migratedProperties": [
         "concentration"
       ]
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -112,7 +118,126 @@
       "flat": false
     },
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "ReUSjVBXzfr2e6oC": {
+        "type": "Damage",
+        "_id": "ReUSjVBXzfr2e6oC",
+        "img": null,
+        "duration": {
+          "value": "10",
+          "units": "minute"
+        },
+        "range": "120",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d10",
+              "lightning"
+            ],
+            [
+              "1d10",
+              "lightning "
+            ]
+          ]
+        },
+        "target": {
+          "value": 60,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>As you align yourself with nature through the Force, a 10-foot tall, 60-foot radius storm cloud cylinder appears, centered on a point you can see within range above you, with you as the center point. The power fails if your location can't accommodate the cloud's size or height. When you cast the power, choose a point under the cloud for lightning to strike. Each creature within 5 feet must make a Dexterity save, taking [[/r 3d10]] lightning damage on a fail and half on a success. While the power persists, you can use your action to call lightning to a point in range again.</p>\n<p>If you're outdoors and in a storm, the power gives you control of the storm rather than creating a new one. The lightning damage also increases by [[/r 1d10]].</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d10]] for each slot level above 3rd.</p>"
+        }
+      },
+      "eRbyPwGi9S41Fmvt": {
+        "type": "Damage",
+        "_id": "eRbyPwGi9S41Fmvt",
+        "img": null,
+        "range": "120",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d10",
+              "lightning"
+            ],
+            [
+              "1d10",
+              "lightning "
+            ]
+          ]
+        },
+        "duration": {
+          "value": "10",
+          "units": "minute"
+        },
+        "target": {
+          "value": 60,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>As you align yourself with nature through the Force, a 10-foot tall, 60-foot radius storm cloud cylinder appears, centered on a point you can see within range above you, with you as the center point. The power fails if your location can't accommodate the cloud's size or height. When you cast the power, choose a point under the cloud for lightning to strike. Each creature within 5 feet must make a Dexterity save, taking [[/r 3d10]] lightning damage on a fail and half on a success. While the power persists, you can use your action to call lightning to a point in range again.</p>\n<p>If you're outdoors and in a storm, the power gives you control of the storm rather than creating a new one. The lightning damage also increases by [[/r 1d10]].</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d10]] for each slot level above 3rd.</p>"
+        }
+      },
+      "1k66xl6Ug11t1rlo": {
+        "type": "Damage",
+        "_id": "1k66xl6Ug11t1rlo",
+        "img": null,
+        "description": {
+          "value": "<p>As you align yourself with nature through the Force, a 10-foot tall, 60-foot radius storm cloud cylinder appears, centered on a point you can see within range above you, with you as the center point. The power fails if your location can't accommodate the cloud's size or height. When you cast the power, choose a point under the cloud for lightning to strike. Each creature within 5 feet must make a Dexterity save, taking [[/r 3d10]] lightning damage on a fail and half on a success. While the power persists, you can use your action to call lightning to a point in range again.</p>\n<p>If you're outdoors and in a storm, the power gives you control of the storm rather than creating a new one. The lightning damage also increases by [[/r 1d10]].</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d10]] for each slot level above 3rd.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": "10",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d10",
+              "lightning"
+            ],
+            [
+              "1d10",
+              "lightning "
+            ]
+          ]
+        },
+        "target": {
+          "value": 60,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "range": "120"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -122,7 +247,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979331,
-    "modifiedTime": 1725814714952,
+    "modifiedTime": 1729984339562,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

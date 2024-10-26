@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:04.8214574+00:00",
       "importer_version": 3,
       "uid": "EnhancedItem.name-tihaar_special.subtype-substance"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -121,7 +127,267 @@
     "attuned": false,
     "enchantment": null,
     "summons": null,
-    "magicalBonus": null
+    "magicalBonus": null,
+    "activities": {
+      "GvWymoxsvbn1Oqdr": {
+        "type": "Save",
+        "_id": "GvWymoxsvbn1Oqdr",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Substance)</h4>\n <p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next hour, the creature experiences a high that allows them to roll an additional [[/r d12]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d12]] temporary hit points. At the end of the high, the creature must succeed on a DC 24 Constitution saving throw or experience a low that lasts 8 hours, during which they must roll a [[/r d12]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d12]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 24 Wisdom saving throw to resist addiction.</p>\n<p>&nbsp;</p>\n<h2>Tihaar</h2>\n<p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next minute, the creature experiences a high that allows them to roll an additional [[/r d3]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d3]] temporary hit points. At the end of the high, the creature must succeed on a DC 14 Constitution saving throw or experience a low that lasts 10 minutes, during which they must roll a [[/r d3]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d3]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 14 Wisdom saving throw to resist addiction.</p>"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "5",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d3",
+              ""
+            ],
+            [
+              "1d12",
+              ""
+            ],
+            [
+              "1d12",
+              ""
+            ],
+            [
+              "2d12",
+              ""
+            ]
+          ]
+        },
+        "duration": {
+          "value": 1,
+          "units": "hour"
+        }
+      },
+      "1kKEM8yglO8j16on": {
+        "type": "Heal",
+        "_id": "1kKEM8yglO8j16on",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Substance)</h4>\n <p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next hour, the creature experiences a high that allows them to roll an additional [[/r d12]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d12]] temporary hit points. At the end of the high, the creature must succeed on a DC 24 Constitution saving throw or experience a low that lasts 8 hours, during which they must roll a [[/r d12]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d12]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 24 Wisdom saving throw to resist addiction.</p>\n<p>&nbsp;</p>\n<h2>Tihaar</h2>\n<p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next minute, the creature experiences a high that allows them to roll an additional [[/r d3]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d3]] temporary hit points. At the end of the high, the creature must succeed on a DC 14 Constitution saving throw or experience a low that lasts 10 minutes, during which they must roll a [[/r d3]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d3]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 14 Wisdom saving throw to resist addiction.</p>"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "5",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "duration": {
+          "value": 1,
+          "units": "hour"
+        },
+        "healing": [
+          [
+            "2d3",
+            "temphp"
+          ],
+          [
+            "2d12",
+            "temphp"
+          ]
+        ]
+      },
+      "1dyzeg6lr8Ll1DJL": {
+        "type": "Save",
+        "_id": "1dyzeg6lr8Ll1DJL",
+        "img": null,
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "5",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d3",
+              ""
+            ],
+            [
+              "1d12",
+              ""
+            ],
+            [
+              "1d12",
+              ""
+            ],
+            [
+              "2d12",
+              ""
+            ]
+          ]
+        },
+        "duration": {
+          "value": 1,
+          "units": "hour"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "description": {
+          "value": "<h4>Consumable (Substance)</h4>\n <p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next hour, the creature experiences a high that allows them to roll an additional [[/r d12]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d12]] temporary hit points. At the end of the high, the creature must succeed on a DC 24 Constitution saving throw or experience a low that lasts 8 hours, during which they must roll a [[/r d12]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d12]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 24 Wisdom saving throw to resist addiction.</p>\n<p>&nbsp;</p>\n<h2>Tihaar</h2>\n<p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next minute, the creature experiences a high that allows them to roll an additional [[/r d3]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d3]] temporary hit points. At the end of the high, the creature must succeed on a DC 14 Constitution saving throw or experience a low that lasts 10 minutes, during which they must roll a [[/r d3]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d3]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 14 Wisdom saving throw to resist addiction.</p>"
+        }
+      },
+      "fIZwm7LmNY5uLsYr": {
+        "type": "Heal",
+        "_id": "fIZwm7LmNY5uLsYr",
+        "img": null,
+        "range": "5",
+        "healing": [
+          [
+            "2d3",
+            "temphp"
+          ],
+          [
+            "2d12",
+            "temphp"
+          ]
+        ],
+        "duration": {
+          "value": 1,
+          "units": "hour"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "description": {
+          "value": "<h4>Consumable (Substance)</h4>\n <p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next hour, the creature experiences a high that allows them to roll an additional [[/r d12]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d12]] temporary hit points. At the end of the high, the creature must succeed on a DC 24 Constitution saving throw or experience a low that lasts 8 hours, during which they must roll a [[/r d12]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d12]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 24 Wisdom saving throw to resist addiction.</p>\n<p>&nbsp;</p>\n<h2>Tihaar</h2>\n<p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next minute, the creature experiences a high that allows them to roll an additional [[/r d3]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d3]] temporary hit points. At the end of the high, the creature must succeed on a DC 14 Constitution saving throw or experience a low that lasts 10 minutes, during which they must roll a [[/r d3]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d3]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 14 Wisdom saving throw to resist addiction.</p>"
+        }
+      },
+      "2bojgGJRqJ2rluaG": {
+        "type": "Save",
+        "_id": "2bojgGJRqJ2rluaG",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Substance)</h4>\n <p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next hour, the creature experiences a high that allows them to roll an additional [[/r d12]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d12]] temporary hit points. At the end of the high, the creature must succeed on a DC 24 Constitution saving throw or experience a low that lasts 8 hours, during which they must roll a [[/r d12]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d12]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 24 Wisdom saving throw to resist addiction.</p>\n<p>&nbsp;</p>\n<h2>Tihaar</h2>\n<p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next minute, the creature experiences a high that allows them to roll an additional [[/r d3]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d3]] temporary hit points. At the end of the high, the creature must succeed on a DC 14 Constitution saving throw or experience a low that lasts 10 minutes, during which they must roll a [[/r d3]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d3]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 14 Wisdom saving throw to resist addiction.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "duration": {
+          "value": 1,
+          "units": "hour"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d3",
+              ""
+            ],
+            [
+              "1d12",
+              ""
+            ],
+            [
+              "1d12",
+              ""
+            ],
+            [
+              "2d12",
+              ""
+            ]
+          ]
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "5"
+      },
+      "3KOHpIOpl13UIzPW": {
+        "type": "Heal",
+        "_id": "3KOHpIOpl13UIzPW",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Substance)</h4>\n <p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next hour, the creature experiences a high that allows them to roll an additional [[/r d12]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d12]] temporary hit points. At the end of the high, the creature must succeed on a DC 24 Constitution saving throw or experience a low that lasts 8 hours, during which they must roll a [[/r d12]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d12]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 24 Wisdom saving throw to resist addiction.</p>\n<p>&nbsp;</p>\n<h2>Tihaar</h2>\n<p>This colorless spirit, favored by Mandalorians, burns the mouth and throat when consumed. As an action, you can apply this substance to a creature within 5 feet. For the next minute, the creature experiences a high that allows them to roll an additional [[/r d3]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d3]] temporary hit points. At the end of the high, the creature must succeed on a DC 14 Constitution saving throw or experience a low that lasts 10 minutes, during which they must roll a [[/r d3]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d3]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 14 Wisdom saving throw to resist addiction.</p>"
+        },
+        "healing": [
+          [
+            "2d3",
+            "temphp"
+          ],
+          [
+            "2d12",
+            "temphp"
+          ]
+        ],
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "duration": {
+          "value": 1,
+          "units": "hour"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "5"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -129,10 +395,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493964651,
-    "modifiedTime": 1720418048515,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1729984337414,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!NI6yJbnjhXGohUb6"
 }

@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:52:03.1874053+00:00",
       "importer_version": 3,
       "uid": "Power.name-aid_droid.level-1"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "spell",
@@ -97,7 +103,99 @@
     },
     "chatFlavor": "",
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "19gz0yVIQsl81ptm": {
+        "type": "Heal",
+        "_id": "19gz0yVIQsl81ptm",
+        "img": null,
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "range": "60",
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "droid"
+        },
+        "healing": [
+          [
+            "1d6 + @mod",
+            "healing"
+          ]
+        ],
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>Choose one droid or construct that you can see within range. The target can immediately use its reaction to regain hit points equal to [[/r 1d6]] + your techcasting ability modifier.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the healing increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        }
+      },
+      "1sgyjBahNkoJHQWH": {
+        "type": "Heal",
+        "_id": "1sgyjBahNkoJHQWH",
+        "img": null,
+        "range": "60",
+        "healing": [
+          [
+            "1d6 + @mod",
+            "healing"
+          ]
+        ],
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "droid"
+        },
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>Choose one droid or construct that you can see within range. The target can immediately use its reaction to regain hit points equal to [[/r 1d6]] + your techcasting ability modifier.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the healing increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        }
+      },
+      "1wwQSQ1xZNeC1uUM": {
+        "type": "Heal",
+        "_id": "1wwQSQ1xZNeC1uUM",
+        "img": null,
+        "description": {
+          "value": "<p>Choose one droid or construct that you can see within range. The target can immediately use its reaction to regain hit points equal to [[/r 1d6]] + your techcasting ability modifier.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the healing increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        },
+        "healing": [
+          [
+            "1d6 + @mod",
+            "healing"
+          ]
+        ],
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "droid"
+        },
+        "range": "60"
+      }
+    }
   },
   "effects": [],
   "_id": "tFu9B84rlm9ZozVQ",
@@ -111,7 +209,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1725814715249,
+    "modifiedTime": 1729984339984,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

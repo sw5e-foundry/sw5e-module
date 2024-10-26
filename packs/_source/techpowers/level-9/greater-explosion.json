@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:59.1577411+00:00",
       "importer_version": 3,
       "uid": "Power.name-greater_explosion.level-9"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "spell",
@@ -97,7 +103,135 @@
     },
     "chatFlavor": "",
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "1JCkL8LUr0881phO": {
+        "type": "Save",
+        "_id": "1JCkL8LUr0881phO",
+        "img": null,
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "range": "150",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "40d6",
+              "fire"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 40,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You expell a massive explosion at a point within range. Each creature in a 40-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes [[/r 40d6]] fire damage and is knocked prone on a failed save, or half as much damage on a successful one but remain standing.</p>\n<p>The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
+        }
+      },
+      "If5836hHMhgOscIh": {
+        "type": "Save",
+        "_id": "If5836hHMhgOscIh",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "150",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "40d6",
+              "fire"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 40,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You expell a massive explosion at a point within range. Each creature in a 40-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes [[/r 40d6]] fire damage and is knocked prone on a failed save, or half as much damage on a successful one but remain standing.</p>\n<p>The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
+        }
+      },
+      "ucu75usULC51TuRl": {
+        "type": "Save",
+        "_id": "ucu75usULC51TuRl",
+        "img": null,
+        "description": {
+          "value": "<p>You expell a massive explosion at a point within range. Each creature in a 40-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes [[/r 40d6]] fire damage and is knocked prone on a failed save, or half as much damage on a successful one but remain standing.</p>\n<p>The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "40d6",
+              "fire"
+            ]
+          ]
+        },
+        "target": {
+          "value": 40,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "range": "150"
+      }
+    }
   },
   "effects": [],
   "_id": "t2EP5qutzeEqKAmw",
@@ -111,7 +245,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1725814715249,
+    "modifiedTime": 1729984339984,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

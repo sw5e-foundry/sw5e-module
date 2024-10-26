@@ -16,6 +16,12 @@
       "migratedProperties": [
         "concentration"
       ]
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -108,7 +114,135 @@
       "flat": false
     },
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "1797atV38qbOh8rK": {
+        "type": "Save",
+        "_id": "1797atV38qbOh8rK",
+        "img": null,
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "range": "120",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "5d10",
+              "psychic"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 30,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Hysteria</em></p>\n<p>Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, manifesting their worst nightmares as an implacable threat visible only to them. Each creature in a 30-foot-radius sphere is frightened for the duration of the power. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take [[/r 5d10]] psychic damage. On a successful save, the power ends for that creature. This power has no effect on droids or constructs.</p>"
+        }
+      },
+      "aqWVONbtBhX1wTiw": {
+        "type": "Save",
+        "_id": "aqWVONbtBhX1wTiw",
+        "img": null,
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "120",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "5d10",
+              "psychic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "target": {
+          "value": 30,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Hysteria</em></p>\n<p>Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, manifesting their worst nightmares as an implacable threat visible only to them. Each creature in a 30-foot-radius sphere is frightened for the duration of the power. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take [[/r 5d10]] psychic damage. On a successful save, the power ends for that creature. This power has no effect on droids or constructs.</p>"
+        }
+      },
+      "I0hns31p6C9buwh8": {
+        "type": "Save",
+        "_id": "I0hns31p6C9buwh8",
+        "img": null,
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Hysteria</em></p>\n<p>Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, manifesting their worst nightmares as an implacable threat visible only to them. Each creature in a 30-foot-radius sphere is frightened for the duration of the power. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take [[/r 5d10]] psychic damage. On a successful save, the power ends for that creature. This power has no effect on droids or constructs.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "5d10",
+              "psychic"
+            ]
+          ]
+        },
+        "target": {
+          "value": 30,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "range": "120"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -118,7 +252,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979286,
-    "modifiedTime": 1725814714952,
+    "modifiedTime": 1729983826968,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

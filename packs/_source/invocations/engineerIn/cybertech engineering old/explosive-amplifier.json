@@ -4,7 +4,10 @@
     "sw5e-importer": {
       "timestamp": "2023-05-30T20:14:19.9961229+00:00",
       "importer_version": 3,
-      "uid": "Feature.name-explosive_amplifier.source-archetypeinvocation.sourceName-cybertech_engineering_old.level-None"
+      "uid": "Feature.name-explosive_amplifier.source-archetypeinvocation.sourceName-cybertech_engineering_old"
+    },
+    "dnd5e": {
+      "migratedUses": null
     }
   },
   "type": "feat",
@@ -16,105 +19,42 @@
     },
     "requirements": "Engineer (Cybertech Engineering (Old))",
     "source": {
-      "custom": "EC"
-    },
-    "activation": {
-      "type": "special",
-      "cost": 1,
-      "condition": ""
-    },
-    "duration": {
-      "value": "",
-      "units": "inst"
-    },
-    "cover": null,
-    "crewed": false,
-    "target": {
-      "value": "",
-      "width": null,
-      "units": "",
-      "type": "",
-      "prompt": true
-    },
-    "range": {
-      "value": null,
-      "long": null,
-      "units": ""
-    },
-    "uses": {
-      "value": null,
-      "max": "max(@abilities.int.mod, 1)",
-      "per": "sr",
-      "recovery": "",
-      "prompt": true
-    },
-    "consume": {
-      "type": "",
-      "target": null,
-      "amount": null,
-      "scale": false
-    },
-    "ability": null,
-    "actionType": "other",
-    "chatFlavor": "",
-    "critical": {
-      "threshold": null,
-      "damage": ""
-    },
-    "damage": {
-      "parts": [
-        [
-          "@abilities.int.mod",
-          "fire"
-        ]
-      ],
-      "versatile": ""
-    },
-    "formula": "",
-    "save": {
-      "ability": "",
-      "dc": null,
-      "scaling": "spell"
+      "custom": "EC",
+      "revision": 1,
+      "rules": "2024"
     },
     "type": {
       "value": "class",
       "subtype": "engineerInvocation"
     },
-    "recharge": {
-      "value": null,
-      "charged": false
+    "uses": {
+      "max": "max(@abilities.int.mod, 1)",
+      "spent": 0,
+      "recovery": []
     },
-    "attributes": {
-      "speed": {
-        "space": 300,
-        "turn": 250
-      }
-    },
-    "attack": {
-      "bonus": "",
-      "flat": false
-    },
-    "enchantment": null,
-    "summons": null,
+    "activities": {},
+    "identifier": "explosive-amplifier",
+    "enchant": {},
     "prerequisites": {
       "level": null
     },
     "properties": []
   },
   "effects": [],
-  "_id": "fVFK19xUZZgBaDhx",
+  "_id": "WTetSN9b5yIuNE9Q",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
+    "duplicateSource": null,
+    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
-    "createdTime": 1698185225687,
-    "modifiedTime": 1720368789816,
+    "createdTime": 1729983888725,
+    "modifiedTime": 1729984215951,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!fVFK19xUZZgBaDhx"
+  "_key": "!items!WTetSN9b5yIuNE9Q"
 }

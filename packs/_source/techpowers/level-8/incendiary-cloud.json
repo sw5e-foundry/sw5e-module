@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:59.1617396+00:00",
       "importer_version": 3,
       "uid": "Power.name-incendiary_cloud.level-8"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "spell",
@@ -99,7 +105,135 @@
     },
     "chatFlavor": "",
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "1nBO2krDdHiUjSu7": {
+        "type": "Save",
+        "_id": "1nBO2krDdHiUjSu7",
+        "img": null,
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "range": "150",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "10d8",
+              "fire"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You create a swirling cloud of smoke shot through with white-hot embers in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.</p>\n<p>When the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes [[/r 10d8]] fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the power's area for the first time on a turn or ends its turn there.</p>\n<p>The cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.</p>"
+        }
+      },
+      "hMPK01aIrpdEse1r": {
+        "type": "Save",
+        "_id": "hMPK01aIrpdEse1r",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "150",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "10d8",
+              "fire"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You create a swirling cloud of smoke shot through with white-hot embers in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.</p>\n<p>When the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes [[/r 10d8]] fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the power's area for the first time on a turn or ends its turn there.</p>\n<p>The cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.</p>"
+        }
+      },
+      "1EVotakZsXn51AT1": {
+        "type": "Save",
+        "_id": "1EVotakZsXn51AT1",
+        "img": null,
+        "description": {
+          "value": "<p>You create a swirling cloud of smoke shot through with white-hot embers in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.</p>\n<p>When the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes [[/r 10d8]] fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the power's area for the first time on a turn or ends its turn there.</p>\n<p>The cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "10d8",
+              "fire"
+            ]
+          ]
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "range": "150"
+      }
+    }
   },
   "effects": [],
   "_id": "ZPXbVXek3Z7lUgaN",
@@ -113,7 +247,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1725814715249,
+    "modifiedTime": 1729983830001,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

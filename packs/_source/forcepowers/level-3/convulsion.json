@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:51:59.14275+00:00",
       "importer_version": 3,
       "uid": "Power.name-convulsion.level-3"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -101,7 +107,135 @@
     },
     "enchantment": null,
     "summons": null,
-    "properties": []
+    "properties": [],
+    "activities": {
+      "1J1ziGpInHwnWf9h": {
+        "type": "Save",
+        "_id": "1J1ziGpInHwnWf9h",
+        "img": null,
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "range": "120",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d12",
+              "kinetic"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "cube"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Tremor</em></p>\n<p>Choose a point you can see on the ground within range. A fountain of churned earth and stone erupts in a 20-foot cube centered on that point. Each creature in that area must make a Dexterity saving throw. A creature takes [[/r 3d12]] kinetic damage on a failed save, or half as much damage on a successful one. Additionally, the ground in that area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d12]] for each slot level above 3rd.</p>"
+        }
+      },
+      "x2dYCfB41J85gLfe": {
+        "type": "Save",
+        "_id": "x2dYCfB41J85gLfe",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "120",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d12",
+              "kinetic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "cube"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Tremor</em></p>\n<p>Choose a point you can see on the ground within range. A fountain of churned earth and stone erupts in a 20-foot cube centered on that point. Each creature in that area must make a Dexterity saving throw. A creature takes [[/r 3d12]] kinetic damage on a failed save, or half as much damage on a successful one. Additionally, the ground in that area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d12]] for each slot level above 3rd.</p>"
+        }
+      },
+      "RL6LQovUwSU1RCfA": {
+        "type": "Save",
+        "_id": "RL6LQovUwSU1RCfA",
+        "img": null,
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Tremor</em></p>\n<p>Choose a point you can see on the ground within range. A fountain of churned earth and stone erupts in a 20-foot cube centered on that point. Each creature in that area must make a Dexterity saving throw. A creature takes [[/r 3d12]] kinetic damage on a failed save, or half as much damage on a successful one. Additionally, the ground in that area becomes difficult terrain until cleared. Each 5-foot-square portion of the area requires at least 1 minute to clear by hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d12]] for each slot level above 3rd.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d12",
+              "kinetic"
+            ]
+          ]
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "cube"
+        },
+        "range": "120"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -111,7 +245,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979181,
-    "modifiedTime": 1725814714952,
+    "modifiedTime": 1729984339562,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

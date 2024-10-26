@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:20.4114191+00:00",
       "importer_version": 3,
       "uid": "EnhancedItem.name-mine_plasma_deadly.subtype-explosive"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -113,7 +119,144 @@
     "attuned": false,
     "enchantment": null,
     "summons": null,
-    "magicalBonus": null
+    "magicalBonus": null,
+    "activities": {
+      "f6gE2do4FITC0yew": {
+        "type": "Save",
+        "_id": "f6gE2do4FITC0yew",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 20 Dexterity saving throw. A creature takes [[/r 8d10]] energy damage on a failed save, or half as much as on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Mine, plasma</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] energy damage on a failed save, or half as much as on a successful one.</p>"
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "15",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d10",
+              "energy"
+            ],
+            [
+              "8d10",
+              "energy"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
+        }
+      },
+      "1IkUK7iGFb9ZS0wp": {
+        "type": "Save",
+        "_id": "1IkUK7iGFb9ZS0wp",
+        "img": null,
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "range": "15",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d10",
+              "energy"
+            ],
+            [
+              "8d10",
+              "energy"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 20 Dexterity saving throw. A creature takes [[/r 8d10]] energy damage on a failed save, or half as much as on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Mine, plasma</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] energy damage on a failed save, or half as much as on a successful one.</p>"
+        }
+      },
+      "1Mhf6MELY1qdtYPW": {
+        "type": "Save",
+        "_id": "1Mhf6MELY1qdtYPW",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 20 Dexterity saving throw. A creature takes [[/r 8d10]] energy damage on a failed save, or half as much as on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Mine, plasma</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] energy damage on a failed save, or half as much as on a successful one.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d10",
+              "energy"
+            ],
+            [
+              "8d10",
+              "energy"
+            ]
+          ]
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "range": "15"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -121,10 +264,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493964538,
-    "modifiedTime": 1720418048515,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1729984337414,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!Fy5i9lBqkMHKEVuc"
 }

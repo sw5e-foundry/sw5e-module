@@ -16,6 +16,12 @@
       "migratedProperties": [
         "concentration"
       ]
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -108,7 +114,135 @@
       "flat": false
     },
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "DwPJs0vHafrVKbvi": {
+        "type": "Save",
+        "_id": "DwPJs0vHafrVKbvi",
+        "img": null,
+        "duration": {
+          "value": "10",
+          "units": "minute"
+        },
+        "range": "150",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d8",
+              "psychic"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 60,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Shroud of Darkness</em></p>\n<p>Terrifying darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the power ends. The darkness spreads around corners. A creature with darkvision can't see through this darkness. Unenhanced light, as well as light created by powers of 8th level or lower, can't illuminate the area.</p>\n<p>Shrieks, gibbering, and mad laughter can be heard within the sphere. Whenever a creature starts its turn in the sphere, it must make a Wisdom saving throw, taking [[/r 8d8]] psychic damage on a failed save, or half as much damage on a successful one.</p>"
+        }
+      },
+      "1qv4Q8rPOW9H1kG0": {
+        "type": "Save",
+        "_id": "1qv4Q8rPOW9H1kG0",
+        "img": null,
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "150",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d8",
+              "psychic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "10",
+          "units": "minute"
+        },
+        "target": {
+          "value": 60,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Shroud of Darkness</em></p>\n<p>Terrifying darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the power ends. The darkness spreads around corners. A creature with darkvision can't see through this darkness. Unenhanced light, as well as light created by powers of 8th level or lower, can't illuminate the area.</p>\n<p>Shrieks, gibbering, and mad laughter can be heard within the sphere. Whenever a creature starts its turn in the sphere, it must make a Wisdom saving throw, taking [[/r 8d8]] psychic damage on a failed save, or half as much damage on a successful one.</p>"
+        }
+      },
+      "GbKW0kkYHSn1Gvhc": {
+        "type": "Save",
+        "_id": "GbKW0kkYHSn1Gvhc",
+        "img": null,
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Shroud of Darkness</em></p>\n<p>Terrifying darkness spreads from a point you choose within range to fill a 60-foot-radius sphere until the power ends. The darkness spreads around corners. A creature with darkvision can't see through this darkness. Unenhanced light, as well as light created by powers of 8th level or lower, can't illuminate the area.</p>\n<p>Shrieks, gibbering, and mad laughter can be heard within the sphere. Whenever a creature starts its turn in the sphere, it must make a Wisdom saving throw, taking [[/r 8d8]] psychic damage on a failed save, or half as much damage on a successful one.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": "10",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d8",
+              "psychic"
+            ]
+          ]
+        },
+        "target": {
+          "value": 60,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "range": "150"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -118,7 +252,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979327,
-    "modifiedTime": 1725814714952,
+    "modifiedTime": 1729983827761,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

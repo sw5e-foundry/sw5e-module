@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:20.481378+00:00",
       "importer_version": 3,
       "uid": "EnhancedItem.name-deafening_cell_lethal.subtype-ammunition"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -113,7 +119,141 @@
     "attuned": false,
     "enchantment": null,
     "summons": null,
-    "magicalBonus": null
+    "magicalBonus": null,
+    "activities": {
+      "1fjzrJHp832u19Zs": {
+        "type": "Save",
+        "_id": "1fjzrJHp832u19Zs",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack and damage rolls made with this enhanced deafening cell. This bonus is in addition to any bonuses granted by the weapon. Once the deafening cell is depleted, it no longer gives a bonus. Additionally, the loaded weapon deals sonic damage instead of its normal damage type, and when you hit with a shot the creature must make a DC 22 Constitution saving throw. On a failed save, the creature takes [[/r 1d8]] sonic damage and is deafened until the start of your next turn. On a successful save, a creature takes half damage and isn't deafened. </p>\n<p>&nbsp;</p>\n<h2>Deafening cell</h2>\n<p>A deafening cell is a specialized power cell for use with blaster weapons that deal acid, energy, fire, ion, or sonic damage. The loaded weapon deals sonic damage instead of its normal damage type, and when you hit with a shot the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] sonic damage and is deafened until the start of your next turn. On a successful save, a creature takes half damage and isn't deafened. </p>"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "sonic"
+            ],
+            [
+              "1d8",
+              "sonic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
+        }
+      },
+      "rDvorgoj9801n64H": {
+        "type": "Save",
+        "_id": "rDvorgoj9801n64H",
+        "img": null,
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "sonic"
+            ],
+            [
+              "1d8",
+              "sonic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "description": {
+          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack and damage rolls made with this enhanced deafening cell. This bonus is in addition to any bonuses granted by the weapon. Once the deafening cell is depleted, it no longer gives a bonus. Additionally, the loaded weapon deals sonic damage instead of its normal damage type, and when you hit with a shot the creature must make a DC 22 Constitution saving throw. On a failed save, the creature takes [[/r 1d8]] sonic damage and is deafened until the start of your next turn. On a successful save, a creature takes half damage and isn't deafened. </p>\n<p>&nbsp;</p>\n<h2>Deafening cell</h2>\n<p>A deafening cell is a specialized power cell for use with blaster weapons that deal acid, energy, fire, ion, or sonic damage. The loaded weapon deals sonic damage instead of its normal damage type, and when you hit with a shot the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] sonic damage and is deafened until the start of your next turn. On a successful save, a creature takes half damage and isn't deafened. </p>"
+        }
+      },
+      "w7C0m65W0wM1dlKI": {
+        "type": "Save",
+        "_id": "w7C0m65W0wM1dlKI",
+        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack and damage rolls made with this enhanced deafening cell. This bonus is in addition to any bonuses granted by the weapon. Once the deafening cell is depleted, it no longer gives a bonus. Additionally, the loaded weapon deals sonic damage instead of its normal damage type, and when you hit with a shot the creature must make a DC 22 Constitution saving throw. On a failed save, the creature takes [[/r 1d8]] sonic damage and is deafened until the start of your next turn. On a successful save, a creature takes half damage and isn't deafened. </p>\n<p>&nbsp;</p>\n<h2>Deafening cell</h2>\n<p>A deafening cell is a specialized power cell for use with blaster weapons that deal acid, energy, fire, ion, or sonic damage. The loaded weapon deals sonic damage instead of its normal damage type, and when you hit with a shot the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] sonic damage and is deafened until the start of your next turn. On a successful save, a creature takes half damage and isn't deafened. </p>"
+        },
+        "activation": {
+          "type": null,
+          "cost": null
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "sonic"
+            ],
+            [
+              "1d8",
+              "sonic"
+            ]
+          ]
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        }
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -121,10 +261,11 @@
   "_stats": {
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "coreVersion": "11.315",
+    "coreVersion": "12.331",
     "createdTime": 1674493964767,
-    "modifiedTime": 1720418048515,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "modifiedTime": 1729984337414,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
   "_key": "!items!ZMptcTDlBySlJGK7"
 }

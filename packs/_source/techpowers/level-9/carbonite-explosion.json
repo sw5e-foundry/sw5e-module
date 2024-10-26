@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:59.1457493+00:00",
       "importer_version": 3,
       "uid": "Power.name-carbonite_explosion.level-9"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "spell",
@@ -97,7 +103,135 @@
     },
     "chatFlavor": "",
     "enchantment": null,
-    "summons": null
+    "summons": null,
+    "activities": {
+      "16C3MDP5lcbkT6wc": {
+        "type": "Save",
+        "_id": "16C3MDP5lcbkT6wc",
+        "img": null,
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "range": "250",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d6 + 20",
+              "cold"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 60,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You generate an explosion of cryogenic energy in a 60-foot-radius sphere centered on a point you can see </p>\n<p>within range. Each creature in the affected area must make a Constitution saving throw. On a failed save, the creature takes [[/r 8d6 + 20]] cold damage and is restrained for 1 minute as it is encased in carbonite. On a successful save, the creature takes half damage and is restrained until the end of its next turn. </p>\n<p>As an action, a restrained creature can make a Strength check against your tech save DC, ending this effect on itself on a success.</p>\n<p>A creature reduced to 0 hit points by this power dies instantly, as its body shatters into frozen chunks.</p>"
+        }
+      },
+      "qxlF10bH2LJ15SkW": {
+        "type": "Save",
+        "_id": "qxlF10bH2LJ15SkW",
+        "img": null,
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "range": "250",
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d6 + 20",
+              "cold"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 60,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You generate an explosion of cryogenic energy in a 60-foot-radius sphere centered on a point you can see </p>\n<p>within range. Each creature in the affected area must make a Constitution saving throw. On a failed save, the creature takes [[/r 8d6 + 20]] cold damage and is restrained for 1 minute as it is encased in carbonite. On a successful save, the creature takes half damage and is restrained until the end of its next turn. </p>\n<p>As an action, a restrained creature can make a Strength check against your tech save DC, ending this effect on itself on a success.</p>\n<p>A creature reduced to 0 hit points by this power dies instantly, as its body shatters into frozen chunks.</p>"
+        }
+      },
+      "leBDlexLIWW1Kusn": {
+        "type": "Save",
+        "_id": "leBDlexLIWW1Kusn",
+        "img": null,
+        "description": {
+          "value": "<p>You generate an explosion of cryogenic energy in a 60-foot-radius sphere centered on a point you can see </p>\n<p>within range. Each creature in the affected area must make a Constitution saving throw. On a failed save, the creature takes [[/r 8d6 + 20]] cold damage and is restrained for 1 minute as it is encased in carbonite. On a successful save, the creature takes half damage and is restrained until the end of its next turn. </p>\n<p>As an action, a restrained creature can make a Strength check against your tech save DC, ending this effect on itself on a success.</p>\n<p>A creature reduced to 0 hit points by this power dies instantly, as its body shatters into frozen chunks.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d6 + 20",
+              "cold"
+            ]
+          ]
+        },
+        "target": {
+          "value": 60,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
+        },
+        "range": "250"
+      }
+    }
   },
   "effects": [],
   "_id": "bhxYk5gTU4ujyaQ9",
@@ -111,7 +245,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1725814715249,
+    "modifiedTime": 1729984339984,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

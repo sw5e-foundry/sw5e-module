@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:51:59.1537443+00:00",
       "importer_version": 3,
       "uid": "Power.name-force_scream.level-3"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -105,7 +111,144 @@
     },
     "enchantment": null,
     "summons": null,
-    "properties": []
+    "properties": [],
+    "activities": {
+      "1bIOd8RxC8Z61Nwx": {
+        "type": "Save",
+        "_id": "1bIOd8RxC8Z61Nwx",
+        "img": null,
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "4d6",
+              "psychic"
+            ],
+            [
+              "4d6",
+              "sonic"
+            ]
+          ]
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You emit a scream imbued with the power of the Force. Each creature you choose within 15 feet of you must succeed on a Constitution saving throw. On a failed save, a creature take [[/r 4d6]] psychic damage, [[/r 4d6]] sonic damage, and is deafened until the end of its next turn. On a successful save, it takes half as much damage and isn't deafened.</p>"
+        }
+      },
+      "1GXxRQptkGef1tMZ": {
+        "type": "Save",
+        "_id": "1GXxRQptkGef1tMZ",
+        "img": null,
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "4d6",
+              "psychic"
+            ],
+            [
+              "4d6",
+              "sonic"
+            ]
+          ]
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "description": {
+          "value": "<p>You emit a scream imbued with the power of the Force. Each creature you choose within 15 feet of you must succeed on a Constitution saving throw. On a failed save, a creature take [[/r 4d6]] psychic damage, [[/r 4d6]] sonic damage, and is deafened until the end of its next turn. On a successful save, it takes half as much damage and isn't deafened.</p>"
+        }
+      },
+      "tMkd1DGBPhp1ypZD": {
+        "type": "Save",
+        "_id": "tMkd1DGBPhp1ypZD",
+        "img": null,
+        "description": {
+          "value": "<p>You emit a scream imbued with the power of the Force. Each creature you choose within 15 feet of you must succeed on a Constitution saving throw. On a failed save, a creature take [[/r 4d6]] psychic damage, [[/r 4d6]] sonic damage, and is deafened until the end of its next turn. On a successful save, it takes half as much damage and isn't deafened.</p>"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "4d6",
+              "psychic"
+            ],
+            [
+              "4d6",
+              "sonic"
+            ]
+          ]
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        }
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -115,7 +258,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979203,
-    "modifiedTime": 1725814714952,
+    "modifiedTime": 1729984339562,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },
