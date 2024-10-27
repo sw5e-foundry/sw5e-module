@@ -21,6 +21,10 @@ If you wish to manually install the system, you must clone or extract it into th
 
 - Compatibility with dnd5e 4.0.0.
 
+### Fixed
+
+- Superiority progression selectors will no longer show up as 'nulldnull dice' when not available.
+
 ### [1.1.0] - 2024-09-13
 
 ### Added
