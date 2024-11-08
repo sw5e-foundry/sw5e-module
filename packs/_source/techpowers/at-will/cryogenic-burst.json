@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1477482+00:00",
       "importer_version": 3,
-      "uid": "Power.name-cryogenic_burst"
+      "uid": "Power.name-cryogenic_burst.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,20 +13,121 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/CryogenicBurst.webp",
   "system": {
+    "description": {
+      "value": "<p>You emit a burst of cold energy at a creature within range. Make a ranged tech attack against the target. On a hit, it takes [[/r 1d8]] cold damage, and gains 1 slowed level until the start of your next turn.</p>\n<p>The power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 60,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "rpak",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d8",
+          "cold"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "tec",
+    "properties": [],
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
     "activities": {
-      "eBpGFAX8oy5zITYP": {
+      "1s1f2W4cw7Dt1ipY": {
         "type": "Attack",
-        "_id": "eBpGFAX8oy5zITYP",
+        "_id": "1s1f2W4cw7Dt1ipY",
         "img": null,
-        "description": {
-          "value": "<p>You emit a burst of cold energy at a creature within range. Make a ranged tech attack against the target. On a hit, it takes [[/r 1d8]] cold damage, and gains 1 slowed level until the start of your next turn.</p>\n<p>The power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
         },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
         },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "60",
         "duration": {
           "value": null,
           "units": "inst"
@@ -42,12 +143,28 @@
             ]
           ]
         },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
+        "description": {
+          "value": "<p>You emit a burst of cold energy at a creature within range. Make a ranged tech attack against the target. On a hit, it takes [[/r 1d8]] cold damage, and gains 1 slowed level until the start of your next turn.</p>\n<p>The power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
+        }
+      },
+      "1ySUMpMOZezmRPL9": {
+        "type": "Attack",
+        "_id": "1ySUMpMOZezmRPL9",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d8",
+              "cold"
+            ]
+          ]
+        },
+        "range": "60",
+        "description": {
+          "value": "<p>You emit a burst of cold energy at a creature within range. Make a ranged tech attack against the target. On a hit, it takes [[/r 1d8]] cold damage, and gains 1 slowed level until the start of your next turn.</p>\n<p>The power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
         },
         "target": {
           "value": null,
@@ -55,75 +172,40 @@
           "units": "",
           "type": ""
         },
-        "range": "60"
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "description": {
-      "value": "<p>You emit a burst of cold energy at a creature within range. Make a ranged tech attack against the target. On a hit, it takes [[/r 1d8]] cold damage, and gains 1 slowed level until the start of your next turn.</p>\n<p>The power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "value": "60",
-      "units": "ft"
-    },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "cryogenic-burst"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/CryogenicBurst.webp",
   "effects": [],
-  "_id": "6MThRx93i5S7UsYD",
+  "_id": "lkj9xq3JVc4MW1wG",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984161155,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434252805,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!6MThRx93i5S7UsYD"
+  "_key": "!items!lkj9xq3JVc4MW1wG"
 }

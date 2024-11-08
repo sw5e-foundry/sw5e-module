@@ -129,30 +129,24 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1lZ9KNm2pZvE1be8": {
+      "1deZocfUb3L5PlHF": {
         "type": "Save",
-        "_id": "1lZ9KNm2pZvE1be8",
+        "_id": "1deZocfUb3L5PlHF",
         "img": null,
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Thermal detonators are unique in that can only be turned off by whoever turned them on. They can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 20 feet must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d6]] fire and [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, the creature is knocked prone. </p>\n<p>&nbsp;</p>\n<h2>Thermal detonator</h2>\n<p>Thermal detonators are unique in that can only be turned off by whoever turned them on. They can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 20 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] fire and [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, the creature is knocked prone. </p>"
+        "activation": {
+          "type": "action",
+          "cost": 1
         },
         "target": {
           "value": 20,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
         },
         "range": "30",
-        "activation": {
-          "type": "action",
-          "cost": 1
+        "duration": {
+          "value": "inst",
+          "units": null
         },
         "damage": {
           "critical": {
@@ -177,74 +171,53 @@
             ]
           ]
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "K1FsqJFZntQRMAfZ": {
-        "type": "Save",
-        "_id": "K1FsqJFZntQRMAfZ",
-        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Thermal detonators are unique in that can only be turned off by whoever turned them on. They can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 20 feet must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d6]] fire and [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, the creature is knocked prone. </p>\n<p>&nbsp;</p>\n<h2>Thermal detonator</h2>\n<p>Thermal detonators are unique in that can only be turned off by whoever turned them on. They can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 20 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] fire and [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, the creature is knocked prone. </p>"
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
             "formula": 14
           }
+        }
+      },
+      "1h8MjUWQncGT12RY": {
+        "type": "Save",
+        "_id": "1h8MjUWQncGT12RY",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "fire"
+            ],
+            [
+              "2d10",
+              "kinetic"
+            ],
+            [
+              "10d6",
+              "fire"
+            ],
+            [
+              "10d10",
+              "kinetic"
+            ]
+          ]
         },
         "range": "30",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "fire"
-            ],
-            [
-              "2d10",
-              "kinetic"
-            ],
-            [
-              "10d6",
-              "fire"
-            ],
-            [
-              "10d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Thermal detonators are unique in that can only be turned off by whoever turned them on. They can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 20 feet must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d6]] fire and [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, the creature is knocked prone. </p>\n<p>&nbsp;</p>\n<h2>Thermal detonator</h2>\n<p>Thermal detonators are unique in that can only be turned off by whoever turned them on. They can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 20 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] fire and [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, the creature is knocked prone. </p>"
         },
         "target": {
           "value": 20,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Thermal detonators are unique in that can only be turned off by whoever turned them on. They can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 20 feet must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d6]] fire and [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, the creature is knocked prone. </p>\n<p>&nbsp;</p>\n<h2>Thermal detonator</h2>\n<p>Thermal detonators are unique in that can only be turned off by whoever turned them on. They can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 20 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] fire and [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, the creature is knocked prone. </p>"
-        }
-      },
-      "AGoK9gcZDda1bWWm": {
-        "type": "Save",
-        "_id": "AGoK9gcZDda1bWWm",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Thermal detonators are unique in that can only be turned off by whoever turned them on. They can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 20 feet must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d6]] fire and [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, the creature is knocked prone. </p>\n<p>&nbsp;</p>\n<h2>Thermal detonator</h2>\n<p>Thermal detonators are unique in that can only be turned off by whoever turned them on. They can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 20 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] fire and [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one. Additionally, on a failed save, the creature is knocked prone. </p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
         },
         "save": {
           "ability": "dex",
@@ -257,36 +230,10 @@
           "value": "inst",
           "units": null
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "fire"
-            ],
-            [
-              "2d10",
-              "kinetic"
-            ],
-            [
-              "10d6",
-              "fire"
-            ],
-            [
-              "10d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "30"
+        "activation": {
+          "type": "action",
+          "cost": 1
+        }
       }
     }
   },
@@ -298,7 +245,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493965087,
-    "modifiedTime": 1729984337414,
+    "modifiedTime": 1730434244134,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

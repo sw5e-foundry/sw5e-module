@@ -1,10 +1,21 @@
 {
+  "_id": "oMQr9mzRJTjD71Xc",
   "name": "Affect Mind",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/AffectMind.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1377525+00:00",
       "importer_version": 3,
-      "uid": "Power.name-affect_mind"
+      "uid": "Power.name-affect_mind.level-0"
+    },
+    "sw5e": {
+      "migratedProperties": [
+        "concentration"
+      ]
     },
     "dnd5e": {
       "riders": {
@@ -14,18 +25,148 @@
     }
   },
   "system": {
+    "description": {
+      "value": "<p>Choose a target within range that isn't hostile toward you. The target must make a Wisdom saving throw. On a failed save, you have advantage on all Charisma checks directed at that target. </p>\n<p>On a successful save, the creature does not realize that you tried to use the Force to influence its mood, but it becomes immune to this power for one day. This power has no effect on droids or constructs.</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "1",
+      "units": "minute"
+    },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 30,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "save",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "wis",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "uni",
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "none",
+      "formula": null
+    },
+    "properties": [
+      "concentration"
+    ],
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
     "activities": {
-      "6jPkoXPSkPnzWipU": {
+      "1nQKseeTUqJwaxZu": {
         "type": "Save",
-        "_id": "6jPkoXPSkPnzWipU",
+        "_id": "1nQKseeTUqJwaxZu",
         "img": null,
-        "description": {
-          "value": "<p>Choose a target within range that isn't hostile toward you. The target must make a Wisdom saving throw. On a failed save, you have advantage on all Charisma checks directed at that target. </p>\n<p>On a successful save, the creature does not realize that you tried to use the Force to influence its mood, but it becomes immune to this power for one day. This power has no effect on droids or constructs.</p>"
-        },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "30",
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": []
+        },
+        "description": {
+          "value": "<p>Choose a target within range that isn't hostile toward you. The target must make a Wisdom saving throw. On a failed save, you have advantage on all Charisma checks directed at that target. </p>\n<p>On a successful save, the creature does not realize that you tried to use the Force to influence its mood, but it becomes immune to this power for one day. This power has no effect on droids or constructs.</p>"
+        },
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        }
+      },
+      "jSObc40Hx4A1xafh": {
+        "type": "Save",
+        "_id": "jSObc40Hx4A1xafh",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": []
+        },
+        "range": "30",
+        "description": {
+          "value": "<p>Choose a target within range that isn't hostile toward you. The target must make a Wisdom saving throw. On a failed save, you have advantage on all Charisma checks directed at that target. </p>\n<p>On a successful save, the creature does not realize that you tried to use the Force to influence its mood, but it becomes immune to this power for one day. This power has no effect on droids or constructs.</p>"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "save": {
           "ability": "wis",
@@ -38,90 +179,25 @@
           "value": "1",
           "units": "minute"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "description": {
-      "value": "<p>Choose a target within range that isn't hostile toward you. The target must make a Wisdom saving throw. On a failed save, you have advantage on all Charisma checks directed at that target. </p>\n<p>On a successful save, the creature does not realize that you tried to use the Force to influence its mood, but it becomes immune to this power for one day. This power has no effect on droids or constructs.</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "value": "1",
-      "units": "minute"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [
-      "concentration"
-    ],
-    "range": {
-      "value": "30",
-      "units": "ft"
-    },
-    "school": "uni",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "affect-mind"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/AffectMind.webp",
-  "effects": [],
-  "_id": "Jtc9q1AYjlRQu6pZ",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984158222,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979314,
+    "modifiedTime": 1730434249144,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!Jtc9q1AYjlRQu6pZ"
+  "_key": "!items!oMQr9mzRJTjD71Xc"
 }

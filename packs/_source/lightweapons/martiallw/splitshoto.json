@@ -155,9 +155,9 @@
     "magicalBonus": null,
     "firingArc": "",
     "activities": {
-      "1g7MCiTFKrYE1hDr": {
+      "EMBPrV2Wl301UcTg": {
         "type": "Attack",
-        "_id": "1g7MCiTFKrYE1hDr",
+        "_id": "EMBPrV2Wl301UcTg",
         "img": null,
         "attack": {
           "ability": "",
@@ -166,8 +166,9 @@
           "flat": false,
           "type": "melee"
         },
-        "description": {
-          "value": "<h3>Double ([[/r 1d8]] energy)</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>\n<h3>Interlocking</h3>\n<p>While wielding a weapon with the interlocking property, you can use your object interaction to detach the weapon into two separate weapons or reattach into a single weapon. While separated, each weapon has the same damage, damage type, combined value and weight, and properties (except for the double property) as the single weapon.</p>\n<h3>Light</h3>\n<p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>"
+        "activation": {
+          "type": "action",
+          "cost": 1
         },
         "target": {
           "value": 1,
@@ -175,9 +176,9 @@
           "units": "",
           "type": "enemy"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1
+        "duration": {
+          "value": null,
+          "units": "inst"
         },
         "damage": {
           "critical": {
@@ -189,95 +190,14 @@
               "energy"
             ]
           ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "1eHZYnOgL3qOfOW9": {
-        "type": "Attack",
-        "_id": "1eHZYnOgL3qOfOW9",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "description": {
-          "value": "<h3>Double ([[/r 1d8]] energy)</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>\n<h3>Interlocking</h3>\n<p>While wielding a weapon with the interlocking property, you can use your object interaction to detach the weapon into two separate weapons or reattach into a single weapon. While separated, each weapon has the same damage, damage type, combined value and weight, and properties (except for the double property) as the single weapon.</p>\n<h3>Light</h3>\n<p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "17ofGwW7opMobzME": {
-        "type": "Attack",
-        "_id": "17ofGwW7opMobzME",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
         },
         "description": {
           "value": "<h3>Double ([[/r 1d8]] energy)</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>\n<h3>Interlocking</h3>\n<p>While wielding a weapon with the interlocking property, you can use your object interaction to detach the weapon into two separate weapons or reattach into a single weapon. While separated, each weapon has the same damage, damage type, combined value and weight, and properties (except for the double property) as the single weapon.</p>\n<h3>Light</h3>\n<p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>"
         }
       },
-      "8YbIW7JiQpV10oen": {
+      "P0hjadvMdHM1LG63": {
         "type": "Attack",
-        "_id": "8YbIW7JiQpV10oen",
+        "_id": "P0hjadvMdHM1LG63",
         "img": null,
         "attack": {
           "ability": "",
@@ -285,6 +205,20 @@
           "classification": "weapon",
           "flat": false,
           "type": "melee"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "enemy"
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
         },
         "damage": {
           "critical": {
@@ -296,40 +230,15 @@
               "energy"
             ]
           ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
         },
         "description": {
           "value": "<h3>Double ([[/r 1d8]] energy)</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>\n<h3>Interlocking</h3>\n<p>While wielding a weapon with the interlocking property, you can use your object interaction to detach the weapon into two separate weapons or reattach into a single weapon. While separated, each weapon has the same damage, damage type, combined value and weight, and properties (except for the double property) as the single weapon.</p>\n<h3>Light</h3>\n<p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>"
         }
       },
-      "1rOqkkKnPJpk1ts0": {
+      "1QfwgvWk7aQmQ0Q0": {
         "type": "Attack",
-        "_id": "1rOqkkKnPJpk1ts0",
+        "_id": "1QfwgvWk7aQmQ0Q0",
         "img": null,
-        "description": {
-          "value": "<h3>Double ([[/r 1d8]] energy)</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>\n<h3>Interlocking</h3>\n<p>While wielding a weapon with the interlocking property, you can use your object interaction to detach the weapon into two separate weapons or reattach into a single weapon. While separated, each weapon has the same damage, damage type, combined value and weight, and properties (except for the double property) as the single weapon.</p>\n<h3>Light</h3>\n<p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
         "damage": {
           "critical": {
             "allow": true
@@ -341,6 +250,15 @@
             ]
           ]
         },
+        "description": {
+          "value": "<h3>Double ([[/r 1d8]] energy)</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>\n<h3>Interlocking</h3>\n<p>While wielding a weapon with the interlocking property, you can use your object interaction to detach the weapon into two separate weapons or reattach into a single weapon. While separated, each weapon has the same damage, damage type, combined value and weight, and properties (except for the double property) as the single weapon.</p>\n<h3>Light</h3>\n<p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>"
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "enemy"
+        },
         "attack": {
           "ability": "",
           "bonus": "",
@@ -348,28 +266,19 @@
           "flat": false,
           "type": "melee"
         },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
         }
       },
-      "1AowaB4vQiYc1yoz": {
+      "cMwSZWZPsHc5EoDM": {
         "type": "Attack",
-        "_id": "1AowaB4vQiYc1yoz",
+        "_id": "cMwSZWZPsHc5EoDM",
         "img": null,
-        "description": {
-          "value": "<h3>Double ([[/r 1d8]] energy)</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>\n<h3>Interlocking</h3>\n<p>While wielding a weapon with the interlocking property, you can use your object interaction to detach the weapon into two separate weapons or reattach into a single weapon. While separated, each weapon has the same damage, damage type, combined value and weight, and properties (except for the double property) as the single weapon.</p>\n<h3>Light</h3>\n<p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
         "damage": {
           "critical": {
             "allow": true
@@ -381,98 +290,29 @@
             ]
           ]
         },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
+        "description": {
+          "value": "<h3>Double ([[/r 1d8]] energy)</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>\n<h3>Interlocking</h3>\n<p>While wielding a weapon with the interlocking property, you can use your object interaction to detach the weapon into two separate weapons or reattach into a single weapon. While separated, each weapon has the same damage, damage type, combined value and weight, and properties (except for the double property) as the single weapon.</p>\n<h3>Light</h3>\n<p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>"
         },
         "target": {
           "value": 1,
           "width": null,
           "units": "",
           "type": "enemy"
-        }
-      },
-      "FidBjimXoFrX95pk": {
-        "type": "Attack",
-        "_id": "FidBjimXoFrX95pk",
-        "img": null,
-        "activation": {
-          "type": "action",
-          "cost": 1
+        },
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "weapon",
+          "flat": false,
+          "type": "melee"
         },
         "duration": {
           "value": null,
           "units": "inst"
         },
-        "description": {
-          "value": "<h3>Double ([[/r 1d8]] energy)</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>\n<h3>Interlocking</h3>\n<p>While wielding a weapon with the interlocking property, you can use your object interaction to detach the weapon into two separate weapons or reattach into a single weapon. While separated, each weapon has the same damage, damage type, combined value and weight, and properties (except for the double property) as the single weapon.</p>\n<h3>Light</h3>\n<p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "energy"
-            ]
-          ]
-        }
-      },
-      "1Pniu0YsPoaL1g3t": {
-        "type": "Attack",
-        "_id": "1Pniu0YsPoaL1g3t",
-        "img": null,
         "activation": {
           "type": "action",
           "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "description": {
-          "value": "<h3>Double ([[/r 1d8]] energy)</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>\n<h3>Interlocking</h3>\n<p>While wielding a weapon with the interlocking property, you can use your object interaction to detach the weapon into two separate weapons or reattach into a single weapon. While separated, each weapon has the same damage, damage type, combined value and weight, and properties (except for the double property) as the single weapon.</p>\n<h3>Light</h3>\n<p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "energy"
-            ]
-          ]
         }
       }
     }
@@ -487,7 +327,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1667426099438,
-    "modifiedTime": 1729988022901,
+    "modifiedTime": 1730434202387,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

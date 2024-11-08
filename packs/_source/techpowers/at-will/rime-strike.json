@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1807281+00:00",
       "importer_version": 3,
-      "uid": "Power.name-rime_strike"
+      "uid": "Power.name-rime_strike.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,19 +13,112 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/RimeStrike.webp",
   "system": {
+    "description": {
+      "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and gains 1 slowed level until the start of your next turn, as the cold energy seeps into its being. Additionally, if the target doesn't move at least 5 feet before the start of your next turn, it immediately takes [[/r 1d8]] cold damage, and the power ends. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] cold damage to the target, and the damage the target takes for not moving increases to [[/r 2d8]]. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level. </p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "1",
+      "units": "round"
+    },
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "touch"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "other",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d8",
+          "cold"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "tec",
+    "properties": [],
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
     "activities": {
-      "xdC1RjDmwRzlysZE": {
+      "eLB4j6KCUNF1unYo": {
         "type": "Damage",
-        "_id": "xdC1RjDmwRzlysZE",
+        "_id": "eLB4j6KCUNF1unYo",
         "img": null,
-        "description": {
-          "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and gains 1 slowed level until the start of your next turn, as the cold energy seeps into its being. Additionally, if the target doesn't move at least 5 feet before the start of your next turn, it immediately takes [[/r 1d8]] cold damage, and the power ends. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] cold damage to the target, and the damage the target takes for not moving increases to [[/r 2d8]]. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level. </p>"
-        },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "duration": {
           "value": "1",
@@ -42,80 +135,61 @@
             ]
           ]
         },
+        "description": {
+          "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and gains 1 slowed level until the start of your next turn, as the cold energy seeps into its being. Additionally, if the target doesn't move at least 5 feet before the start of your next turn, it immediately takes [[/r 1d8]] cold damage, and the power ends. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] cold damage to the target, and the damage the target takes for not moving increases to [[/r 2d8]]. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level. </p>"
+        }
+      },
+      "dMKrOkuiVlpvy0mJ": {
+        "type": "Damage",
+        "_id": "dMKrOkuiVlpvy0mJ",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d8",
+              "cold"
+            ]
+          ]
+        },
+        "description": {
+          "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and gains 1 slowed level until the start of your next turn, as the cold energy seeps into its being. Additionally, if the target doesn't move at least 5 feet before the start of your next turn, it immediately takes [[/r 1d8]] cold damage, and the power ends. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] cold damage to the target, and the damage the target takes for not moving increases to [[/r 2d8]]. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level. </p>"
+        },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
         }
       }
-    },
-    "description": {
-      "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and gains 1 slowed level until the start of your next turn, as the cold energy seeps into its being. Additionally, if the target doesn't move at least 5 feet before the start of your next turn, it immediately takes [[/r 1d8]] cold damage, and the power ends. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] cold damage to the target, and the damage the target takes for not moving increases to [[/r 2d8]]. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level. </p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "value": "1",
-      "units": "round"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "units": "touch"
-    },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "rime-strike"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/RimeStrike.webp",
   "effects": [],
-  "_id": "qBF1DaHqVFyrzmnt",
+  "_id": "KcmGH6B2ftIC1W82",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984163632,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434251116,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!qBF1DaHqVFyrzmnt"
+  "_key": "!items!KcmGH6B2ftIC1W82"
 }

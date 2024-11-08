@@ -109,15 +109,26 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1h0gEjX92kJummbz": {
+      "1BGcOq7XYBKO5rv8": {
         "type": "Save",
-        "_id": "1h0gEjX92kJummbz",
+        "_id": "1BGcOq7XYBKO5rv8",
         "img": null,
-        "duration": {
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
           "value": null,
-          "units": "inst"
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "range": "30",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -129,81 +140,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Pyrokinesis</em></p>\n<p>A line of roaring Force-enhanced flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes [[/r 3d8]] energy damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the damage increases by [[/r 1d8]] for each slot level above 2nd.</p>"
-        }
-      },
-      "hupqYOOuzlD1r5zX": {
-        "type": "Save",
-        "_id": "hupqYOOuzlD1r5zX",
-        "img": null,
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "1uQZSfjKmNxcnQjZ": {
+        "type": "Save",
+        "_id": "1uQZSfjKmNxcnQjZ",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d8",
+              "energy"
+            ]
+          ]
         },
         "range": "30",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d8",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Pyrokinesis</em></p>\n<p>A line of roaring Force-enhanced flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes [[/r 3d8]] energy damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the damage increases by [[/r 1d8]] for each slot level above 2nd.</p>"
         },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Pyrokinesis</em></p>\n<p>A line of roaring Force-enhanced flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes [[/r 3d8]] energy damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the damage increases by [[/r 1d8]] for each slot level above 2nd.</p>"
-        }
-      },
-      "1g19O0ly0Pu0F379": {
-        "type": "Save",
-        "_id": "1g19O0ly0Pu0F379",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Pyrokinesis</em></p>\n<p>A line of roaring Force-enhanced flame 30 feet long and 5 feet wide emanates from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes [[/r 3d8]] energy damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the damage increases by [[/r 1d8]] for each slot level above 2nd.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "dex",
@@ -216,24 +187,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d8",
-              "energy"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979332,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1730434249503,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

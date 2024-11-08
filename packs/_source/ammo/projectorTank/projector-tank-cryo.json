@@ -117,12 +117,13 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1IVcIy4gtQrMSlTq": {
+      "1mZPcpfSIW6p1tY9": {
         "type": "Save",
-        "_id": "1IVcIy4gtQrMSlTq",
+        "_id": "1mZPcpfSIW6p1tY9",
         "img": null,
-        "description": {
-          "value": "<p>When triggered, this vapor projector ammunition produces a beam of carbonite energy in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Constitution saving throw. On a failed save, a creature takes [[/r 2d4]] cold damage and gains 1 slowed level until the end of your next turn. On a successful save, a creature takes half damage and isn't slowed. If this damage reduces a creature to 0 hit points, that creature is frozen in carbonite for 1 hour.</p>"
+        "activation": {
+          "type": null,
+          "cost": null
         },
         "target": {
           "value": 15,
@@ -130,16 +131,9 @@
           "units": "ft",
           "type": "cone"
         },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "activation": {
-          "type": null,
-          "cost": null
+        "duration": {
+          "value": "1",
+          "units": "hour"
         },
         "damage": {
           "critical": {
@@ -152,22 +146,21 @@
             ]
           ]
         },
-        "duration": {
-          "value": "1",
-          "units": "hour"
+        "description": {
+          "value": "<p>When triggered, this vapor projector ammunition produces a beam of carbonite energy in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Constitution saving throw. On a failed save, a creature takes [[/r 2d4]] cold damage and gains 1 slowed level until the end of your next turn. On a successful save, a creature takes half damage and isn't slowed. If this damage reduces a creature to 0 hit points, that creature is frozen in carbonite for 1 hour.</p>"
+        },
+        "save": {
+          "ability": "con",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
         }
       },
-      "1n7dsAMBoetnF3JE": {
+      "1FkOkFeSOArg4KjM": {
         "type": "Save",
-        "_id": "1n7dsAMBoetnF3JE",
+        "_id": "1FkOkFeSOArg4KjM",
         "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
         "damage": {
           "critical": {
             "allow": true
@@ -179,34 +172,14 @@
             ]
           ]
         },
-        "duration": {
-          "value": "1",
-          "units": "hour"
+        "description": {
+          "value": "<p>When triggered, this vapor projector ammunition produces a beam of carbonite energy in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Constitution saving throw. On a failed save, a creature takes [[/r 2d4]] cold damage and gains 1 slowed level until the end of your next turn. On a successful save, a creature takes half damage and isn't slowed. If this damage reduces a creature to 0 hit points, that creature is frozen in carbonite for 1 hour.</p>"
         },
         "target": {
           "value": 15,
           "width": null,
           "units": "ft",
           "type": "cone"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>When triggered, this vapor projector ammunition produces a beam of carbonite energy in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Constitution saving throw. On a failed save, a creature takes [[/r 2d4]] cold damage and gains 1 slowed level until the end of your next turn. On a successful save, a creature takes half damage and isn't slowed. If this damage reduces a creature to 0 hit points, that creature is frozen in carbonite for 1 hour.</p>"
-        }
-      },
-      "DAX6qbdiv0o1IVPA": {
-        "type": "Save",
-        "_id": "DAX6qbdiv0o1IVPA",
-        "img": null,
-        "description": {
-          "value": "<p>When triggered, this vapor projector ammunition produces a beam of carbonite energy in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Constitution saving throw. On a failed save, a creature takes [[/r 2d4]] cold damage and gains 1 slowed level until the end of your next turn. On a successful save, a creature takes half damage and isn't slowed. If this damage reduces a creature to 0 hit points, that creature is frozen in carbonite for 1 hour.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
         },
         "save": {
           "ability": "con",
@@ -219,22 +192,9 @@
           "value": "1",
           "units": "hour"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4",
-              "cold"
-            ]
-          ]
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
+        "activation": {
+          "type": null,
+          "cost": null
         }
       }
     }
@@ -247,7 +207,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956723,
-    "modifiedTime": 1729983823932,
+    "modifiedTime": 1730434245258,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -1,10 +1,16 @@
 {
+  "_id": "HNZGubklAqLXpp0N",
   "name": "Shock",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/Shock.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1247609+00:00",
       "importer_version": 3,
-      "uid": "Power.name-shock"
+      "uid": "Power.name-shock.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -14,19 +20,118 @@
     }
   },
   "system": {
+    "description": {
+      "value": "<p>You hurl a bolt of lightning at a target within range, making a ranged force attack. On a hit, the target takes [[/r 1d10]] lightning damage. The lightning ignites flammable objects in the area that aren't being worn or carried.</p>\n<p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 120,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "rpak",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d10",
+          "lightning"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "drk",
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
+    "properties": [],
     "activities": {
-      "1nANdQ7fRv7KWfKp": {
+      "1EAtfmAjThJNVYhc": {
         "type": "Attack",
-        "_id": "1nANdQ7fRv7KWfKp",
+        "_id": "1EAtfmAjThJNVYhc",
         "img": null,
-        "description": {
-          "value": "<p>You hurl a bolt of lightning at a target within range, making a ranged force attack. On a hit, the target takes [[/r 1d10]] lightning damage. The lightning ignites flammable objects in the area that aren't being worn or carried.</p>\n<p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>"
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
         },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
         },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "120",
         "duration": {
           "value": null,
           "units": "inst"
@@ -42,12 +147,28 @@
             ]
           ]
         },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
+        "description": {
+          "value": "<p>You hurl a bolt of lightning at a target within range, making a ranged force attack. On a hit, the target takes [[/r 1d10]] lightning damage. The lightning ignites flammable objects in the area that aren't being worn or carried.</p>\n<p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>"
+        }
+      },
+      "13dIhSafCU4VjzzM": {
+        "type": "Attack",
+        "_id": "13dIhSafCU4VjzzM",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d10",
+              "lightning"
+            ]
+          ]
+        },
+        "range": "120",
+        "description": {
+          "value": "<p>You hurl a bolt of lightning at a target within range, making a ranged force attack. On a hit, the target takes [[/r 1d10]] lightning damage. The lightning ignites flammable objects in the area that aren't being worn or carried.</p>\n<p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>"
         },
         "target": {
           "value": null,
@@ -55,75 +176,36 @@
           "units": "",
           "type": ""
         },
-        "range": "120"
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "description": {
-      "value": "<p>You hurl a bolt of lightning at a target within range, making a ranged force attack. On a hit, the target takes [[/r 1d10]] lightning damage. The lightning ignites flammable objects in the area that aren't being worn or carried.</p>\n<p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "value": "120",
-      "units": "ft"
-    },
-    "school": "drk",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "shock"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/Shock.webp",
-  "effects": [],
-  "_id": "xIhHmHyP7Ljwf7cV",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984160564,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979201,
+    "modifiedTime": 1730434247193,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!xIhHmHyP7Ljwf7cV"
+  "_key": "!items!HNZGubklAqLXpp0N"
 }

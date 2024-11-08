@@ -121,30 +121,24 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "PYDapTwPgFlxHQpq": {
+      "1j42fgvWlWaG1ALJ": {
         "type": "Save",
-        "_id": "PYDapTwPgFlxHQpq",
+        "_id": "1j42fgvWlWaG1ALJ",
         "img": null,
-        "description": {
-          "value": "<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
+        "activation": {
+          "type": null,
+          "cost": null
         },
         "target": {
           "value": 15,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
         },
         "range": "15",
-        "activation": {
-          "type": null,
-          "cost": null
+        "duration": {
+          "value": null,
+          "units": "inst"
         },
         "damage": {
           "critical": {
@@ -161,66 +155,45 @@
             ]
           ]
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "gHy6KqVWVwOrKICX": {
-        "type": "Save",
-        "_id": "gHy6KqVWVwOrKICX",
-        "img": null,
+        "description": {
+          "value": "<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
             "formula": 14
           }
+        }
+      },
+      "FozCGxVKiHH1s1H7": {
+        "type": "Save",
+        "_id": "FozCGxVKiHH1s1H7",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "kinetic"
+            ],
+            [
+              "2d10",
+              "kinetic"
+            ]
+          ]
         },
         "range": "15",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
         },
         "target": {
           "value": 15,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
-        }
-      },
-      "1C5kpGBgcIC4BEFJ": {
-        "type": "Save",
-        "_id": "1C5kpGBgcIC4BEFJ",
-        "img": null,
-        "description": {
-          "value": "<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
         },
         "save": {
           "ability": "dex",
@@ -233,28 +206,10 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "15"
+        "activation": {
+          "type": null,
+          "cost": null
+        }
       }
     }
   },
@@ -266,7 +221,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956733,
-    "modifiedTime": 1729983824020,
+    "modifiedTime": 1730434245341,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

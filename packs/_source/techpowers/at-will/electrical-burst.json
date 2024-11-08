@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1517445+00:00",
       "importer_version": 3,
-      "uid": "Power.name-electrical_burst"
+      "uid": "Power.name-electrical_burst.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,26 +13,112 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/ElectricalBurst.webp",
   "system": {
+    "description": {
+      "value": "<p>You emit a burst of electricity. Each creature within range, other than you, must succeed on a Dexterity saving throw or take [[/r 1d6]] lightning damage.</p>\n<p>This power's damage increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "self"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "save",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d6",
+          "lightning"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "dex",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "tec",
+    "properties": [],
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
     "activities": {
-      "Wk5qzNSAB0FUkSi0": {
+      "11dKPuNS9i8dK09x": {
         "type": "Save",
-        "_id": "Wk5qzNSAB0FUkSi0",
+        "_id": "11dKPuNS9i8dK09x",
         "img": null,
-        "description": {
-          "value": "<p>You emit a burst of electricity. Each creature within range, other than you, must succeed on a Dexterity saving throw or take [[/r 1d6]] lightning damage.</p>\n<p>This power's damage increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>"
-        },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "duration": {
           "value": null,
@@ -49,79 +135,75 @@
             ]
           ]
         },
+        "description": {
+          "value": "<p>You emit a burst of electricity. Each creature within range, other than you, must succeed on a Dexterity saving throw or take [[/r 1d6]] lightning damage.</p>\n<p>This power's damage increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>"
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        }
+      },
+      "1l3n1SEQ8NMZ9WNY": {
+        "type": "Save",
+        "_id": "1l3n1SEQ8NMZ9WNY",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "lightning"
+            ]
+          ]
+        },
+        "description": {
+          "value": "<p>You emit a burst of electricity. Each creature within range, other than you, must succeed on a Dexterity saving throw or take [[/r 1d6]] lightning damage.</p>\n<p>This power's damage increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>"
+        },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
         }
       }
-    },
-    "description": {
-      "value": "<p>You emit a burst of electricity. Each creature within range, other than you, must succeed on a Dexterity saving throw or take [[/r 1d6]] lightning damage.</p>\n<p>This power's damage increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "units": "self"
-    },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "electrical-burst"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/ElectricalBurst.webp",
   "effects": [],
-  "_id": "qheadwIJy74eupTX",
+  "_id": "Ap77p4kYut7c7XKH",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984163665,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434250552,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!qheadwIJy74eupTX"
+  "_key": "!items!Ap77p4kYut7c7XKH"
 }

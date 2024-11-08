@@ -132,15 +132,26 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1jShTxOCd4AyU4Y4": {
+      "Lf1weUSC0DNQaUXN": {
         "type": "Damage",
-        "_id": "1jShTxOCd4AyU4Y4",
+        "_id": "Lf1weUSC0DNQaUXN",
         "img": null,
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "120",
         "duration": {
           "value": "1",
           "units": "minute"
         },
-        "range": "120",
         "damage": {
           "critical": {
             "allow": true
@@ -167,57 +178,45 @@
               ""
             ]
           ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Animate Weapon</em></p>\n<p>You snag several objects using the Force and whip them into the air around you, controlling them to attack at your command. Choose up to ten unenhanced objects within range that are not being worn or carried. Medium targets count as two objects, Large targets count as four objects, Huge targets count as eight objects. You can't control any object larger than Huge. Each object animates and hovers near you, remaining within 100 feet of you for the duration. An animated object behaves as though it is a construct, with AC, hit points, and attacks determined by its size, and a flying speed of 30 feet.</p>\n<p>As a bonus action, you can mentally direct any object controlled by this power. If you control multiple objects, you can command any or all of them at the same time. You decide what action the object will take and where it will move. The objects act at the end of your turn. If you command an object to attack, it can make a single melee attack against a creature within 5 feet of it. It makes a slam attack with an attack bonus and kinetic damage determined by its size.</p>\n<p>|Size|\t\tHP|\tAC|\tAttack|</p>\n<p>|:--|:--:|:--:|:--:|</p>\n<p>|Tiny\t|20|16|+6 to hit, [[/r 1d4 + 3]] damage|</p>\n<p>|Small\t|25|15|+6 to hit, [[/r 1d8 + 2]] damage|</p>\n<p>|Medium\t|40|13|+5 to hit, [[/r 2d6 + 1]] damage|</p>\n<p>|Large\t|50|10|+6 to hit, [[/r 2d10 + 2]] damage|</p>\n<p>|Huge\t|80|10|+8 to hit, [[/r 2d12 + 4]] damage|</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power using a force slot of 6th level or higher, you can animate two additional objects for each slot level above 5th.</p>"
         }
       },
-      "18X1YY1jJVdNCgZZ": {
+      "1yNCDk94jU2Ghnhv": {
         "type": "Damage",
-        "_id": "18X1YY1jJVdNCgZZ",
+        "_id": "1yNCDk94jU2Ghnhv",
         "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4 + 3",
+              ""
+            ],
+            [
+              "1d8 + 2",
+              ""
+            ],
+            [
+              "2d6 + 1",
+              ""
+            ],
+            [
+              "2d10 + 2",
+              ""
+            ],
+            [
+              "2d12 + 4",
+              ""
+            ]
+          ]
+        },
         "range": "120",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4 + 3",
-              ""
-            ],
-            [
-              "1d8 + 2",
-              ""
-            ],
-            [
-              "2d6 + 1",
-              ""
-            ],
-            [
-              "2d10 + 2",
-              ""
-            ],
-            [
-              "2d12 + 4",
-              ""
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Animate Weapon</em></p>\n<p>You snag several objects using the Force and whip them into the air around you, controlling them to attack at your command. Choose up to ten unenhanced objects within range that are not being worn or carried. Medium targets count as two objects, Large targets count as four objects, Huge targets count as eight objects. You can't control any object larger than Huge. Each object animates and hovers near you, remaining within 100 feet of you for the duration. An animated object behaves as though it is a construct, with AC, hit points, and attacks determined by its size, and a flying speed of 30 feet.</p>\n<p>As a bonus action, you can mentally direct any object controlled by this power. If you control multiple objects, you can command any or all of them at the same time. You decide what action the object will take and where it will move. The objects act at the end of your turn. If you command an object to attack, it can make a single melee attack against a creature within 5 feet of it. It makes a slam attack with an attack bonus and kinetic damage determined by its size.</p>\n<p>|Size|\t\tHP|\tAC|\tAttack|</p>\n<p>|:--|:--:|:--:|:--:|</p>\n<p>|Tiny\t|20|16|+6 to hit, [[/r 1d4 + 3]] damage|</p>\n<p>|Small\t|25|15|+6 to hit, [[/r 1d8 + 2]] damage|</p>\n<p>|Medium\t|40|13|+5 to hit, [[/r 2d6 + 1]] damage|</p>\n<p>|Large\t|50|10|+6 to hit, [[/r 2d10 + 2]] damage|</p>\n<p>|Huge\t|80|10|+8 to hit, [[/r 2d12 + 4]] damage|</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power using a force slot of 6th level or higher, you can animate two additional objects for each slot level above 5th.</p>"
         },
         "target": {
           "value": null,
@@ -225,65 +224,15 @@
           "units": "",
           "type": ""
         },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Animate Weapon</em></p>\n<p>You snag several objects using the Force and whip them into the air around you, controlling them to attack at your command. Choose up to ten unenhanced objects within range that are not being worn or carried. Medium targets count as two objects, Large targets count as four objects, Huge targets count as eight objects. You can't control any object larger than Huge. Each object animates and hovers near you, remaining within 100 feet of you for the duration. An animated object behaves as though it is a construct, with AC, hit points, and attacks determined by its size, and a flying speed of 30 feet.</p>\n<p>As a bonus action, you can mentally direct any object controlled by this power. If you control multiple objects, you can command any or all of them at the same time. You decide what action the object will take and where it will move. The objects act at the end of your turn. If you command an object to attack, it can make a single melee attack against a creature within 5 feet of it. It makes a slam attack with an attack bonus and kinetic damage determined by its size.</p>\n<p>|Size|\t\tHP|\tAC|\tAttack|</p>\n<p>|:--|:--:|:--:|:--:|</p>\n<p>|Tiny\t|20|16|+6 to hit, [[/r 1d4 + 3]] damage|</p>\n<p>|Small\t|25|15|+6 to hit, [[/r 1d8 + 2]] damage|</p>\n<p>|Medium\t|40|13|+5 to hit, [[/r 2d6 + 1]] damage|</p>\n<p>|Large\t|50|10|+6 to hit, [[/r 2d10 + 2]] damage|</p>\n<p>|Huge\t|80|10|+8 to hit, [[/r 2d12 + 4]] damage|</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power using a force slot of 6th level or higher, you can animate two additional objects for each slot level above 5th.</p>"
         }
-      },
-      "cOT3qbeMib21L3vR": {
-        "type": "Damage",
-        "_id": "cOT3qbeMib21L3vR",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Animate Weapon</em></p>\n<p>You snag several objects using the Force and whip them into the air around you, controlling them to attack at your command. Choose up to ten unenhanced objects within range that are not being worn or carried. Medium targets count as two objects, Large targets count as four objects, Huge targets count as eight objects. You can't control any object larger than Huge. Each object animates and hovers near you, remaining within 100 feet of you for the duration. An animated object behaves as though it is a construct, with AC, hit points, and attacks determined by its size, and a flying speed of 30 feet.</p>\n<p>As a bonus action, you can mentally direct any object controlled by this power. If you control multiple objects, you can command any or all of them at the same time. You decide what action the object will take and where it will move. The objects act at the end of your turn. If you command an object to attack, it can make a single melee attack against a creature within 5 feet of it. It makes a slam attack with an attack bonus and kinetic damage determined by its size.</p>\n<p>|Size|\t\tHP|\tAC|\tAttack|</p>\n<p>|:--|:--:|:--:|:--:|</p>\n<p>|Tiny\t|20|16|+6 to hit, [[/r 1d4 + 3]] damage|</p>\n<p>|Small\t|25|15|+6 to hit, [[/r 1d8 + 2]] damage|</p>\n<p>|Medium\t|40|13|+5 to hit, [[/r 2d6 + 1]] damage|</p>\n<p>|Large\t|50|10|+6 to hit, [[/r 2d10 + 2]] damage|</p>\n<p>|Huge\t|80|10|+8 to hit, [[/r 2d12 + 4]] damage|</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power using a force slot of 6th level or higher, you can animate two additional objects for each slot level above 5th.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4 + 3",
-              ""
-            ],
-            [
-              "1d8 + 2",
-              ""
-            ],
-            [
-              "2d6 + 1",
-              ""
-            ],
-            [
-              "2d10 + 2",
-              ""
-            ],
-            [
-              "2d12 + 4",
-              ""
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120"
       }
     }
   },
@@ -295,7 +244,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979236,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1730434247842,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1457493+00:00",
       "importer_version": 3,
-      "uid": "Power.name-combustive_shot"
+      "uid": "Power.name-combustive_shot.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,51 +13,63 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/CombustiveShot.webp",
   "system": {
-    "activities": {
-      "1Hx8L9aEEC7g1LiI": {
-        "type": "Utility",
-        "_id": "1Hx8L9aEEC7g1LiI",
-        "img": null,
-        "description": {
-          "value": "<p>As part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes ignited (your techcasting ability modifier). </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the ranged attack deals an extra [[/r 1d6]] fire damage to the target, and the ignited damage increases to [[/r 1d4]] + your tech casting ability modifier. Both damage rolls increase by [[/r 1d6]] and [[/r 1d4]], respectively, at 11th level and 17th level.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": 0,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
-      }
-    },
     "description": {
       "value": "<p>As part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes ignited (your techcasting ability modifier). </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the ranged attack deals an extra [[/r 1d6]] fire damage to the target, and the ignited damage increases to [[/r 1d4]] + your tech casting ability modifier. Both damage rolls increase by [[/r 1d6]] and [[/r 1d4]], respectively, at 11th level and 17th level.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
       "value": "1",
       "units": "round"
     },
+    "target": {
+      "value": "0",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "other",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "tec",
+    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -68,43 +80,89 @@
       "mode": "prepared",
       "prepared": false
     },
-    "properties": [],
-    "range": {
-      "units": ""
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
     },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
+    "activities": {
+      "veIhBUC3yla1qO1G": {
+        "type": "Utility",
+        "_id": "veIhBUC3yla1qO1G",
+        "img": null,
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": 0,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "description": {
+          "value": "<p>As part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes ignited (your techcasting ability modifier). </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the ranged attack deals an extra [[/r 1d6]] fire damage to the target, and the ignited damage increases to [[/r 1d4]] + your tech casting ability modifier. Both damage rolls increase by [[/r 1d6]] and [[/r 1d4]], respectively, at 11th level and 17th level.</p>"
+        }
       },
-      "template": {
-        "units": "",
-        "contiguous": false
+      "1DLiVrITgOLT1hBS": {
+        "type": "Utility",
+        "_id": "1DLiVrITgOLT1hBS",
+        "img": null,
+        "description": {
+          "value": "<p>As part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes ignited (your techcasting ability modifier). </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the ranged attack deals an extra [[/r 1d6]] fire damage to the target, and the ignited damage increases to [[/r 1d4]] + your tech casting ability modifier. Both damage rolls increase by [[/r 1d6]] and [[/r 1d4]], respectively, at 11th level and 17th level.</p>"
+        },
+        "target": {
+          "value": 0,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "combustive-shot"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/CombustiveShot.webp",
   "effects": [],
-  "_id": "ZI89ccghkyPY5Pf4",
+  "_id": "8iE1f4lgLQhreMX5",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984162615,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434250415,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!ZI89ccghkyPY5Pf4"
+  "_key": "!items!8iE1f4lgLQhreMX5"
 }

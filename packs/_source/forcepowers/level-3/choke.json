@@ -109,15 +109,26 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1QTasbt4ttl6GhXS": {
+      "16BxrBfiTyG61DB0": {
         "type": "Save",
-        "_id": "1QTasbt4ttl6GhXS",
+        "_id": "16BxrBfiTyG61DB0",
         "img": null,
-        "duration": {
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
           "value": null,
-          "units": "inst"
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "range": "60",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -129,81 +140,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p>You make a constricting gesture at a creature within range. The target must make a Constitution saving throw. On a failed save target takes [[/r 5d8]] force damage and is restrained until the end of your next turn. On a successful save, the target takes half as much damage and is not restrained.</p>\n<p>You can use a bonus action while the target is restrained to move the target up to 5 feet in any direction.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d8]] for each slot level above 3rd.</p>"
-        }
-      },
-      "1I6NHHnkMneU1q1s": {
-        "type": "Save",
-        "_id": "1I6NHHnkMneU1q1s",
-        "img": null,
+        },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "E5OIn5R347DEoxji": {
+        "type": "Save",
+        "_id": "E5OIn5R347DEoxji",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "5d8",
+              "force"
+            ]
+          ]
         },
         "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "5d8",
-              "force"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p>You make a constricting gesture at a creature within range. The target must make a Constitution saving throw. On a failed save target takes [[/r 5d8]] force damage and is restrained until the end of your next turn. On a successful save, the target takes half as much damage and is not restrained.</p>\n<p>You can use a bonus action while the target is restrained to move the target up to 5 feet in any direction.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d8]] for each slot level above 3rd.</p>"
         },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You make a constricting gesture at a creature within range. The target must make a Constitution saving throw. On a failed save target takes [[/r 5d8]] force damage and is restrained until the end of your next turn. On a successful save, the target takes half as much damage and is not restrained.</p>\n<p>You can use a bonus action while the target is restrained to move the target up to 5 feet in any direction.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d8]] for each slot level above 3rd.</p>"
-        }
-      },
-      "2EPyha4RIJN1DiBu": {
-        "type": "Save",
-        "_id": "2EPyha4RIJN1DiBu",
-        "img": null,
-        "description": {
-          "value": "<p>You make a constricting gesture at a creature within range. The target must make a Constitution saving throw. On a failed save target takes [[/r 5d8]] force damage and is restrained until the end of your next turn. On a successful save, the target takes half as much damage and is not restrained.</p>\n<p>You can use a bonus action while the target is restrained to move the target up to 5 feet in any direction.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d8]] for each slot level above 3rd.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "con",
@@ -216,24 +187,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "5d8",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979278,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1730434248378,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

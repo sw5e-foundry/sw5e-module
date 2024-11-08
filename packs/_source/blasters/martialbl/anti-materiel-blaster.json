@@ -29,14 +29,7 @@
     }
   },
   "system": {
-    "attunement": "",
-    "attuned": false,
-    "equipped": false,
     "quantity": 1,
-    "weight": {
-      "value": 0,
-      "units": "lb"
-    },
     "price": {
       "value": 2500,
       "denomination": "gp"
@@ -57,19 +50,20 @@
       "rules": "2024"
     },
     "activities": {
-      "6BadieEyOcb4LZt5": {
+      "SQQuTo3452K1wczX": {
         "type": "Attack",
-        "_id": "6BadieEyOcb4LZt5",
+        "_id": "SQQuTo3452K1wczX",
         "img": null,
         "attack": {
           "ability": "",
           "bonus": "",
           "classification": "weapon",
           "flat": false,
-          "type": "ranged"
+          "type": "melee"
         },
-        "description": {
-          "value": "<h3>Power cell (range 180/720) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Auto</h3>\n<p>Weapons with this property can only fire in burst, penetrating, or rapid modes. If the weapon has any combination of burst, penetrating, and rapid modes, you choose which mode to use. You can only use one mode at a time.</p>\n<h3>Reload 2</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Penetrating 2 </h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead attempt to penetrate and hit a creature behind the target, consuming ammunition equal to the penetrating number. Make an attack roll against the initial target. If the attack hits, there is a creature within 15 feet of that creature and directly behind it, and the original attack roll would hit the second creature, it also takes normal weapon damage. Alternatively, you can use this property to fire at a creature through partial cover. When you do so, you reduce the target's cover by one step (from three-quarters to half or half to one-quarter), rather than targeting a second creature.</p>\n<h3>Strength 19</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
+        "activation": {
+          "type": "action",
+          "cost": 1
         },
         "target": {
           "value": 1,
@@ -77,23 +71,27 @@
           "units": "",
           "type": "enemy"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1
+        "duration": {
+          "value": null,
+          "units": "inst"
         },
         "damage": {
           "critical": {
             "allow": true
           },
-          "parts": null
+          "parts": [
+            [
+              "3d4 + @mod",
+              "energy"
+            ]
+          ]
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<h3>Power cell (range 180/720) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Auto</h3>\n<p>Weapons with this property can only fire in burst, penetrating, or rapid modes. If the weapon has any combination of burst, penetrating, and rapid modes, you choose which mode to use. You can only use one mode at a time.</p>\n<h3>Reload 2</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Penetrating 2 </h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead attempt to penetrate and hit a creature behind the target, consuming ammunition equal to the penetrating number. Make an attack roll against the initial target. If the attack hits, there is a creature within 15 feet of that creature and directly behind it, and the original attack roll would hit the second creature, it also takes normal weapon damage. Alternatively, you can use this property to fire at a creature through partial cover. When you do so, you reduce the target's cover by one step (from three-quarters to half or half to one-quarter), rather than targeting a second creature.</p>\n<h3>Strength 19</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
         }
       },
-      "p71nSE3hBMJehCxt": {
-        "_id": "p71nSE3hBMJehCxt",
+      "4cJQltcivZcsymSc": {
+        "_id": "4cJQltcivZcsymSc",
         "type": "attack",
         "sort": 0,
         "activation": {
@@ -146,16 +144,20 @@
           "parts": []
         }
       },
-      "1tduxQicSXev1MPo": {
+      "1SNrp1P2g0oQ1p1Q": {
         "type": "Attack",
-        "_id": "1tduxQicSXev1MPo",
+        "_id": "1SNrp1P2g0oQ1p1Q",
         "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "ranged"
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d4 + @mod",
+              "energy"
+            ]
+          ]
         },
         "description": {
           "value": "<h3>Power cell (range 180/720) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Auto</h3>\n<p>Weapons with this property can only fire in burst, penetrating, or rapid modes. If the weapon has any combination of burst, penetrating, and rapid modes, you choose which mode to use. You can only use one mode at a time.</p>\n<h3>Reload 2</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Penetrating 2 </h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead attempt to penetrate and hit a creature behind the target, consuming ammunition equal to the penetrating number. Make an attack roll against the initial target. If the attack hits, there is a creature within 15 feet of that creature and directly behind it, and the original attack roll would hit the second creature, it also takes normal weapon damage. Alternatively, you can use this property to fire at a creature through partial cover. When you do so, you reduce the target's cover by one step (from three-quarters to half or half to one-quarter), rather than targeting a second creature.</p>\n<h3>Strength 19</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
@@ -165,92 +167,6 @@
           "width": null,
           "units": "",
           "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "1SYvBqJ4LDLuxLnE": {
-        "type": "Attack",
-        "_id": "1SYvBqJ4LDLuxLnE",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h3>Power cell (range 180/720) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Auto</h3>\n<p>Weapons with this property can only fire in burst, penetrating, or rapid modes. If the weapon has any combination of burst, penetrating, and rapid modes, you choose which mode to use. You can only use one mode at a time.</p>\n<h3>Reload 2</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Penetrating 2 </h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead attempt to penetrate and hit a creature behind the target, consuming ammunition equal to the penetrating number. Make an attack roll against the initial target. If the attack hits, there is a creature within 15 feet of that creature and directly behind it, and the original attack roll would hit the second creature, it also takes normal weapon damage. Alternatively, you can use this property to fire at a creature through partial cover. When you do so, you reduce the target's cover by one step (from three-quarters to half or half to one-quarter), rather than targeting a second creature.</p>\n<h3>Strength 19</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        }
-      },
-      "1snAluEaG9tc15uj": {
-        "type": "Attack",
-        "_id": "1snAluEaG9tc15uj",
-        "img": null,
-        "description": {
-          "value": "<h3>Power cell (range 180/720) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Auto</h3>\n<p>Weapons with this property can only fire in burst, penetrating, or rapid modes. If the weapon has any combination of burst, penetrating, and rapid modes, you choose which mode to use. You can only use one mode at a time.</p>\n<h3>Reload 2</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Penetrating 2 </h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead attempt to penetrate and hit a creature behind the target, consuming ammunition equal to the penetrating number. Make an attack roll against the initial target. If the attack hits, there is a creature within 15 feet of that creature and directly behind it, and the original attack roll would hit the second creature, it also takes normal weapon damage. Alternatively, you can use this property to fire at a creature through partial cover. When you do so, you reduce the target's cover by one step (from three-quarters to half or half to one-quarter), rather than targeting a second creature.</p>\n<h3>Strength 19</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d4 + @mod",
-              "energy"
-            ]
-          ]
         },
         "attack": {
           "ability": "",
@@ -259,51 +175,13 @@
           "flat": false,
           "type": "melee"
         },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        }
-      },
-      "1hBNpPHD3Yu410P7": {
-        "type": "Attack",
-        "_id": "1hBNpPHD3Yu410P7",
-        "img": null,
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
         "duration": {
           "value": null,
           "units": "inst"
         },
-        "description": {
-          "value": "<h3>Power cell (range 180/720) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Auto</h3>\n<p>Weapons with this property can only fire in burst, penetrating, or rapid modes. If the weapon has any combination of burst, penetrating, and rapid modes, you choose which mode to use. You can only use one mode at a time.</p>\n<h3>Reload 2</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Penetrating 2 </h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead attempt to penetrate and hit a creature behind the target, consuming ammunition equal to the penetrating number. Make an attack roll against the initial target. If the attack hits, there is a creature within 15 feet of that creature and directly behind it, and the original attack roll would hit the second creature, it also takes normal weapon damage. Alternatively, you can use this property to fire at a creature through partial cover. When you do so, you reduce the target's cover by one step (from three-quarters to half or half to one-quarter), rather than targeting a second creature.</p>\n<h3>Strength 19</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d4 + @mod",
-              "energy"
-            ]
-          ]
+        "activation": {
+          "type": "action",
+          "cost": 1
         }
       }
     },
@@ -348,6 +226,13 @@
       "description": ""
     },
     "container": null,
+    "weight": {
+      "value": 0,
+      "units": "lb"
+    },
+    "attunement": "",
+    "attuned": false,
+    "equipped": false,
     "armor": {
       "value": null
     },
@@ -371,7 +256,7 @@
   "type": "weapon",
   "img": "modules/sw5e/icons/packs/Martial%20Blasters/Anti-MaterielBlaster.webp",
   "effects": [],
-  "_id": "xxbqOdjKYp7aJyPW",
+  "_id": "g2ctzQkLc0FU5vvr",
   "folder": null,
   "sort": 0,
   "ownership": {
@@ -382,9 +267,9 @@
     "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1727354894784,
-    "modifiedTime": 1729988022609,
+    "createdTime": 1730433881093,
+    "modifiedTime": 1730434201701,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
-  "_key": "!items!xxbqOdjKYp7aJyPW"
+  "_key": "!items!g2ctzQkLc0FU5vvr"
 }

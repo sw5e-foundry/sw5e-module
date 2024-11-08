@@ -109,15 +109,26 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "iB2AFAPqEbm1QGtF": {
+      "1d7AipJbCAt6Bmwz": {
         "type": "Save",
-        "_id": "iB2AFAPqEbm1QGtF",
+        "_id": "1d7AipJbCAt6Bmwz",
         "img": null,
-        "duration": {
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
           "value": null,
-          "units": "inst"
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "range": "60",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -129,81 +140,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Plague</em></p>\n<p>You wrack the body of a creature that you can see with a virulent, disease-like condition. The target must make a Constitution saving throw. On a failed save, it takes [[/r 14d6]] necrotic damage, or half as much damage on a successful save. The damage can't reduce the target's hit points below 1. If the target fails the saving throw, its hit point maximum is reduced for 1 hour by an amount equal to the necrotic damage it took. Any effect that removes a disease allows a creature's hit point maximum to return to normal immediately.</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power using a force slot of 7th level or higher, the power deals an extra [[/r 2d6]] damage for each slot level above 6th.</p>"
-        }
-      },
-      "1vCmVyZYih3Y10G6": {
-        "type": "Save",
-        "_id": "1vCmVyZYih3Y10G6",
-        "img": null,
+        },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "1KD692MZkFQHTYUc": {
+        "type": "Save",
+        "_id": "1KD692MZkFQHTYUc",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "14d6",
+              "necrotic"
+            ]
+          ]
         },
         "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "14d6",
-              "necrotic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Plague</em></p>\n<p>You wrack the body of a creature that you can see with a virulent, disease-like condition. The target must make a Constitution saving throw. On a failed save, it takes [[/r 14d6]] necrotic damage, or half as much damage on a successful save. The damage can't reduce the target's hit points below 1. If the target fails the saving throw, its hit point maximum is reduced for 1 hour by an amount equal to the necrotic damage it took. Any effect that removes a disease allows a creature's hit point maximum to return to normal immediately.</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power using a force slot of 7th level or higher, the power deals an extra [[/r 2d6]] damage for each slot level above 6th.</p>"
         },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Plague</em></p>\n<p>You wrack the body of a creature that you can see with a virulent, disease-like condition. The target must make a Constitution saving throw. On a failed save, it takes [[/r 14d6]] necrotic damage, or half as much damage on a successful save. The damage can't reduce the target's hit points below 1. If the target fails the saving throw, its hit point maximum is reduced for 1 hour by an amount equal to the necrotic damage it took. Any effect that removes a disease allows a creature's hit point maximum to return to normal immediately.</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power using a force slot of 7th level or higher, the power deals an extra [[/r 2d6]] damage for each slot level above 6th.</p>"
-        }
-      },
-      "CPuYJJa7ahz14EV3": {
-        "type": "Save",
-        "_id": "CPuYJJa7ahz14EV3",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Plague</em></p>\n<p>You wrack the body of a creature that you can see with a virulent, disease-like condition. The target must make a Constitution saving throw. On a failed save, it takes [[/r 14d6]] necrotic damage, or half as much damage on a successful save. The damage can't reduce the target's hit points below 1. If the target fails the saving throw, its hit point maximum is reduced for 1 hour by an amount equal to the necrotic damage it took. Any effect that removes a disease allows a creature's hit point maximum to return to normal immediately.</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power using a force slot of 7th level or higher, the power deals an extra [[/r 2d6]] damage for each slot level above 6th.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "con",
@@ -216,24 +187,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "14d6",
-              "necrotic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979251,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1730434248008,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

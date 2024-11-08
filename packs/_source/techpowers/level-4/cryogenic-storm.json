@@ -109,15 +109,26 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1Dom7OajaYfEZhKe": {
+      "1QhqDurNZVzIQS2c": {
         "type": "Save",
-        "_id": "1Dom7OajaYfEZhKe",
+        "_id": "1QhqDurNZVzIQS2c",
         "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
         },
         "range": "120",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -133,85 +144,45 @@
             ]
           ]
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p>A storm of cryogenic energy encompasses the ground in a 20-foot-radius, 40-foot-high cylinder centered on a point within range. Each creature in the cylinder must make a Dexterity saving throw. A creature takes [[/r 2d8]] kinetic damage and [[/r 4d6]] cold damage on a failed save, or half as much damage on a successful one.</p>\n<p>The storm's area of effect becomes difficult terrain until the end of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 5th level or higher, the kinetic damage increases by [[/r 1d8]] for each slot level above 4th.</p>"
-        }
-      },
-      "1Or6codJyXuS12Vz": {
-        "type": "Save",
-        "_id": "1Or6codJyXuS12Vz",
-        "img": null,
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "1q0i1fX3MGApMBuo": {
+        "type": "Save",
+        "_id": "1q0i1fX3MGApMBuo",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d8",
+              "kinetic"
+            ],
+            [
+              "4d6",
+              "cold"
+            ]
+          ]
         },
         "range": "120",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "kinetic"
-            ],
-            [
-              "4d6",
-              "cold"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p>A storm of cryogenic energy encompasses the ground in a 20-foot-radius, 40-foot-high cylinder centered on a point within range. Each creature in the cylinder must make a Dexterity saving throw. A creature takes [[/r 2d8]] kinetic damage and [[/r 4d6]] cold damage on a failed save, or half as much damage on a successful one.</p>\n<p>The storm's area of effect becomes difficult terrain until the end of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 5th level or higher, the kinetic damage increases by [[/r 1d8]] for each slot level above 4th.</p>"
         },
         "target": {
           "value": 20,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>A storm of cryogenic energy encompasses the ground in a 20-foot-radius, 40-foot-high cylinder centered on a point within range. Each creature in the cylinder must make a Dexterity saving throw. A creature takes [[/r 2d8]] kinetic damage and [[/r 4d6]] cold damage on a failed save, or half as much damage on a successful one.</p>\n<p>The storm's area of effect becomes difficult terrain until the end of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 5th level or higher, the kinetic damage increases by [[/r 1d8]] for each slot level above 4th.</p>"
-        }
-      },
-      "f1fyY9yoLaVz6g2H": {
-        "type": "Save",
-        "_id": "f1fyY9yoLaVz6g2H",
-        "img": null,
-        "description": {
-          "value": "<p>A storm of cryogenic energy encompasses the ground in a 20-foot-radius, 40-foot-high cylinder centered on a point within range. Each creature in the cylinder must make a Dexterity saving throw. A creature takes [[/r 2d8]] kinetic damage and [[/r 4d6]] cold damage on a failed save, or half as much damage on a successful one.</p>\n<p>The storm's area of effect becomes difficult terrain until the end of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 5th level or higher, the kinetic damage increases by [[/r 1d8]] for each slot level above 4th.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "dex",
@@ -224,28 +195,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "kinetic"
-            ],
-            [
-              "4d6",
-              "cold"
-            ]
-          ]
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "120"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -261,7 +215,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1730434253143,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

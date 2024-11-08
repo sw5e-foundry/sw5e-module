@@ -1,10 +1,16 @@
 {
+  "_id": "DV8F5deSRauMKHN5",
   "name": "Break",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/Break.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:52:02.9885202+00:00",
       "importer_version": 3,
-      "uid": "Power.name-break"
+      "uid": "Power.name-break.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -14,26 +20,111 @@
     }
   },
   "system": {
+    "description": {
+      "value": "<p>You inflict 10 force damage to an object you can see within range that is not being worn or carried, generating an explosion of sound that can be heard up to 100 feet away. Even if the object is not destroyed, small shards of shrapnel fly at creatures within 5 feet of it. Each creature must make a Dexterity saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage. </p>\n<p>This power's kinetic damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]), and the power's force damage also increases by 10 at each of these levels.</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "EC"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 30,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "save",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d4",
+          "kinetic"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "dex",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "uni",
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
+    "properties": [],
     "activities": {
-      "DfTILTyxyMfhFF6G": {
+      "1GWcDYwrPq0slFoG": {
         "type": "Save",
-        "_id": "DfTILTyxyMfhFF6G",
+        "_id": "1GWcDYwrPq0slFoG",
         "img": null,
-        "description": {
-          "value": "<p>You inflict 10 force damage to an object you can see within range that is not being worn or carried, generating an explosion of sound that can be heard up to 100 feet away. Even if the object is not destroyed, small shards of shrapnel fly at creatures within 5 feet of it. Each creature must make a Dexterity saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage. </p>\n<p>This power's kinetic damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]), and the power's force damage also increases by 10 at each of these levels.</p>"
-        },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
+        "range": "30",
         "duration": {
           "value": null,
           "units": "inst"
@@ -49,81 +140,72 @@
             ]
           ]
         },
+        "description": {
+          "value": "<p>You inflict 10 force damage to an object you can see within range that is not being worn or carried, generating an explosion of sound that can be heard up to 100 feet away. Even if the object is not destroyed, small shards of shrapnel fly at creatures within 5 feet of it. Each creature must make a Dexterity saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage. </p>\n<p>This power's kinetic damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]), and the power's force damage also increases by 10 at each of these levels.</p>"
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        }
+      },
+      "smZq1bV5niP1eSgn": {
+        "type": "Save",
+        "_id": "smZq1bV5niP1eSgn",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4",
+              "kinetic"
+            ]
+          ]
+        },
+        "range": "30",
+        "description": {
+          "value": "<p>You inflict 10 force damage to an object you can see within range that is not being worn or carried, generating an explosion of sound that can be heard up to 100 feet away. Even if the object is not destroyed, small shards of shrapnel fly at creatures within 5 feet of it. Each creature must make a Dexterity saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage. </p>\n<p>This power's kinetic damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]), and the power's force damage also increases by 10 at each of these levels.</p>"
+        },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
         },
-        "range": "30"
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "description": {
-      "value": "<p>You inflict 10 force damage to an object you can see within range that is not being worn or carried, generating an explosion of sound that can be heard up to 100 feet away. Even if the object is not destroyed, small shards of shrapnel fly at creatures within 5 feet of it. Each creature must make a Dexterity saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage. </p>\n<p>This power's kinetic damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]), and the power's force damage also increases by 10 at each of these levels.</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "EC",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "value": "30",
-      "units": "ft"
-    },
-    "school": "uni",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "break"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/Break.webp",
-  "effects": [],
-  "_id": "aLBO77abbqEq3xVz",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984159205,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979194,
+    "modifiedTime": 1730434247052,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!aLBO77abbqEq3xVz"
+  "_key": "!items!DV8F5deSRauMKHN5"
 }

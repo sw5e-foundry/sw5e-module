@@ -1,10 +1,16 @@
 {
+  "_id": "jO9zzcVPxdHZ3MxR",
   "name": "Feedback",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/Feedback.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1477482+00:00",
       "importer_version": 3,
-      "uid": "Power.name-feedback"
+      "uid": "Power.name-feedback.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -14,26 +20,111 @@
     }
   },
   "system": {
+    "description": {
+      "value": "<p>You unleash a burst of psychic energy at a target within range. If the target can hear you (though it need not understand you), it must succeed on an Intelligence saving throw or take [[/r 1d4]] psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.</p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 60,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "save",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d4",
+          "psychic"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "int",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "drk",
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
+    "properties": [],
     "activities": {
-      "1HqC6HtStNKS18t2": {
+      "1sH9jp8XPVgLD8Dt": {
         "type": "Save",
-        "_id": "1HqC6HtStNKS18t2",
+        "_id": "1sH9jp8XPVgLD8Dt",
         "img": null,
-        "description": {
-          "value": "<p>You unleash a burst of psychic energy at a target within range. If the target can hear you (though it need not understand you), it must succeed on an Intelligence saving throw or take [[/r 1d4]] psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.</p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
-        },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
         },
-        "save": {
-          "ability": "int",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
+        "range": "60",
         "duration": {
           "value": null,
           "units": "inst"
@@ -49,81 +140,72 @@
             ]
           ]
         },
+        "description": {
+          "value": "<p>You unleash a burst of psychic energy at a target within range. If the target can hear you (though it need not understand you), it must succeed on an Intelligence saving throw or take [[/r 1d4]] psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.</p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
+        },
+        "save": {
+          "ability": "int",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        }
+      },
+      "9uqv2cV4Gce3hDcb": {
+        "type": "Save",
+        "_id": "9uqv2cV4Gce3hDcb",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4",
+              "psychic"
+            ]
+          ]
+        },
+        "range": "60",
+        "description": {
+          "value": "<p>You unleash a burst of psychic energy at a target within range. If the target can hear you (though it need not understand you), it must succeed on an Intelligence saving throw or take [[/r 1d4]] psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.</p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
+        },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
         },
-        "range": "60"
+        "save": {
+          "ability": "int",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "description": {
-      "value": "<p>You unleash a burst of psychic energy at a target within range. If the target can hear you (though it need not understand you), it must succeed on an Intelligence saving throw or take [[/r 1d4]] psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.</p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "value": "60",
-      "units": "ft"
-    },
-    "school": "drk",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "feedback"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/Feedback.webp",
-  "effects": [],
-  "_id": "kMswCIWShu6Q6jL3",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984159722,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979298,
+    "modifiedTime": 1730434248806,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!kMswCIWShu6Q6jL3"
+  "_key": "!items!jO9zzcVPxdHZ3MxR"
 }

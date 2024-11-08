@@ -105,15 +105,26 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "wqqWN7koSQtaUx4R": {
+      "1Pyr7URkoxv413Qr": {
         "type": "Save",
-        "_id": "wqqWN7koSQtaUx4R",
+        "_id": "1Pyr7URkoxv413Qr",
         "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": 10,
+          "width": null,
+          "units": "ft",
+          "type": "square"
         },
         "range": "60",
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -125,81 +136,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "square"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p>You cover the ground in a 10-foot square within range in oil. For the duration, it is difficult terrain.</p>\n<p>When the oil appears, each creature standing in its area must succeed on a Dexterity saving throw or fall prone. A creature that enters the area or ends its turn there must also succeed on a Dexterity saving throw.</p>\n<p>The oil is flammable. Any 5 foot square of the oil exposed to fire burns away in one round. Each creature who enters the fire or starts it turn there must make a Dexterity saving throw, taking [[/r 3d6]] fire damage on a failed save, or half as much on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried.</p>"
-        }
-      },
-      "10MWq58wuOJz1IAX": {
-        "type": "Save",
-        "_id": "10MWq58wuOJz1IAX",
-        "img": null,
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "20jM2WtF9nI1gOua": {
+        "type": "Save",
+        "_id": "20jM2WtF9nI1gOua",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "3d6",
+              "fire"
+            ]
+          ]
         },
         "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d6",
-              "fire"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+        "description": {
+          "value": "<p>You cover the ground in a 10-foot square within range in oil. For the duration, it is difficult terrain.</p>\n<p>When the oil appears, each creature standing in its area must succeed on a Dexterity saving throw or fall prone. A creature that enters the area or ends its turn there must also succeed on a Dexterity saving throw.</p>\n<p>The oil is flammable. Any 5 foot square of the oil exposed to fire burns away in one round. Each creature who enters the fire or starts it turn there must make a Dexterity saving throw, taking [[/r 3d6]] fire damage on a failed save, or half as much on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried.</p>"
         },
         "target": {
           "value": 10,
           "width": null,
           "units": "ft",
           "type": "square"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You cover the ground in a 10-foot square within range in oil. For the duration, it is difficult terrain.</p>\n<p>When the oil appears, each creature standing in its area must succeed on a Dexterity saving throw or fall prone. A creature that enters the area or ends its turn there must also succeed on a Dexterity saving throw.</p>\n<p>The oil is flammable. Any 5 foot square of the oil exposed to fire burns away in one round. Each creature who enters the fire or starts it turn there must make a Dexterity saving throw, taking [[/r 3d6]] fire damage on a failed save, or half as much on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried.</p>"
-        }
-      },
-      "VnjmE92wi101o57N": {
-        "type": "Save",
-        "_id": "VnjmE92wi101o57N",
-        "img": null,
-        "description": {
-          "value": "<p>You cover the ground in a 10-foot square within range in oil. For the duration, it is difficult terrain.</p>\n<p>When the oil appears, each creature standing in its area must succeed on a Dexterity saving throw or fall prone. A creature that enters the area or ends its turn there must also succeed on a Dexterity saving throw.</p>\n<p>The oil is flammable. Any 5 foot square of the oil exposed to fire burns away in one round. Each creature who enters the fire or starts it turn there must make a Dexterity saving throw, taking [[/r 3d6]] fire damage on a failed save, or half as much on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "dex",
@@ -212,24 +183,11 @@
           "value": "1",
           "units": "minute"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d6",
-              "fire"
-            ]
-          ]
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "square"
-        },
-        "range": "60"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729983829201,
+    "modifiedTime": 1730434250881,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

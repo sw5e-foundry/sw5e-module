@@ -114,15 +114,26 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "lZxFfHNuBvM10Im3": {
+      "1mUmsWb4wAAn1sFv": {
         "type": "Save",
-        "_id": "lZxFfHNuBvM10Im3",
+        "_id": "1mUmsWb4wAAn1sFv",
         "img": null,
-        "duration": {
-          "value": "1",
-          "units": "round"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
         },
         "range": "60",
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -138,85 +149,45 @@
             ]
           ]
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p>Choose a point you can see within range. You launch a detonator at that point, which remains there until the start of your next turn, when it explodes, ending the power. You can also use your reaction at any point during the power's duration to cause the detonator to explode early. When the detonator explodes, each creature within 5 feet of the point must make a Dexterity saving throw. A creature takes [[/r 1d8]] fire damage and [[/r 1d8]] kinetic damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you can launch an additional detonator at another point you can see within range for each slot level above 1st. The detonators all explode simultaneously. A creature in the area of more than one detonator when they explode is only affected once.</p>"
-        }
-      },
-      "zPVfRK9Q23NunPf7": {
-        "type": "Save",
-        "_id": "zPVfRK9Q23NunPf7",
-        "img": null,
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "gSMl4ODUV3QW7Nrp": {
+        "type": "Save",
+        "_id": "gSMl4ODUV3QW7Nrp",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d8",
+              "fire"
+            ],
+            [
+              "1d8",
+              "kinetic"
+            ]
+          ]
         },
         "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "fire"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
+        "description": {
+          "value": "<p>Choose a point you can see within range. You launch a detonator at that point, which remains there until the start of your next turn, when it explodes, ending the power. You can also use your reaction at any point during the power's duration to cause the detonator to explode early. When the detonator explodes, each creature within 5 feet of the point must make a Dexterity saving throw. A creature takes [[/r 1d8]] fire damage and [[/r 1d8]] kinetic damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you can launch an additional detonator at another point you can see within range for each slot level above 1st. The detonators all explode simultaneously. A creature in the area of more than one detonator when they explode is only affected once.</p>"
         },
         "target": {
           "value": 5,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>Choose a point you can see within range. You launch a detonator at that point, which remains there until the start of your next turn, when it explodes, ending the power. You can also use your reaction at any point during the power's duration to cause the detonator to explode early. When the detonator explodes, each creature within 5 feet of the point must make a Dexterity saving throw. A creature takes [[/r 1d8]] fire damage and [[/r 1d8]] kinetic damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you can launch an additional detonator at another point you can see within range for each slot level above 1st. The detonators all explode simultaneously. A creature in the area of more than one detonator when they explode is only affected once.</p>"
-        }
-      },
-      "ycsvbelrZflan528": {
-        "type": "Save",
-        "_id": "ycsvbelrZflan528",
-        "img": null,
-        "description": {
-          "value": "<p>Choose a point you can see within range. You launch a detonator at that point, which remains there until the start of your next turn, when it explodes, ending the power. You can also use your reaction at any point during the power's duration to cause the detonator to explode early. When the detonator explodes, each creature within 5 feet of the point must make a Dexterity saving throw. A creature takes [[/r 1d8]] fire damage and [[/r 1d8]] kinetic damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you can launch an additional detonator at another point you can see within range for each slot level above 1st. The detonators all explode simultaneously. A creature in the area of more than one detonator when they explode is only affected once.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "dex",
@@ -229,28 +200,11 @@
           "value": "1",
           "units": "round"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "fire"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "60"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -266,7 +220,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1730434250934,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

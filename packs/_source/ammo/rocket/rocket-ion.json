@@ -121,30 +121,24 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "944OmxXbAGM1Fx5A": {
+      "eV5Wn982IZ1H1ihO": {
         "type": "Save",
-        "_id": "944OmxXbAGM1Fx5A",
+        "_id": "eV5Wn982IZ1H1ihO",
         "img": null,
-        "description": {
-          "value": "<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d6]] ion damage on a failed save or half as much on a successful one. Any electronics within the blast radius that aren't being worn or carried are disabled until rebooted.</p>"
+        "activation": {
+          "type": null,
+          "cost": null
         },
         "target": {
           "value": 15,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
         },
         "range": "15",
-        "activation": {
-          "type": null,
-          "cost": null
+        "duration": {
+          "value": null,
+          "units": "inst"
         },
         "damage": {
           "critical": {
@@ -161,66 +155,45 @@
             ]
           ]
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "1zOY2A4rObiVVPAv": {
-        "type": "Save",
-        "_id": "1zOY2A4rObiVVPAv",
-        "img": null,
+        "description": {
+          "value": "<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d6]] ion damage on a failed save or half as much on a successful one. Any electronics within the blast radius that aren't being worn or carried are disabled until rebooted.</p>"
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
             "formula": 14
           }
+        }
+      },
+      "WL1xg6Y26mP1ln5z": {
+        "type": "Save",
+        "_id": "WL1xg6Y26mP1ln5z",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "kinetic"
+            ],
+            [
+              "2d6",
+              "ion"
+            ]
+          ]
         },
         "range": "15",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d6",
-              "ion"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d6]] ion damage on a failed save or half as much on a successful one. Any electronics within the blast radius that aren't being worn or carried are disabled until rebooted.</p>"
         },
         "target": {
           "value": 15,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d6]] ion damage on a failed save or half as much on a successful one. Any electronics within the blast radius that aren't being worn or carried are disabled until rebooted.</p>"
-        }
-      },
-      "STicV5h5NRmCnH4c": {
-        "type": "Save",
-        "_id": "STicV5h5NRmCnH4c",
-        "img": null,
-        "description": {
-          "value": "<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d6]] ion damage on a failed save or half as much on a successful one. Any electronics within the blast radius that aren't being worn or carried are disabled until rebooted.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
         },
         "save": {
           "ability": "dex",
@@ -233,28 +206,10 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d6",
-              "ion"
-            ]
-          ]
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "15"
+        "activation": {
+          "type": null,
+          "cost": null
+        }
       }
     }
   },
@@ -266,7 +221,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956747,
-    "modifiedTime": 1729983824127,
+    "modifiedTime": 1730434245440,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

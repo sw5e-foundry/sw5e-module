@@ -116,15 +116,26 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "18LhkGXVA3gKMZ7H": {
+      "1QyoeVZrO1csz7Mm": {
         "type": "Save",
-        "_id": "18LhkGXVA3gKMZ7H",
+        "_id": "1QyoeVZrO1csz7Mm",
         "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "range": "150",
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -136,81 +147,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Force Lightning Cone</em></p>\n<p>A crackling storm of lightning with a diameter of 60 feet and a height of 120 feet appears in a location you choose within range. Whenever a creature enters the storm or starts its turn there, it must make a Dexterity saving throw. On a failed save, it takes [[/r 30d6]] lightning damage or half as much as a successful one.</p>\n<p>The power damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
-        }
-      },
-      "1RRCX9loolIbTgQj": {
-        "type": "Save",
-        "_id": "1RRCX9loolIbTgQj",
-        "img": null,
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "1jJkKjUX5n671i7c": {
+        "type": "Save",
+        "_id": "1jJkKjUX5n671i7c",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "30d6",
+              "lightning"
+            ]
+          ]
         },
         "range": "150",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "30d6",
-              "lightning"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Force Lightning Cone</em></p>\n<p>A crackling storm of lightning with a diameter of 60 feet and a height of 120 feet appears in a location you choose within range. Whenever a creature enters the storm or starts its turn there, it must make a Dexterity saving throw. On a failed save, it takes [[/r 30d6]] lightning damage or half as much as a successful one.</p>\n<p>The power damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
         },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Lightning Cone</em></p>\n<p>A crackling storm of lightning with a diameter of 60 feet and a height of 120 feet appears in a location you choose within range. Whenever a creature enters the storm or starts its turn there, it must make a Dexterity saving throw. On a failed save, it takes [[/r 30d6]] lightning damage or half as much as a successful one.</p>\n<p>The power damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
-        }
-      },
-      "n4mEUyhFqHUfzu7S": {
-        "type": "Save",
-        "_id": "n4mEUyhFqHUfzu7S",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Lightning Cone</em></p>\n<p>A crackling storm of lightning with a diameter of 60 feet and a height of 120 feet appears in a location you choose within range. Whenever a creature enters the storm or starts its turn there, it must make a Dexterity saving throw. On a failed save, it takes [[/r 30d6]] lightning damage or half as much as a successful one.</p>\n<p>The power damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "dex",
@@ -223,24 +194,11 @@
           "value": "1",
           "units": "minute"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "30d6",
-              "lightning"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "150"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -252,7 +210,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979260,
-    "modifiedTime": 1729983826451,
+    "modifiedTime": 1730434248037,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

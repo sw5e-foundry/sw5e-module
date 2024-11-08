@@ -117,30 +117,24 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1rifO9wY9REI1gSQ": {
+      "10WH4ZUYeWhA16AW": {
         "type": "Save",
-        "_id": "1rifO9wY9REI1gSQ",
+        "_id": "10WH4ZUYeWhA16AW",
         "img": null,
-        "description": {
-          "value": "<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Wisdom saving throw. A creature takes [[/r 2d6]] psychic damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature becomes frightened of you for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        "activation": {
+          "type": "action",
+          "cost": 1
         },
         "target": {
           "value": 10,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
         },
         "range": "30",
-        "activation": {
-          "type": "action",
-          "cost": 1
+        "duration": {
+          "value": "1",
+          "units": "minute"
         },
         "damage": {
           "critical": {
@@ -153,62 +147,41 @@
             ]
           ]
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        }
-      },
-      "1Dx1v6gm3R9PosZo": {
-        "type": "Save",
-        "_id": "1Dx1v6gm3R9PosZo",
-        "img": null,
+        "description": {
+          "value": "<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Wisdom saving throw. A creature takes [[/r 2d6]] psychic damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature becomes frightened of you for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        },
         "save": {
           "ability": "wis",
           "dc": {
             "calculation": "",
             "formula": 14
           }
+        }
+      },
+      "S6vrE7ugpzCqE2jR": {
+        "type": "Save",
+        "_id": "S6vrE7ugpzCqE2jR",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d6",
+              "psychic"
+            ]
+          ]
         },
         "range": "30",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "psychic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+        "description": {
+          "value": "<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Wisdom saving throw. A creature takes [[/r 2d6]] psychic damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature becomes frightened of you for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
         },
         "target": {
           "value": 10,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Wisdom saving throw. A creature takes [[/r 2d6]] psychic damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature becomes frightened of you for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
-        }
-      },
-      "2iymvc8lqisq7FLc": {
-        "type": "Save",
-        "_id": "2iymvc8lqisq7FLc",
-        "img": null,
-        "description": {
-          "value": "<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Wisdom saving throw. A creature takes [[/r 2d6]] psychic damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature becomes frightened of you for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
         },
         "save": {
           "ability": "wis",
@@ -221,24 +194,10 @@
           "value": "1",
           "units": "minute"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "psychic"
-            ]
-          ]
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "30"
+        "activation": {
+          "type": "action",
+          "cost": 1
+        }
       }
     }
   },
@@ -250,7 +209,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493966302,
-    "modifiedTime": 1729983824287,
+    "modifiedTime": 1730434245595,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -121,12 +121,13 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1mNfZ2XHNTRtIwuF": {
+      "JGN6jQjGLXUrc4JY": {
         "type": "Save",
-        "_id": "1mNfZ2XHNTRtIwuF",
+        "_id": "JGN6jQjGLXUrc4JY",
         "img": null,
-        "description": {
-          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Dexterity saving throw, taking [[/r 1d4]] lightning damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        "activation": {
+          "type": null,
+          "cost": null
         },
         "target": {
           "value": null,
@@ -134,16 +135,9 @@
           "units": "",
           "type": ""
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "activation": {
-          "type": null,
-          "cost": null
+        "duration": {
+          "value": "1",
+          "units": "minute"
         },
         "damage": {
           "critical": {
@@ -160,22 +154,21 @@
             ]
           ]
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+        "description": {
+          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Dexterity saving throw, taking [[/r 1d4]] lightning damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "",
+            "formula": 14
+          }
         }
       },
-      "1BTCoTMSh7qCaRCF": {
+      "i773SEGE6tNkCvNh": {
         "type": "Save",
-        "_id": "1BTCoTMSh7qCaRCF",
+        "_id": "i773SEGE6tNkCvNh",
         "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
         "damage": {
           "critical": {
             "allow": true
@@ -191,34 +184,14 @@
             ]
           ]
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+        "description": {
+          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Dexterity saving throw, taking [[/r 1d4]] lightning damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
         },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Dexterity saving throw, taking [[/r 1d4]] lightning damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
-        }
-      },
-      "ouxR7Nm7LbL14zs7": {
-        "type": "Save",
-        "_id": "ouxR7Nm7LbL14zs7",
-        "img": null,
-        "description": {
-          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Dexterity saving throw, taking [[/r 1d4]] lightning damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
         },
         "save": {
           "ability": "dex",
@@ -231,26 +204,9 @@
           "value": "1",
           "units": "minute"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "kinetic"
-            ],
-            [
-              "1d4",
-              "lightning"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "activation": {
+          "type": null,
+          "cost": null
         }
       }
     }
@@ -263,7 +219,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956737,
-    "modifiedTime": 1729983824056,
+    "modifiedTime": 1730434245373,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

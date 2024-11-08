@@ -109,15 +109,26 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "oEvnWHG75OPQvzKL": {
+      "vT3CsGQtx4812NKC": {
         "type": "Save",
-        "_id": "oEvnWHG75OPQvzKL",
+        "_id": "vT3CsGQtx4812NKC",
         "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": 10,
+          "width": null,
+          "units": "ft",
+          "type": "cube"
         },
         "range": "150",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -129,81 +140,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Greater Pyrokinesis</em></p>\n<p>A storm made up of sheets of roaring, Force-enhanced flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a Dexterity saving throw. It takes [[/r 7d10]] energy damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one cube is affected only once.</p>\n<p>The flame damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
-        }
-      },
-      "dBkL8whEVvH1mNJZ": {
-        "type": "Save",
-        "_id": "dBkL8whEVvH1mNJZ",
-        "img": null,
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "1DFVOxcQukdZ1TWf": {
+        "type": "Save",
+        "_id": "1DFVOxcQukdZ1TWf",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "7d10",
+              "energy"
+            ]
+          ]
         },
         "range": "150",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "7d10",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Greater Pyrokinesis</em></p>\n<p>A storm made up of sheets of roaring, Force-enhanced flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a Dexterity saving throw. It takes [[/r 7d10]] energy damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one cube is affected only once.</p>\n<p>The flame damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
         },
         "target": {
           "value": 10,
           "width": null,
           "units": "ft",
           "type": "cube"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Pyrokinesis</em></p>\n<p>A storm made up of sheets of roaring, Force-enhanced flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a Dexterity saving throw. It takes [[/r 7d10]] energy damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one cube is affected only once.</p>\n<p>The flame damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
-        }
-      },
-      "s5ZOZtbrgTsvojaS": {
-        "type": "Save",
-        "_id": "s5ZOZtbrgTsvojaS",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Pyrokinesis</em></p>\n<p>A storm made up of sheets of roaring, Force-enhanced flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a Dexterity saving throw. It takes [[/r 7d10]] energy damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one cube is affected only once.</p>\n<p>The flame damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "dex",
@@ -216,24 +187,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "7d10",
-              "energy"
-            ]
-          ]
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "range": "150"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979279,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1730434248407,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -109,15 +109,26 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "CiaEI5XaCf3TQAT6": {
+      "CmoAvL9dr3i1FOk7": {
         "type": "Save",
-        "_id": "CiaEI5XaCf3TQAT6",
+        "_id": "CmoAvL9dr3i1FOk7",
         "img": null,
-        "duration": {
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
           "value": null,
-          "units": "inst"
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "range": "150",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -129,81 +140,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Force Lightning</em></p>\n<p>You create a bolt of lightning that arcs toward a target of your choice that you can see within range. Three bolts then leap from that target to as many as three other targets, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.</p>\n<p>A target must make a Dexterity saving throw. The target takes [[/r 10d8]] lightning damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, one additional bolt leaps from the first target to another target for each slot level above 6th.</p>"
-        }
-      },
-      "FdQn3iCllfrirNoU": {
-        "type": "Save",
-        "_id": "FdQn3iCllfrirNoU",
-        "img": null,
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "1u68JuSCcDTlCraN": {
+        "type": "Save",
+        "_id": "1u68JuSCcDTlCraN",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "10d8",
+              "lightning"
+            ]
+          ]
         },
         "range": "150",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "10d8",
-              "lightning"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Force Lightning</em></p>\n<p>You create a bolt of lightning that arcs toward a target of your choice that you can see within range. Three bolts then leap from that target to as many as three other targets, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.</p>\n<p>A target must make a Dexterity saving throw. The target takes [[/r 10d8]] lightning damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, one additional bolt leaps from the first target to another target for each slot level above 6th.</p>"
         },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Lightning</em></p>\n<p>You create a bolt of lightning that arcs toward a target of your choice that you can see within range. Three bolts then leap from that target to as many as three other targets, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.</p>\n<p>A target must make a Dexterity saving throw. The target takes [[/r 10d8]] lightning damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, one additional bolt leaps from the first target to another target for each slot level above 6th.</p>"
-        }
-      },
-      "DtaMl6BTJI71qUQo": {
-        "type": "Save",
-        "_id": "DtaMl6BTJI71qUQo",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Lightning</em></p>\n<p>You create a bolt of lightning that arcs toward a target of your choice that you can see within range. Three bolts then leap from that target to as many as three other targets, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.</p>\n<p>A target must make a Dexterity saving throw. The target takes [[/r 10d8]] lightning damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, one additional bolt leaps from the first target to another target for each slot level above 6th.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "dex",
@@ -216,24 +187,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "10d8",
-              "lightning"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "150"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979199,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1730434247151,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

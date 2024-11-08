@@ -109,15 +109,26 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "11YxUTZSWJprEoaY": {
+      "G9K1xGnj07u1Qkd0": {
         "type": "Save",
-        "_id": "11YxUTZSWJprEoaY",
+        "_id": "G9K1xGnj07u1Qkd0",
         "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": 20,
+          "width": null,
+          "units": "ft",
+          "type": "sphere"
         },
         "range": "120",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -129,81 +140,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "int",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Improved Feedback</em></p>\n<p>You choose a point within range and cause psychic energy to explode there. Each creature in a 20-foot-radius sphere centered on that point must make an Intelligence saving throw. A creature with an Intelligence score of 2 or lower can't be affected by this power. A target takes [[/r 8d6]] psychic damage on a failed save, or half as much damage on a successful one.</p>\n<p>After a failed save, a target has muddled thoughts for 1 minute. During that time, it rolls a [[/r d6]] and subtracts the number rolled from all its attack rolls and ability checks, as well as its Constitution saving throws to maintain concentration. The target can make an Intelligence saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
-        }
-      },
-      "DSmZEhqR9uL1JCtP": {
-        "type": "Save",
-        "_id": "DSmZEhqR9uL1JCtP",
-        "img": null,
+        },
         "save": {
           "ability": "int",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "1bigLVviyjSs6Na0": {
+        "type": "Save",
+        "_id": "1bigLVviyjSs6Na0",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d6",
+              "psychic"
+            ]
+          ]
         },
         "range": "120",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d6",
-              "psychic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Improved Feedback</em></p>\n<p>You choose a point within range and cause psychic energy to explode there. Each creature in a 20-foot-radius sphere centered on that point must make an Intelligence saving throw. A creature with an Intelligence score of 2 or lower can't be affected by this power. A target takes [[/r 8d6]] psychic damage on a failed save, or half as much damage on a successful one.</p>\n<p>After a failed save, a target has muddled thoughts for 1 minute. During that time, it rolls a [[/r d6]] and subtracts the number rolled from all its attack rolls and ability checks, as well as its Constitution saving throws to maintain concentration. The target can make an Intelligence saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
         },
         "target": {
           "value": 20,
           "width": null,
           "units": "ft",
           "type": "sphere"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Improved Feedback</em></p>\n<p>You choose a point within range and cause psychic energy to explode there. Each creature in a 20-foot-radius sphere centered on that point must make an Intelligence saving throw. A creature with an Intelligence score of 2 or lower can't be affected by this power. A target takes [[/r 8d6]] psychic damage on a failed save, or half as much damage on a successful one.</p>\n<p>After a failed save, a target has muddled thoughts for 1 minute. During that time, it rolls a [[/r d6]] and subtracts the number rolled from all its attack rolls and ability checks, as well as its Constitution saving throws to maintain concentration. The target can make an Intelligence saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
-        }
-      },
-      "JWHY66Uejuj1HGoT": {
-        "type": "Save",
-        "_id": "JWHY66Uejuj1HGoT",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Improved Feedback</em></p>\n<p>You choose a point within range and cause psychic energy to explode there. Each creature in a 20-foot-radius sphere centered on that point must make an Intelligence saving throw. A creature with an Intelligence score of 2 or lower can't be affected by this power. A target takes [[/r 8d6]] psychic damage on a failed save, or half as much damage on a successful one.</p>\n<p>After a failed save, a target has muddled thoughts for 1 minute. During that time, it rolls a [[/r d6]] and subtracts the number rolled from all its attack rolls and ability checks, as well as its Constitution saving throws to maintain concentration. The target can make an Intelligence saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "int",
@@ -216,24 +187,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d6",
-              "psychic"
-            ]
-          ]
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "120"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979245,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1730434247938,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

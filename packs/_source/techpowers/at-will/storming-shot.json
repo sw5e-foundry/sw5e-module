@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1867253+00:00",
       "importer_version": 3,
-      "uid": "Power.name-storming_shot"
+      "uid": "Power.name-storming_shot.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,19 +13,112 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/StormingShot.webp",
   "system": {
+    "description": {
+      "value": "<p>As a part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects and becomes shocked until the end of your next turn. When this power hits a target, if there is a creature within 30 feet who is shocked, an arc of lightning courses between the two creatures, dealing [[/r 1d6]] lightning damage to both of them. If there are multiple other creatures who are shocked, the lightning leaps to the closest creature.</p>\n<p>The power's damage increases when you reach higher levels. At 5th level, the effects of both the ranged weapon attack and discharge deal an extra [[/r 1d6]] lightning damage. Both damage rolls increase by an additional [[/r 1d6]] at 11th and 17th level.</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "1",
+      "units": "round"
+    },
+    "target": {
+      "value": "0",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "other",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d6",
+          "lightning"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "tec",
+    "properties": [],
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
     "activities": {
-      "WiEcq6bxsptchskT": {
+      "2BFkWMcPOKdhAFhd": {
         "type": "Damage",
-        "_id": "WiEcq6bxsptchskT",
+        "_id": "2BFkWMcPOKdhAFhd",
         "img": null,
-        "description": {
-          "value": "<p>As a part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects and becomes shocked until the end of your next turn. When this power hits a target, if there is a creature within 30 feet who is shocked, an arc of lightning courses between the two creatures, dealing [[/r 1d6]] lightning damage to both of them. If there are multiple other creatures who are shocked, the lightning leaps to the closest creature.</p>\n<p>The power's damage increases when you reach higher levels. At 5th level, the effects of both the ranged weapon attack and discharge deal an extra [[/r 1d6]] lightning damage. Both damage rolls increase by an additional [[/r 1d6]] at 11th and 17th level.</p>"
-        },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
+        },
+        "target": {
+          "value": 0,
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "duration": {
           "value": "1",
@@ -42,80 +135,61 @@
             ]
           ]
         },
+        "description": {
+          "value": "<p>As a part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects and becomes shocked until the end of your next turn. When this power hits a target, if there is a creature within 30 feet who is shocked, an arc of lightning courses between the two creatures, dealing [[/r 1d6]] lightning damage to both of them. If there are multiple other creatures who are shocked, the lightning leaps to the closest creature.</p>\n<p>The power's damage increases when you reach higher levels. At 5th level, the effects of both the ranged weapon attack and discharge deal an extra [[/r 1d6]] lightning damage. Both damage rolls increase by an additional [[/r 1d6]] at 11th and 17th level.</p>"
+        }
+      },
+      "1VnxicZTQhy1UtSK": {
+        "type": "Damage",
+        "_id": "1VnxicZTQhy1UtSK",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "lightning"
+            ]
+          ]
+        },
+        "description": {
+          "value": "<p>As a part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects and becomes shocked until the end of your next turn. When this power hits a target, if there is a creature within 30 feet who is shocked, an arc of lightning courses between the two creatures, dealing [[/r 1d6]] lightning damage to both of them. If there are multiple other creatures who are shocked, the lightning leaps to the closest creature.</p>\n<p>The power's damage increases when you reach higher levels. At 5th level, the effects of both the ranged weapon attack and discharge deal an extra [[/r 1d6]] lightning damage. Both damage rolls increase by an additional [[/r 1d6]] at 11th and 17th level.</p>"
+        },
         "target": {
           "value": 0,
           "width": null,
           "units": "",
           "type": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
         }
       }
-    },
-    "description": {
-      "value": "<p>As a part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects and becomes shocked until the end of your next turn. When this power hits a target, if there is a creature within 30 feet who is shocked, an arc of lightning courses between the two creatures, dealing [[/r 1d6]] lightning damage to both of them. If there are multiple other creatures who are shocked, the lightning leaps to the closest creature.</p>\n<p>The power's damage increases when you reach higher levels. At 5th level, the effects of both the ranged weapon attack and discharge deal an extra [[/r 1d6]] lightning damage. Both damage rolls increase by an additional [[/r 1d6]] at 11th and 17th level.</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "value": "1",
-      "units": "round"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "units": ""
-    },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "storming-shot"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/StormingShot.webp",
   "effects": [],
-  "_id": "P2SCf2D5t7PuJWRO",
+  "_id": "PIMORDEikM6QRFAi",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984162174,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434251355,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!P2SCf2D5t7PuJWRO"
+  "_key": "!items!PIMORDEikM6QRFAi"
 }

@@ -105,15 +105,26 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "xdFtLJQaoRj1fWlp": {
+      "4SjzLdyhJsW1uHwb": {
         "type": "Save",
-        "_id": "xdFtLJQaoRj1fWlp",
+        "_id": "4SjzLdyhJsW1uHwb",
         "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": 10,
+          "width": null,
+          "units": "ft",
+          "type": "cube"
         },
         "range": "60",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -125,81 +136,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p>A blast of corrosive energy emits from you. Choose a target within range. </p>\n<p>A creature targeted by this power must make a Dexterity saving throw. On a failed save, the target takes [[/r 10d6 + 40]] acid damage. If this damage reduces the target to 0 hit points, it is disintegrated.</p>\n<p>A disintegrated creature and everything unenhanced it is wearing or carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<p>This power automatically disintegrates an unenhanced Large or smaller object. If the target is a Huge or larger object, this power disintegrates a 10-foot-cube portion of it. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 7th level or higher, the damage increases by [[/r 3d6]] for each slot level above 6th.</p>"
-        }
-      },
-      "Moqk46TaI0IWOnHx": {
-        "type": "Save",
-        "_id": "Moqk46TaI0IWOnHx",
-        "img": null,
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "18m1fFGmIB0D1knk": {
+        "type": "Save",
+        "_id": "18m1fFGmIB0D1knk",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "10d6 + 40",
+              "acid"
+            ]
+          ]
         },
         "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "10d6 + 40",
-              "acid"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p>A blast of corrosive energy emits from you. Choose a target within range. </p>\n<p>A creature targeted by this power must make a Dexterity saving throw. On a failed save, the target takes [[/r 10d6 + 40]] acid damage. If this damage reduces the target to 0 hit points, it is disintegrated.</p>\n<p>A disintegrated creature and everything unenhanced it is wearing or carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<p>This power automatically disintegrates an unenhanced Large or smaller object. If the target is a Huge or larger object, this power disintegrates a 10-foot-cube portion of it. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 7th level or higher, the damage increases by [[/r 3d6]] for each slot level above 6th.</p>"
         },
         "target": {
           "value": 10,
           "width": null,
           "units": "ft",
           "type": "cube"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>A blast of corrosive energy emits from you. Choose a target within range. </p>\n<p>A creature targeted by this power must make a Dexterity saving throw. On a failed save, the target takes [[/r 10d6 + 40]] acid damage. If this damage reduces the target to 0 hit points, it is disintegrated.</p>\n<p>A disintegrated creature and everything unenhanced it is wearing or carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<p>This power automatically disintegrates an unenhanced Large or smaller object. If the target is a Huge or larger object, this power disintegrates a 10-foot-cube portion of it. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 7th level or higher, the damage increases by [[/r 3d6]] for each slot level above 6th.</p>"
-        }
-      },
-      "xXPtrqdNP6r1LMVz": {
-        "type": "Save",
-        "_id": "xXPtrqdNP6r1LMVz",
-        "img": null,
-        "description": {
-          "value": "<p>A blast of corrosive energy emits from you. Choose a target within range. </p>\n<p>A creature targeted by this power must make a Dexterity saving throw. On a failed save, the target takes [[/r 10d6 + 40]] acid damage. If this damage reduces the target to 0 hit points, it is disintegrated.</p>\n<p>A disintegrated creature and everything unenhanced it is wearing or carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<p>This power automatically disintegrates an unenhanced Large or smaller object. If the target is a Huge or larger object, this power disintegrates a 10-foot-cube portion of it. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 7th level or higher, the damage increases by [[/r 3d6]] for each slot level above 6th.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "dex",
@@ -212,24 +183,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "10d6 + 40",
-              "acid"
-            ]
-          ]
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "range": "60"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1730434250509,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

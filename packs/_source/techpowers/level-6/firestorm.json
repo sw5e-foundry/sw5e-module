@@ -105,15 +105,26 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1gbkcMvLqCZ5PgBe": {
+      "1BPtvzYJJEOd7jEH": {
         "type": "Save",
-        "_id": "1gbkcMvLqCZ5PgBe",
+        "_id": "1BPtvzYJJEOd7jEH",
         "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": 15,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
         },
         "range": "60",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -125,81 +136,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p>Choose a point on the ground within range, incinerating everything in a 15-foot radius. All creatures must make a Dexterity saving throw, taking [[/r 8d8]] fire damage on a failure or half as much on a success. All large or smaller creatures are pushed to the edge of the power's radius. You may choose one creature to be at the very center of the firestorm, if you do so that creature has disadvantage on its saving throw and is knocked prone on a failure.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 7th level or higher, the damage increases by [[/r 1d8]] and the radius increases by 5 feet for each slot level above 6th.</p>"
-        }
-      },
-      "Z40hCqTV9bm1xwA7": {
-        "type": "Save",
-        "_id": "Z40hCqTV9bm1xwA7",
-        "img": null,
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "1KLFO1ng2y7p1CkB": {
+        "type": "Save",
+        "_id": "1KLFO1ng2y7p1CkB",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d8",
+              "fire"
+            ]
+          ]
         },
         "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d8",
-              "fire"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p>Choose a point on the ground within range, incinerating everything in a 15-foot radius. All creatures must make a Dexterity saving throw, taking [[/r 8d8]] fire damage on a failure or half as much on a success. All large or smaller creatures are pushed to the edge of the power's radius. You may choose one creature to be at the very center of the firestorm, if you do so that creature has disadvantage on its saving throw and is knocked prone on a failure.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 7th level or higher, the damage increases by [[/r 1d8]] and the radius increases by 5 feet for each slot level above 6th.</p>"
         },
         "target": {
           "value": 15,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>Choose a point on the ground within range, incinerating everything in a 15-foot radius. All creatures must make a Dexterity saving throw, taking [[/r 8d8]] fire damage on a failure or half as much on a success. All large or smaller creatures are pushed to the edge of the power's radius. You may choose one creature to be at the very center of the firestorm, if you do so that creature has disadvantage on its saving throw and is knocked prone on a failure.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 7th level or higher, the damage increases by [[/r 1d8]] and the radius increases by 5 feet for each slot level above 6th.</p>"
-        }
-      },
-      "1V8bb0lo4pFQ1BHk": {
-        "type": "Save",
-        "_id": "1V8bb0lo4pFQ1BHk",
-        "img": null,
-        "description": {
-          "value": "<p>Choose a point on the ground within range, incinerating everything in a 15-foot radius. All creatures must make a Dexterity saving throw, taking [[/r 8d8]] fire damage on a failure or half as much on a success. All large or smaller creatures are pushed to the edge of the power's radius. You may choose one creature to be at the very center of the firestorm, if you do so that creature has disadvantage on its saving throw and is knocked prone on a failure.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 7th level or higher, the damage increases by [[/r 1d8]] and the radius increases by 5 feet for each slot level above 6th.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "dex",
@@ -212,24 +183,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d8",
-              "fire"
-            ]
-          ]
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "60"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1730434253126,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

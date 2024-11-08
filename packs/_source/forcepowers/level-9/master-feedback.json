@@ -109,15 +109,26 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "Ngpda8t4M81FWAr9": {
+      "1N7lEfeRVUcL1jO1": {
         "type": "Save",
-        "_id": "Ngpda8t4M81FWAr9",
+        "_id": "1N7lEfeRVUcL1jO1",
         "img": null,
-        "duration": {
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
           "value": null,
-          "units": "inst"
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "range": "90",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -129,81 +140,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "int",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Greater Feedback</em></p>\n<p>You unleash the power of your mind to blast the intellect of up to ten creatures of your choice that you can see within range. Creatures that have an Intelligence score of 2 or lower are unaffected.</p>\n<p>Each target must make an Intelligence saving throw. On a failed save, a target takes [[/r 14d6]] psychic damage and is stunned. On a successful save, a target takes half as much damage and isn't stunned. </p>\n<p>A stunned target can make a Wisdom saving throw at the end of each of its turns. On a successful save, the stunning effect ends.</p>"
-        }
-      },
-      "YqRkWebVyIi1SWtZ": {
-        "type": "Save",
-        "_id": "YqRkWebVyIi1SWtZ",
-        "img": null,
+        },
         "save": {
           "ability": "int",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "1gqosRpWwL0FI8F4": {
+        "type": "Save",
+        "_id": "1gqosRpWwL0FI8F4",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "14d6",
+              "psychic"
+            ]
+          ]
         },
         "range": "90",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "14d6",
-              "psychic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Greater Feedback</em></p>\n<p>You unleash the power of your mind to blast the intellect of up to ten creatures of your choice that you can see within range. Creatures that have an Intelligence score of 2 or lower are unaffected.</p>\n<p>Each target must make an Intelligence saving throw. On a failed save, a target takes [[/r 14d6]] psychic damage and is stunned. On a successful save, a target takes half as much damage and isn't stunned. </p>\n<p>A stunned target can make a Wisdom saving throw at the end of each of its turns. On a successful save, the stunning effect ends.</p>"
         },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Feedback</em></p>\n<p>You unleash the power of your mind to blast the intellect of up to ten creatures of your choice that you can see within range. Creatures that have an Intelligence score of 2 or lower are unaffected.</p>\n<p>Each target must make an Intelligence saving throw. On a failed save, a target takes [[/r 14d6]] psychic damage and is stunned. On a successful save, a target takes half as much damage and isn't stunned. </p>\n<p>A stunned target can make a Wisdom saving throw at the end of each of its turns. On a successful save, the stunning effect ends.</p>"
-        }
-      },
-      "frDoTZAYBjkcCnCI": {
-        "type": "Save",
-        "_id": "frDoTZAYBjkcCnCI",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Feedback</em></p>\n<p>You unleash the power of your mind to blast the intellect of up to ten creatures of your choice that you can see within range. Creatures that have an Intelligence score of 2 or lower are unaffected.</p>\n<p>Each target must make an Intelligence saving throw. On a failed save, a target takes [[/r 14d6]] psychic damage and is stunned. On a successful save, a target takes half as much damage and isn't stunned. </p>\n<p>A stunned target can make a Wisdom saving throw at the end of each of its turns. On a successful save, the stunning effect ends.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "int",
@@ -216,24 +187,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "14d6",
-              "psychic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "90"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979284,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1730434248525,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

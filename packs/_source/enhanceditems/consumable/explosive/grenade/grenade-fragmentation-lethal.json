@@ -121,30 +121,24 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1vSlWNYCE7jR1DmQ": {
+      "1uf4jQGzl6sS1UMk": {
         "type": "Save",
-        "_id": "1vSlWNYCE7jR1DmQ",
+        "_id": "1uf4jQGzl6sS1UMk",
         "img": null,
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Grenade, fragmentation</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>"
+        "activation": {
+          "type": "action",
+          "cost": 1
         },
         "target": {
           "value": 10,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
         },
         "range": "30",
-        "activation": {
-          "type": "action",
-          "cost": 1
+        "duration": {
+          "value": "inst",
+          "units": null
         },
         "damage": {
           "critical": {
@@ -161,66 +155,45 @@
             ]
           ]
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "1874BSk9BVxZm4Tb": {
-        "type": "Save",
-        "_id": "1874BSk9BVxZm4Tb",
-        "img": null,
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Grenade, fragmentation</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>"
+        },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
             "formula": 14
           }
+        }
+      },
+      "1e4CTJNLFHDo1Ti8": {
+        "type": "Save",
+        "_id": "1e4CTJNLFHDo1Ti8",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "2d10",
+              "kinetic"
+            ],
+            [
+              "10d10",
+              "kinetic"
+            ]
+          ]
         },
         "range": "30",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "kinetic"
-            ],
-            [
-              "10d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Grenade, fragmentation</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>"
         },
         "target": {
           "value": 10,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Grenade, fragmentation</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>"
-        }
-      },
-      "CSnC3zMt3s3thPOO": {
-        "type": "Save",
-        "_id": "CSnC3zMt3s3thPOO",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Grenade, fragmentation</h2>\n<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
         },
         "save": {
           "ability": "dex",
@@ -233,28 +206,10 @@
           "value": "inst",
           "units": null
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "kinetic"
-            ],
-            [
-              "10d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "30"
+        "activation": {
+          "type": "action",
+          "cost": 1
+        }
       }
     }
   },
@@ -266,7 +221,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964896,
-    "modifiedTime": 1729984337414,
+    "modifiedTime": 1730434232569,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

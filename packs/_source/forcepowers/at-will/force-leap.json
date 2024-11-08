@@ -1,10 +1,16 @@
 {
+  "_id": "jqGaA1KuNAOrRCDh",
   "name": "Force Leap",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/ForceLeap.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1507454+00:00",
       "importer_version": 3,
-      "uid": "Power.name-force_leap"
+      "uid": "Power.name-force_leap.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -14,50 +20,68 @@
     }
   },
   "system": {
-    "activities": {
-      "1BaEtfOKHnOz1z22": {
-        "type": "Utility",
-        "_id": "1BaEtfOKHnOz1z22",
-        "img": null,
-        "description": {
-          "value": "<p>Until the end of your next turn, you can use your forcecasting ability score instead of your Strength score when you jump, and always count as having made a running start before jumping.</p>"
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
-      }
-    },
     "description": {
       "value": "<p>Until the end of your next turn, you can use your forcecasting ability score instead of your Strength score when you jump, and always count as having made a running start before jumping.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "bonus",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
       "value": "1",
       "units": "round"
     },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "self"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "other",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "uni",
     "materials": {
       "value": "",
       "consumed": false,
@@ -66,45 +90,79 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": false
+      "prepared": true
     },
+    "scaling": {
+      "mode": "none",
+      "formula": null
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
     "properties": [],
-    "range": {
-      "units": "self"
-    },
-    "school": "uni",
-    "target": {
-      "affects": {
-        "choice": false
+    "activities": {
+      "1bnYQiNbfWe5mcrN": {
+        "type": "Utility",
+        "_id": "1bnYQiNbfWe5mcrN",
+        "img": null,
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "description": {
+          "value": "<p>Until the end of your next turn, you can use your forcecasting ability score instead of your Strength score when you jump, and always count as having made a running start before jumping.</p>"
+        }
       },
-      "template": {
-        "units": "",
-        "contiguous": false
+      "SAdspo1Egfk1haQd": {
+        "type": "Utility",
+        "_id": "SAdspo1Egfk1haQd",
+        "img": null,
+        "description": {
+          "value": "<p>Until the end of your next turn, you can use your forcecasting ability score instead of your Strength score when you jump, and always count as having made a running start before jumping.</p>"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "force-leap"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/ForceLeap.webp",
-  "effects": [],
-  "_id": "srT5C9jzr274xphA",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984160263,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979300,
+    "modifiedTime": 1730434248849,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!srT5C9jzr274xphA"
+  "_key": "!items!jqGaA1KuNAOrRCDh"
 }

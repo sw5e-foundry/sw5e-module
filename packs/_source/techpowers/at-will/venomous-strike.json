@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1917223+00:00",
       "importer_version": 3,
-      "uid": "Power.name-venomous_strike"
+      "uid": "Power.name-venomous_strike.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,19 +13,112 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/VenomousStrike.webp",
   "system": {
+    "description": {
+      "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and if you were hidden from it, it takes an additional [[/r 1d4]] poison damage. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] poison damage to the target, and the damage the target takes when you are hidden from it increases to [[/r 2d4]]. Both damage rolls increase by [[/r 1d8]] and [[/r 1d4]], respectively, at 11th level and 17th level.</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "touch"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "other",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d4",
+          "poison"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "tec",
+    "properties": [],
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
     "activities": {
-      "krBLd9atjaj1qkEh": {
+      "5pY6Om8XV5Kuqy9z": {
         "type": "Damage",
-        "_id": "krBLd9atjaj1qkEh",
+        "_id": "5pY6Om8XV5Kuqy9z",
         "img": null,
-        "description": {
-          "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and if you were hidden from it, it takes an additional [[/r 1d4]] poison damage. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] poison damage to the target, and the damage the target takes when you are hidden from it increases to [[/r 2d4]]. Both damage rolls increase by [[/r 1d8]] and [[/r 1d4]], respectively, at 11th level and 17th level.</p>"
-        },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "duration": {
           "value": null,
@@ -42,79 +135,61 @@
             ]
           ]
         },
+        "description": {
+          "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and if you were hidden from it, it takes an additional [[/r 1d4]] poison damage. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] poison damage to the target, and the damage the target takes when you are hidden from it increases to [[/r 2d4]]. Both damage rolls increase by [[/r 1d8]] and [[/r 1d4]], respectively, at 11th level and 17th level.</p>"
+        }
+      },
+      "1bzJo9lp2lc9ZN40": {
+        "type": "Damage",
+        "_id": "1bzJo9lp2lc9ZN40",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4",
+              "poison"
+            ]
+          ]
+        },
+        "description": {
+          "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and if you were hidden from it, it takes an additional [[/r 1d4]] poison damage. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] poison damage to the target, and the damage the target takes when you are hidden from it increases to [[/r 2d4]]. Both damage rolls increase by [[/r 1d8]] and [[/r 1d4]], respectively, at 11th level and 17th level.</p>"
+        },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
         }
       }
-    },
-    "description": {
-      "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and if you were hidden from it, it takes an additional [[/r 1d4]] poison damage. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] poison damage to the target, and the damage the target takes when you are hidden from it increases to [[/r 2d4]]. Both damage rolls increase by [[/r 1d8]] and [[/r 1d4]], respectively, at 11th level and 17th level.</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "units": "touch"
-    },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "venomous-strike"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/VenomousStrike.webp",
   "effects": [],
-  "_id": "tYwcd8sIs1rKzbbA",
+  "_id": "JfLU2k3NeqwsmjPm",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984163855,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434251072,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!tYwcd8sIs1rKzbbA"
+  "_key": "!items!JfLU2k3NeqwsmjPm"
 }

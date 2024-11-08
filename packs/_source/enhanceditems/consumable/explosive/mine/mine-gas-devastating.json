@@ -117,12 +117,13 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "zLnGXY09Ni41b36n": {
+      "1JHqvZOaBk0T1FKL": {
         "type": "Damage",
-        "_id": "zLnGXY09Ni41b36n",
+        "_id": "1JHqvZOaBk0T1FKL",
         "img": null,
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, the mine fills the air in a 15-foot-radius sphere with yellow-green fog for 1 minute. The fog spreads around corners, and its area is heavily obscured. It lasts for 1 minute or until a wind of at least 10 miles per hour disperses it.</p>\n<p>When a creature enters the fog or starts its turn there, it creature must make a DC 24 Constitution saving throw. The creature takes [[/r 12d6]] poison damage on a failed save, or half as much damage on a successful one. Additionally, on a failed save, the creature is poisoned while it is in the cloud. Droids, constructs and humanoids wearing appropriate protective equipment are unaffected.</p>\n<p>&nbsp;</p>\n<h2>Mine, gas</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote </p>"
+        "activation": {
+          "type": "action",
+          "cost": 1
         },
         "target": {
           "value": 15,
@@ -130,9 +131,9 @@
           "units": "ft",
           "type": "sphere"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1
+        "duration": {
+          "value": "1",
+          "units": "minute"
         },
         "damage": {
           "critical": {
@@ -144,60 +145,15 @@
               "poison"
             ]
           ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        }
-      },
-      "1S3qWvVcdZ6L117T": {
-        "type": "Damage",
-        "_id": "1S3qWvVcdZ6L117T",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "12d6",
-              "poison"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
         },
         "description": {
           "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, the mine fills the air in a 15-foot-radius sphere with yellow-green fog for 1 minute. The fog spreads around corners, and its area is heavily obscured. It lasts for 1 minute or until a wind of at least 10 miles per hour disperses it.</p>\n<p>When a creature enters the fog or starts its turn there, it creature must make a DC 24 Constitution saving throw. The creature takes [[/r 12d6]] poison damage on a failed save, or half as much damage on a successful one. Additionally, on a failed save, the creature is poisoned while it is in the cloud. Droids, constructs and humanoids wearing appropriate protective equipment are unaffected.</p>\n<p>&nbsp;</p>\n<h2>Mine, gas</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote </p>"
         }
       },
-      "IX7EblE1ifRmRrQO": {
+      "Wm0WadrHTl44O2uO": {
         "type": "Damage",
-        "_id": "IX7EblE1ifRmRrQO",
+        "_id": "Wm0WadrHTl44O2uO",
         "img": null,
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, the mine fills the air in a 15-foot-radius sphere with yellow-green fog for 1 minute. The fog spreads around corners, and its area is heavily obscured. It lasts for 1 minute or until a wind of at least 10 miles per hour disperses it.</p>\n<p>When a creature enters the fog or starts its turn there, it creature must make a DC 24 Constitution saving throw. The creature takes [[/r 12d6]] poison damage on a failed save, or half as much damage on a successful one. Additionally, on a failed save, the creature is poisoned while it is in the cloud. Droids, constructs and humanoids wearing appropriate protective equipment are unaffected.</p>\n<p>&nbsp;</p>\n<h2>Mine, gas</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote </p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
         "damage": {
           "critical": {
             "allow": true
@@ -209,11 +165,22 @@
             ]
           ]
         },
+        "description": {
+          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, the mine fills the air in a 15-foot-radius sphere with yellow-green fog for 1 minute. The fog spreads around corners, and its area is heavily obscured. It lasts for 1 minute or until a wind of at least 10 miles per hour disperses it.</p>\n<p>When a creature enters the fog or starts its turn there, it creature must make a DC 24 Constitution saving throw. The creature takes [[/r 12d6]] poison damage on a failed save, or half as much damage on a successful one. Additionally, on a failed save, the creature is poisoned while it is in the cloud. Droids, constructs and humanoids wearing appropriate protective equipment are unaffected.</p>\n<p>&nbsp;</p>\n<h2>Mine, gas</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote </p>"
+        },
         "target": {
           "value": 15,
           "width": null,
           "units": "ft",
           "type": "sphere"
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
         }
       }
     }
@@ -226,7 +193,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964847,
-    "modifiedTime": 1729984337414,
+    "modifiedTime": 1730434229208,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

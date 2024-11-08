@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1737327+00:00",
       "importer_version": 3,
-      "uid": "Power.name-minor_defibrillation"
+      "uid": "Power.name-minor_defibrillation.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,19 +13,119 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/MinorDefibrillation.webp",
   "system": {
+    "description": {
+      "value": "<p>You generate a static charge that can aid or harm a creature you touch. Make a melee tech attack against the target. On a hit, the target takes [[/r 1d10]] lightning damage. If the target is a living creature that has 0 hit points, it immediately gains one death saving throw success instead of taking damage.</p>\n<p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "touch"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "mpak",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d10",
+          "lightning"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "tec",
+    "properties": [],
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
     "activities": {
-      "SASZytgaHwa1Rmlt": {
+      "1bKdD0XqpHbw1MaK": {
         "type": "Attack",
-        "_id": "SASZytgaHwa1Rmlt",
+        "_id": "1bKdD0XqpHbw1MaK",
         "img": null,
-        "description": {
-          "value": "<p>You generate a static charge that can aid or harm a creature you touch. Make a melee tech attack against the target. On a hit, the target takes [[/r 1d10]] lightning damage. If the target is a living creature that has 0 hit points, it immediately gains one death saving throw success instead of taking damage.</p>\n<p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>"
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "melee"
         },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "duration": {
           "value": null,
@@ -42,6 +142,34 @@
             ]
           ]
         },
+        "description": {
+          "value": "<p>You generate a static charge that can aid or harm a creature you touch. Make a melee tech attack against the target. On a hit, the target takes [[/r 1d10]] lightning damage. If the target is a living creature that has 0 hit points, it immediately gains one death saving throw success instead of taking damage.</p>\n<p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>"
+        }
+      },
+      "CsfPR4h1oXu1iP0c": {
+        "type": "Attack",
+        "_id": "CsfPR4h1oXu1iP0c",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d10",
+              "lightning"
+            ]
+          ]
+        },
+        "description": {
+          "value": "<p>You generate a static charge that can aid or harm a creature you touch. Make a melee tech attack against the target. On a hit, the target takes [[/r 1d10]] lightning damage. If the target is a living creature that has 0 hit points, it immediately gains one death saving throw success instead of taking damage.</p>\n<p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
         "attack": {
           "ability": "",
           "bonus": "",
@@ -49,79 +177,33 @@
           "flat": false,
           "type": "melee"
         },
-        "target": {
+        "duration": {
           "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
         }
       }
-    },
-    "description": {
-      "value": "<p>You generate a static charge that can aid or harm a creature you touch. Make a melee tech attack against the target. On a hit, the target takes [[/r 1d10]] lightning damage. If the target is a living creature that has 0 hit points, it immediately gains one death saving throw success instead of taking damage.</p>\n<p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "units": "touch"
-    },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "minor-defibrillation"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/MinorDefibrillation.webp",
   "effects": [],
-  "_id": "XDkoiDnWHqEOfjcN",
+  "_id": "xBpd2a1spHLynMXy",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984162486,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434253390,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!XDkoiDnWHqEOfjcN"
+  "_key": "!items!xBpd2a1spHLynMXy"
 }

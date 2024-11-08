@@ -1,10 +1,16 @@
 {
+  "_id": "Tan8Tf3aHUBWfJxa",
   "name": "Saber Reflect",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/SaberReflect.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1217626+00:00",
       "importer_version": 3,
-      "uid": "Power.name-saber_reflect"
+      "uid": "Power.name-saber_reflect.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -14,18 +20,111 @@
     }
   },
   "system": {
+    "description": {
+      "value": "<p>In response to being attacked, you raise your weapon to attempt to deflect. When you use this power, the damage you take from the attack is reduced by [[/r 1d6]]. If you reduce the damage to 0, you're wielding a lightweapon or vibroweapon, and the damage is energy or ion, you can reflect the attack at a target within range as part of the same reaction. Make a ranged force attack at a target you can see. The attack has a normal range of 20 feet and a long range of 60 feet. On a hit, the target takes the triggering attack's normal damage. </p>\n<p>The power's damage reduction increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "reaction",
+      "cost": 1,
+      "condition": "in response to being dealt damage by a ranged attack"
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "self"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "rpak",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "1d6",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "uni",
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
+    "properties": [],
     "activities": {
-      "y1A4pI1xaXG1RAOb": {
+      "73y0PsMMooa1KVnB": {
         "type": "Attack",
-        "_id": "y1A4pI1xaXG1RAOb",
+        "_id": "73y0PsMMooa1KVnB",
         "img": null,
-        "description": {
-          "value": "<p>In response to being attacked, you raise your weapon to attempt to deflect. When you use this power, the damage you take from the attack is reduced by [[/r 1d6]]. If you reduce the damage to 0, you're wielding a lightweapon or vibroweapon, and the damage is energy or ion, you can reflect the attack at a target within range as part of the same reaction. Make a ranged force attack at a target you can see. The attack has a normal range of 20 feet and a long range of 60 feet. On a hit, the target takes the triggering attack's normal damage. </p>\n<p>The power's damage reduction increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>"
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
         },
         "activation": {
           "type": "reaction",
           "cost": 1,
           "condition": "in response to being dealt damage by a ranged attack"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "duration": {
           "value": null,
@@ -37,6 +136,29 @@
           },
           "parts": []
         },
+        "description": {
+          "value": "<p>In response to being attacked, you raise your weapon to attempt to deflect. When you use this power, the damage you take from the attack is reduced by [[/r 1d6]]. If you reduce the damage to 0, you're wielding a lightweapon or vibroweapon, and the damage is energy or ion, you can reflect the attack at a target within range as part of the same reaction. Make a ranged force attack at a target you can see. The attack has a normal range of 20 feet and a long range of 60 feet. On a hit, the target takes the triggering attack's normal damage. </p>\n<p>The power's damage reduction increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>"
+        }
+      },
+      "1k6uq8YplJYYD0ht": {
+        "type": "Attack",
+        "_id": "1k6uq8YplJYYD0ht",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": []
+        },
+        "description": {
+          "value": "<p>In response to being attacked, you raise your weapon to attempt to deflect. When you use this power, the damage you take from the attack is reduced by [[/r 1d6]]. If you reduce the damage to 0, you're wielding a lightweapon or vibroweapon, and the damage is energy or ion, you can reflect the attack at a target within range as part of the same reaction. Make a ranged force attack at a target you can see. The attack has a normal range of 20 feet and a long range of 60 feet. On a hit, the target takes the triggering attack's normal damage. </p>\n<p>The power's damage reduction increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
         "attack": {
           "ability": "",
           "bonus": "",
@@ -44,79 +166,29 @@
           "flat": false,
           "type": "ranged"
         },
-        "target": {
+        "duration": {
           "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+          "units": "inst"
+        },
+        "activation": {
+          "type": "reaction",
+          "cost": 1,
+          "condition": "in response to being dealt damage by a ranged attack"
         }
       }
-    },
-    "description": {
-      "value": "<p>In response to being attacked, you raise your weapon to attempt to deflect. When you use this power, the damage you take from the attack is reduced by [[/r 1d6]]. If you reduce the damage to 0, you're wielding a lightweapon or vibroweapon, and the damage is energy or ion, you can reflect the attack at a target within range as part of the same reaction. Make a ranged force attack at a target you can see. The attack has a normal range of 20 feet and a long range of 60 feet. On a hit, the target takes the triggering attack's normal damage. </p>\n<p>The power's damage reduction increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "reaction",
-      "condition": "in response to being dealt damage by a ranged attack",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "units": "self"
-    },
-    "school": "uni",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "saber-reflect"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/SaberReflect.webp",
-  "effects": [],
-  "_id": "VRuCY7gm5zN1qmlM",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984158852,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979242,
+    "modifiedTime": 1730434247910,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!VRuCY7gm5zN1qmlM"
+  "_key": "!items!Tan8Tf3aHUBWfJxa"
 }

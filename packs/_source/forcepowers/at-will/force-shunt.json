@@ -1,10 +1,16 @@
 {
+  "_id": "csJKPnGjFlC2D1XN",
   "name": "Force Shunt",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/ForceShunt.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1537443+00:00",
       "importer_version": 3,
-      "uid": "Power.name-force_shunt"
+      "uid": "Power.name-force_shunt.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -14,26 +20,111 @@
     }
   },
   "system": {
+    "description": {
+      "value": "<p>You use the Force to thrust a creature you can see to the ground. The target must make a Strength saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage and falls prone. </p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "PHB"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 30,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "save",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d4",
+          "kinetic"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "str",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "uni",
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
+    "properties": [],
     "activities": {
-      "paJXb22lap9jKE0u": {
+      "145nJotpDpwv1dC2": {
         "type": "Save",
-        "_id": "paJXb22lap9jKE0u",
+        "_id": "145nJotpDpwv1dC2",
         "img": null,
-        "description": {
-          "value": "<p>You use the Force to thrust a creature you can see to the ground. The target must make a Strength saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage and falls prone. </p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
-        },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
         },
-        "save": {
-          "ability": "str",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
+        "range": "30",
         "duration": {
           "value": null,
           "units": "inst"
@@ -49,81 +140,72 @@
             ]
           ]
         },
+        "description": {
+          "value": "<p>You use the Force to thrust a creature you can see to the ground. The target must make a Strength saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage and falls prone. </p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
+        },
+        "save": {
+          "ability": "str",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        }
+      },
+      "Os2chHpKLpJ1viPU": {
+        "type": "Save",
+        "_id": "Os2chHpKLpJ1viPU",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4",
+              "kinetic"
+            ]
+          ]
+        },
+        "range": "30",
+        "description": {
+          "value": "<p>You use the Force to thrust a creature you can see to the ground. The target must make a Strength saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage and falls prone. </p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
+        },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
         },
-        "range": "30"
+        "save": {
+          "ability": "str",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "description": {
-      "value": "<p>You use the Force to thrust a creature you can see to the ground. The target must make a Strength saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage and falls prone. </p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "value": "30",
-      "units": "ft"
-    },
-    "school": "uni",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "force-shunt"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/ForceShunt.webp",
-  "effects": [],
-  "_id": "lh6okVjBQDCjA9Uk",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984159799,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979283,
+    "modifiedTime": 1730434248481,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!lh6okVjBQDCjA9Uk"
+  "_key": "!items!csJKPnGjFlC2D1XN"
 }

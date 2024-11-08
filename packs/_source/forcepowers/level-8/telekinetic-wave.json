@@ -109,15 +109,26 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "3qcr5CWNrB81uNKX": {
+      "1jdDMrD0bmEp1QJh": {
         "type": "Save",
-        "_id": "3qcr5CWNrB81uNKX",
+        "_id": "1jdDMrD0bmEp1QJh",
         "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": 60,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
         },
         "range": "150",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -129,81 +140,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Burst</em></p>\n<p>You manipulate the Force in a 60-foot radius centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes [[/r 12d6]] force damage, is knocked prone, and moved 5 feet in a direction of your choice. On a successful save, it takes half as much damage and isn't knocked prone or moved.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 9th level, the damage increases by [[/r 2d6]].</p>"
-        }
-      },
-      "1eLsP9In1JPq1IMK": {
-        "type": "Save",
-        "_id": "1eLsP9In1JPq1IMK",
-        "img": null,
+        },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "1b82QdF7nldFQCRJ": {
+        "type": "Save",
+        "_id": "1b82QdF7nldFQCRJ",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "12d6",
+              "force"
+            ]
+          ]
         },
         "range": "150",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "12d6",
-              "force"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Burst</em></p>\n<p>You manipulate the Force in a 60-foot radius centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes [[/r 12d6]] force damage, is knocked prone, and moved 5 feet in a direction of your choice. On a successful save, it takes half as much damage and isn't knocked prone or moved.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 9th level, the damage increases by [[/r 2d6]].</p>"
         },
         "target": {
           "value": 60,
           "width": null,
           "units": "ft",
           "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Burst</em></p>\n<p>You manipulate the Force in a 60-foot radius centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes [[/r 12d6]] force damage, is knocked prone, and moved 5 feet in a direction of your choice. On a successful save, it takes half as much damage and isn't knocked prone or moved.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 9th level, the damage increases by [[/r 2d6]].</p>"
-        }
-      },
-      "12AJuVXjDYZL1BSf": {
-        "type": "Save",
-        "_id": "12AJuVXjDYZL1BSf",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Burst</em></p>\n<p>You manipulate the Force in a 60-foot radius centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes [[/r 12d6]] force damage, is knocked prone, and moved 5 feet in a direction of your choice. On a successful save, it takes half as much damage and isn't knocked prone or moved.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 9th level, the damage increases by [[/r 2d6]].</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "con",
@@ -216,24 +187,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "12d6",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "150"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979317,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1730434249188,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

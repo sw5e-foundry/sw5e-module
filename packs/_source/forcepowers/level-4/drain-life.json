@@ -109,15 +109,26 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "gJpTTm9U34Q553eK": {
+      "TukaB6poWFA1Rb4T": {
         "type": "Save",
-        "_id": "gJpTTm9U34Q553eK",
+        "_id": "TukaB6poWFA1Rb4T",
         "img": null,
-        "duration": {
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
           "value": null,
-          "units": "inst"
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "range": "60",
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -129,81 +140,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Drain Vitality</em></p>\n<p>You draw the life force from a creature you can see within range. The target must make a Constitution saving throw. The target takes [[/r 8d8]] necrotic damage on a failed save, or half as much damage on a successful one. If you reduce a hostile creature to 0, you gain temporary hit points equal to half the damage dealt. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 5th level or higher, the damage increases by [[/r 1d8]] for each slot level above 4th.</p>"
-        }
-      },
-      "EfdF9n3YBK21qts7": {
-        "type": "Save",
-        "_id": "EfdF9n3YBK21qts7",
-        "img": null,
+        },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "PytLAb9VaCp59V0v": {
+        "type": "Save",
+        "_id": "PytLAb9VaCp59V0v",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "8d8",
+              "necrotic"
+            ]
+          ]
         },
         "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d8",
-              "necrotic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Drain Vitality</em></p>\n<p>You draw the life force from a creature you can see within range. The target must make a Constitution saving throw. The target takes [[/r 8d8]] necrotic damage on a failed save, or half as much damage on a successful one. If you reduce a hostile creature to 0, you gain temporary hit points equal to half the damage dealt. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 5th level or higher, the damage increases by [[/r 1d8]] for each slot level above 4th.</p>"
         },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Drain Vitality</em></p>\n<p>You draw the life force from a creature you can see within range. The target must make a Constitution saving throw. The target takes [[/r 8d8]] necrotic damage on a failed save, or half as much damage on a successful one. If you reduce a hostile creature to 0, you gain temporary hit points equal to half the damage dealt. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 5th level or higher, the damage increases by [[/r 1d8]] for each slot level above 4th.</p>"
-        }
-      },
-      "2sJfeDMWKLRWZSJB": {
-        "type": "Save",
-        "_id": "2sJfeDMWKLRWZSJB",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Drain Vitality</em></p>\n<p>You draw the life force from a creature you can see within range. The target must make a Constitution saving throw. The target takes [[/r 8d8]] necrotic damage on a failed save, or half as much damage on a successful one. If you reduce a hostile creature to 0, you gain temporary hit points equal to half the damage dealt. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 5th level or higher, the damage increases by [[/r 1d8]] for each slot level above 4th.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "con",
@@ -216,24 +187,11 @@
           "value": null,
           "units": "inst"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d8",
-              "necrotic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -245,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979189,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1730434246973,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

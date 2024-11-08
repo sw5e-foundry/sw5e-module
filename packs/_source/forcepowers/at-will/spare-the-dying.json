@@ -1,10 +1,16 @@
 {
+  "_id": "pPwTHbPUo4AI8EeN",
   "name": "Spare the Dying",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/SpareTheDying.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1257603+00:00",
       "importer_version": 3,
-      "uid": "Power.name-spare_the_dying"
+      "uid": "Power.name-spare_the_dying.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -14,49 +20,68 @@
     }
   },
   "system": {
-    "activities": {
-      "1D4wkcbkNelj1OfN": {
-        "type": "Utility",
-        "_id": "1D4wkcbkNelj1OfN",
-        "img": null,
-        "description": {
-          "value": "<p>You touch a living creature that has 0 hit points. The creature becomes stable. This power has no effect on droids or constructs.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
-      }
-    },
     "description": {
       "value": "<p>You touch a living creature that has 0 hit points. The creature becomes stable. This power has no effect on droids or constructs.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
+      "value": "",
       "units": "inst"
     },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "touch"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "other",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "lgt",
     "materials": {
       "value": "",
       "consumed": false,
@@ -65,45 +90,79 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": false
+      "prepared": true
     },
+    "scaling": {
+      "mode": "none",
+      "formula": null
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
     "properties": [],
-    "range": {
-      "units": "touch"
-    },
-    "school": "lgt",
-    "target": {
-      "affects": {
-        "choice": false
+    "activities": {
+      "zt8y0SC0Wxv1T1YU": {
+        "type": "Utility",
+        "_id": "zt8y0SC0Wxv1T1YU",
+        "img": null,
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "description": {
+          "value": "<p>You touch a living creature that has 0 hit points. The creature becomes stable. This power has no effect on droids or constructs.</p>"
+        }
       },
-      "template": {
-        "units": "",
-        "contiguous": false
+      "M4zlM1px7of1N7iI": {
+        "type": "Utility",
+        "_id": "M4zlM1px7of1N7iI",
+        "img": null,
+        "description": {
+          "value": "<p>You touch a living creature that has 0 hit points. The creature becomes stable. This power has no effect on droids or constructs.</p>"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "spare-the-dying"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/SpareTheDying.webp",
-  "effects": [],
-  "_id": "vA4Gr5edBRDvnosR",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984160430,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979319,
+    "modifiedTime": 1730434249233,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!vA4Gr5edBRDvnosR"
+  "_key": "!items!pPwTHbPUo4AI8EeN"
 }

@@ -162,12 +162,13 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1ssUK3azVuaD3AoM": {
+      "1tbbfNsNIkuH1TRC": {
         "type": "Damage",
-        "_id": "1ssUK3azVuaD3AoM",
+        "_id": "1tbbfNsNIkuH1TRC",
         "img": null,
-        "description": {
-          "value": "<h4>Adventuring Gear (Forearm)</h4>\n <p>You craft a wrist-mounted grappling hook weapon attached to a tightly coiled cord. With this grappler, you can make a ranged weapon attack with a range of 30/60. On a hit, it deals [[/r 1d4]] kinetic damage. This attack can target a surface, object, or creature.</p>\n<p>A creature struck by this attack is impaled by the hook. As an action, a creature can attempt to remove the hook. Removing the hook requires a DC 13 Strength check. While the hook is stuck in the target, you are connected to the target by a 60 foot cable.</p>\n<p>While the hook is deployed, you can use your bonus action to activate the reel, pulling yourself to the location if the target is your size or larger. A creature or object smaller than you is pulled to you. Alternatively, you can opt to release the cable (no action required).</p>\n<p>Once you've used this feature, you can't use it again until you recover and reinsert the hook as an action.</p>"
+        "activation": {
+          "type": "bonus",
+          "cost": 1
         },
         "target": {
           "value": null,
@@ -175,9 +176,9 @@
           "units": "",
           "type": ""
         },
-        "activation": {
-          "type": "bonus",
-          "cost": 1
+        "duration": {
+          "value": null,
+          "units": "inst"
         },
         "damage": {
           "critical": {
@@ -189,60 +190,15 @@
               "kinetic"
             ]
           ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "7SWG3nEzZLI17U7d": {
-        "type": "Damage",
-        "_id": "7SWG3nEzZLI17U7d",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1
         },
         "description": {
           "value": "<h4>Adventuring Gear (Forearm)</h4>\n <p>You craft a wrist-mounted grappling hook weapon attached to a tightly coiled cord. With this grappler, you can make a ranged weapon attack with a range of 30/60. On a hit, it deals [[/r 1d4]] kinetic damage. This attack can target a surface, object, or creature.</p>\n<p>A creature struck by this attack is impaled by the hook. As an action, a creature can attempt to remove the hook. Removing the hook requires a DC 13 Strength check. While the hook is stuck in the target, you are connected to the target by a 60 foot cable.</p>\n<p>While the hook is deployed, you can use your bonus action to activate the reel, pulling yourself to the location if the target is your size or larger. A creature or object smaller than you is pulled to you. Alternatively, you can opt to release the cable (no action required).</p>\n<p>Once you've used this feature, you can't use it again until you recover and reinsert the hook as an action.</p>"
         }
       },
-      "1BxQzyDWljXXqyr8": {
+      "19N0yREKda4XHIHa": {
         "type": "Damage",
-        "_id": "1BxQzyDWljXXqyr8",
+        "_id": "19N0yREKda4XHIHa",
         "img": null,
-        "description": {
-          "value": "<h4>Adventuring Gear (Forearm)</h4>\n <p>You craft a wrist-mounted grappling hook weapon attached to a tightly coiled cord. With this grappler, you can make a ranged weapon attack with a range of 30/60. On a hit, it deals [[/r 1d4]] kinetic damage. This attack can target a surface, object, or creature.</p>\n<p>A creature struck by this attack is impaled by the hook. As an action, a creature can attempt to remove the hook. Removing the hook requires a DC 13 Strength check. While the hook is stuck in the target, you are connected to the target by a 60 foot cable.</p>\n<p>While the hook is deployed, you can use your bonus action to activate the reel, pulling yourself to the location if the target is your size or larger. A creature or object smaller than you is pulled to you. Alternatively, you can opt to release the cable (no action required).</p>\n<p>Once you've used this feature, you can't use it again until you recover and reinsert the hook as an action.</p>"
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
         "damage": {
           "critical": {
             "allow": true
@@ -254,11 +210,22 @@
             ]
           ]
         },
+        "description": {
+          "value": "<h4>Adventuring Gear (Forearm)</h4>\n <p>You craft a wrist-mounted grappling hook weapon attached to a tightly coiled cord. With this grappler, you can make a ranged weapon attack with a range of 30/60. On a hit, it deals [[/r 1d4]] kinetic damage. This attack can target a surface, object, or creature.</p>\n<p>A creature struck by this attack is impaled by the hook. As an action, a creature can attempt to remove the hook. Removing the hook requires a DC 13 Strength check. While the hook is stuck in the target, you are connected to the target by a 60 foot cable.</p>\n<p>While the hook is deployed, you can use your bonus action to activate the reel, pulling yourself to the location if the target is your size or larger. A creature or object smaller than you is pulled to you. Alternatively, you can opt to release the cable (no action required).</p>\n<p>Once you've used this feature, you can't use it again until you recover and reinsert the hook as an action.</p>"
+        },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "bonus",
+          "cost": 1
         }
       }
     }
@@ -273,7 +240,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1667426100794,
-    "modifiedTime": 1729983790764,
+    "modifiedTime": 1730434217052,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

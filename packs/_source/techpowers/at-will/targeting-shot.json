@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1887237+00:00",
       "importer_version": 3,
-      "uid": "Power.name-targeting_shot"
+      "uid": "Power.name-targeting_shot.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,51 +13,63 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/TargetingShot.webp",
   "system": {
-    "activities": {
-      "Mlg6HMM4frSvwSHz": {
-        "type": "Utility",
-        "_id": "Mlg6HMM4frSvwSHz",
-        "img": null,
-        "description": {
-          "value": "<p>As part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and a small target only visible to you marks it. The next attack roll you make against the creature before the end of your next turn can't suffer from disadvantage.</p>\n<p>This power deals additional damage when you reach higher levels. At 5th level, the ranged attack deals an extra [[/r 1d6]] damage. This damage increases by [[/r 1d6]] again at 11th level and 17th level. The damage is the same type as the weapon's damage.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": 0,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
-      }
-    },
     "description": {
       "value": "<p>As part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and a small target only visible to you marks it. The next attack roll you make against the creature before the end of your next turn can't suffer from disadvantage.</p>\n<p>This power deals additional damage when you reach higher levels. At 5th level, the ranged attack deals an extra [[/r 1d6]] damage. This damage increases by [[/r 1d6]] again at 11th level and 17th level. The damage is the same type as the weapon's damage.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
       "value": "1",
       "units": "round"
     },
+    "target": {
+      "value": "0",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "other",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "tec",
+    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -68,43 +80,89 @@
       "mode": "prepared",
       "prepared": false
     },
-    "properties": [],
-    "range": {
-      "units": ""
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
     },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
+    "activities": {
+      "1jZUoVNx3CpaCXqG": {
+        "type": "Utility",
+        "_id": "1jZUoVNx3CpaCXqG",
+        "img": null,
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": 0,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "description": {
+          "value": "<p>As part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and a small target only visible to you marks it. The next attack roll you make against the creature before the end of your next turn can't suffer from disadvantage.</p>\n<p>This power deals additional damage when you reach higher levels. At 5th level, the ranged attack deals an extra [[/r 1d6]] damage. This damage increases by [[/r 1d6]] again at 11th level and 17th level. The damage is the same type as the weapon's damage.</p>"
+        }
       },
-      "template": {
-        "units": "",
-        "contiguous": false
+      "1nSz3dvDHCLj1SIM": {
+        "type": "Utility",
+        "_id": "1nSz3dvDHCLj1SIM",
+        "img": null,
+        "description": {
+          "value": "<p>As part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and a small target only visible to you marks it. The next attack roll you make against the creature before the end of your next turn can't suffer from disadvantage.</p>\n<p>This power deals additional damage when you reach higher levels. At 5th level, the ranged attack deals an extra [[/r 1d6]] damage. This damage increases by [[/r 1d6]] again at 11th level and 17th level. The damage is the same type as the weapon's damage.</p>"
+        },
+        "target": {
+          "value": 0,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "round"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "targeting-shot"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/TargetingShot.webp",
   "effects": [],
-  "_id": "D5n7EQwksTMKneJ4",
+  "_id": "XYangFDMJnYSNyUu",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984161631,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434251761,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!D5n7EQwksTMKneJ4"
+  "_key": "!items!XYangFDMJnYSNyUu"
 }

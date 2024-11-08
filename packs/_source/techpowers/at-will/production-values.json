@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:52:03.1914029+00:00",
       "importer_version": 3,
-      "uid": "Power.name-production_values"
+      "uid": "Power.name-production_values.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,52 +13,63 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/ProductionValues.webp",
   "system": {
-    "activities": {
-      "9YVljN0EWcmyS0bW": {
-        "type": "Utility",
-        "_id": "9YVljN0EWcmyS0bW",
-        "img": null,
-        "description": {
-          "value": "<p>You cause a minor effect within range. Choose one of the following:</p>\n<ul>\n<li>Your natural voice booms up to three times louder than normal for 1 minute. You can also alter the sound of your voice to achieve a certain effect--to sound more intimidating, for example.</li>\n<li>You cause unenhanced electronic lights to flicker, brighten, dim, or change color for 1 minute.</li>\n<li>You cause harmless tremors in the ground for 1 minute.</li>\n<li>You create a sound within range for up to 1 minute. The sound can range in volume from a whisper to a scream.</li>\n<li>You instantaneously cause an unlocked door or window to fly open or slam shut.</li>\n<li>You alter the appearance of your eyes for 1 minute.</li>\n<li>You create an illusory image of an object no larger than a 5 foot cube. The illusion is purely visual.</li>\n</ul>\n<p>If you cast this power multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action.</p>\n<p>A creature that witnesses the effects of this power can use its action to make an Intelligence (Investigation) check against your tech save DC. On a successful check, the creature discerns that the effects are illusory, and they become faint to the creature.</p>\n<p>The maximum number of active effects increases by 3 when you reach 5th level (6), 11th level (9), and 17th level (12).</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30"
-      }
-    },
     "description": {
       "value": "<p>You cause a minor effect within range. Choose one of the following:</p>\n<ul>\n<li>Your natural voice booms up to three times louder than normal for 1 minute. You can also alter the sound of your voice to achieve a certain effect--to sound more intimidating, for example.</li>\n<li>You cause unenhanced electronic lights to flicker, brighten, dim, or change color for 1 minute.</li>\n<li>You cause harmless tremors in the ground for 1 minute.</li>\n<li>You create a sound within range for up to 1 minute. The sound can range in volume from a whisper to a scream.</li>\n<li>You instantaneously cause an unlocked door or window to fly open or slam shut.</li>\n<li>You alter the appearance of your eyes for 1 minute.</li>\n<li>You create an illusory image of an object no larger than a 5 foot cube. The illusion is purely visual.</li>\n</ul>\n<p>If you cast this power multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action.</p>\n<p>A creature that witnesses the effects of this power can use its action to make an Intelligence (Investigation) check against your tech save DC. On a successful check, the creature discerns that the effects are illusory, and they become faint to the creature.</p>\n<p>The maximum number of active effects increases by 3 when you reach 5th level (6), 11th level (9), and 17th level (12).</p>",
       "chat": ""
     },
     "source": {
-      "custom": "EC",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "EC"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
       "value": "1",
       "units": "minute"
     },
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 30,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "other",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "tec",
+    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -69,44 +80,91 @@
       "mode": "prepared",
       "prepared": false
     },
-    "properties": [],
-    "range": {
-      "value": "30",
-      "units": "ft"
+    "scaling": {
+      "mode": "none",
+      "formula": null
     },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
+    "activities": {
+      "dgVmCHBA6DwMGVns": {
+        "type": "Utility",
+        "_id": "dgVmCHBA6DwMGVns",
+        "img": null,
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": "30",
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "description": {
+          "value": "<p>You cause a minor effect within range. Choose one of the following:</p>\n<ul>\n<li>Your natural voice booms up to three times louder than normal for 1 minute. You can also alter the sound of your voice to achieve a certain effect--to sound more intimidating, for example.</li>\n<li>You cause unenhanced electronic lights to flicker, brighten, dim, or change color for 1 minute.</li>\n<li>You cause harmless tremors in the ground for 1 minute.</li>\n<li>You create a sound within range for up to 1 minute. The sound can range in volume from a whisper to a scream.</li>\n<li>You instantaneously cause an unlocked door or window to fly open or slam shut.</li>\n<li>You alter the appearance of your eyes for 1 minute.</li>\n<li>You create an illusory image of an object no larger than a 5 foot cube. The illusion is purely visual.</li>\n</ul>\n<p>If you cast this power multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action.</p>\n<p>A creature that witnesses the effects of this power can use its action to make an Intelligence (Investigation) check against your tech save DC. On a successful check, the creature discerns that the effects are illusory, and they become faint to the creature.</p>\n<p>The maximum number of active effects increases by 3 when you reach 5th level (6), 11th level (9), and 17th level (12).</p>"
+        }
       },
-      "template": {
-        "units": "",
-        "contiguous": false
+      "1davbHddIvQDct30": {
+        "type": "Utility",
+        "_id": "1davbHddIvQDct30",
+        "img": null,
+        "range": "30",
+        "description": {
+          "value": "<p>You cause a minor effect within range. Choose one of the following:</p>\n<ul>\n<li>Your natural voice booms up to three times louder than normal for 1 minute. You can also alter the sound of your voice to achieve a certain effect--to sound more intimidating, for example.</li>\n<li>You cause unenhanced electronic lights to flicker, brighten, dim, or change color for 1 minute.</li>\n<li>You cause harmless tremors in the ground for 1 minute.</li>\n<li>You create a sound within range for up to 1 minute. The sound can range in volume from a whisper to a scream.</li>\n<li>You instantaneously cause an unlocked door or window to fly open or slam shut.</li>\n<li>You alter the appearance of your eyes for 1 minute.</li>\n<li>You create an illusory image of an object no larger than a 5 foot cube. The illusion is purely visual.</li>\n</ul>\n<p>If you cast this power multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action.</p>\n<p>A creature that witnesses the effects of this power can use its action to make an Intelligence (Investigation) check against your tech save DC. On a successful check, the creature discerns that the effects are illusory, and they become faint to the creature.</p>\n<p>The maximum number of active effects increases by 3 when you reach 5th level (6), 11th level (9), and 17th level (12).</p>"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "production-values"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/ProductionValues.webp",
   "effects": [],
-  "_id": "8Hww2nHu1IafvZvT",
+  "_id": "a4YtcO43tHeQxAMS",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984161235,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434251975,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!8Hww2nHu1IafvZvT"
+  "_key": "!items!a4YtcO43tHeQxAMS"
 }

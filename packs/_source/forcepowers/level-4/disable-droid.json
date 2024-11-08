@@ -116,15 +116,26 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "y1HJyA8cCnW1glY4": {
+      "1uRNauwyKBNE1JzI": {
         "type": "Save",
-        "_id": "y1HJyA8cCnW1glY4",
+        "_id": "1uRNauwyKBNE1JzI",
         "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
         "range": "90",
+        "duration": {
+          "value": "1",
+          "units": "minute"
+        },
         "damage": {
           "critical": {
             "allow": true
@@ -136,81 +147,41 @@
             ]
           ]
         },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
         "description": {
           "value": "<p><em><strong>Prerequisite</strong>: Stun Droid</em></p>\n<p>Choose a point that you can see within range. Each droid or construct must succeed on a Constitution saving throw or be paralyzed for the duration. At the beginning of each of its turns, an affected creature takes energy damage equal to your forcecasting ability modifier and then repeats this saving throw. On a success, the power ends on the target.</p>"
-        }
-      },
-      "QzxLQmaBvl6ovoxB": {
-        "type": "Save",
-        "_id": "QzxLQmaBvl6ovoxB",
-        "img": null,
+        },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "spell",
             "formula": ""
           }
+        }
+      },
+      "2QKl2cCoOV9oBAgh": {
+        "type": "Save",
+        "_id": "2QKl2cCoOV9oBAgh",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "@mod",
+              "energy"
+            ]
+          ]
         },
         "range": "90",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "@mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+        "description": {
+          "value": "<p><em><strong>Prerequisite</strong>: Stun Droid</em></p>\n<p>Choose a point that you can see within range. Each droid or construct must succeed on a Constitution saving throw or be paralyzed for the duration. At the beginning of each of its turns, an affected creature takes energy damage equal to your forcecasting ability modifier and then repeats this saving throw. On a success, the power ends on the target.</p>"
         },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Stun Droid</em></p>\n<p>Choose a point that you can see within range. Each droid or construct must succeed on a Constitution saving throw or be paralyzed for the duration. At the beginning of each of its turns, an affected creature takes energy damage equal to your forcecasting ability modifier and then repeats this saving throw. On a success, the power ends on the target.</p>"
-        }
-      },
-      "9AnsIPWywpLiIDUD": {
-        "type": "Save",
-        "_id": "9AnsIPWywpLiIDUD",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Stun Droid</em></p>\n<p>Choose a point that you can see within range. Each droid or construct must succeed on a Constitution saving throw or be paralyzed for the duration. At the beginning of each of its turns, an affected creature takes energy damage equal to your forcecasting ability modifier and then repeats this saving throw. On a success, the power ends on the target.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
         "save": {
           "ability": "con",
@@ -223,24 +194,11 @@
           "value": "1",
           "units": "minute"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "@mod",
-              "energy"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "90"
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
     }
   },
@@ -252,7 +210,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979183,
-    "modifiedTime": 1729983825398,
+    "modifiedTime": 1730434246856,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

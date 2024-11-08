@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:52:03.1884037+00:00",
       "importer_version": 3,
-      "uid": "Power.name-detonator"
+      "uid": "Power.name-detonator.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,20 +13,130 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/Detonator.webp",
   "system": {
+    "description": {
+      "value": "<p>You launch a detonator at a creature. Make a ranged tech attack against a creature you can see within range. On a hit, the target takes [[/r 1d6]] fire damage, and each creature within 5 feet of the target must make a Dexterity saving throw or take [[/r 1d4]] fire damage.</p>\n<p>This power's damage increases by one die when you reach 5th level ([[/r 2d6]]/[[/r 2d4]]), 11th level ([[/r 3d6]]/[[/r 3d4]]), and 17th level ([[/r 4d6]]/[[/r 4d4]]).</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "EC"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true,
+      "template": {
+        "units": "ft",
+        "type": "radius",
+        "size": "5"
+      }
+    },
+    "range": {
+      "value": 60,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "rpak",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d6",
+          "fire"
+        ],
+        [
+          "1d4",
+          "fire"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "dex",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "tec",
+    "properties": [],
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
     "activities": {
-      "55RkEAvc4WDXsR0o": {
+      "L19S96HugeI1EhIU": {
         "type": "Attack",
-        "_id": "55RkEAvc4WDXsR0o",
+        "_id": "L19S96HugeI1EhIU",
         "img": null,
-        "description": {
-          "value": "<p>You launch a detonator at a creature. Make a ranged tech attack against a creature you can see within range. On a hit, the target takes [[/r 1d6]] fire damage, and each creature within 5 feet of the target must make a Dexterity saving throw or take [[/r 1d4]] fire damage.</p>\n<p>This power's damage increases by one die when you reach 5th level ([[/r 2d6]]/[[/r 2d4]]), 11th level ([[/r 3d6]]/[[/r 3d4]]), and 17th level ([[/r 4d6]]/[[/r 4d4]]).</p>"
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
         },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
         },
+        "target": {
+          "value": 5,
+          "width": null,
+          "units": "ft",
+          "type": "radius"
+        },
+        "range": "60",
         "duration": {
           "value": null,
           "units": "inst"
@@ -46,12 +156,32 @@
             ]
           ]
         },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
+        "description": {
+          "value": "<p>You launch a detonator at a creature. Make a ranged tech attack against a creature you can see within range. On a hit, the target takes [[/r 1d6]] fire damage, and each creature within 5 feet of the target must make a Dexterity saving throw or take [[/r 1d4]] fire damage.</p>\n<p>This power's damage increases by one die when you reach 5th level ([[/r 2d6]]/[[/r 2d4]]), 11th level ([[/r 3d6]]/[[/r 3d4]]), and 17th level ([[/r 4d6]]/[[/r 4d4]]).</p>"
+        }
+      },
+      "QkVHNZXhAQ61Oa25": {
+        "type": "Attack",
+        "_id": "QkVHNZXhAQ61Oa25",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d6",
+              "fire"
+            ],
+            [
+              "1d4",
+              "fire"
+            ]
+          ]
+        },
+        "range": "60",
+        "description": {
+          "value": "<p>You launch a detonator at a creature. Make a ranged tech attack against a creature you can see within range. On a hit, the target takes [[/r 1d6]] fire damage, and each creature within 5 feet of the target must make a Dexterity saving throw or take [[/r 1d4]] fire damage.</p>\n<p>This power's damage increases by one die when you reach 5th level ([[/r 2d6]]/[[/r 2d4]]), 11th level ([[/r 3d6]]/[[/r 3d4]]), and 17th level ([[/r 4d6]]/[[/r 4d4]]).</p>"
         },
         "target": {
           "value": 5,
@@ -59,77 +189,40 @@
           "units": "ft",
           "type": "radius"
         },
-        "range": "60"
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "classification": "spell",
+          "flat": false,
+          "type": "ranged"
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "description": {
-      "value": "<p>You launch a detonator at a creature. Make a ranged tech attack against a creature you can see within range. On a hit, the target takes [[/r 1d6]] fire damage, and each creature within 5 feet of the target must make a Dexterity saving throw or take [[/r 1d4]] fire damage.</p>\n<p>This power's damage increases by one die when you reach 5th level ([[/r 2d6]]/[[/r 2d4]]), 11th level ([[/r 3d6]]/[[/r 3d4]]), and 17th level ([[/r 4d6]]/[[/r 4d4]]).</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "EC",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "value": "60",
-      "units": "ft"
-    },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "ft",
-        "type": "radius",
-        "size": "5",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "detonator"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/Detonator.webp",
   "effects": [],
-  "_id": "xvqxhu7QhHW2MR2K",
+  "_id": "UBxeJ7w4Rkoeezs4",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984164108,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434251554,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!xvqxhu7QhHW2MR2K"
+  "_key": "!items!UBxeJ7w4Rkoeezs4"
 }

@@ -144,9 +144,9 @@
     "magicalBonus": null,
     "firingArc": "",
     "activities": {
-      "1RjlJfwLzdJXtN5o": {
+      "z5JlLpjGG4hjx9jf": {
         "type": "Attack",
-        "_id": "1RjlJfwLzdJXtN5o",
+        "_id": "z5JlLpjGG4hjx9jf",
         "img": null,
         "attack": {
           "ability": "",
@@ -155,8 +155,9 @@
           "flat": false,
           "type": "melee"
         },
-        "description": {
-          "value": "<h4>Weapon (Unarmed Strike)</h4>\n <p>While wearing these handwraps, you have a +2 bonus to attack and damage rolls made with your unarmed strikes.</p>"
+        "activation": {
+          "type": "action",
+          "cost": 1
         },
         "target": {
           "value": 1,
@@ -164,9 +165,9 @@
           "units": "",
           "type": "enemy"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1
+        "duration": {
+          "value": "inst",
+          "units": null
         },
         "damage": {
           "critical": {
@@ -178,95 +179,14 @@
               "kinetic"
             ]
           ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "1kH5cAGmILWp16sU": {
-        "type": "Attack",
-        "_id": "1kH5cAGmILWp16sU",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "description": {
-          "value": "<h4>Weapon (Unarmed Strike)</h4>\n <p>While wearing these handwraps, you have a +2 bonus to attack and damage rolls made with your unarmed strikes.</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1 + @mod",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "d9heKqyuidU1bMQg": {
-        "type": "Attack",
-        "_id": "d9heKqyuidU1bMQg",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1 + @mod",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
         },
         "description": {
           "value": "<h4>Weapon (Unarmed Strike)</h4>\n <p>While wearing these handwraps, you have a +2 bonus to attack and damage rolls made with your unarmed strikes.</p>"
         }
       },
-      "1FdJdgMMVbrz1uma": {
+      "LltplDbm90E1vCyt": {
         "type": "Attack",
-        "_id": "1FdJdgMMVbrz1uma",
+        "_id": "LltplDbm90E1vCyt",
         "img": null,
         "attack": {
           "ability": "",
@@ -274,6 +194,20 @@
           "classification": "weapon",
           "flat": false,
           "type": "melee"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "enemy"
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
         },
         "damage": {
           "critical": {
@@ -285,39 +219,15 @@
               "kinetic"
             ]
           ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
         },
         "description": {
           "value": "<h4>Weapon (Unarmed Strike)</h4>\n <p>While wearing these handwraps, you have a +2 bonus to attack and damage rolls made with your unarmed strikes.</p>"
         }
       },
-      "XNNOs9U2inv1y1lH": {
+      "FFmZSkVJsg61dVGT": {
         "type": "Attack",
-        "_id": "XNNOs9U2inv1y1lH",
+        "_id": "FFmZSkVJsg61dVGT",
         "img": null,
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
         "damage": {
           "critical": {
             "allow": true
@@ -329,12 +239,14 @@
             ]
           ]
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
         "description": {
           "value": "<h4>Weapon (Unarmed Strike)</h4>\n <p>While wearing these handwraps, you have a +2 bonus to attack and damage rolls made with your unarmed strikes.</p>"
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "enemy"
         },
         "attack": {
           "ability": "",
@@ -342,22 +254,20 @@
           "classification": "weapon",
           "flat": false,
           "type": "melee"
+        },
+        "duration": {
+          "value": "inst",
+          "units": null
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
         }
       },
-      "ksrb0T7VaSLhCxUJ": {
+      "11ivUQVvY3P1SVCY": {
         "type": "Attack",
-        "_id": "ksrb0T7VaSLhCxUJ",
+        "_id": "11ivUQVvY3P1SVCY",
         "img": null,
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
         "damage": {
           "critical": {
             "allow": true
@@ -369,86 +279,14 @@
             ]
           ]
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
         "description": {
           "value": "<h4>Weapon (Unarmed Strike)</h4>\n <p>While wearing these handwraps, you have a +2 bonus to attack and damage rolls made with your unarmed strikes.</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        }
-      },
-      "1FxlvBH8MgAM18od": {
-        "type": "Attack",
-        "_id": "1FxlvBH8MgAM18od",
-        "img": null,
-        "description": {
-          "value": "<h4>Weapon (Unarmed Strike)</h4>\n <p>While wearing these handwraps, you have a +2 bonus to attack and damage rolls made with your unarmed strikes.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1 + @mod",
-              "kinetic"
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
         },
         "target": {
           "value": 1,
           "width": null,
           "units": "",
           "type": "enemy"
-        }
-      },
-      "JUOPOmL9aBhMkl1L": {
-        "type": "Attack",
-        "_id": "JUOPOmL9aBhMkl1L",
-        "img": null,
-        "description": {
-          "value": "<h4>Weapon (Unarmed Strike)</h4>\n <p>While wearing these handwraps, you have a +2 bonus to attack and damage rolls made with your unarmed strikes.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1 + @mod",
-              "kinetic"
-            ]
-          ]
         },
         "attack": {
           "ability": "",
@@ -457,11 +295,13 @@
           "flat": false,
           "type": "melee"
         },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
+        "duration": {
+          "value": "inst",
+          "units": null
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1
         }
       }
     }
@@ -476,7 +316,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1673899185909,
-    "modifiedTime": 1729983814863,
+    "modifiedTime": 1730434237204,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:52:03.1924018+00:00",
       "importer_version": 3,
-      "uid": "Power.name-tri_shot"
+      "uid": "Power.name-tri_shot.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,27 +13,122 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/Tri-Shot.webp",
   "system": {
+    "description": {
+      "value": "<p>Choose up to three creatures within range, none of whom can be more than 10 feet apart. If you choose three creatures, each target must succeed on a Dexterity saving throw or take [[/r 1d4]] energy damage. If you choose two creatures, each target takes [[/r 1d6]] energy damage on a failed save instead. If you choose only one creature, the target takes [[/r 1d8]] energy damage on a failed save.</p>\n<p>This power's damage increases by one die when you reach 5th level (two dice), 11th level (three dice), and 17th level (four dice).</p>",
+      "chat": ""
+    },
+    "source": {
+      "custom": "EC"
+    },
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": "inst"
+    },
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 60,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "save",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d4",
+          "energy"
+        ],
+        [
+          "1d6",
+          "energy"
+        ],
+        [
+          "1d8",
+          "energy"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "dex",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "tec",
+    "properties": [],
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
     "activities": {
-      "1KwWEVPNIyOg1PZ0": {
+      "NtiEl1nLzkQv7eyH": {
         "type": "Save",
-        "_id": "1KwWEVPNIyOg1PZ0",
+        "_id": "NtiEl1nLzkQv7eyH",
         "img": null,
-        "description": {
-          "value": "<p>Choose up to three creatures within range, none of whom can be more than 10 feet apart. If you choose three creatures, each target must succeed on a Dexterity saving throw or take [[/r 1d4]] energy damage. If you choose two creatures, each target takes [[/r 1d6]] energy damage on a failed save instead. If you choose only one creature, the target takes [[/r 1d8]] energy damage on a failed save.</p>\n<p>This power's damage increases by one die when you reach 5th level (two dice), 11th level (three dice), and 17th level (four dice).</p>"
-        },
         "activation": {
           "type": "action",
           "cost": 1,
           "condition": ""
         },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
         },
+        "range": "60",
         "duration": {
           "value": null,
           "units": "inst"
@@ -57,81 +152,84 @@
             ]
           ]
         },
+        "description": {
+          "value": "<p>Choose up to three creatures within range, none of whom can be more than 10 feet apart. If you choose three creatures, each target must succeed on a Dexterity saving throw or take [[/r 1d4]] energy damage. If you choose two creatures, each target takes [[/r 1d6]] energy damage on a failed save instead. If you choose only one creature, the target takes [[/r 1d8]] energy damage on a failed save.</p>\n<p>This power's damage increases by one die when you reach 5th level (two dice), 11th level (three dice), and 17th level (four dice).</p>"
+        },
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        }
+      },
+      "geGLhZYNiY3OHTo6": {
+        "type": "Save",
+        "_id": "geGLhZYNiY3OHTo6",
+        "img": null,
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            [
+              "1d4",
+              "energy"
+            ],
+            [
+              "1d6",
+              "energy"
+            ],
+            [
+              "1d8",
+              "energy"
+            ]
+          ]
+        },
+        "range": "60",
+        "description": {
+          "value": "<p>Choose up to three creatures within range, none of whom can be more than 10 feet apart. If you choose three creatures, each target must succeed on a Dexterity saving throw or take [[/r 1d4]] energy damage. If you choose two creatures, each target takes [[/r 1d6]] energy damage on a failed save instead. If you choose only one creature, the target takes [[/r 1d8]] energy damage on a failed save.</p>\n<p>This power's damage increases by one die when you reach 5th level (two dice), 11th level (three dice), and 17th level (four dice).</p>"
+        },
         "target": {
           "value": null,
           "width": null,
           "units": "",
           "type": ""
         },
-        "range": "60"
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spell",
+            "formula": ""
+          }
+        },
+        "duration": {
+          "value": null,
+          "units": "inst"
+        },
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        }
       }
-    },
-    "description": {
-      "value": "<p>Choose up to three creatures within range, none of whom can be more than 10 feet apart. If you choose three creatures, each target must succeed on a Dexterity saving throw or take [[/r 1d4]] energy damage. If you choose two creatures, each target takes [[/r 1d6]] energy damage on a failed save instead. If you choose only one creature, the target takes [[/r 1d8]] energy damage on a failed save.</p>\n<p>This power's damage increases by one die when you reach 5th level (two dice), 11th level (three dice), and 17th level (four dice).</p>",
-      "chat": ""
-    },
-    "source": {
-      "custom": "EC",
-      "revision": 1,
-      "rules": "2024"
-    },
-    "activation": {
-      "type": "action",
-      "condition": "",
-      "value": 1
-    },
-    "duration": {
-      "units": "inst"
-    },
-    "level": 0,
-    "materials": {
-      "value": "",
-      "consumed": false,
-      "cost": 0,
-      "supply": 0
-    },
-    "preparation": {
-      "mode": "prepared",
-      "prepared": false
-    },
-    "properties": [],
-    "range": {
-      "value": "60",
-      "units": "ft"
-    },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
-      }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "tri-shot"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/Tri-Shot.webp",
   "effects": [],
-  "_id": "yD2fonYdxo98KF8j",
+  "_id": "k2ZdBNEYt2MNqXLO",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984164124,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1730434252652,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!yD2fonYdxo98KF8j"
+  "_key": "!items!k2ZdBNEYt2MNqXLO"
 }
