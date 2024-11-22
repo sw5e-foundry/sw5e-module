@@ -109,89 +109,45 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "7Ufpb2m3NxR1U3Py": {
-        "type": "Save",
-        "_id": "7Ufpb2m3NxR1U3Py",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "6d6",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 6,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Convulsion</em></p>\n<p>You cause up to six pillars of stone to burst from places on the ground that you can see within range. Each pillar is a cylinder that has a diameter of 5 feet and a height of up to 30 feet. The ground where a pillar appears must be wide enough for its diameter, and you can target the ground under a creature if that creature is Medium or smaller. Each pillar has AC 5 and 30 hit points. When reduced to 0 hit points, a pillar crumbles into rubble, which creates an area of difficult terrain with a 10 - foot radius that lasts until the rubble is cleared. Each 5-foot-diameter portion of the area requires at least 1 minute to clear by hand.</p>\n<p>If a pillar is created under a creature, that creature must succeed on a Dexterity saving throw or be lifted by the pillar. A creature can choose to fail the save. </p>\n<p>If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar takes [[/r 6d6]] kinetic damage and is restrained, pinched between the pillar and the obstacle. The restrained creature can use an action to make a Strength or Dexterity check (the creature's choice) against the power's save DC. On a success, the creature is no longer restrained and must either move off the pillar or fall off it.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, you can create two additional pillars for each slot level above 6th.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1g1zI9D5CfT6I1PY": {
-        "type": "Save",
-        "_id": "1g1zI9D5CfT6I1PY",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "6d6",
-              "kinetic"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Convulsion</em></p>\n<p>You cause up to six pillars of stone to burst from places on the ground that you can see within range. Each pillar is a cylinder that has a diameter of 5 feet and a height of up to 30 feet. The ground where a pillar appears must be wide enough for its diameter, and you can target the ground under a creature if that creature is Medium or smaller. Each pillar has AC 5 and 30 hit points. When reduced to 0 hit points, a pillar crumbles into rubble, which creates an area of difficult terrain with a 10 - foot radius that lasts until the rubble is cleared. Each 5-foot-diameter portion of the area requires at least 1 minute to clear by hand.</p>\n<p>If a pillar is created under a creature, that creature must succeed on a Dexterity saving throw or be lifted by the pillar. A creature can choose to fail the save. </p>\n<p>If a pillar is prevented from reaching its full height because of a ceiling or other obstacle, a creature on the pillar takes [[/r 6d6]] kinetic damage and is restrained, pinched between the pillar and the obstacle. The restrained creature can use an action to make a Strength or Dexterity check (the creature's choice) against the power's save DC. On a success, the creature is no longer restrained and must either move off the pillar or fall off it.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, you can create two additional pillars for each slot level above 6th.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979170,
-    "modifiedTime": 1730434246596,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

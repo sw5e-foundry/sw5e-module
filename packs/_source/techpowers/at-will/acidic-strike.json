@@ -105,73 +105,44 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "CWeFmBhGRSM1a3V8": {
-        "type": "Damage",
-        "_id": "CWeFmBhGRSM1a3V8",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d8",
-              "acid"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "acid"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes sheathed in a thick acidic slime until the start of your next turn. Until the start of your next turn, if the target becomes grappled, or succeeds in grappling or maintaining a grapple, the slime is pressed into its body, causing it to immediately take [[/r 1d8]] acid damage. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] acid damage to the target, and the damage the target takes for taking grappling or maintaining a grapple increases to [[/r 2d8]]. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level.</p>"
-        }
-      },
-      "1cQVHtK0ewNRCN3c": {
-        "type": "Damage",
-        "_id": "1cQVHtK0ewNRCN3c",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "acid"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes sheathed in a thick acidic slime until the start of your next turn. Until the start of your next turn, if the target becomes grappled, or succeeds in grappling or maintaining a grapple, the slime is pressed into its body, causing it to immediately take [[/r 1d8]] acid damage. </p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] acid damage to the target, and the damage the target takes for taking grappling or maintaining a grapple increases to [[/r 2d8]]. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "round"
+          "units": "round",
+          "value": "1"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -187,7 +158,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251485,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

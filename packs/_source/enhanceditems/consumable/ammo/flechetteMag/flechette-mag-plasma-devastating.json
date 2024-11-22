@@ -121,93 +121,61 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "10ZyX8NdywJK1Bl5": {
-        "type": "Save",
-        "_id": "10ZyX8NdywJK1Bl5",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d10",
-              "energy"
-            ],
-            [
-              "7d10",
-              "energy"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 7,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>When triggered, this enhanced flechette cannon ammunition fires a volley of energy flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette mag holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 24 Dexterity saving throw. A creature takes [[/r 7d10]] energy damage on a failed save, or half as much as on a successful one. </p>\n<p>&nbsp;</p>\n<h2>Flechette mag, plasma</h2>\n<p>When triggered, this flechette cannon ammunition fires a volley of energy flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette mag holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] energy damage on a failed save, or half as much as on a successful one. </p>"
+        "description": {},
+        "duration": {
+          "units": "inst",
+          "value": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "15uaVYBHtlSP1dEm": {
-        "type": "Save",
-        "_id": "15uaVYBHtlSP1dEm",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "energy"
-            ],
-            [
-              "7d10",
-              "energy"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>When triggered, this enhanced flechette cannon ammunition fires a volley of energy flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette mag holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 24 Dexterity saving throw. A creature takes [[/r 7d10]] energy damage on a failed save, or half as much as on a successful one. </p>\n<p>&nbsp;</p>\n<h2>Flechette mag, plasma</h2>\n<p>When triggered, this flechette cannon ammunition fires a volley of energy flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette mag holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] energy damage on a failed save, or half as much as on a successful one. </p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -219,7 +187,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964677,
-    "modifiedTime": 1730434220963,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

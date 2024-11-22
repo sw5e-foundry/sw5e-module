@@ -109,89 +109,45 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1jdDMrD0bmEp1QJh": {
-        "type": "Save",
-        "_id": "1jdDMrD0bmEp1QJh",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "150",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "12d6",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 12,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Burst</em></p>\n<p>You manipulate the Force in a 60-foot radius centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes [[/r 12d6]] force damage, is knocked prone, and moved 5 feet in a direction of your choice. On a successful save, it takes half as much damage and isn't knocked prone or moved.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 9th level, the damage increases by [[/r 2d6]].</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1b82QdF7nldFQCRJ": {
-        "type": "Save",
-        "_id": "1b82QdF7nldFQCRJ",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "12d6",
-              "force"
-            ]
-          ]
-        },
-        "range": "150",
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Burst</em></p>\n<p>You manipulate the Force in a 60-foot radius centered on a point you choose within range. Each creature in that area must make a Constitution saving throw. On a failed save, a creature takes [[/r 12d6]] force damage, is knocked prone, and moved 5 feet in a direction of your choice. On a successful save, it takes half as much damage and isn't knocked prone or moved.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 9th level, the damage increases by [[/r 2d6]].</p>"
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979317,
-    "modifiedTime": 1730434249188,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

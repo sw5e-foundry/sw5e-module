@@ -121,93 +121,61 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "5TKPd3cQgb61nYnc": {
-        "type": "Save",
-        "_id": "5TKPd3cQgb61nYnc",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d6",
-              "kinetic"
-            ],
-            [
-              "1d4",
-              "sonic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "sonic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Constitution saving throw, taking [[/r 1d4]] sonic damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "9eLfBIAxvCg1CXUd": {
-        "type": "Save",
-        "_id": "9eLfBIAxvCg1CXUd",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "kinetic"
-            ],
-            [
-              "1d4",
-              "sonic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Constitution saving throw, taking [[/r 1d4]] sonic damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -219,7 +187,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956722,
-    "modifiedTime": 1730434245253,
+    "modifiedTime": 1732306710898,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

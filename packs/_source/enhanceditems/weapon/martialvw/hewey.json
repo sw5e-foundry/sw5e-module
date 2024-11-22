@@ -102,7 +102,20 @@
           "kinetic"
         ]
       ],
-      "versatile": "1d10 +  @mod + 1"
+      "versatile": {
+        "custom": {
+          "enabled": false
+        },
+        "number": 1,
+        "denomination": 10,
+        "types": [
+          "kinetic"
+        ],
+        "scaling": {
+          "mode": "whole",
+          "number": 1
+        }
+      }
     },
     "formula": "",
     "save": {
@@ -156,181 +169,61 @@
     "magicalBonus": null,
     "firingArc": "",
     "activities": {
-      "onm1xcO3eP41xxuE": {
-        "type": "Attack",
-        "_id": "onm1xcO3eP41xxuE",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "special",
-          "cost": 1
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h4>Weapon (Vibroblade)</h4>\n <p>You gain a +1 bonus to attack and damage rolls with this enhanced weapon.</p>\n<p>This weapon has 6 charges and regains [[/r 1d6]] charges when you complete a long rest. Once per turn when you hit with a melee weapon attack with this weapon, you can expend a charge to have the weapon deal an additional [[/r 1d8]] kinetic damage. </p>\n<p><em>Hewey is an N-30 battle blade owned by the mercenary Corso Riggs during the Galactic Cold War.</em></p>\n<p>&nbsp;</p>\n<h2>Vibroblade</h2>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        }
-      },
-      "1n75SEvXiShj1tIC": {
-        "type": "Attack",
-        "_id": "1n75SEvXiShj1tIC",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "activation": {
-          "type": "special",
-          "cost": 1
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h4>Weapon (Vibroblade)</h4>\n <p>You gain a +1 bonus to attack and damage rolls with this enhanced weapon.</p>\n<p>This weapon has 6 charges and regains [[/r 1d6]] charges when you complete a long rest. Once per turn when you hit with a melee weapon attack with this weapon, you can expend a charge to have the weapon deal an additional [[/r 1d8]] kinetic damage. </p>\n<p><em>Hewey is an N-30 battle blade owned by the mercenary Corso Riggs during the Galactic Cold War.</em></p>\n<p>&nbsp;</p>\n<h2>Vibroblade</h2>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        }
-      },
-      "182eE4hPn8Yw1kfh": {
-        "type": "Attack",
-        "_id": "182eE4hPn8Yw1kfh",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h4>Weapon (Vibroblade)</h4>\n <p>You gain a +1 bonus to attack and damage rolls with this enhanced weapon.</p>\n<p>This weapon has 6 charges and regains [[/r 1d6]] charges when you complete a long rest. Once per turn when you hit with a melee weapon attack with this weapon, you can expend a charge to have the weapon deal an additional [[/r 1d8]] kinetic damage. </p>\n<p><em>Hewey is an N-30 battle blade owned by the mercenary Corso Riggs during the Galactic Cold War.</em></p>\n<p>&nbsp;</p>\n<h2>Vibroblade</h2>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
+          "type": "special"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "weapon",
           "flat": false,
-          "type": "melee"
+          "type": {}
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "activation": {
-          "type": "special",
-          "cost": 1
-        }
-      },
-      "1ofX5yueoQgRvUR3": {
-        "type": "Attack",
-        "_id": "1ofX5yueoQgRvUR3",
-        "img": null,
         "damage": {
-          "critical": {
-            "allow": true
-          },
+          "critical": {},
           "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": null,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Weapon (Vibroblade)</h4>\n <p>You gain a +1 bonus to attack and damage rolls with this enhanced weapon.</p>\n<p>This weapon has 6 charges and regains [[/r 1d6]] charges when you complete a long rest. Once per turn when you hit with a melee weapon attack with this weapon, you can expend a charge to have the weapon deal an additional [[/r 1d8]] kinetic damage. </p>\n<p><em>Hewey is an N-30 battle blade owned by the mercenary Corso Riggs during the Galactic Cold War.</em></p>\n<p>&nbsp;</p>\n<h2>Vibroblade</h2>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
+        "description": {},
         "duration": {
-          "value": "inst",
-          "units": null
+          "units": "inst",
+          "value": "inst"
         },
-        "activation": {
-          "type": "special",
-          "cost": 1
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -342,7 +235,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493965013,
-    "modifiedTime": 1730434241851,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

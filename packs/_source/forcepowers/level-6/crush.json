@@ -109,89 +109,46 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "ozSvca8bKui1dQe1": {
-        "type": "Save",
-        "_id": "ozSvca8bKui1dQe1",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "10d8",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 10,
+              "scaling": {
+                "formula": "1d8",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Choke</em></p>\n<p>You make a crushing gesture at a creature within range. The target must make a Constitution saving throw. On a failed save target takes [[/r 10d8]] force damage and is paralyzed until the end of your next turn. On a successful save, the target takes half as much damage and is not paralyzed.</p>\n<p>You can use a bonus action while the target is paralyzed to move the target up to 10 feet in any direction.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, the damage increases by [[/r 1d8]] for each slot level above 6th.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1P0yFwQaNXWZ1GrH": {
-        "type": "Save",
-        "_id": "1P0yFwQaNXWZ1GrH",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "10d8",
-              "force"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Choke</em></p>\n<p>You make a crushing gesture at a creature within range. The target must make a Constitution saving throw. On a failed save target takes [[/r 10d8]] force damage and is paralyzed until the end of your next turn. On a successful save, the target takes half as much damage and is not paralyzed.</p>\n<p>You can use a bonus action while the target is paralyzed to move the target up to 10 feet in any direction.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, the damage increases by [[/r 1d8]] for each slot level above 6th.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +160,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979308,
-    "modifiedTime": 1730434249009,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -109,89 +109,45 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "VgW5FlFhNSuiVRcs": {
-        "type": "Save",
-        "_id": "VgW5FlFhNSuiVRcs",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "range": "60",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d6",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>Choose one creature, or choose two creatures that are within 5 feet of each other, within range. A target must succeed on a Dexterity saving throw or take [[/r 1d6]] force damage.</p>\n<p>This power's damage increases by [[/r 1d6]] when you reach 5th, 11th, and 17th level.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1dI11y5CDf4U15dZ": {
-        "type": "Save",
-        "_id": "1dI11y5CDf4U15dZ",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "force"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p>Choose one creature, or choose two creatures that are within 5 feet of each other, within range. A target must succeed on a Dexterity saving throw or take [[/r 1d6]] force damage.</p>\n<p>This power's damage increases by [[/r 1d6]] when you reach 5th, 11th, and 17th level.</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979218,
-    "modifiedTime": 1730434247532,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

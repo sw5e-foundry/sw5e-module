@@ -109,87 +109,47 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1HmOPnyqwWgJ1JxG": {
-        "type": "Save",
-        "_id": "1HmOPnyqwWgJ1JxG",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d8",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You cause the earth to burst from beneath your feet. Each creature within range, other than you, must succeed on a Dexterity saving throw or take [[/r 1d8]] kinetic damage.</p>\n<p>This power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1F52ANWYeeDBkfAb": {
-        "type": "Save",
-        "_id": "1F52ANWYeeDBkfAb",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>You cause the earth to burst from beneath your feet. Each creature within range, other than you, must succeed on a Dexterity saving throw or take [[/r 1d8]] kinetic damage.</p>\n<p>This power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -201,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979188,
-    "modifiedTime": 1730434246958,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

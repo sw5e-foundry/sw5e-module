@@ -116,89 +116,47 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "Q2AOEnW1DENTKjEc": {
-        "type": "Save",
-        "_id": "Q2AOEnW1DENTKjEc",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "4d10",
-              "psychic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 4,
+              "scaling": {
+                "formula": "1d10",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Hallucination</em></p>\n<p>You tap into the nightmares of a creature you can see within range and create an illusory manifestation of its deepest fears, visible only to that creature. The target must succeed on a Wisdom saving throw or become frightened for the duration. At the end of each of the target's turns before the power ends, the target must succeed on a Wisdom saving throw or take [[/r 4d10]] psychic damage. On a successful save, the power ends. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force power slot of 5th level or higher, the damage increases by [[/r 1d10]] for each slot level above 4th.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "wis",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "7YDjMJKWyhILsJqu": {
-        "type": "Save",
-        "_id": "7YDjMJKWyhILsJqu",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "4d10",
-              "psychic"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Hallucination</em></p>\n<p>You tap into the nightmares of a creature you can see within range and create an illusory manifestation of its deepest fears, visible only to that creature. The target must succeed on a Wisdom saving throw or become frightened for the duration. At the end of each of the target's turns before the power ends, the target must succeed on a Wisdom saving throw or take [[/r 4d10]] psychic damage. On a successful save, the power ends. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force power slot of 5th level or higher, the damage increases by [[/r 1d10]] for each slot level above 4th.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -210,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979263,
-    "modifiedTime": 1730434248079,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

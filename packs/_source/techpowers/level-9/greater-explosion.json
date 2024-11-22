@@ -105,89 +105,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1Dxg4sBJMDCyJmnt": {
-        "type": "Save",
-        "_id": "1Dxg4sBJMDCyJmnt",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 40,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "150",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "40d6",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 40,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You expell a massive explosion at a point within range. Each creature in a 40-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes [[/r 40d6]] fire damage and is knocked prone on a failed save, or half as much damage on a successful one but remain standing.</p>\n<p>The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "AQ8cw2FBI9q18abj": {
-        "type": "Save",
-        "_id": "AQ8cw2FBI9q18abj",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "40d6",
-              "fire"
-            ]
-          ]
-        },
-        "range": "150",
-        "description": {
-          "value": "<p>You expell a massive explosion at a point within range. Each creature in a 40-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes [[/r 40d6]] fire damage and is knocked prone on a failed save, or half as much damage on a successful one but remain standing.</p>\n<p>The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
-        },
-        "target": {
-          "value": 40,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434253098,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

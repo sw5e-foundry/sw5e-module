@@ -117,71 +117,43 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "lgSGn7Brvwn14Ytl": {
-        "type": "Damage",
-        "_id": "lgSGn7Brvwn14Ytl",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "20d20",
-              "energy"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 20,
+              "number": 20,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack and damage rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d20]] energy damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the power generator is depleted, it no longer gives a bonus.</p>"
-        }
-      },
-      "mj3hlVNZr9L1ohhG": {
-        "type": "Damage",
-        "_id": "mj3hlVNZr9L1ohhG",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "20d20",
-              "energy"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack and damage rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d20]] energy damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the power generator is depleted, it no longer gives a bonus.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": "inst",
-          "units": null
+          "units": "inst",
+          "value": "inst"
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -193,7 +165,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964509,
-    "modifiedTime": 1730434212380,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

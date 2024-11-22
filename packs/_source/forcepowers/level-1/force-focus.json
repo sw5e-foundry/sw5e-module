@@ -116,73 +116,44 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1fw5wiaaAEVlfKTc": {
-        "type": "Damage",
-        "_id": "1fw5wiaaAEVlfKTc",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "bonus"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d4",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Technique</em></p>\n<p>You let the Force guide you, empowering your strikes. Until the power ends, your weapon attacks deal an extra [[/r 1d4]] force damage on a hit.</p>"
-        }
-      },
-      "1SHATDqR9Ck8ixAG": {
-        "type": "Damage",
-        "_id": "1SHATDqR9Ck8ixAG",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "force"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Technique</em></p>\n<p>You let the Force guide you, empowering your strikes. Until the power ends, your weapon attacks deal an extra [[/r 1d4]] force damage on a hit.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "minute"
+          "units": "minute",
+          "value": "1"
         },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -194,7 +165,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979205,
-    "modifiedTime": 1730434247266,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

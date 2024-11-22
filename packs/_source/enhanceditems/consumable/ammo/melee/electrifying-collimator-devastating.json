@@ -117,73 +117,41 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "18nL4ufH5B5PV2b1": {
-        "type": "Damage",
-        "_id": "18nL4ufH5B5PV2b1",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "5",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d10",
-              ""
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>As an action, you can apply this collimator to one lightweapon within 5 feet, granting it a +3 bonus to attack rolls and dealing an additional [[/r 1d10]] damage for 1 minute. This bonus is in addition to any bonuses granted by the weapon. Additionally, for the duration, the weapon gains the shocking 18 property. If it already has the shocking property, its shocking number increases to 18. Lastly, if the weapon is not enhanced, it becomes enhanced for the duration.</p>\n<p>&nbsp;</p>\n<h2>Electrifying collimator</h2>\n<p>As an action, you can apply this collimator to one lightweapon within 5 feet, granting it a +1 bonus to damage rolls for 1 minute. This bonus is in addition to any bonuses granted by the weapon. Additionally, for the duration, the weapon gains the shocking 13 property. If it already has the shocking property, its shocking number increases by 1, to a maximum of 18.</p>"
-        }
-      },
-      "1j1Q6tKZ5bzv1whQ": {
-        "type": "Damage",
-        "_id": "1j1Q6tKZ5bzv1whQ",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d10",
-              ""
-            ]
-          ]
-        },
-        "range": "5",
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>As an action, you can apply this collimator to one lightweapon within 5 feet, granting it a +3 bonus to attack rolls and dealing an additional [[/r 1d10]] damage for 1 minute. This bonus is in addition to any bonuses granted by the weapon. Additionally, for the duration, the weapon gains the shocking 18 property. If it already has the shocking property, its shocking number increases to 18. Lastly, if the weapon is not enhanced, it becomes enhanced for the duration.</p>\n<p>&nbsp;</p>\n<h2>Electrifying collimator</h2>\n<p>As an action, you can apply this collimator to one lightweapon within 5 feet, granting it a +1 bonus to damage rolls for 1 minute. This bonus is in addition to any bonuses granted by the weapon. Additionally, for the duration, the weapon gains the shocking 13 property. If it already has the shocking property, its shocking number increases by 1, to a maximum of 18.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "minute"
+          "units": "minute",
+          "value": "1"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -195,7 +163,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493965097,
-    "modifiedTime": 1730434244937,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

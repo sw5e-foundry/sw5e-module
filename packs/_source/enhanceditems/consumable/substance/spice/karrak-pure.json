@@ -129,177 +129,88 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1nZ8Rbdf0z1tPwZ8": {
-        "type": "Save",
-        "_id": "1nZ8Rbdf0z1tPwZ8",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "5",
-        "duration": {
-          "value": 1,
-          "units": "hour"
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d3",
-              ""
-            ],
-            [
-              "1d12",
-              ""
-            ],
-            [
-              "1d12",
-              ""
-            ],
-            [
-              "2d12",
-              ""
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 3,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 12,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Substance)</h4>\n <p>A powerful painkiller, karrak allows creatures to continue through the most grievous injuries. As an action, you can apply this substance to a creature within 5 feet. For the next hour, the creature experiences a high that allows them to roll an additional [[/r d12]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d12]] temporary hit points. At the end of the high, the creature must succeed on a DC 24 Wisdom saving throw or experience a low that lasts 8 hours, during which they must roll a [[/r d12]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d12]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 24 Constitution throw to resist addiction.</p>\n<p>&nbsp;</p>\n<h2>Karrak</h2>\n<p>A powerful painkiller, karrak allows creatures to continue through the most grievous injuries. As an action, you can apply this substance to a creature within 5 feet. For the next minute, the creature experiences a high that allows them to roll an additional [[/r d3]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d3]] temporary hit points. At the end of the high, the creature must succeed on a DC 14 Wisdom saving throw or experience a low that lasts 10 minutes, during which they must roll a [[/r d3]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d3]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 14 Constitution saving throw to resist addiction.</p>"
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "wis",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
-        }
+        },
+        "target": {},
+        "type": "save"
       },
-      "KHx97z3lStT7739k": {
-        "type": "Heal",
-        "_id": "KHx97z3lStT7739k",
-        "img": null,
-        "healing": [
-          [
-            "2d3",
-            "temphp"
-          ],
-          [
-            "2d12",
-            "temphp"
-          ]
-        ],
+      "sw5e1heal0000000": {
+        "_id": "sw5e1heal0000000",
         "activation": {
-          "type": "action",
-          "cost": 1
+          "type": "action"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "5",
+        "description": {},
         "duration": {
-          "value": 1,
-          "units": "hour"
+          "units": "hour",
+          "value": "1"
         },
-        "description": {
-          "value": "<h4>Consumable (Substance)</h4>\n <p>A powerful painkiller, karrak allows creatures to continue through the most grievous injuries. As an action, you can apply this substance to a creature within 5 feet. For the next hour, the creature experiences a high that allows them to roll an additional [[/r d12]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d12]] temporary hit points. At the end of the high, the creature must succeed on a DC 24 Wisdom saving throw or experience a low that lasts 8 hours, during which they must roll a [[/r d12]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d12]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 24 Constitution throw to resist addiction.</p>\n<p>&nbsp;</p>\n<h2>Karrak</h2>\n<p>A powerful painkiller, karrak allows creatures to continue through the most grievous injuries. As an action, you can apply this substance to a creature within 5 feet. For the next minute, the creature experiences a high that allows them to roll an additional [[/r d3]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d3]] temporary hit points. At the end of the high, the creature must succeed on a DC 14 Wisdom saving throw or experience a low that lasts 10 minutes, during which they must roll a [[/r d3]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d3]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 14 Constitution saving throw to resist addiction.</p>"
-        }
-      },
-      "gfWwBl5IjHD1c7eI": {
-        "type": "Save",
-        "_id": "gfWwBl5IjHD1c7eI",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
+        "healing": {
+          "custom": {
+            "enabled": false
           },
-          "parts": [
-            [
-              "2d3",
-              ""
-            ],
-            [
-              "1d12",
-              ""
-            ],
-            [
-              "1d12",
-              ""
-            ],
-            [
-              "2d12",
-              ""
-            ]
+          "denomination": 3,
+          "number": 2,
+          "scaling": {
+            "mode": "whole",
+            "number": 1
+          },
+          "types": [
+            "temphp"
           ]
         },
-        "range": "5",
-        "description": {
-          "value": "<h4>Consumable (Substance)</h4>\n <p>A powerful painkiller, karrak allows creatures to continue through the most grievous injuries. As an action, you can apply this substance to a creature within 5 feet. For the next hour, the creature experiences a high that allows them to roll an additional [[/r d12]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d12]] temporary hit points. At the end of the high, the creature must succeed on a DC 24 Wisdom saving throw or experience a low that lasts 8 hours, during which they must roll a [[/r d12]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d12]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 24 Constitution throw to resist addiction.</p>\n<p>&nbsp;</p>\n<h2>Karrak</h2>\n<p>A powerful painkiller, karrak allows creatures to continue through the most grievous injuries. As an action, you can apply this substance to a creature within 5 feet. For the next minute, the creature experiences a high that allows them to roll an additional [[/r d3]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d3]] temporary hit points. At the end of the high, the creature must succeed on a DC 14 Wisdom saving throw or experience a low that lasts 10 minutes, during which they must roll a [[/r d3]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d3]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 14 Constitution saving throw to resist addiction.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": 1,
-          "units": "hour"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
-      },
-      "U79wcN9k5uV1y3Pw": {
-        "type": "Heal",
-        "_id": "U79wcN9k5uV1y3Pw",
         "img": null,
-        "range": "5",
-        "healing": [
-          [
-            "2d3",
-            "temphp"
-          ],
-          [
-            "2d12",
-            "temphp"
-          ]
-        ],
-        "description": {
-          "value": "<h4>Consumable (Substance)</h4>\n <p>A powerful painkiller, karrak allows creatures to continue through the most grievous injuries. As an action, you can apply this substance to a creature within 5 feet. For the next hour, the creature experiences a high that allows them to roll an additional [[/r d12]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d12]] temporary hit points. At the end of the high, the creature must succeed on a DC 24 Wisdom saving throw or experience a low that lasts 8 hours, during which they must roll a [[/r d12]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d12]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 24 Constitution throw to resist addiction.</p>\n<p>&nbsp;</p>\n<h2>Karrak</h2>\n<p>A powerful painkiller, karrak allows creatures to continue through the most grievous injuries. As an action, you can apply this substance to a creature within 5 feet. For the next minute, the creature experiences a high that allows them to roll an additional [[/r d3]] when making an ability check or saving throw using Constitution, and at the start of each of the creature's turns it gains [[/r 2d3]] temporary hit points. At the end of the high, the creature must succeed on a DC 14 Wisdom saving throw or experience a low that lasts 10 minutes, during which they must roll a [[/r d3]] and subtract the result when making an ability check or saving throw using Constitution, and for the duration their current and maximum hit points are reduced by [[/r 2d3]]. If this would reduce your maximum hit points below 1, it instead becomes 1. At the end of the low, the creature must make a DC 14 Constitution saving throw to resist addiction.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": 1,
-          "units": "hour"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
+        "range": {},
+        "target": {},
+        "type": "heal"
       }
     }
   },
@@ -311,7 +222,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964980,
-    "modifiedTime": 1730434239398,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

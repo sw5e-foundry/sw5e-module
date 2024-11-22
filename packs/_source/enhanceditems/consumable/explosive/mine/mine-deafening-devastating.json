@@ -121,95 +121,59 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "18eO7jIfHaziA9M8": {
-        "type": "Save",
-        "_id": "18eO7jIfHaziA9M8",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "15",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d6",
-              "sonic"
-            ],
-            [
-              "12d6",
-              "sonic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "sonic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 12,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "sonic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 24 Constitution saving throw. A creature takes [[/r 12d6]] sonic damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Mine, deafening</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 14 Constitution saving throw. A creature takes [[/r 2d6]] sonic damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "1QkKA0pmzMliTY8l": {
-        "type": "Save",
-        "_id": "1QkKA0pmzMliTY8l",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "sonic"
-            ],
-            [
-              "12d6",
-              "sonic"
-            ]
-          ]
-        },
-        "range": "15",
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 24 Constitution saving throw. A creature takes [[/r 12d6]] sonic damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>&nbsp;</p>\n<h2>Mine, deafening</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 14 Constitution saving throw. A creature takes [[/r 2d6]] sonic damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -221,7 +185,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964936,
-    "modifiedTime": 1730434235510,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

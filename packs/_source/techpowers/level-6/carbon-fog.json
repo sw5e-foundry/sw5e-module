@@ -107,75 +107,42 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "Tm39AZsai6811VfU": {
-        "type": "Damage",
-        "_id": "Tm39AZsai6811VfU",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "120",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "4d6",
-              "cold"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 4,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "cold"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You create a cloud of icy fog in a 20-foot-radius sphere centered on a point you can see. The sphere extends around corners, and its area is heavily obscured. The fog is semi-solid, and its area is considered difficult terrain. Each creature that enters the power's area for the first time on a turn or starts its turn there takes [[/r 4d6]] cold damage and gains 1 slowed level until the end of its turn. The fog lasts for the duration of the power or until it's dispersed by a wind of moderate or greater speed (at least 10 mph).</p>"
-        }
-      },
-      "15ug2L566K4WMcvn": {
-        "type": "Damage",
-        "_id": "15ug2L566K4WMcvn",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "4d6",
-              "cold"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p>You create a cloud of icy fog in a 20-foot-radius sphere centered on a point you can see. The sphere extends around corners, and its area is heavily obscured. The fog is semi-solid, and its area is considered difficult terrain. Each creature that enters the power's area for the first time on a turn or starts its turn there takes [[/r 4d6]] cold damage and gains 1 slowed level until the end of its turn. The fog lasts for the duration of the power or until it's dispersed by a wind of moderate or greater speed (at least 10 mph).</p>"
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "minute"
+          "units": "minute",
+          "value": "1"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -191,7 +158,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434252990,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

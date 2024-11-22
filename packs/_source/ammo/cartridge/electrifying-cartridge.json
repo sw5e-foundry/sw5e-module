@@ -117,85 +117,46 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "saHlEHR3eLe1V7ex": {
-        "type": "Save",
-        "_id": "saHlEHR3eLe1V7ex",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d4",
-              "lightning"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>An electrifying cartridge is a specialized slug cartridge for use with blaster weapons that deal kinetic damage. When you hit with a shot with the loaded weapon, the creature must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d4]] lightning damage and becomes shocked until the end of its next turn. On a successful save, a creature takes half damage and isn't shocked.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "gEQ2eIHnhTfHw8vA": {
-        "type": "Save",
-        "_id": "gEQ2eIHnhTfHw8vA",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "lightning"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>An electrifying cartridge is a specialized slug cartridge for use with blaster weapons that deal kinetic damage. When you hit with a shot with the loaded weapon, the creature must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d4]] lightning damage and becomes shocked until the end of its next turn. On a successful save, a creature takes half damage and isn't shocked.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -207,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956726,
-    "modifiedTime": 1730434245284,
+    "modifiedTime": 1732306710898,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

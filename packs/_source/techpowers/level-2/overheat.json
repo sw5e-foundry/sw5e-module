@@ -107,89 +107,47 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "xAFAnwm2Sfr1Mpwb": {
-        "type": "Save",
-        "_id": "xAFAnwm2Sfr1Mpwb",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d8",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 2,
+              "scaling": {
+                "formula": "1d8",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>Choose a manufactured metal object, such as a blaster or a suit of heavy or medium metal armor, that you can see within range. You cause the object to glow red-hot. Any creature in physical contact with the object takes [[/r 2d8]] fire damage when you cast the power. Until the power ends, you can use a bonus action on each of your subsequent turns to cause this damage again.</p>\n<p>If an object is held, worn, or integrated, and a creature takes the damage from it, the creature must succeed on a Constitution saving throw or drop the object if it can. If it doesn't—or can't—drop the object, it has disadvantage on attack rolls and ability checks until the start of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d8]] for each slot level above 2nd.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1KN6t4dvrneQ1qPt": {
-        "type": "Save",
-        "_id": "1KN6t4dvrneQ1qPt",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "fire"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p>Choose a manufactured metal object, such as a blaster or a suit of heavy or medium metal armor, that you can see within range. You cause the object to glow red-hot. Any creature in physical contact with the object takes [[/r 2d8]] fire damage when you cast the power. Until the power ends, you can use a bonus action on each of your subsequent turns to cause this damage again.</p>\n<p>If an object is held, worn, or integrated, and a creature takes the damage from it, the creature must succeed on a Constitution saving throw or drop the object if it can. If it doesn't—or can't—drop the object, it has disadvantage on attack rolls and ability checks until the start of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d8]] for each slot level above 2nd.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -205,7 +163,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434253252,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

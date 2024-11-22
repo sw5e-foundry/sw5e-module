@@ -76,7 +76,18 @@
           "kinetic"
         ]
       ],
-      "versatile": "1d10 +  @mod"
+      "versatile": {
+        "custom": {},
+        "types": [
+          "kinetic"
+        ],
+        "scaling": {
+          "mode": "whole",
+          "number": 1
+        },
+        "number": 1,
+        "denomination": 10
+      }
     },
     "properties": [
       "dexRq",
@@ -152,165 +163,46 @@
     "proficient": null,
     "firingArc": "",
     "activities": {
-      "1Jz98wxQBVB81bK5": {
-        "type": "Attack",
-        "_id": "1Jz98wxQBVB81bK5",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Piercing 1</h3>\n<p>Before you make a weapon attack with a weapon with the piercing property, you can choose to gain a bonus to the attack roll up to the piercing number. If you do so and you hit with it, you suffer an equivalent penalty to the damage roll.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        }
-      },
-      "105uRcSTY3Dtplt3": {
-        "type": "Attack",
-        "_id": "105uRcSTY3Dtplt3",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Piercing 1</h3>\n<p>Before you make a weapon attack with a weapon with the piercing property, you can choose to gain a bonus to the attack roll up to the piercing number. If you do so and you hit with it, you suffer an equivalent penalty to the damage roll.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        }
-      },
-      "XoyYNy2TfrU1IX8r": {
-        "type": "Attack",
-        "_id": "XoyYNy2TfrU1IX8r",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Piercing 1</h3>\n<p>Before you make a weapon attack with a weapon with the piercing property, you can choose to gain a bonus to the attack roll up to the piercing number. If you do so and you hit with it, you suffer an equivalent penalty to the damage roll.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "weapon",
           "flat": false,
-          "type": "melee"
+          "type": {}
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
-      },
-      "b8hQiEI7TKyoPr1z": {
-        "type": "Attack",
-        "_id": "b8hQiEI7TKyoPr1z",
-        "img": null,
         "damage": {
-          "critical": {
-            "allow": true
-          },
+          "critical": {},
           "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": null,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Piercing 1</h3>\n<p>Before you make a weapon attack with a weapon with the piercing property, you can choose to gain a bonus to the attack roll up to the piercing number. If you do so and you hit with it, you suffer an equivalent penalty to the damage roll.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -326,7 +218,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296019804,
-    "modifiedTime": 1730434202997,
+    "modifiedTime": 1732306707556,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

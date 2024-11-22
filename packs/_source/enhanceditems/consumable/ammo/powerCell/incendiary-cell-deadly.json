@@ -121,93 +121,61 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1Ja183044Obm1tGn": {
-        "type": "Save",
-        "_id": "1Ja183044Obm1tGn",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "square"
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d8",
-              "fire"
-            ],
-            [
-              "1d8",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack and damage rolls made with this enhanced incendiary cell. This bonus is in addition to any bonuses granted by the weapon. Once the incendiary cell is depleted, it no longer gives a bonus. Additionally, the loaded weapon deals fire damage instead of its normal damage type, and when you hit with a shot it sets the ground beneath it in a 5-foot square ablaze for 1 minute. When a creature enters the fire or starts its turn there it must make a DC 20 Dexterity saving throw. On a failed save, the creature takes [[/r 1d8]] fire damage or half as much on a successful one. A construct makes this save with disadvantage.</p>\n<p>&nbsp;</p>\n<h2>Incendiary cell</h2>\n<p>An incendiary cell is a specialized power cell for use with blaster weapons that deal acid, energy, fire, ion, or sonic damage. The loaded weapon deals fire damage instead of its normal damage type, and when you hit with a shot it sets the ground beneath it in a 5-foot square ablaze for 1 minute. When a creature enters the fire or starts its turn there it must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d8]] fire damage or half as much on a successful one. A construct makes this save with disadvantage.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "nqhDe9RduAt1gVNP": {
-        "type": "Save",
-        "_id": "nqhDe9RduAt1gVNP",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "fire"
-            ],
-            [
-              "1d8",
-              "fire"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack and damage rolls made with this enhanced incendiary cell. This bonus is in addition to any bonuses granted by the weapon. Once the incendiary cell is depleted, it no longer gives a bonus. Additionally, the loaded weapon deals fire damage instead of its normal damage type, and when you hit with a shot it sets the ground beneath it in a 5-foot square ablaze for 1 minute. When a creature enters the fire or starts its turn there it must make a DC 20 Dexterity saving throw. On a failed save, the creature takes [[/r 1d8]] fire damage or half as much on a successful one. A construct makes this save with disadvantage.</p>\n<p>&nbsp;</p>\n<h2>Incendiary cell</h2>\n<p>An incendiary cell is a specialized power cell for use with blaster weapons that deal acid, energy, fire, ion, or sonic damage. The loaded weapon deals fire damage instead of its normal damage type, and when you hit with a shot it sets the ground beneath it in a 5-foot square ablaze for 1 minute. When a creature enters the fire or starts its turn there it must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d8]] fire damage or half as much on a successful one. A construct makes this save with disadvantage.</p>"
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "square"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -219,7 +187,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964613,
-    "modifiedTime": 1730434216668,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

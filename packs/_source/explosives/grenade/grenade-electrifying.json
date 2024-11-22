@@ -117,87 +117,45 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "OBGYp4pQgMo1y9ge": {
-        "type": "Save",
-        "_id": "OBGYp4pQgMo1y9ge",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "30",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d6",
-              "lightning"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] lightning damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "1P5Zys7UIejNcg2H": {
-        "type": "Save",
-        "_id": "1P5Zys7UIejNcg2H",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "lightning"
-            ]
-          ]
-        },
-        "range": "30",
-        "description": {
-          "value": "<p>Grenades can be set to detonate on impact or with a timer that causes them to explode on initiative count 20 (losing all initiative ties). As an action, you can prime and throw a grenade at a point you can see within 30 feet + your Strength modifier x 5. Each creature within 10 feet must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] lightning damage on a failed save, or half as much as on a successful one. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -209,7 +167,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493966313,
-    "modifiedTime": 1730434245674,
+    "modifiedTime": 1732306711033,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

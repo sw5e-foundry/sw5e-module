@@ -109,89 +109,45 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1sH9jp8XPVgLD8Dt": {
-        "type": "Save",
-        "_id": "1sH9jp8XPVgLD8Dt",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d4",
-              "psychic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You unleash a burst of psychic energy at a target within range. If the target can hear you (though it need not understand you), it must succeed on an Intelligence saving throw or take [[/r 1d4]] psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.</p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "int",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "9uqv2cV4Gce3hDcb": {
-        "type": "Save",
-        "_id": "9uqv2cV4Gce3hDcb",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "psychic"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p>You unleash a burst of psychic energy at a target within range. If the target can hear you (though it need not understand you), it must succeed on an Intelligence saving throw or take [[/r 1d4]] psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.</p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "int",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979298,
-    "modifiedTime": 1730434248806,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

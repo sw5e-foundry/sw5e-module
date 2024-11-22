@@ -109,97 +109,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1QhqDurNZVzIQS2c": {
-        "type": "Save",
-        "_id": "1QhqDurNZVzIQS2c",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "120",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d8",
-              "kinetic"
-            ],
-            [
-              "4d6",
-              "cold"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 2,
+              "scaling": {
+                "formula": "1d8",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 4,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "cold"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>A storm of cryogenic energy encompasses the ground in a 20-foot-radius, 40-foot-high cylinder centered on a point within range. Each creature in the cylinder must make a Dexterity saving throw. A creature takes [[/r 2d8]] kinetic damage and [[/r 4d6]] cold damage on a failed save, or half as much damage on a successful one.</p>\n<p>The storm's area of effect becomes difficult terrain until the end of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 5th level or higher, the kinetic damage increases by [[/r 1d8]] for each slot level above 4th.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1q0i1fX3MGApMBuo": {
-        "type": "Save",
-        "_id": "1q0i1fX3MGApMBuo",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "kinetic"
-            ],
-            [
-              "4d6",
-              "cold"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p>A storm of cryogenic energy encompasses the ground in a 20-foot-radius, 40-foot-high cylinder centered on a point within range. Each creature in the cylinder must make a Dexterity saving throw. A creature takes [[/r 2d8]] kinetic damage and [[/r 4d6]] cold damage on a failed save, or half as much damage on a successful one.</p>\n<p>The storm's area of effect becomes difficult terrain until the end of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 5th level or higher, the kinetic damage increases by [[/r 1d8]] for each slot level above 4th.</p>"
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -215,7 +178,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434253143,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

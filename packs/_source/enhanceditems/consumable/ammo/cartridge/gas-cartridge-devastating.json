@@ -121,93 +121,61 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1ealHsc7nrMy1Pnr": {
-        "type": "Save",
-        "_id": "1ealHsc7nrMy1Pnr",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d6",
-              "poison"
-            ],
-            [
-              "1d10",
-              "poison"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "poison"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "poison"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack and damage rolls made with this enhanced gas cartridge. This bonus is in addition to any bonuses granted by the weapon. Once the gas cartridge has been fired, it no longer gives a bonus. Additionally, when you hit with a shot with the loaded weapon, the creature must make a DC 24 Constitution saving throw. On a failed save, the creature takes [[/r 1d10]] poison damage and is poisoned until the start of its next turn. On a successful save, a creature takes half damage and isn't poisoned.</p>\n<p>&nbsp;</p>\n<h2>Gas cartridge</h2>\n<p>A gas cartridge is a specialized slug cartridge for use with blaster weapons that deal kinetic damage. When you hit with a shot with the loaded weapon, the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] poison damage and is poisoned until the start of its next turn. On a successful save, a creature takes half damage and isn't poisoned.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst",
+          "value": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "viEQqvGG4ON1gxuQ": {
-        "type": "Save",
-        "_id": "viEQqvGG4ON1gxuQ",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "poison"
-            ],
-            [
-              "1d10",
-              "poison"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack and damage rolls made with this enhanced gas cartridge. This bonus is in addition to any bonuses granted by the weapon. Once the gas cartridge has been fired, it no longer gives a bonus. Additionally, when you hit with a shot with the loaded weapon, the creature must make a DC 24 Constitution saving throw. On a failed save, the creature takes [[/r 1d10]] poison damage and is poisoned until the start of its next turn. On a successful save, a creature takes half damage and isn't poisoned.</p>\n<p>&nbsp;</p>\n<h2>Gas cartridge</h2>\n<p>A gas cartridge is a specialized slug cartridge for use with blaster weapons that deal kinetic damage. When you hit with a shot with the loaded weapon, the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] poison damage and is poisoned until the start of its next turn. On a successful save, a creature takes half damage and isn't poisoned.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -219,7 +187,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964715,
-    "modifiedTime": 1730434223670,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

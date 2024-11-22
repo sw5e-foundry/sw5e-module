@@ -109,87 +109,48 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1jixP8kYYDYwixZh": {
-        "type": "Save",
-        "_id": "1jixP8kYYDYwixZh",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d6",
-              "necrotic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "formula": "1d6",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "necrotic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>Tendrils of dark energy erupt from you and batter all creatures within 10 feet of you. Each creature in that area must make a Strength saving throw. On a failed save, a target takes [[/r 2d6]] necrotic damage and can't take reactions until its next turn. On a successful save, the creature takes half damage, but suffers no other effect.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a power slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "str",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "laTyqxi5ALt1Myin": {
-        "type": "Save",
-        "_id": "laTyqxi5ALt1Myin",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "necrotic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>Tendrils of dark energy erupt from you and batter all creatures within 10 feet of you. Each creature in that area must make a Strength saving throw. On a failed save, a target takes [[/r 2d6]] necrotic damage and can't take reactions until its next turn. On a successful save, the creature takes half damage, but suffers no other effect.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a power slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "str",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -201,7 +162,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979296,
-    "modifiedTime": 1730434248761,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

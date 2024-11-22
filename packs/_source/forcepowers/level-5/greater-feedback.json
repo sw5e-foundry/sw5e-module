@@ -109,89 +109,45 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "G9K1xGnj07u1Qkd0": {
-        "type": "Save",
-        "_id": "G9K1xGnj07u1Qkd0",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "120",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "8d6",
-              "psychic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 8,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Improved Feedback</em></p>\n<p>You choose a point within range and cause psychic energy to explode there. Each creature in a 20-foot-radius sphere centered on that point must make an Intelligence saving throw. A creature with an Intelligence score of 2 or lower can't be affected by this power. A target takes [[/r 8d6]] psychic damage on a failed save, or half as much damage on a successful one.</p>\n<p>After a failed save, a target has muddled thoughts for 1 minute. During that time, it rolls a [[/r d6]] and subtracts the number rolled from all its attack rolls and ability checks, as well as its Constitution saving throws to maintain concentration. The target can make an Intelligence saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "int",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1bigLVviyjSs6Na0": {
-        "type": "Save",
-        "_id": "1bigLVviyjSs6Na0",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d6",
-              "psychic"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Improved Feedback</em></p>\n<p>You choose a point within range and cause psychic energy to explode there. Each creature in a 20-foot-radius sphere centered on that point must make an Intelligence saving throw. A creature with an Intelligence score of 2 or lower can't be affected by this power. A target takes [[/r 8d6]] psychic damage on a failed save, or half as much damage on a successful one.</p>\n<p>After a failed save, a target has muddled thoughts for 1 minute. During that time, it rolls a [[/r d6]] and subtracts the number rolled from all its attack rolls and ability checks, as well as its Constitution saving throws to maintain concentration. The target can make an Intelligence saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "save": {
-          "ability": "int",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979245,
-    "modifiedTime": 1730434247938,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

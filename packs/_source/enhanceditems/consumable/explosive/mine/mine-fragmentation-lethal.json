@@ -121,95 +121,59 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1e4VW3fz8MpP1Y8e": {
-        "type": "Save",
-        "_id": "1e4VW3fz8MpP1Y8e",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "15",
-        "duration": {
-          "value": "inst",
-          "units": null
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d10",
-              "kinetic"
-            ],
-            [
-              "10d10",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 10,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which activates at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Mine, fragmentation</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst",
+          "value": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "1Tu7HKlVXEv39Gnn": {
-        "type": "Save",
-        "_id": "1Tu7HKlVXEv39Gnn",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "kinetic"
-            ],
-            [
-              "10d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "range": "15",
-        "description": {
-          "value": "<h4>Consumable (Explosive)</h4>\n <p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which activates at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 22 Dexterity saving throw. A creature takes [[/r 10d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Mine, fragmentation</h2>\n<p>Mines can be set to detonate when a creature comes within up to 15 feet of it or paired with a remote detonator. As an action, you can prime and set a mine on a surface you can reach, which arms at the start of your next turn. When detonated, each creature within 15 feet of it must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one.</p>"
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -221,7 +185,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964673,
-    "modifiedTime": 1730434220592,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

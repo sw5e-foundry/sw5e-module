@@ -116,89 +116,46 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "sxCRh1BNYSCkHaV0": {
-        "type": "Save",
-        "_id": "sxCRh1BNYSCkHaV0",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "range": "60",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d8",
-              "energy"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>By stimulating air molecules, you create a zone of Force-enhanced fire on ground that you can see within range. Until the power ends, the enhanced fire fills a 5-foot cube. Any creature in the fire's space when you cast the power must succeed on a Dexterity saving throw or take [[/r 1d8]] energy damage. A creature must also make the saving throw when it moves into the fire's space for the first time on a turn or ends its turn there.</p>\n<p>The fire ignites flammable objects in its area that aren't being worn or carried.</p>\n<p>The power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "jgnbQ41LcwJ7izQk": {
-        "type": "Save",
-        "_id": "jgnbQ41LcwJ7izQk",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "energy"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p>By stimulating air molecules, you create a zone of Force-enhanced fire on ground that you can see within range. Until the power ends, the enhanced fire fills a 5-foot cube. Any creature in the fire's space when you cast the power must succeed on a Dexterity saving throw or take [[/r 1d8]] energy damage. A creature must also make the saving throw when it moves into the fire's space for the first time on a turn or ends its turn there.</p>\n<p>The fire ignites flammable objects in its area that aren't being worn or carried.</p>\n<p>The power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -210,7 +167,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979212,
-    "modifiedTime": 1730434247408,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

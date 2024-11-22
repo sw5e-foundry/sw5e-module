@@ -111,97 +111,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "eNj9E0prns51GqBj": {
-        "type": "Save",
-        "_id": "eNj9E0prns51GqBj",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 30,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "90",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "8d6",
-              "fire"
-            ],
-            [
-              "4d6",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 8,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 4,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes [[/r 8d6]] fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the power's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet. At the end of each of its turns, the target repeats the saving throw. It takes [[/r 4d6]] fire damage on a failed save, and the power ends on a successful one. These enhanced flames can't be extinguished by unenhanced means.</p>\n<p>If damage from this power kills a target, the target is turned to ash.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1s2COAx6TkiGprpS": {
-        "type": "Save",
-        "_id": "1s2COAx6TkiGprpS",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d6",
-              "fire"
-            ],
-            [
-              "4d6",
-              "fire"
-            ]
-          ]
-        },
-        "range": "90",
-        "description": {
-          "value": "<p>Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes [[/r 8d6]] fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the power's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet. At the end of each of its turns, the target repeats the saving throw. It takes [[/r 4d6]] fire damage on a failed save, and the power ends on a successful one. These enhanced flames can't be extinguished by unenhanced means.</p>\n<p>If damage from this power kills a target, the target is turned to ash.</p>"
-        },
-        "target": {
-          "value": 30,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -217,7 +180,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434253452,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

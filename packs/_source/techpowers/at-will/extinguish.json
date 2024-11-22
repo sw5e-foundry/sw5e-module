@@ -105,89 +105,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "12XWE30SPXPT13eP": {
-        "type": "Save",
-        "_id": "12XWE30SPXPT13eP",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "range": "30",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d4",
-              "cold"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "cold"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You spray carbon foam in a 5-foot cube originating from a point within range. Flames within the affected area are instantly quenched, and objects within the affected area cannot be ignited for at least one minute. Any creature in the affected area must make a Constitution saving throw or take [[/r 1d4]] cold damage.</p>\n<p>When you reach 5th level, this power can instead target a 10-foot cube within range. You gain additional options of increasing size when you reach 11th level (15-foot cube), and 17th level (20-foot cube).</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "BhwuV9sqwL3dBX92": {
-        "type": "Save",
-        "_id": "BhwuV9sqwL3dBX92",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "cold"
-            ]
-          ]
-        },
-        "range": "30",
-        "description": {
-          "value": "<p>You spray carbon foam in a 5-foot cube originating from a point within range. Flames within the affected area are instantly quenched, and objects within the affected area cannot be ignited for at least one minute. Any creature in the affected area must make a Constitution saving throw or take [[/r 1d4]] cold damage.</p>\n<p>When you reach 5th level, this power can instead target a 10-foot cube within range. You gain additional options of increasing size when you reach 11th level (15-foot cube), and 17th level (20-foot cube).</p>"
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434250333,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

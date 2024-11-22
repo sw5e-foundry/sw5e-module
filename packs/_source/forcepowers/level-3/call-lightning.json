@@ -120,83 +120,57 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "Qtgza59xonm11U6V": {
-        "type": "Damage",
-        "_id": "Qtgza59xonm11U6V",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "120",
-        "duration": {
-          "value": "10",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "3d10",
-              "lightning"
-            ],
-            [
-              "1d10",
-              "lightning "
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 3,
+              "scaling": {
+                "formula": "1d10",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>As you align yourself with nature through the Force, a 10-foot tall, 60-foot radius storm cloud cylinder appears, centered on a point you can see within range above you, with you as the center point. The power fails if your location can't accommodate the cloud's size or height. When you cast the power, choose a point under the cloud for lightning to strike. Each creature within 5 feet must make a Dexterity save, taking [[/r 3d10]] lightning damage on a fail and half on a success. While the power persists, you can use your action to call lightning to a point in range again.</p>\n<p>If you're outdoors and in a storm, the power gives you control of the storm rather than creating a new one. The lightning damage also increases by [[/r 1d10]].</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d10]] for each slot level above 3rd.</p>"
-        }
-      },
-      "1Q9eUTgE8Jait96v": {
-        "type": "Damage",
-        "_id": "1Q9eUTgE8Jait96v",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d10",
-              "lightning"
-            ],
-            [
-              "1d10",
-              "lightning "
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p>As you align yourself with nature through the Force, a 10-foot tall, 60-foot radius storm cloud cylinder appears, centered on a point you can see within range above you, with you as the center point. The power fails if your location can't accommodate the cloud's size or height. When you cast the power, choose a point under the cloud for lightning to strike. Each creature within 5 feet must make a Dexterity save, taking [[/r 3d10]] lightning damage on a fail and half on a success. While the power persists, you can use your action to call lightning to a point in range again.</p>\n<p>If you're outdoors and in a storm, the power gives you control of the storm rather than creating a new one. The lightning damage also increases by [[/r 1d10]].</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d10]] for each slot level above 3rd.</p>"
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
+        "description": {},
         "duration": {
-          "value": "10",
-          "units": "minute"
+          "units": "minute",
+          "value": "10"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -208,7 +182,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979331,
-    "modifiedTime": 1730434249471,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

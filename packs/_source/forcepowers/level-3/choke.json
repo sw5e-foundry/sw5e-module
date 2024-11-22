@@ -43,12 +43,20 @@
       "width": null,
       "units": "",
       "type": "",
-      "prompt": true
+      "prompt": true,
+      "affects": {
+        "count": "",
+        "type": ""
+      },
+      "template": {
+        "type": ""
+      }
     },
     "range": {
       "value": 60,
       "long": null,
-      "units": "ft"
+      "units": "ft",
+      "special": ""
     },
     "uses": {
       "value": null,
@@ -109,89 +117,46 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "16BxrBfiTyG61DB0": {
-        "type": "Save",
-        "_id": "16BxrBfiTyG61DB0",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "5d8",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 5,
+              "scaling": {
+                "formula": "1d8",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You make a constricting gesture at a creature within range. The target must make a Constitution saving throw. On a failed save target takes [[/r 5d8]] force damage and is restrained until the end of your next turn. On a successful save, the target takes half as much damage and is not restrained.</p>\n<p>You can use a bonus action while the target is restrained to move the target up to 5 feet in any direction.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d8]] for each slot level above 3rd.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "E5OIn5R347DEoxji": {
-        "type": "Save",
-        "_id": "E5OIn5R347DEoxji",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "5d8",
-              "force"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p>You make a constricting gesture at a creature within range. The target must make a Constitution saving throw. On a failed save target takes [[/r 5d8]] force damage and is restrained until the end of your next turn. On a successful save, the target takes half as much damage and is not restrained.</p>\n<p>You can use a bonus action while the target is restrained to move the target up to 5 feet in any direction.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d8]] for each slot level above 3rd.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979278,
-    "modifiedTime": 1730434248378,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

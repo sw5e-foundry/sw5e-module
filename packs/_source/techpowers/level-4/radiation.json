@@ -107,89 +107,46 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "aMbij9yGmG21Ordy": {
-        "type": "Save",
-        "_id": "aMbij9yGmG21Ordy",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 30,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "120",
-        "duration": {
-          "value": "10",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "4d10",
-              "necrotic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 4,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "necrotic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>Dim, greenish light spreads within a 30-foot-radius sphere centered on a point you choose within range. The light spreads around corners, and it lasts until the power ends.</p>\n<p>When a creature moves into the power's area for the first time on a turn or starts its turn there, that creature must succeed on a Constitution saving throw or take [[/r 4d10]] necrotic damage, and it suffers one level of exhaustion and emits a dim, greenish light in a 5-foot radius. This light makes it impossible for the creature to benefit from being invisible. The light and any levels of exhaustion caused by this power go away when the power ends.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "10"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "DGOrL6XFj81ARErE": {
-        "type": "Save",
-        "_id": "DGOrL6XFj81ARErE",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "4d10",
-              "necrotic"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p>Dim, greenish light spreads within a 30-foot-radius sphere centered on a point you choose within range. The light spreads around corners, and it lasts until the power ends.</p>\n<p>When a creature moves into the power's area for the first time on a turn or starts its turn there, that creature must succeed on a Constitution saving throw or take [[/r 4d10]] necrotic damage, and it suffers one level of exhaustion and emits a dim, greenish light in a 5-foot radius. This light makes it impossible for the creature to benefit from being invisible. The light and any levels of exhaustion caused by this power go away when the power ends.</p>"
-        },
-        "target": {
-          "value": 30,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "10",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -205,7 +162,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251610,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -107,73 +107,44 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "2RV0Niwi4M41u6s7": {
-        "type": "Damage",
-        "_id": "2RV0Niwi4M41u6s7",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d4",
-              ""
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>An unenhanced weapon you touch becomes an enhanced weapon. Choose one of these damage types: acid, cold, energy, fire, ion, kinetic, or lightning. For the duration, an unenhanced weapon you touch has a +1 to attack rolls and deals an extra [[/r 1d4]] damage of the chosen type.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a 5th or 6th level tech slot, the bonus to attack rolls increases to +2 and the extra damage increases to [[/r 2d4]]. When you use a slot of 7th level or higher, the bonus increases to +3 and the extra damage increases to [[/r 3d4]].</p>"
-        }
-      },
-      "1fUGfrNjO7kR1T8z": {
-        "type": "Damage",
-        "_id": "1fUGfrNjO7kR1T8z",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              ""
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>An unenhanced weapon you touch becomes an enhanced weapon. Choose one of these damage types: acid, cold, energy, fire, ion, kinetic, or lightning. For the duration, an unenhanced weapon you touch has a +1 to attack rolls and deals an extra [[/r 1d4]] damage of the chosen type.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a 5th or 6th level tech slot, the bonus to attack rolls increases to +2 and the extra damage increases to [[/r 2d4]]. When you use a slot of 7th level or higher, the bonus increases to +3 and the extra damage increases to [[/r 3d4]].</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "hour"
+          "units": "hour",
+          "value": "1"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -189,7 +160,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251327,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

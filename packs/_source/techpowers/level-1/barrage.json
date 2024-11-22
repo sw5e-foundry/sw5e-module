@@ -105,89 +105,46 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1uAp9TxE9fpOfmN3": {
-        "type": "Save",
-        "_id": "1uAp9TxE9fpOfmN3",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "1"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You launch [[/r 4d6]] tiny projectiles at up to four creatures you can see within range. The projectiles can be divided between the targets as desired. Each target must make a Dexterity saving throw. A target takes 1 kinetic damage per projectile, or half as much damage on a successful save.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you launch an additional [[/r 1d6]] projectiles and can target one additional creature for each slot level above 1st.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "quuNYvuANjfLQpmd": {
-        "type": "Save",
-        "_id": "quuNYvuANjfLQpmd",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1",
-              "kinetic"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p>You launch [[/r 4d6]] tiny projectiles at up to four creatures you can see within range. The projectiles can be divided between the targets as desired. Each target must make a Dexterity saving throw. A target takes 1 kinetic damage per projectile, or half as much damage on a successful save.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you launch an additional [[/r 1d6]] projectiles and can target one additional creature for each slot level above 1st.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +160,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251397,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

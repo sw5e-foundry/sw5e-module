@@ -116,73 +116,44 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "XHZOy8QRcUT10oSb": {
-        "type": "Damage",
-        "_id": "XHZOy8QRcUT10oSb",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "bonus"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d8",
-              "necrotic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "necrotic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Hex</em></p>\n<p>You manifest a mantle of malevolent dark side energy for the duration.</p>\n<p>Until the power ends, any attack you make deals an extra [[/r 1d8]] necrotic damage when you hit a creature within 10 feet of you. Any creature that takes this damage can't regain hit points until the start of your next turn.</p>\n<p>Additionally, any creature of your choice that you can see that starts its turn within 10 feet of you gains 1 slowed level until the start of your next turn.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 5th level or higher, the extra damage increases by [[/r 1d8]] for for every two slot levels above 3rd.</p>"
-        }
-      },
-      "17KX7srKt4uPKd77": {
-        "type": "Damage",
-        "_id": "17KX7srKt4uPKd77",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "necrotic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Hex</em></p>\n<p>You manifest a mantle of malevolent dark side energy for the duration.</p>\n<p>Until the power ends, any attack you make deals an extra [[/r 1d8]] necrotic damage when you hit a creature within 10 feet of you. Any creature that takes this damage can't regain hit points until the start of your next turn.</p>\n<p>Additionally, any creature of your choice that you can see that starts its turn within 10 feet of you gains 1 slowed level until the start of your next turn.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 5th level or higher, the extra damage increases by [[/r 1d8]] for for every two slot levels above 3rd.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "minute"
+          "units": "minute",
+          "value": "1"
         },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -194,7 +165,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979287,
-    "modifiedTime": 1730434248569,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

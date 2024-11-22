@@ -109,97 +109,59 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "jVUqosPowzq1iEzF": {
-        "type": "Save",
-        "_id": "jVUqosPowzq1iEzF",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "120",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "15d6",
-              "fire"
-            ],
-            [
-              "15d6",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 15,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 15,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You launch four projectiles at points you can see within range. Each creature within a 20-foot-radius sphere of each point must make a Dexterity saving throw. A creature takes [[/r 15d6]] fire damage and [[/r 15d6]] kinetic damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once. </p>\n<p>The power damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "15eYK3f8FzPZAQqy": {
-        "type": "Save",
-        "_id": "15eYK3f8FzPZAQqy",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "15d6",
-              "fire"
-            ],
-            [
-              "15d6",
-              "kinetic"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p>You launch four projectiles at points you can see within range. Each creature within a 20-foot-radius sphere of each point must make a Dexterity saving throw. A creature takes [[/r 15d6]] fire damage and [[/r 15d6]] kinetic damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once. </p>\n<p>The power damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -215,7 +177,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251285,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

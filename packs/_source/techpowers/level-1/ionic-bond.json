@@ -111,97 +111,61 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1tPj5solTj935CQH": {
-        "type": "Attack",
-        "_id": "1tPj5solTj935CQH",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30",
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "ion"
-            ],
-            [
-              "1d8",
-              "ion"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>A beam of ion energy lances out toward a creature within range, forming a sustained line between you and the target. Make a ranged tech attack against that creature. On a hit, the target takes [[/r 1d8]] ion damage, and on each of your turns for the duration, you can use a bonus action to deal [[/r 1d8]] ion damage to the target automatically. The power ends if you use your bonus action to do anything else. The power also ends if the target is ever outside the power's range or if it has total cover from you.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the initial damage increases by [[/r 1d8]] for each slot level above 1st.</p>"
-        }
-      },
-      "9un7GizLFP51IBDS": {
-        "type": "Attack",
-        "_id": "9un7GizLFP51IBDS",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "ion"
-            ],
-            [
-              "1d8",
-              "ion"
-            ]
-          ]
-        },
-        "range": "30",
-        "description": {
-          "value": "<p>A beam of ion energy lances out toward a creature within range, forming a sustained line between you and the target. Make a ranged tech attack against that creature. On a hit, the target takes [[/r 1d8]] ion damage, and on each of your turns for the duration, you can use a bonus action to deal [[/r 1d8]] ion damage to the target automatically. The power ends if you use your bonus action to do anything else. The power also ends if the target is ever outside the power's range or if it has total cover from you.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the initial damage increases by [[/r 1d8]] for each slot level above 1st.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+          "condition": "",
+          "type": "bonus"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "formula": "1d8",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "ion"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "ion"
+              ]
+            }
+          ]
+        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "minute"
+          "units": "minute",
+          "value": "1"
         },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -217,7 +181,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251778,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

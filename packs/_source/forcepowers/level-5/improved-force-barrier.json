@@ -109,65 +109,34 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1KLwKrebo7X41ekZ": {
-        "type": "Heal",
-        "_id": "1KLwKrebo7X41ekZ",
-        "img": null,
-        "healing": [
-          [
-            "2d10",
-            "healing"
-          ]
-        ],
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
         "activation": {
-          "type": "minute",
-          "cost": 10,
-          "condition": ""
+          "condition": "",
+          "type": "minute"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30",
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Barrier</em></p>\n<p>This power further bolsters your allies with toughness and resolve. Choose up to twelve creatures within range. Each target gains the following benefits:</p>\n<ul>\n<li>The becomes immune to poison and disease. Any currently existing poison or diseases still exist.</li>\n<li>The creature becomes immune to being frightened by powers.</li>\n<li>The creature's hit point maximum and current hit points increase by [[/r 2d10]] for the duration.</li>\n</ul>\n<p>These benefits last for 24 hours or until the end of your next long rest, whichever happens first.</p>"
-        }
-      },
-      "1niBcsRmytSF1pu6": {
-        "type": "Heal",
-        "_id": "1niBcsRmytSF1pu6",
-        "img": null,
-        "range": "30",
-        "healing": [
-          [
-            "2d10",
+        "healing": {
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 10,
+          "number": 2,
+          "scaling": {
+            "mode": "whole",
+            "number": 1
+          },
+          "types": [
             "healing"
           ]
-        ],
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Barrier</em></p>\n<p>This power further bolsters your allies with toughness and resolve. Choose up to twelve creatures within range. Each target gains the following benefits:</p>\n<ul>\n<li>The becomes immune to poison and disease. Any currently existing poison or diseases still exist.</li>\n<li>The creature becomes immune to being frightened by powers.</li>\n<li>The creature's hit point maximum and current hit points increase by [[/r 2d10]] for the duration.</li>\n</ul>\n<p>These benefits last for 24 hours or until the end of your next long rest, whichever happens first.</p>"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "minute",
-          "cost": 10,
-          "condition": ""
-        }
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "heal"
       }
     }
   },
@@ -179,7 +148,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979297,
-    "modifiedTime": 1730434248791,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

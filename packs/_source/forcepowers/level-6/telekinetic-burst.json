@@ -116,87 +116,49 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "AIMDkJp13xclglzZ": {
-        "type": "Save",
-        "_id": "AIMDkJp13xclglzZ",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "line"
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "8d6",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 8,
+              "scaling": {
+                "formula": "2d6",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Storm</em></p>\n<p>A beam of Force energy flashes out from your hand in a 5-foot-wide, 60-foot-long line. Each creature in the line must make a Constitution saving throw. On a failed save, a creature takes [[/r 8d6]] force damage and is knocked prone. On a successful save, it takes half as much damage and isn't knocked prone. </p>\n<p>You can create a new telekinetic gust as your action on your turn until the power ends.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, the damage increases by [[/r 2d6]] for each slot level above 6th.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "eAV7qQqtN5OXKluK": {
-        "type": "Save",
-        "_id": "eAV7qQqtN5OXKluK",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d6",
-              "force"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Storm</em></p>\n<p>A beam of Force energy flashes out from your hand in a 5-foot-wide, 60-foot-long line. Each creature in the line must make a Constitution saving throw. On a failed save, a creature takes [[/r 8d6]] force damage and is knocked prone. On a successful save, it takes half as much damage and isn't knocked prone. </p>\n<p>You can create a new telekinetic gust as your action on your turn until the power ends.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, the damage increases by [[/r 2d6]] for each slot level above 6th.</p>"
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "line"
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -208,7 +170,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979168,
-    "modifiedTime": 1730434246553,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

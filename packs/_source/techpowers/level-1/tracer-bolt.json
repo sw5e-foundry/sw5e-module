@@ -105,89 +105,47 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "oL8oVRAMr2F16OwJ": {
-        "type": "Attack",
-        "_id": "oL8oVRAMr2F16OwJ",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120",
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "4d6",
-              "energy"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>A flash of light streaks toward a creature of your choice within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 4d6]] energy damage, and the next attack roll made against this target before the end of your next turn has advantage. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        }
-      },
-      "1zabolkVxazu1eMF": {
-        "type": "Attack",
-        "_id": "1zabolkVxazu1eMF",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "4d6",
-              "energy"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p>A flash of light streaks toward a creature of your choice within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 4d6]] energy damage, and the next attack roll made against this target before the end of your next turn has advantage. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+          "condition": "",
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 4,
+              "scaling": {
+                "formula": "1d6",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
+          ]
+        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "round"
+          "units": "round",
+          "value": "1"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -203,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251002,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

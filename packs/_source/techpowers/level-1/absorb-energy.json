@@ -105,73 +105,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "Mn5xgemOGe913MMO": {
-        "type": "Damage",
-        "_id": "Mn5xgemOGe913MMO",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you take acid, cold, energy, fire, ion, kinetic, lightning, or sonic damage"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
+          "condition": "when you take acid, cold, energy, fire, ion, kinetic, lightning, or sonic damage",
+          "type": "reaction"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d6",
-              ""
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "formula": "1d6",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>The power captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra [[/r 1d6]] damage of the triggering type, and the power ends.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a power slot of 2nd level or higher, the extra damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        }
-      },
-      "reVyhWOYvWXAOepz": {
-        "type": "Damage",
-        "_id": "reVyhWOYvWXAOepz",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              ""
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>The power captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra [[/r 1d6]] damage of the triggering type, and the power ends.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a power slot of 2nd level or higher, the extra damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "round"
+          "units": "round",
+          "value": "1"
         },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you take acid, cold, energy, fire, ion, kinetic, lightning, or sonic damage"
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -187,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434253235,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

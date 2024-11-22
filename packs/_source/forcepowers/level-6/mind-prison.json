@@ -124,105 +124,74 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1ac9G7X7eePSAUMo": {
-        "type": "Save",
-        "_id": "1ac9G7X7eePSAUMo",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "5d10",
-              "psychic"
-            ],
-            [
-              "5d10",
-              "psychic"
-            ],
-            [
-              "10d10",
-              "psychic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 5,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 5,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 10,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Mind Trap</em></p>\n<p>You attempt to bind a creature within an illusory cell that only it perceives. One creature you can see within range must make an Intelligence saving throw. The target succeeds automatically if it is immune to being charmed. On a successful save, the target takes [[/r 5d10]] psychic damage, and the power ends. On a failed save, the target takes [[/r 5d10]] psychic damage, and you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, a storm of blaster-fire, or deadly toxic gas, for example. Whatever form the illusion takes, the target can't see or hear anything beyond it and is restrained for the power's duration. If the target is moved out of the illusion, makes a melee attack through it, or reaches any part of its body through it, the target takes [[/r 10d10]] psychic damage, and the power ends. This power has no effect on droids or constructs.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "int",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "10aUYbFmNE4W1jad": {
-        "type": "Save",
-        "_id": "10aUYbFmNE4W1jad",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "5d10",
-              "psychic"
-            ],
-            [
-              "5d10",
-              "psychic"
-            ],
-            [
-              "10d10",
-              "psychic"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Mind Trap</em></p>\n<p>You attempt to bind a creature within an illusory cell that only it perceives. One creature you can see within range must make an Intelligence saving throw. The target succeeds automatically if it is immune to being charmed. On a successful save, the target takes [[/r 5d10]] psychic damage, and the power ends. On a failed save, the target takes [[/r 5d10]] psychic damage, and you make the area immediately around the target's space appear dangerous to it in some way. You might cause the target to perceive itself as being surrounded by fire, a storm of blaster-fire, or deadly toxic gas, for example. Whatever form the illusion takes, the target can't see or hear anything beyond it and is restrained for the power's duration. If the target is moved out of the illusion, makes a melee attack through it, or reaches any part of its body through it, the target takes [[/r 10d10]] psychic damage, and the power ends. This power has no effect on droids or constructs.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "int",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -234,7 +203,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979302,
-    "modifiedTime": 1730434248892,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

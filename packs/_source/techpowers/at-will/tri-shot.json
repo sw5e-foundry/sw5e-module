@@ -113,105 +113,73 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "NtiEl1nLzkQv7eyH": {
-        "type": "Save",
-        "_id": "NtiEl1nLzkQv7eyH",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d4",
-              "energy"
-            ],
-            [
-              "1d6",
-              "energy"
-            ],
-            [
-              "1d8",
-              "energy"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>Choose up to three creatures within range, none of whom can be more than 10 feet apart. If you choose three creatures, each target must succeed on a Dexterity saving throw or take [[/r 1d4]] energy damage. If you choose two creatures, each target takes [[/r 1d6]] energy damage on a failed save instead. If you choose only one creature, the target takes [[/r 1d8]] energy damage on a failed save.</p>\n<p>This power's damage increases by one die when you reach 5th level (two dice), 11th level (three dice), and 17th level (four dice).</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "geGLhZYNiY3OHTo6": {
-        "type": "Save",
-        "_id": "geGLhZYNiY3OHTo6",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "energy"
-            ],
-            [
-              "1d6",
-              "energy"
-            ],
-            [
-              "1d8",
-              "energy"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p>Choose up to three creatures within range, none of whom can be more than 10 feet apart. If you choose three creatures, each target must succeed on a Dexterity saving throw or take [[/r 1d4]] energy damage. If you choose two creatures, each target takes [[/r 1d6]] energy damage on a failed save instead. If you choose only one creature, the target takes [[/r 1d8]] energy damage on a failed save.</p>\n<p>This power's damage increases by one die when you reach 5th level (two dice), 11th level (three dice), and 17th level (four dice).</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -227,7 +195,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434252652,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

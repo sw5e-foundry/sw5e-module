@@ -105,87 +105,47 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1KFWFCcsdQW2njkH": {
-        "type": "Save",
-        "_id": "1KFWFCcsdQW2njkH",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d4",
-              "poison"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "poison"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You expel a burst of mood-altering pheromones around you. Each creature within range other than you must succeed on a Charisma saving throw or take [[/r 1d4]] poison damage and become frightened of you until the start of its next turn. A creature that is immune to the poisoned condition is not frightened.</p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "cha",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1nVrqKOdfrXEFCvI": {
-        "type": "Save",
-        "_id": "1nVrqKOdfrXEFCvI",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "poison"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>You expel a burst of mood-altering pheromones around you. Each creature within range other than you must succeed on a Charisma saving throw or take [[/r 1d4]] poison damage and become frightened of you until the start of its next turn. A creature that is immune to the poisoned condition is not frightened.</p>\n<p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "cha",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -201,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251144,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

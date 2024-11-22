@@ -116,63 +116,38 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "DEN6xHD4dKP1Mp9t": {
-        "type": "Heal",
-        "_id": "DEN6xHD4dKP1Mp9t",
-        "img": null,
-        "healing": [
-          [
-            "@mod",
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "@mod"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "whole",
+            "number": 1
+          },
+          "types": [
             "temphp"
           ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "description": {
-          "value": "<p>A willing creature you touch is imbued with bravery. Until the power ends, the creature is immune to being frightened and gains temporary hit points equal to your forcecasting ability modifier at the start of each of its turns. When the power ends, the target loses any remaining temporary hit points from this power. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.</p>"
-        }
-      },
-      "MmJU8jjuwJA1QZaB": {
-        "type": "Heal",
-        "_id": "MmJU8jjuwJA1QZaB",
         "img": null,
-        "healing": [
-          [
-            "@mod",
-            "temphp"
-          ]
-        ],
-        "description": {
-          "value": "<p>A willing creature you touch is imbued with bravery. Until the power ends, the creature is immune to being frightened and gains temporary hit points equal to your forcecasting ability modifier at the start of each of its turns. When the power ends, the target loses any remaining temporary hit points from this power. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.</p>"
+        "range": {
+          "override": false
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "heal"
       }
     }
   },
@@ -184,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979229,
-    "modifiedTime": 1730434247732,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

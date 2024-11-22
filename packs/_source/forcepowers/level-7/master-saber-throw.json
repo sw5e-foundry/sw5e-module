@@ -113,95 +113,61 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "11KFmYvGilCPnIh0": {
-        "type": "Save",
-        "_id": "11KFmYvGilCPnIh0",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 90,
-          "width": null,
-          "units": "ft",
-          "type": "line"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "5d8",
-              "damage"
-            ],
-            [
-              "5d8",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 5,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "damage"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 5,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Saber Throw</em></p>\n<p>When you cast this power, you must be wielding at least one lightweapon or vibroweapon, otherwise the power fails. When you cast this power, you can throw two weapons, striking creatures in two lines originating from yourself, both 90 feet long and 5 feet wide, or you can throw one weapon in a 90-foot long, 5-foot wide line of your choice originating from yourself and change its direction to move in a second identical line of your choice within range. Each creature in a line must make a Dexterity saving throw. A creature takes [[/r 5d8]] damage of the same type as the weapon's damage and [[/r 5d8]] force damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one line is affected only once. The weapons then immediately return to your hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 8th level or higher, the weapon damage and force damage each increase by [[/r 1d8]] for each slot level above 7th.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "yTBnff5qrde1zCkK": {
-        "type": "Save",
-        "_id": "yTBnff5qrde1zCkK",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "5d8",
-              "damage"
-            ],
-            [
-              "5d8",
-              "force"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Saber Throw</em></p>\n<p>When you cast this power, you must be wielding at least one lightweapon or vibroweapon, otherwise the power fails. When you cast this power, you can throw two weapons, striking creatures in two lines originating from yourself, both 90 feet long and 5 feet wide, or you can throw one weapon in a 90-foot long, 5-foot wide line of your choice originating from yourself and change its direction to move in a second identical line of your choice within range. Each creature in a line must make a Dexterity saving throw. A creature takes [[/r 5d8]] damage of the same type as the weapon's damage and [[/r 5d8]] force damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one line is affected only once. The weapons then immediately return to your hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 8th level or higher, the weapon damage and force damage each increase by [[/r 1d8]] for each slot level above 7th.</p>"
-        },
-        "target": {
-          "value": 90,
-          "width": null,
-          "units": "ft",
-          "type": "line"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -213,7 +179,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979303,
-    "modifiedTime": 1730434248906,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

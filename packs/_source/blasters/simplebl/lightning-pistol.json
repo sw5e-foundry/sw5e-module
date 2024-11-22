@@ -161,165 +161,46 @@
     "magicalBonus": null,
     "firingArc": "",
     "activities": {
-      "1kV7e0l5th4Xze9I": {
-        "type": "Attack",
-        "_id": "1kV7e0l5th4Xze9I",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4 + @mod",
-              "lightning"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h3>Power cell (range 30/120) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Penetrating 8 </h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead attempt to penetrate and hit a creature behind the target, consuming ammunition equal to the penetrating number. Make an attack roll against the initial target. If the attack hits, there is a creature within 15 feet of that creature and directly behind it, and the original attack roll would hit the second creature, it also takes normal weapon damage. Alternatively, you can use this property to fire at a creature through partial cover. When you do so, you reduce the target's cover by one step (from three-quarters to half or half to one-quarter), rather than targeting a second creature.</p>\n<h3>Reload 16</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>"
-        }
-      },
-      "1IOkbxKdD4L51RbI": {
-        "type": "Attack",
-        "_id": "1IOkbxKdD4L51RbI",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4 + @mod",
-              "lightning"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h3>Power cell (range 30/120) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Penetrating 8 </h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead attempt to penetrate and hit a creature behind the target, consuming ammunition equal to the penetrating number. Make an attack roll against the initial target. If the attack hits, there is a creature within 15 feet of that creature and directly behind it, and the original attack roll would hit the second creature, it also takes normal weapon damage. Alternatively, you can use this property to fire at a creature through partial cover. When you do so, you reduce the target's cover by one step (from three-quarters to half or half to one-quarter), rather than targeting a second creature.</p>\n<h3>Reload 16</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>"
-        }
-      },
-      "4ff3fhqF6QF1u4RF": {
-        "type": "Attack",
-        "_id": "4ff3fhqF6QF1u4RF",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4 + @mod",
-              "lightning"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h3>Power cell (range 30/120) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Penetrating 8 </h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead attempt to penetrate and hit a creature behind the target, consuming ammunition equal to the penetrating number. Make an attack roll against the initial target. If the attack hits, there is a creature within 15 feet of that creature and directly behind it, and the original attack roll would hit the second creature, it also takes normal weapon damage. Alternatively, you can use this property to fire at a creature through partial cover. When you do so, you reduce the target's cover by one step (from three-quarters to half or half to one-quarter), rather than targeting a second creature.</p>\n<h3>Reload 16</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "weapon",
           "flat": false,
-          "type": "melee"
+          "type": {}
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
-      },
-      "1aoa8YeRTVfc1Pau": {
-        "type": "Attack",
-        "_id": "1aoa8YeRTVfc1Pau",
-        "img": null,
         "damage": {
-          "critical": {
-            "allow": true
-          },
+          "critical": {},
           "parts": [
-            [
-              "1d4 + @mod",
-              "lightning"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": null,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h3>Power cell (range 30/120) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Penetrating 8 </h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead attempt to penetrate and hit a creature behind the target, consuming ammunition equal to the penetrating number. Make an attack roll against the initial target. If the attack hits, there is a creature within 15 feet of that creature and directly behind it, and the original attack roll would hit the second creature, it also takes normal weapon damage. Alternatively, you can use this property to fire at a creature through partial cover. When you do so, you reduce the target's cover by one step (from three-quarters to half or half to one-quarter), rather than targeting a second creature.</p>\n<h3>Reload 16</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -331,7 +212,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493961312,
-    "modifiedTime": 1730434202091,
+    "modifiedTime": 1732306706844,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

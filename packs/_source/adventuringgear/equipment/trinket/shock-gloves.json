@@ -165,71 +165,42 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1PNwLS9Trw2cIRZO": {
-        "type": "Damage",
-        "_id": "1PNwLS9Trw2cIRZO",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d4",
-              "lightning"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>A shock glove is a type of armored glove that is coated with a webbed lacing. When used for an attack, this webbing carries a charge that deals [[/r 1d4]] lightning damage to any objects that the glove come in contact with. If you are engaged in combat with the target of the attack, you must make a grapple check instead of an attack roll, using a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics) check (the target chooses the ability to use).</p>"
-        }
-      },
-      "ridxP47tNdN1mxoM": {
-        "type": "Damage",
-        "_id": "ridxP47tNdN1mxoM",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "lightning"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>A shock glove is a type of armored glove that is coated with a webbed lacing. When used for an attack, this webbing carries a charge that deals [[/r 1d4]] lightning damage to any objects that the glove come in contact with. If you are engaged in combat with the target of the attack, you must make a grapple check instead of an attack roll, using a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics) check (the target chooses the ability to use).</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -241,7 +212,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956197,
-    "modifiedTime": 1730434200140,
+    "modifiedTime": 1732306706304,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

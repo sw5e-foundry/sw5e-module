@@ -129,111 +129,87 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "ZM3N0uobzsp1NfxP": {
-        "type": "Save",
-        "_id": "ZM3N0uobzsp1NfxP",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "15",
-        "duration": {
-          "value": "inst",
-          "units": null
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d10",
-              "kinetic"
-            ],
-            [
-              "3d6",
-              "kinetic"
-            ],
-            [
-              "10d10",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 3,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 10,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced rocket launcher ammunition, which deals [[/r 3d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the rocket is fired, it no longer gives a bonus. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 22 Dexterity saving throw, taking [[/r 10d10]] kinetic damage on a failed save or half as much on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Rocket, fragmentation</h2>\n<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst",
+          "value": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "eU138uxOaszH9ZeG": {
-        "type": "Save",
-        "_id": "eU138uxOaszH9ZeG",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d10",
-              "kinetic"
-            ],
-            [
-              "3d6",
-              "kinetic"
-            ],
-            [
-              "10d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "range": "15",
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced rocket launcher ammunition, which deals [[/r 3d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the rocket is fired, it no longer gives a bonus. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 22 Dexterity saving throw, taking [[/r 10d10]] kinetic damage on a failed save or half as much on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Rocket, fragmentation</h2>\n<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes. The target and each creature within 15 feet must make a DC 14 Dexterity saving throw, taking [[/r 2d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -245,7 +221,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964703,
-    "modifiedTime": 1730434222797,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

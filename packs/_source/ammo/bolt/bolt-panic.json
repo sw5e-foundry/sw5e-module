@@ -121,93 +121,61 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "VZqhpoIWo4hrepuB": {
-        "type": "Save",
-        "_id": "VZqhpoIWo4hrepuB",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d4",
-              "psychic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>This bolt-thrower ammunition deals [[/r 2d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Wisdom saving throw, taking [[/r 2d4]] psychic damage on a failed save.</p>\n<p>Additionally, on a failed save, a creature becomes frightened of you for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "wis",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "GuU6lP70anbBXWmJ": {
-        "type": "Save",
-        "_id": "GuU6lP70anbBXWmJ",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d4",
-              "psychic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>This bolt-thrower ammunition deals [[/r 2d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Wisdom saving throw, taking [[/r 2d4]] psychic damage on a failed save.</p>\n<p>Additionally, on a failed save, a creature becomes frightened of you for 1 minute. At the start of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -219,7 +187,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956758,
-    "modifiedTime": 1730434245506,
+    "modifiedTime": 1732306710898,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

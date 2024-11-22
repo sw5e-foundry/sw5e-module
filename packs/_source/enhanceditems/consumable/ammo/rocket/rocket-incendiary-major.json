@@ -129,109 +129,89 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "MyVZ9PlXJvp1TuVf": {
-        "type": "Save",
-        "_id": "MyVZ9PlXJvp1TuVf",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d8",
-              "fire"
-            ],
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "6d8",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 6,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +2 bonus to attack rolls made with this enhanced rocket launcher ammunition, which deals [[/r 2d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Additionally, hit or miss, the rocket then explodes, setting the ground beneath it in a 15 foot radius ablaze for 1 minute. When a creature enters the fire or starts its turn there it must make a DC 18 Dexterity saving throw. On a failed save, the creature takes [[/r 6d8]] fire damage or half as much on a successful one. A construct makes this save with disadvantage.</p>\n<p>&nbsp;</p>\n<h2>Rocket, incendiary</h2>\n<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes, setting the ground beneath it in a 15 foot radius ablaze for 1 minute. When a creature enters the fire or starts its turn there it must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 2d8]] fire damage or half as much on a successful one. A construct makes this save with disadvantage.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "1wEiP0nPpkWa4tLF": {
-        "type": "Save",
-        "_id": "1wEiP0nPpkWa4tLF",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d8",
-              "fire"
-            ],
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "6d8",
-              "fire"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +2 bonus to attack rolls made with this enhanced rocket launcher ammunition, which deals [[/r 2d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Additionally, hit or miss, the rocket then explodes, setting the ground beneath it in a 15 foot radius ablaze for 1 minute. When a creature enters the fire or starts its turn there it must make a DC 18 Dexterity saving throw. On a failed save, the creature takes [[/r 6d8]] fire damage or half as much on a successful one. A construct makes this save with disadvantage.</p>\n<p>&nbsp;</p>\n<h2>Rocket, incendiary</h2>\n<p>This rocket launcher ammunition deals [[/r 2d6]] kinetic damage on a hit. Additionally, hit or miss, the rocket then explodes, setting the ground beneath it in a 15 foot radius ablaze for 1 minute. When a creature enters the fire or starts its turn there it must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 2d8]] fire damage or half as much on a successful one. A construct makes this save with disadvantage.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -243,7 +223,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493965005,
-    "modifiedTime": 1730434241126,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

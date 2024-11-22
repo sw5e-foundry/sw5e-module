@@ -109,97 +109,59 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "jc2fW3uv4Qe1loIf": {
-        "type": "Save",
-        "_id": "jc2fW3uv4Qe1loIf",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "60",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "3d6",
-              "fire"
-            ],
-            [
-              "3d6",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 3,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 3,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You launch three projectiles at points you can see within range. Each creature within a 10-foot radius sphere of each point must make a Dexterity saving throw. A creature takes [[/r 3d6]] fire and [[/r 3d6]] kinetic damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one sphere is affected only once.</p>\n<p>The power damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, you create four projectiles. When you cast this power using a tech slot of 8th level or higher, you create five projectiles.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "VRwoBjueqca1DT8n": {
-        "type": "Save",
-        "_id": "VRwoBjueqca1DT8n",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d6",
-              "fire"
-            ],
-            [
-              "3d6",
-              "kinetic"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p>You launch three projectiles at points you can see within range. Each creature within a 10-foot radius sphere of each point must make a Dexterity saving throw. A creature takes [[/r 3d6]] fire and [[/r 3d6]] kinetic damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one sphere is affected only once.</p>\n<p>The power damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, you create four projectiles. When you cast this power using a tech slot of 8th level or higher, you create five projectiles.</p>"
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -215,7 +177,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251043,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

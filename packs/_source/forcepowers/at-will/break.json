@@ -109,89 +109,45 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1GWcDYwrPq0slFoG": {
-        "type": "Save",
-        "_id": "1GWcDYwrPq0slFoG",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d4",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You inflict 10 force damage to an object you can see within range that is not being worn or carried, generating an explosion of sound that can be heard up to 100 feet away. Even if the object is not destroyed, small shards of shrapnel fly at creatures within 5 feet of it. Each creature must make a Dexterity saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage. </p>\n<p>This power's kinetic damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]), and the power's force damage also increases by 10 at each of these levels.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "smZq1bV5niP1eSgn": {
-        "type": "Save",
-        "_id": "smZq1bV5niP1eSgn",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "kinetic"
-            ]
-          ]
-        },
-        "range": "30",
-        "description": {
-          "value": "<p>You inflict 10 force damage to an object you can see within range that is not being worn or carried, generating an explosion of sound that can be heard up to 100 feet away. Even if the object is not destroyed, small shards of shrapnel fly at creatures within 5 feet of it. Each creature must make a Dexterity saving throw. On a failed save, a creature takes [[/r 1d4]] kinetic damage. </p>\n<p>This power's kinetic damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]), and the power's force damage also increases by 10 at each of these levels.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979194,
-    "modifiedTime": 1730434247052,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

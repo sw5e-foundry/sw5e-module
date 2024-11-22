@@ -105,87 +105,48 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "yxmOdjo2XJJFKSIY": {
-        "type": "Save",
-        "_id": "yxmOdjo2XJJFKSIY",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d4",
-              "acid"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 2,
+              "scaling": {
+                "formula": "1d4",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "acid"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You produce a breeze full of stinging acid droplets. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes [[/r 2d4]] acid damage and is blinded until the end of your next turn. On a successful save, the creature takes half as much damage and isn't blinded.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d4]] for each slot level above 1st.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "13HS6bepwTAi19YP": {
-        "type": "Save",
-        "_id": "13HS6bepwTAi19YP",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4",
-              "acid"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>You produce a breeze full of stinging acid droplets. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes [[/r 2d4]] acid damage and is blinded until the end of your next turn. On a successful save, the creature takes half as much damage and isn't blinded.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d4]] for each slot level above 1st.</p>"
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -201,7 +162,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434252820,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

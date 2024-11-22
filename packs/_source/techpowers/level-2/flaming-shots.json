@@ -107,73 +107,44 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1Le6j7TxjOmYdVqb": {
-        "type": "Damage",
-        "_id": "1Le6j7TxjOmYdVqb",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d6",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You channel tech power through a blaster weapon you are wielding. When a target takes damage from the chosen weapon, the target takes an extra [[/r 1d6]] fire damage. The power ends when twelve shots have been fired.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the number of shots you can take with this power increases by two for each slot level above 3rd.</p>"
-        }
-      },
-      "1QQnFXZ40XSY1rv8": {
-        "type": "Damage",
-        "_id": "1QQnFXZ40XSY1rv8",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "fire"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>You channel tech power through a blaster weapon you are wielding. When a target takes damage from the chosen weapon, the target takes an extra [[/r 1d6]] fire damage. The power ends when twelve shots have been fired.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the number of shots you can take with this power increases by two for each slot level above 3rd.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "hour"
+          "units": "hour",
+          "value": "1"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -189,7 +160,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434250238,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

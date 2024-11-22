@@ -105,89 +105,46 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1wqkRbokEIzh1b1t": {
-        "type": "Save",
-        "_id": "1wqkRbokEIzh1b1t",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "250",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "8d6 + 20",
-              "cold"
-            ]
+            {
+              "bonus": "+ 20",
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 8,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "cold"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You generate an explosion of cryogenic energy in a 60-foot-radius sphere centered on a point you can see </p>\n<p>within range. Each creature in the affected area must make a Constitution saving throw. On a failed save, the creature takes [[/r 8d6 + 20]] cold damage and is restrained for 1 minute as it is encased in carbonite. On a successful save, the creature takes half damage and is restrained until the end of its next turn. </p>\n<p>As an action, a restrained creature can make a Strength check against your tech save DC, ending this effect on itself on a success.</p>\n<p>A creature reduced to 0 hit points by this power dies instantly, as its body shatters into frozen chunks.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1ccyDXoWZr6IySyM": {
-        "type": "Save",
-        "_id": "1ccyDXoWZr6IySyM",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d6 + 20",
-              "cold"
-            ]
-          ]
-        },
-        "range": "250",
-        "description": {
-          "value": "<p>You generate an explosion of cryogenic energy in a 60-foot-radius sphere centered on a point you can see </p>\n<p>within range. Each creature in the affected area must make a Constitution saving throw. On a failed save, the creature takes [[/r 8d6 + 20]] cold damage and is restrained for 1 minute as it is encased in carbonite. On a successful save, the creature takes half damage and is restrained until the end of its next turn. </p>\n<p>As an action, a restrained creature can make a Strength check against your tech save DC, ending this effect on itself on a success.</p>\n<p>A creature reduced to 0 hit points by this power dies instantly, as its body shatters into frozen chunks.</p>"
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +160,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434252107,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -116,87 +116,48 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "13SbA3zOOvjF2yej": {
-        "type": "Save",
-        "_id": "13SbA3zOOvjF2yej",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d8",
-              "necrotic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "necrotic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Curse</em></p>\n<p>You touch a creature, and that creature must succeed on a Wisdom saving throw or become cursed for the duration of the power. When you cast this power, choose the nature of the curse from the following options:</p>\n<ul>\n<li>Choose one ability score. While cursed, the target has disadvantage on ability checks and saving throws made with that ability score.</li>\n<li>While cursed, the target has disadvantage on attack rolls against you.</li>\n<li>While cursed, the target must make a Wisdom saving throw at the start of each of its turns. lf it fails, it wastes its action that turn doing nothing.</li>\n<li>While the target is cursed, your attacks and powers deal an extra [[/r 1d8]] necrotic damage to the target.</li>\n</ul>\n<p>A remove curse power ends this effect. At the GM's discretion, you may choose an alternative curse effect, but it should be no more powerful than those described above. The GM has final say on such a curse's effect. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power using a force slot of 4th level or higher, the duration is concentration, up to 10 minutes. If you use a force slot of 5th Level or higher, the duration is 8 hours. If you use a force slot of 7th level or higher, the duration is 24 hours. If you use a 9th level force slot, the power lasts until it is dispelled. Using a force slot of 5th Level or higher grants a duration that doesn't require concentration.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "wis",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1QVnY4I1ldOG1RFy": {
-        "type": "Save",
-        "_id": "1QVnY4I1ldOG1RFy",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "necrotic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Curse</em></p>\n<p>You touch a creature, and that creature must succeed on a Wisdom saving throw or become cursed for the duration of the power. When you cast this power, choose the nature of the curse from the following options:</p>\n<ul>\n<li>Choose one ability score. While cursed, the target has disadvantage on ability checks and saving throws made with that ability score.</li>\n<li>While cursed, the target has disadvantage on attack rolls against you.</li>\n<li>While cursed, the target must make a Wisdom saving throw at the start of each of its turns. lf it fails, it wastes its action that turn doing nothing.</li>\n<li>While the target is cursed, your attacks and powers deal an extra [[/r 1d8]] necrotic damage to the target.</li>\n</ul>\n<p>A remove curse power ends this effect. At the GM's discretion, you may choose an alternative curse effect, but it should be no more powerful than those described above. The GM has final say on such a curse's effect. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power using a force slot of 4th level or higher, the duration is concentration, up to 10 minutes. If you use a force slot of 5th Level or higher, the duration is 8 hours. If you use a force slot of 7th level or higher, the duration is 24 hours. If you use a 9th level force slot, the power lasts until it is dispelled. Using a force slot of 5th Level or higher grants a duration that doesn't require concentration.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -208,7 +169,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979292,
-    "modifiedTime": 1730434248688,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

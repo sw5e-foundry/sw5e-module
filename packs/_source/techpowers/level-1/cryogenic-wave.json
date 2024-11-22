@@ -105,87 +105,48 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "HWfOcxADS3O1SgUB": {
-        "type": "Save",
-        "_id": "HWfOcxADS3O1SgUB",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d6",
-              "cold"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "formula": "1d6",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "cold"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>A wave of cold energy spreads out from you. Each creature in a 15-foot cone must make a Constitution saving throw. On a failed save, a creature takes [[/r 2d6]] cold damage and gains 1 slowed level until the end of its next turn. On a success, it takes half as much damage, and suffers no additional effect.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st. At 3rd level or above, a creature gains 2 slowed levels on a failed save. At 5th level or above, a creature gains 3 slowed levels on a failed save. At 7th level or above, a creature gains 4 slowed levels on a failed save.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "azoBEesRTmxKiz1v": {
-        "type": "Save",
-        "_id": "azoBEesRTmxKiz1v",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "cold"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>A wave of cold energy spreads out from you. Each creature in a 15-foot cone must make a Constitution saving throw. On a failed save, a creature takes [[/r 2d6]] cold damage and gains 1 slowed level until the end of its next turn. On a success, it takes half as much damage, and suffers no additional effect.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st. At 3rd level or above, a creature gains 2 slowed levels on a failed save. At 5th level or above, a creature gains 3 slowed levels on a failed save. At 7th level or above, a creature gains 4 slowed levels on a failed save.</p>"
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -201,7 +162,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434250960,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

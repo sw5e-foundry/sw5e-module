@@ -120,97 +120,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "UkqJUuFiDxU2e3Oa": {
-        "type": "Save",
-        "_id": "UkqJUuFiDxU2e3Oa",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "60",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d6",
-              "lightning"
-            ],
-            [
-              "2d6",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Sustained Lightning</em></p>\n<p>A 5-foot-diameter sphere of compressed lightning appears in an unoccupied space of your choice within range and lasts for the duration. Any creature that ends its turn within 5 feet of the sphere must make a Dexterity saving throw. The creature takes [[/r 2d6]] lightning damage on a failed save, or half as much damage on a successful one.</p>\n<p>As a bonus action, you can move the sphere up to 30 feet. If you ram the sphere into a creature, that creature must make a Dexterity saving throw, taking [[/r 2d6]] kinetic damage on a failed save or half as much damage on a successful one, and the sphere stops moving this turn.</p>\n<p>When you move the sphere, you can direct it over barriers up to 5 feet tall and jump it across pits up to 10 feet wide. The sphere ignites flammable objects not being worn or carried, and it sheds bright light in a 20-foot radius and dim light for an additional 20 feet.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power with a force slot of 3rd level or higher, both the lightning and kinetic damage increase by [[/r 1d6]] for each slot level above 2nd.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1ofF18SNU8CYlLq2": {
-        "type": "Save",
-        "_id": "1ofF18SNU8CYlLq2",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "lightning"
-            ],
-            [
-              "2d6",
-              "kinetic"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Sustained Lightning</em></p>\n<p>A 5-foot-diameter sphere of compressed lightning appears in an unoccupied space of your choice within range and lasts for the duration. Any creature that ends its turn within 5 feet of the sphere must make a Dexterity saving throw. The creature takes [[/r 2d6]] lightning damage on a failed save, or half as much damage on a successful one.</p>\n<p>As a bonus action, you can move the sphere up to 30 feet. If you ram the sphere into a creature, that creature must make a Dexterity saving throw, taking [[/r 2d6]] kinetic damage on a failed save or half as much damage on a successful one, and the sphere stops moving this turn.</p>\n<p>When you move the sphere, you can direct it over barriers up to 5 feet tall and jump it across pits up to 10 feet wide. The sphere ignites flammable objects not being worn or carried, and it sheds bright light in a 20-foot radius and dim light for an additional 20 feet.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power with a force slot of 3rd level or higher, both the lightning and kinetic damage increase by [[/r 1d6]] for each slot level above 2nd.</p>"
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -222,7 +185,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979211,
-    "modifiedTime": 1730434247393,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

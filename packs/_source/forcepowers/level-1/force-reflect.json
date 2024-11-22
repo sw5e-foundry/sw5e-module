@@ -104,77 +104,49 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "RSwdar8pa33Z4QSE": {
-        "type": "Attack",
-        "_id": "RSwdar8pa33Z4QSE",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "in response to being hit by a ranged attack"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Saber Reflect</em></p>\n<p>In response to being attacked, you attempt to deflect the attack with the Force. When you use this power, the damage you take from the attack is reduced by [[/r 1d10]]. If you reduce the damage to 0 and the damage is energy, force, ion, kinetic, lightning, necrotic, or sonic, you can reflect the attack at a target within range as part of the same reaction. Make a ranged force attack at a target you can see. The attack has a normal range of 30 feet and a long range of 90 feet. On a hit, the target takes the triggering attack's normal damage.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the damage reduction increases by [[/r 1d10]] for each slot level above 1st.</p>"
-        }
-      },
-      "eTx4EQYI3C21HU59": {
-        "type": "Attack",
-        "_id": "eTx4EQYI3C21HU59",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Saber Reflect</em></p>\n<p>In response to being attacked, you attempt to deflect the attack with the Force. When you use this power, the damage you take from the attack is reduced by [[/r 1d10]]. If you reduce the damage to 0 and the damage is energy, force, ion, kinetic, lightning, necrotic, or sonic, you can reflect the attack at a target within range as part of the same reaction. Make a ranged force attack at a target you can see. The attack has a normal range of 30 feet and a long range of 90 feet. On a hit, the target takes the triggering attack's normal damage.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the damage reduction increases by [[/r 1d10]] for each slot level above 1st.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+          "condition": "in response to being hit by a ranged attack",
+          "type": "reaction"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": ""
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "formula": "1d10",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
+          ]
+        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "in response to being hit by a ranged attack"
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -186,7 +158,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979213,
-    "modifiedTime": 1730434247424,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

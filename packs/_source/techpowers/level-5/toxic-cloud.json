@@ -107,89 +107,47 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "S0x1C98EmX91JYBi": {
-        "type": "Save",
-        "_id": "S0x1C98EmX91JYBi",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "120",
-        "duration": {
-          "value": "10",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "5d8",
-              "poison"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 5,
+              "scaling": {
+                "formula": "1d8",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "poison"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You create a 20-foot-radius sphere of poisonous, yellow-green fog centered on a point you choose within range. The fog spreads around corners. It lasts for the duration or until strong wind disperses the fog, ending the power. Its area is heavily obscured.</p>\n<p>When a creature enters the power's area for the first time on a turn or starts its turn there, that creature must make a Constitution saving throw. The creature takes [[/r 5d8]] poison damage on a failed save, or half as much damage on a successful one. Creatures are affected even if they hold their breath or don't need to breathe.</p>\n<p>The fog moves 10 feet away from you at the start of each of your turns, rolling along the surface of the ground. The vapors, being heavier than air, sink to the lowest level of the land, even pouring down openings.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, the damage increases by [[/r 1d8]] for each slot level above 5th.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "10"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1GgLjPgHHGQp1g6l": {
-        "type": "Save",
-        "_id": "1GgLjPgHHGQp1g6l",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "5d8",
-              "poison"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p>You create a 20-foot-radius sphere of poisonous, yellow-green fog centered on a point you choose within range. The fog spreads around corners. It lasts for the duration or until strong wind disperses the fog, ending the power. Its area is heavily obscured.</p>\n<p>When a creature enters the power's area for the first time on a turn or starts its turn there, that creature must make a Constitution saving throw. The creature takes [[/r 5d8]] poison damage on a failed save, or half as much damage on a successful one. Creatures are affected even if they hold their breath or don't need to breathe.</p>\n<p>The fog moves 10 feet away from you at the start of each of your turns, rolling along the surface of the ground. The vapors, being heavier than air, sink to the lowest level of the land, even pouring down openings.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, the damage increases by [[/r 1d8]] for each slot level above 5th.</p>"
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "10",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -205,7 +163,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434252457,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

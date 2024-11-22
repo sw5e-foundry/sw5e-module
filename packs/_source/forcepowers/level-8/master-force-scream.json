@@ -113,95 +113,61 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "xO5QQ6y1yGuhAFtf": {
-        "type": "Save",
-        "_id": "xO5QQ6y1yGuhAFtf",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "6d6",
-              "psychic"
-            ],
-            [
-              "6d6",
-              "sonic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 6,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 6,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "sonic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Improved Force Scream</em></p>\n<p>You emit a cacophonous scream imbued with the power of the Force. Each creature you choose within 60 feet of you must succeed on a Constitution saving throw. On a failed save, a creature takes [[/r 6d6]] psychic damage, [[/r 6d6]] sonic damage, is deafened and blinded for 1 minute, and knocked prone. On a successful save, it takes half as much damage and isn't deafened, blinded, or knocked prone.</p>\n<p>A creature blinded by this power makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "D6BDEp9Oobf1eOGA": {
-        "type": "Save",
-        "_id": "D6BDEp9Oobf1eOGA",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "6d6",
-              "psychic"
-            ],
-            [
-              "6d6",
-              "sonic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Improved Force Scream</em></p>\n<p>You emit a cacophonous scream imbued with the power of the Force. Each creature you choose within 60 feet of you must succeed on a Constitution saving throw. On a failed save, a creature takes [[/r 6d6]] psychic damage, [[/r 6d6]] sonic damage, is deafened and blinded for 1 minute, and knocked prone. On a successful save, it takes half as much damage and isn't deafened, blinded, or knocked prone.</p>\n<p>A creature blinded by this power makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.</p>"
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -213,7 +179,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979222,
-    "modifiedTime": 1730434247612,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

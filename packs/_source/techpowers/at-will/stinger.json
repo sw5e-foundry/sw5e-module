@@ -105,89 +105,46 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "YoHYUfLYYUEK9KeZ": {
-        "type": "Attack",
-        "_id": "YoHYUfLYYUEK9KeZ",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120",
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "poison"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>You fire a stinging dart at a creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 1d8]] poison damage, and if the target is a humanoid or beast, it can't regain hit points until the start of your next turn.</p>\n<p>This power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
-        }
-      },
-      "1JlL8pf3zb7H19sS": {
-        "type": "Attack",
-        "_id": "1JlL8pf3zb7H19sS",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "poison"
-            ]
-          ]
-        },
-        "range": "120",
-        "description": {
-          "value": "<p>You fire a stinging dart at a creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 1d8]] poison damage, and if the target is a humanoid or beast, it can't regain hit points until the start of your next turn.</p>\n<p>This power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+          "condition": "",
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "poison"
+              ]
+            }
+          ]
+        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "round"
+          "units": "round",
+          "value": "1"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -203,7 +160,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251745,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

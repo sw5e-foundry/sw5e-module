@@ -105,63 +105,38 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1gJi7jovcZ6U10DV": {
-        "type": "Heal",
-        "_id": "1gJi7jovcZ6U10DV",
-        "img": null,
-        "healing": [
-          [
-            "10",
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "10"
+        },
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "10"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "whole",
+            "number": 1
+          },
+          "types": [
             "temphp"
           ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "10",
-          "units": "minute"
-        },
-        "description": {
-          "value": "<p>A creature you touch gains 10 temporary hit points. While it has these hit points, the creature can add [[/r 1d4]] to its saving throws. Any remaining temporary hit points are lost when the power ends.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power with a tech slot of 3rd level or higher, the target gains 5 additional temporary hit points for each slot level above 2nd. When you cast this power at 4th level or higher, the die size increases for every two slot levels above 2nd ([[/r d6]] at 4th level, [[/r d8]] at 6th level, [[/r d10]] at 8th level).</p>"
-        }
-      },
-      "HZ2XYDO68yxcEYhi": {
-        "type": "Heal",
-        "_id": "HZ2XYDO68yxcEYhi",
         "img": null,
-        "healing": [
-          [
-            "10",
-            "temphp"
-          ]
-        ],
-        "description": {
-          "value": "<p>A creature you touch gains 10 temporary hit points. While it has these hit points, the creature can add [[/r 1d4]] to its saving throws. Any remaining temporary hit points are lost when the power ends.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power with a tech slot of 3rd level or higher, the target gains 5 additional temporary hit points for each slot level above 2nd. When you cast this power at 4th level or higher, the die size increases for every two slot levels above 2nd ([[/r d6]] at 4th level, [[/r d8]] at 6th level, [[/r d10]] at 8th level).</p>"
+        "range": {
+          "override": false
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "10",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "heal"
       }
     }
   },
@@ -177,7 +152,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434250156,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

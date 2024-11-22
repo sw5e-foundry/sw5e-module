@@ -107,89 +107,46 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "2AizAJNeBmQev8zN": {
-        "type": "Save",
-        "_id": "2AizAJNeBmQev8zN",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "range": "60",
-        "duration": {
-          "value": "1",
-          "units": "hour"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d4",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You expel a mass of thick, adhesive mesh at a point of your choice within range. The mesh fill a 20-foot cube from that point for the duration. The mesh is difficult terrain and lightly obscures their area.</p>\n<p>If the mesh isn't anchored between two solid masses (such as walls) or layered across a floor, wall, or ceiling, the electromesh collapses on itself, and the power ends at the start of your next turn. Mesh layered over a flat surface has a depth of 5 feet.</p>\n<p>Each creature that starts its turn in the mesh or that enters it during its turn must make a Dexterity saving throw. On a failed save, the creature is restrained as long as it remains in the mesh or until it breaks free.</p>\n<p>A creature restrained by the mesh can use its action to make a Strength check against your tech save DC. If it succeeds, it is no longer restrained.</p>\n<p>The mesh is flammable. Any 5-foot cube of electromesh exposed to fire burns away in 1 round, dealing [[/r 2d4]] fire damage to any creature that starts its turn in the fire.</p>"
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "10SLAlDVokCOyOUw": {
-        "type": "Save",
-        "_id": "10SLAlDVokCOyOUw",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4",
-              "fire"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p>You expel a mass of thick, adhesive mesh at a point of your choice within range. The mesh fill a 20-foot cube from that point for the duration. The mesh is difficult terrain and lightly obscures their area.</p>\n<p>If the mesh isn't anchored between two solid masses (such as walls) or layered across a floor, wall, or ceiling, the electromesh collapses on itself, and the power ends at the start of your next turn. Mesh layered over a flat surface has a depth of 5 feet.</p>\n<p>Each creature that starts its turn in the mesh or that enters it during its turn must make a Dexterity saving throw. On a failed save, the creature is restrained as long as it remains in the mesh or until it breaks free.</p>\n<p>A creature restrained by the mesh can use its action to make a Strength check against your tech save DC. If it succeeds, it is no longer restrained.</p>\n<p>The mesh is flammable. Any 5-foot cube of electromesh exposed to fire burns away in 1 round, dealing [[/r 2d4]] fire damage to any creature that starts its turn in the fire.</p>"
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -205,7 +162,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434252472,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

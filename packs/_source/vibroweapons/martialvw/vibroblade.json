@@ -74,7 +74,18 @@
           "kinetic"
         ]
       ],
-      "versatile": "1d10 +  @mod"
+      "versatile": {
+        "custom": {},
+        "types": [
+          "kinetic"
+        ],
+        "scaling": {
+          "mode": "whole",
+          "number": 1
+        },
+        "number": 1,
+        "denomination": 10
+      }
     },
     "properties": [
       "ver"
@@ -148,165 +159,46 @@
     "proficient": null,
     "firingArc": "",
     "activities": {
-      "RCZtwthIA0q1QOYW": {
-        "type": "Attack",
-        "_id": "RCZtwthIA0q1QOYW",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        }
-      },
-      "ZsG7qv85JqJ1Rq7Y": {
-        "type": "Attack",
-        "_id": "ZsG7qv85JqJ1Rq7Y",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        }
-      },
-      "zY3VYq5o3KBnJMpa": {
-        "type": "Attack",
-        "_id": "zY3VYq5o3KBnJMpa",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "weapon",
           "flat": false,
-          "type": "melee"
+          "type": {}
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
-      },
-      "sSdrSJonPEGSEkR3": {
-        "type": "Attack",
-        "_id": "sSdrSJonPEGSEkR3",
-        "img": null,
         "damage": {
-          "critical": {
-            "allow": true
-          },
+          "critical": {},
           "parts": [
-            [
-              "1d8 + @mod",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": null,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -322,7 +214,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296019804,
-    "modifiedTime": 1730434203475,
+    "modifiedTime": 1732306707556,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

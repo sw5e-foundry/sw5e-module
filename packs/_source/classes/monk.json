@@ -33,44 +33,43 @@
     "hitDiceUsed": 0,
     "advancement": [
       {
-        "_id": "1feUUTRA5tHJlCRM",
-        "type": "HitPoints",
+        "_id": "0hp0000000000000",
         "configuration": {},
+        "type": "HitPoints",
         "value": {}
       },
       {
-        "_id": "QSmo5OVCvA410nd9",
-        "type": "ScaleValue",
+        "_id": "1sv0000000000000",
         "configuration": {
           "identifier": "martial-arts",
           "scale": {
             "1": {
-              "n": 1,
               "die": 4,
+              "n": 1,
               "number": 1,
               "faces": 4
             },
             "5": {
-              "n": 1,
               "die": 6,
+              "n": 1,
               "number": 1,
               "faces": 6
             },
             "9": {
-              "n": 1,
               "die": 8,
+              "n": 1,
               "number": 1,
               "faces": 8
             },
             "13": {
-              "n": 1,
               "die": 10,
+              "n": 1,
               "number": 1,
               "faces": 10
             },
             "17": {
-              "n": 1,
               "die": 12,
+              "n": 1,
               "number": 1,
               "faces": 12
             }
@@ -80,12 +79,12 @@
             "units": ""
           }
         },
-        "value": {},
-        "title": "Martial Arts"
+        "title": "Martial Arts",
+        "type": "ScaleValue",
+        "value": {}
       },
       {
-        "_id": "16gmMbHdcphxhjlB",
-        "type": "ScaleValue",
+        "_id": "2sv0000000000000",
         "configuration": {
           "identifier": "focus-points",
           "scale": {
@@ -152,12 +151,12 @@
             "units": ""
           }
         },
-        "value": {},
-        "title": "Focus Points"
+        "title": "Focus Points",
+        "type": "ScaleValue",
+        "value": {}
       },
       {
-        "_id": "feSmOcUT7zo4KQJ3",
-        "type": "ScaleValue",
+        "_id": "3sv0000000000000",
         "configuration": {
           "identifier": "monastic-vows",
           "scale": {
@@ -179,13 +178,16 @@
             "units": ""
           }
         },
-        "value": {},
-        "title": "Monastic Vows"
+        "title": "Monastic Vows",
+        "type": "ScaleValue",
+        "value": {}
       },
       {
-        "_id": "S18XoBqPp5X1b4BH",
-        "type": "ScaleValue",
+        "_id": "4sv0000000000000",
         "configuration": {
+          "distance": {
+            "units": "ft"
+          },
           "identifier": "unarmored-movement",
           "scale": {
             "3": {
@@ -204,101 +206,99 @@
               "value": 30
             }
           },
-          "type": "distance",
-          "distance": {
-            "units": "ft"
-          }
+          "type": "distance"
         },
-        "value": {},
-        "title": "Unarmored Movement"
+        "title": "Unarmored Movement",
+        "type": "ScaleValue",
+        "value": {}
       },
       {
-        "_id": "1GZPZw1FLbcbOgRN",
-        "type": "AbilityScoreImprovement",
+        "_id": "5asi000000000000",
         "configuration": {
           "fixed": {},
           "points": 2,
           "cap": 2,
           "locked": []
         },
+        "level": 4,
+        "type": "AbilityScoreImprovement",
         "value": {
           "type": "asi"
-        },
-        "level": 4
+        }
       },
       {
-        "_id": "13Jq3dc4IMyq1zNu",
-        "type": "AbilityScoreImprovement",
+        "_id": "6asi000000000000",
         "configuration": {
           "fixed": {},
           "points": 2,
           "cap": 2,
           "locked": []
         },
+        "level": 8,
+        "type": "AbilityScoreImprovement",
         "value": {
           "type": "asi"
-        },
-        "level": 8
+        }
       },
       {
-        "_id": "1fJPLmNIx0K51g07",
-        "type": "AbilityScoreImprovement",
+        "_id": "7asi000000000000",
         "configuration": {
           "fixed": {},
           "points": 2,
           "cap": 2,
           "locked": []
         },
+        "level": 10,
+        "type": "AbilityScoreImprovement",
         "value": {
           "type": "asi"
-        },
-        "level": 10
+        }
       },
       {
-        "_id": "V4q2MboBxlXi7zZd",
-        "type": "AbilityScoreImprovement",
+        "_id": "8asi000000000000",
         "configuration": {
           "fixed": {},
           "points": 2,
           "cap": 2,
           "locked": []
         },
+        "level": 12,
+        "type": "AbilityScoreImprovement",
         "value": {
           "type": "asi"
-        },
-        "level": 12
+        }
       },
       {
-        "_id": "1vqMPLzCUb04AR9Q",
-        "type": "AbilityScoreImprovement",
+        "_id": "9asi000000000000",
         "configuration": {
           "fixed": {},
           "points": 2,
           "cap": 2,
           "locked": []
         },
+        "level": 16,
+        "type": "AbilityScoreImprovement",
         "value": {
           "type": "asi"
-        },
-        "level": 16
+        }
       },
       {
-        "_id": "tjIrGnckeXRGfzlO",
-        "type": "AbilityScoreImprovement",
+        "_id": "10asi00000000000",
         "configuration": {
           "fixed": {},
           "points": 2,
           "cap": 2,
           "locked": []
         },
+        "level": 19,
+        "type": "AbilityScoreImprovement",
         "value": {
           "type": "asi"
-        },
-        "level": 19
+        }
       },
       {
-        "_id": "1u5basqQcO5H1KNO",
-        "type": "Trait",
+        "_id": "11t0000000000000",
+        "classRestriction": "primary",
         "configuration": {
           "choices": [],
           "grants": [
@@ -309,15 +309,15 @@
           "mode": "default",
           "allowReplacements": false
         },
+        "level": 1,
+        "type": "Trait",
         "value": {
           "chosen": []
-        },
-        "classRestriction": "primary",
-        "level": 1
+        }
       },
       {
-        "_id": "1e2Hbr9zl9g911Wl",
-        "type": "Trait",
+        "_id": "12t0000000000000",
+        "classRestriction": "primary",
         "configuration": {
           "choices": [],
           "grants": [
@@ -327,15 +327,15 @@
           "mode": "default",
           "allowReplacements": false
         },
+        "level": 1,
+        "type": "Trait",
         "value": {
           "chosen": []
-        },
-        "classRestriction": "primary",
-        "level": 1
+        }
       },
       {
-        "_id": "23qFIWMehqeenlRq",
-        "type": "Trait",
+        "_id": "13t0000000000000",
+        "classRestriction": "primary",
         "configuration": {
           "choices": [
             {
@@ -354,15 +354,15 @@
           "mode": "default",
           "allowReplacements": false
         },
+        "level": 1,
+        "type": "Trait",
         "value": {
           "chosen": []
-        },
-        "classRestriction": "primary",
-        "level": 1
+        }
       },
       {
-        "_id": "uzThqQWi9a21BopY",
-        "type": "Trait",
+        "_id": "14t0000000000000",
+        "classRestriction": "secondary",
         "configuration": {
           "choices": [],
           "grants": [
@@ -372,16 +372,15 @@
           "mode": "default",
           "allowReplacements": false
         },
+        "level": 1,
+        "title": "Multiclass Proficiencies",
+        "type": "Trait",
         "value": {
           "chosen": []
-        },
-        "classRestriction": "secondary",
-        "level": 1,
-        "title": "Multiclass Proficiencies"
+        }
       },
       {
-        "_id": "35xggIOfhbWu0iMY",
-        "type": "ItemGrant",
+        "_id": "15ig000000000000",
         "configuration": {
           "items": [
             {
@@ -396,13 +395,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 1,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1Fq9FWcJ46I01LJS",
-        "type": "ItemGrant",
+        "_id": "16ig000000000000",
         "configuration": {
           "items": [
             {
@@ -417,13 +416,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 2,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1kS8HtJEaU4EGUef",
-        "type": "ItemGrant",
+        "_id": "17ig000000000000",
         "configuration": {
           "items": [
             {
@@ -442,13 +441,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 3,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "SKN4xyqbuDd1MIzz",
-        "type": "ItemGrant",
+        "_id": "18ig000000000000",
         "configuration": {
           "items": [
             {
@@ -459,13 +458,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 4,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "Hr8LUnGjJ6nkdkfw",
-        "type": "ItemGrant",
+        "_id": "19ig000000000000",
         "configuration": {
           "items": [
             {
@@ -480,13 +479,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 5,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "YV1ic3D88ea1hGlb",
-        "type": "ItemGrant",
+        "_id": "20ig000000000000",
         "configuration": {
           "items": [
             {
@@ -497,13 +496,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 6,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "LxkKmEzxRjE1jYAv",
-        "type": "ItemGrant",
+        "_id": "21ig000000000000",
         "configuration": {
           "items": [
             {
@@ -518,13 +517,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 7,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1d2bBmkB8HzH1lw6",
-        "type": "ItemGrant",
+        "_id": "22ig000000000000",
         "configuration": {
           "items": [
             {
@@ -535,13 +534,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 13,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "PfCuDvxzITDSrQDV",
-        "type": "ItemGrant",
+        "_id": "23ig000000000000",
         "configuration": {
           "items": [
             {
@@ -552,13 +551,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 14,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1vZ7y8yjGahq1a4B",
-        "type": "ItemGrant",
+        "_id": "24ig000000000000",
         "configuration": {
           "items": [
             {
@@ -569,13 +568,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 15,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1qetItq06w7Rg9tp",
-        "type": "ItemGrant",
+        "_id": "25ig000000000000",
         "configuration": {
           "items": [
             {
@@ -586,13 +585,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 18,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1ae58GknfCwgKDWo",
-        "type": "ItemGrant",
+        "_id": "26ig000000000000",
         "configuration": {
           "items": [
             {
@@ -603,13 +602,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 20,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1hxWfYorQ5SC1mZR",
-        "type": "Trait",
+        "_id": "27t0000000000000",
         "configuration": {
           "choices": [],
           "grants": [
@@ -623,15 +622,16 @@
           "mode": "default",
           "allowReplacements": false
         },
+        "level": 14,
+        "type": "Trait",
         "value": {
           "chosen": []
-        },
-        "level": 14
+        }
       },
       {
-        "_id": "XKbztS89jFK1OmSM",
-        "type": "ItemChoice",
+        "_id": "28ic000000000000",
         "configuration": {
+          "allowDrops": true,
           "choices": {
             "2": {
               "count": 2,
@@ -650,8 +650,6 @@
               "replacement": false
             }
           },
-          "allowDrops": true,
-          "type": "feat",
           "pool": [
             {
               "uuid": "Compendium.sw5e.invocations.zAQj8scLkdEAfVZg"
@@ -709,31 +707,31 @@
             }
           ],
           "restriction": {
-            "type": "class",
+            "level": "",
             "subtype": "monkInvocation",
-            "level": ""
+            "type": "class"
           },
+          "type": "feat",
           "spell": null
         },
+        "title": "Monastic Vows",
+        "type": "ItemChoice",
         "value": {
           "added": {},
           "replaced": {}
         },
-        "title": "Monastic Vows",
         "hint": "You've sworn two vows, as detailed at the end of the class description. You swear an additional vow at 7th, 13th, and 17th level."
       },
       {
-        "_id": "uGag55nWvzF1Febr",
-        "type": "ItemChoice",
+        "_id": "29ic000000000000",
         "configuration": {
+          "allowDrops": true,
           "choices": {
             "3": {
               "count": 1,
               "replacement": false
             }
           },
-          "allowDrops": true,
-          "type": "archetype",
           "pool": [
             {
               "uuid": "Compendium.sw5e.archetypes.wvPuhcodhAtABFOh"
@@ -776,17 +774,19 @@
             }
           ],
           "restriction": {
-            "type": "",
+            "level": "",
             "subtype": "",
-            "level": ""
+            "type": ""
           },
+          "type": "archetype",
           "spell": null
         },
+        "title": "Monastic Orders",
+        "type": "ItemChoice",
         "value": {
           "added": {},
           "replaced": {}
         },
-        "title": "Monastic Orders",
         "hint": "Orders of monastic pursuit are common in the locales scattered across the galaxy. Each order is based in a specific culture and is mutually exclusive, despite relying on the same basic techniques. Your order grants you features at 3rd, 6th, 11th, and 17th level."
       }
     ],
@@ -806,7 +806,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493961826,
-    "modifiedTime": 1730434299471,
+    "modifiedTime": 1732306242744,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

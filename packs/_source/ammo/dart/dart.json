@@ -117,71 +117,42 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "mt4ko7Adxoh1bPGD": {
-        "type": "Damage",
-        "_id": "mt4ko7Adxoh1bPGD",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d6",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit.</p>"
-        }
-      },
-      "1ILa6S1EfRFJP5ob": {
-        "type": "Damage",
-        "_id": "1ILa6S1EfRFJP5ob",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "kinetic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -193,7 +164,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956749,
-    "modifiedTime": 1730434245449,
+    "modifiedTime": 1732306710898,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

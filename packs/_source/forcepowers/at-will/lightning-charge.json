@@ -109,73 +109,44 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1K0P7niVe3xu1rHO": {
-        "type": "Damage",
-        "_id": "1K0P7niVe3xu1rHO",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "@mod",
-              "lightning"
-            ]
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@mod"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You imbue your weapon with debilitating force lightning. As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and the lightning leaps from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes lightning damage equal to your forcecasting ability modifier.</p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] lightning damage to the target, and the lightning damage to the second creature increases to [[/r 1d8]] + your forcecasting ability modifier. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level.</p>"
-        }
-      },
-      "1pnZwtOwXpvkdFME": {
-        "type": "Damage",
-        "_id": "1pnZwtOwXpvkdFME",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "@mod",
-              "lightning"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>You imbue your weapon with debilitating force lightning. As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and the lightning leaps from the target to a different creature of your choice that you can see within 5 feet of it. The second creature takes lightning damage equal to your forcecasting ability modifier.</p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] lightning damage to the target, and the lightning damage to the second creature increases to [[/r 1d8]] + your forcecasting ability modifier. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -187,7 +158,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979226,
-    "modifiedTime": 1730434247677,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

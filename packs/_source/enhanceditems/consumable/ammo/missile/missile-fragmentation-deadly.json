@@ -129,111 +129,87 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "qxa47Nf3lb1158hO": {
-        "type": "Save",
-        "_id": "qxa47Nf3lb1158hO",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "5",
-        "duration": {
-          "value": "inst",
-          "units": null
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d6",
-              "kinetic"
-            ],
-            [
-              "1d10",
-              "kinetic"
-            ],
-            [
-              "1d6",
-              "kinetic"
-            ],
-            [
-              "4d10",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 4,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced wrist launcher ammunition, which deals [[/r 1d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Additionally, hit or miss, the missile then explodes. The target and each creature within 5 feet must make a DC 20 Dexterity saving throw, taking [[/r 4d10]] kinetic damage on a failed save or half as much on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Missile, fragmentation</h2>\n<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Additionally, hit or miss, the missile then explodes. The target and each creature within 5 feet must make a DC 14 Dexterity saving throw, taking [[/r 1d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst",
+          "value": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "6Nk5eBPeYght5nBp": {
-        "type": "Save",
-        "_id": "6Nk5eBPeYght5nBp",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "kinetic"
-            ],
-            [
-              "1d10",
-              "kinetic"
-            ],
-            [
-              "1d6",
-              "kinetic"
-            ],
-            [
-              "4d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "range": "5",
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced wrist launcher ammunition, which deals [[/r 1d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Additionally, hit or miss, the missile then explodes. The target and each creature within 5 feet must make a DC 20 Dexterity saving throw, taking [[/r 4d10]] kinetic damage on a failed save or half as much on a successful one.</p>\n<p>&nbsp;</p>\n<h2>Missile, fragmentation</h2>\n<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Additionally, hit or miss, the missile then explodes. The target and each creature within 5 feet must make a DC 14 Dexterity saving throw, taking [[/r 1d10]] kinetic damage on a failed save or half as much on a successful one.</p>"
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -245,7 +221,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493965091,
-    "modifiedTime": 1730434244392,
+    "modifiedTime": 1732306709178,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

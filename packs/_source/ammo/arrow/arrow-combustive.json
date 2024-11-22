@@ -117,85 +117,46 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "tgN0Jthx2Fj1561H": {
-        "type": "Save",
-        "_id": "tgN0Jthx2Fj1561H",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": null,
-          "cost": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d8",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>A combustive arrow is a specialized arrow for use with bow weapons. When the arrow hits another creature, object, or surface it detonates. Each creature within 5ft of the arrows detonation must make a DC 14 Dexterity saving throw or take [[/r 1d8]] fire damage. On a successful save, a creature takes half damage. Once the arrow hits a target, it no longer gives a bonus.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
-          }
-        }
-      },
-      "SzWlGiOkj5r10F8o": {
-        "type": "Save",
-        "_id": "SzWlGiOkj5r10F8o",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "fire"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>A combustive arrow is a specialized arrow for use with bow weapons. When the arrow hits another creature, object, or surface it detonates. Each creature within 5ft of the arrows detonation must make a DC 14 Dexterity saving throw or take [[/r 1d8]] fire damage. On a successful save, a creature takes half damage. Once the arrow hits a target, it no longer gives a bonus.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -207,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956750,
-    "modifiedTime": 1730434245462,
+    "modifiedTime": 1732306710898,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

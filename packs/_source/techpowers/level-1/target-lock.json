@@ -107,75 +107,42 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1CoYH1g3RGtXTo0V": {
-        "type": "Damage",
-        "_id": "1CoYH1g3RGtXTo0V",
-        "img": null,
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "range": "90",
-        "duration": {
-          "value": "1",
-          "units": "hour"
+          "condition": "",
+          "type": "bonus"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d6",
-              ""
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You choose a creature you can see within range and mark it as your quarry. Until the power ends, you deal an extra [[/r 1d6]] damage to the target whenever you hit it with a weapon attack, the target gains no benefit from one-quarter, half, and three-quarters cover against you, and if the target is invisible, you can see it as if it were visible. If the target drops to 0 hit points before this power ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd or 4th level, you can maintain your concentration on the power for up to 8 hours. When you use a tech slot of 5th level or higher, you can maintain your concentration on the power for up to 24 hours.</p>"
-        }
-      },
-      "19O6eYef9rxX1qmq": {
-        "type": "Damage",
-        "_id": "19O6eYef9rxX1qmq",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              ""
-            ]
-          ]
-        },
-        "range": "90",
-        "description": {
-          "value": "<p>You choose a creature you can see within range and mark it as your quarry. Until the power ends, you deal an extra [[/r 1d6]] damage to the target whenever you hit it with a weapon attack, the target gains no benefit from one-quarter, half, and three-quarters cover against you, and if the target is invisible, you can see it as if it were visible. If the target drops to 0 hit points before this power ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd or 4th level, you can maintain your concentration on the power for up to 8 hours. When you use a tech slot of 5th level or higher, you can maintain your concentration on the power for up to 24 hours.</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "hour"
+          "units": "hour",
+          "value": "1"
         },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -191,7 +158,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251512,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

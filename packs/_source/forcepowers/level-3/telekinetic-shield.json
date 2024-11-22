@@ -120,95 +120,62 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1Qx0oBcOQal0zf7o": {
-        "type": "Attack",
-        "_id": "1Qx0oBcOQal0zf7o",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "1d10",
-              "force"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Animate Weapon</em></p>\n<p>You lift three piles of debris or small objects from the ground and interpose them between you and your opponents for the duration. </p>\n<p>While at least three piles remain, you have three-quarters cover. While two piles remain, you have half cover. While only one pile remains, you have one-quarter cover. The piles don't hinder your attacks. When you cast the power, or as an action on a subsequent turn, you can direct up to two piles to attack up to two creatures you can see within 30 feet. Make a ranged force attack roll for each pile. On a hit, a creature takes [[/r 2d6]] kinetic plus [[/r 1d10]] force damage. The pile is destroyed whether it hits or misses.</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power with a force slot of 4th level or higher, the power creates one additional pile for each level above 3rd. </p>"
-        }
-      },
-      "tBUX1hfCxsG1Cnux": {
-        "type": "Attack",
-        "_id": "tBUX1hfCxsG1Cnux",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "1d10",
-              "force"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Animate Weapon</em></p>\n<p>You lift three piles of debris or small objects from the ground and interpose them between you and your opponents for the duration. </p>\n<p>While at least three piles remain, you have three-quarters cover. While two piles remain, you have half cover. While only one pile remains, you have one-quarter cover. The piles don't hinder your attacks. When you cast the power, or as an action on a subsequent turn, you can direct up to two piles to attack up to two creatures you can see within 30 feet. Make a ranged force attack roll for each pile. On a hit, a creature takes [[/r 2d6]] kinetic plus [[/r 1d10]] force damage. The pile is destroyed whether it hits or misses.</p>\n<p><strong><em>Force Potency.</strong></em> If you cast this power with a force slot of 4th level or higher, the power creates one additional pile for each level above 3rd. </p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+          "condition": "",
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
+          ]
+        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "minute"
+          "units": "minute",
+          "value": "1"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -220,7 +187,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979303,
-    "modifiedTime": 1730434248921,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

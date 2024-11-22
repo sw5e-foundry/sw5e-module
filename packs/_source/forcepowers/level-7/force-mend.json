@@ -109,63 +109,38 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "Vr6rJ6vbm8b125QC": {
-        "type": "Heal",
-        "_id": "Vr6rJ6vbm8b125QC",
-        "img": null,
-        "healing": [
-          [
-            "4d8 + 15",
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "condition": "",
+          "type": "minute"
+        },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
+        },
+        "healing": {
+          "bonus": "+ 15",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 8,
+          "number": 4,
+          "scaling": {
+            "mode": "whole",
+            "number": 1
+          },
+          "types": [
             "healing"
           ]
-        ],
-        "activation": {
-          "type": "minute",
-          "cost": 1,
-          "condition": ""
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "description": {
-          "value": "<p>You touch a creature and stimulate its natural healing ability. The target regains [[/r 4d8+15]] hit points. For the duration of the power, the target regains 1 hit point at the start of each of its turns (10 hit points each minute).</p>\n<p>If the creature has a severed part you hold it to the stump, the power instantaneously causes the limb to knit to the stump.</p>\n<p>This power has no effect on droids or constructs.</p>"
-        }
-      },
-      "bEcObx09PhpE5as1": {
-        "type": "Heal",
-        "_id": "bEcObx09PhpE5as1",
         "img": null,
-        "healing": [
-          [
-            "4d8 + 15",
-            "healing"
-          ]
-        ],
-        "description": {
-          "value": "<p>You touch a creature and stimulate its natural healing ability. The target regains [[/r 4d8+15]] hit points. For the duration of the power, the target regains 1 hit point at the start of each of its turns (10 hit points each minute).</p>\n<p>If the creature has a severed part you hold it to the stump, the power instantaneously causes the limb to knit to the stump.</p>\n<p>This power has no effect on droids or constructs.</p>"
+        "range": {
+          "override": false
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "activation": {
-          "type": "minute",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "heal"
       }
     }
   },
@@ -177,7 +152,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979305,
-    "modifiedTime": 1730434248951,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

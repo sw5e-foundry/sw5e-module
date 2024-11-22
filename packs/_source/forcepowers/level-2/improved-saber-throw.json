@@ -113,97 +113,60 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "167hOQ0UAj21mcf4": {
-        "type": "Attack",
-        "_id": "167hOQ0UAj21mcf4",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60",
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "damage"
-            ],
-            [
-              "1d10",
-              "force"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Saber Throw</em></p>\n<p>As a part of the action used to cast this power, you must make a ranged force attack with a lightweapon or vibroweapon against one target within the power's range, otherwise the power fails. On a hit, the target takes [[/r 2d8]] damage of the same type as the weapon's damage and must make a Constitution saving throw. On a failed save, the target gains 1 slowed level until the end of its next turn and the weapon then immediately returns to your hand. The next attack made against the target that hits it before the end of the target's next turn deals an additional [[/r 1d10]] force damage. On a successful save, the target takes half as much additional force damage on the next attack that hits it, and suffers no additional effect. The weapon then immediately returns to your hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the force damage increases by [[/r 1d10]] for each slot level above 2nd.</p>"
-        }
-      },
-      "1goWZMu1XOQS1cKq": {
-        "type": "Attack",
-        "_id": "1goWZMu1XOQS1cKq",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "damage"
-            ],
-            [
-              "1d10",
-              "force"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Saber Throw</em></p>\n<p>As a part of the action used to cast this power, you must make a ranged force attack with a lightweapon or vibroweapon against one target within the power's range, otherwise the power fails. On a hit, the target takes [[/r 2d8]] damage of the same type as the weapon's damage and must make a Constitution saving throw. On a failed save, the target gains 1 slowed level until the end of its next turn and the weapon then immediately returns to your hand. The next attack made against the target that hits it before the end of the target's next turn deals an additional [[/r 1d10]] force damage. On a successful save, the target takes half as much additional force damage on the next attack that hits it, and suffers no additional effect. The weapon then immediately returns to your hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the force damage increases by [[/r 1d10]] for each slot level above 2nd.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+          "condition": "",
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 2,
+              "scaling": {
+                "formula": "1d10",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "damage"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
+          ]
+        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -215,7 +178,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979252,
-    "modifiedTime": 1730434248023,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

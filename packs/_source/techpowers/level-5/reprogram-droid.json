@@ -105,89 +105,46 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "NKyEUAAwpHD1mxCR": {
-        "type": "Save",
-        "_id": "NKyEUAAwpHD1mxCR",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "minute",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60",
-        "duration": {
-          "value": "30",
-          "units": "day"
+          "condition": "",
+          "type": "minute"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "5d10",
-              "lightning"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 5,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You alter the protocols of a droid that you can see within range, forcing it to carry out some service or refrain from some action or course of activity as you decide. The droid must succeed on a Wisdom saving throw or become charmed by you for the duration. While the droid is charmed by you, it takes [[/r 5d10]] lightning damage each time it acts in a manner directly counter to your instructions, but it can only do so once each day.</p>\n<p>You can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the power ends. You can end the power early by using an action to dismiss it. The <em>remove virus</em> power also ends it.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 7th or 8th level, the duration is 1 year. When you cast this power using a tech slot of 9th level, the power lasts until it is ended by <em>remove virus</em>.</p>"
+        "description": {},
+        "duration": {
+          "units": "day",
+          "value": "30"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "wis",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "s7AUryWYaUX1DVOH": {
-        "type": "Save",
-        "_id": "s7AUryWYaUX1DVOH",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "5d10",
-              "lightning"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p>You alter the protocols of a droid that you can see within range, forcing it to carry out some service or refrain from some action or course of activity as you decide. The droid must succeed on a Wisdom saving throw or become charmed by you for the duration. While the droid is charmed by you, it takes [[/r 5d10]] lightning damage each time it acts in a manner directly counter to your instructions, but it can only do so once each day.</p>\n<p>You can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the power ends. You can end the power early by using an action to dismiss it. The <em>remove virus</em> power also ends it.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 7th or 8th level, the duration is 1 year. When you cast this power using a tech slot of 9th level, the power lasts until it is ended by <em>remove virus</em>.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "30",
-          "units": "day"
-        },
-        "activation": {
-          "type": "minute",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +160,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251016,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

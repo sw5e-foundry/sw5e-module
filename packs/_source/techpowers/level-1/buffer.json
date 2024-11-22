@@ -105,63 +105,38 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1DH3sq5iDhBez9GK": {
-        "type": "Heal",
-        "_id": "1DH3sq5iDhBez9GK",
-        "img": null,
-        "healing": [
-          [
-            "1d4 + 4",
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
+        },
+        "healing": {
+          "bonus": "+ 4",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 4,
+          "number": 1,
+          "scaling": {
+            "mode": "whole",
+            "number": 1
+          },
+          "types": [
             "temphp"
           ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "description": {
-          "value": "<p>You gain [[/r 1d4 + 4]] temporary hit points for the duration. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st.</p>"
-        }
-      },
-      "1fRCgr8AHVvHR82t": {
-        "type": "Heal",
-        "_id": "1fRCgr8AHVvHR82t",
         "img": null,
-        "healing": [
-          [
-            "1d4 + 4",
-            "temphp"
-          ]
-        ],
-        "description": {
-          "value": "<p>You gain [[/r 1d4 + 4]] temporary hit points for the duration. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st.</p>"
+        "range": {
+          "override": false
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "heal"
       }
     }
   },
@@ -177,7 +152,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434250440,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

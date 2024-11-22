@@ -105,89 +105,47 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "t8OHncksYbeeJ2b2": {
-        "type": "Save",
-        "_id": "t8OHncksYbeeJ2b2",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30",
-        "duration": {
-          "value": "1",
-          "units": "minute"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "10",
-              "hit"
-            ]
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "10"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "hit"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You produce up to 4 wires, which bind creatures of your choice that you can see within range. A creature can be targeted by more than one wire. </p>\n<p>Each target must make a Dexterity saving throw for each wire that targets it. On a failed save, the creature is restrained and falls prone as it is wrapped securely by the wire.</p>\n<p>A creature restrained by a wire can use its action to make a Strength or Dexterity check (its choice) against your tech save DC. On a success, it is no longer restrained by that wire. A wire can also be destroyed; each one has AC 15 and 10 hit points, and has immunity to all damage not dealt by melee weapons.</p>\n<p>A wire that misses its target or is escaped falls slack and disintegrates, as do all remaining wires when the power ends.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "YycmzWXkm4N1KJlj": {
-        "type": "Save",
-        "_id": "YycmzWXkm4N1KJlj",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "10",
-              "hit"
-            ]
-          ]
-        },
-        "range": "30",
-        "description": {
-          "value": "<p>You produce up to 4 wires, which bind creatures of your choice that you can see within range. A creature can be targeted by more than one wire. </p>\n<p>Each target must make a Dexterity saving throw for each wire that targets it. On a failed save, the creature is restrained and falls prone as it is wrapped securely by the wire.</p>\n<p>A creature restrained by a wire can use its action to make a Strength or Dexterity check (its choice) against your tech save DC. On a success, it is no longer restrained by that wire. A wire can also be destroyed; each one has AC 15 and 10 hit points, and has immunity to all damage not dealt by melee weapons.</p>\n<p>A wire that misses its target or is escaped falls slack and disintegrates, as do all remaining wires when the power ends.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -203,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434252292,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

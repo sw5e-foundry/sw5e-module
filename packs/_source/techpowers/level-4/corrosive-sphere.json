@@ -109,97 +109,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1x6dPDzgCl4S1jyT": {
-        "type": "Save",
-        "_id": "1x6dPDzgCl4S1jyT",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "150",
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "10d4",
-              "acid"
-            ],
-            [
-              "5d4",
-              "acid"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 10,
+              "scaling": {
+                "formula": "2d4",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "acid"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 5,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "acid"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>You create a globule of acid and hurl it at a point within range, where it explodes in a 20-foot-radius sphere. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes [[/r 10d4]] acid damage and another [[/r 5d4]] acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage and no damage at the end of its next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 5th level or higher, the initial damage increases by [[/r 2d4]] for each slot level above 4th.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1GzpQIzOI9Wwuxps": {
-        "type": "Save",
-        "_id": "1GzpQIzOI9Wwuxps",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "10d4",
-              "acid"
-            ],
-            [
-              "5d4",
-              "acid"
-            ]
-          ]
-        },
-        "range": "150",
-        "description": {
-          "value": "<p>You create a globule of acid and hurl it at a point within range, where it explodes in a 20-foot-radius sphere. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes [[/r 10d4]] acid damage and another [[/r 5d4]] acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage and no damage at the end of its next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 5th level or higher, the initial damage increases by [[/r 2d4]] for each slot level above 4th.</p>"
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -215,7 +178,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434252035,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

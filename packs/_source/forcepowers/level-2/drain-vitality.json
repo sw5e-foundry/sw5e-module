@@ -116,89 +116,47 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1vr1HRomzKmq5gU6": {
-        "type": "Attack",
-        "_id": "1vr1HRomzKmq5gU6",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60",
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "necrotic"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Sap Vitality</em></p>\n<p>You draw the willpower from a creature you can see within range. Make a ranged force attack against the target. On a hit, the target takes [[/r 2d6]] necrotic damage and it deals only half damage with weapon attacks that use Strength until the power ends.</p>\n<p>At the end of each of the target's turns, it can make a Constitution saving throw against the power. On a success, the power ends.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the damage increases by [[/r 1d6]] for each slot level above 2nd.</p>"
-        }
-      },
-      "fBFApp4zWD63FewC": {
-        "type": "Attack",
-        "_id": "fBFApp4zWD63FewC",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "necrotic"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Sap Vitality</em></p>\n<p>You draw the willpower from a creature you can see within range. Make a ranged force attack against the target. On a hit, the target takes [[/r 2d6]] necrotic damage and it deals only half damage with weapon attacks that use Strength until the power ends.</p>\n<p>At the end of each of the target's turns, it can make a Constitution saving throw against the power. On a success, the power ends.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the damage increases by [[/r 1d6]] for each slot level above 2nd.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+          "condition": "",
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "formula": "1d6",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "necrotic"
+              ]
+            }
+          ]
+        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "minute"
+          "units": "minute",
+          "value": "1"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -210,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979276,
-    "modifiedTime": 1730434248336,
+    "modifiedTime": 1732306711835,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

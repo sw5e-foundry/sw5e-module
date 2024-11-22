@@ -105,87 +105,48 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "13Jr9x3uGFgv1rsD": {
-        "type": "Save",
-        "_id": "13Jr9x3uGFgv1rsD",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "8d8",
-              "cold"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 8,
+              "scaling": {
+                "formula": "1d8",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "cold"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>A blast of cold air erupts from you. Each creature in a 60-foot cone must make a Constitution saving throw. On a failed save, a creature takes [[/r 8d8]] cold damage, and gains 1 slowed level until the start of your next turn. On a successful save, a creature takes half as much damage and isn't slowed.</p>\n<p>A creature killed by this power becomes frozen in carbonite.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, the damage increases by [[/r 1d8]] for each slot level above 5th.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1xyqg5dRKTGH4hSI": {
-        "type": "Save",
-        "_id": "1xyqg5dRKTGH4hSI",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d8",
-              "cold"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p>A blast of cold air erupts from you. Each creature in a 60-foot cone must make a Constitution saving throw. On a failed save, a creature takes [[/r 8d8]] cold damage, and gains 1 slowed level until the start of your next turn. On a successful save, a creature takes half as much damage and isn't slowed.</p>\n<p>A creature killed by this power becomes frozen in carbonite.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, the damage increases by [[/r 1d8]] for each slot level above 5th.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -201,7 +162,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251823,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

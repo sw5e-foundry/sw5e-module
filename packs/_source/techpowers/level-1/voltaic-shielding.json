@@ -109,63 +109,38 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1Gj1aAm07NVI1G4u": {
-        "type": "Heal",
-        "_id": "1Gj1aAm07NVI1G4u",
-        "img": null,
-        "healing": [
-          [
-            "5",
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
+        },
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "5"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "whole",
+            "number": 1
+          },
+          "types": [
             "temphp"
           ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "description": {
-          "value": "<p>A protective barrier surrounds you, manifesting as crackling lightning that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 lightning damage.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, both the temporary hit points and the lightning damage increase by 5 for each slot.</p>"
-        }
-      },
-      "zijUhYiq3S7mKqtH": {
-        "type": "Heal",
-        "_id": "zijUhYiq3S7mKqtH",
         "img": null,
-        "healing": [
-          [
-            "5",
-            "temphp"
-          ]
-        ],
-        "description": {
-          "value": "<p>A protective barrier surrounds you, manifesting as crackling lightning that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 lightning damage.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, both the temporary hit points and the lightning damage increase by 5 for each slot.</p>"
+        "range": {
+          "override": false
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "heal"
       }
     }
   },
@@ -181,7 +156,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434251639,
+    "modifiedTime": 1732306712507,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

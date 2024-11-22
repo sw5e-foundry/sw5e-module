@@ -114,97 +114,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1mUmsWb4wAAn1sFv": {
-        "type": "Save",
-        "_id": "1mUmsWb4wAAn1sFv",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "60",
-        "duration": {
-          "value": "1",
-          "units": "round"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d8",
-              "fire"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p>Choose a point you can see within range. You launch a detonator at that point, which remains there until the start of your next turn, when it explodes, ending the power. You can also use your reaction at any point during the power's duration to cause the detonator to explode early. When the detonator explodes, each creature within 5 feet of the point must make a Dexterity saving throw. A creature takes [[/r 1d8]] fire damage and [[/r 1d8]] kinetic damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you can launch an additional detonator at another point you can see within range for each slot level above 1st. The detonators all explode simultaneously. A creature in the area of more than one detonator when they explode is only affected once.</p>"
+        "description": {},
+        "duration": {
+          "units": "round",
+          "value": "1"
         },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "gSMl4ODUV3QW7Nrp": {
-        "type": "Save",
-        "_id": "gSMl4ODUV3QW7Nrp",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "fire"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "range": "60",
-        "description": {
-          "value": "<p>Choose a point you can see within range. You launch a detonator at that point, which remains there until the start of your next turn, when it explodes, ending the power. You can also use your reaction at any point during the power's duration to cause the detonator to explode early. When the detonator explodes, each creature within 5 feet of the point must make a Dexterity saving throw. A creature takes [[/r 1d8]] fire damage and [[/r 1d8]] kinetic damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you can launch an additional detonator at another point you can see within range for each slot level above 1st. The detonators all explode simultaneously. A creature in the area of more than one detonator when they explode is only affected once.</p>"
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -220,7 +183,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1730434250934,
+    "modifiedTime": 1732309495063,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

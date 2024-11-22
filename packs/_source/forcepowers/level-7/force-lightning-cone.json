@@ -109,87 +109,48 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "152VHo8YgDzXAQoc": {
-        "type": "Save",
-        "_id": "152VHo8YgDzXAQoc",
-        "img": null,
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "12d6",
-              "lightning"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 12,
+              "scaling": {
+                "formula": "2d6",
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
           ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Chain Lightning</em></p>\n<p>Lightning arcs from your hands. Each creature in a 60-foot cone must make a Dexterity saving throw. A creature takes [[/r 12d6]] lightning damage on a failed save, or half as much on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 8th level or higher, the damage increases by [[/r 2d6]] for each slot level above 7th.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        }
-      },
-      "1gWA3GRDs3qM1B3U": {
-        "type": "Save",
-        "_id": "1gWA3GRDs3qM1B3U",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "12d6",
-              "lightning"
-            ]
-          ]
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Chain Lightning</em></p>\n<p>Lightning arcs from your hands. Each creature in a 60-foot cone must make a Dexterity saving throw. A creature takes [[/r 12d6]] lightning damage on a failed save, or half as much on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 8th level or higher, the damage increases by [[/r 2d6]] for each slot level above 7th.</p>"
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -201,7 +162,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979192,
-    "modifiedTime": 1730434247025,
+    "modifiedTime": 1732309494494,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },
