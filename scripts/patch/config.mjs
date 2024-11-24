@@ -1667,7 +1667,8 @@ export function patchConfig(config, strict=true) {
 	// Powercasting
 	config.spellPreparationModes.powerCasting = {
 		label: "SW5E.Powercasting.Label",
-		usesPoints: true
+		usesPoints: true,
+		upcast: true,
 	};	
 	config.powerCasting = {
 		force: {

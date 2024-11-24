@@ -354,6 +354,50 @@ function patchAbilityUseDialog() {
 			}
 		}
 	});
+	Hooks.on('sw5e.ActivityUsageDialog._prepareScalingContext', function (_this, result, config, ...args) {
+		const context = config.result;
+
+		if ( _this.activity.requiresSpellSlot && (_this.config.scaling !== false) && (_this.item.system.preparation.mode === "powerCasting") ) {
+			if (context.notes.length >= 1) {
+				const note = context.notes[context.notes.length-1];
+				if (note.type === "warn" && note.message.startsWith("You have no available")) context.notes.pop();
+			}
+			const powercastingType = _this.item.system.school === "tec" ? "tech" : "force";
+			const powercasting = _this.actor.system.powercasting[powercastingType];
+
+			const minimumLevel = _this.item.system.level ?? 1;
+			const maximumLevel = powercasting.maxPowerLevel;
+
+			const spellSlotOptions = Array.from({ length: maximumLevel - minimumLevel + 1 }, (v, i) => {
+				const lvl = i + minimumLevel;
+				const label = game.i18n.localize(`DND5E.SpellLevel${lvl}`);
+				return { value: lvl, label, disabled: powercasting.used.has(lvl) };
+			});
+
+			if ( spellSlotOptions ) context.spellSlots = {
+				field: new foundry.data.fields.StringField({ label: game.i18n.localize("DND5E.SpellCastUpcast") }),
+				name: "spell.slot",
+				value: _this.config.spell?.slot,
+				options: spellSlotOptions
+			};
+
+			if ( !spellSlotOptions.some(o => !o.disabled) ) context.notes.push({
+				type: "warn", message: game.i18n.format("DND5E.SpellCastNoSlotsLeft", {
+					name: _this.item.name
+				})
+			});
+		}
+	});
+	Hooks.on('sw5e.ActivityUsageDialog._prepareSubmitData', function (_this, result, config, ...args) {
+		if (_this.item.system.preparation.mode !== "powerCasting") return;
+
+		const submitData = result;
+		if ( foundry.utils.hasProperty(submitData, "spell.slot") ) {
+			const level = submitData.spell.slot ?? 0;
+			const scaling = Math.max(0, level - _this.item.system.level);
+			submitData.scaling = scaling;
+		}
+	});
 }
 
 function recoverPowerPoints() {

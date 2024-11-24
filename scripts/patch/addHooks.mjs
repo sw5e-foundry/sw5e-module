@@ -61,4 +61,7 @@ export function addHooks() {
 	// ?
 	// AbilityUseDialog Hooks
 	addHook('dnd5e.applications.item.AbilityUseDialog._createResourceOptions', 'AbilityUseDialog._createResourceOptions');
+	// ActivityUsageDialog Hooks
+	addHookAsync('dnd5e.applications.activity.ActivityUsageDialog.prototype._prepareScalingContext', 'ActivityUsageDialog._prepareScalingContext');
+	addHook('dnd5e.applications.activity.ActivityUsageDialog.prototype._prepareSubmitData', 'ActivityUsageDialog._prepareSubmitData');
 }
