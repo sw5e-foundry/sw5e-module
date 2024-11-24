@@ -398,6 +398,16 @@ function patchAbilityUseDialog() {
 			submitData.scaling = scaling;
 		}
 	});
+	Hooks.on('dnd5e.activityConsumption', function (activity, usageConfig, messageConfig, updates) {
+		if (activity?.item?.type !== "spell" || activity?.item?.system?.preparation?.mode !== "powerCasting") return;
+		const powercastingType = activity?.item?.system?.school === "tec" ? "tech" : "power";
+		const powercasting = activity?.actor?.system?.powercasting?.[powercastingType];
+		const level = usageConfig?.spell?.slot ?? 0;
+		if (level >= powercasting.limit) {
+			powercasting.used.add(level);
+			updates.actor[`system.powercasting.${powercastingType}.used`] = powercasting.used;
+		}
+	});
 }
 
 function recoverPowerPoints() {
