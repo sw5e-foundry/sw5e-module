@@ -43,7 +43,7 @@
     },
     "advancement": [
       {
-        "_id": "0ig0000000000000",
+        "_id": "sw5e0ig000000000",
         "configuration": {
           "items": [
             {
@@ -120,7 +120,7 @@
         "value": {}
       },
       {
-        "_id": "1asi000000000000",
+        "_id": "sw5e1asi00000000",
         "configuration": {
           "fixed": {
             "str": 2
@@ -136,7 +136,7 @@
         }
       },
       {
-        "_id": "2s00000000000000",
+        "_id": "sw5e2s0000000000",
         "configuration": {
           "sizes": [
             "med"
@@ -147,7 +147,7 @@
         "value": {}
       },
       {
-        "_id": "3t00000000000000",
+        "_id": "sw5e3t0000000000",
         "configuration": {
           "choices": [
             {
@@ -158,6 +158,12 @@
             }
           ],
           "grants": [
+            "dr:necrotic",
+            "dr:poison",
+            "dr:psychic",
+            "ci:poisoned",
+            "ci:diseased",
+            "dv:ion",
             "skills:ath"
           ],
           "mode": "default",
@@ -216,99 +222,63 @@
   "effects": [
     {
       "_id": "Z3v7Cj4aSpJg4K8C",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.331",
+        "systemId": "dnd5e",
+        "systemVersion": "3.3.1",
+        "createdTime": null,
+        "modifiedTime": null,
+        "lastModifiedBy": null
+      },
       "changes": [
         {
-          "key": "system.traits.dr.value",
-          "value": "necrotic",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "value": "poison",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "value": "psychic",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.ci.value",
-          "value": "diseased",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.ci.value",
-          "value": "poisoned",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dv.value",
-          "value": "ion",
-          "mode": 0,
-          "priority": 20
-        },
-        {
           "key": "flags.sw5e.encumbranceMultiplier",
-          "value": "+1",
           "mode": 2,
-          "priority": 20
+          "priority": 20,
+          "value": "+1"
         },
         {
           "key": "flags.sw5e.forceInsensitive",
-          "value": "1",
           "mode": 5,
-          "priority": 20
+          "priority": 20,
+          "value": "1"
         },
         {
           "key": "flags.sw5e.maintenanceMode",
-          "value": "1",
           "mode": 5,
-          "priority": 20
+          "priority": 20,
+          "value": "1"
         },
         {
           "key": "flags.sw5e.rapidReconstruction",
-          "value": "1",
           "mode": 5,
-          "priority": 20
+          "priority": 20,
+          "value": "1"
         }
       ],
+      "description": "",
       "disabled": false,
       "duration": {
-        "startTime": null,
-        "seconds": null,
         "combat": null,
         "rounds": null,
-        "turns": null,
+        "seconds": null,
         "startRound": null,
-        "startTurn": null
+        "startTime": null,
+        "startTurn": null,
+        "turns": null
       },
+      "flags": {},
+      "img": "modules/sw5e/icons/packs/Species/Droid%20Class%20V.webp",
+      "name": "Droid, Class V",
+      "origin": null,
+      "sort": 0,
+      "statuses": [],
+      "system": {},
       "tint": "#ffffff",
       "transfer": true,
-      "flags": {},
-      "origin": null,
-      "name": "Droid, Class V",
-      "description": "",
-      "statuses": [],
-      "_stats": {
-        "coreVersion": "12.330",
-        "systemId": null,
-        "systemVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null,
-        "compendiumSource": null,
-        "duplicateSource": null
-      },
-      "img": "modules/sw5e/icons/packs/Species/Droid%20Class%20V.webp",
       "type": "base",
-      "system": {},
-      "sort": 0,
       "_key": "!items.effects!swCRalxq9OlRcwqW.Z3v7Cj4aSpJg4K8C"
     }
   ],
@@ -323,7 +293,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296028336,
-    "modifiedTime": 1732304726287,
+    "modifiedTime": 1732412596409,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -43,7 +43,7 @@
     },
     "advancement": [
       {
-        "_id": "0ig0000000000000",
+        "_id": "sw5e0ig000000000",
         "configuration": {
           "items": [
             {
@@ -96,7 +96,7 @@
         "value": {}
       },
       {
-        "_id": "1asi000000000000",
+        "_id": "sw5e1asi00000000",
         "configuration": {
           "fixed": {
             "con": 2
@@ -112,7 +112,7 @@
         }
       },
       {
-        "_id": "2s00000000000000",
+        "_id": "sw5e2s0000000000",
         "configuration": {
           "sizes": [
             "med"
@@ -123,7 +123,7 @@
         "value": {}
       },
       {
-        "_id": "3t00000000000000",
+        "_id": "sw5e3t0000000000",
         "configuration": {
           "choices": [
             {
@@ -135,7 +135,9 @@
               ]
             }
           ],
-          "grants": [],
+          "grants": [
+            "dr:fire"
+          ],
           "mode": "default",
           "allowReplacements": false
         },
@@ -195,15 +197,9 @@
       "changes": [
         {
           "key": "system.attributes.ac.value",
-          "value": "12+@abilities.dex.mod",
           "mode": 5,
-          "priority": 1
-        },
-        {
-          "key": "system.traits.dr.value",
-          "value": "fire",
-          "mode": 0,
-          "priority": 0
+          "priority": 1,
+          "value": "12+@abilities.dex.mod"
         }
       ],
       "disabled": false,
@@ -251,7 +247,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296028336,
-    "modifiedTime": 1732304725937,
+    "modifiedTime": 1732412596409,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

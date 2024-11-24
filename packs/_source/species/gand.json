@@ -43,7 +43,7 @@
     },
     "advancement": [
       {
-        "_id": "0ig0000000000000",
+        "_id": "sw5e0ig000000000",
         "configuration": {
           "items": [
             {
@@ -96,7 +96,7 @@
         "value": {}
       },
       {
-        "_id": "1asi000000000000",
+        "_id": "sw5e1asi00000000",
         "configuration": {
           "fixed": {
             "con": 2,
@@ -113,7 +113,7 @@
         }
       },
       {
-        "_id": "2s00000000000000",
+        "_id": "sw5e2s0000000000",
         "configuration": {
           "sizes": [
             "med"
@@ -122,6 +122,22 @@
         "level": 0,
         "type": "Size",
         "value": {}
+      },
+      {
+        "_id": "sw5e3t0000000000",
+        "configuration": {
+          "choices": [],
+          "grants": [
+            "dr:poison"
+          ],
+          "mode": "default",
+          "allowReplacements": false
+        },
+        "level": 0,
+        "type": "Trait",
+        "value": {
+          "chosen": []
+        }
       }
     ],
     "skinColorOptions": {
@@ -173,21 +189,15 @@
       "changes": [
         {
           "key": "system.attributes.ac.value",
-          "value": "12+@abilities.dex.mod",
           "mode": 5,
-          "priority": 1
-        },
-        {
-          "key": "system.traits.dr.value",
-          "value": "poison",
-          "mode": 0,
-          "priority": 0
+          "priority": 1,
+          "value": "12+@abilities.dex.mod"
         },
         {
           "key": "flags.sw5e.regenerative",
-          "value": "1",
           "mode": 5,
-          "priority": 20
+          "priority": 20,
+          "value": "1"
         }
       ],
       "disabled": false,
@@ -235,7 +245,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296028336,
-    "modifiedTime": 1732304725856,
+    "modifiedTime": 1732412596409,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

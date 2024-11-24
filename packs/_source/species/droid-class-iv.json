@@ -43,7 +43,7 @@
     },
     "advancement": [
       {
-        "_id": "0ig0000000000000",
+        "_id": "sw5e0ig000000000",
         "configuration": {
           "items": [
             {
@@ -116,7 +116,7 @@
         "value": {}
       },
       {
-        "_id": "1asi000000000000",
+        "_id": "sw5e1asi00000000",
         "configuration": {
           "fixed": {
             "con": 2
@@ -132,7 +132,7 @@
         }
       },
       {
-        "_id": "2s00000000000000",
+        "_id": "sw5e2s0000000000",
         "configuration": {
           "sizes": [
             "med"
@@ -143,7 +143,7 @@
         "value": {}
       },
       {
-        "_id": "3t00000000000000",
+        "_id": "sw5e3t0000000000",
         "configuration": {
           "choices": [
             {
@@ -157,6 +157,12 @@
             }
           ],
           "grants": [
+            "dr:necrotic",
+            "dr:poison",
+            "dr:psychic",
+            "ci:poisoned",
+            "ci:diseased",
+            "dv:ion",
             "armor:lgt",
             "armor:med"
           ],
@@ -218,58 +224,22 @@
       "_id": "yyg9z15jh6tMBTrg",
       "changes": [
         {
-          "key": "system.traits.dr.value",
-          "value": "necrotic",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "value": "poison",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "value": "psychic",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.ci.value",
-          "value": "diseased",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.ci.value",
-          "value": "poisoned",
-          "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dv.value",
-          "value": "ion",
-          "mode": 0,
-          "priority": 20
-        },
-        {
           "key": "flags.sw5e.forceInsensitive",
-          "value": "1",
           "mode": 5,
-          "priority": 20
+          "priority": 20,
+          "value": "1"
         },
         {
           "key": "flags.sw5e.maintenanceMode",
-          "value": "1",
           "mode": 5,
-          "priority": 20
+          "priority": 20,
+          "value": "1"
         },
         {
           "key": "flags.sw5e.rapidReconstruction",
-          "value": "1",
           "mode": 5,
-          "priority": 20
+          "priority": 20,
+          "value": "1"
         }
       ],
       "disabled": false,
@@ -317,7 +287,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296028336,
-    "modifiedTime": 1732304726169,
+    "modifiedTime": 1732412596409,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },
