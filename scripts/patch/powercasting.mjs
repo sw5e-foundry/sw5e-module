@@ -400,7 +400,7 @@ function patchAbilityUseDialog() {
 	});
 	Hooks.on('dnd5e.activityConsumption', function (activity, usageConfig, messageConfig, updates) {
 		if (activity?.item?.type !== "spell" || activity?.item?.system?.preparation?.mode !== "powerCasting") return;
-		const powercastingType = activity?.item?.system?.school === "tec" ? "tech" : "power";
+		const powercastingType = activity?.item?.system?.school === "tec" ? "tech" : "force";
 		const powercasting = activity?.actor?.system?.powercasting?.[powercastingType];
 		const level = usageConfig?.spell?.slot ?? 0;
 		if (level >= powercasting.limit) {
