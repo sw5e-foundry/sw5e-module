@@ -107,127 +107,61 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1fPZMouTEhsmnsfj": {
-        "type": "Save",
-        "_id": "1fPZMouTEhsmnsfj",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "bonus"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d6",
-              "cold"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "cold"
+              ]
+            }
           ]
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "str",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>The next time you hit a creature with a weapon attack during this power's duration, the attack deals an extra [[/r 1d6]] cold damage to the target. The target must make a Strength saving throw. On a failed save, it gains a level of slowed for the duration. At the start of each of its turns, the target can repeat the saving throw, ending the effect on itself on a success.</p>\n<p><strong><em>Overcharge Tech.</strong></em> If you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        }
-      },
-      "1idwrFxoup0316ai": {
-        "type": "Save",
-        "_id": "1idwrFxoup0316ai",
-        "img": null,
-        "save": {
-          "ability": "str",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "cold"
-            ]
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
           ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>The next time you hit a creature with a weapon attack during this power's duration, the attack deals an extra [[/r 1d6]] cold damage to the target. The target must make a Strength saving throw. On a failed save, it gains a level of slowed for the duration. At the start of each of its turns, the target can repeat the saving throw, ending the effect on itself on a success.</p>\n<p><strong><em>Overcharge Tech.</strong></em> If you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        }
-      },
-      "NFPEEX6mjs7zlLDx": {
-        "type": "Save",
-        "_id": "NFPEEX6mjs7zlLDx",
-        "img": null,
-        "description": {
-          "value": "<p>The next time you hit a creature with a weapon attack during this power's duration, the attack deals an extra [[/r 1d6]] cold damage to the target. The target must make a Strength saving throw. On a failed save, it gains a level of slowed for the duration. At the start of each of its turns, the target can repeat the saving throw, ending the effect on itself on a success.</p>\n<p><strong><em>Overcharge Tech.</strong></em> If you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "str",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "cold"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
         }
       }
     }
@@ -244,7 +178,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

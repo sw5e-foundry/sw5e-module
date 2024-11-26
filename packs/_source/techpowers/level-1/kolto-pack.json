@@ -105,95 +105,50 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1EXFDpP6zMlX1F35": {
-        "type": "Heal",
-        "_id": "1EXFDpP6zMlX1F35",
-        "img": null,
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "condition": "",
+          "type": "bonus"
+        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "range": "60",
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "healing": [
-          [
-            "1d4 + @mod",
+        "healing": {
+          "bonus": "+ @mod",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 4,
+          "number": 1,
+          "scaling": {
+            "formula": "1d4",
+            "mode": "whole",
+            "number": 1
+          },
+          "types": [
             "healing"
           ]
-        ],
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
         },
-        "description": {
-          "value": "<p>A creature of your choice that you can see within range regains hit points equal to [[/r 1d4]] + your techcasting ability modifier. This power has no effect on droids or constructs.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the healing increases by [[/r 1d4]] for each slot level above 1st.</p>"
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "heal",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "EQy6oUrZwZW1shCq": {
-        "type": "Heal",
-        "_id": "EQy6oUrZwZW1shCq",
-        "img": null,
-        "range": "60",
-        "healing": [
-          [
-            "1d4 + @mod",
-            "healing"
-          ]
-        ],
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>A creature of your choice that you can see within range regains hit points equal to [[/r 1d4]] + your techcasting ability modifier. This power has no effect on droids or constructs.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the healing increases by [[/r 1d4]] for each slot level above 1st.</p>"
-        }
-      },
-      "1081REbcFa3DaHvQ": {
-        "type": "Heal",
-        "_id": "1081REbcFa3DaHvQ",
-        "img": null,
-        "description": {
-          "value": "<p>A creature of your choice that you can see within range regains hit points equal to [[/r 1d4]] + your techcasting ability modifier. This power has no effect on droids or constructs.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the healing increases by [[/r 1d4]] for each slot level above 1st.</p>"
-        },
-        "healing": [
-          [
-            "1d4 + @mod",
-            "healing"
-          ]
-        ],
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
       }
     }
   },
@@ -209,7 +164,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -173,597 +173,142 @@
     "magicalBonus": null,
     "firingArc": "",
     "activities": {
-      "1pEfv9ZG3CrXpnyE": {
-        "type": "Attack",
-        "_id": "1pEfv9ZG3CrXpnyE",
-        "img": null,
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
+        "activation": {
+          "type": "action"
+        },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "weapon",
           "flat": false,
-          "type": "ranged"
-        },
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "range": 30,
-        "activation": {
-          "type": "action",
-          "cost": 1
+          "type": {}
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
+          "critical": {},
           "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": null,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
+        "description": {},
         "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "WGXpH1SixGu1m7xZ": {
-        "type": "Attack",
-        "_id": "WGXpH1SixGu1m7xZ",
+          "units": "inst",
+          "value": "inst"
+        },
         "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "ranged"
-        },
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "range": 30,
+        "range": {},
+        "target": {},
+        "type": "attack"
+      },
+      "sw5e1save0000000": {
+        "_id": "sw5e1save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": null,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
+        "description": {},
         "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "1pNtM3hWRN1A9kfr": {
-        "type": "Save",
-        "_id": "1pNtM3hWRN1A9kfr",
+          "units": "inst",
+          "value": "inst"
+        },
         "img": null,
         "name": "Burst Attack",
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "range": 30,
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "Q4NQo6GJE2c8tSE5": {
-        "type": "Attack",
-        "_id": "Q4NQo6GJE2c8tSE5",
-        "img": null,
-        "range": 30,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        }
-      },
-      "1s5ETvQSmFiJLacH": {
-        "type": "Attack",
-        "_id": "1s5ETvQSmFiJLacH",
-        "img": null,
-        "range": 30,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        }
-      },
-      "FgCKThetJQwCitnW": {
-        "type": "Save",
-        "_id": "FgCKThetJQwCitnW",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": 30,
-        "name": "Burst Attack",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        }
-      },
-      "1FE6HxfxBoP1dCYP": {
-        "type": "Attack",
-        "_id": "1FE6HxfxBoP1dCYP",
-        "img": null,
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "range": 30,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        }
-      },
-      "sYMAfT4V6B81muyO": {
-        "type": "Attack",
-        "_id": "sYMAfT4V6B81muyO",
-        "img": null,
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "range": 30,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        }
-      },
-      "1Dxu4IZCD1Wr1kzf": {
-        "type": "Save",
-        "_id": "1Dxu4IZCD1Wr1kzf",
-        "img": null,
-        "name": "Burst Attack",
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "range": 30,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        }
-      },
-      "1qjNAQ9DhyWi1tIl": {
-        "type": "Attack",
-        "_id": "1qjNAQ9DhyWi1tIl",
-        "img": null,
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "range": 30
-      },
-      "1UYURrJZI3YN1dCm": {
-        "type": "Attack",
-        "_id": "1UYURrJZI3YN1dCm",
-        "img": null,
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "range": 30
-      },
-      "1UHv57BCPmxKVKD7": {
-        "type": "Save",
-        "_id": "1UHv57BCPmxKVKD7",
-        "img": null,
-        "description": {
-          "value": "<h4>Weapon (Shotgun)</h4>\n <p>You have a +1 to damage rolls made with this shotgun. Additionally, this shotgun has an axe attachment, allowing you to make a melee weapon attack with it. The axe is a melee weapon that you are proficient with, and deals [[/r 1d8]] kinetic damage.</p>\n<p>Additionally, when you use this shotgun as an improvised weapon, you are considered proficient in it, and it deals [[/r 1d8]] kinetic damage on a hit.</p>\n<p><em>\"Oh you want clever? Come a little closer, I'll get real clever.\"</em></p>\n<p>&nbsp;</p>\n<h2>Shotgun</h2>\n<h3>Burst 2</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 4</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Slug cartridge (range 30/120)</h3>\n<p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>\n<h3>Strength 11</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "name": "Burst Attack",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ],
-            [
-              "1d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "range": 30
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -775,7 +320,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964925,
-    "modifiedTime": 1729984337414,
+    "modifiedTime": 1732455687404,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

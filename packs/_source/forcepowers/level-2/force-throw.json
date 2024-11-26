@@ -109,131 +109,59 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1UReDiwR2fHp1wJY": {
-        "type": "Save",
-        "_id": "1UReDiwR2fHp1wJY",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "90",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d8",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "str",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Push/Pull</em></p>\n<p>You use the Force to move a Large or smaller creature or object not being worn or carried within </p>\n<p>range. The target must make a Strength saving throw. An object automatically fails this saving throw. On a failed save, the creature or object moves a number of feet in a direction of your choice based on its size. A Tiny creature or object can be moved up to 90 feet, a Small creature or object can be moved up to 60 feet, a Medium creature or object can be moved up to 30 feet, and a Large creature or object can be moved up to 10 feet. If at the end of this movement the creature or object strikes another creature or object, they both take [[/r 2d8]] force damage.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the range you can throw a creature or object increases by 10 feet, to a maximum of 90 feet, and the power's damage increases by [[/r 1d8]].</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "3"
+            }
+          ]
         }
-      },
-      "1DhXwi1XCfE31ura": {
-        "type": "Save",
-        "_id": "1DhXwi1XCfE31ura",
-        "img": null,
-        "save": {
-          "ability": "str",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "90",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "force"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Push/Pull</em></p>\n<p>You use the Force to move a Large or smaller creature or object not being worn or carried within </p>\n<p>range. The target must make a Strength saving throw. An object automatically fails this saving throw. On a failed save, the creature or object moves a number of feet in a direction of your choice based on its size. A Tiny creature or object can be moved up to 90 feet, a Small creature or object can be moved up to 60 feet, a Medium creature or object can be moved up to 30 feet, and a Large creature or object can be moved up to 10 feet. If at the end of this movement the creature or object strikes another creature or object, they both take [[/r 2d8]] force damage.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the range you can throw a creature or object increases by 10 feet, to a maximum of 90 feet, and the power's damage increases by [[/r 1d8]].</p>"
-        }
-      },
-      "rIzpNfsVRWjXmifP": {
-        "type": "Save",
-        "_id": "rIzpNfsVRWjXmifP",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Push/Pull</em></p>\n<p>You use the Force to move a Large or smaller creature or object not being worn or carried within </p>\n<p>range. The target must make a Strength saving throw. An object automatically fails this saving throw. On a failed save, the creature or object moves a number of feet in a direction of your choice based on its size. A Tiny creature or object can be moved up to 90 feet, a Small creature or object can be moved up to 60 feet, a Medium creature or object can be moved up to 30 feet, and a Large creature or object can be moved up to 10 feet. If at the end of this movement the creature or object strikes another creature or object, they both take [[/r 2d8]] force damage.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 3rd level or higher, the range you can throw a creature or object increases by 10 feet, to a maximum of 90 feet, and the power's damage increases by [[/r 1d8]].</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "str",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "90"
       }
     }
   },
@@ -245,7 +173,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979185,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

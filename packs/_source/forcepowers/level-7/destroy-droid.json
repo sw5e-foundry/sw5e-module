@@ -111,116 +111,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1E26cquALnxLSHEM": {
-        "type": "Save",
-        "_id": "1E26cquALnxLSHEM",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "120",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
         },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Disable Droid</em></p>\n<p>Choose a point that you can see within range. Each droid or construct  must succeed on a Constitution saving throw or be paralyzed for the duration. At the beginning of each of its turns, an affected target takes energy damage equal to twice your forcecasting ability modifier and then repeats this saving throw. On a success, the power ends on the target.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "8"
+            }
+          ]
         }
-      },
-      "Pt33QUdgCkinrUEa": {
-        "type": "Save",
-        "_id": "Pt33QUdgCkinrUEa",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "120",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Disable Droid</em></p>\n<p>Choose a point that you can see within range. Each droid or construct  must succeed on a Constitution saving throw or be paralyzed for the duration. At the beginning of each of its turns, an affected target takes energy damage equal to twice your forcecasting ability modifier and then repeats this saving throw. On a success, the power ends on the target.</p>"
-        }
-      },
-      "id8SSZO0QRNZ3E4x": {
-        "type": "Save",
-        "_id": "id8SSZO0QRNZ3E4x",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Disable Droid</em></p>\n<p>Choose a point that you can see within range. Each droid or construct  must succeed on a Constitution saving throw or be paralyzed for the duration. At the beginning of each of its turns, an affected target takes energy damage equal to twice your forcecasting ability modifier and then repeats this saving throw. On a success, the power ends on the target.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120"
       }
     }
   },
@@ -232,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979329,
-    "modifiedTime": 1729983827793,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

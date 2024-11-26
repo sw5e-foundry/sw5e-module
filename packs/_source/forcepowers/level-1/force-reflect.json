@@ -104,112 +104,62 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1aU3yd983mennCT6": {
-        "type": "Attack",
-        "_id": "1aU3yd983mennCT6",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
+        "activation": {
+          "condition": "in response to being hit by a ranged attack",
+          "type": "reaction"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "in response to being hit by a ranged attack"
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Saber Reflect</em></p>\n<p>In response to being attacked, you attempt to deflect the attack with the Force. When you use this power, the damage you take from the attack is reduced by [[/r 1d10]]. If you reduce the damage to 0 and the damage is energy, force, ion, kinetic, lightning, necrotic, or sonic, you can reflect the attack at a target within range as part of the same reaction. Make a ranged force attack at a target you can see. The attack has a normal range of 30 feet and a long range of 90 feet. On a hit, the target takes the triggering attack's normal damage.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the damage reduction increases by [[/r 1d10]] for each slot level above 1st.</p>"
-        }
-      },
-      "18ibrknlsobW84cQ": {
-        "type": "Attack",
-        "_id": "18ibrknlsobW84cQ",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
+          "type": {}
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": ""
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "formula": "1d10",
+                "mode": "whole",
+                "number": 0
+              },
+              "types": [
+                ""
+              ]
+            }
+          ]
         },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "in response to being hit by a ranged attack"
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Saber Reflect</em></p>\n<p>In response to being attacked, you attempt to deflect the attack with the Force. When you use this power, the damage you take from the attack is reduced by [[/r 1d10]]. If you reduce the damage to 0 and the damage is energy, force, ion, kinetic, lightning, necrotic, or sonic, you can reflect the attack at a target within range as part of the same reaction. Make a ranged force attack at a target you can see. The attack has a normal range of 30 feet and a long range of 90 feet. On a hit, the target takes the triggering attack's normal damage.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the damage reduction increases by [[/r 1d10]] for each slot level above 1st.</p>"
-        }
-      },
-      "zjACl5YxHpw1JE4Z": {
-        "type": "Attack",
-        "_id": "zjACl5YxHpw1JE4Z",
         "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Saber Reflect</em></p>\n<p>In response to being attacked, you attempt to deflect the attack with the Force. When you use this power, the damage you take from the attack is reduced by [[/r 1d10]]. If you reduce the damage to 0 and the damage is energy, force, ion, kinetic, lightning, necrotic, or sonic, you can reflect the attack at a target within range as part of the same reaction. Make a ranged force attack at a target you can see. The attack has a normal range of 30 feet and a long range of 90 feet. On a hit, the target takes the triggering attack's normal damage.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the damage reduction increases by [[/r 1d10]] for each slot level above 1st.</p>"
+        "range": {
+          "override": false
         },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "in response to being hit by a ranged attack"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "target": {},
+        "type": "attack",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
       }
     }
@@ -222,7 +172,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979213,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

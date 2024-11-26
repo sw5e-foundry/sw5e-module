@@ -104,73 +104,36 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1Mm7CoKHzGzhPO5M": {
-        "type": "Utility",
-        "_id": "1Mm7CoKHzGzhPO5M",
-        "img": null,
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "condition": "",
+          "type": "minute"
+        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "minute",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You choose one object that you must touch throughout the casting of the power. If it is an enhanced or modified item, you learn its properties and how to use them, whether it requires attunement to use, and how many charges it has, if any. You learn whether any powers are affecting the item and what they are.</p>\n<p>If the item was created by a power, you learn which power created it. If you instead touch a creature throughout the casting, you learn what force powers, if any, are currently affecting it.</p>"
-        }
-      },
-      "PdE8vb6y9BU14oSF": {
-        "type": "Utility",
-        "_id": "PdE8vb6y9BU14oSF",
         "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "range": {
+          "override": false
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "minute",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You choose one object that you must touch throughout the casting of the power. If it is an enhanced or modified item, you learn its properties and how to use them, whether it requires attunement to use, and how many charges it has, if any. You learn whether any powers are affecting the item and what they are.</p>\n<p>If the item was created by a power, you learn which power created it. If you instead touch a creature throughout the casting, you learn what force powers, if any, are currently affecting it.</p>"
-        }
-      },
-      "VyoIJUilFCu4hIut": {
-        "type": "Utility",
-        "_id": "VyoIJUilFCu4hIut",
-        "img": null,
-        "description": {
-          "value": "<p>You choose one object that you must touch throughout the casting of the power. If it is an enhanced or modified item, you learn its properties and how to use them, whether it requires attunement to use, and how many charges it has, if any. You learn whether any powers are affecting the item and what they are.</p>\n<p>If the item was created by a power, you learn which power created it. If you instead touch a creature throughout the casting, you learn what force powers, if any, are currently affecting it.</p>"
-        },
-        "activation": {
-          "type": "minute",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "roll": {},
+        "target": {},
+        "type": "utility",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
       }
     }
@@ -183,7 +146,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979229,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

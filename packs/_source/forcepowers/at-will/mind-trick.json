@@ -1,10 +1,21 @@
 {
+  "_id": "sU7NH8OPJTyosMM7",
   "name": "Mind Trick",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/MindTrick.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1177642+00:00",
       "importer_version": 3,
-      "uid": "Power.name-mind_trick"
+      "uid": "Power.name-mind_trick.level-0"
+    },
+    "sw5e": {
+      "migratedProperties": [
+        "concentration"
+      ]
     },
     "dnd5e": {
       "riders": {
@@ -14,64 +25,68 @@
     }
   },
   "system": {
-    "activities": {
-      "1glo7IVtWew58B4i": {
-        "type": "Save",
-        "_id": "1glo7IVtWew58B4i",
-        "img": null,
-        "description": {
-          "value": "<p>Choose a target within range that isn't hostile toward you. The target must make a Wisdom saving throw. On a failed save, the target has disadvantage on Wisdom (Perception) and Intelligence (Investigation) checks. </p>\n<p>On a successful save, the creature realizes that you tried to use the Force to influence its awareness and becomes hostile toward you. A creature prone to violence might attack you. Another creature might seek retribution in other ways (at the GM's discretion), depending on the nature of your interaction with it. This power has no effect on droids or constructs.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30"
-      }
-    },
     "description": {
       "value": "<p>Choose a target within range that isn't hostile toward you. The target must make a Wisdom saving throw. On a failed save, the target has disadvantage on Wisdom (Perception) and Intelligence (Investigation) checks. </p>\n<p>On a successful save, the creature realizes that you tried to use the Force to influence its awareness and becomes hostile toward you. A creature prone to violence might attack you. Another creature might seek retribution in other ways (at the GM's discretion), depending on the nature of your interaction with it. This power has no effect on droids or constructs.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
       "value": "1",
       "units": "minute"
     },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 30,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "save",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "wis",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "uni",
     "materials": {
       "value": "",
       "consumed": false,
@@ -80,48 +95,61 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": false
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "none",
+      "formula": null
     },
     "properties": [
       "concentration"
     ],
-    "range": {
-      "value": "30",
-      "units": "ft"
+    "attack": {
+      "bonus": "",
+      "flat": false
     },
-    "school": "uni",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
+    "enchantment": null,
+    "summons": null,
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "damage": {
+          "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {},
+        "type": "save"
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "mind-trick"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/MindTrick.webp",
-  "effects": [],
-  "_id": "aXAc4q5ZhVTF94p3",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984159238,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979328,
+    "modifiedTime": 1732309494494,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!aXAc4q5ZhVTF94p3"
+  "_key": "!items!sU7NH8OPJTyosMM7"
 }

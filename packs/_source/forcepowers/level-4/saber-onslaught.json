@@ -109,127 +109,61 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1ygl7GWn3d9P1EhH": {
-        "type": "Save",
-        "_id": "1ygl7GWn3d9P1EhH",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "turn"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d6",
-              ""
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
           ]
+        },
+        "description": {},
+        "duration": {
+          "units": "turn",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "str",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Saber Strike</em></p>\n<p>You assume a battle stance. Until the end of your turn, your movement does not provoke opportunity attacks. Additionally, whenever you move, you can make one melee weapon attack against each creature you move within 5 feet of for the first time this turn. On a hit, the attack deals an extra [[/r 1d6]] damage of the weapon's type, and the target must make a Strength saving throw. On a failed save, you can choose to either knock the target prone, or push it 5 feet away from you.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 5th level or higher, the bonus weapon damage increases by [[/r 1d6]] for each slot level above 4th.</p>"
-        }
-      },
-      "13ltvs7HVRLA1JSG": {
-        "type": "Save",
-        "_id": "13ltvs7HVRLA1JSG",
-        "img": null,
-        "save": {
-          "ability": "str",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              ""
-            ]
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "5"
+            }
           ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "turn"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Saber Strike</em></p>\n<p>You assume a battle stance. Until the end of your turn, your movement does not provoke opportunity attacks. Additionally, whenever you move, you can make one melee weapon attack against each creature you move within 5 feet of for the first time this turn. On a hit, the attack deals an extra [[/r 1d6]] damage of the weapon's type, and the target must make a Strength saving throw. On a failed save, you can choose to either knock the target prone, or push it 5 feet away from you.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 5th level or higher, the bonus weapon damage increases by [[/r 1d6]] for each slot level above 4th.</p>"
-        }
-      },
-      "19TkqfEmiHFsDKhH": {
-        "type": "Save",
-        "_id": "19TkqfEmiHFsDKhH",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Saber Strike</em></p>\n<p>You assume a battle stance. Until the end of your turn, your movement does not provoke opportunity attacks. Additionally, whenever you move, you can make one melee weapon attack against each creature you move within 5 feet of for the first time this turn. On a hit, the attack deals an extra [[/r 1d6]] damage of the weapon's type, and the target must make a Strength saving throw. On a failed save, you can choose to either knock the target prone, or push it 5 feet away from you.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 5th level or higher, the bonus weapon damage increases by [[/r 1d6]] for each slot level above 4th.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "str",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "turn"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              ""
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
         }
       }
     }
@@ -242,7 +176,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979172,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

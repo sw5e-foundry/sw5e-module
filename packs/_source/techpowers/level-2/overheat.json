@@ -107,131 +107,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1slbDJJOVAKU1mRZ": {
-        "type": "Save",
-        "_id": "1slbDJJOVAKU1mRZ",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "60",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d8",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>Choose a manufactured metal object, such as a blaster or a suit of heavy or medium metal armor, that you can see within range. You cause the object to glow red-hot. Any creature in physical contact with the object takes [[/r 2d8]] fire damage when you cast the power. Until the power ends, you can use a bonus action on each of your subsequent turns to cause this damage again.</p>\n<p>If an object is held, worn, or integrated, and a creature takes the damage from it, the creature must succeed on a Constitution saving throw or drop the object if it can. If it doesn't—or can't—drop the object, it has disadvantage on attack rolls and ability checks until the start of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d8]] for each slot level above 2nd.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "3"
+            }
+          ]
         }
-      },
-      "1dqtS3ilSvoIEMNI": {
-        "type": "Save",
-        "_id": "1dqtS3ilSvoIEMNI",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "fire"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>Choose a manufactured metal object, such as a blaster or a suit of heavy or medium metal armor, that you can see within range. You cause the object to glow red-hot. Any creature in physical contact with the object takes [[/r 2d8]] fire damage when you cast the power. Until the power ends, you can use a bonus action on each of your subsequent turns to cause this damage again.</p>\n<p>If an object is held, worn, or integrated, and a creature takes the damage from it, the creature must succeed on a Constitution saving throw or drop the object if it can. If it doesn't—or can't—drop the object, it has disadvantage on attack rolls and ability checks until the start of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d8]] for each slot level above 2nd.</p>"
-        }
-      },
-      "hkYGZs8OhG1Uj1if": {
-        "type": "Save",
-        "_id": "hkYGZs8OhG1Uj1if",
-        "img": null,
-        "description": {
-          "value": "<p>Choose a manufactured metal object, such as a blaster or a suit of heavy or medium metal armor, that you can see within range. You cause the object to glow red-hot. Any creature in physical contact with the object takes [[/r 2d8]] fire damage when you cast the power. Until the power ends, you can use a bonus action on each of your subsequent turns to cause this damage again.</p>\n<p>If an object is held, worn, or integrated, and a creature takes the damage from it, the creature must succeed on a Constitution saving throw or drop the object if it can. If it doesn't—or can't—drop the object, it has disadvantage on attack rolls and ability checks until the start of your next turn.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d8]] for each slot level above 2nd.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "fire"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
       }
     }
   },
@@ -247,7 +176,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

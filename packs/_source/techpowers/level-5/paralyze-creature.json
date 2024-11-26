@@ -102,116 +102,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "O4QbwOE8gXzAB99c": {
-        "type": "Save",
-        "_id": "O4QbwOE8gXzAB99c",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "90",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
         },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You emit a paralyzing dart at a creature that you can see within range. The target must succeed on a Constitution saving throw or be poisoned for the duration. While poisoned in this way, the target is paralyzed. At the end of each of its turns, the target can make another Constitution saving throw. On a success, the power ends on the target.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, you can target one additional creature for each slot level above 5th. The creatures must be within 30 feet of each other when you target them.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "6"
+            }
+          ]
         }
-      },
-      "kKCHahB9jly6ydTp": {
-        "type": "Save",
-        "_id": "kKCHahB9jly6ydTp",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "90",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You emit a paralyzing dart at a creature that you can see within range. The target must succeed on a Constitution saving throw or be poisoned for the duration. While poisoned in this way, the target is paralyzed. At the end of each of its turns, the target can make another Constitution saving throw. On a success, the power ends on the target.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, you can target one additional creature for each slot level above 5th. The creatures must be within 30 feet of each other when you target them.</p>"
-        }
-      },
-      "sX6xtbBIzi218pvd": {
-        "type": "Save",
-        "_id": "sX6xtbBIzi218pvd",
-        "img": null,
-        "description": {
-          "value": "<p>You emit a paralyzing dart at a creature that you can see within range. The target must succeed on a Constitution saving throw or be poisoned for the duration. While poisoned in this way, the target is paralyzed. At the end of each of its turns, the target can make another Constitution saving throw. On a success, the power ends on the target.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 6th level or higher, you can target one additional creature for each slot level above 5th. The creatures must be within 30 feet of each other when you target them.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "90"
       }
     }
   },
@@ -227,7 +156,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

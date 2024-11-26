@@ -109,131 +109,59 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "oEvnWHG75OPQvzKL": {
-        "type": "Save",
-        "_id": "oEvnWHG75OPQvzKL",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "150",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "7d10",
-              "energy"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 7,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
           ]
         },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Pyrokinesis</em></p>\n<p>A storm made up of sheets of roaring, Force-enhanced flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a Dexterity saving throw. It takes [[/r 7d10]] energy damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one cube is affected only once.</p>\n<p>The flame damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "8"
+            }
+          ]
         }
-      },
-      "dBkL8whEVvH1mNJZ": {
-        "type": "Save",
-        "_id": "dBkL8whEVvH1mNJZ",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "150",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "7d10",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Pyrokinesis</em></p>\n<p>A storm made up of sheets of roaring, Force-enhanced flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a Dexterity saving throw. It takes [[/r 7d10]] energy damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one cube is affected only once.</p>\n<p>The flame damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
-        }
-      },
-      "s5ZOZtbrgTsvojaS": {
-        "type": "Save",
-        "_id": "s5ZOZtbrgTsvojaS",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Pyrokinesis</em></p>\n<p>A storm made up of sheets of roaring, Force-enhanced flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a Dexterity saving throw. It takes [[/r 7d10]] energy damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one cube is affected only once.</p>\n<p>The flame damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "7d10",
-              "energy"
-            ]
-          ]
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "range": "150"
       }
     }
   },
@@ -245,7 +173,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979279,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

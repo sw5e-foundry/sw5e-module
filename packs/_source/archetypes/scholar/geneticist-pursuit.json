@@ -25,8 +25,7 @@
     "classIdentifier": "scholar",
     "advancement": [
       {
-        "_id": "nhPljhovyxBp2eV0",
-        "type": "ItemGrant",
+        "_id": "sw5e0ig000000000",
         "configuration": {
           "items": [
             {
@@ -41,13 +40,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 3,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1TcuWuD1uVip8WAa",
-        "type": "ItemGrant",
+        "_id": "sw5e1ig000000000",
         "configuration": {
           "items": [
             {
@@ -58,13 +57,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 6,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1icAksWixxVy19Ut",
-        "type": "ItemGrant",
+        "_id": "sw5e2ig000000000",
         "configuration": {
           "items": [
             {
@@ -75,13 +74,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 9,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1OEzUaNZbKkD1uND",
-        "type": "ItemGrant",
+        "_id": "sw5e3ig000000000",
         "configuration": {
           "items": [
             {
@@ -92,13 +91,13 @@
           "optional": false,
           "spell": null
         },
-        "value": {},
         "level": 17,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "7xmUcPajBIt129fe",
-        "type": "Trait",
+        "_id": "sw5e4t0000000000",
         "configuration": {
           "choices": [
             {
@@ -115,14 +114,32 @@
           "mode": "default",
           "allowReplacements": false
         },
+        "level": 3,
+        "type": "Trait",
         "value": {
           "chosen": []
-        },
-        "level": 3
+        }
       },
       {
-        "_id": "Jtso4JAGgK31p3mT",
+        "_id": "sw5e5t0000000000",
+        "configuration": {
+          "choices": [],
+          "grants": [
+            "dr:poison",
+            "ci:poisoned",
+            "ci:diseased"
+          ],
+          "mode": "default",
+          "allowReplacements": false
+        },
+        "level": 9,
         "type": "Trait",
+        "value": {
+          "chosen": []
+        }
+      },
+      {
+        "_id": "sw5e6t0000000000",
         "configuration": {
           "choices": [
             {
@@ -177,15 +194,16 @@
           "mode": "default",
           "allowReplacements": false
         },
+        "level": 17,
+        "type": "Trait",
         "value": {
           "chosen": []
-        },
-        "level": 17
+        }
       },
       {
-        "_id": "1RwKI19F7ZGp8lEL",
-        "type": "ItemChoice",
+        "_id": "sw5e7ic000000000",
         "configuration": {
+          "allowDrops": true,
           "choices": {
             "2": {
               "count": 2,
@@ -216,46 +234,46 @@
               "replacement": false
             }
           },
-          "allowDrops": true,
-          "type": "feat",
           "pool": [
             {
-              "uuid": "Compendium.sw5e.invocations.POUqhvRbSOy1FSeU"
+              "uuid": "Compendium.sw5e.invocations.pmlDByhhauFDaMA4"
             },
             {
-              "uuid": "Compendium.sw5e.invocations.s2NAVqsMVLoQhG5E"
+              "uuid": "Compendium.sw5e.invocations.KKZfdzSIHGS08QW7"
             },
             {
-              "uuid": "Compendium.sw5e.invocations.16cZLJkqnOKTesER"
+              "uuid": "Compendium.sw5e.invocations.5Kk7K01pqvHtNqPM"
             },
             {
-              "uuid": "Compendium.sw5e.invocations.jyIHYF6z5E89SGqa"
+              "uuid": "Compendium.sw5e.invocations.iW7YOKfC8vCM05I7"
             },
             {
-              "uuid": "Compendium.sw5e.invocations.uHzzhFWgdVv1MSHW"
+              "uuid": "Compendium.sw5e.invocations.Z5IoVhfozY9VvO86"
             },
             {
-              "uuid": "Compendium.sw5e.invocations.1t0EaHa1loRU17sa"
+              "uuid": "Compendium.sw5e.invocations.CxNSjSbcj7nt5rrx"
             },
             {
-              "uuid": "Compendium.sw5e.invocations.wOwQBekVoqr1oTcS"
+              "uuid": "Compendium.sw5e.invocations.RSDxiJNou0dNR1FR"
             },
             {
-              "uuid": "Compendium.sw5e.invocations.1TOspxgyyfbwksY0"
+              "uuid": "Compendium.sw5e.invocations.VY8hjxiJjvWdJKjX"
             }
           ],
           "restriction": {
-            "type": "class",
+            "level": "",
             "subtype": "geneticist pursuitInvocation",
-            "level": ""
+            "type": "class"
           },
+          "type": "feat",
           "spell": null
         },
+        "title": "Geneticist Discoveries",
+        "type": "ItemChoice",
         "value": {
           "added": {},
           "replaced": {}
         },
-        "title": "Geneticist Discoveries",
         "hint": "As you adventure, your studies have helped you discover new practices you can apply to your skills. You master two discoveries of your choice. Your discovery options are detailed at the end of the class description. When you gain certain scholar levels, you gain additional discoveries of your choice, as shown in the Discoveries column of the scholar table.\nAdditionally, when you gain a level in this class, you can choose one of the discoveries you know and replace it with another discovery that you could learn at that level."
       }
     ],
@@ -274,7 +292,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493959746,
-    "modifiedTime": 1729983833111,
+    "modifiedTime": 1732412593736,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

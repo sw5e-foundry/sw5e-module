@@ -105,131 +105,59 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1EJ5u4agBFIW1K4f": {
-        "type": "Save",
-        "_id": "1EJ5u4agBFIW1K4f",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "90",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "3d6",
-              "cold"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 3,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "cold"
+              ]
+            }
           ]
         },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>An explosion of cold energy erupts from a point you choose within range. Each creature in a 5-foot-radius sphere centered on that point must make a Dexterity saving throw. On a failed save, a creature takes [[/r 3d6]] cold damage, and gains 1 slowed level until the start of your next turn. On a successful save, a creature takes half as much damage and isn't slowed.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d6]] for each slot level above 2nd.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "3"
+            }
+          ]
         }
-      },
-      "1dNaJjafq1g71n1T": {
-        "type": "Save",
-        "_id": "1dNaJjafq1g71n1T",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "90",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d6",
-              "cold"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>An explosion of cold energy erupts from a point you choose within range. Each creature in a 5-foot-radius sphere centered on that point must make a Dexterity saving throw. On a failed save, a creature takes [[/r 3d6]] cold damage, and gains 1 slowed level until the start of your next turn. On a successful save, a creature takes half as much damage and isn't slowed.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d6]] for each slot level above 2nd.</p>"
-        }
-      },
-      "GArjzbFPRMy1uBxA": {
-        "type": "Save",
-        "_id": "GArjzbFPRMy1uBxA",
-        "img": null,
-        "description": {
-          "value": "<p>An explosion of cold energy erupts from a point you choose within range. Each creature in a 5-foot-radius sphere centered on that point must make a Dexterity saving throw. On a failed save, a creature takes [[/r 3d6]] cold damage, and gains 1 slowed level until the start of your next turn. On a successful save, a creature takes half as much damage and isn't slowed.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d6]] for each slot level above 2nd.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d6",
-              "cold"
-            ]
-          ]
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "90"
       }
     }
   },
@@ -245,7 +173,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

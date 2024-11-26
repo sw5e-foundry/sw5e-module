@@ -1,10 +1,16 @@
 {
+  "_id": "OV8ngmU6oOTyzwPz",
   "name": "Force Technique",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/ForceTechnique.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1547431+00:00",
       "importer_version": 3,
-      "uid": "Power.name-force_technique"
+      "uid": "Power.name-force_technique.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -14,61 +20,73 @@
     }
   },
   "system": {
-    "activities": {
-      "1P5kr4UDgDdz1uTV": {
-        "type": "Damage",
-        "_id": "1P5kr4UDgDdz1uTV",
-        "img": null,
-        "description": {
-          "value": "<p>You imbue your weapon with the purifying light of the Force. As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes wreathed in a glowing barrier of force energy until the start of your next turn. If the target willingly moves before then, it immediately takes [[/r 1d8]] force damage, and the power ends.</p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] force damage to the target, and the damage the target takes for moving increases to [[/r 2d8]]. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
-      }
-    },
     "description": {
       "value": "<p>You imbue your weapon with the purifying light of the Force. As part of the action used to cast this power, you must make a melee weapon attack against one creature within your reach, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes wreathed in a glowing barrier of force energy until the start of your next turn. If the target willingly moves before then, it immediately takes [[/r 1d8]] force damage, and the power ends.</p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra [[/r 1d8]] force damage to the target, and the damage the target takes for moving increases to [[/r 2d8]]. Both damage rolls increase by [[/r 1d8]] at 11th level and 17th level.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
       "value": "1",
       "units": "round"
     },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "touch"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "other",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d8",
+          "force"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "lgt",
     "materials": {
       "value": "",
       "consumed": false,
@@ -77,45 +95,72 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": false
+      "prepared": true
     },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
     "properties": [],
-    "range": {
-      "units": "touch"
-    },
-    "school": "lgt",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "round",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "force-technique"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/ForceTechnique.webp",
-  "effects": [],
-  "_id": "XSYpwGhqFDIYWnwP",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984159037,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979224,
+    "modifiedTime": 1732455689536,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!XSYpwGhqFDIYWnwP"
+  "_key": "!items!OV8ngmU6oOTyzwPz"
 }

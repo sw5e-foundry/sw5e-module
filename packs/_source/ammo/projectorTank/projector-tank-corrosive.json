@@ -117,125 +117,46 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1yAFb4j2jQEq1bQM": {
-        "type": "Save",
-        "_id": "1yAFb4j2jQEq1bQM",
-        "img": null,
-        "description": {
-          "value": "<p>When triggered, this vapor projector ammunition produces a spray of acid in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Constitution saving throw. On a failed save, a creature takes [[/r 2d6]] acid damage, and the first attack it makes before the end of its next turn has disadvantage. On a successful save, a creature takes half damage and isn't disadvantaged. If this damage reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything it is wearing and carrying are reduced to a pile of fine gray dust. </p>"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
         },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "acid"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "acid"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "vr82unLXz8hQM6gC": {
-        "type": "Save",
-        "_id": "vr82unLXz8hQM6gC",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "acid"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>When triggered, this vapor projector ammunition produces a spray of acid in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Constitution saving throw. On a failed save, a creature takes [[/r 2d6]] acid damage, and the first attack it makes before the end of its next turn has disadvantage. On a successful save, a creature takes half damage and isn't disadvantaged. If this damage reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything it is wearing and carrying are reduced to a pile of fine gray dust. </p>"
-        }
-      },
-      "pX90RXrDL1q1z5eh": {
-        "type": "Save",
-        "_id": "pX90RXrDL1q1z5eh",
-        "img": null,
-        "description": {
-          "value": "<p>When triggered, this vapor projector ammunition produces a spray of acid in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Constitution saving throw. On a failed save, a creature takes [[/r 2d6]] acid damage, and the first attack it makes before the end of its next turn has disadvantage. On a successful save, a creature takes half damage and isn't disadvantaged. If this damage reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything it is wearing and carrying are reduced to a pile of fine gray dust. </p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "acid"
-            ]
-          ]
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -247,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956729,
-    "modifiedTime": 1729983823987,
+    "modifiedTime": 1732455688754,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -111,112 +111,46 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1tpBI7ltYnlI15FE": {
-        "type": "Save",
-        "_id": "1tpBI7ltYnlI15FE",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "wis",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 30,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Fear</em></p>\n<p>You project a phantasmal image of a creature's worst fears. Each creature in a 30-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding and become frightened for the duration. This power has no effect on constructs or droids.</p>\n<p>While frightened by this power, a creature must take the Dash action and move away from you by the safest </p>\n<p>available route on each of its turns, unless there is nowhere to move. If the creature ends its turn in a location where it doesn't have line of sight to you, the creature can make a Wisdom saving throw. On a successful save, the power ends for that creature.</p>"
-        }
-      },
-      "1OROoUMZGRWaWi2I": {
-        "type": "Save",
-        "_id": "1OROoUMZGRWaWi2I",
-        "img": null,
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": 30,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Fear</em></p>\n<p>You project a phantasmal image of a creature's worst fears. Each creature in a 30-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding and become frightened for the duration. This power has no effect on constructs or droids.</p>\n<p>While frightened by this power, a creature must take the Dash action and move away from you by the safest </p>\n<p>available route on each of its turns, unless there is nowhere to move. If the creature ends its turn in a location where it doesn't have line of sight to you, the creature can make a Wisdom saving throw. On a successful save, the power ends for that creature.</p>"
-        }
-      },
-      "b9qb8ogMMT51aamY": {
-        "type": "Save",
-        "_id": "b9qb8ogMMT51aamY",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Fear</em></p>\n<p>You project a phantasmal image of a creature's worst fears. Each creature in a 30-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding and become frightened for the duration. This power has no effect on constructs or droids.</p>\n<p>While frightened by this power, a creature must take the Dash action and move away from you by the safest </p>\n<p>available route on each of its turns, unless there is nowhere to move. If the creature ends its turn in a location where it doesn't have line of sight to you, the creature can make a Wisdom saving throw. On a successful save, the power ends for that creature.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": 30,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "4"
+            }
+          ]
         }
       }
     }
@@ -229,7 +163,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979271,
-    "modifiedTime": 1729983826649,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

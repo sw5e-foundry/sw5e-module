@@ -101,7 +101,18 @@
           "acid"
         ]
       ],
-      "versatile": "2d4 +  @mod"
+      "versatile": {
+        "custom": {},
+        "types": [
+          "acid"
+        ],
+        "scaling": {
+          "mode": "",
+          "number": 1
+        },
+        "number": 2,
+        "denomination": 4
+      }
     },
     "formula": "",
     "save": {
@@ -158,325 +169,46 @@
     "magicalBonus": null,
     "firingArc": "",
     "activities": {
-      "MJcy2nSOmZwaeGMd": {
-        "type": "Attack",
-        "_id": "MJcy2nSOmZwaeGMd",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "description": {
-          "value": "<h3>Biting 13</h3>\n<p>This weapon's damage becomes acid. Additionally, when you would make a melee weapon attack with a weapon with the biting property, you can instead force the target to make a Constitution saving throw (DC = 8 + your bonus to attacks with the weapon, or the biting number, whichever is lower). If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw. On a failed save, the target takes normal weapon damage and is subjected to any additional effects that would occur on a hit, and the first attack it makes before the end of its next turn has disadvantage. If damage dealt by this weapon reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything unenhanced it is wearing and carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>\n<h3>Versatile ([[/r 2d4]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6 + @mod",
-              "acid"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "1xCNGResjJJt176f": {
-        "type": "Attack",
-        "_id": "1xCNGResjJJt176f",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "description": {
-          "value": "<h3>Biting 13</h3>\n<p>This weapon's damage becomes acid. Additionally, when you would make a melee weapon attack with a weapon with the biting property, you can instead force the target to make a Constitution saving throw (DC = 8 + your bonus to attacks with the weapon, or the biting number, whichever is lower). If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw. On a failed save, the target takes normal weapon damage and is subjected to any additional effects that would occur on a hit, and the first attack it makes before the end of its next turn has disadvantage. If damage dealt by this weapon reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything unenhanced it is wearing and carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>\n<h3>Versatile ([[/r 2d4]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6 + @mod",
-              "acid"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "7a6xt1ktCQeNe1bD": {
-        "type": "Attack",
-        "_id": "7a6xt1ktCQeNe1bD",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6 + @mod",
-              "acid"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h3>Biting 13</h3>\n<p>This weapon's damage becomes acid. Additionally, when you would make a melee weapon attack with a weapon with the biting property, you can instead force the target to make a Constitution saving throw (DC = 8 + your bonus to attacks with the weapon, or the biting number, whichever is lower). If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw. On a failed save, the target takes normal weapon damage and is subjected to any additional effects that would occur on a hit, and the first attack it makes before the end of its next turn has disadvantage. If damage dealt by this weapon reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything unenhanced it is wearing and carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>\n<h3>Versatile ([[/r 2d4]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        }
-      },
-      "19L27VhP8yNYJlov": {
-        "type": "Attack",
-        "_id": "19L27VhP8yNYJlov",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6 + @mod",
-              "acid"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h3>Biting 13</h3>\n<p>This weapon's damage becomes acid. Additionally, when you would make a melee weapon attack with a weapon with the biting property, you can instead force the target to make a Constitution saving throw (DC = 8 + your bonus to attacks with the weapon, or the biting number, whichever is lower). If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw. On a failed save, the target takes normal weapon damage and is subjected to any additional effects that would occur on a hit, and the first attack it makes before the end of its next turn has disadvantage. If damage dealt by this weapon reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything unenhanced it is wearing and carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>\n<h3>Versatile ([[/r 2d4]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        }
-      },
-      "1kdZPw1qLUPK1EYM": {
-        "type": "Attack",
-        "_id": "1kdZPw1qLUPK1EYM",
-        "img": null,
-        "description": {
-          "value": "<h3>Biting 13</h3>\n<p>This weapon's damage becomes acid. Additionally, when you would make a melee weapon attack with a weapon with the biting property, you can instead force the target to make a Constitution saving throw (DC = 8 + your bonus to attacks with the weapon, or the biting number, whichever is lower). If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw. On a failed save, the target takes normal weapon damage and is subjected to any additional effects that would occur on a hit, and the first attack it makes before the end of its next turn has disadvantage. If damage dealt by this weapon reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything unenhanced it is wearing and carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>\n<h3>Versatile ([[/r 2d4]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6 + @mod",
-              "acid"
-            ]
-          ]
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "weapon",
           "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        }
-      },
-      "9iy0PN1cuE7WngKc": {
-        "type": "Attack",
-        "_id": "9iy0PN1cuE7WngKc",
-        "img": null,
-        "description": {
-          "value": "<h3>Biting 13</h3>\n<p>This weapon's damage becomes acid. Additionally, when you would make a melee weapon attack with a weapon with the biting property, you can instead force the target to make a Constitution saving throw (DC = 8 + your bonus to attacks with the weapon, or the biting number, whichever is lower). If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw. On a failed save, the target takes normal weapon damage and is subjected to any additional effects that would occur on a hit, and the first attack it makes before the end of its next turn has disadvantage. If damage dealt by this weapon reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything unenhanced it is wearing and carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>\n<h3>Versatile ([[/r 2d4]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "type": {}
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
+          "critical": {},
           "parts": [
-            [
-              "1d6 + @mod",
-              "acid"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": null,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "acid"
+              ]
+            }
           ]
         },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        }
-      },
-      "1IZgBWgIwnEy1fnc": {
-        "type": "Attack",
-        "_id": "1IZgBWgIwnEy1fnc",
-        "img": null,
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "description": {
-          "value": "<h3>Biting 13</h3>\n<p>This weapon's damage becomes acid. Additionally, when you would make a melee weapon attack with a weapon with the biting property, you can instead force the target to make a Constitution saving throw (DC = 8 + your bonus to attacks with the weapon, or the biting number, whichever is lower). If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw. On a failed save, the target takes normal weapon damage and is subjected to any additional effects that would occur on a hit, and the first attack it makes before the end of its next turn has disadvantage. If damage dealt by this weapon reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything unenhanced it is wearing and carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>\n<h3>Versatile ([[/r 2d4]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6 + @mod",
-              "acid"
-            ]
-          ]
-        }
-      },
-      "ZkWlxNGfkvE1KLMm": {
-        "type": "Attack",
-        "_id": "ZkWlxNGfkvE1KLMm",
         "img": null,
-        "activation": {
-          "type": "action",
-          "cost": 1
+        "range": {
+          "override": false
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "description": {
-          "value": "<h3>Biting 13</h3>\n<p>This weapon's damage becomes acid. Additionally, when you would make a melee weapon attack with a weapon with the biting property, you can instead force the target to make a Constitution saving throw (DC = 8 + your bonus to attacks with the weapon, or the biting number, whichever is lower). If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw. On a failed save, the target takes normal weapon damage and is subjected to any additional effects that would occur on a hit, and the first attack it makes before the end of its next turn has disadvantage. If damage dealt by this weapon reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything unenhanced it is wearing and carrying are reduced to a pile of fine gray dust. A creature destroyed in this way can not be revitalized.</p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Luminous</h3>\n<p>A weapon with this property sheds dim light in a 5-foot radius while activated. Additionally, Dexterity (Stealth) checks made while the weapon is activated have disadvantage.</p>\n<h3>Versatile ([[/r 2d4]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6 + @mod",
-              "acid"
-            ]
-          ]
-        }
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -488,7 +220,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493982788,
-    "modifiedTime": 1729988022901,
+    "modifiedTime": 1732455685829,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

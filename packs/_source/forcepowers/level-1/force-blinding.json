@@ -104,76 +104,37 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "IUoD39KHnq6IlWGt": {
-        "type": "Utility",
-        "_id": "IUoD39KHnq6IlWGt",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "roll": "6d10",
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        },
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
+          "condition": "",
+          "type": "action"
         },
-        "description": {
-          "value": "<p>You use the Force to emit a blinding flash of light from your hand. Roll [[/r 6d10]], the total is how many hit points of creatures this power can effect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring unconscious creatures and creatures that can't see).</p>\n<p>Starting with the creature that has the lowest current hit points, each creature affected by this power is blinded until the power ends. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for the creature to be affected.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, roll an additional [[/r 2d10]] for each slot level above 1st.</p>"
-        }
-      },
-      "v1zVPmgpIle15iNL": {
-        "type": "Utility",
-        "_id": "v1zVPmgpIle15iNL",
-        "img": null,
-        "roll": "6d10",
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "round"
+          "units": "round",
+          "value": "1"
         },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You use the Force to emit a blinding flash of light from your hand. Roll [[/r 6d10]], the total is how many hit points of creatures this power can effect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring unconscious creatures and creatures that can't see).</p>\n<p>Starting with the creature that has the lowest current hit points, each creature affected by this power is blinded until the power ends. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for the creature to be affected.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, roll an additional [[/r 2d10]] for each slot level above 1st.</p>"
-        }
-      },
-      "1qtratmaIlUo1gIG": {
-        "type": "Utility",
-        "_id": "1qtratmaIlUo1gIG",
         "img": null,
-        "description": {
-          "value": "<p>You use the Force to emit a blinding flash of light from your hand. Roll [[/r 6d10]], the total is how many hit points of creatures this power can effect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring unconscious creatures and creatures that can't see).</p>\n<p>Starting with the creature that has the lowest current hit points, each creature affected by this power is blinded until the power ends. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for the creature to be affected.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, roll an additional [[/r 2d10]] for each slot level above 1st.</p>"
+        "range": {
+          "override": false
         },
-        "roll": "6d10",
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
+        "roll": {},
+        "target": {},
+        "type": "utility",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
       }
     }
@@ -186,7 +147,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979308,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

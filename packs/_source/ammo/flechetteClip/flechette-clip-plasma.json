@@ -117,125 +117,46 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1V5E5HiTLGFbLCoj": {
-        "type": "Save",
-        "_id": "1V5E5HiTLGFbLCoj",
-        "img": null,
-        "description": {
-          "value": "<p>When triggered, this wrist launcher ammunition fires a volley of energy flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette clip holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 1d10]] energy damage on a failed save, or half as much as on a successful one. If you lack proficiency in the wrist launcher, you have disadvantage on damage rolls with it</p>"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d10",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "2iIxFRbgdEGOAxnd": {
-        "type": "Save",
-        "_id": "2iIxFRbgdEGOAxnd",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d10",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>When triggered, this wrist launcher ammunition fires a volley of energy flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette clip holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 1d10]] energy damage on a failed save, or half as much as on a successful one. If you lack proficiency in the wrist launcher, you have disadvantage on damage rolls with it</p>"
-        }
-      },
-      "wNo1oRU11te1T0y4": {
-        "type": "Save",
-        "_id": "wNo1oRU11te1T0y4",
-        "img": null,
-        "description": {
-          "value": "<p>When triggered, this wrist launcher ammunition fires a volley of energy flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette clip holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 1d10]] energy damage on a failed save, or half as much as on a successful one. If you lack proficiency in the wrist launcher, you have disadvantage on damage rolls with it</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d10",
-              "energy"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -247,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956734,
-    "modifiedTime": 1729983824027,
+    "modifiedTime": 1732455688754,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

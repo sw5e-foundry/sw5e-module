@@ -43,69 +43,68 @@
     },
     "advancement": [
       {
-        "_id": "1V8nJ1Sf6HVF7esp",
-        "type": "ItemGrant",
+        "_id": "sw5e0ig000000000",
         "configuration": {
           "items": [
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.ztKyXMOYfR51iuDk",
+              "uuid": "Compendium.sw5e.speciesfeatures.kJL4t0afhe256tgU",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1kacO43hxP1N1fNe",
+              "uuid": "Compendium.sw5e.speciesfeatures.Jywl9Clk9CAyYUDv",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1GmtQNyO71oAzxQQ",
+              "uuid": "Compendium.sw5e.speciesfeatures.gZkFzk6OQi0Rypv2",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1aUOlocsZ3nbeoWP",
+              "uuid": "Compendium.sw5e.speciesfeatures.JVCJuwsZJBWSuZBO",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.mqH7exXQ2FEOvo8D",
+              "uuid": "Compendium.sw5e.speciesfeatures.DJ52vGW9H5LtS1vL",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1g9gteYNkRmi1nP5",
+              "uuid": "Compendium.sw5e.speciesfeatures.qAnp8PdylwhlSui1",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.E9xQs5TsR0v4oVe0",
+              "uuid": "Compendium.sw5e.speciesfeatures.p8NbrCNAeVFgcVC7",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.kIcSBv2ocii15Qoh",
+              "uuid": "Compendium.sw5e.speciesfeatures.smdhd40TGkT3W471",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.Z5L8sqGFEJe1SZaW",
+              "uuid": "Compendium.sw5e.speciesfeatures.ZQftfiXOt6Kbq4li",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1mKqUAbqUG5A16oz",
+              "uuid": "Compendium.sw5e.speciesfeatures.1flvc9eYlQiEWLVY",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.yRZHvlJn4Ve1PtRt",
+              "uuid": "Compendium.sw5e.speciesfeatures.I2X5jbFo0VgBltlk",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1Ojc7e5TluQH1eHQ",
+              "uuid": "Compendium.sw5e.speciesfeatures.Zgpq9VnSnfleQwtp",
               "optional": false
             }
           ],
           "optional": true,
           "spell": null
         },
-        "value": {},
         "level": 0,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "1x1JQJVF1QXW8fGW",
-        "type": "AbilityScoreImprovement",
+        "_id": "sw5e1asi00000000",
         "configuration": {
           "fixed": {
             "con": 1
@@ -114,25 +113,25 @@
           "cap": 2,
           "locked": []
         },
+        "level": 0,
+        "type": "AbilityScoreImprovement",
         "value": {
           "type": "asi"
-        },
-        "level": 0
+        }
       },
       {
-        "_id": "18Aguq4g0GdIGvos",
-        "type": "Size",
+        "_id": "sw5e2s0000000000",
         "configuration": {
           "sizes": [
             "med"
           ]
         },
-        "value": {},
-        "level": 0
+        "level": 0,
+        "type": "Size",
+        "value": {}
       },
       {
-        "_id": "PnjnRFg7bMu1MaSi",
-        "type": "Trait",
+        "_id": "sw5e3t0000000000",
         "configuration": {
           "choices": [
             {
@@ -142,14 +141,17 @@
               ]
             }
           ],
-          "grants": [],
+          "grants": [
+            "dr:necrotic"
+          ],
           "mode": "default",
           "allowReplacements": false
         },
+        "level": 0,
+        "type": "Trait",
         "value": {
           "chosen": []
-        },
-        "level": 0
+        }
       }
     ],
     "skinColorOptions": {
@@ -201,15 +203,9 @@
       "changes": [
         {
           "key": "flags.sw5e.foreignBiology",
-          "value": "1",
           "mode": 0,
-          "priority": 20
-        },
-        {
-          "key": "system.traits.dr.value",
-          "value": "necrotic",
-          "mode": 2,
-          "priority": 20
+          "priority": 20,
+          "value": "1"
         }
       ],
       "disabled": false,
@@ -257,7 +253,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296028336,
-    "modifiedTime": 1729983891167,
+    "modifiedTime": 1732412596409,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

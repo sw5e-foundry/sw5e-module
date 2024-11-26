@@ -104,73 +104,37 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1mCOXb3fVcDl18mI": {
-        "type": "Utility",
-        "_id": "1mCOXb3fVcDl18mI",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
         "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you would roll initiative"
+          "condition": "when you would roll initiative",
+          "type": "reaction"
         },
-        "description": {
-          "value": "<p>Through the Force, you sense a sudden shift in your environment, and can seize on it with great speed. You gain advantage on your initiative check, and until the end of your first turn in combat, your walking speed increases by 30 feet.</p>"
-        }
-      },
-      "1RG1AGdA2N9ctmA0": {
-        "type": "Utility",
-        "_id": "1RG1AGdA2N9ctmA0",
-        "img": null,
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "round"
+          "units": "round",
+          "value": "1"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you would roll initiative"
-        },
-        "description": {
-          "value": "<p>Through the Force, you sense a sudden shift in your environment, and can seize on it with great speed. You gain advantage on your initiative check, and until the end of your first turn in combat, your walking speed increases by 30 feet.</p>"
-        }
-      },
-      "K2l488BsAX7GayUW": {
-        "type": "Utility",
-        "_id": "K2l488BsAX7GayUW",
         "img": null,
-        "description": {
-          "value": "<p>Through the Force, you sense a sudden shift in your environment, and can seize on it with great speed. You gain advantage on your initiative check, and until the end of your first turn in combat, your walking speed increases by 30 feet.</p>"
+        "range": {
+          "override": false
         },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you would roll initiative"
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "roll": {},
+        "target": {},
+        "type": "utility",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
       }
     }
@@ -183,7 +147,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979342,
-    "modifiedTime": 1729983828036,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

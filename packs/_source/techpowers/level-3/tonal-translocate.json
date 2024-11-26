@@ -110,131 +110,59 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1B7bcdR9Outs1zho": {
-        "type": "Save",
-        "_id": "1B7bcdR9Outs1zho",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "90",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "3d10",
-              "sonic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 3,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "sonic"
+              ]
+            }
           ]
         },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You teleport yourself to an unoccupied space you can see within range. Immediately after you disappear, a thunderous boom sounds, and each creature within 10 feet of the space you left must make a Constitution saving throw, taking [[/r 3d10]] sonic damage on a failed save, or half as much damage on a successful one. The blast can be heard from up to 300 feet away.</p>\n<p>You can bring along objects as long as their weight doesn't exceed what you can carry. You can also teleport one willing creature of your size or smaller who is carrying gear up to its carrying capacity. The creature must be within 5 feet of you when you cast this power, and there must be an unoccupied space within 5 feet of your destination space for the creature to appear in; otherwise, the creature is left behind.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the damage increases by [[/r 1d10]] for each slot level above 3rd.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "4"
+            }
+          ]
         }
-      },
-      "1Dudw7tyhltJa7RE": {
-        "type": "Save",
-        "_id": "1Dudw7tyhltJa7RE",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "90",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d10",
-              "sonic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You teleport yourself to an unoccupied space you can see within range. Immediately after you disappear, a thunderous boom sounds, and each creature within 10 feet of the space you left must make a Constitution saving throw, taking [[/r 3d10]] sonic damage on a failed save, or half as much damage on a successful one. The blast can be heard from up to 300 feet away.</p>\n<p>You can bring along objects as long as their weight doesn't exceed what you can carry. You can also teleport one willing creature of your size or smaller who is carrying gear up to its carrying capacity. The creature must be within 5 feet of you when you cast this power, and there must be an unoccupied space within 5 feet of your destination space for the creature to appear in; otherwise, the creature is left behind.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the damage increases by [[/r 1d10]] for each slot level above 3rd.</p>"
-        }
-      },
-      "1SjWIDV1UrMlyd8D": {
-        "type": "Save",
-        "_id": "1SjWIDV1UrMlyd8D",
-        "img": null,
-        "description": {
-          "value": "<p>You teleport yourself to an unoccupied space you can see within range. Immediately after you disappear, a thunderous boom sounds, and each creature within 10 feet of the space you left must make a Constitution saving throw, taking [[/r 3d10]] sonic damage on a failed save, or half as much damage on a successful one. The blast can be heard from up to 300 feet away.</p>\n<p>You can bring along objects as long as their weight doesn't exceed what you can carry. You can also teleport one willing creature of your size or smaller who is carrying gear up to its carrying capacity. The creature must be within 5 feet of you when you cast this power, and there must be an unoccupied space within 5 feet of your destination space for the creature to appear in; otherwise, the creature is left behind.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the damage increases by [[/r 1d10]] for each slot level above 3rd.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d10",
-              "sonic"
-            ]
-          ]
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "90"
       }
     }
   },
@@ -250,7 +178,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

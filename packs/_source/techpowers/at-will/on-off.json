@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1747317+00:00",
       "importer_version": 3,
-      "uid": "Power.name-onoff"
+      "uid": "Power.name-onoff.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,51 +13,63 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/On-Off.webp",
   "system": {
-    "activities": {
-      "1eZqsDjhXJ9oxQAG": {
-        "type": "Utility",
-        "_id": "1eZqsDjhXJ9oxQAG",
-        "img": null,
-        "description": {
-          "value": "<p>This power allows you to activate or deactivate any electronic device within range, as long as the device is not being wielded by a creature, and has a clearly defined on or off function that can be easily accessed from the outside of the device. Any device that requires a software-based shutdown sequence to activate or deactivate cannot be affected by <em>on/off</em>.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
-      }
-    },
     "description": {
       "value": "<p>This power allows you to activate or deactivate any electronic device within range, as long as the device is not being wielded by a creature, and has a clearly defined on or off function that can be easily accessed from the outside of the device. Any device that requires a software-based shutdown sequence to activate or deactivate cannot be affected by <em>on/off</em>.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
+      "value": "",
       "units": "inst"
     },
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 60,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "other",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "tec",
+    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -68,44 +80,59 @@
       "mode": "prepared",
       "prepared": false
     },
-    "properties": [],
-    "range": {
-      "value": "60",
-      "units": "ft"
+    "scaling": {
+      "mode": "none",
+      "formula": null
     },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
+    "activities": {
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
+        "roll": {},
+        "target": {},
+        "type": "utility"
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "on-off"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/On-Off.webp",
   "effects": [],
-  "_id": "mQl4MwIlYQZn72FR",
+  "_id": "xB1gBT01FENx6xht",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984163435,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1732306712507,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!mQl4MwIlYQZn72FR"
+  "_key": "!items!xB1gBT01FENx6xht"
 }

@@ -100,73 +100,36 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1yI4KzVhrsD84HeE": {
-        "type": "Utility",
-        "_id": "1yI4KzVhrsD84HeE",
-        "img": null,
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "condition": "when you are hit by an attack",
+          "type": "reaction"
+        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you are hit by an attack"
-        },
-        "description": {
-          "value": "<p>Your form shimmers in a holographic configuration and collapses as an attack begins to hit you. You have a +5 bonus to AC against the triggering attack. As part of the same reaction, you can then teleport to an unoccupied space within 30 feet of you, and can make one weapon attack with advantage against the attacker.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the maximum teleport distance increases by 10 for each slot level above 3rd.</p>"
-        }
-      },
-      "13n1mYHviIOqlaq4": {
-        "type": "Utility",
-        "_id": "13n1mYHviIOqlaq4",
         "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+        "range": {
+          "override": false
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you are hit by an attack"
-        },
-        "description": {
-          "value": "<p>Your form shimmers in a holographic configuration and collapses as an attack begins to hit you. You have a +5 bonus to AC against the triggering attack. As part of the same reaction, you can then teleport to an unoccupied space within 30 feet of you, and can make one weapon attack with advantage against the attacker.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the maximum teleport distance increases by 10 for each slot level above 3rd.</p>"
-        }
-      },
-      "2JC5biW9NBn1QWRS": {
-        "type": "Utility",
-        "_id": "2JC5biW9NBn1QWRS",
-        "img": null,
-        "description": {
-          "value": "<p>Your form shimmers in a holographic configuration and collapses as an attack begins to hit you. You have a +5 bonus to AC against the triggering attack. As part of the same reaction, you can then teleport to an unoccupied space within 30 feet of you, and can make one weapon attack with advantage against the attacker.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the maximum teleport distance increases by 10 for each slot level above 3rd.</p>"
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you are hit by an attack"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "roll": {},
+        "target": {},
+        "type": "utility",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "4"
+            }
+          ]
         }
       }
     }
@@ -183,7 +146,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

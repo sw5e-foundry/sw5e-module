@@ -109,91 +109,51 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "7sv0UxaXt3Ie0XqV": {
-        "type": "Heal",
-        "_id": "7sv0UxaXt3Ie0XqV",
-        "img": null,
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "condition": "",
+          "type": "minute"
+        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "hour"
+          "units": "hour",
+          "value": "1"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "healing": [
-          [
-            "4d8 + 15",
+        "healing": {
+          "bonus": "+ 15",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 8,
+          "number": 4,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
             "healing"
           ]
-        ],
-        "activation": {
-          "type": "minute",
-          "cost": 1,
-          "condition": ""
         },
-        "description": {
-          "value": "<p>You touch a creature and stimulate its natural healing ability. The target regains [[/r 4d8+15]] hit points. For the duration of the power, the target regains 1 hit point at the start of each of its turns (10 hit points each minute).</p>\n<p>If the creature has a severed part you hold it to the stump, the power instantaneously causes the limb to knit to the stump.</p>\n<p>This power has no effect on droids or constructs.</p>"
-        }
-      },
-      "11Pn9RNNN7lA10Ae": {
-        "type": "Heal",
-        "_id": "11Pn9RNNN7lA10Ae",
         "img": null,
-        "healing": [
-          [
-            "4d8 + 15",
-            "healing"
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "heal",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "8"
+            }
           ]
-        ],
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "minute",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You touch a creature and stimulate its natural healing ability. The target regains [[/r 4d8+15]] hit points. For the duration of the power, the target regains 1 hit point at the start of each of its turns (10 hit points each minute).</p>\n<p>If the creature has a severed part you hold it to the stump, the power instantaneously causes the limb to knit to the stump.</p>\n<p>This power has no effect on droids or constructs.</p>"
-        }
-      },
-      "1tXiBVTv5ijsRT1g": {
-        "type": "Heal",
-        "_id": "1tXiBVTv5ijsRT1g",
-        "img": null,
-        "description": {
-          "value": "<p>You touch a creature and stimulate its natural healing ability. The target regains [[/r 4d8+15]] hit points. For the duration of the power, the target regains 1 hit point at the start of each of its turns (10 hit points each minute).</p>\n<p>If the creature has a severed part you hold it to the stump, the power instantaneously causes the limb to knit to the stump.</p>\n<p>This power has no effect on droids or constructs.</p>"
-        },
-        "healing": [
-          [
-            "4d8 + 15",
-            "healing"
-          ]
-        ],
-        "activation": {
-          "type": "minute",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
         }
       }
     }
@@ -206,7 +166,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979305,
-    "modifiedTime": 1729983827321,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

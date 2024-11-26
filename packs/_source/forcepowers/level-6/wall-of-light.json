@@ -116,131 +116,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "RRuDNhkYRUxpj2Jm": {
-        "type": "Save",
-        "_id": "RRuDNhkYRUxpj2Jm",
-        "img": null,
-        "duration": {
-          "value": "10",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "90",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "6d10",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 6,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "10"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You conjure an immense manifestation of destructive light side Force energy. The wall appears within range and lasts for the duration. You can make a straight wall up to 100 feet long, 20 feet high, and 5 feet thick, or a ringed wall up to 60 feet in diameter, 20 feet high, and 5 feet thick. The wall provides three-quarters cover and its space is difficult terrain.</p>\n<p>When a creature enters the wall's area for the first time on a turn or starts its turn there, it must make a Dexterity saving throw. On a failed save, the creature takes [[/r 6d10]] force damage, or half as much on a success.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "7"
+            }
+          ]
         }
-      },
-      "1DLupnH937Il13ns": {
-        "type": "Save",
-        "_id": "1DLupnH937Il13ns",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "90",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "6d10",
-              "force"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "10",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You conjure an immense manifestation of destructive light side Force energy. The wall appears within range and lasts for the duration. You can make a straight wall up to 100 feet long, 20 feet high, and 5 feet thick, or a ringed wall up to 60 feet in diameter, 20 feet high, and 5 feet thick. The wall provides three-quarters cover and its space is difficult terrain.</p>\n<p>When a creature enters the wall's area for the first time on a turn or starts its turn there, it must make a Dexterity saving throw. On a failed save, the creature takes [[/r 6d10]] force damage, or half as much on a success.</p>"
-        }
-      },
-      "OyZGhXUU1C6178MP": {
-        "type": "Save",
-        "_id": "OyZGhXUU1C6178MP",
-        "img": null,
-        "description": {
-          "value": "<p>You conjure an immense manifestation of destructive light side Force energy. The wall appears within range and lasts for the duration. You can make a straight wall up to 100 feet long, 20 feet high, and 5 feet thick, or a ringed wall up to 60 feet in diameter, 20 feet high, and 5 feet thick. The wall provides three-quarters cover and its space is difficult terrain.</p>\n<p>When a creature enters the wall's area for the first time on a turn or starts its turn there, it must make a Dexterity saving throw. On a failed save, the creature takes [[/r 6d10]] force damage, or half as much on a success.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "10",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "6d10",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "90"
       }
     }
   },
@@ -252,7 +181,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979210,
-    "modifiedTime": 1729983825892,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

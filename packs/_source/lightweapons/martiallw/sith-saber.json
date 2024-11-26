@@ -101,7 +101,18 @@
           "energy"
         ]
       ],
-      "versatile": "1d10 +  @mod"
+      "versatile": {
+        "custom": {},
+        "types": [
+          "energy"
+        ],
+        "scaling": {
+          "mode": "",
+          "number": 1
+        },
+        "number": 1,
+        "denomination": 10
+      }
     },
     "formula": "",
     "save": {
@@ -158,325 +169,46 @@
     "magicalBonus": null,
     "firingArc": "",
     "activities": {
-      "MXy4psHMpp1DiJAq": {
-        "type": "Attack",
-        "_id": "MXy4psHMpp1DiJAq",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Keen 1</h3>\n<p>When you make a weapon attack with a weapon with the keen property, the critical hit range increases by an amount equal to the keen number.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "5mFdwxs4Vh21D921": {
-        "type": "Attack",
-        "_id": "5mFdwxs4Vh21D921",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Keen 1</h3>\n<p>When you make a weapon attack with a weapon with the keen property, the critical hit range increases by an amount equal to the keen number.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "jjOaIuHnEPVWMgDb": {
-        "type": "Attack",
-        "_id": "jjOaIuHnEPVWMgDb",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Keen 1</h3>\n<p>When you make a weapon attack with a weapon with the keen property, the critical hit range increases by an amount equal to the keen number.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        }
-      },
-      "1PKYwbV6roLZ1ppB": {
-        "type": "Attack",
-        "_id": "1PKYwbV6roLZ1ppB",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Keen 1</h3>\n<p>When you make a weapon attack with a weapon with the keen property, the critical hit range increases by an amount equal to the keen number.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        }
-      },
-      "1UXSOENEfcavZMyi": {
-        "type": "Attack",
-        "_id": "1UXSOENEfcavZMyi",
-        "img": null,
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Keen 1</h3>\n<p>When you make a weapon attack with a weapon with the keen property, the critical hit range increases by an amount equal to the keen number.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "weapon",
           "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        }
-      },
-      "1JoyBC7Dmd1W1gMS": {
-        "type": "Attack",
-        "_id": "1JoyBC7Dmd1W1gMS",
-        "img": null,
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Keen 1</h3>\n<p>When you make a weapon attack with a weapon with the keen property, the critical hit range increases by an amount equal to the keen number.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
+          "type": {}
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
+          "critical": {},
           "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": null,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
           ]
         },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        }
-      },
-      "aHHujUZVEWDDIsoj": {
-        "type": "Attack",
-        "_id": "aHHujUZVEWDDIsoj",
-        "img": null,
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Keen 1</h3>\n<p>When you make a weapon attack with a weapon with the keen property, the critical hit range increases by an amount equal to the keen number.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        }
-      },
-      "4PVWWejMRhrBhCf6": {
-        "type": "Attack",
-        "_id": "4PVWWejMRhrBhCf6",
         "img": null,
-        "activation": {
-          "type": "action",
-          "cost": 1
+        "range": {
+          "override": false
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "description": {
-          "value": "<h3>Dexterity 11</h3>\n<p>A weapon with this property requires more skill to control. While wielding it, you have disadvantage on attack rolls unless you meet the Dexterity requirement. </p>\n<h3>Hidden</h3>\n<p>You have advantage on Dexterity (Sleight of Hand) checks made to conceal a weapon with this property.</p>\n<h3>Keen 1</h3>\n<p>When you make a weapon attack with a weapon with the keen property, the critical hit range increases by an amount equal to the keen number.</p>\n<h3>Versatile ([[/r 1d10]])</h3>\n<p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with two hands to make a melee attack.\t</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        }
+        "target": {},
+        "type": "attack"
       }
     }
   },
@@ -488,7 +220,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493982779,
-    "modifiedTime": 1729988022901,
+    "modifiedTime": 1732455685829,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

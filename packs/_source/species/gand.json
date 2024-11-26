@@ -43,61 +43,60 @@
     },
     "advancement": [
       {
-        "_id": "1BxKmYhJ95HxBqN2",
-        "type": "ItemGrant",
+        "_id": "sw5e0ig000000000",
         "configuration": {
           "items": [
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.mMUBVy3X0FL1rJpC",
+              "uuid": "Compendium.sw5e.speciesfeatures.oMWgx7RAXOZu0dyv",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.MJJS6N9otk0Fh6rg",
+              "uuid": "Compendium.sw5e.speciesfeatures.EVZhEqhQlLpRhDM9",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.aakiOM3f4GfNFPVE",
+              "uuid": "Compendium.sw5e.speciesfeatures.sPc4bkjtgZ1pLvDF",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.801esx4JbPubLcvc",
+              "uuid": "Compendium.sw5e.speciesfeatures.mEwGXRqlwQaZqKFD",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1hanWnwCnss01NEe",
+              "uuid": "Compendium.sw5e.speciesfeatures.LD8dtw2OAeMKkLao",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.4FvBHvm6GlDEvex6",
+              "uuid": "Compendium.sw5e.speciesfeatures.OQ4DoBpTsok5SQWl",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1hjZhXAkabRu1k5z",
+              "uuid": "Compendium.sw5e.speciesfeatures.Rim0XLUL32bEkzXr",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.14HSSgCYb9OTrrf8",
+              "uuid": "Compendium.sw5e.speciesfeatures.DJnKB03yf8khju1n",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1QrcVOozkLv31yIS",
+              "uuid": "Compendium.sw5e.speciesfeatures.nCrP0c3fDGtHwSCF",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.42e8nyrXM3J12epk",
+              "uuid": "Compendium.sw5e.speciesfeatures.1CvrcbCP4WbIHKRQ",
               "optional": false
             }
           ],
           "optional": true,
           "spell": null
         },
-        "value": {},
         "level": 0,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "14vs7lnpIOb716Oo",
-        "type": "AbilityScoreImprovement",
+        "_id": "sw5e1asi00000000",
         "configuration": {
           "fixed": {
             "con": 2,
@@ -107,21 +106,38 @@
           "cap": 2,
           "locked": []
         },
+        "level": 0,
+        "type": "AbilityScoreImprovement",
         "value": {
           "type": "asi"
-        },
-        "level": 0
+        }
       },
       {
-        "_id": "1qJKBIjSoIxwISB4",
-        "type": "Size",
+        "_id": "sw5e2s0000000000",
         "configuration": {
           "sizes": [
             "med"
           ]
         },
-        "value": {},
-        "level": 0
+        "level": 0,
+        "type": "Size",
+        "value": {}
+      },
+      {
+        "_id": "sw5e3t0000000000",
+        "configuration": {
+          "choices": [],
+          "grants": [
+            "dr:poison"
+          ],
+          "mode": "default",
+          "allowReplacements": false
+        },
+        "level": 0,
+        "type": "Trait",
+        "value": {
+          "chosen": []
+        }
       }
     ],
     "skinColorOptions": {
@@ -173,21 +189,15 @@
       "changes": [
         {
           "key": "system.attributes.ac.value",
-          "value": "12+@abilities.dex.mod",
           "mode": 5,
-          "priority": 1
-        },
-        {
-          "key": "system.traits.dr.value",
-          "value": "poison",
-          "mode": 0,
-          "priority": 0
+          "priority": 1,
+          "value": "12+@abilities.dex.mod"
         },
         {
           "key": "flags.sw5e.regenerative",
-          "value": "1",
           "mode": 5,
-          "priority": 20
+          "priority": 20,
+          "value": "1"
         }
       ],
       "disabled": false,
@@ -235,7 +245,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296028336,
-    "modifiedTime": 1729983890577,
+    "modifiedTime": 1732412596409,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

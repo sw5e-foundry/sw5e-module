@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1857258+00:00",
       "importer_version": 3,
-      "uid": "Power.name-sonic_shot"
+      "uid": "Power.name-sonic_shot.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,62 +13,68 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/SonicShot.webp",
   "system": {
-    "activities": {
-      "FBOnUqmsqyDrLRhI": {
-        "type": "Damage",
-        "_id": "FBOnUqmsqyDrLRhI",
-        "img": null,
-        "description": {
-          "value": "<p>As part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes wreathed in a sonic barrier until the start of your next turn. If the target willingly moves before then, it immediately takes sonic damage equal to your techcasting ability modifier, becomes deafened until the start of your next turn, and the power ends.</p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the ranged attack deals an extra [[/r 1d6]] sonic damage to the target, and the damage the target takes for moving increases to [[/r 1d6]] + your techcasting ability modifier.  Both damage rolls increase by an additional [[/r 1d6]] at 11th and 17th level.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "@mod",
-              "sonic"
-            ]
-          ]
-        },
-        "target": {
-          "value": 0,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
-      }
-    },
     "description": {
       "value": "<p>As part of the action used to cast this power, you must make a ranged weapon attack against one creature within your weapon's range, otherwise the power fails. On a hit, the target suffers the attack's normal effects, and it becomes wreathed in a sonic barrier until the start of your next turn. If the target willingly moves before then, it immediately takes sonic damage equal to your techcasting ability modifier, becomes deafened until the start of your next turn, and the power ends.</p>\n<p>This power's damage increases when you reach higher levels. At 5th level, the ranged attack deals an extra [[/r 1d6]] sonic damage to the target, and the damage the target takes for moving increases to [[/r 1d6]] + your techcasting ability modifier.  Both damage rolls increase by an additional [[/r 1d6]] at 11th and 17th level.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
       "value": "1",
       "units": "round"
     },
+    "target": {
+      "value": "0",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "other",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "@mod",
+          "sonic"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "tec",
+    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -79,43 +85,83 @@
       "mode": "prepared",
       "prepared": false
     },
-    "properties": [],
-    "range": {
-      "units": ""
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
     },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@mod"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "sonic"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "round",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "damage"
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "sonic-shot"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/SonicShot.webp",
   "effects": [],
-  "_id": "4cYa26qcPbHDYPcG",
+  "_id": "WNivjZK6vWxrPgYj",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984161089,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1732455690058,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!4cYa26qcPbHDYPcG"
+  "_key": "!items!WNivjZK6vWxrPgYj"
 }

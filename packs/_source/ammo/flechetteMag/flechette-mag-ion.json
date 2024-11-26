@@ -117,125 +117,46 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "aLoJj85QkmmwxEkh": {
-        "type": "Save",
-        "_id": "aLoJj85QkmmwxEkh",
-        "img": null,
-        "description": {
-          "value": "<p>When triggered, this flechette cannon ammunition fires a volley of ion flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette mag holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] ion damage on a failed save, or half as much as on a successful one. Any electronics within the blast radius that aren't being worn or carried are disabled until rebooted.</p>"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "ion"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "ion"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "10435sOTrBp81HoH": {
-        "type": "Save",
-        "_id": "10435sOTrBp81HoH",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "ion"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>When triggered, this flechette cannon ammunition fires a volley of ion flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette mag holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] ion damage on a failed save, or half as much as on a successful one. Any electronics within the blast radius that aren't being worn or carried are disabled until rebooted.</p>"
-        }
-      },
-      "oZBm2U1n8uO1wtzy": {
-        "type": "Save",
-        "_id": "oZBm2U1n8uO1wtzy",
-        "img": null,
-        "description": {
-          "value": "<p>When triggered, this flechette cannon ammunition fires a volley of ion flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette mag holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d6]] ion damage on a failed save, or half as much as on a successful one. Any electronics within the blast radius that aren't being worn or carried are disabled until rebooted.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "ion"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -247,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956749,
-    "modifiedTime": 1729983824143,
+    "modifiedTime": 1732455688754,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

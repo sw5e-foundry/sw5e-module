@@ -111,112 +111,46 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "9kin8hCiAH01xEzo": {
-        "type": "Save",
-        "_id": "9kin8hCiAH01xEzo",
-        "img": null,
-        "duration": {
-          "value": "8",
-          "units": "hour"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "8"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "",
-            "formula": 15
+            "formula": "15"
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Breath Control</em></p>\n<p>You use the Force to control your body's functions. For the duration, you gain the following benefits:</p>\n<ul>\n<li>You ignore the effects of any levels of exhaustion you have. </li>\n<li>You do not need to eat, drink, or sleep. You can't be forced to sleep by any means. To gain the benefits of a long rest, you can spend all 8 hours doing light activity, such as reading and keeping watch. </li>\n</ul>\n<p>If you still have any levels of exhaustion when this power ends, you must make a DC 15 Constitution saving throw. On a failed save, you gain one additional level of exhaustion.</p>"
-        }
-      },
-      "1B7Qpeu0QFEd1LCP": {
-        "type": "Save",
-        "_id": "1B7Qpeu0QFEd1LCP",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 15
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": "8",
-          "units": "hour"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Breath Control</em></p>\n<p>You use the Force to control your body's functions. For the duration, you gain the following benefits:</p>\n<ul>\n<li>You ignore the effects of any levels of exhaustion you have. </li>\n<li>You do not need to eat, drink, or sleep. You can't be forced to sleep by any means. To gain the benefits of a long rest, you can spend all 8 hours doing light activity, such as reading and keeping watch. </li>\n</ul>\n<p>If you still have any levels of exhaustion when this power ends, you must make a DC 15 Constitution saving throw. On a failed save, you gain one additional level of exhaustion.</p>"
-        }
-      },
-      "1Cehjr7PecvN1vt0": {
-        "type": "Save",
-        "_id": "1Cehjr7PecvN1vt0",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Breath Control</em></p>\n<p>You use the Force to control your body's functions. For the duration, you gain the following benefits:</p>\n<ul>\n<li>You ignore the effects of any levels of exhaustion you have. </li>\n<li>You do not need to eat, drink, or sleep. You can't be forced to sleep by any means. To gain the benefits of a long rest, you can spend all 8 hours doing light activity, such as reading and keeping watch. </li>\n</ul>\n<p>If you still have any levels of exhaustion when this power ends, you must make a DC 15 Constitution saving throw. On a failed save, you gain one additional level of exhaustion.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 15
-          }
-        },
-        "duration": {
-          "value": "8",
-          "units": "hour"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "3"
+            }
+          ]
         }
       }
     }
@@ -229,7 +163,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979250,
-    "modifiedTime": 1729983826402,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

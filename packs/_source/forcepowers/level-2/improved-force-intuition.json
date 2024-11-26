@@ -108,76 +108,37 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "7RTHEDRdrBh11T5g": {
-        "type": "Utility",
-        "_id": "7RTHEDRdrBh11T5g",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "roll": "1d4",
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
         "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you would roll initiative"
+          "condition": "when you would roll initiative",
+          "type": "reaction"
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Intuition</em></p>\n<p>You make your initiative check at advantage, and gain a +2 bonus to AC until the power ends. In addition, until the end of your first turn in the combat, your speed increases by 10 feet and you add [[/r 1d4]] to your attack rolls. This power ends early if you fail a saving throw or are hit by an attack.</p>"
-        }
-      },
-      "qruzIlQw2n2MfzPc": {
-        "type": "Utility",
-        "_id": "qruzIlQw2n2MfzPc",
-        "img": null,
-        "roll": "1d4",
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "minute"
+          "units": "minute",
+          "value": "1"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you would roll initiative"
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Intuition</em></p>\n<p>You make your initiative check at advantage, and gain a +2 bonus to AC until the power ends. In addition, until the end of your first turn in the combat, your speed increases by 10 feet and you add [[/r 1d4]] to your attack rolls. This power ends early if you fail a saving throw or are hit by an attack.</p>"
-        }
-      },
-      "VKOspCjsT91caNEZ": {
-        "type": "Utility",
-        "_id": "VKOspCjsT91caNEZ",
         "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Intuition</em></p>\n<p>You make your initiative check at advantage, and gain a +2 bonus to AC until the power ends. In addition, until the end of your first turn in the combat, your speed increases by 10 feet and you add [[/r 1d4]] to your attack rolls. This power ends early if you fail a saving throw or are hit by an attack.</p>"
+        "range": {
+          "override": false
         },
-        "roll": "1d4",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you would roll initiative"
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "roll": {},
+        "target": {},
+        "type": "utility",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "3"
+            }
+          ]
         }
       }
     }
@@ -192,7 +153,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1667426102468,
-    "modifiedTime": 1729983825125,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

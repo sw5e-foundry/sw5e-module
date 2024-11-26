@@ -111,116 +111,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "ntxa6hONEIS1BGOe": {
-        "type": "Save",
-        "_id": "ntxa6hONEIS1BGOe",
-        "img": null,
-        "duration": {
-          "value": "8",
-          "units": "hour"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "30",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
         },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "8"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "wis",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Affect Mind</em></p>\n<p>You suggest a course of activity (limited to a sentence or two) and influence with the Force a creature you can see within range that can hear and understand you.  Creatures that can't be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to harm itself automatically negates the effect of the power.</p>\n<p>The target must make a Wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the power ends when the subject finishes what it was asked to do.</p>\n<p>You can also specify conditions that will trigger a special activity during the duration. For example, you might suggest that a soldier give her speeder to the first vagrant she meets. If the condition isn't met before the power expires, the activity isn't performed.</p>\n<p>If you or any of your companions damage the target, the power ends. This power has no effect on droids or constructs.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "3"
+            }
+          ]
         }
-      },
-      "tNua0TSYf5iBNCsf": {
-        "type": "Save",
-        "_id": "tNua0TSYf5iBNCsf",
-        "img": null,
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "30",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": "8",
-          "units": "hour"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Affect Mind</em></p>\n<p>You suggest a course of activity (limited to a sentence or two) and influence with the Force a creature you can see within range that can hear and understand you.  Creatures that can't be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to harm itself automatically negates the effect of the power.</p>\n<p>The target must make a Wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the power ends when the subject finishes what it was asked to do.</p>\n<p>You can also specify conditions that will trigger a special activity during the duration. For example, you might suggest that a soldier give her speeder to the first vagrant she meets. If the condition isn't met before the power expires, the activity isn't performed.</p>\n<p>If you or any of your companions damage the target, the power ends. This power has no effect on droids or constructs.</p>"
-        }
-      },
-      "Zz6qjhllj3qbHgSY": {
-        "type": "Save",
-        "_id": "Zz6qjhllj3qbHgSY",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Affect Mind</em></p>\n<p>You suggest a course of activity (limited to a sentence or two) and influence with the Force a creature you can see within range that can hear and understand you.  Creatures that can't be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to harm itself automatically negates the effect of the power.</p>\n<p>The target must make a Wisdom saving throw. On a failed save, it pursues the course of action you described to the best of its ability. The suggested course of action can continue for the entire duration. If the suggested activity can be completed in a shorter time, the power ends when the subject finishes what it was asked to do.</p>\n<p>You can also specify conditions that will trigger a special activity during the duration. For example, you might suggest that a soldier give her speeder to the first vagrant she meets. If the condition isn't met before the power expires, the activity isn't performed.</p>\n<p>If you or any of your companions damage the target, the power ends. This power has no effect on droids or constructs.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "8",
-          "units": "hour"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30"
       }
     }
   },
@@ -232,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979299,
-    "modifiedTime": 1729983827225,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

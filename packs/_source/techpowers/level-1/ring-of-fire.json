@@ -107,127 +107,61 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "o7LWzUmGBJEN27Im": {
-        "type": "Save",
-        "_id": "o7LWzUmGBJEN27Im",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "1d6",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "wis",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>A wall of flames erupts out of the ground in a ring around you with a radius of 15 feet and a height of 10 feet. Creatures who start their turn in the ring of fire or pass through it on their turn take [[/r 1d6]] fire damage. Creatures within the ring of fire who willingly try to move through the fire to escape must succeed on a Wisdom saving throw to do so. Creatures who are immune to fear or fire automatically succeed on this saving throw. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage of the ring of fire increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        }
-      },
-      "qkHQLqkkWvd1r0CB": {
-        "type": "Save",
-        "_id": "qkHQLqkkWvd1r0CB",
-        "img": null,
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "fire"
-            ]
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
           ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>A wall of flames erupts out of the ground in a ring around you with a radius of 15 feet and a height of 10 feet. Creatures who start their turn in the ring of fire or pass through it on their turn take [[/r 1d6]] fire damage. Creatures within the ring of fire who willingly try to move through the fire to escape must succeed on a Wisdom saving throw to do so. Creatures who are immune to fear or fire automatically succeed on this saving throw. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage of the ring of fire increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        }
-      },
-      "gJRO0C6IqU5I8lC5": {
-        "type": "Save",
-        "_id": "gJRO0C6IqU5I8lC5",
-        "img": null,
-        "description": {
-          "value": "<p>A wall of flames erupts out of the ground in a ring around you with a radius of 15 feet and a height of 10 feet. Creatures who start their turn in the ring of fire or pass through it on their turn take [[/r 1d6]] fire damage. Creatures within the ring of fire who willingly try to move through the fire to escape must succeed on a Wisdom saving throw to do so. Creatures who are immune to fear or fire automatically succeed on this saving throw. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage of the ring of fire increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "fire"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
         }
       }
     }
@@ -244,7 +178,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

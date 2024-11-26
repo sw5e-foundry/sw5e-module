@@ -121,137 +121,61 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1xGDVJve8H7Pnwtl": {
-        "type": "Save",
-        "_id": "1xGDVJve8H7Pnwtl",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>When triggered, this enhanced vapor projector ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 20 Dexterity saving throw, taking [[/r 5d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>\n<p>&nbsp;</p>\n<h2>Projector tank, incendiary</h2>\n<p>When triggered, this vapor projector ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Dexterity saving throw, taking [[/r 2d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
         },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 5,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst",
+          "value": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "fire"
-            ],
-            [
-              "5d8",
-              "fire"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "ne2UUj0PsR71Q2x3": {
-        "type": "Save",
-        "_id": "ne2UUj0PsR71Q2x3",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "fire"
-            ],
-            [
-              "5d8",
-              "fire"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>When triggered, this enhanced vapor projector ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 20 Dexterity saving throw, taking [[/r 5d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>\n<p>&nbsp;</p>\n<h2>Projector tank, incendiary</h2>\n<p>When triggered, this vapor projector ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Dexterity saving throw, taking [[/r 2d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
-        }
-      },
-      "hRsN0xcj02J1IHtW": {
-        "type": "Save",
-        "_id": "hRsN0xcj02J1IHtW",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>When triggered, this enhanced vapor projector ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 20 Dexterity saving throw, taking [[/r 5d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>\n<p>&nbsp;</p>\n<h2>Projector tank, incendiary</h2>\n<p>When triggered, this vapor projector ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Dexterity saving throw, taking [[/r 2d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8",
-              "fire"
-            ],
-            [
-              "5d8",
-              "fire"
-            ]
-          ]
-        },
-        "target": {
-          "value": 15,
-          "width": null,
-          "units": "ft",
-          "type": "cone"
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -263,7 +187,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964395,
-    "modifiedTime": 1729984337414,
+    "modifiedTime": 1732455687404,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -105,131 +105,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "9VIuPk1Jqp8rRNnQ": {
-        "type": "Attack",
-        "_id": "9VIuPk1Jqp8rRNnQ",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "range": "120",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "4d6",
-              "energy"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 4,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
+          ]
         },
-        "description": {
-          "value": "<p>A flash of light streaks toward a creature of your choice within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 4d6]] energy damage, and the next attack roll made against this target before the end of your next turn has advantage. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        "description": {},
+        "duration": {
+          "units": "round",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "n7LyGwh4npgeYQw2": {
-        "type": "Attack",
-        "_id": "n7LyGwh4npgeYQw2",
-        "img": null,
-        "range": "120",
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "4d6",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>A flash of light streaks toward a creature of your choice within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 4d6]] energy damage, and the next attack roll made against this target before the end of your next turn has advantage. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        }
-      },
-      "7LXc5wwlnDi1O7Rw": {
-        "type": "Attack",
-        "_id": "7LXc5wwlnDi1O7Rw",
-        "img": null,
-        "description": {
-          "value": "<p>A flash of light streaks toward a creature of your choice within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 4d6]] energy damage, and the next attack roll made against this target before the end of your next turn has advantage. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "4d6",
-              "energy"
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120"
       }
     }
   },
@@ -245,7 +174,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -105,131 +105,59 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "Lzw4rUR0O5FgkYPa": {
-        "type": "Save",
-        "_id": "Lzw4rUR0O5FgkYPa",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "in response to being damaged by a creature within 60 feet of you that you can see",
+          "type": "reaction"
         },
-        "range": "60",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d10",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "in response to being damaged by a creature within 60 feet of you that you can see"
-        },
-        "description": {
-          "value": "<p>You expel a sabotage charge at the creature that attacked you. The creature must make a Dexterity saving throw. It takes [[/r 2d10]] fire damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d10]] for each slot level above 1st.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "11XXuQ0qIO5Ksi7M": {
-        "type": "Save",
-        "_id": "11XXuQ0qIO5Ksi7M",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "fire"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "in response to being damaged by a creature within 60 feet of you that you can see"
-        },
-        "description": {
-          "value": "<p>You expel a sabotage charge at the creature that attacked you. The creature must make a Dexterity saving throw. It takes [[/r 2d10]] fire damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d10]] for each slot level above 1st.</p>"
-        }
-      },
-      "1yBibZawqGTffr15": {
-        "type": "Save",
-        "_id": "1yBibZawqGTffr15",
-        "img": null,
-        "description": {
-          "value": "<p>You expel a sabotage charge at the creature that attacked you. The creature must make a Dexterity saving throw. It takes [[/r 2d10]] fire damage on a failed save, or half as much damage on a successful one.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d10]] for each slot level above 1st.</p>"
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "in response to being damaged by a creature within 60 feet of you that you can see"
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "fire"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
       }
     }
   },
@@ -245,7 +173,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -4,7 +4,7 @@
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1837268+00:00",
       "importer_version": 3,
-      "uid": "Power.name-short_circuit"
+      "uid": "Power.name-short_circuit.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -13,70 +13,68 @@
       }
     }
   },
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Tech%20Powers/ShortCircuit.webp",
   "system": {
-    "activities": {
-      "zqk27RmRNR7MvlNU": {
-        "type": "Attack",
-        "_id": "zqk27RmRNR7MvlNU",
-        "img": null,
-        "description": {
-          "value": "<p>You electrocute a creature within range. Make a ranged tech attack against the creature. On a hit, the target takes [[/r 1d8]] lightning damage. If the target is a droid, construct, or has a tech focus, it has disadvantage on the first attack roll it makes against you until the end of your next turn. </p>\n<p>This power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d8",
-              "lightning"
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120"
-      }
-    },
     "description": {
       "value": "<p>You electrocute a creature within range. Make a ranged tech attack against the creature. On a hit, the target takes [[/r 1d8]] lightning damage. If the target is a droid, construct, or has a tech focus, it has disadvantage on the first attack roll it makes against you until the end of your next turn. </p>\n<p>This power's damage increases by [[/r 1d8]] when you reach 5th level ([[/r 2d8]]), 11th level ([[/r 3d8]]), and 17th level ([[/r 4d8]]).</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
       "value": "1",
       "units": "round"
     },
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 120,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "ability": null,
+    "actionType": "rpak",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d8",
+          "lightning"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "tec",
+    "properties": [],
     "materials": {
       "value": "",
       "consumed": false,
@@ -87,44 +85,84 @@
       "mode": "prepared",
       "prepared": false
     },
-    "properties": [],
-    "range": {
-      "value": "120",
-      "units": "ft"
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
     },
-    "school": "tec",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
+    "cover": null,
+    "crewed": false,
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "chatFlavor": "",
+    "enchantment": null,
+    "summons": null,
+    "activities": {
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "attack": {
+          "ability": "",
+          "bonus": "",
+          "flat": false,
+          "type": {}
+        },
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "round",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack"
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "short-circuit"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Tech%20Powers/ShortCircuit.webp",
   "effects": [],
-  "_id": "tNVtX7FAzXVJ7uKF",
+  "_id": "EYHNQQSpJbPV0Bb1",
   "folder": null,
   "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983831335,
-    "modifiedTime": 1729984163816,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1720296025398,
+    "modifiedTime": 1732455690058,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!tNVtX7FAzXVJ7uKF"
+  "_key": "!items!EYHNQQSpJbPV0Bb1"
 }

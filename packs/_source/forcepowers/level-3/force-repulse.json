@@ -109,127 +109,60 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "rZQbhQFcYtlxBD2G": {
-        "type": "Save",
-        "_id": "rZQbhQFcYtlxBD2G",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "8d6",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 8,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You release an omnidirectional telekinetic burst. Each creature within 20 feet must make a Dexterity saving throw. On a failed save, a creature takes [[/r 8d6]] force damage and is pushed back 5 feet. On a successful save, a creature takes half damage and isn't pushed.</p>\n<p>All small objects that are not worn or carried are also pushed 5 feet back.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d6]] for each slot level above 3rd.</p>"
-        }
-      },
-      "yhodWvZV7C1dDw9c": {
-        "type": "Save",
-        "_id": "yhodWvZV7C1dDw9c",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d6",
-              "force"
-            ]
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "4"
+            }
           ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You release an omnidirectional telekinetic burst. Each creature within 20 feet must make a Dexterity saving throw. On a failed save, a creature takes [[/r 8d6]] force damage and is pushed back 5 feet. On a successful save, a creature takes half damage and isn't pushed.</p>\n<p>All small objects that are not worn or carried are also pushed 5 feet back.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d6]] for each slot level above 3rd.</p>"
-        }
-      },
-      "QGAXtTZ13Sq1itvA": {
-        "type": "Save",
-        "_id": "QGAXtTZ13Sq1itvA",
-        "img": null,
-        "description": {
-          "value": "<p>You release an omnidirectional telekinetic burst. Each creature within 20 feet must make a Dexterity saving throw. On a failed save, a creature takes [[/r 8d6]] force damage and is pushed back 5 feet. On a successful save, a creature takes half damage and isn't pushed.</p>\n<p>All small objects that are not worn or carried are also pushed 5 feet back.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d6]] for each slot level above 3rd.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d6",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
         }
       }
     }
@@ -242,7 +175,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979190,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

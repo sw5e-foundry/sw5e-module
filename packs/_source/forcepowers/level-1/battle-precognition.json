@@ -104,73 +104,37 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1ok50Ylc3r1eoGcA": {
-        "type": "Utility",
-        "_id": "1ok50Ylc3r1eoGcA",
-        "img": null,
-        "duration": {
-          "value": "8",
-          "units": "hour"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
         "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
+          "condition": "",
+          "type": "action"
         },
-        "description": {
-          "value": "<p>Your attunement to the Force warns you when you are about to enter danger. Until the power ends, your base AC becomes 13 + your Dexterity modifier. This power has no effect if you are wearing armor.</p>"
-        }
-      },
-      "FafFcvqSl3f1AoTL": {
-        "type": "Utility",
-        "_id": "FafFcvqSl3f1AoTL",
-        "img": null,
+        "description": {},
         "duration": {
-          "value": "8",
-          "units": "hour"
+          "units": "hour",
+          "value": "8"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>Your attunement to the Force warns you when you are about to enter danger. Until the power ends, your base AC becomes 13 + your Dexterity modifier. This power has no effect if you are wearing armor.</p>"
-        }
-      },
-      "1WtIuexok9gwHlhf": {
-        "type": "Utility",
-        "_id": "1WtIuexok9gwHlhf",
         "img": null,
-        "description": {
-          "value": "<p>Your attunement to the Force warns you when you are about to enter danger. Until the power ends, your base AC becomes 13 + your Dexterity modifier. This power has no effect if you are wearing armor.</p>"
+        "range": {
+          "override": false
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "8",
-          "units": "hour"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "roll": {},
+        "target": {},
+        "type": "utility",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
       }
     }
@@ -183,7 +147,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979243,
-    "modifiedTime": 1729983826339,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -117,137 +117,43 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1aY1Qny2Wnj2oGqM": {
-        "type": "Damage",
-        "_id": "1aY1Qny2Wnj2oGqM",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +2 bonus to attack and damage rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d8]] energy damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the torpedo is depleted, it no longer gives a bonus.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": null,
-          "cost": null
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "20d8",
-              "energy"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 20,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
           ]
         },
+        "description": {},
         "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "1dG8485ymoMn16Nl": {
-        "type": "Damage",
-        "_id": "1dG8485ymoMn16Nl",
+          "units": "inst",
+          "value": "inst"
+        },
         "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "20d8",
-              "energy"
-            ]
-          ]
+        "range": {
+          "override": false
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +2 bonus to attack and damage rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d8]] energy damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the torpedo is depleted, it no longer gives a bonus.</p>"
-        }
-      },
-      "1kgfFmYMtU0SxvK1": {
-        "type": "Damage",
-        "_id": "1kgfFmYMtU0SxvK1",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +2 bonus to attack and damage rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d8]] energy damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the torpedo is depleted, it no longer gives a bonus.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "20d8",
-              "energy"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
-      },
-      "11U3jSyjfu7k121R": {
-        "type": "Damage",
-        "_id": "11U3jSyjfu7k121R",
-        "img": null,
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +2 bonus to attack and damage rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d8]] energy damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the torpedo is depleted, it no longer gives a bonus.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "20d8",
-              "energy"
-            ]
-          ]
-        }
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -259,7 +165,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964385,
-    "modifiedTime": 1729989175814,
+    "modifiedTime": 1732455687404,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

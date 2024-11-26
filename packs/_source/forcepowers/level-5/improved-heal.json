@@ -109,95 +109,50 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1wGJjuScSDeB1jUe": {
-        "type": "Heal",
-        "_id": "1wGJjuScSDeB1jUe",
-        "img": null,
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "range": "60",
-        "target": {
-          "value": 30,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "healing": [
-          [
-            "3d8 + @mod",
+        "healing": {
+          "bonus": "+ @mod",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 8,
+          "number": 3,
+          "scaling": {
+            "formula": "1d8",
+            "mode": "whole",
+            "number": 1
+          },
+          "types": [
             "healing"
           ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Heal</em></p>\n<p>A wave of healing energy washes out from a point of your choice within range. Choose up to six creatures in a 30-foot-radius sphere centered on that point. Each target regains hit points equal to [[/r 3d8]] + your forcecasting ability modifier. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 6th level or higher, the healing increases by [[/r 1d8]] for each slot level above 5th.</p>"
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "heal",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "6"
+            }
+          ]
         }
-      },
-      "10Nwnr6mb2Uqu2z1": {
-        "type": "Heal",
-        "_id": "10Nwnr6mb2Uqu2z1",
-        "img": null,
-        "range": "60",
-        "healing": [
-          [
-            "3d8 + @mod",
-            "healing"
-          ]
-        ],
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 30,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Heal</em></p>\n<p>A wave of healing energy washes out from a point of your choice within range. Choose up to six creatures in a 30-foot-radius sphere centered on that point. Each target regains hit points equal to [[/r 3d8]] + your forcecasting ability modifier. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 6th level or higher, the healing increases by [[/r 1d8]] for each slot level above 5th.</p>"
-        }
-      },
-      "1AV5bkcEmIi51SSC": {
-        "type": "Heal",
-        "_id": "1AV5bkcEmIi51SSC",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Heal</em></p>\n<p>A wave of healing energy washes out from a point of your choice within range. Choose up to six creatures in a 30-foot-radius sphere centered on that point. Each target regains hit points equal to [[/r 3d8]] + your forcecasting ability modifier. This power has no effect on droids or constructs.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 6th level or higher, the healing increases by [[/r 1d8]] for each slot level above 5th.</p>"
-        },
-        "healing": [
-          [
-            "3d8 + @mod",
-            "healing"
-          ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 30,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "60"
       }
     }
   },
@@ -209,7 +164,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979283,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

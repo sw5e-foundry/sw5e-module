@@ -100,112 +100,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "UNhJKfjvYNV12xC5": {
-        "type": "Save",
-        "_id": "UNhJKfjvYNV12xC5",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "int",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>One constructed object up to 100 lbs. in weight that you touch falls to pieces, separating into its component parts. For instance, a vibrosword separates into a blade, handle, oscillator, and guard, while a hovercart collapses into a repulsor engine, bolts, and metal panels. If the object is being worn, carried, or operated by a creature, the creature can make an Intelligence saving throw. On a successful save, the item is unaffected.</p>"
-        }
-      },
-      "AZwzyTtT2kq31i1K": {
-        "type": "Save",
-        "_id": "AZwzyTtT2kq31i1K",
-        "img": null,
-        "save": {
-          "ability": "int",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>One constructed object up to 100 lbs. in weight that you touch falls to pieces, separating into its component parts. For instance, a vibrosword separates into a blade, handle, oscillator, and guard, while a hovercart collapses into a repulsor engine, bolts, and metal panels. If the object is being worn, carried, or operated by a creature, the creature can make an Intelligence saving throw. On a successful save, the item is unaffected.</p>"
-        }
-      },
-      "15jULOkATP66zrPl": {
-        "type": "Save",
-        "_id": "15jULOkATP66zrPl",
-        "img": null,
-        "description": {
-          "value": "<p>One constructed object up to 100 lbs. in weight that you touch falls to pieces, separating into its component parts. For instance, a vibrosword separates into a blade, handle, oscillator, and guard, while a hovercart collapses into a repulsor engine, bolts, and metal panels. If the object is being worn, carried, or operated by a creature, the creature can make an Intelligence saving throw. On a successful save, the item is unaffected.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "int",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "8"
+            }
+          ]
         }
       }
     }
@@ -222,7 +155,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

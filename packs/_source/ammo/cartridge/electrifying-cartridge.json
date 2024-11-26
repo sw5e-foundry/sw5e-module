@@ -117,125 +117,46 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "G1hKXkJoCfLh5IxZ": {
-        "type": "Save",
-        "_id": "G1hKXkJoCfLh5IxZ",
-        "img": null,
-        "description": {
-          "value": "<p>An electrifying cartridge is a specialized slug cartridge for use with blaster weapons that deal kinetic damage. When you hit with a shot with the loaded weapon, the creature must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d4]] lightning damage and becomes shocked until the end of its next turn. On a successful save, a creature takes half damage and isn't shocked.</p>"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "lightning"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "1eskq5hFSeNK9beS": {
-        "type": "Save",
-        "_id": "1eskq5hFSeNK9beS",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "lightning"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>An electrifying cartridge is a specialized slug cartridge for use with blaster weapons that deal kinetic damage. When you hit with a shot with the loaded weapon, the creature must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d4]] lightning damage and becomes shocked until the end of its next turn. On a successful save, a creature takes half damage and isn't shocked.</p>"
-        }
-      },
-      "TtnlcGSmm8H8NKGa": {
-        "type": "Save",
-        "_id": "TtnlcGSmm8H8NKGa",
-        "img": null,
-        "description": {
-          "value": "<p>An electrifying cartridge is a specialized slug cartridge for use with blaster weapons that deal kinetic damage. When you hit with a shot with the loaded weapon, the creature must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d4]] lightning damage and becomes shocked until the end of its next turn. On a successful save, a creature takes half damage and isn't shocked.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4",
-              "lightning"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -247,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956726,
-    "modifiedTime": 1729983823959,
+    "modifiedTime": 1732455688754,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

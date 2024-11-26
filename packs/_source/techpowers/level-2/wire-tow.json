@@ -107,131 +107,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "KvVL9GFgqZZ1DecG": {
-        "type": "Attack",
-        "_id": "KvVL9GFgqZZ1DecG",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "range": "30",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 2,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
+          ]
         },
-        "description": {
-          "value": "<p>You project a length of wire towards a foe to bring them within your grasp. Make a ranged tech attack against the target. On a hit, the target takes [[/r 2d10]] kinetic damage, and you can pull it up to 25 feet closer to you. If you score a critical hit, the target is also knocked prone. If the target ends this movement within 5 feet of you and is no more than one size larger than you, the target is grappled by you for the duration.</p>\n<p>If a creature you grapple with this power uses its action to escape, it must succeed on a Strength (Athletics) or Dexterity (Acrobatics) check against your tech save DC to do so.</p>\n<p>This power ends if the attack misses or the grapple ends.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d10]] for each slot level above 2nd.</p>"
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "3"
+            }
+          ]
         }
-      },
-      "1xMw0oZbtTOrqxzw": {
-        "type": "Attack",
-        "_id": "1xMw0oZbtTOrqxzw",
-        "img": null,
-        "range": "30",
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You project a length of wire towards a foe to bring them within your grasp. Make a ranged tech attack against the target. On a hit, the target takes [[/r 2d10]] kinetic damage, and you can pull it up to 25 feet closer to you. If you score a critical hit, the target is also knocked prone. If the target ends this movement within 5 feet of you and is no more than one size larger than you, the target is grappled by you for the duration.</p>\n<p>If a creature you grapple with this power uses its action to escape, it must succeed on a Strength (Athletics) or Dexterity (Acrobatics) check against your tech save DC to do so.</p>\n<p>This power ends if the attack misses or the grapple ends.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d10]] for each slot level above 2nd.</p>"
-        }
-      },
-      "1lUJxiDadFRTGnbo": {
-        "type": "Attack",
-        "_id": "1lUJxiDadFRTGnbo",
-        "img": null,
-        "description": {
-          "value": "<p>You project a length of wire towards a foe to bring them within your grasp. Make a ranged tech attack against the target. On a hit, the target takes [[/r 2d10]] kinetic damage, and you can pull it up to 25 feet closer to you. If you score a critical hit, the target is also knocked prone. If the target ends this movement within 5 feet of you and is no more than one size larger than you, the target is grappled by you for the duration.</p>\n<p>If a creature you grapple with this power uses its action to escape, it must succeed on a Strength (Athletics) or Dexterity (Acrobatics) check against your tech save DC to do so.</p>\n<p>This power ends if the attack misses or the grapple ends.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd level or higher, the damage increases by [[/r 1d10]] for each slot level above 2nd.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30"
       }
     }
   },
@@ -247,7 +176,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

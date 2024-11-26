@@ -1,10 +1,16 @@
 {
+  "_id": "xvKajoE4mAL92cIo",
   "name": "Enfeeble",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/Enfeeble.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1467481+00:00",
       "importer_version": 3,
-      "uid": "Power.name-enfeeble"
+      "uid": "Power.name-enfeeble.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -14,68 +20,73 @@
     }
   },
   "system": {
-    "activities": {
-      "Dg2f9Tc9pya1S4Y1": {
-        "type": "Save",
-        "_id": "Dg2f9Tc9pya1S4Y1",
-        "img": null,
-        "description": {
-          "value": "<p>Dark energy courses from your hand at a creature within range. The target must succeed on a Wisdom saving throw. If it is missing any hit points, it takes [[/r 1d12]] necrotic damage. Otherwise, it takes [[/r 1d8]].</p>\n<p>The power's damage increases by one die when you reach 5th, 11th, and 17th level.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d12",
-              "necrotic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
-      }
-    },
     "description": {
       "value": "<p>Dark energy courses from your hand at a creature within range. The target must succeed on a Wisdom saving throw. If it is missing any hit points, it takes [[/r 1d12]] necrotic damage. Otherwise, it takes [[/r 1d8]].</p>\n<p>The power's damage increases by one die when you reach 5th, 11th, and 17th level.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
+      "value": "",
       "units": "inst"
     },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "",
+      "width": null,
+      "units": "",
+      "type": "",
+      "prompt": true
+    },
+    "range": {
+      "value": 60,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "save",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d12",
+          "necrotic"
+        ]
+      ],
+      "versatile": "1d8"
+    },
+    "formula": "",
+    "save": {
+      "ability": "wis",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "drk",
     "materials": {
       "value": "",
       "consumed": false,
@@ -84,46 +95,87 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": false
+      "prepared": true
     },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
     "properties": [],
-    "range": {
-      "value": "60",
-      "units": "ft"
-    },
-    "school": "drk",
-    "target": {
-      "affects": {
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 12,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "necrotic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "versatile"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
+        "save": {
+          "ability": "wis",
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {},
+        "type": "save"
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "enfeeble"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/Enfeeble.webp",
-  "effects": [],
-  "_id": "VWl4oMzM8yADAhzR",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984158886,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979342,
+    "modifiedTime": 1732455689536,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!VWl4oMzM8yADAhzR"
+  "_key": "!items!xvKajoE4mAL92cIo"
 }

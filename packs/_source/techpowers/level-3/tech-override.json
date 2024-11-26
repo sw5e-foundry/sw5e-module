@@ -100,77 +100,35 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1jwnqEubbd9jXmpP": {
-        "type": "Utility",
-        "_id": "1jwnqEubbd9jXmpP",
-        "img": null,
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "condition": "when you see a creature within 60 feet of you casting a tech power",
+          "type": "reaction"
+        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "range": "60",
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you see a creature within 60 feet of you casting a tech power"
-        },
-        "description": {
-          "value": "<p>You attempt to interrupt a creature in the process of casting a tech power. If the creature is casting a power of 3rd level or lower, its power fails and has no effect. If it is casting a power of 4th level or higher, make an ability check using your techcasting ability. The DC equals 10 + the power's level. On a success, the creature's power fails and has no effect.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the interrupted power has no effect if its level is less than or equal to the level of the tech slot you used.</p>"
+        "img": null,
+        "range": {},
+        "roll": {},
+        "target": {},
+        "type": "utility",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "4"
+            }
+          ]
         }
-      },
-      "1Kxy0GnXU7aw1Lk5": {
-        "type": "Utility",
-        "_id": "1Kxy0GnXU7aw1Lk5",
-        "img": null,
-        "range": "60",
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you see a creature within 60 feet of you casting a tech power"
-        },
-        "description": {
-          "value": "<p>You attempt to interrupt a creature in the process of casting a tech power. If the creature is casting a power of 3rd level or lower, its power fails and has no effect. If it is casting a power of 4th level or higher, make an ability check using your techcasting ability. The DC equals 10 + the power's level. On a success, the creature's power fails and has no effect.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the interrupted power has no effect if its level is less than or equal to the level of the tech slot you used.</p>"
-        }
-      },
-      "1JHOPCK9iqnLl1Bm": {
-        "type": "Utility",
-        "_id": "1JHOPCK9iqnLl1Bm",
-        "img": null,
-        "description": {
-          "value": "<p>You attempt to interrupt a creature in the process of casting a tech power. If the creature is casting a power of 3rd level or lower, its power fails and has no effect. If it is casting a power of 4th level or higher, make an ability check using your techcasting ability. The DC equals 10 + the power's level. On a success, the creature's power fails and has no effect.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 4th level or higher, the interrupted power has no effect if its level is less than or equal to the level of the tech slot you used.</p>"
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you see a creature within 60 feet of you casting a tech power"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
       }
     }
   },
@@ -186,7 +144,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

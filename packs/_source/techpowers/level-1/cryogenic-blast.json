@@ -114,143 +114,74 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1CsxcrTOsasgBa9u": {
-        "type": "Attack",
-        "_id": "1CsxcrTOsasgBa9u",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d10",
-              "kinetic"
-            ],
-            [
-              "2d6",
-              "cold"
-            ]
-          ]
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 1,
+              "scaling": {
+                "formula": "1d6",
+                "mode": "whole",
+                "number": 0
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "cold"
+              ]
+            }
+          ]
         },
-        "description": {
-          "value": "<p>You release a shard of cryogenic energy at one creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 1d10]] kinetic damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take [[/r 2d6]] cold damage.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the cold damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "1FwjXn0hUqD71pHq": {
-        "type": "Attack",
-        "_id": "1FwjXn0hUqD71pHq",
-        "img": null,
-        "range": "60",
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d10",
-              "kinetic"
-            ],
-            [
-              "2d6",
-              "cold"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You release a shard of cryogenic energy at one creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 1d10]] kinetic damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take [[/r 2d6]] cold damage.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the cold damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        }
-      },
-      "OYkevsbhkfzXKNmP": {
-        "type": "Attack",
-        "_id": "OYkevsbhkfzXKNmP",
-        "img": null,
-        "description": {
-          "value": "<p>You release a shard of cryogenic energy at one creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 1d10]] kinetic damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take [[/r 2d6]] cold damage.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the cold damage increases by [[/r 1d6]] for each slot level above 1st.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d10",
-              "kinetic"
-            ],
-            [
-              "2d6",
-              "cold"
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
-        "target": {
-          "value": 5,
-          "width": null,
-          "units": "ft",
-          "type": "radius"
-        },
-        "range": "60"
       }
     }
   },
@@ -266,7 +197,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

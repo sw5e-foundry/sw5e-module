@@ -109,131 +109,59 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "1eXxu224f6TaGdXP": {
-        "type": "Save",
-        "_id": "1eXxu224f6TaGdXP",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "60",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "3d8",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 3,
+              "scaling": {
+                "mode": "whole",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Push/Pull</em></p>\n<p>Choose one or more creatures or objects not being worn or carried within 60 feet that weigh up to a combined total of 15 pounds. The creatures or objects immediately move 60 feet in a direction of your choice. If the creatures or objects end this movement in the air, they immediately fall to the ground. If the creatures or objects collide with any one target during its travel, both the creatures or objects and the target take [[/r 3d8]] kinetic damage. If the target is a creature, it must make a Dexterity saving throw. On a failed save, it takes the kinetic damage, or half as much on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the maximum weight increases by 15 pounds and the damage increases by [[/r 1d8]] for each slot level above 1st.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "15mEQeyhZ8xe1M7u": {
-        "type": "Save",
-        "_id": "15mEQeyhZ8xe1M7u",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Push/Pull</em></p>\n<p>Choose one or more creatures or objects not being worn or carried within 60 feet that weigh up to a combined total of 15 pounds. The creatures or objects immediately move 60 feet in a direction of your choice. If the creatures or objects end this movement in the air, they immediately fall to the ground. If the creatures or objects collide with any one target during its travel, both the creatures or objects and the target take [[/r 3d8]] kinetic damage. If the target is a creature, it must make a Dexterity saving throw. On a failed save, it takes the kinetic damage, or half as much on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the maximum weight increases by 15 pounds and the damage increases by [[/r 1d8]] for each slot level above 1st.</p>"
-        }
-      },
-      "F4j5Vrcqxre1MoWm": {
-        "type": "Save",
-        "_id": "F4j5Vrcqxre1MoWm",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Force Push/Pull</em></p>\n<p>Choose one or more creatures or objects not being worn or carried within 60 feet that weigh up to a combined total of 15 pounds. The creatures or objects immediately move 60 feet in a direction of your choice. If the creatures or objects end this movement in the air, they immediately fall to the ground. If the creatures or objects collide with any one target during its travel, both the creatures or objects and the target take [[/r 3d8]] kinetic damage. If the target is a creature, it must make a Dexterity saving throw. On a failed save, it takes the kinetic damage, or half as much on a successful one.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, the maximum weight increases by 15 pounds and the damage increases by [[/r 1d8]] for each slot level above 1st.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "3d8",
-              "kinetic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
       }
     }
   },
@@ -245,7 +173,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979220,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

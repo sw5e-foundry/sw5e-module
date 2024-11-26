@@ -105,91 +105,51 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "Nrkmqn05mwF9zIJa": {
-        "type": "Heal",
-        "_id": "Nrkmqn05mwF9zIJa",
-        "img": null,
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "hour"
+          "units": "hour",
+          "value": "1"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "healing": [
-          [
-            "1d4 + 4",
+        "healing": {
+          "bonus": "+ 4",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 4,
+          "number": 1,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
             "temphp"
           ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
-        "description": {
-          "value": "<p>You gain [[/r 1d4 + 4]] temporary hit points for the duration. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st.</p>"
-        }
-      },
-      "1GmpLJfSrTGF10ng": {
-        "type": "Heal",
-        "_id": "1GmpLJfSrTGF10ng",
         "img": null,
-        "healing": [
-          [
-            "1d4 + 4",
-            "temphp"
+        "range": {
+          "override": false
+        },
+        "target": {},
+        "type": "heal",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
           ]
-        ],
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You gain [[/r 1d4 + 4]] temporary hit points for the duration. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st.</p>"
-        }
-      },
-      "1Ll4RZPy2me5mbnl": {
-        "type": "Heal",
-        "_id": "1Ll4RZPy2me5mbnl",
-        "img": null,
-        "description": {
-          "value": "<p>You gain [[/r 1d4 + 4]] temporary hit points for the duration. </p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st.</p>"
-        },
-        "healing": [
-          [
-            "1d4 + 4",
-            "temphp"
-          ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
         }
       }
     }
@@ -206,7 +166,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

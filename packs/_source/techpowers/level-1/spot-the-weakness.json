@@ -102,116 +102,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1NC1Jc1uuhBcnV7t": {
-        "type": "Save",
-        "_id": "1NC1Jc1uuhBcnV7t",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "30",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
         },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>Up to three creatures of your choice that you can see within range must make Dexterity saving throws. The first time each turn a target that fails this saving throw makes an attack roll or a saving throw before the power ends, the target must roll a [[/r d4]] and subtract the number rolled from the attack roll or saving throw.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power with a tech slot of 3rd level or higher, you can target one additional creature for every two slot levels above 1st. When you cast this power at 3rd, 6th, or 9th level, the die increases to [[/r d6]], [[/r d8]], and [[/r d10]], respectively.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "tsrj181vKRV65CQS": {
-        "type": "Save",
-        "_id": "tsrj181vKRV65CQS",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "30",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>Up to three creatures of your choice that you can see within range must make Dexterity saving throws. The first time each turn a target that fails this saving throw makes an attack roll or a saving throw before the power ends, the target must roll a [[/r d4]] and subtract the number rolled from the attack roll or saving throw.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power with a tech slot of 3rd level or higher, you can target one additional creature for every two slot levels above 1st. When you cast this power at 3rd, 6th, or 9th level, the die increases to [[/r d6]], [[/r d8]], and [[/r d10]], respectively.</p>"
-        }
-      },
-      "3diVtJtdCBN1agIN": {
-        "type": "Save",
-        "_id": "3diVtJtdCBN1agIN",
-        "img": null,
-        "description": {
-          "value": "<p>Up to three creatures of your choice that you can see within range must make Dexterity saving throws. The first time each turn a target that fails this saving throw makes an attack roll or a saving throw before the power ends, the target must roll a [[/r d4]] and subtract the number rolled from the attack roll or saving throw.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power with a tech slot of 3rd level or higher, you can target one additional creature for every two slot levels above 1st. When you cast this power at 3rd, 6th, or 9th level, the die increases to [[/r d6]], [[/r d8]], and [[/r d10]], respectively.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30"
       }
     }
   },
@@ -227,7 +156,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

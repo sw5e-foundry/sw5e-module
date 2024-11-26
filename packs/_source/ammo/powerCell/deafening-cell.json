@@ -117,125 +117,46 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "9caCaGduZDCOhAMC": {
-        "type": "Save",
-        "_id": "9caCaGduZDCOhAMC",
-        "img": null,
-        "description": {
-          "value": "<p>A deafening cell is a specialized power cell for use with blaster weapons that deal acid, energy, fire, ion, or sonic damage. The loaded weapon deals sonic damage instead of its normal damage type, and when you hit with a shot the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] sonic damage and is deafened until the start of your next turn. On a successful save, a creature takes half damage and isn't deafened. </p>"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "sonic"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "sonic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "tcj0yOYSzvAmHWj2": {
-        "type": "Save",
-        "_id": "tcj0yOYSzvAmHWj2",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "sonic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>A deafening cell is a specialized power cell for use with blaster weapons that deal acid, energy, fire, ion, or sonic damage. The loaded weapon deals sonic damage instead of its normal damage type, and when you hit with a shot the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] sonic damage and is deafened until the start of your next turn. On a successful save, a creature takes half damage and isn't deafened. </p>"
-        }
-      },
-      "11ylDFwQV6d9qJJm": {
-        "type": "Save",
-        "_id": "11ylDFwQV6d9qJJm",
-        "img": null,
-        "description": {
-          "value": "<p>A deafening cell is a specialized power cell for use with blaster weapons that deal acid, energy, fire, ion, or sonic damage. The loaded weapon deals sonic damage instead of its normal damage type, and when you hit with a shot the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] sonic damage and is deafened until the start of your next turn. On a successful save, a creature takes half damage and isn't deafened. </p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "sonic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -247,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956730,
-    "modifiedTime": 1729983823999,
+    "modifiedTime": 1732455688754,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

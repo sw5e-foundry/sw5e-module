@@ -116,106 +116,57 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1o8gE7Awe93k1fhq": {
-        "type": "Damage",
-        "_id": "1o8gE7Awe93k1fhq",
-        "img": null,
-        "duration": {
-          "value": "10",
-          "units": "minute"
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "condition": "",
+          "type": "bonus"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d10",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Instinctive Movement</em></p>\n<p>By letting the Force flow through you, you move with preternatural grace, leaping onto or over tall obstacles that impede others. Until the power ends, you gain the following benefits:</p>\n<ul>\n<li>Your speed increases by 10 feet.</li>\n<li>You have resistance to damage from falling.</li>\n<li>Your jumping distance is tripled.</li>\n<li>You gain a climbing speed equal to your walking speed, and you can move up, down, and across vertical surfaces and upside down along ceilings, while leaving your hands free. If you are on a vertical surface when you end your turn and are not using your hands to climb, you immediately fall unless you have some other means of remaining there.</li>\n<li>Your movement is unaffected by difficult terrain or squeezing.</li>\n<li>You ignore the effects of slowed levels under 3.</li>\n</ul>\n<p>Once before the power ends, you can give yourself advantage on one weapon attack roll on your turn. That attack deals an extra [[/r 1d10]] force damage on a hit. Whether you hit or miss, you gain a flying speed equal to your walking speed until the end of that turn.</p>"
-        }
-      },
-      "b78DyhdLUCD1vmje": {
-        "type": "Damage",
-        "_id": "b78DyhdLUCD1vmje",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d10",
-              "force"
-            ]
-          ]
-        },
+        "description": {},
         "duration": {
-          "value": "10",
-          "units": "minute"
+          "units": "minute",
+          "value": "10"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Instinctive Movement</em></p>\n<p>By letting the Force flow through you, you move with preternatural grace, leaping onto or over tall obstacles that impede others. Until the power ends, you gain the following benefits:</p>\n<ul>\n<li>Your speed increases by 10 feet.</li>\n<li>You have resistance to damage from falling.</li>\n<li>Your jumping distance is tripled.</li>\n<li>You gain a climbing speed equal to your walking speed, and you can move up, down, and across vertical surfaces and upside down along ceilings, while leaving your hands free. If you are on a vertical surface when you end your turn and are not using your hands to climb, you immediately fall unless you have some other means of remaining there.</li>\n<li>Your movement is unaffected by difficult terrain or squeezing.</li>\n<li>You ignore the effects of slowed levels under 3.</li>\n</ul>\n<p>Once before the power ends, you can give yourself advantage on one weapon attack roll on your turn. That attack deals an extra [[/r 1d10]] force damage on a hit. Whether you hit or miss, you gain a flying speed equal to your walking speed until the end of that turn.</p>"
-        }
-      },
-      "1UL8xLBSDYGpECmZ": {
-        "type": "Damage",
-        "_id": "1UL8xLBSDYGpECmZ",
         "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Instinctive Movement</em></p>\n<p>By letting the Force flow through you, you move with preternatural grace, leaping onto or over tall obstacles that impede others. Until the power ends, you gain the following benefits:</p>\n<ul>\n<li>Your speed increases by 10 feet.</li>\n<li>You have resistance to damage from falling.</li>\n<li>Your jumping distance is tripled.</li>\n<li>You gain a climbing speed equal to your walking speed, and you can move up, down, and across vertical surfaces and upside down along ceilings, while leaving your hands free. If you are on a vertical surface when you end your turn and are not using your hands to climb, you immediately fall unless you have some other means of remaining there.</li>\n<li>Your movement is unaffected by difficult terrain or squeezing.</li>\n<li>You ignore the effects of slowed levels under 3.</li>\n</ul>\n<p>Once before the power ends, you can give yourself advantage on one weapon attack roll on your turn. That attack deals an extra [[/r 1d10]] force damage on a hit. Whether you hit or miss, you gain a flying speed equal to your walking speed until the end of that turn.</p>"
+        "range": {
+          "override": false
         },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "10",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d10",
-              "force"
-            ]
+        "target": {},
+        "type": "damage",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "4"
+            }
           ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
         }
       }
     }
@@ -228,7 +179,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979348,
-    "modifiedTime": 1729983828169,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -116,127 +116,61 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1lkG1XwxAOOLsKiv": {
-        "type": "Save",
-        "_id": "1lkG1XwxAOOLsKiv",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "8d6",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 8,
+              "scaling": {
+                "mode": "whole",
+                "number": 2
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "line"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Storm</em></p>\n<p>A beam of Force energy flashes out from your hand in a 5-foot-wide, 60-foot-long line. Each creature in the line must make a Constitution saving throw. On a failed save, a creature takes [[/r 8d6]] force damage and is knocked prone. On a successful save, it takes half as much damage and isn't knocked prone. </p>\n<p>You can create a new telekinetic gust as your action on your turn until the power ends.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, the damage increases by [[/r 2d6]] for each slot level above 6th.</p>"
-        }
-      },
-      "1DL017XTIwqj1T61": {
-        "type": "Save",
-        "_id": "1DL017XTIwqj1T61",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d6",
-              "force"
-            ]
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "7"
+            }
           ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "line"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Storm</em></p>\n<p>A beam of Force energy flashes out from your hand in a 5-foot-wide, 60-foot-long line. Each creature in the line must make a Constitution saving throw. On a failed save, a creature takes [[/r 8d6]] force damage and is knocked prone. On a successful save, it takes half as much damage and isn't knocked prone. </p>\n<p>You can create a new telekinetic gust as your action on your turn until the power ends.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, the damage increases by [[/r 2d6]] for each slot level above 6th.</p>"
-        }
-      },
-      "XznxCNXCPB41B6DU": {
-        "type": "Save",
-        "_id": "XznxCNXCPB41B6DU",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Telekinetic Storm</em></p>\n<p>A beam of Force energy flashes out from your hand in a 5-foot-wide, 60-foot-long line. Each creature in the line must make a Constitution saving throw. On a failed save, a creature takes [[/r 8d6]] force damage and is knocked prone. On a successful save, it takes half as much damage and isn't knocked prone. </p>\n<p>You can create a new telekinetic gust as your action on your turn until the power ends.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 7th level or higher, the damage increases by [[/r 2d6]] for each slot level above 6th.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "8d6",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": 60,
-          "width": null,
-          "units": "ft",
-          "type": "line"
         }
       }
     }
@@ -249,7 +183,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979168,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -117,92 +117,35 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1Nzi2yfAlMLC1C8C": {
-        "type": "Heal",
-        "_id": "1Nzi2yfAlMLC1C8C",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Adrenal)</h4>\n <p>As an action, you can administer this adrenal to a creature within 5 feet. When you administer this adrenal, the target's current and maximum hit points increase by 50. This effect lasts for 1 minute. A creature can benefit from only one adrenal at a time. </p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "5",
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
         "activation": {
-          "type": "action",
-          "cost": 1
+          "type": "action"
         },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "minute"
+          "units": "minute",
+          "value": "1"
         },
-        "healing": [
-          [
-            "50",
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "50"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
             "healing"
           ]
-        ]
-      },
-      "mROiRDsVTZ1Sjutd": {
-        "type": "Heal",
-        "_id": "mROiRDsVTZ1Sjutd",
+        },
         "img": null,
-        "range": "5",
-        "healing": [
-          [
-            "50",
-            "healing"
-          ]
-        ],
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h4>Consumable (Adrenal)</h4>\n <p>As an action, you can administer this adrenal to a creature within 5 feet. When you administer this adrenal, the target's current and maximum hit points increase by 50. This effect lasts for 1 minute. A creature can benefit from only one adrenal at a time. </p>"
-        }
-      },
-      "cEJBhQQzCow1yzSO": {
-        "type": "Heal",
-        "_id": "cEJBhQQzCow1yzSO",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Adrenal)</h4>\n <p>As an action, you can administer this adrenal to a creature within 5 feet. When you administer this adrenal, the target's current and maximum hit points increase by 50. This effect lasts for 1 minute. A creature can benefit from only one adrenal at a time. </p>"
-        },
-        "healing": [
-          [
-            "50",
-            "healing"
-          ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "5"
+        "range": {},
+        "target": {},
+        "type": "heal"
       }
     }
   },
@@ -214,7 +157,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964863,
-    "modifiedTime": 1729983806642,
+    "modifiedTime": 1732455687404,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

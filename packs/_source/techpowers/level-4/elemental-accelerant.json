@@ -107,131 +107,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "RaPuPd0LI5yvcia8": {
-        "type": "Save",
-        "_id": "RaPuPd0LI5yvcia8",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "90",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d6",
-              ""
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
           ]
         },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "con",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>Choose one creature you can see and one damage type: acid, cold, fire, lightning, or sonic. The target must make a Constitution saving throw. If it fails, the first time on each turn when it takes damage of the chosen type, it takes an extra [[/r 2d6]] damage of it. The target also loses resistance to the type until the power ends.</p>\n<p><strong><em>Overcharge Tech.</strong></em> You can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "5"
+            }
+          ]
         }
-      },
-      "1jpL2J9aacRs1aDE": {
-        "type": "Save",
-        "_id": "1jpL2J9aacRs1aDE",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "90",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              ""
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>Choose one creature you can see and one damage type: acid, cold, fire, lightning, or sonic. The target must make a Constitution saving throw. If it fails, the first time on each turn when it takes damage of the chosen type, it takes an extra [[/r 2d6]] damage of it. The target also loses resistance to the type until the power ends.</p>\n<p><strong><em>Overcharge Tech.</strong></em> You can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them.</p>"
-        }
-      },
-      "a2kWSiyjIBA1t1uc": {
-        "type": "Save",
-        "_id": "a2kWSiyjIBA1t1uc",
-        "img": null,
-        "description": {
-          "value": "<p>Choose one creature you can see and one damage type: acid, cold, fire, lightning, or sonic. The target must make a Constitution saving throw. If it fails, the first time on each turn when it takes damage of the chosen type, it takes an extra [[/r 2d6]] damage of it. The target also loses resistance to the type until the power ends.</p>\n<p><strong><em>Overcharge Tech.</strong></em> You can target one additional creature for each slot level above 4th. The creatures must be within 30 feet of each other when you target them.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              ""
-            ]
-          ]
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "range": "90"
       }
     }
   },
@@ -247,7 +176,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

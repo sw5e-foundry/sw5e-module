@@ -1,10 +1,16 @@
 {
+  "_id": "MWvP01mz7uIDxgTo",
   "name": "Turbulence",
+  "type": "spell",
+  "img": "modules/sw5e/icons/packs/Force%20Powers/Turbulence.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
   "flags": {
     "sw5e-importer": {
       "timestamp": "2023-03-09T01:51:59.1287582+00:00",
       "importer_version": 3,
-      "uid": "Power.name-turbulence"
+      "uid": "Power.name-turbulence.level-0"
     },
     "dnd5e": {
       "riders": {
@@ -14,68 +20,73 @@
     }
   },
   "system": {
-    "activities": {
-      "NEcp4Ut5yMXiH1uj": {
-        "type": "Save",
-        "_id": "NEcp4Ut5yMXiH1uj",
-        "img": null,
-        "description": {
-          "value": "<p>Choose one creature, or choose two creatures that are within 5 feet of each other, within range. A target must succeed on a Dexterity saving throw or take [[/r 1d6]] force damage.</p>\n<p>This power's damage increases by [[/r 1d6]] when you reach 5th, 11th, and 17th level.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "range": "60"
-      }
-    },
     "description": {
       "value": "<p>Choose one creature, or choose two creatures that are within 5 feet of each other, within range. A target must succeed on a Dexterity saving throw or take [[/r 1d6]] force damage.</p>\n<p>This power's damage increases by [[/r 1d6]] when you reach 5th, 11th, and 17th level.</p>",
       "chat": ""
     },
     "source": {
-      "custom": "PHB",
-      "revision": 1,
-      "rules": "2024"
+      "custom": "PHB"
     },
     "activation": {
       "type": "action",
-      "condition": "",
-      "value": 1
+      "cost": 1,
+      "condition": ""
     },
     "duration": {
+      "value": "",
       "units": "inst"
     },
+    "cover": null,
+    "crewed": false,
+    "target": {
+      "value": "1",
+      "width": null,
+      "units": "",
+      "type": "creature",
+      "prompt": true
+    },
+    "range": {
+      "value": 60,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null,
+      "recovery": "",
+      "prompt": true
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null,
+      "scale": false
+    },
+    "ability": null,
+    "actionType": "save",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d6",
+          "force"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "dex",
+      "dc": null,
+      "scaling": "spell"
+    },
     "level": 0,
+    "school": "lgt",
     "materials": {
       "value": "",
       "consumed": false,
@@ -84,48 +95,73 @@
     },
     "preparation": {
       "mode": "prepared",
-      "prepared": false
+      "prepared": true
     },
+    "scaling": {
+      "mode": "atwill",
+      "formula": null
+    },
+    "attack": {
+      "bonus": "",
+      "flat": false
+    },
+    "enchantment": null,
+    "summons": null,
     "properties": [],
-    "range": {
-      "value": "60",
-      "units": "ft"
-    },
-    "school": "lgt",
-    "target": {
-      "affects": {
-        "type": "creature",
-        "count": "1",
-        "choice": false
-      },
-      "template": {
-        "units": "",
-        "contiguous": false
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
+        "save": {
+          "ability": "dex",
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {},
+        "type": "save"
       }
-    },
-    "uses": {
-      "spent": 0,
-      "recovery": []
-    },
-    "identifier": "turbulence"
+    }
   },
-  "type": "spell",
-  "img": "modules/sw5e/icons/packs/Force%20Powers/Turbulence.webp",
-  "effects": [],
-  "_id": "SBngUy53mVg8YUrF",
-  "folder": null,
-  "sort": 0,
   "ownership": {
     "default": 0
   },
   "_stats": {
-    "duplicateSource": null,
-    "coreVersion": "12.331",
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
-    "createdTime": 1729983828236,
-    "modifiedTime": 1729984158638,
-    "lastModifiedBy": "dnd5ebuilder0000"
+    "coreVersion": "12.331",
+    "createdTime": 1674493979218,
+    "modifiedTime": 1732455689536,
+    "lastModifiedBy": "dnd5ebuilder0000",
+    "duplicateSource": null
   },
-  "_key": "!items!SBngUy53mVg8YUrF"
+  "_key": "!items!MWvP01mz7uIDxgTo"
 }

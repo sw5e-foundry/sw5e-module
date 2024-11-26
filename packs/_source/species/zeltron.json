@@ -43,61 +43,60 @@
     },
     "advancement": [
       {
-        "_id": "1bsMCcei4sH4anjt",
-        "type": "ItemGrant",
+        "_id": "sw5e0ig000000000",
         "configuration": {
           "items": [
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1cqWOTQPv358X4Na",
+              "uuid": "Compendium.sw5e.speciesfeatures.vFZIUvF7MdMDdzIb",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.IvWybhyRH1wNs0bo",
+              "uuid": "Compendium.sw5e.speciesfeatures.vogUwzf1bNe7XIzs",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.18r7rHsvSc2Z2vdv",
+              "uuid": "Compendium.sw5e.speciesfeatures.bvDYNiNArecR12ff",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.53EuFW3mBO81aPvb",
+              "uuid": "Compendium.sw5e.speciesfeatures.LVPpQqNuYq8C5yt9",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.iS2FFkzL8DC16HRq",
+              "uuid": "Compendium.sw5e.speciesfeatures.LdqCc9RUsPaw7dLg",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1fvbZZoKsIUb1UkP",
+              "uuid": "Compendium.sw5e.speciesfeatures.4SFTZ0WWuSkmemFE",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1OHrpNrh0xyM19Z7",
+              "uuid": "Compendium.sw5e.speciesfeatures.14GZsQVRJew4OE01",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.MsSDdACAWUFnsBlL",
+              "uuid": "Compendium.sw5e.speciesfeatures.wRSgG8s4EdyC2vtd",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1wnfQwgalOqiIyD3",
+              "uuid": "Compendium.sw5e.speciesfeatures.ZusEIiGyduqH85CU",
               "optional": false
             },
             {
-              "uuid": "Compendium.sw5e.speciesfeatures.1isSIcXdF4OpLjQI",
+              "uuid": "Compendium.sw5e.speciesfeatures.qsgL9o1T7vSjIw4R",
               "optional": false
             }
           ],
           "optional": true,
           "spell": null
         },
-        "value": {},
         "level": 0,
-        "title": "Features"
+        "title": "Features",
+        "type": "ItemGrant",
+        "value": {}
       },
       {
-        "_id": "lvlpuF1kANClJAMP",
-        "type": "AbilityScoreImprovement",
+        "_id": "sw5e1asi00000000",
         "configuration": {
           "fixed": {
             "cha": 2,
@@ -107,25 +106,25 @@
           "cap": 2,
           "locked": []
         },
+        "level": 0,
+        "type": "AbilityScoreImprovement",
         "value": {
           "type": "asi"
-        },
-        "level": 0
+        }
       },
       {
-        "_id": "1EnbfMcLE9AnbExs",
-        "type": "Size",
+        "_id": "sw5e2s0000000000",
         "configuration": {
           "sizes": [
             "med"
           ]
         },
-        "value": {},
-        "level": 0
+        "level": 0,
+        "type": "Size",
+        "value": {}
       },
       {
-        "_id": "1eilrKhvQLByeEYO",
-        "type": "Trait",
+        "_id": "sw5e3t0000000000",
         "configuration": {
           "choices": [
             {
@@ -136,14 +135,17 @@
               ]
             }
           ],
-          "grants": [],
+          "grants": [
+            "dr:poison"
+          ],
           "mode": "default",
           "allowReplacements": false
         },
+        "level": 0,
+        "type": "Trait",
         "value": {
           "chosen": []
-        },
-        "level": 0
+        }
       }
     ],
     "skinColorOptions": {
@@ -194,16 +196,10 @@
       "_id": "67J2jENh3a5uydk3",
       "changes": [
         {
-          "key": "system.traits.dr.value",
-          "value": "poison",
-          "mode": 0,
-          "priority": 0
-        },
-        {
           "key": "flags.sw5e.enthrallingPheromones",
-          "value": "1",
           "mode": 5,
-          "priority": 20
+          "priority": 20,
+          "value": "1"
         }
       ],
       "disabled": false,
@@ -251,7 +247,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296028336,
-    "modifiedTime": 1729983890172,
+    "modifiedTime": 1732412596409,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

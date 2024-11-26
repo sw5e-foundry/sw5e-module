@@ -111,116 +111,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "fZSUZYCSQ9q4EJvS": {
-        "type": "Save",
-        "_id": "fZSUZYCSQ9q4EJvS",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "120",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
         },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "wis",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become charmed by you for the duration. The </p>\n<p>charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose.</p>\n<p>The target can act normally on its turn if you choose no creature or if none are within its reach.</p>\n<p>On your subsequent turns, you must use your action to maintain control over the target, or the power ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the power ends.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "3"
+            }
+          ]
         }
-      },
-      "OPNeVgXkliO1yzm0": {
-        "type": "Save",
-        "_id": "OPNeVgXkliO1yzm0",
-        "img": null,
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "120",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become charmed by you for the duration. The </p>\n<p>charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose.</p>\n<p>The target can act normally on its turn if you choose no creature or if none are within its reach.</p>\n<p>On your subsequent turns, you must use your action to maintain control over the target, or the power ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the power ends.</p>"
-        }
-      },
-      "1GzCMLS5hcpQcYj1": {
-        "type": "Save",
-        "_id": "1GzCMLS5hcpQcYj1",
-        "img": null,
-        "description": {
-          "value": "<p>One humanoid of your choice that you can see within range must succeed on a Wisdom saving throw or become charmed by you for the duration. The </p>\n<p>charmed target must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose.</p>\n<p>The target can act normally on its turn if you choose no creature or if none are within its reach.</p>\n<p>On your subsequent turns, you must use your action to maintain control over the target, or the power ends. Also, the target can make a Wisdom saving throw at the end of each of its turns. On a success, the power ends.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120"
       }
     }
   },
@@ -232,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979323,
-    "modifiedTime": 1729983827678,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

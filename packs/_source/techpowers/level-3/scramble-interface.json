@@ -102,116 +102,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1mg4OOmWh4j61x7p": {
-        "type": "Save",
-        "_id": "1mg4OOmWh4j61x7p",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "120",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
         },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "int",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "droid"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You choose one droid or construct you can see within range and scramble its ability to differentiate targets. The target must make an Intelligence saving throw. If the construct has the 'Piloted' trait, and has a pilot controlling it that is not incapacitated, it gains a bonus to the saving throw equal to the pilot's Intelligence modifier. On a failed save, the target loses the ability to distinguish friend from foe, regarding all creatures it can see as enemies until the power ends. Each time the target takes damage, it can repeat the saving throw, ending the effect on itself on a success.</p>\n<p>Whenever the affected creature chooses another creature as a target, it must choose the target at random from among the creatures it can see within range of the attack, power, or other ability it's using. If an enemy provokes an opportunity attack from the affected creature, the creature must make that attack if it is able to.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "4"
+            }
+          ]
         }
-      },
-      "m01sTlALwWbkEnQn": {
-        "type": "Save",
-        "_id": "m01sTlALwWbkEnQn",
-        "img": null,
-        "save": {
-          "ability": "int",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "120",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "droid"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You choose one droid or construct you can see within range and scramble its ability to differentiate targets. The target must make an Intelligence saving throw. If the construct has the 'Piloted' trait, and has a pilot controlling it that is not incapacitated, it gains a bonus to the saving throw equal to the pilot's Intelligence modifier. On a failed save, the target loses the ability to distinguish friend from foe, regarding all creatures it can see as enemies until the power ends. Each time the target takes damage, it can repeat the saving throw, ending the effect on itself on a success.</p>\n<p>Whenever the affected creature chooses another creature as a target, it must choose the target at random from among the creatures it can see within range of the attack, power, or other ability it's using. If an enemy provokes an opportunity attack from the affected creature, the creature must make that attack if it is able to.</p>"
-        }
-      },
-      "1cNDCq9JtstH1D7g": {
-        "type": "Save",
-        "_id": "1cNDCq9JtstH1D7g",
-        "img": null,
-        "description": {
-          "value": "<p>You choose one droid or construct you can see within range and scramble its ability to differentiate targets. The target must make an Intelligence saving throw. If the construct has the 'Piloted' trait, and has a pilot controlling it that is not incapacitated, it gains a bonus to the saving throw equal to the pilot's Intelligence modifier. On a failed save, the target loses the ability to distinguish friend from foe, regarding all creatures it can see as enemies until the power ends. Each time the target takes damage, it can repeat the saving throw, ending the effect on itself on a success.</p>\n<p>Whenever the affected creature chooses another creature as a target, it must choose the target at random from among the creatures it can see within range of the attack, power, or other ability it's using. If an enemy provokes an opportunity attack from the affected creature, the creature must make that attack if it is able to.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "int",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "droid"
-        },
-        "range": "120"
       }
     }
   },
@@ -227,7 +156,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729983830569,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

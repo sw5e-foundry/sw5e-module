@@ -107,106 +107,57 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "dQPKV1I9moX7DfKj": {
-        "type": "Damage",
-        "_id": "dQPKV1I9moX7DfKj",
-        "img": null,
-        "duration": {
-          "value": "10",
-          "units": "minute"
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "2d6",
-              "fire"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You create six tiny sabotage charges that last for the power's duration. When you cast the power, and as a bonus action on subsequent turns, you can hurl up to two of the charges to points you choose within 120 feet. Each charge explodes if it reaches the point or hits a solid surface. Each creature within 5 feet of the explosion must make a Dexterity save. The explosion deals [[/r 2d6]] fire damage on a failure, or half damage on a success.</p>\n<p><strong><em>Overcharge Tech.</strong></em> The number of charges created increases by two for each slot level above 3rd.</p>"
-        }
-      },
-      "1EKNXLd835Qh1QVz": {
-        "type": "Damage",
-        "_id": "1EKNXLd835Qh1QVz",
-        "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "fire"
-            ]
-          ]
-        },
+        "description": {},
         "duration": {
-          "value": "10",
-          "units": "minute"
+          "units": "minute",
+          "value": "10"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You create six tiny sabotage charges that last for the power's duration. When you cast the power, and as a bonus action on subsequent turns, you can hurl up to two of the charges to points you choose within 120 feet. Each charge explodes if it reaches the point or hits a solid surface. Each creature within 5 feet of the explosion must make a Dexterity save. The explosion deals [[/r 2d6]] fire damage on a failure, or half damage on a success.</p>\n<p><strong><em>Overcharge Tech.</strong></em> The number of charges created increases by two for each slot level above 3rd.</p>"
-        }
-      },
-      "yJ52Hjt4Pee19tnn": {
-        "type": "Damage",
-        "_id": "yJ52Hjt4Pee19tnn",
         "img": null,
-        "description": {
-          "value": "<p>You create six tiny sabotage charges that last for the power's duration. When you cast the power, and as a bonus action on subsequent turns, you can hurl up to two of the charges to points you choose within 120 feet. Each charge explodes if it reaches the point or hits a solid surface. Each creature within 5 feet of the explosion must make a Dexterity save. The explosion deals [[/r 2d6]] fire damage on a failure, or half damage on a success.</p>\n<p><strong><em>Overcharge Tech.</strong></em> The number of charges created increases by two for each slot level above 3rd.</p>"
+        "range": {
+          "override": false
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "10",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "fire"
-            ]
+        "target": {},
+        "type": "damage",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "4"
+            }
           ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
         }
       }
     }
@@ -223,7 +174,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

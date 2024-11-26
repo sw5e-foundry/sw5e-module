@@ -113,139 +113,74 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "XCDnxKxjgbc1zICb": {
-        "type": "Save",
-        "_id": "XCDnxKxjgbc1zICb",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "5d8",
-              "damage"
-            ],
-            [
-              "5d8",
-              "force"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 5,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "damage"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 5,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 90,
-          "width": null,
-          "units": "ft",
-          "type": "line"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Saber Throw</em></p>\n<p>When you cast this power, you must be wielding at least one lightweapon or vibroweapon, otherwise the power fails. When you cast this power, you can throw two weapons, striking creatures in two lines originating from yourself, both 90 feet long and 5 feet wide, or you can throw one weapon in a 90-foot long, 5-foot wide line of your choice originating from yourself and change its direction to move in a second identical line of your choice within range. Each creature in a line must make a Dexterity saving throw. A creature takes [[/r 5d8]] damage of the same type as the weapon's damage and [[/r 5d8]] force damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one line is affected only once. The weapons then immediately return to your hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 8th level or higher, the weapon damage and force damage each increase by [[/r 1d8]] for each slot level above 7th.</p>"
-        }
-      },
-      "1v2BT1YAukGG3gIM": {
-        "type": "Save",
-        "_id": "1v2BT1YAukGG3gIM",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "5d8",
-              "damage"
-            ],
-            [
-              "5d8",
-              "force"
-            ]
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "8"
+            }
           ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 90,
-          "width": null,
-          "units": "ft",
-          "type": "line"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Saber Throw</em></p>\n<p>When you cast this power, you must be wielding at least one lightweapon or vibroweapon, otherwise the power fails. When you cast this power, you can throw two weapons, striking creatures in two lines originating from yourself, both 90 feet long and 5 feet wide, or you can throw one weapon in a 90-foot long, 5-foot wide line of your choice originating from yourself and change its direction to move in a second identical line of your choice within range. Each creature in a line must make a Dexterity saving throw. A creature takes [[/r 5d8]] damage of the same type as the weapon's damage and [[/r 5d8]] force damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one line is affected only once. The weapons then immediately return to your hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 8th level or higher, the weapon damage and force damage each increase by [[/r 1d8]] for each slot level above 7th.</p>"
-        }
-      },
-      "39fYJNHHRuU1dfvk": {
-        "type": "Save",
-        "_id": "39fYJNHHRuU1dfvk",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Greater Saber Throw</em></p>\n<p>When you cast this power, you must be wielding at least one lightweapon or vibroweapon, otherwise the power fails. When you cast this power, you can throw two weapons, striking creatures in two lines originating from yourself, both 90 feet long and 5 feet wide, or you can throw one weapon in a 90-foot long, 5-foot wide line of your choice originating from yourself and change its direction to move in a second identical line of your choice within range. Each creature in a line must make a Dexterity saving throw. A creature takes [[/r 5d8]] damage of the same type as the weapon's damage and [[/r 5d8]] force damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one line is affected only once. The weapons then immediately return to your hand.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 8th level or higher, the weapon damage and force damage each increase by [[/r 1d8]] for each slot level above 7th.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "5d8",
-              "damage"
-            ],
-            [
-              "5d8",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": 90,
-          "width": null,
-          "units": "ft",
-          "type": "line"
         }
       }
     }
@@ -258,7 +193,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979303,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

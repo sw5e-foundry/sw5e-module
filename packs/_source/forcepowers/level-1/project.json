@@ -109,110 +109,56 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "mTCCGxb21EYozjYB": {
-        "type": "Damage",
-        "_id": "mTCCGxb21EYozjYB",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "120",
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d4 + 1",
-              "force"
-            ]
+            {
+              "bonus": "+ 1",
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
           ]
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You lift three piles of debris or small objects from the ground and hurl them. Each pile hits a creature of your choice that you can see within range. The pile deals [[/r 1d4+1]] force damage to its target. The piles all strike simultaneously and you can direct them to hit one creature or several.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, you lift and throw an additional pile of debris for each slot level above 1st.</p>"
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "damage",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "1tnxB9VcMd7p1Sld": {
-        "type": "Damage",
-        "_id": "1tnxB9VcMd7p1Sld",
-        "img": null,
-        "range": "120",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4 + 1",
-              "force"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You lift three piles of debris or small objects from the ground and hurl them. Each pile hits a creature of your choice that you can see within range. The pile deals [[/r 1d4+1]] force damage to its target. The piles all strike simultaneously and you can direct them to hit one creature or several.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, you lift and throw an additional pile of debris for each slot level above 1st.</p>"
-        }
-      },
-      "eFuQGqioIqKgUwte": {
-        "type": "Damage",
-        "_id": "eFuQGqioIqKgUwte",
-        "img": null,
-        "description": {
-          "value": "<p>You lift three piles of debris or small objects from the ground and hurl them. Each pile hits a creature of your choice that you can see within range. The pile deals [[/r 1d4+1]] force damage to its target. The piles all strike simultaneously and you can direct them to hit one creature or several.</p>\n<p><strong><em>Force Potency.</strong></em> When you cast this power using a force slot of 2nd level or higher, you lift and throw an additional pile of debris for each slot level above 1st.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4 + 1",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120"
       }
     }
   },
@@ -224,7 +170,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979309,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

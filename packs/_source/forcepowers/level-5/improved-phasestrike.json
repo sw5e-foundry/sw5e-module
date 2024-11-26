@@ -109,131 +109,59 @@
     "summons": null,
     "properties": [],
     "activities": {
-      "gZ4If8qaFcQ1pFdI": {
-        "type": "Attack",
-        "_id": "gZ4If8qaFcQ1pFdI",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "range": "30",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "6d10",
-              "force"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "melee"
+          "type": {}
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 6,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
+          ]
         },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Phasestrike</em></p>\n<p>Choose up to five creatures you can see within range. Make a melee force attack against each one. On hit, a target takes [[/r 6d10]] force damage. You can then teleport to an unoccupied space you can see within 5 feet of one of the creatures you chose.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "6"
+            }
+          ]
         }
-      },
-      "1EXuPUPBiQn7xQot": {
-        "type": "Attack",
-        "_id": "1EXuPUPBiQn7xQot",
-        "img": null,
-        "range": "30",
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "6d10",
-              "force"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Phasestrike</em></p>\n<p>Choose up to five creatures you can see within range. Make a melee force attack against each one. On hit, a target takes [[/r 6d10]] force damage. You can then teleport to an unoccupied space you can see within 5 feet of one of the creatures you chose.</p>"
-        }
-      },
-      "1toyJ09VGzsWfrpI": {
-        "type": "Attack",
-        "_id": "1toyJ09VGzsWfrpI",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Phasestrike</em></p>\n<p>Choose up to five creatures you can see within range. Make a melee force attack against each one. On hit, a target takes [[/r 6d10]] force damage. You can then teleport to an unoccupied space you can see within 5 feet of one of the creatures you chose.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "6d10",
-              "force"
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30"
       }
     }
   },
@@ -245,7 +173,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979196,
-    "modifiedTime": 1729984339562,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

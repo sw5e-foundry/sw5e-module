@@ -111,116 +111,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "rJ8rueGuyCrdogfn": {
-        "type": "Save",
-        "_id": "rJ8rueGuyCrdogfn",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "30",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
         },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "wis",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Mass Malacia</em></p>\n<p>Choose one creature that you can see within range. The creature reels with extreme dizziness and nausea for the duration. Creatures that can't be charmed are immune to this power.</p>\n<p>The affected creature must use all of its movement to writhe in discomfort without leaving its space and has disadvantage on Dexterity saving throws and attack rolls. While the target is affected by this power, other creatures have advantage on attack rolls against it. As an action, an affected creature makes a Wisdom saving throw to regain control of itself. On a successful save, the power ends. This power has no effect on droids or constructs.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "7"
+            }
+          ]
         }
-      },
-      "rwhVQwE01gaCtrb8": {
-        "type": "Save",
-        "_id": "rwhVQwE01gaCtrb8",
-        "img": null,
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "30",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Mass Malacia</em></p>\n<p>Choose one creature that you can see within range. The creature reels with extreme dizziness and nausea for the duration. Creatures that can't be charmed are immune to this power.</p>\n<p>The affected creature must use all of its movement to writhe in discomfort without leaving its space and has disadvantage on Dexterity saving throws and attack rolls. While the target is affected by this power, other creatures have advantage on attack rolls against it. As an action, an affected creature makes a Wisdom saving throw to regain control of itself. On a successful save, the power ends. This power has no effect on droids or constructs.</p>"
-        }
-      },
-      "ms8NfIdIAr5CTvzZ": {
-        "type": "Save",
-        "_id": "ms8NfIdIAr5CTvzZ",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Mass Malacia</em></p>\n<p>Choose one creature that you can see within range. The creature reels with extreme dizziness and nausea for the duration. Creatures that can't be charmed are immune to this power.</p>\n<p>The affected creature must use all of its movement to writhe in discomfort without leaving its space and has disadvantage on Dexterity saving throws and attack rolls. While the target is affected by this power, other creatures have advantage on attack rolls against it. As an action, an affected creature makes a Wisdom saving throw to regain control of itself. On a successful save, the power ends. This power has no effect on droids or constructs.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "wis",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "range": "30"
       }
     }
   },
@@ -232,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979334,
-    "modifiedTime": 1729983827894,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

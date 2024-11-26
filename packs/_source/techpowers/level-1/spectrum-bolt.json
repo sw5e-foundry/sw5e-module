@@ -105,131 +105,60 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "yakiOwoqtfEHnHQi": {
-        "type": "Attack",
-        "_id": "yakiOwoqtfEHnHQi",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "range": "120",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8 + 1d6",
-              ""
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "spell",
           "flat": false,
-          "type": "ranged"
+          "type": {}
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
+        "damage": {
+          "critical": {},
+          "parts": [
+            {
+              "bonus": "+ 1",
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
+          ]
         },
-        "description": {
-          "value": "<p>You fire an undulating, warbling bolt of energy at a creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 2d8]] + [[/r 1d6]] damage. Choose one of the d8s. The number rolled on that die determines the attacks damage type, as shown below.</p>\n<p>| [[/r d8]]  | Damage Type |</p>\n<p>|:---:|:-----------:|</p>\n<p>|  1  | Acid |</p>\n<p>|  2  | Cold |</p>\n<p>|  3  | Fire |</p>\n<p>|  4  | Energy |</p>\n<p>|  5  | Ion |</p>\n<p>|  6  | Lightning |</p>\n<p>|  7  | Poison |</p>\n<p>|  8  | Sonic |</p>\n<p>If you roll the same number on both d8s, the bolt leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the bolt to leap again. A creature can be targeted only once by each casting of this power.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, each target takes [[/r 1d6]] extra damage of the type rolled for each slot level above 1st.</p>"
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "attack",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "19PA6Kl2r5Jl1F0C": {
-        "type": "Attack",
-        "_id": "19PA6Kl2r5Jl1F0C",
-        "img": null,
-        "range": "120",
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8 + 1d6",
-              ""
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You fire an undulating, warbling bolt of energy at a creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 2d8]] + [[/r 1d6]] damage. Choose one of the d8s. The number rolled on that die determines the attacks damage type, as shown below.</p>\n<p>| [[/r d8]]  | Damage Type |</p>\n<p>|:---:|:-----------:|</p>\n<p>|  1  | Acid |</p>\n<p>|  2  | Cold |</p>\n<p>|  3  | Fire |</p>\n<p>|  4  | Energy |</p>\n<p>|  5  | Ion |</p>\n<p>|  6  | Lightning |</p>\n<p>|  7  | Poison |</p>\n<p>|  8  | Sonic |</p>\n<p>If you roll the same number on both d8s, the bolt leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the bolt to leap again. A creature can be targeted only once by each casting of this power.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, each target takes [[/r 1d6]] extra damage of the type rolled for each slot level above 1st.</p>"
-        }
-      },
-      "dRV5njP4baTyw77z": {
-        "type": "Attack",
-        "_id": "dRV5njP4baTyw77z",
-        "img": null,
-        "description": {
-          "value": "<p>You fire an undulating, warbling bolt of energy at a creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 2d8]] + [[/r 1d6]] damage. Choose one of the d8s. The number rolled on that die determines the attacks damage type, as shown below.</p>\n<p>| [[/r d8]]  | Damage Type |</p>\n<p>|:---:|:-----------:|</p>\n<p>|  1  | Acid |</p>\n<p>|  2  | Cold |</p>\n<p>|  3  | Fire |</p>\n<p>|  4  | Energy |</p>\n<p>|  5  | Ion |</p>\n<p>|  6  | Lightning |</p>\n<p>|  7  | Poison |</p>\n<p>|  8  | Sonic |</p>\n<p>If you roll the same number on both d8s, the bolt leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the bolt to leap again. A creature can be targeted only once by each casting of this power.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, each target takes [[/r 1d6]] extra damage of the type rolled for each slot level above 1st.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d8 + 1d6",
-              ""
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "spell",
-          "flat": false,
-          "type": "ranged"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120"
       }
     }
   },
@@ -245,7 +174,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

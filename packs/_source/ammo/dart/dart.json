@@ -117,104 +117,42 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "zNmKUbJjLIP1bTQb": {
-        "type": "Damage",
-        "_id": "zNmKUbJjLIP1bTQb",
-        "img": null,
-        "description": {
-          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": null,
-          "cost": null
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d6",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
-        }
-      },
-      "1l7u4XeMdLL517v3": {
-        "type": "Damage",
-        "_id": "1l7u4XeMdLL517v3",
+        },
         "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "kinetic"
-            ]
-          ]
+        "range": {
+          "override": false
         },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit.</p>"
-        }
-      },
-      "1V7701RcTe5y1dfE": {
-        "type": "Damage",
-        "_id": "1V7701RcTe5y1dfE",
-        "img": null,
-        "description": {
-          "value": "<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "kinetic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -226,7 +164,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956749,
-    "modifiedTime": 1729983824137,
+    "modifiedTime": 1732455688754,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

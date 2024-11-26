@@ -121,137 +121,61 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "uA67oSuzopt8GuBe": {
-        "type": "Save",
-        "_id": "uA67oSuzopt8GuBe",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +2 bonus to attack and damage rolls made with this enhanced gas cartridge. This bonus is in addition to any bonuses granted by the weapon. Once the gas cartridge has been fired, it no longer gives a bonus. Additionally, when you hit with a shot with the loaded weapon, the creature must make a DC 18 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] poison damage and is poisoned until the start of its next turn. On a successful save, a creature takes half damage and isn't poisoned.</p>\n<p>&nbsp;</p>\n<h2>Gas cartridge</h2>\n<p>A gas cartridge is a specialized slug cartridge for use with blaster weapons that deal kinetic damage. When you hit with a shot with the loaded weapon, the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] poison damage and is poisoned until the start of its next turn. On a successful save, a creature takes half damage and isn't poisoned.</p>"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "poison"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "poison"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst",
+          "value": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "poison"
-            ],
-            [
-              "1d6",
-              "poison"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "1gu23PLjTQapygXh": {
-        "type": "Save",
-        "_id": "1gu23PLjTQapygXh",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "poison"
-            ],
-            [
-              "1d6",
-              "poison"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +2 bonus to attack and damage rolls made with this enhanced gas cartridge. This bonus is in addition to any bonuses granted by the weapon. Once the gas cartridge has been fired, it no longer gives a bonus. Additionally, when you hit with a shot with the loaded weapon, the creature must make a DC 18 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] poison damage and is poisoned until the start of its next turn. On a successful save, a creature takes half damage and isn't poisoned.</p>\n<p>&nbsp;</p>\n<h2>Gas cartridge</h2>\n<p>A gas cartridge is a specialized slug cartridge for use with blaster weapons that deal kinetic damage. When you hit with a shot with the loaded weapon, the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] poison damage and is poisoned until the start of its next turn. On a successful save, a creature takes half damage and isn't poisoned.</p>"
-        }
-      },
-      "bcLqrKTOuu51TPhF": {
-        "type": "Save",
-        "_id": "bcLqrKTOuu51TPhF",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +2 bonus to attack and damage rolls made with this enhanced gas cartridge. This bonus is in addition to any bonuses granted by the weapon. Once the gas cartridge has been fired, it no longer gives a bonus. Additionally, when you hit with a shot with the loaded weapon, the creature must make a DC 18 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] poison damage and is poisoned until the start of its next turn. On a successful save, a creature takes half damage and isn't poisoned.</p>\n<p>&nbsp;</p>\n<h2>Gas cartridge</h2>\n<p>A gas cartridge is a specialized slug cartridge for use with blaster weapons that deal kinetic damage. When you hit with a shot with the loaded weapon, the creature must make a DC 14 Constitution saving throw. On a failed save, the creature takes [[/r 1d6]] poison damage and is poisoned until the start of its next turn. On a successful save, a creature takes half damage and isn't poisoned.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              "poison"
-            ],
-            [
-              "1d6",
-              "poison"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -263,7 +187,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964857,
-    "modifiedTime": 1729984337414,
+    "modifiedTime": 1732455687404,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

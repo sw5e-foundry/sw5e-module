@@ -105,110 +105,56 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1MxtIiHKhOroxMI9": {
-        "type": "Damage",
-        "_id": "1MxtIiHKhOroxMI9",
-        "img": null,
-        "duration": {
-          "value": null,
-          "units": "inst"
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "120",
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d4 + 1",
-              "fire"
-            ]
+            {
+              "bonus": "+ 1",
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
           ]
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "description": {},
+        "duration": {
+          "units": "inst"
         },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You lock on to one or more targets within range and expel a series of three small explosives. Each explosive hits a creature of your choice that you can see within range. An explosive deals [[/r 1d4 + 1]] fire damage to its target. The explosives all strike simultaneously, and you can direct them to hit one creature or several.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the power creates one more explosive for each slot level above 1st.</p>"
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "damage",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "TltZgINhehD1ELUc": {
-        "type": "Damage",
-        "_id": "TltZgINhehD1ELUc",
-        "img": null,
-        "range": "120",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4 + 1",
-              "fire"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You lock on to one or more targets within range and expel a series of three small explosives. Each explosive hits a creature of your choice that you can see within range. An explosive deals [[/r 1d4 + 1]] fire damage to its target. The explosives all strike simultaneously, and you can direct them to hit one creature or several.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the power creates one more explosive for each slot level above 1st.</p>"
-        }
-      },
-      "1ECivQ6eqvaYAxpG": {
-        "type": "Damage",
-        "_id": "1ECivQ6eqvaYAxpG",
-        "img": null,
-        "description": {
-          "value": "<p>You lock on to one or more targets within range and expel a series of three small explosives. Each explosive hits a creature of your choice that you can see within range. An explosive deals [[/r 1d4 + 1]] fire damage to its target. The explosives all strike simultaneously, and you can direct them to hit one creature or several.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, the power creates one more explosive for each slot level above 1st.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d4 + 1",
-              "fire"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "120"
       }
     }
   },
@@ -224,7 +170,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -100,73 +100,37 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1q8ZwciLgW7H1wh4": {
-        "type": "Utility",
-        "_id": "1q8ZwciLgW7H1wh4",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
         "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you are hit by an attack"
+          "condition": "when you are hit by an attack",
+          "type": "reaction"
         },
-        "description": {
-          "value": "<p>You quickly create an energy shield. Until the start of your next turn, you have a +5 bonus to AC. This includes the triggering attack. </p>"
-        }
-      },
-      "1rygn75pENSKZXIY": {
-        "type": "Utility",
-        "_id": "1rygn75pENSKZXIY",
-        "img": null,
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "round"
+          "units": "round",
+          "value": "1"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you are hit by an attack"
-        },
-        "description": {
-          "value": "<p>You quickly create an energy shield. Until the start of your next turn, you have a +5 bonus to AC. This includes the triggering attack. </p>"
-        }
-      },
-      "1ArZ31ZFUu0W1tsl": {
-        "type": "Utility",
-        "_id": "1ArZ31ZFUu0W1tsl",
         "img": null,
-        "description": {
-          "value": "<p>You quickly create an energy shield. Until the start of your next turn, you have a +5 bonus to AC. This includes the triggering attack. </p>"
+        "range": {
+          "override": false
         },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when you are hit by an attack"
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "roll": {},
+        "target": {},
+        "type": "utility",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
       }
     }
@@ -183,7 +147,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729983830584,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

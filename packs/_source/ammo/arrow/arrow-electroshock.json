@@ -117,125 +117,46 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "L8iTlM369R31rbI2": {
-        "type": "Save",
-        "_id": "L8iTlM369R31rbI2",
-        "img": null,
-        "description": {
-          "value": "<p>An electroshock arrow is a specialized arrow for use with bow weapons. When you hit a creature with this arrow, the creature must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d3]] ion damage and becomes stunned until the start of its next turn. On a successful save, a creature takes half damage and isn't stunned. Once the arrow hits a target, it no longer gives a bonus.</p>"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 3,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "ion"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d3",
-              "ion"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "n8LAAjTREMS1wwEo": {
-        "type": "Save",
-        "_id": "n8LAAjTREMS1wwEo",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d3",
-              "ion"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>An electroshock arrow is a specialized arrow for use with bow weapons. When you hit a creature with this arrow, the creature must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d3]] ion damage and becomes stunned until the start of its next turn. On a successful save, a creature takes half damage and isn't stunned. Once the arrow hits a target, it no longer gives a bonus.</p>"
-        }
-      },
-      "6lJ8YjA8FMo1RCbk": {
-        "type": "Save",
-        "_id": "6lJ8YjA8FMo1RCbk",
-        "img": null,
-        "description": {
-          "value": "<p>An electroshock arrow is a specialized arrow for use with bow weapons. When you hit a creature with this arrow, the creature must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d3]] ion damage and becomes stunned until the start of its next turn. On a successful save, a creature takes half damage and isn't stunned. Once the arrow hits a target, it no longer gives a bonus.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d3",
-              "ion"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -247,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956753,
-    "modifiedTime": 1729983824166,
+    "modifiedTime": 1732455688754,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

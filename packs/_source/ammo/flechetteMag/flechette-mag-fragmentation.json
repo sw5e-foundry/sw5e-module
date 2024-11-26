@@ -117,125 +117,46 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1GbDPeTE1tjN1vku": {
-        "type": "Save",
-        "_id": "1GbDPeTE1tjN1vku",
-        "img": null,
-        "description": {
-          "value": "<p>When triggered, this flechette cannon ammunition fires a volley of kinetic flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette mag holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one. </p>"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 10,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "HuuQBi9nmu61ajNS": {
-        "type": "Save",
-        "_id": "HuuQBi9nmu61ajNS",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>When triggered, this flechette cannon ammunition fires a volley of kinetic flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette mag holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one. </p>"
-        }
-      },
-      "bZOTSDR4hsouwXXQ": {
-        "type": "Save",
-        "_id": "bZOTSDR4hsouwXXQ",
-        "img": null,
-        "description": {
-          "value": "<p>When triggered, this flechette cannon ammunition fires a volley of kinetic flechette rounds in a short line 15 feet long and 5 feet wide or a long line 45 feet long and 5 feet wide. A single flechette mag holds enough ammunition for three attacks in a short line or one attack in a long line. Each creature must make a DC 14 Dexterity saving throw. A creature takes [[/r 2d10]] kinetic damage on a failed save, or half as much as on a successful one. </p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d10",
-              "kinetic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -247,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956739,
-    "modifiedTime": 1729983824077,
+    "modifiedTime": 1732455688754,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

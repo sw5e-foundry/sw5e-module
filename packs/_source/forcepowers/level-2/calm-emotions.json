@@ -111,116 +111,45 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "xoVaoxb0q1ssFxN0": {
-        "type": "Save",
-        "_id": "xoVaoxb0q1ssFxN0",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "minute"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
         },
-        "range": "60",
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": []
         },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
         "save": {
           "ability": "cha",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Sense Emotion</em></p>\n<p>You attempt to suppress strong emotions in a group of people. Each humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw a creature can choose to fail this saving throw if it wishes. If a creature fails its saving throw, choose one of the following two effects.</p>\n<ul>\n<li>You can suppress any effect causing a target to be charmed or frightened. When this power ends, any suppressed effect resumes, provided that its duration has not expired in the meantime. </li>\n<li>You can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a power or if it witnesses any of its friends being harmed. </li>\n</ul>\n<p>When the power ends, the creature becomes hostile again, unless the GM rules otherwise.</p>"
+        "target": {},
+        "type": "save",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "3"
+            }
+          ]
         }
-      },
-      "LDb1lGT6ArUwqnIq": {
-        "type": "Save",
-        "_id": "LDb1lGT6ArUwqnIq",
-        "img": null,
-        "save": {
-          "ability": "cha",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "range": "60",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Sense Emotion</em></p>\n<p>You attempt to suppress strong emotions in a group of people. Each humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw a creature can choose to fail this saving throw if it wishes. If a creature fails its saving throw, choose one of the following two effects.</p>\n<ul>\n<li>You can suppress any effect causing a target to be charmed or frightened. When this power ends, any suppressed effect resumes, provided that its duration has not expired in the meantime. </li>\n<li>You can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a power or if it witnesses any of its friends being harmed. </li>\n</ul>\n<p>When the power ends, the creature becomes hostile again, unless the GM rules otherwise.</p>"
-        }
-      },
-      "1KkKeyK9aOuNrsO5": {
-        "type": "Save",
-        "_id": "1KkKeyK9aOuNrsO5",
-        "img": null,
-        "description": {
-          "value": "<p><em><strong>Prerequisite</strong>: Sense Emotion</em></p>\n<p>You attempt to suppress strong emotions in a group of people. Each humanoid in a 20-foot-radius sphere centered on a point you choose within range must make a Charisma saving throw a creature can choose to fail this saving throw if it wishes. If a creature fails its saving throw, choose one of the following two effects.</p>\n<ul>\n<li>You can suppress any effect causing a target to be charmed or frightened. When this power ends, any suppressed effect resumes, provided that its duration has not expired in the meantime. </li>\n<li>You can make a target indifferent about creatures of your choice that it is hostile toward. This indifference ends if the target is attacked or harmed by a power or if it witnesses any of its friends being harmed. </li>\n</ul>\n<p>When the power ends, the creature becomes hostile again, unless the GM rules otherwise.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "save": {
-          "ability": "cha",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": []
-        },
-        "target": {
-          "value": 20,
-          "width": null,
-          "units": "ft",
-          "type": "sphere"
-        },
-        "range": "60"
       }
     }
   },
@@ -232,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493979349,
-    "modifiedTime": 1729983828184,
+    "modifiedTime": 1732457033757,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

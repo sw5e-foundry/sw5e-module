@@ -117,137 +117,43 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "f3TEKXchDz314ZfR": {
-        "type": "Damage",
-        "_id": "f3TEKXchDz314ZfR",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d20]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the torpedo is depleted, it no longer gives a bonus.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
         "activation": {
-          "type": null,
-          "cost": null
+          "type": "action"
         },
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "20d20",
-              "kinetic"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 20,
+              "number": 20,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            }
           ]
         },
+        "description": {},
         "duration": {
-          "value": "inst",
-          "units": null
-        }
-      },
-      "xmENXt6G5AMpwBb8": {
-        "type": "Damage",
-        "_id": "xmENXt6G5AMpwBb8",
+          "units": "inst",
+          "value": "inst"
+        },
         "img": null,
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "20d20",
-              "kinetic"
-            ]
-          ]
+        "range": {
+          "override": false
         },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d20]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the torpedo is depleted, it no longer gives a bonus.</p>"
-        }
-      },
-      "1sCHWG8PStd3D21u": {
-        "type": "Damage",
-        "_id": "1sCHWG8PStd3D21u",
-        "img": null,
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d20]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the torpedo is depleted, it no longer gives a bonus.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "20d20",
-              "kinetic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
-      },
-      "v3J0Yxtle9C1kVjy": {
-        "type": "Damage",
-        "_id": "v3J0Yxtle9C1kVjy",
-        "img": null,
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "duration": {
-          "value": "inst",
-          "units": null
-        },
-        "description": {
-          "value": "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d20]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the torpedo is depleted, it no longer gives a bonus.</p>"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "20d20",
-              "kinetic"
-            ]
-          ]
-        }
+        "target": {},
+        "type": "damage"
       }
     }
   },
@@ -259,7 +165,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964354,
-    "modifiedTime": 1729989173420,
+    "modifiedTime": 1732455687404,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

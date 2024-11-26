@@ -105,95 +105,50 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "bO0MQNWlSzU1rme1": {
-        "type": "Heal",
-        "_id": "bO0MQNWlSzU1rme1",
-        "img": null,
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "condition": "",
+          "type": "action"
+        },
+        "description": {},
         "duration": {
-          "value": "1",
-          "units": "minute"
+          "units": "minute",
+          "value": "1"
         },
-        "range": "60",
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "healing": [
-          [
-            "1d6 + @mod",
+        "healing": {
+          "bonus": "+ @mod",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 6,
+          "number": 1,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
             "healing"
           ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
         },
-        "description": {
-          "value": "<p>You create a luminescent pack of bacta in any space, occupied or unoccupied, within range. The pack remains in its space until it is activated by any creature you choose. If the space you choose is occupied by a creature you have designated, it can use its reaction to immediately activate the pack; otherwise, a creature within 5 feet of the pack can use a bonus action to touch it and activate it.</p>\n<p>When the pack is activated by a designated creature, that creature regains hit points equal to [[/r 1d6]] + your techcasting ability modifier, and the pack is consumed. If the power ends before the pack has been activated, it becomes useless and disintegrates. This power has no effect on droids or constructs.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you may either increase the healing of a single pack by [[/r 1d6]] for each slot level above 1st, or create another pack in a separate space, with one additional pack for each slot level above 1st.</p>"
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "heal",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "GA0ukKwyyJ4Fg6r0": {
-        "type": "Heal",
-        "_id": "GA0ukKwyyJ4Fg6r0",
-        "img": null,
-        "range": "60",
-        "healing": [
-          [
-            "1d6 + @mod",
-            "healing"
-          ]
-        ],
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You create a luminescent pack of bacta in any space, occupied or unoccupied, within range. The pack remains in its space until it is activated by any creature you choose. If the space you choose is occupied by a creature you have designated, it can use its reaction to immediately activate the pack; otherwise, a creature within 5 feet of the pack can use a bonus action to touch it and activate it.</p>\n<p>When the pack is activated by a designated creature, that creature regains hit points equal to [[/r 1d6]] + your techcasting ability modifier, and the pack is consumed. If the power ends before the pack has been activated, it becomes useless and disintegrates. This power has no effect on droids or constructs.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you may either increase the healing of a single pack by [[/r 1d6]] for each slot level above 1st, or create another pack in a separate space, with one additional pack for each slot level above 1st.</p>"
-        }
-      },
-      "4zctApIKTpXGBP1E": {
-        "type": "Heal",
-        "_id": "4zctApIKTpXGBP1E",
-        "img": null,
-        "description": {
-          "value": "<p>You create a luminescent pack of bacta in any space, occupied or unoccupied, within range. The pack remains in its space until it is activated by any creature you choose. If the space you choose is occupied by a creature you have designated, it can use its reaction to immediately activate the pack; otherwise, a creature within 5 feet of the pack can use a bonus action to touch it and activate it.</p>\n<p>When the pack is activated by a designated creature, that creature regains hit points equal to [[/r 1d6]] + your techcasting ability modifier, and the pack is consumed. If the power ends before the pack has been activated, it becomes useless and disintegrates. This power has no effect on droids or constructs.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 2nd level or higher, you may either increase the healing of a single pack by [[/r 1d6]] for each slot level above 1st, or create another pack in a separate space, with one additional pack for each slot level above 1st.</p>"
-        },
-        "healing": [
-          [
-            "1d6 + @mod",
-            "healing"
-          ]
-        ],
-        "activation": {
-          "type": "action",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "60"
       }
     }
   },
@@ -209,7 +164,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

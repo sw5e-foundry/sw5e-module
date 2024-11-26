@@ -121,137 +121,61 @@
     "summons": null,
     "magicalBonus": null,
     "activities": {
-      "1kVEKn3otEafdjUh": {
-        "type": "Save",
-        "_id": "1kVEKn3otEafdjUh",
-        "img": null,
-        "description": {
-          "value": "<p>This bolt-thrower ammunition deals [[/r 2d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Constitution saving throw, taking [[/r 2d4]] sonic damage on a failed save.</p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
         },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "kinetic"
+              ]
+            },
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "sonic"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "con",
           "dc": {
             "calculation": "",
-            "formula": 14
+            "formula": "14"
           }
         },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d4",
-              "sonic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        }
-      },
-      "17h31IFS7kR2k1qx": {
-        "type": "Save",
-        "_id": "17h31IFS7kR2k1qx",
-        "img": null,
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d4",
-              "sonic"
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "description": {
-          "value": "<p>This bolt-thrower ammunition deals [[/r 2d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Constitution saving throw, taking [[/r 2d4]] sonic damage on a failed save.</p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
-        }
-      },
-      "1Bcyi5xGTvtu1Q2z": {
-        "type": "Save",
-        "_id": "1Bcyi5xGTvtu1Q2z",
-        "img": null,
-        "description": {
-          "value": "<p>This bolt-thrower ammunition deals [[/r 2d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Constitution saving throw, taking [[/r 2d4]] sonic damage on a failed save.</p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
-        },
-        "activation": {
-          "type": null,
-          "cost": null
-        },
-        "save": {
-          "ability": "con",
-          "dc": {
-            "calculation": "",
-            "formula": 14
-          }
-        },
-        "duration": {
-          "value": "1",
-          "units": "minute"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d6",
-              "kinetic"
-            ],
-            [
-              "2d4",
-              "sonic"
-            ]
-          ]
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -263,7 +187,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493956745,
-    "modifiedTime": 1729983824114,
+    "modifiedTime": 1732455688754,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

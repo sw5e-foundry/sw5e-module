@@ -107,110 +107,56 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "rWClPl0QCv1ZGzkZ": {
-        "type": "Damage",
-        "_id": "rWClPl0QCv1ZGzkZ",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "hour"
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "condition": "",
+          "type": "bonus"
         },
-        "range": "90",
         "damage": {
           "critical": {
             "allow": true
           },
           "parts": [
-            [
-              "1d6",
-              ""
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 6,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
           ]
         },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
         },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You choose a creature you can see within range and mark it as your quarry. Until the power ends, you deal an extra [[/r 1d6]] damage to the target whenever you hit it with a weapon attack, the target gains no benefit from one-quarter, half, and three-quarters cover against you, and if the target is invisible, you can see it as if it were visible. If the target drops to 0 hit points before this power ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd or 4th level, you can maintain your concentration on the power for up to 8 hours. When you use a tech slot of 5th level or higher, you can maintain your concentration on the power for up to 24 hours.</p>"
+        "img": null,
+        "range": {},
+        "target": {},
+        "type": "damage",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "1HYXxERsVBFsee42": {
-        "type": "Damage",
-        "_id": "1HYXxERsVBFsee42",
-        "img": null,
-        "range": "90",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              ""
-            ]
-          ]
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "description": {
-          "value": "<p>You choose a creature you can see within range and mark it as your quarry. Until the power ends, you deal an extra [[/r 1d6]] damage to the target whenever you hit it with a weapon attack, the target gains no benefit from one-quarter, half, and three-quarters cover against you, and if the target is invisible, you can see it as if it were visible. If the target drops to 0 hit points before this power ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd or 4th level, you can maintain your concentration on the power for up to 8 hours. When you use a tech slot of 5th level or higher, you can maintain your concentration on the power for up to 24 hours.</p>"
-        }
-      },
-      "rpk8eSAttbuf0DD4": {
-        "type": "Damage",
-        "_id": "rpk8eSAttbuf0DD4",
-        "img": null,
-        "description": {
-          "value": "<p>You choose a creature you can see within range and mark it as your quarry. Until the power ends, you deal an extra [[/r 1d6]] damage to the target whenever you hit it with a weapon attack, the target gains no benefit from one-quarter, half, and three-quarters cover against you, and if the target is invisible, you can see it as if it were visible. If the target drops to 0 hit points before this power ends, you can use a bonus action on a subsequent turn of yours to mark a new creature.</p>\n<p><strong><em>Overcharge Tech.</strong></em> When you cast this power using a tech slot of 3rd or 4th level, you can maintain your concentration on the power for up to 8 hours. When you use a tech slot of 5th level or higher, you can maintain your concentration on the power for up to 24 hours.</p>"
-        },
-        "activation": {
-          "type": "bonus",
-          "cost": 1,
-          "condition": ""
-        },
-        "duration": {
-          "value": "1",
-          "units": "hour"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "1d6",
-              ""
-            ]
-          ]
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "creature"
-        },
-        "range": "90"
       }
     }
   },
@@ -226,7 +172,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

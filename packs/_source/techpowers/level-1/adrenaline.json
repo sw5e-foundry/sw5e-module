@@ -100,77 +100,35 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "31bCzR23K7i1OQAZ": {
-        "type": "Utility",
-        "_id": "31bCzR23K7i1OQAZ",
-        "img": null,
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "condition": "when a creature within range that you can see would roll initiative",
+          "type": "reaction"
+        },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
         },
-        "range": "30",
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when a creature within range that you can see would roll initiative"
-        },
-        "description": {
-          "value": "<p>You infuse one creature within range with a jittery burst of power, speeding its senses and reactions to the point of near precognition. The creature makes its initiative check with advantage.</p>"
+        "img": null,
+        "range": {},
+        "roll": {},
+        "target": {},
+        "type": "utility",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "2"
+            }
+          ]
         }
-      },
-      "184JXQknMcD4hzpB": {
-        "type": "Utility",
-        "_id": "184JXQknMcD4hzpB",
-        "img": null,
-        "range": "30",
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when a creature within range that you can see would roll initiative"
-        },
-        "description": {
-          "value": "<p>You infuse one creature within range with a jittery burst of power, speeding its senses and reactions to the point of near precognition. The creature makes its initiative check with advantage.</p>"
-        }
-      },
-      "NlcARTFHxos1mZN1": {
-        "type": "Utility",
-        "_id": "NlcARTFHxos1mZN1",
-        "img": null,
-        "description": {
-          "value": "<p>You infuse one creature within range with a jittery burst of power, speeding its senses and reactions to the point of near precognition. The creature makes its initiative check with advantage.</p>"
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when a creature within range that you can see would roll initiative"
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "30"
       }
     }
   },
@@ -186,7 +144,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729984339984,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

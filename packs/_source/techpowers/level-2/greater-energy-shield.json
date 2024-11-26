@@ -100,77 +100,36 @@
     "enchantment": null,
     "summons": null,
     "activities": {
-      "1Qg0wI6WtMvQYrBi": {
-        "type": "Utility",
-        "_id": "1Qg0wI6WtMvQYrBi",
-        "img": null,
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "range": "15",
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
         "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when a creature you can see within range is hit by an attack or targeted by the *homing rockets* power"
+          "condition": "when a creature you can see within range is hit by an attack or targeted by the *homing rockets* power",
+          "type": "reaction"
         },
-        "description": {
-          "value": "<p>An energy shield appears and protects the target. Until the start of the target's next turn, the target has a +5 bonus to AC, including against the triggering attack, and the target takes no damage from <em>homing rockets</em>.</p>"
+        "description": {},
+        "duration": {
+          "units": "round",
+          "value": "1"
+        },
+        "img": null,
+        "range": {},
+        "roll": {},
+        "target": {},
+        "type": "utility",
+        "consumption": {
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": "amount"
+              },
+              "target": "powercasting.tech.points.value",
+              "type": "attribute",
+              "value": "3"
+            }
+          ]
         }
-      },
-      "16ijLtXjmbR81dl5": {
-        "type": "Utility",
-        "_id": "16ijLtXjmbR81dl5",
-        "img": null,
-        "range": "15",
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when a creature you can see within range is hit by an attack or targeted by the *homing rockets* power"
-        },
-        "description": {
-          "value": "<p>An energy shield appears and protects the target. Until the start of the target's next turn, the target has a +5 bonus to AC, including against the triggering attack, and the target takes no damage from <em>homing rockets</em>.</p>"
-        }
-      },
-      "5oCzEGIVKvJ1aCLd": {
-        "type": "Utility",
-        "_id": "5oCzEGIVKvJ1aCLd",
-        "img": null,
-        "description": {
-          "value": "<p>An energy shield appears and protects the target. Until the start of the target's next turn, the target has a +5 bonus to AC, including against the triggering attack, and the target takes no damage from <em>homing rockets</em>.</p>"
-        },
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "condition": "when a creature you can see within range is hit by an attack or targeted by the *homing rockets* power"
-        },
-        "duration": {
-          "value": "1",
-          "units": "round"
-        },
-        "target": {
-          "value": null,
-          "width": null,
-          "units": "",
-          "type": ""
-        },
-        "range": "15"
       }
     }
   },
@@ -186,7 +145,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1720296025398,
-    "modifiedTime": 1729983831225,
+    "modifiedTime": 1732457034379,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

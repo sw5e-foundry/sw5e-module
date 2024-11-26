@@ -165,522 +165,88 @@
     "magicalBonus": null,
     "firingArc": "",
     "activities": {
-      "prXCKcUCAMAO3aDE": {
-        "type": "Save",
-        "_id": "prXCKcUCAMAO3aDE",
-        "img": null,
-        "name": "Burst Attack",
-        "save": {
-          "ability": "dex",
-          "dc": null,
-          "scaling": "dex"
-        },
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "target": {
-          "value": 10,
-          "units": "ft",
-          "type": "cube"
-        },
+      "sw5e0attack00000": {
+        "_id": "sw5e0attack00000",
         "activation": {
-          "type": "action",
-          "cost": 1
+          "type": "action"
         },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": null
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "l8Qy3vAvqFr8bnV2": {
-        "type": "Attack",
-        "_id": "l8Qy3vAvqFr8bnV2",
-        "img": null,
         "attack": {
           "ability": "",
           "bonus": "",
-          "classification": "weapon",
           "flat": false,
-          "type": "ranged"
-        },
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
+          "type": {}
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
+          "critical": {},
           "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": null,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
           ]
         },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
-        }
-      },
-      "ksZoKUk2Fow8V2Ys": {
-        "type": "Attack",
-        "_id": "ksZoKUk2Fow8V2Ys",
+        },
         "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "ranged"
+        "range": {
+          "override": false
         },
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
+        "target": {},
+        "type": "attack"
+      },
+      "sw5e1save0000000": {
+        "_id": "sw5e1save0000000",
         "activation": {
-          "type": "action",
-          "cost": 1
+          "type": "action"
         },
         "damage": {
-          "critical": {
-            "allow": true
-          },
           "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": null,
+              "number": 2,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
           ]
         },
+        "description": {},
         "duration": {
-          "value": null,
           "units": "inst"
-        }
-      },
-      "19VTP7MLJ8JjDln5": {
-        "type": "Save",
-        "_id": "19VTP7MLJ8JjDln5",
+        },
         "img": null,
         "name": "Burst Attack",
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
+        "range": {
+          "override": false
         },
         "save": {
           "ability": "dex",
           "dc": {
-            "calculation": "spell",
+            "calculation": "spellcasting",
             "formula": ""
           }
         },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        }
-      },
-      "1EpqvBz7Ae9H1tDl": {
-        "type": "Attack",
-        "_id": "1EpqvBz7Ae9H1tDl",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        }
-      },
-      "13YCDQbTBj8j6JCw": {
-        "type": "Attack",
-        "_id": "13YCDQbTBj8j6JCw",
-        "img": null,
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        }
-      },
-      "1zI7YJOGu4mJawss": {
-        "type": "Save",
-        "_id": "1zI7YJOGu4mJawss",
-        "img": null,
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "name": "Burst Attack",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        }
-      },
-      "1RmTwBcuoHqd1CqM": {
-        "type": "Attack",
-        "_id": "1RmTwBcuoHqd1CqM",
-        "img": null,
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        }
-      },
-      "mNDvu0KQlmHPHqrJ": {
-        "type": "Attack",
-        "_id": "mNDvu0KQlmHPHqrJ",
-        "img": null,
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        }
-      },
-      "3kb4mqqEq548AEDb": {
-        "type": "Save",
-        "_id": "3kb4mqqEq548AEDb",
-        "img": null,
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "name": "Burst Attack",
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        }
-      },
-      "FyZuH8gp6Qt6xeYo": {
-        "type": "Attack",
-        "_id": "FyZuH8gp6Qt6xeYo",
-        "img": null,
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        }
-      },
-      "1gcpTtI46FPm1A9e": {
-        "type": "Attack",
-        "_id": "1gcpTtI46FPm1A9e",
-        "img": null,
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "attack": {
-          "ability": "",
-          "bonus": "",
-          "classification": "weapon",
-          "flat": false,
-          "type": "melee"
-        },
-        "target": {
-          "value": 1,
-          "width": null,
-          "units": "",
-          "type": "enemy"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        }
-      },
-      "2aSqVRr4tdznRG3p": {
-        "type": "Save",
-        "_id": "2aSqVRr4tdznRG3p",
-        "img": null,
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "save": {
-          "ability": "dex",
-          "dc": {
-            "calculation": "spell",
-            "formula": ""
-          }
-        },
-        "duration": {
-          "value": null,
-          "units": "inst"
-        },
-        "name": "Burst Attack",
-        "description": {
-          "value": "<h3>Power cell (range 40/160) Cell</h3>\n<p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>\n<h3>Burst 3</h3>\n<p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>\n<h3>Reload 12</h3>\n<p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>\n<h3>Strength 13</h3>\n<p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>\n<h3>Two-handed</h3>\n<p>A weapon with this property requires two hands to use.</p>"
-        },
-        "target": {
-          "value": 10,
-          "width": null,
-          "units": "ft",
-          "type": "cube"
-        },
-        "damage": {
-          "critical": {
-            "allow": true
-          },
-          "parts": [
-            [
-              "2d4 + @mod",
-              "energy"
-            ]
-          ]
-        }
+        "target": {},
+        "type": "save"
       }
     }
   },
@@ -692,7 +258,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493961284,
-    "modifiedTime": 1729988022609,
+    "modifiedTime": 1732455685542,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },
