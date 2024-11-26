@@ -59,8 +59,6 @@ export function addHooks() {
 	addHookAsync('dnd5e.applications.actor.ActorSheet5eCharacter2.prototype.getData', 'ActorSheet5eCharacter.getData');
 	// ItemSheet5e Hooks
 	// ?
-	// AbilityUseDialog Hooks
-	addHook('dnd5e.applications.item.AbilityUseDialog._createResourceOptions', 'AbilityUseDialog._createResourceOptions');
 	// ActivityUsageDialog Hooks
 	addHookAsync('dnd5e.applications.activity.ActivityUsageDialog.prototype._prepareScalingContext', 'ActivityUsageDialog._prepareScalingContext');
 	addHook('dnd5e.applications.activity.ActivityUsageDialog.prototype._prepareSubmitData', 'ActivityUsageDialog._prepareSubmitData');

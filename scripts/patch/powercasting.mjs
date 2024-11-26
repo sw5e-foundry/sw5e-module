@@ -343,17 +343,6 @@ function patchPowerbooks() {
 }
 
 function patchAbilityUseDialog() {
-	Hooks.on('sw5e.AbilityUseDialog._createResourceOptions', function (_this, result, config, ...args) {
-		const spell = args[0];
-		const actor = spell?.actor;
-		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
-			if (spell.system.school in typeConfig.schools) {
-				const maxPowerLevel = actor.system.powercasting[castType].maxPowerLevel;
-				config.result = Object.fromEntries(Object.entries(result).filter(e => e[0] <= (maxPowerLevel+1)));
-				return;
-			}
-		}
-	});
 	Hooks.on('sw5e.ActivityUsageDialog._prepareScalingContext', function (_this, result, config, ...args) {
 		const context = config.result;
 

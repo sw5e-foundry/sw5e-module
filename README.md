@@ -19,7 +19,7 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ### Added
 
-- Compatibility with dnd5e 4.0.0.
+- Compatibility with dnd5e 4.1.0.
 
 ### Fixed
 
