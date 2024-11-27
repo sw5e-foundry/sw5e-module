@@ -73,8 +73,8 @@
       "prompt": true
     },
     "range": {
-      "value": null,
-      "long": null,
+      "value": 45,
+      "long": 180,
       "units": "ft"
     },
     "uses": {
@@ -104,7 +104,19 @@
           "acid"
         ]
       ],
-      "versatile": ""
+      "versatile": "",
+      "base": {
+        "custom": {},
+        "scaling": {
+          "number": 1,
+          "mode": ""
+        },
+        "denomination": 6,
+        "number": 1,
+        "types": [
+          "acid"
+        ]
+      }
     },
     "formula": "",
     "save": {
@@ -172,26 +184,14 @@
           "ability": "",
           "bonus": "",
           "flat": false,
-          "type": {}
+          "type": {
+            "classification": "weapon",
+            "value": "ranged"
+          }
         },
         "damage": {
           "critical": {},
-          "parts": [
-            {
-              "custom": {
-                "enabled": false
-              },
-              "denomination": null,
-              "number": 1,
-              "scaling": {
-                "mode": "",
-                "number": 1
-              },
-              "types": [
-                "acid"
-              ]
-            }
-          ]
+          "parts": []
         },
         "description": {},
         "duration": {
@@ -199,7 +199,9 @@
         },
         "img": null,
         "range": {
-          "override": false
+          "override": false,
+          "units": "ft",
+          "value": "45"
         },
         "target": {},
         "type": "attack"
@@ -214,7 +216,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493961237,
-    "modifiedTime": 1732455685542,
+    "modifiedTime": 1732678768843,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

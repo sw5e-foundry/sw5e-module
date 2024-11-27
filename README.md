@@ -15,7 +15,11 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
-### [Unreleased]
+### [1.2.1] - 2024-11-27
+
+### Changed
+
+- Compendium Updates.
 
 ### Fixed
 

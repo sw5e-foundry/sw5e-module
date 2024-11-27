@@ -71,7 +71,7 @@
       "prompt": true
     },
     "range": {
-      "value": 10,
+      "value": null,
       "long": null,
       "units": "ft"
     },
@@ -102,7 +102,19 @@
           "energy"
         ]
       ],
-      "versatile": ""
+      "versatile": "",
+      "base": {
+        "custom": {},
+        "scaling": {
+          "number": 1,
+          "mode": ""
+        },
+        "denomination": 10,
+        "number": 1,
+        "types": [
+          "energy"
+        ]
+      }
     },
     "formula": "",
     "save": {
@@ -169,33 +181,24 @@
           "ability": "",
           "bonus": "",
           "flat": false,
-          "type": {}
+          "type": {
+            "classification": "weapon",
+            "value": "melee"
+          }
         },
         "damage": {
           "critical": {},
-          "parts": [
-            {
-              "custom": {
-                "enabled": false
-              },
-              "denomination": null,
-              "number": 1,
-              "scaling": {
-                "mode": "",
-                "number": 1
-              },
-              "types": [
-                "energy"
-              ]
-            }
-          ]
+          "parts": []
         },
         "description": {},
         "duration": {
           "units": "inst"
         },
         "img": null,
-        "range": {},
+        "range": {
+          "units": "ft",
+          "value": "10"
+        },
         "target": {},
         "type": "attack"
       }
@@ -209,7 +212,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493982777,
-    "modifiedTime": 1732455685829,
+    "modifiedTime": 1732678769241,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },
