@@ -58,22 +58,7 @@
           "type": "action"
         },
         "damage": {
-          "parts": [
-            {
-              "custom": {
-                "enabled": false
-              },
-              "denomination": null,
-              "number": 2,
-              "scaling": {
-                "mode": "",
-                "number": 1
-              },
-              "types": [
-                "necrotic"
-              ]
-            }
-          ]
+          "parts": []
         },
         "description": {},
         "duration": {
@@ -82,7 +67,9 @@
         "img": null,
         "name": "Burst Attack",
         "range": {
-          "override": false
+          "override": false,
+          "units": "ft",
+          "value": "75"
         },
         "save": {
           "ability": "dex",
@@ -107,14 +94,17 @@
     ],
     "damage": {
       "base": {
-        "number": null,
-        "denomination": null,
-        "types": [],
+        "number": 2,
+        "denomination": 4,
+        "types": [
+          "necrotic"
+        ],
         "custom": {
           "enabled": false
         },
         "scaling": {
-          "number": 1
+          "number": 1,
+          "mode": ""
         }
       },
       "versatile": {
@@ -160,9 +150,10 @@
     "magicalBonus": null,
     "proficient": null,
     "range": {
-      "value": null,
-      "long": null,
-      "reach": null
+      "value": 75,
+      "long": 300,
+      "reach": null,
+      "units": "ft"
     }
   },
   "type": "weapon",
@@ -180,7 +171,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433881093,
-    "modifiedTime": 1732455685542,
+    "modifiedTime": 1732678768843,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!bbLkIBweN5gYoMpQ"

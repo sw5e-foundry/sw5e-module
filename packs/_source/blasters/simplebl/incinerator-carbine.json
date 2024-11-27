@@ -75,8 +75,8 @@
       "prompt": true
     },
     "range": {
-      "value": null,
-      "long": null,
+      "value": 60,
+      "long": 240,
       "units": "ft"
     },
     "uses": {
@@ -106,7 +106,19 @@
           "fire"
         ]
       ],
-      "versatile": ""
+      "versatile": "",
+      "base": {
+        "custom": {},
+        "scaling": {
+          "number": 1,
+          "mode": ""
+        },
+        "denomination": 6,
+        "number": 1,
+        "types": [
+          "fire"
+        ]
+      }
     },
     "formula": "",
     "save": {
@@ -176,26 +188,14 @@
           "ability": "",
           "bonus": "",
           "flat": false,
-          "type": {}
+          "type": {
+            "classification": "weapon",
+            "value": "ranged"
+          }
         },
         "damage": {
           "critical": {},
-          "parts": [
-            {
-              "custom": {
-                "enabled": false
-              },
-              "denomination": null,
-              "number": 1,
-              "scaling": {
-                "mode": "",
-                "number": 1
-              },
-              "types": [
-                "fire"
-              ]
-            }
-          ]
+          "parts": []
         },
         "description": {},
         "duration": {
@@ -203,7 +203,9 @@
         },
         "img": null,
         "range": {
-          "override": false
+          "override": false,
+          "units": "ft",
+          "value": "60"
         },
         "target": {},
         "type": "attack"
@@ -218,7 +220,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493961244,
-    "modifiedTime": 1732455685542,
+    "modifiedTime": 1732678768843,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -72,8 +72,8 @@
       "prompt": true
     },
     "range": {
-      "value": null,
-      "long": null,
+      "value": 50,
+      "long": 200,
       "units": "ft"
     },
     "uses": {
@@ -107,7 +107,21 @@
           "lightning"
         ]
       ],
-      "versatile": ""
+      "versatile": "",
+      "base": {
+        "custom": {
+          "enabled": false
+        },
+        "denomination": 6,
+        "number": 1,
+        "scaling": {
+          "number": 1,
+          "mode": ""
+        },
+        "types": [
+          "energy"
+        ]
+      }
     },
     "formula": "",
     "save": {
@@ -173,25 +187,14 @@
           "ability": "",
           "bonus": "",
           "flat": false,
-          "type": {}
+          "type": {
+            "classification": "weapon",
+            "value": "ranged"
+          }
         },
         "damage": {
           "critical": {},
           "parts": [
-            {
-              "custom": {
-                "enabled": false
-              },
-              "denomination": null,
-              "number": 1,
-              "scaling": {
-                "mode": "",
-                "number": 1
-              },
-              "types": [
-                "energy"
-              ]
-            },
             {
               "custom": {
                 "enabled": false
@@ -215,7 +218,9 @@
         },
         "img": null,
         "range": {
-          "override": false
+          "override": false,
+          "units": "ft",
+          "value": "50"
         },
         "target": {},
         "type": "attack"
@@ -230,7 +235,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493964547,
-    "modifiedTime": 1732455687404,
+    "modifiedTime": 1732678771296,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },
