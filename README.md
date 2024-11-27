@@ -15,6 +15,17 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [Unreleased]
+
+### Fixed
+
+- The UI for editing numeric item properties should once again work.
+
+### Removed
+
+- Reload system temporarily removed.
+
+
 ### [1.2.0] - 2024-11-26
 
 ### Added
