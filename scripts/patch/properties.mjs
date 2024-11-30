@@ -11,6 +11,7 @@ function addHelper() {
 
 function patchSheet() {
 	Hooks.on("renderItemSheet5e", (app, html, data) => {
+		if (app.item.type !== "weapon" && app.item.type !== "equipment") return;
 		const tabDetails = html.find('.tab.details')[0];
 		const fieldset = tabDetails.firstElementChild;
 		const wpDiv = fieldset.lastElementChild;

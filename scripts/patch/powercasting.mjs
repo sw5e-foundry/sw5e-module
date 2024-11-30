@@ -312,7 +312,8 @@ function patchPowerbooks() {
 		config.result = powerbook.sort((a, b) => a.order - b.order);
 	});
 
-	Hooks.on('sw5e.ActorSheet5e._onDropSpell', function (_this, itemData, config, ...args) {
+	Hooks.on('sw5e.ActorSheet5e._onDropSpell', function (_this, result, config, ...args) {
+		const itemData = args[0];
 	    const prep = itemData.system.preparation;
 
 	    if (prep.mode !== "innate") return;

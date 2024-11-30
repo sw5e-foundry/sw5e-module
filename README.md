@@ -15,6 +15,13 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [Unreleased]
+
+### Fixed
+
+- Dropping powers on powercasters now properly set them to 'powercasting' preparation.
+- Power 'properties' are no longer automatically added on opening their sheet.
+
 ### [1.2.1] - 2024-11-27
 
 ### Changed
