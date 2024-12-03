@@ -9,3 +9,37 @@
   margin: 0 1% 0 0;
   text-align: left;
 }
+
+.dnd5e2.sheet.actor .meter.force-points {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 32px;
+  font-size: var(--font-size-16);
+  background-color: #090909;
+}
+
+.dnd5e2.sheet.actor .meter.sectioned > .force-points > input {
+  position: relative;
+}
+
+.dnd5e2.sheet.actor .meter.force-points .progress::before {
+  background: linear-gradient(to right, #08568a  0%, #AFC6D5 100%);
+}
+
+.dnd5e2.sheet.actor .meter.tech-points {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 32px;
+  font-size: var(--font-size-16);
+  background-color: #090909;
+}
+
+.dnd5e2.sheet.actor .meter.tech-points .progress::before {
+  background: linear-gradient(to right, #2F2F2F  0%, #7e7e7e  100%);
+}

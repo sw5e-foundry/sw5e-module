@@ -426,6 +426,64 @@ function makePowerPointsConsumable() {
 	});
 }
 
+// Here is an attempt to add Powercasting bar on the profile/token section under Hit Points
+
+function showPowercastingBar() {
+	const { simplifyBonus } = dnd5e.utils;
+	Hooks.on("renderActorSheet5eCharacter2", (app, html, data) => {
+		
+		var statsHTML = document.getElementsByClassName('meter-group')[0]
+
+		const powerCasting = data.actor.system.powercasting
+		//console.log(powerCasting)
+
+		// Add meters for the tech and force powercasting values. This 
+		// will be added right after the hit points meter.
+		for (const castType of ["tech", "force"]) {
+
+			if( powerCasting[castType].level > 0 ){
+				const castData = powerCasting[castType]
+				const castTypeLabel = castType.capitalize() 
+				const forceLabel = game.i18n.localize(`SW5E.Powercasting.${castTypeLabel}.Point.Label`)
+				let currentPoints = castData.points.value
+				let maxPoints = castData.points.max
+				var castingHTMLMeter = `
+				<div class="meter-group">
+					<div class="label roboto-condensed-upper">
+						<span>${forceLabel}</span>
+					</div>
+					<div class="meter sectioned ${castType}-points">
+						<div class="progress ${castType}-points" role="meter" aria-valuemin="0" aria-valuenow="${currentPoints}" aria-valuemax="${maxPoints}" style="--bar-percentage: ${(currentPoints / maxPoints) * 100}%">
+						<div class="label">
+							<span class="value">${currentPoints}</span>
+							<span class="separator">/</span>
+							<span class="max">${maxPoints}</span>
+						</div>
+							<input type="text" name="system.powercasting.${castType}.points.value" data-dtype="Number" placeholder="0" value="${currentPoints}" hidden="">
+						</div>
+ 						<div class="tmp">
+							<input type="text" name="system.powercasting.${castType}.points.temp" data-dtype="Number" placeholder="TMP" value="0">
+						</div>
+					</div>
+				</div>
+				`
+				let updatedHTML = $(statsHTML).after(castingHTMLMeter)
+
+				// const sheet = app;
+				// console.log( sheet.isEditable  )
+				// // Editable Only Listeners
+				// if ( sheet.isEditable ) {
+				//     // Input focus and update
+				//     const inputs = html.find(`.${castType}-points input`);
+				//     inputs.focus(ev => ev.currentTarget.select());
+				//     inputs.addBack().find('[type="text"][data-dtype="Number"]').change(sheet._onChangeInputDelta.bind(sheet));
+				// }
+
+			}
+		}
+	});
+}
+
 export function patchPowercasting() {
 	adjustItemSpellcastingGetter();
 	patchItemSheet();
@@ -435,5 +493,6 @@ export function patchPowercasting() {
 	preparePowercasting();
 	recoverPowerPoints();
 	showPowercastingStats();
+	showPowercastingBar();
 	makePowerPointsConsumable();
 }
