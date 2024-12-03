@@ -17,6 +17,10 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ### [Unreleased]
 
+### Changed
+
+- Compendium Updates.
+
 ### Fixed
 
 - Dropping powers on powercasters now properly set them to 'powercasting' preparation.
