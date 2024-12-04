@@ -10,6 +10,22 @@
   text-align: left;
 }
 
+/* change logo to be star wars ish sheet */
+.window-content::before {
+  /* content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 300px;
+  border-radius: 5px 5px 0 0;
+  opacity: .5; */
+  background: url("/modules/sw5e/styles/mtfby.png") no-repeat top center / cover !important;
+  /* -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  mask-image: linear-gradient(to bottom, black, transparent); */
+}
+
+
+/* Tech Point CSS for the main sheet */
+
 .dnd5e2.sheet.actor .meter.force-points {
   flex: 1;
   position: relative;
@@ -21,13 +37,28 @@
   background-color: #090909;
 }
 
-.dnd5e2.sheet.actor .meter.sectioned > .force-points > input {
-  position: relative;
+.dnd5e2.sheet.actor .meter.sectioned > .force_tmp {
+  flex: none;
+  width: 50px;
+  border-inline-start: 1px dashed var(--dnd5e-color-gold);
 }
 
 .dnd5e2.sheet.actor .meter.force-points .progress::before {
   background: linear-gradient(to right, #08568a  0%, #AFC6D5 100%);
 }
+
+.dnd5e2.sheet.actor .meter.sectioned > .force-points > input {
+  position: relative;
+}
+
+/* .dnd5e2.sheet.actor .meter.force-points .progress::before {
+  background: linear-gradient(to right, var(--dnd5e-color-hp-1) 0%, var(--dnd5e-color-hp-2) 100%);
+  border-inline-end: var(--border-width) solid var(--dnd5e-color-hp-3);
+  border-radius: 4px 0 0 4px;
+} */
+
+
+/* Tech Point CSS for the main sheet */
 
 .dnd5e2.sheet.actor .meter.tech-points {
   flex: 1;
@@ -40,6 +71,17 @@
   background-color: #090909;
 }
 
+.dnd5e2.sheet.actor .meter.sectioned > .tech_tmp {
+  flex: none;
+  width: 50px;
+  border-inline-start: 1px dashed var(--dnd5e-color-gold);
+}
+
 .dnd5e2.sheet.actor .meter.tech-points .progress::before {
   background: linear-gradient(to right, #2F2F2F  0%, #7e7e7e  100%);
 }
+
+.dnd5e2.sheet.actor .meter.sectioned > .tech-points > input {
+  position: relative;
+}
+
