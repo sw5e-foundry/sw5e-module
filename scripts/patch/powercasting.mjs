@@ -454,33 +454,51 @@ function showPowercastingBar() {
 					</div>
 					<div class="meter sectioned ${castType}-points">
 						<div class="progress ${castType}-points" role="meter" aria-valuemin="0" aria-valuenow="${currentPoints}" aria-valuemax="${maxPoints}" style="--bar-percentage: ${(currentPoints / maxPoints) * 100}%">
-						<div class="label">
-							<span class="value">${currentPoints}</span>
-							<span class="separator">/</span>
-							<span class="max">${maxPoints}</span>
+							<div class="label">
+								<span class="value">${currentPoints}</span>
+								<span class="separator">/</span>
+								<span class="max">${maxPoints}</span>
+							</div>
+							<input type="text" id="${castType}_input_value" name="system.powercasting.${castType}.points.value" data-dtype="Number" placeholder="0" value="${currentPoints}" hidden="">
 						</div>
-							<input type="text" name="system.powercasting.${castType}.points.value" data-dtype="Number" placeholder="0" value="${currentPoints}" hidden="">
-						</div>
- 						<div class="tmp">
-							<input type="text" name="system.powercasting.${castType}.points.temp" data-dtype="Number" placeholder="TMP" value="0">
+ 						<div class="${castType}_tmp">
+							<input type="text" id="${castType}_input_temp" name="system.powercasting.${castType}.points.temp" data-dtype="Number" placeholder="TMP" value="0">
 						</div>
 					</div>
 				</div>
 				`
 				let updatedHTML = $(statsHTML).after(castingHTMLMeter)
 
-				// const sheet = app;
-				// console.log( sheet.isEditable  )
-				// // Editable Only Listeners
-				// if ( sheet.isEditable ) {
-				//     // Input focus and update
-				//     const inputs = html.find(`.${castType}-points input`);
-				//     inputs.focus(ev => ev.currentTarget.select());
-				//     inputs.addBack().find('[type="text"][data-dtype="Number"]').change(sheet._onChangeInputDelta.bind(sheet));
-				// }
+				// Editable Only Listeners
+				if (app.isEditable) {
+					// Input focus and update
+					html.find(`#${castType}_input_value`)
+						.focus(ev => ev.currentTarget.select())
+						.change(app._onChangeInput.bind(app));
+				}
 
 			}
 		}
+	});
+}
+
+function setForcePoints() {
+	// does nothing yet
+	Hooks.on('updateActor', (actor, data, options, userId) => {
+		// Check if the hit points attribute was updated
+		console.log("updateActor Called and caught")
+		// if (data?.system?.attributes?.hp) {
+		//   const hpData = data.system.attributes.hp;
+		//   const currentHP = hpData.value;
+		//   const maxHP = hpData.max;
+		//   const tempHP = hpData.temp;
+	  
+		  // Your custom logic here
+		//   console.log(`Actor ${actor.name} has updated hit points:`);
+		//   console.log(`Current HP: ${currentHP}`);
+		//   console.log(`Max HP: ${maxHP}`);
+		//   console.log(`Temporary HP: ${tempHP}`);
+		//}
 	});
 }
 
@@ -493,6 +511,9 @@ export function patchPowercasting() {
 	preparePowercasting();
 	recoverPowerPoints();
 	showPowercastingStats();
-	showPowercastingBar();
 	makePowerPointsConsumable();
+
+	// added by Todd for for the force/tech points on the main 
+	showPowercastingBar();
+	setForcePoints();
 }

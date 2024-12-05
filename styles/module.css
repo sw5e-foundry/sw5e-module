@@ -49,14 +49,23 @@
 
 .dnd5e2.sheet.actor .meter.sectioned > .force-points > input {
   position: relative;
+  pointer-events: auto !important;
 }
+
+/* Uncomment to enable the temp value field */
+/* .progress.force-points {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+} */
 
 /* .dnd5e2.sheet.actor .meter.force-points .progress::before {
   background: linear-gradient(to right, var(--dnd5e-color-hp-1) 0%, var(--dnd5e-color-hp-2) 100%);
   border-inline-end: var(--border-width) solid var(--dnd5e-color-hp-3);
   border-radius: 4px 0 0 4px;
 } */
-
 
 /* Tech Point CSS for the main sheet */
 
@@ -83,5 +92,14 @@
 
 .dnd5e2.sheet.actor .meter.sectioned > .tech-points > input {
   position: relative;
+  pointer-events: auto !important;
 }
 
+/* Uncomment to enable the temp value field */
+/* .progress.tech-points {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+} */
