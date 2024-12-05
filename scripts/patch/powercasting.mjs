@@ -426,80 +426,90 @@ function makePowerPointsConsumable() {
 	});
 }
 
-// Here is an attempt to add Powercasting bar on the profile/token section under Hit Points
-
 function showPowercastingBar() {
 	const { simplifyBonus } = dnd5e.utils;
 	Hooks.on("renderActorSheet5eCharacter2", (app, html, data) => {
-		
-		var statsHTML = document.getElementsByClassName('meter-group')[0]
-
-		const powerCasting = data.actor.system.powercasting
-		//console.log(powerCasting)
+		const hpHTML = html.find('.meter-group')[0];
+		const powerCasting = data.actor.system.powercasting;
 
 		// Add meters for the tech and force powercasting values. This 
 		// will be added right after the hit points meter.
 		for (const castType of ["tech", "force"]) {
-
-			if( powerCasting[castType].level > 0 ){
-				const castData = powerCasting[castType]
-				const castTypeLabel = castType.capitalize() 
-				const forceLabel = game.i18n.localize(`SW5E.Powercasting.${castTypeLabel}.Point.Label`)
-				let currentPoints = castData.points.value
-				let maxPoints = castData.points.max
-				var castingHTMLMeter = `
-				<div class="meter-group">
-					<div class="label roboto-condensed-upper">
-						<span>${forceLabel}</span>
-					</div>
-					<div class="meter sectioned ${castType}-points">
-						<div class="progress ${castType}-points" role="meter" aria-valuemin="0" aria-valuenow="${currentPoints}" aria-valuemax="${maxPoints}" style="--bar-percentage: ${(currentPoints / maxPoints) * 100}%">
-							<div class="label">
-								<span class="value">${currentPoints}</span>
-								<span class="separator">/</span>
-								<span class="max">${maxPoints}</span>
+			if (powerCasting[castType].level > 0) {
+				const castData = powerCasting[castType];
+				const pointsLabel = game.i18n.localize(`SW5E.Powercasting.${castType.capitalize()}.Point.Label`);
+				const value = castData.points.value;
+				const temp = castData.points.temp ?? 0;
+				const max = castData.points.max;
+				const tempmax = castData.points.tempmax ?? 0;
+				const effectiveMax = max + tempmax;
+				const pct = (value / max) * 100;
+				const castingHTMLMeter = `
+					<div class="meter-group">
+						<div class="label roboto-condensed-upper">
+							<span>${pointsLabel}</span>
+					` + (app.editable ? `
+							<a class="config-button" data-action="hitPoints" data-tooltip="DND5E.HitPointsConfig"
+							   aria-label="{{ localize "DND5E.HitPointsConfig" }}">
+								<i class="fas fa-cog"></i>
+							</a>
+					` : '') + `
+						</div>
+						<div class="meter sectioned ${castType}-points">
+							<div class="progress ${castType}-points
+					` + ((castData.tempmax > 0) ? 'temp-positive' : (castData.tempmax < 0) ? 'temp-negative' : '') + `
+								 "
+								 role="meter" aria-valuemin="0" aria-valuenow="${value}"
+								 aria-valuemax="${max}" style="--bar-percentage: ${pct}%">
+								<div class="label">
+									<span class="value">${value}</span>
+									<span class="separator">&sol;</span>
+									<span class="max">${effectiveMax}</span>
+					` + (tempmax ? `
+									<span class="bonus">${game.dnd5e.utils.formatNumber(tempmax, { signDisplay:"always" })}</span>
+					` : '') + `
+								</div>
+								<input type="text" name="system.powercasting.${castType}.points.value" data-dtype="Number"
+									   placeholder="0" value="${value}" hidden>
 							</div>
-							<input type="text" id="${castType}_input_value" name="system.powercasting.${castType}.points.value" data-dtype="Number" placeholder="0" value="${currentPoints}" hidden="">
-						</div>
- 						<div class="${castType}_tmp">
-							<input type="text" id="${castType}_input_temp" name="system.powercasting.${castType}.points.temp" data-dtype="Number" placeholder="TMP" value="0">
+							<div class="tmp">
+								<input type="text" name="system.powercasting.${castType}.points.temp" data-dtype="Number"
+									   placeholder="{{ localize "DND5E.TMP" }}" value="${temp}">
+							</div>
 						</div>
 					</div>
-				</div>
-				`
-				let updatedHTML = $(statsHTML).after(castingHTMLMeter)
+				`;
+				$(hpHTML).after(castingHTMLMeter);
+				const statsHTML = $(hpHTML.parentNode);
 
 				// Editable Only Listeners
 				if (app.isEditable) {
+					statsHTML.find(`.meter > .${castType}-points`).on("click", event => _toggleEditPoints(castType, event, true));
+					statsHTML.find(`.meter > .${castType}-points > input`).on("blur", event => _toggleEditPoints(castType, event, false));
 					// Input focus and update
-					html.find(`#${castType}_input_value`)
-						.focus(ev => ev.currentTarget.select())
-						.change(app._onChangeInput.bind(app));
+					const inputs = statsHTML.find("input");
+					inputs.focus(ev => ev.currentTarget.select());
+					inputs.addBack().find('[type="text"][data-dtype="Number"]').change(app._onChangeInputDelta.bind(app));
 				}
-
 			}
 		}
 	});
 }
 
-function setForcePoints() {
-	// does nothing yet
-	Hooks.on('updateActor', (actor, data, options, userId) => {
-		// Check if the hit points attribute was updated
-		console.log("updateActor Called and caught")
-		// if (data?.system?.attributes?.hp) {
-		//   const hpData = data.system.attributes.hp;
-		//   const currentHP = hpData.value;
-		//   const maxHP = hpData.max;
-		//   const tempHP = hpData.temp;
-	  
-		  // Your custom logic here
-		//   console.log(`Actor ${actor.name} has updated hit points:`);
-		//   console.log(`Current HP: ${currentHP}`);
-		//   console.log(`Max HP: ${maxHP}`);
-		//   console.log(`Temporary HP: ${tempHP}`);
-		//}
-	});
+/**
+ * Toggle editing points bar.
+ * @param {string} pointType    The type of points.
+ * @param {PointerEvent} event  The triggering event.
+ * @param {boolean} edit        Whether to toggle to the edit state.
+ * @protected
+ */
+function _toggleEditPoints(pointType, event, edit) {
+	const target = event.currentTarget.closest(`.${pointType}-points`);
+	const label = target.querySelector(":scope > .label");
+	const input = target.querySelector(":scope > input");
+	label.hidden = edit;
+	input.hidden = !edit;
+	if ( edit ) input.focus();
 }
 
 export function patchPowercasting() {
@@ -512,8 +522,5 @@ export function patchPowercasting() {
 	recoverPowerPoints();
 	showPowercastingStats();
 	makePowerPointsConsumable();
-
-	// added by Todd for for the force/tech points on the main 
 	showPowercastingBar();
-	setForcePoints();
 }

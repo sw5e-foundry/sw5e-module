@@ -17,6 +17,10 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ### [Unreleased]
 
+### Added
+
+- Force/Tech Points will now be displayed as bars bellow hit points.
+
 ### Changed
 
 - Compendium Updates.
