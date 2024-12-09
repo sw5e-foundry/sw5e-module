@@ -11,6 +11,12 @@
       "timestamp": "2022-08-11T20:25:19.3852346+00:00",
       "importer_version": 3,
       "uid": "Feature.name-venomous.source-archetype.sourceName-scrapper_practice.level-5"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,54 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "bonus"
+        },
+        "damage": {
+          "parts": [
+            {
+              "bonus": "+ @abilities.int.mod",
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "poison"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "save": {
+          "ability": [
+            "con"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {},
+        "type": "save"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +166,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493958240,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1733518152693,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

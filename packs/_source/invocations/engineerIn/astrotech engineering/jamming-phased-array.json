@@ -5,6 +5,12 @@
       "timestamp": "2023-05-30T20:14:19.9941241+00:00",
       "importer_version": 3,
       "uid": "Feature.name-jamming_phased_array.source-archetypeinvocation.sourceName-astrotech_engineering"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -28,7 +34,46 @@
       "spent": 0,
       "recovery": []
     },
-    "activities": {},
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "reaction"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@abilities.int.mod"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "ion"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "damage"
+      }
+    },
     "identifier": "jamming-phased-array",
     "enchant": {},
     "prerequisites": {
@@ -49,7 +94,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433983637,
-    "modifiedTime": 1730433983637,
+    "modifiedTime": 1733778272326,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!x9we8OtfGeZ1Mng5"

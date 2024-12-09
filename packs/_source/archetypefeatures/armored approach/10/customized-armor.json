@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:14.4658655+00:00",
       "importer_version": 3,
       "uid": "Feature.name-customized_armor.source-archetype.sourceName-armored_approach.level-10"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,72 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "bonus"
+        },
+        "damage": {
+          "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "units": "feet",
+          "value": "15"
+        },
+        "save": {
+          "ability": [
+            "str"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {},
+        "type": "save"
+      },
+      "sw5e1heal0000000": {
+        "_id": "sw5e1heal0000000",
+        "activation": {
+          "type": "bonus"
+        },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
+        },
+        "healing": {
+          "bonus": "+ @classes.berserker.levels",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 12,
+          "number": 1,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "temphp"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "feet",
+          "value": "15"
+        },
+        "target": {},
+        "type": "heal"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +184,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957364,
-    "modifiedTime": 1733252359006,
+    "modifiedTime": 1733518100085,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

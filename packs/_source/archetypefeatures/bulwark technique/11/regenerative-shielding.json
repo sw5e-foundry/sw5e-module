@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:51:57.9954151+00:00",
       "importer_version": 3,
       "uid": "Feature.name-regenerative_shielding.source-archetype.sourceName-bulwark_technique.level-11"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,40 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "@abilities.int.mod"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "healing"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "heal"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +152,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957355,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1733518099729,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

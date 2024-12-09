@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:58.3462122+00:00",
       "importer_version": 3,
       "uid": "Feature.name-tend_the_wounded.source-archetypeinvocation.sourceName-physician_pursuit"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -28,7 +34,38 @@
       "spent": 0,
       "recovery": []
     },
-    "activities": {},
+    "activities": {
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "healing": {
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 4,
+          "number": 1,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "healing"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "heal"
+      }
+    },
     "identifier": "tend-the-wounded",
     "enchant": {},
     "prerequisites": {
@@ -49,7 +86,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433983637,
-    "modifiedTime": 1730433983637,
+    "modifiedTime": 1733778272326,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!KYX1DCZ5dAEClP76"

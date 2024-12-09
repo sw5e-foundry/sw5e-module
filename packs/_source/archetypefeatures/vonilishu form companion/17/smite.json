@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:52:14.6797409+00:00",
       "importer_version": 3,
       "uid": "Feature.name-smite.source-archetype.sourceName-vonilishu_form_companion.level-17"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -78,7 +84,7 @@
     },
     "type": {
       "value": "class",
-      "subtype": ""
+      "subtype": "guardianCTF"
     },
     "recharge": {
       "value": null,
@@ -99,7 +105,47 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "feet",
+          "value": "10"
+        },
+        "target": {},
+        "type": "damage"
+      }
+    }
   },
   "effects": [],
   "folder": null,
@@ -112,7 +158,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1680288495982,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1733518114932,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

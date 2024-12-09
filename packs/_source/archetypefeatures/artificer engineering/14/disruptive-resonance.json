@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:14.7387065+00:00",
       "importer_version": 3,
       "uid": "Feature.name-disruptive_resonance.source-archetype.sourceName-artificer_engineering.level-14"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,47 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@classes.engineer.levels + @abilities.int.mod"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "damage"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957635,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1733518113034,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

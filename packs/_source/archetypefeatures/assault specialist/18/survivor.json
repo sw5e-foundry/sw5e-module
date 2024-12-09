@@ -11,6 +11,12 @@
       "timestamp": "?",
       "importer_version": 3,
       "uid": "Feature.name-survivor.source-archetype.sourceName-assault_specialist.level-18"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,40 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "5 + @abilities.con.mod"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "healing"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "heal"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +152,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493958045,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1733518138558,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

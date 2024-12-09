@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:02.7936334+00:00",
       "importer_version": 3,
       "uid": "Maneuvers.name-fortune_and_glory"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -97,6 +103,43 @@
     "recharge": {
       "value": null,
       "charged": false
+    },
+    "activities": {
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "type": "action"
+        },
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": ""
+              },
+              "target": "superiority.dice.value",
+              "type": "attribute",
+              "value": "1"
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "feet",
+          "value": "30"
+        },
+        "roll": {},
+        "target": {},
+        "type": "utility"
+      }
     }
   },
   "ownership": {
@@ -107,7 +150,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493983317,
-    "modifiedTime": 1730434254196,
+    "modifiedTime": 1733518093874,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

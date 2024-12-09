@@ -7,7 +7,11 @@
       "uid": "Feature.name-cannibalize.source-species.sourceName-rakata"
     },
     "dnd5e": {
-      "migratedUses": null
+      "migratedUses": null,
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -32,7 +36,39 @@
       "spent": 0,
       "recovery": []
     },
-    "activities": {},
+    "activities": {
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "special"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "@abilities.con.mod"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "temphp"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "heal"
+      }
+    },
     "identifier": "cannibalize",
     "enchant": {},
     "prerequisites": {
@@ -53,7 +89,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433988012,
-    "modifiedTime": 1730434329985,
+    "modifiedTime": 1733518190884,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!w4d0dvk5xcj7rd0x"

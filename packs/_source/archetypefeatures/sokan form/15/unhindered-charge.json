@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:14.5568127+00:00",
       "importer_version": 3,
       "uid": "Feature.name-unhindered_charge.source-archetype.sourceName-sokan_form.level-15"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,47 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@abilities.str.mod"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "damage"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957802,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1733518122634,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

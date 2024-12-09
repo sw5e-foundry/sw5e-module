@@ -7,7 +7,11 @@
       "uid": "Feature.name-explosive_amplifier.source-archetypeinvocation.sourceName-cybertech_engineering_depreciated"
     },
     "dnd5e": {
-      "migratedUses": null
+      "migratedUses": null,
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -32,7 +36,46 @@
       "spent": 0,
       "recovery": []
     },
-    "activities": {},
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "special"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@abilities.int.mod"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "fire"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "damage"
+      }
+    },
     "identifier": "explosive-amplifier",
     "enchant": {},
     "prerequisites": {
@@ -53,7 +96,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433983637,
-    "modifiedTime": 1730434307068,
+    "modifiedTime": 1733778272326,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!sOjEACD2ELrtjm0G"

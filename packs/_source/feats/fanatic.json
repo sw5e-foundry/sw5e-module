@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:51:59.5045407+00:00",
       "importer_version": 3,
       "uid": "Feat.name-fanatic"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,41 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "bonus"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "healing": {
+          "bonus": "+ @abilities.con.mod",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 4,
+          "number": 1,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "temphp"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "feet",
+          "value": "30"
+        },
+        "target": {},
+        "type": "heal"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +153,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493966838,
-    "modifiedTime": 1730434333301,
+    "modifiedTime": 1733518194603,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

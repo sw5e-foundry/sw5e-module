@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:52:14.676743+00:00",
       "importer_version": 3,
       "uid": "Feature.name-venomous.source-archetype.sourceName-shadow_killer_practice.level-9"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -99,7 +105,54 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "bonus"
+        },
+        "damage": {
+          "parts": [
+            {
+              "bonus": "+ @abilities.int.mod",
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "poison"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "save": {
+          "ability": [
+            "con"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {},
+        "type": "save"
+      }
+    }
   },
   "effects": [],
   "folder": null,
@@ -112,7 +165,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1680288495976,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1733518099288,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

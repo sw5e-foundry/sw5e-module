@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:15.1674586+00:00",
       "importer_version": 3,
       "uid": "Feature.name-advanced_blastsaber.source-archetypeinvocation.sourceName-artificer_engineering.level-15"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,47 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 3,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "ion"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "feet",
+          "value": "5"
+        },
+        "target": {},
+        "type": "damage"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493980979,
-    "modifiedTime": 1730434302326,
+    "modifiedTime": 1733778272326,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

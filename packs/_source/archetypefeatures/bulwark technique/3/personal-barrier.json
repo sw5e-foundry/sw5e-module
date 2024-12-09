@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:51:57.9944159+00:00",
       "importer_version": 3,
       "uid": "Feature.name-personal_barrier.source-archetype.sourceName-bulwark_technique.level-3"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,47 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "special"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@abilities.int.mod"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "damage"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957412,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1733518102702,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

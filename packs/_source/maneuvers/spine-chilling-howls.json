@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:21.5157784+00:00",
       "importer_version": 3,
       "uid": "Maneuvers.name-spine_chilling_howls"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -97,6 +103,54 @@
     "recharge": {
       "value": null,
       "charged": false
+    },
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
+        },
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": ""
+              },
+              "target": "superiority.dice.value",
+              "type": "attribute",
+              "value": "1"
+            }
+          ]
+        },
+        "damage": {
+          "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "save": {
+          "ability": [
+            "wis"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {},
+        "type": "save"
+      }
     }
   },
   "ownership": {
@@ -107,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493983316,
-    "modifiedTime": 1730434254191,
+    "modifiedTime": 1733518093865,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

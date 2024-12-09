@@ -5,6 +5,12 @@
       "timestamp": "?",
       "importer_version": 3,
       "uid": "Feature.name-stormcaller.source-archetype.sourceName-path_of_witchcraft.level-18"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -99,7 +105,48 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "10"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "lightning"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "damage"
+      }
+    }
   },
   "effects": [],
   "folder": null,
@@ -112,7 +159,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1679609438454,
-    "modifiedTime": 1720368690572,
+    "modifiedTime": 1733518109488,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

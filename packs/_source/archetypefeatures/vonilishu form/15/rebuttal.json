@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:52:14.6787413+00:00",
       "importer_version": 3,
       "uid": "Feature.name-rebuttal.source-archetype.sourceName-vonilishu_form.level-15"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -104,7 +110,41 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "@classes.guardian.levels"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "temphp"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "feet",
+          "value": "30"
+        },
+        "target": {},
+        "type": "heal"
+      }
+    }
   },
   "folder": null,
   "sort": 0,
@@ -116,7 +156,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1667426104226,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1733518114987,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

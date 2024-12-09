@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:21.5147792+00:00",
       "importer_version": 3,
       "uid": "Maneuvers.name-chains_of_transfixing"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -97,6 +103,54 @@
     "recharge": {
       "value": null,
       "charged": false
+    },
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "bonus"
+        },
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": ""
+              },
+              "target": "superiority.dice.value",
+              "type": "attribute",
+              "value": "1"
+            }
+          ]
+        },
+        "damage": {
+          "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "feet",
+          "value": "30"
+        },
+        "save": {
+          "ability": [
+            "str"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {},
+        "type": "save"
+      }
     }
   },
   "ownership": {
@@ -107,7 +161,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493983323,
-    "modifiedTime": 1730434254268,
+    "modifiedTime": 1733518093970,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:58.342215+00:00",
       "importer_version": 3,
       "uid": "Feature.name-tech_blast.source-archetypeinvocation.sourceName-armormech_engineering"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -28,7 +34,45 @@
       "spent": 0,
       "recovery": []
     },
-    "activities": {},
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "damage"
+      }
+    },
     "identifier": "tech-blast",
     "enchant": {},
     "prerequisites": {
@@ -49,7 +93,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433983637,
-    "modifiedTime": 1730433983637,
+    "modifiedTime": 1733778272326,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!WgIKGmMHgtdrgUbm"

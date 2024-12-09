@@ -638,7 +638,7 @@ function transformName(entry, packName) {
 		case "classfeatures":
 		case "speciesfeatures":
 		case "invocations":
-			parts.add(entry.system.type.subtype.slice(0, 10));
+			if (packName === "invocations") parts.add(entry.system.type.subtype.slice(0, 10));
 			parts.add(deslugify(iData.sourceName));
 			parts.add(iData.level);
 
