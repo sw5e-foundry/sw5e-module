@@ -20,6 +20,7 @@ If you wish to manually install the system, you must clone or extract it into th
 ### Added
 
 - Force/Tech Points will now be displayed as bars bellow hit points.
+- Backgrounds now have advancements granting their skill and language proficiencies.
 
 ### Changed
 

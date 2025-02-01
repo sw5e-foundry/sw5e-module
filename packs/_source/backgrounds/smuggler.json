@@ -8,16 +8,10 @@
       "_id": "ICTn4aQwmyndSpfG",
       "changes": [
         {
-          "key": "system.details.background",
-          "value": "Smuggler",
-          "mode": 5,
-          "priority": 20
-        },
-        {
           "key": "system.traits.toolProf.value",
-          "value": "game",
           "mode": 2,
-          "priority": 20
+          "priority": 20,
+          "value": "game"
         }
       ],
       "disabled": false,
@@ -74,7 +68,45 @@
     "identifier": "",
     "advancement": [
       {
-        "_id": "sw5e0ic000000000",
+        "_id": "sw5e0t0000000000",
+        "configuration": {
+          "choices": [
+            {
+              "count": 2,
+              "pool": [
+                "skills:dec",
+                "skills:pil",
+                "skills:slt",
+                "skills:ste"
+              ]
+            }
+          ],
+          "grants": [],
+          "mode": "default",
+          "allowReplacements": false
+        },
+        "level": 0,
+        "type": "Trait",
+        "value": {
+          "chosen": []
+        }
+      },
+      {
+        "_id": "sw5e1t0000000000",
+        "configuration": {
+          "choices": [],
+          "grants": [],
+          "mode": "default",
+          "allowReplacements": false
+        },
+        "level": 0,
+        "type": "Trait",
+        "value": {
+          "chosen": []
+        }
+      },
+      {
+        "_id": "sw5e2ic000000000",
         "configuration": {
           "allowDrops": true,
           "choices": {
@@ -136,7 +168,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493960734,
-    "modifiedTime": 1733249629209,
+    "modifiedTime": 1738435203853,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },
