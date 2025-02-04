@@ -379,7 +379,7 @@ function patchAbilityUseDialog() {
 		}
 	});
 	Hooks.on('sw5e.ActivityUsageDialog._prepareSubmitData', function (_this, result, config, ...args) {
-		if (_this.item.system.preparation.mode !== "powerCasting") return;
+		if (_this.item.system.preparation?.mode !== "powerCasting") return;
 
 		const submitData = result;
 		if ( foundry.utils.hasProperty(submitData, "spell.slot") ) {

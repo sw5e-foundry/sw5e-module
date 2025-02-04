@@ -51,6 +51,37 @@
         "roll": {},
         "target": {},
         "type": "utility"
+      },
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "((@classes.sentinel.levels)/2) + @mod"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "temphp"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "heal"
       }
     },
     "identifier": "ideal-of-the-vigorous",
@@ -73,7 +104,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433983637,
-    "modifiedTime": 1733778272326,
+    "modifiedTime": 1738711450455,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!vTMlHVJo5gkbNIUS"

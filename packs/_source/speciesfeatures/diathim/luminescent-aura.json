@@ -53,6 +53,46 @@
         "roll": {},
         "target": {},
         "type": "utility"
+      },
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "bonus"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "((@details.level)/2)"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "units": "feet",
+          "value": "10"
+        },
+        "target": {},
+        "type": "damage"
       }
     },
     "identifier": "luminescent-aura",
@@ -75,7 +115,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433988012,
-    "modifiedTime": 1733518176972,
+    "modifiedTime": 1738711451690,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!MGIBai3iSLzYilMu"

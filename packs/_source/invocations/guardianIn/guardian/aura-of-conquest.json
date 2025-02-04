@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:57.6286281+00:00",
       "importer_version": 3,
       "uid": "Feature.name-aura_of_conquest.source-classinvocation.sourceName-guardian"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -28,7 +34,47 @@
       "spent": 0,
       "recovery": []
     },
-    "activities": {},
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "((@classes.guardian.levels)/2)"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "feet",
+          "value": "5"
+        },
+        "target": {},
+        "type": "damage"
+      }
+    },
     "identifier": "aura-of-conquest",
     "enchant": {},
     "prerequisites": {
@@ -49,7 +95,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433983637,
-    "modifiedTime": 1730433983637,
+    "modifiedTime": 1738711450455,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!CYxQ9FGhaivegbEO"
