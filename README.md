@@ -15,12 +15,21 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
-### [Unreleased]
+### [1.2.3] - 2025-02-09
+
+### Added
+
+- Backgrounds now have advancements granting their skill and language proficiencies.
+
+### Changed
+
+- Compendium Updates.
+
+### [1.2.2] - 2024-12-05
 
 ### Added
 
 - Force/Tech Points will now be displayed as bars bellow hit points.
-- Backgrounds now have advancements granting their skill and language proficiencies.
 
 ### Changed
 
