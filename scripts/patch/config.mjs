@@ -556,6 +556,16 @@ export function patchConfig(config, strict=true) {
 		...config.ammoStandardTypes,
 		...config.ammoStarshipTypes
 	}
+	config.consumableTypes.explosive = {
+		label: "SW5E.ConsumableExplosive",
+		subtypes: {
+			charge: "SW5E.ConsumableExplosiveCharge",
+			grenade: "SW5E.ConsumableExplosiveGrenade",
+			mine: "SW5E.ConsumableExplosiveMine",
+			thermal: "SW5E.ConsumableExplosiveThermal",
+		},
+	}
+	preLocalize( `consumableTypes.explosive.subtypes`, { sort: true } );
 	// Containers
 	if (strict) config.containerTypes = {
 		backpack: "Compendium.sw5e.adventuringgear.Item.PN7A13FrDSyo2Neg",

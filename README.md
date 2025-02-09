@@ -15,6 +15,16 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [Unreleased]
+
+### Added
+
+- Consumable type and subtypes for explosives.
+
+### Changed
+
+- Compendium updates.
+
 ### [1.2.3] - 2025-02-09
 
 ### Added
