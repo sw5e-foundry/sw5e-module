@@ -7,7 +7,11 @@
       "uid": "Feature.name-fury_of_the_small.source-species.sourceName-dug"
     },
     "dnd5e": {
-      "migratedUses": null
+      "migratedUses": null,
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -32,7 +36,70 @@
       "spent": 0,
       "recovery": []
     },
-    "activities": {},
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "special"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@details.level"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "extra"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {},
+        "type": "damage"
+      },
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "type": "special"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "roll": {
+          "formula": ""
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "utility"
+      }
+    },
     "identifier": "fury-of-the-small",
     "enchant": {},
     "prerequisites": {
@@ -53,7 +120,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433988012,
-    "modifiedTime": 1730434317685,
+    "modifiedTime": 1739121096233,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!LkHH8ag1ZE845EPy"

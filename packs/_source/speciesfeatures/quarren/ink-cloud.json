@@ -7,7 +7,11 @@
       "uid": "Feature.name-ink_cloud.source-species.sourceName-quarren"
     },
     "dnd5e": {
-      "migratedUses": null
+      "migratedUses": null,
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -32,7 +36,41 @@
       "spent": 0,
       "recovery": []
     },
-    "activities": {},
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "save": {
+          "ability": [
+            "con"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {
+          "template": {
+            "size": "10",
+            "type": "cone"
+          }
+        },
+        "type": "save"
+      }
+    },
     "identifier": "ink-cloud",
     "enchant": {},
     "prerequisites": {
@@ -53,7 +91,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433988012,
-    "modifiedTime": 1730434327999,
+    "modifiedTime": 1739121096233,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!r5WYnm6NGUgbN9vP"

@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:14.6897365+00:00",
       "importer_version": 3,
       "uid": "Feature.name-experimental_infusion.source-archetype.sourceName-triage_technique.level-11"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -107,7 +113,96 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "special"
+        },
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@classes.scout.levels"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "psychic"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "save": {
+          "ability": [
+            "con"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "save"
+      },
+      "sw5e1heal0000000": {
+        "_id": "sw5e1heal0000000",
+        "activation": {
+          "type": "special"
+        },
+        "description": {},
+        "duration": {
+          "units": "minute",
+          "value": "1"
+        },
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "@classes.scout.levels"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "temphp"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "heal"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -117,7 +212,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957914,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1739121092781,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

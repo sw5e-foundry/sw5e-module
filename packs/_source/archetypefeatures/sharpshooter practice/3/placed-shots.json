@@ -11,11 +11,17 @@
       "timestamp": "2023-03-09T01:51:57.9894189+00:00",
       "importer_version": 3,
       "uid": "Feature.name-placed_shots.source-archetype.sourceName-sharpshooter_practice.level-3"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
     "description": {
-      "value": "<p><em><strong>Sharpshooter Practice:</strong> 3rd level</em></p>\n<p>You perfect the art of placing distant shots for maximum effectiveness in debilitating and controlling your enemies. When you deal Sneak Attack damage to a creature, you may choose to forgo two of your Sneak Attack dice to make the attack a placed shot. </p>\n<p>Some of your placed shots require your target to make a saving throw to resist the placed shot's effects. The saving throw DC is calculated as follows: </p>\n<p><em></em>_</p>\n<p><strong>Placed Shot save DC</strong> = 8 + your proficiency bonus + your Dexterity modifier</p>\n<p><em></em>_</p>\n<h3>Disarming Shot</h3>\n<p>You attempt to disarm a creature with your attack. The target must succeed on a Strength saving throw or be forced to drop one item of your choice that it's holding. The object lands at its feet.</p>\n<h3>Penetrating Shot</h3>\n<p>You attempt to damage another target with the same attack. Choose a second target within 15 feet of and directly behind your initial target. If the original attack roll would hit the second target, it takes two dice worth of Sneak Attack damage.</p>\n<p>The damage is of the same type dealt by the original attack.</p>\n<h3>Suppressive Shot</h3>\n<p>You attempt to pin the target to its location. The target must succeed on a Wisdom saving throw or be frightened of you until the end of its next turn.</p>",
+      "value": "<p><em><strong>Sharpshooter Practice:</strong> 3rd level</em></p>\n<p>You perfect the art of placing distant shots for maximum effectiveness in debilitating and controlling your enemies. When you deal Sneak Attack damage to a creature, you may choose to forgo two of your Sneak Attack dice to make the attack a placed shot. </p>\n<p>Some of your placed shots require your target to make a saving throw to resist the placed shot's effects. The saving throw DC is calculated as follows: </p>\n<p><em></em>_</p>\n<p><strong>Placed Shot save DC</strong> = 8 + your proficiency bonus + your Dexterity modifier</p>\n<p><em></em>_</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.zMMq3eiVVvursHRE]{Disarming Shot}</h3>\n<p>You attempt to disarm a creature with your attack. The target must succeed on a Strength saving throw or be forced to drop one item of your choice that it's holding. The object lands at its feet.</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.pyRxcxvzCkg8BqBp]{Penetrating Shot}</h3>\n<p>You attempt to damage another target with the same attack. Choose a second target within 15 feet of and directly behind your initial target. If the original attack roll would hit the second target, it takes two dice worth of Sneak Attack damage.</p>\n<p>The damage is of the same type dealt by the original attack.</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.QbRThfP6qBcJirDe]{Suppressive Shot}</h3>\n<p>You attempt to pin the target to its location. The target must succeed on a Wisdom saving throw or be frightened of you until the end of its next turn.</p>",
       "chat": ""
     },
     "requirements": "Operative (Sharpshooter Practice) 3",
@@ -98,7 +104,43 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft",
+          "value": "15"
+        },
+        "save": {
+          "ability": [
+            "str"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "save"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -108,7 +150,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957656,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1739121092781,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

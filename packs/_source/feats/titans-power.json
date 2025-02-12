@@ -55,6 +55,12 @@
       "timestamp": "2023-03-09T01:52:19.8817247+00:00",
       "importer_version": 3,
       "uid": "Feat.name-titans_power"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -147,7 +153,52 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@abilities.str.mod"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "damage"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -157,7 +208,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493966815,
-    "modifiedTime": 1730434333059,
+    "modifiedTime": 1739121097153,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

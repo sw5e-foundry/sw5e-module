@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:14.6787413+00:00",
       "importer_version": 3,
       "uid": "Feature.name-comfort_food.source-archetype.sourceName-chef_pursuit.level-9"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,44 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "healing": {
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 8,
+          "number": 1,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "healing"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "heal"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +156,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957645,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1739121092781,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

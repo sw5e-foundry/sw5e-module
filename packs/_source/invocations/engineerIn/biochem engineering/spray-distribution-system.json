@@ -7,7 +7,11 @@
       "uid": "Feature.name-spray_distribution_system.source-archetypeinvocation.sourceName-biochem_engineering"
     },
     "dnd5e": {
-      "migratedUses": null
+      "migratedUses": null,
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -32,7 +36,32 @@
       "spent": 0,
       "recovery": []
     },
-    "activities": {},
+    "activities": {
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "type": "special"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "roll": {
+          "formula": ""
+        },
+        "target": {
+          "template": {
+            "size": "15",
+            "type": "cone"
+          }
+        },
+        "type": "utility"
+      }
+    },
     "identifier": "spray-distribution-system",
     "enchant": {},
     "prerequisites": {
@@ -53,7 +82,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433983637,
-    "modifiedTime": 1730434304368,
+    "modifiedTime": 1739121094709,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!Q9pw6twlMIiLDE0c"

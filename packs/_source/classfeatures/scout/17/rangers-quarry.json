@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:51:58.6690246+00:00",
       "importer_version": 3,
       "uid": "Feature.name-rangers_quarry.source-class.sourceName-scout.level-17"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,54 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "reaction"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "units": "ft",
+          "value": "120"
+        },
+        "target": {
+          "template": {
+            "size": "1",
+            "type": "creature",
+            "units": ""
+          }
+        },
+        "type": "damage"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +166,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493962388,
-    "modifiedTime": 1729984342164,
+    "modifiedTime": 1739121094035,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

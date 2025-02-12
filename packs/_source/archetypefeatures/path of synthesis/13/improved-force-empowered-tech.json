@@ -11,11 +11,17 @@
       "timestamp": "2023-03-09T01:52:14.6947322+00:00",
       "importer_version": 3,
       "uid": "Feature.name-improved_force_empowered_tech.source-archetype.sourceName-path_of_synthesis.level-13"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
     "description": {
-      "value": "<p><em><strong>Path of Synthesis:</strong> 13th level</em></p>\n<p>You've gained access to two additional Force-Empowered Tech effects: Harmonic Synthesis and Conservation of Energy.</p>\n<h3>Harmonic Synthesis</h3>\n<p>When you use your action to cast a force power, you can use your bonus action to gain resistance to damage dealt by tech powers until the start of your next turn. If you use your action to cast a tech power, you can instead gain resistance to damage dealt by force powers.</p>\n<h3>Conservation of Energy</h3>\n<p>When you reduce a hostile creature to 0 hit points with a tech power, you can reduce the force point cost of the tech power to 0 (no action required).</p>",
+      "value": "<p><em><strong>Path of Synthesis:</strong> 13th level</em></p>\n<p>You've gained access to two additional Force-Empowered Tech effects: Harmonic Synthesis and Conservation of Energy.</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.L5ovMD949ibKVGiv]{Harmonic Synthesis}</h3>\n<p>When you use your action to cast a force power, you can use your bonus action to gain resistance to damage dealt by tech powers until the start of your next turn. If you use your action to cast a tech power, you can instead gain resistance to damage dealt by force powers.</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.evzBOIvoBxiy2SIi]{Conservation of Energy}</h3>\n<p>When you reduce a hostile creature to 0 hit points with a tech power, you can reduce the force point cost of the tech power to 0 (no action required).</p>",
       "chat": ""
     },
     "requirements": "Sentinel (Path of Synthesis) 13",
@@ -98,7 +104,33 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "type": "bonus"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "roll": {
+          "formula": ""
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "utility"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -108,7 +140,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957289,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1739121092781,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

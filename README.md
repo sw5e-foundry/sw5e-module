@@ -15,6 +15,41 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [1.2.4] - 2025-02-12
+
+### Added
+
+- Consumable type and subtypes for explosives.
+
+### Changed
+
+- Compendium updates.
+
+### [1.2.3] - 2025-02-09
+
+### Added
+
+- Backgrounds now have advancements granting their skill and language proficiencies.
+
+### Changed
+
+- Compendium Updates.
+
+### [1.2.2] - 2024-12-05
+
+### Added
+
+- Force/Tech Points will now be displayed as bars bellow hit points.
+
+### Changed
+
+- Compendium Updates.
+
+### Fixed
+
+- Dropping powers on powercasters now properly set them to 'powercasting' preparation.
+- Power 'properties' are no longer automatically added on opening their sheet.
+
 ### [1.2.1] - 2024-11-27
 
 ### Changed

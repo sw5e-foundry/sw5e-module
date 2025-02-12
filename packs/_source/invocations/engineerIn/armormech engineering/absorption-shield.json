@@ -7,7 +7,11 @@
       "uid": "Feature.name-absorption_shield.source-archetypeinvocation.sourceName-armormech_engineering"
     },
     "dnd5e": {
-      "migratedUses": null
+      "migratedUses": null,
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -32,7 +36,44 @@
       "spent": 0,
       "recovery": []
     },
-    "activities": {},
+    "activities": {
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "bonus"
+        },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
+        },
+        "healing": {
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 4,
+          "number": 1,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "temphp"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "heal"
+      }
+    },
     "identifier": "absorption-shield",
     "enchant": {},
     "prerequisites": {
@@ -53,7 +94,7 @@
     "systemId": "dnd5e",
     "systemVersion": "3.3.1",
     "createdTime": 1730433983637,
-    "modifiedTime": 1730434303112,
+    "modifiedTime": 1739121094709,
     "lastModifiedBy": "dnd5ebuilder0000"
   },
   "_key": "!items!CbPwfbxeUUMFESky"

@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:58.6730225+00:00",
       "importer_version": 3,
       "uid": "Feature.name-deflection.source-class.sourceName-sentinel.level-2"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -74,7 +80,7 @@
     },
     "type": {
       "value": "class",
-      "subtype": ""
+      "subtype": "sentinelFES"
     },
     "recharge": {
       "value": null,
@@ -95,7 +101,50 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "type": "action"
+        },
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": ""
+              },
+              "target": "powercasting.force.points.value",
+              "type": "attribute",
+              "value": "1"
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "roll": {
+          "formula": "@scale.sentinel.kinetic-combat.die"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "utility"
+      }
+    }
   },
   "folder": null,
   "sort": 0,
@@ -107,7 +156,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1667426104834,
-    "modifiedTime": 1729984342164,
+    "modifiedTime": 1739121094035,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

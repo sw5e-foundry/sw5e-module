@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:00.3010783+00:00",
       "importer_version": 3,
       "uid": "FightingMastery.name-onslaught_mastery"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -98,7 +104,53 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@prof"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft",
+          "value": "5"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "damage"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -108,7 +160,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493967828,
-    "modifiedTime": 1730434333954,
+    "modifiedTime": 1739121097474,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:51:57.9954151+00:00",
       "importer_version": 3,
       "uid": "Feature.name-projected_maelstrom.source-archetype.sourceName-bulwark_technique.level-7"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -99,7 +105,52 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 4,
+              "number": 4,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "energy"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft",
+          "value": "30"
+        },
+        "target": {
+          "template": {
+            "size": "5",
+            "type": "cube"
+          }
+        },
+        "type": "damage"
+      }
+    }
   },
   "effects": [],
   "folder": null,
@@ -112,7 +163,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1680288495917,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1739121092781,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -11,6 +11,12 @@
       "timestamp": "2023-05-30T20:14:20.0051171+00:00",
       "importer_version": 3,
       "uid": "Feature.name-tomb_of_the_ancients.source-archetypeinvocation.sourceName-archaeologist_pursuit.level-5"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,46 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "reaction"
+        },
+        "description": {},
+        "duration": {
+          "units": "turn",
+          "value": "1"
+        },
+        "healing": {
+          "bonus": "@mod + @classes.scholar.levels",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 10,
+          "number": 1,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "temphp"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "heal"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +158,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493981238,
-    "modifiedTime": 1720368791691,
+    "modifiedTime": 1739121094709,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

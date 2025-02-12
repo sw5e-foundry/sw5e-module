@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:14.5578133+00:00",
       "importer_version": 3,
       "uid": "Feature.name-pass_the_blade.source-archetype.sourceName-trakata_form.level-15"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,45 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0heal0000000": {
+        "_id": "sw5e0heal0000000",
+        "activation": {
+          "type": "action"
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "healing": {
+          "custom": {
+            "enabled": true,
+            "formula": "@mod"
+          },
+          "denomination": null,
+          "number": null,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "temphp"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "heal"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +157,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957280,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1739121092781,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

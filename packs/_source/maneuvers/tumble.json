@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:52:02.8036278+00:00",
       "importer_version": 3,
       "uid": "Maneuvers.name-tumble"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "sw5e.maneuver",
@@ -94,6 +100,49 @@
     "recharge": {
       "value": null,
       "charged": false
+    },
+    "activities": {
+      "sw5e0utility0000": {
+        "_id": "sw5e0utility0000",
+        "activation": {
+          "type": "action"
+        },
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": ""
+              },
+              "target": "superiority.dice.value",
+              "type": "attribute",
+              "value": "1"
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "roll": {
+          "formula": ""
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "utility"
+      }
     }
   },
   "folder": null,
@@ -106,7 +155,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1667426102989,
-    "modifiedTime": 1730434254162,
+    "modifiedTime": 1739121090591,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

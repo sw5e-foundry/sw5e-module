@@ -312,7 +312,8 @@ function patchPowerbooks() {
 		config.result = powerbook.sort((a, b) => a.order - b.order);
 	});
 
-	Hooks.on('sw5e.ActorSheet5e._onDropSpell', function (_this, itemData, config, ...args) {
+	Hooks.on('sw5e.ActorSheet5e._onDropSpell', function (_this, result, config, ...args) {
+		const itemData = args[0];
 	    const prep = itemData.system.preparation;
 
 	    if (prep.mode !== "innate") return;
@@ -378,7 +379,7 @@ function patchAbilityUseDialog() {
 		}
 	});
 	Hooks.on('sw5e.ActivityUsageDialog._prepareSubmitData', function (_this, result, config, ...args) {
-		if (_this.item.system.preparation.mode !== "powerCasting") return;
+		if (_this.item.system.preparation?.mode !== "powerCasting") return;
 
 		const submitData = result;
 		if ( foundry.utils.hasProperty(submitData, "spell.slot") ) {
@@ -425,6 +426,92 @@ function makePowerPointsConsumable() {
 	});
 }
 
+function showPowercastingBar() {
+	const { simplifyBonus } = dnd5e.utils;
+	Hooks.on("renderActorSheet5eCharacter2", (app, html, data) => {
+		const hpHTML = html.find('.meter-group')[0];
+		const powerCasting = data.actor.system.powercasting;
+
+		// Add meters for the tech and force powercasting values. This 
+		// will be added right after the hit points meter.
+		for (const castType of ["tech", "force"]) {
+			if (powerCasting[castType].level > 0) {
+				const castData = powerCasting[castType];
+				const pointsLabel = game.i18n.localize(`SW5E.Powercasting.${castType.capitalize()}.Point.Label`);
+				const value = castData.points.value;
+				const temp = castData.points.temp ?? 0;
+				const max = castData.points.max;
+				const tempmax = castData.points.tempmax ?? 0;
+				const effectiveMax = max + tempmax;
+				const pct = (value / max) * 100;
+				const castingHTMLMeter = `
+					<div class="meter-group">
+						<div class="label roboto-condensed-upper">
+							<span>${pointsLabel}</span>
+					` + (app.editable ? `
+							<a class="config-button" data-action="hitPoints" data-tooltip="DND5E.HitPointsConfig"
+							   aria-label="{{ localize "DND5E.HitPointsConfig" }}">
+								<i class="fas fa-cog"></i>
+							</a>
+					` : '') + `
+						</div>
+						<div class="meter sectioned ${castType}-points">
+							<div class="progress ${castType}-points
+					` + ((castData.tempmax > 0) ? 'temp-positive' : (castData.tempmax < 0) ? 'temp-negative' : '') + `
+								 "
+								 role="meter" aria-valuemin="0" aria-valuenow="${value}"
+								 aria-valuemax="${max}" style="--bar-percentage: ${pct}%">
+								<div class="label">
+									<span class="value">${value}</span>
+									<span class="separator">&sol;</span>
+									<span class="max">${effectiveMax}</span>
+					` + (tempmax ? `
+									<span class="bonus">${game.dnd5e.utils.formatNumber(tempmax, { signDisplay:"always" })}</span>
+					` : '') + `
+								</div>
+								<input type="text" name="system.powercasting.${castType}.points.value" data-dtype="Number"
+									   placeholder="0" value="${value}" hidden>
+							</div>
+							<div class="tmp">
+								<input type="text" name="system.powercasting.${castType}.points.temp" data-dtype="Number"
+									   placeholder="{{ localize "DND5E.TMP" }}" value="${temp}">
+							</div>
+						</div>
+					</div>
+				`;
+				$(hpHTML).after(castingHTMLMeter);
+				const statsHTML = $(hpHTML.parentNode);
+
+				// Editable Only Listeners
+				if (app.isEditable) {
+					statsHTML.find(`.meter > .${castType}-points`).on("click", event => _toggleEditPoints(castType, event, true));
+					statsHTML.find(`.meter > .${castType}-points > input`).on("blur", event => _toggleEditPoints(castType, event, false));
+					// Input focus and update
+					const inputs = statsHTML.find("input");
+					inputs.focus(ev => ev.currentTarget.select());
+					inputs.addBack().find('[type="text"][data-dtype="Number"]').change(app._onChangeInputDelta.bind(app));
+				}
+			}
+		}
+	});
+}
+
+/**
+ * Toggle editing points bar.
+ * @param {string} pointType    The type of points.
+ * @param {PointerEvent} event  The triggering event.
+ * @param {boolean} edit        Whether to toggle to the edit state.
+ * @protected
+ */
+function _toggleEditPoints(pointType, event, edit) {
+	const target = event.currentTarget.closest(`.${pointType}-points`);
+	const label = target.querySelector(":scope > .label");
+	const input = target.querySelector(":scope > input");
+	label.hidden = edit;
+	input.hidden = !edit;
+	if ( edit ) input.focus();
+}
+
 export function patchPowercasting() {
 	adjustItemSpellcastingGetter();
 	patchItemSheet();
@@ -435,4 +522,5 @@ export function patchPowercasting() {
 	recoverPowerPoints();
 	showPowercastingStats();
 	makePowerPointsConsumable();
+	showPowercastingBar();
 }

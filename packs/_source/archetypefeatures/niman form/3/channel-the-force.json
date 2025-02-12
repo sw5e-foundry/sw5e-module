@@ -5,13 +5,19 @@
       "timestamp": "2023-03-09T01:51:57.981423+00:00",
       "importer_version": 3,
       "uid": "Feature.name-channel_the_force.source-archetype.sourceName-niman_form.level-3"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
   "img": "modules/sw5e/icons/packs/Class%20Features/GRDN-ARCH-Passive.webp",
   "system": {
     "description": {
-      "value": "<p><em><strong>Niman Form:</strong> 3rd level</em></p>\n<p>You gain the following Channel the Force option.</p>\n<h3>Telekinetic Slash</h3>\n<p>When you deal damage with an at-will force power that requires a force attack or a saving throw, you can expend a use of your Channel the Force and expend force points to deal additional damage to the target, which is the same type as the power's damage. The additional damage is [[/r 1d8]] for each point spent in this way. You can't deal more additional damage than the amount shown in the Focused Strikes column of the guardian table.</p>",
+      "value": "<p><em><strong>Niman Form:</strong> 3rd level</em></p>\n<p>You gain the following Channel the Force option.</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.Ets9H5iJ5uyzgYrZ]{Telekinetic Slash}</h3>\n<p>When you deal damage with an at-will force power that requires a force attack or a saving throw, you can expend a use of your Channel the Force and expend force points to deal additional damage to the target, which is the same type as the power's damage. The additional damage is [[/r 1d8]] for each point spent in this way. You can't deal more additional damage than the amount shown in the Focused Strikes column of the guardian table.</p>",
       "chat": ""
     },
     "requirements": "Guardian (Niman Form) 3",
@@ -99,7 +105,51 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 1,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                ""
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "damage"
+      }
+    }
   },
   "effects": [],
   "folder": null,
@@ -112,7 +162,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1680288495923,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1739121092781,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

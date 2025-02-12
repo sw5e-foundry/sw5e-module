@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:02.7936334+00:00",
       "importer_version": 3,
       "uid": "Maneuvers.name-force_resonance"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -102,6 +108,69 @@
     "recharge": {
       "value": null,
       "charged": false
+    },
+    "activities": {
+      "sw5e0damage00000": {
+        "_id": "sw5e0damage00000",
+        "activation": {
+          "type": "action"
+        },
+        "consumption": {
+          "scaling": {
+            "allowed": false
+          },
+          "spellSlot": false,
+          "targets": [
+            {
+              "scaling": {
+                "formula": "",
+                "mode": ""
+              },
+              "target": "superiority.dice.value",
+              "type": "attribute",
+              "value": "1"
+            }
+          ]
+        },
+        "damage": {
+          "critical": {
+            "allow": true
+          },
+          "parts": [
+            {
+              "custom": {
+                "enabled": true,
+                "formula": "@mod"
+              },
+              "denomination": null,
+              "number": null,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "force"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft",
+          "value": "30"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "damage"
+      }
     }
   },
   "ownership": {
@@ -112,7 +181,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493983280,
-    "modifiedTime": 1730434253833,
+    "modifiedTime": 1739121090591,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

@@ -11,6 +11,12 @@
       "timestamp": "2023-03-09T01:52:15.1674586+00:00",
       "importer_version": 3,
       "uid": "Feature.name-overwhelming_soundwaves.source-archetypeinvocation.sourceName-audiotech_engineering.level-15"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
@@ -103,7 +109,57 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "parts": [
+            {
+              "custom": {
+                "enabled": false
+              },
+              "denomination": 8,
+              "number": 3,
+              "scaling": {
+                "mode": "",
+                "number": 1
+              },
+              "types": [
+                "sonic"
+              ]
+            }
+          ]
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft"
+        },
+        "save": {
+          "ability": [
+            "con"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {
+          "template": {
+            "size": "15",
+            "type": "sphere"
+          }
+        },
+        "type": "save"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +169,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493980979,
-    "modifiedTime": 1730434302311,
+    "modifiedTime": 1739121094709,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

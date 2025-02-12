@@ -61,5 +61,5 @@ export function addHooks() {
 	// ?
 	// ActivityUsageDialog Hooks
 	addHookAsync('dnd5e.applications.activity.ActivityUsageDialog.prototype._prepareScalingContext', 'ActivityUsageDialog._prepareScalingContext');
-	addHook('dnd5e.applications.activity.ActivityUsageDialog.prototype._prepareSubmitData', 'ActivityUsageDialog._prepareSubmitData');
+	addHookAsync('dnd5e.applications.activity.ActivityUsageDialog.prototype._prepareSubmitData', 'ActivityUsageDialog._prepareSubmitData');
 }

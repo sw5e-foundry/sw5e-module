@@ -11,11 +11,17 @@
       "timestamp": "2023-03-09T01:52:14.4658655+00:00",
       "importer_version": 3,
       "uid": "Feature.name-customized_armor.source-archetype.sourceName-armored_approach.level-10"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "system": {
     "description": {
-      "value": "<p><em><strong>Armored Approach:</strong> 10th level</em></p>\n<p>You learn new ways to customize your spiked armor. Choose one of the following options. While wearing your spiked armor, you gain the effects of the chosen option. Over the course of a long rest, you can select a different option, provided you have the armor and armormech's implements with you.</p>\n<h3>Defensive Field</h3>\n<p>On your turn, you can use a bonus action to gain temporary hit points equal to [[/r 1d12]] + your berserker level. Once you use this feature, you must finish a short or long rest before you can use it again.</p>\n<h3>Deflective Layer</h3>\n<p>Your armor class increases by 1.</p>\n<h3>Grappling Line</h3>\n<p>You can use a bonus action to launch a grappling line at one creature of your choice that you can see within 15 feet. The target must succeed on a Strength saving throw (DC = 8 + your proficiency bonus + your Strength modifier) or be pulled up to 10 feet in a straight line towards you. If it ends this movement within 5 feet of you, it takes kinetic damage from your armor spikes equal to your Strength modifier.</p>\n<h3>Integrated Sonar</h3>\n<p>You can use an action to give yourself the benefits of the <em>true sight</em> force power for 1 hour. Once you use this feature, you must finish a short or long rest before you can use it again.</p>\n<h3>Neural Interface</h3>\n<p>You are immune to all effects that would cause you to be charmed or frightened.</p>",
+      "value": "<p><em><strong>Armored Approach:</strong> 10th level</em></p>\n<p>You learn new ways to customize your spiked armor. Choose one of the following options. While wearing your spiked armor, you gain the effects of the chosen option. Over the course of a long rest, you can select a different option, provided you have the armor and armormech's implements with you.</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.uwmpvr689xwEfw8v]{Defensive Field}</h3>\n<p>On your turn, you can use a bonus action to gain temporary hit points equal to [[/r 1d12]] + your berserker level. Once you use this feature, you must finish a short or long rest before you can use it again.</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.pN2fdACArMiJFD1d]{Deflective Layer}</h3>\n<p>Your armor class increases by 1.</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.tN4Rk4ZH5RWRff9n]{Grappling Line}</h3>\n<p>You can use a bonus action to launch a grappling line at one creature of your choice that you can see within 15 feet. The target must succeed on a Strength saving throw (DC = 8 + your proficiency bonus + your Strength modifier) or be pulled up to 10 feet in a straight line towards you. If it ends this movement within 5 feet of you, it takes kinetic damage from your armor spikes equal to your Strength modifier.</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.15ekdJEmUXMekrXr]{Integrated Sonar}</h3>\n<p>You can use an action to give yourself the benefits of the <em>true sight</em> force power for 1 hour. Once you use this feature, you must finish a short or long rest before you can use it again.</p>\n<h3>@UUID[Compendium.sw5e.archetypefeatures.Item.KOuyAcZE4scfOYJJ]{Neural Interface}</h3>\n<p>You are immune to all effects that would cause you to be charmed or frightened.</p>",
       "chat": ""
     },
     "requirements": "Berserker (Armored Approach) 10",
@@ -103,7 +109,82 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "bonus"
+        },
+        "damage": {
+          "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
+        },
+        "img": null,
+        "range": {
+          "units": "ft",
+          "value": "15"
+        },
+        "save": {
+          "ability": [
+            "str"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "save"
+      },
+      "sw5e1heal0000000": {
+        "_id": "sw5e1heal0000000",
+        "activation": {
+          "type": "bonus"
+        },
+        "description": {},
+        "duration": {
+          "units": "hour",
+          "value": "1"
+        },
+        "healing": {
+          "bonus": "@classes.berserker.levels",
+          "custom": {
+            "enabled": false
+          },
+          "denomination": 12,
+          "number": 1,
+          "scaling": {
+            "mode": "",
+            "number": 1
+          },
+          "types": [
+            "temphp"
+          ]
+        },
+        "img": null,
+        "range": {
+          "units": "ft",
+          "value": "15"
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "heal"
+      }
+    }
   },
   "ownership": {
     "default": 0
@@ -113,7 +194,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1674493957364,
-    "modifiedTime": 1720368683080,
+    "modifiedTime": 1739121092781,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },

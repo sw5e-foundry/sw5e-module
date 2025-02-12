@@ -5,6 +5,12 @@
       "timestamp": "2023-03-09T01:52:14.555814+00:00",
       "importer_version": 3,
       "uid": "Feature.name-disarming_slash.source-archetype.sourceName-shii_cho_form.level-3"
+    },
+    "dnd5e": {
+      "riders": {
+        "activity": [],
+        "effect": []
+      }
     }
   },
   "type": "feat",
@@ -74,7 +80,7 @@
     },
     "type": {
       "value": "class",
-      "subtype": ""
+      "subtype": "guardianCTF"
     },
     "recharge": {
       "value": null,
@@ -95,7 +101,43 @@
     "prerequisites": {
       "level": null
     },
-    "properties": []
+    "properties": [],
+    "activities": {
+      "sw5e0save0000000": {
+        "_id": "sw5e0save0000000",
+        "activation": {
+          "type": "action"
+        },
+        "damage": {
+          "parts": []
+        },
+        "description": {},
+        "duration": {
+          "units": "inst"
+        },
+        "img": null,
+        "range": {
+          "units": "ft",
+          "value": "5"
+        },
+        "save": {
+          "ability": [
+            "str"
+          ],
+          "dc": {
+            "calculation": "spellcasting",
+            "formula": ""
+          }
+        },
+        "target": {
+          "template": {
+            "type": "",
+            "units": ""
+          }
+        },
+        "type": "save"
+      }
+    }
   },
   "folder": null,
   "sort": 0,
@@ -107,7 +149,7 @@
     "systemVersion": "3.3.1",
     "coreVersion": "12.331",
     "createdTime": 1667426104219,
-    "modifiedTime": 1729984341403,
+    "modifiedTime": 1739121092781,
     "lastModifiedBy": "dnd5ebuilder0000",
     "duplicateSource": null
   },
