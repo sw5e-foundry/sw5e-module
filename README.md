@@ -15,7 +15,7 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
-### [Unreleased]
+### [1.2.4] - 2025-02-12
 
 ### Added
 
