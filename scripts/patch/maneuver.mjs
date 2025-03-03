@@ -274,7 +274,7 @@ function makeSuperiorityDiceConsumable() {
 }
 
 function addSuperiorityScaleValues() {
-	Hooks.on("sw5e.Actor5e._prepareScaleValues", function (_this, result, config, ...args) {
+	Hooks.on("sw5e.ActorDataModel._prepareScaleValues", function (_this, result, config, ...args) {
 		const superiority = _this.system?.superiority;
 		if ( superiority?.level ) {
 			if ( _this.system.scale.superiority ) ui.notifications.warn( "SW5E.Superiority.Warn.Identifier" );
