@@ -15,6 +15,12 @@ If you wish to manually install the system, you must clone or extract it into th
 
 ## Changelog
 
+### [1.2.5] - 2025-03-03
+
+### Changed
+
+- Module is now compatible with and requires dnd5e 4.3.x.
+
 ### [1.2.4] - 2025-02-12
 
 ### Added

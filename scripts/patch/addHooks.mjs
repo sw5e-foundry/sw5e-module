@@ -34,7 +34,6 @@ export function addHooks() {
 	// Actor5e Hooks
 	addHook('dnd5e.documents.Actor5e.prototype._prepareSpellcasting', 'Actor5e._prepareSpellcasting');
 	addHook('dnd5e.documents.Actor5e.prototype.spellcastingClasses', 'Actor5e.spellcastingClasses');
-	addHook('dnd5e.documents.Actor5e.prototype._prepareScaleValues', 'Actor5e._prepareScaleValues');
 	// Item5e Hooks
 	addHook('dnd5e.documents.Item5e.prototype.spellcasting', 'Item5e.spellcasting');
 
@@ -42,6 +41,8 @@ export function addHooks() {
 	// DataModel Hooks //
 	//-----------------//
 
+	// ActorData Hooks
+	addHook('dnd5e.dataModels.ActorDataModel.prototype._prepareScaleValues', 'ActorDataModel._prepareScaleValues');
 	// SpellData Hooks
 	addHookAsync('dnd5e.dataModels.item.SpellData.prototype.getSheetData', 'SpellData.getSheetData');
 	addHook('dnd5e.dataModels.item.SpellData.prototype.availableAbilities', 'SpellData.availableAbilities');
