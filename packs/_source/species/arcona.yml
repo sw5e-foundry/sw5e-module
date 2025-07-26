@@ -1,0 +1,196 @@
+name: Arcona
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.272138+00:00'
+    importer_version: 3
+    uid: Species.name-arcona
+type: race
+img: modules/sw5e/icons/packs/Species/Arcona.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Arcona have anvil-shaped heads, claws, marble-like eyes, and protective skin. Cona is always hot, and has very little water, but the atmosphere is filled with ammonia vapor. Arcona adapted to this environment by eating the ammonia-converting roots of flora as a source of water. Arcona depended on the ammonia to live and, as a result, arcona living offworld have to take ammonia supplements. Despite their large eyes, arcona have very poor eyesight. Their eyes, made up of thousands of photoreceptors, can not detect fine shapes, only seeing blurry objects. To aid this, they have a small sensory organ between their eyes. Often mistaken for their nose, this organ detects heat patterns from living beings. Thus, arcona can recognize things by its heat pattern.</p>
+      <p>Arcona are highly susceptible to addiction to spice and common salt, which serves as a hallucinogen with effects resembling that of intoxication. Their eyes shift to gold after prolonged addiction.</p>
+      <h2>Society and Culture</h2>
+      <p>Arcona normally think of themselves not as individuals but as a collective whole. Largely forsaking individuality, they often refer to themselves as "we" even when alone. The arcona live in loose, family-based communities called nests, which are ruled by a Grand Nest. Because arcona are born in nests underground, they obtain a close sense of family living in close quarters with siblings. Males raise the young, since females are typically impulsive thrill-seekers. </p>
+      <h2>Names</h2>
+      <p>Arcona names are quite diverse, named by their fathers in the nest. Surnames are either familial or nest-based. </p>
+      <p><strong>Male Names.</strong> Bijrik, El, Jat, Kazat, Onalol, Shle</p>
+      <p><strong>Female Names.</strong> Ak, Cimam, Cuten, He, Madan, Omik</p>
+      <p><strong>Surnames.</strong> Cheen, -drell, -faxel, Shran, Takonak, -voll</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: arcona
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.QUtnpKTIkVlwVdTh
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.uuwYkhbq9TW7ra2G
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Ixiy24d4yKSwPOjb
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.6YWIpicXuWfK39oY
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.jRHZxddZKUAKJpmB
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.RRY8ijvY0aH3BKO0
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.WAsusvVgnRQNq3Tv
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.LmNTMXiBXwzBnwds
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.m0teAfyTLVuVrSGJ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.gVanwaFyTapFFmb3
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.2AnQuo6xZM1x1LLc
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.v5stDefAocHTS7oQ
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          cha: 2
+          con: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - skills:inv
+              - skills:lor
+              - skills:med
+              - skills:nat
+              - skills:pil
+              - skills:tec
+        grants: []
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Ebony to mahogany
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Green, blue, pink, gold when addicted
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Flat  heads, easily addicted
+  heightAverage:
+    value: 5'0"
+  heightRollMod:
+    value: +2d10"
+  weightAverage:
+    value: 95 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Cona
+  slanguage:
+    value: Arconese
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: P9LXrkukSdERPtiq
+    changes:
+      - key: flags.sw5e.situational.advantage.skill.prc
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.KwDQepuVGtneaTTY.ActiveEffect.NGgLg9M06MvvWwAh
+    origin: Compendium.sw5e.species.Item.KwDQepuVGtneaTTY
+    name: Keen Smell
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Arcona.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!A8YCUKCQwtPCSNMn.P9LXrkukSdERPtiq'
+_id: A8YCUKCQwtPCSNMn
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304724988
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!A8YCUKCQwtPCSNMn'

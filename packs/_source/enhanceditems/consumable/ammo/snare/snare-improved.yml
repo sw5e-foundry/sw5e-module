@@ -1,0 +1,146 @@
+_id: Yi9iw5tpXt4ra4ux
+name: Snare (Improved)
+type: consumable
+img: modules/sw5e/icons/packs/Ammunition/Snare.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:20.4673857+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-snare_improved.subtype-ammunition
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: "<h4>Consumable (Ammunition)</h4>\n <p>When hit by this wrist launcher ammunition, a Medium or smaller creature is restrained until it is freed. A snare has no effect on formless or Large or larger creatures. A creature can use its action to make a DC 16 Strength or Dexterity check (the target chooses the ability to use), freeing itself or another creature within its reach on a success. The snare has an AC of 12, 15 hit points, immunity to all damage not dealt by melee weapons, and resistance to damage dealt by unenhanced melee weapons. Destroying the snare frees the creature without harming it and immediately ends the snare's effects. </p>\n<p>\_</p>\n<h2>Snare</h2>\n<p>When hit by this wrist launcher ammunition, a Medium or smaller creature is restrained until it is freed. A snare has no effect on formless or Large or larger creatures. A creature can use its action to make a DC 13 Strength or Dexterity check (the target chooses the ability to use), freeing itself or another creature within its reach on a success. The snare has an AC of 10, 5 hit points, and immunity to all damage not dealt by melee weapons. Destroying the snare frees the creature without harming it and immediately ends the snare's effects.</p>"
+    chat: ''
+  source:
+    custom: EC
+  quantity: 1
+  weight:
+    value: 2
+    units: lb
+  price:
+    value: 300
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: prototype
+  identified: true
+  activation:
+    type: ''
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    autoDestroy: false
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '5'
+        - hit
+      - - '15'
+        - hit
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: none
+  properties: []
+  type:
+    value: ammo
+    subtype: snare
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '5'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - hit
+          - custom:
+              enabled: true
+              formula: '15'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - hit
+      description: {}
+      duration:
+        units: inst
+        value: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      target: {}
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964758
+  modifiedTime: 1732672947367
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Yi9iw5tpXt4ra4ux'

@@ -1,0 +1,187 @@
+_id: iY4iRHbLcx10OgRQ
+name: Marksman blaster
+type: weapon
+img: modules/sw5e/icons/packs/Martial%20Blasters/MarksmanBlaster.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:13.4524542+00:00'
+    importer_version: 3
+    uid: Weapon.name-marksman_blaster.equipmentCategory-weapon
+  sw5e:
+    properties:
+      powerCell: range 125/500
+      rel: 8
+      strRq: 13
+      reload: 8
+      two: true
+    reload:
+      types:
+        - powerCell
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <h3>Power cell (range 125/500) Cell</h3>
+      <p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>
+      <h3>Reload 8</h3>
+      <p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>
+      <h3>Strength 13</h3>
+      <p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>
+      <h3>Two-handed</h3>
+      <p>A weapon with this property requires two hands to use.</p>
+    chat: ''
+  source:
+    custom: EC
+  quantity: 1
+  weight:
+    value: 12
+    units: lb
+  price:
+    value: 1100
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: ''
+  identified: true
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: '1'
+    width: null
+    units: ''
+    type: enemy
+    prompt: true
+  range:
+    value: 125
+    long: 500
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    scale: false
+  ability: ''
+  actionType: rwak
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d10 + @mod
+        - energy
+    versatile: ''
+    base:
+      custom: {}
+      scaling:
+        number: 1
+        mode: ''
+      denomination: 10
+      number: 1
+      types:
+        - energy
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  armor:
+    value: 10
+  hp:
+    value: 0
+    max: 0
+    dt: null
+    conditions: ''
+  modify:
+    chassis: none
+    augmentSlots: 0
+    modSlots: 4
+    items: []
+    changes: {}
+  weaponClass: rifle
+  ammo:
+    target: null
+    value: null
+    use: null
+    types:
+      - powerCell
+  properties:
+    - powerCell
+    - rel
+    - strRq
+    - two
+  proficient: null
+  type:
+    value: martialBL
+    subtype: ''
+    baseItem: marksmanblaster
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  firingArc: ''
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: weapon
+          value: ranged
+      damage:
+        critical: {}
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: ft
+        value: '125'
+      target:
+        template:
+          size: '1'
+          type: enemy
+          units: ''
+      type: attack
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493961299
+  modifiedTime: 1739121083882
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!iY4iRHbLcx10OgRQ'

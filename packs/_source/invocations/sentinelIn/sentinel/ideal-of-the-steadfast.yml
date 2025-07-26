@@ -1,0 +1,74 @@
+name: Ideal of the Steadfast
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.6296276+00:00'
+    importer_version: 3
+    uid: Feature.name-ideal_of_the_steadfast.source-classinvocation.sourceName-sentinel
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SNTL-Bonus.webp
+system:
+  description:
+    value: |-
+      <p>When you would make a melee weapon attack roll, you can instead force the target to make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon). If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw. On a failed save, the target takes normal weapon damage and is subjected to any additional effects that would occur on a hit.</p>
+      <p>Additionally, as a bonus action, you can manifest this ideal in a brief surge of energy. For the next minute, when a creature succeeds on the saving throw, they take half the normal weapon damage, and when a creature rolls a 1 on the saving throw, they treat the damage as if you had rolled the maximum.</p>
+    chat: ''
+  requirements: Sentinel
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: sentinelInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+  identifier: ideal-of-the-steadfast
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: Yy7DjdtFw1wieKDn
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!Yy7DjdtFw1wieKDn'

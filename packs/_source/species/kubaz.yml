@@ -1,0 +1,236 @@
+name: Kubaz
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2831315+00:00'
+    importer_version: 3
+    uid: Species.name-kubaz
+type: race
+img: modules/sw5e/icons/packs/Species/Kubaz.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Kubaz are distinctive for their short, prehensile facial snouts which were used for reaching insects within their hives. They have adapted to their sun-scorched, vegetation-deprived world by learning to survive off their world's native insect population. Filled with two rows of teeth for gnashing their food, the Kubaz trunk also functions as a highly sensitive nose.  Due to living on their homeworld of Kubindi—a planet which orbits a blue star—Kubaz are highly sensitive to red wavelengths; when traveling to planets with a red or yellow star, Kubaz are forced to don protective eyewear to avoid damaging their sensitive eyes.</p>
+      <h2>Society and Culture</h2>
+      <p>The Kubazi society is based on a clan structure which dwell in underground nests. Ruled by a queen, each clan takes the name of their queen they are descended from. Developing a non-verbal language of hand gestures which indicated their intentions, Kubaz are able to speak Galactic Basic, though with a strong nasally accent.  When interacting with other species, some Kubaz will share certain hand signals with non-Kubaz in order to ease communications.  Obsessed with tact and decorum, the Kubaz place a high emphasis on the family unit and proper courtesies, displaying truthfulness to a fault. Valuing art and literature with such vigor as to sometimes practice smuggling of great works, the Kubaz do not find such pursuits to be wrong or unlawful.  Due to their diet on Kubindi, the Kubaz have poor relations with sentient insectile species. </p>
+      <h2>Names</h2>
+      <p>Kubaz names are usually dominated by harsher sounds, but some names lean more melodic. Surnames are clan-based.</p>
+      <p><strong>Male Names.</strong> Shaf, Rizor, Duldril, Kurn, Schnaldiz</p>
+      <p><strong>Female Names.</strong> Zhanro, Dizi, Tavo, Agoz, Nuzrem</p>
+      <p><strong>Surnames.</strong> Re, Eadzan, Hai, Khu'nar, Mairvuc, Va</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: kubaz
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 120
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.enNnn0bix3JVmlTb
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.EZLpMEdPD7b4hCNJ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.TSmdpyuhTJC4CJhQ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.vAw8OjlgjBo30i9v
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.VIlbSnslb27mg1x8
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.FOeTvhqQzrofx3Yn
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.kfvl1COgw59YRysk
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.PZcO3qpNSQcAZlyI
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.hiCqYEegOnooy8SN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.eGcz5A0g87GpcnQI
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.7C8l0SDQPYsKnFYV
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.KkDnqAY5ikkRPJcU
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          dex: 2
+          int: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - skills:dec
+              - skills:slt
+              - skills:ste
+        grants:
+          - skills:tec
+          - tool:slicerskit
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Black, dark grey, or dark green
+  hairColorOptions:
+    value: Black
+  eyeColorOptions:
+    value: Red
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Prehensile snouts, protective eyewear
+  heightAverage:
+    value: 4'9"
+  heightRollMod:
+    value: +2d8"
+  weightAverage:
+    value: 105 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Kubindi
+  slanguage:
+    value: Kubazian
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: L67WRXxiXupihqw1
+    changes:
+      - key: flags.sw5e.situational.advantage.skill.prc
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.MtBnA2VnLwqdnBvc.ActiveEffect.KTMeZ69AIhp6lmIz
+    origin: Compendium.sw5e.species.Item.MtBnA2VnLwqdnBvc
+    name: Keen Smell
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Kubaz.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!0Vjb1w53vHGiEWNL.L67WRXxiXupihqw1'
+  - _id: nupkXSrVF3uQnHZI
+    changes:
+      - key: flags.sw5e.situational.disadvantage.attack.all
+        mode: 5
+        value: '1'
+        priority: 20
+      - key: flags.sw5e.situational.disadvantage.skill.prc
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.MtBnA2VnLwqdnBvc.ActiveEffect.KTMeZ69AIhp6lmIz
+    origin: Compendium.sw5e.species.Item.MtBnA2VnLwqdnBvc
+    name: Sunlight Sensitivity - you or your target is in sunlight
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Kubaz.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!0Vjb1w53vHGiEWNL.nupkXSrVF3uQnHZI'
+_id: 0Vjb1w53vHGiEWNL
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304724603
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!0Vjb1w53vHGiEWNL'

@@ -1,0 +1,135 @@
+_id: jL3qsXtVhhJaNU8D
+name: Fling People
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/BSKR-ARCH-Passive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.4688638+00:00'
+    importer_version: 3
+    uid: Feature.name-fling_people.source-archetype.sourceName-bloodstorm_approach.level-10
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Bloodstorm Approach:</strong> 10th level</em></p>
+      <p>You learn to throw creatures as easily as you throw your weapons. When you successfully grapple a creature, you may immediately throw the creature.</p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.YDSKOTBsH2rWpOkk]{Throw Friend}</h3>
+      <p>If the creature is a willing ally and volunteers to be grappled, you throw the target into any unoccupied space within 60 feet. That creature may immediately use its reaction to make one melee weapon attack, adding your Strength modifier to the attack's damage roll.</p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.OgGqrG1OD9ELC4Dd]{Throw Foe}</h3>
+      <p>If the creature is an opponent, you throw the target into any unoccupied space within 30 feet, where it takes damage equal to your Strength modifier and falls prone.</p>
+    chat: ''
+  requirements: Berserker (Bloodstorm Approach) 10
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '@abilities.str.mod'
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@abilities.str.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '60'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493958009
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!jL3qsXtVhhJaNU8D'

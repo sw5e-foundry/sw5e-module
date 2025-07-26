@@ -1,0 +1,130 @@
+_id: R5H3i6PfQEzdXyz9
+name: Guided Strikes
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/MNK-ARCH-Passive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: Feature.name-guided_strikes.source-archetype.sourceName-whills_order.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Whills Order:</strong> 17th level</em></p>
+      <p>Your first ranged weapon attack and your first melee weapon attack each turn deal additional damage equal to your Wisdom or Charisma modifier (your choice, a minimum of +1).</p>
+    chat: ''
+  requirements: Monk (Whills Order) 17
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '@mod'
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957730
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!R5H3i6PfQEzdXyz9'

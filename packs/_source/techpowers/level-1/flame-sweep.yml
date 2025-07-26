@@ -1,0 +1,144 @@
+name: Flame Sweep
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1557424+00:00'
+    importer_version: 3
+    uid: Power.name-flame_sweep.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/FlameSweep.webp
+system:
+  description:
+    value: |-
+      <p>A thin sheet of flames shoots forth from you. Each creature in a 15-foot cone must make a Dexterity saving throw. A creature takes [[/r 3d6]] fire damage on a failed save, or half as much damage on a successful one.</p>
+      <p>The fire ignites any flammable objects in the area that aren't being worn or carried.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d6]] for each slot level above 1st.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: '15'
+    width: null
+    units: ft
+    type: cone
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 3d6
+        - fire
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  level: 1
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: 1d6
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 2
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 3
+            scaling:
+              mode: whole
+              number: 1
+            types:
+              - fire
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: self
+      save:
+        ability: dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '15'
+          type: cone
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '2'
+effects: []
+_id: bmd9kkUyuACuZ9SM
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!bmd9kkUyuACuZ9SM'

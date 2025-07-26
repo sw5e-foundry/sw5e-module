@@ -1,0 +1,137 @@
+name: Prototype Explosive Amplifier
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:15.1694583+00:00'
+    importer_version: 3
+    uid: Feature.name-prototype_explosive_amplifier.source-archetypeinvocation.sourceName-cybertech_engineering_depreciated.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Passive.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite:</strong> 7th level, Explosive Amplifier</em></p>
+      <p>You fine tune your Explosive Amplifier. When you activate this amplifier, the creature is also ignited for 1 minute. At the start of each of its turns, the creature </p>
+      <p>takes additional fire damage equal to your Intelligence modifier and then makes a Dexterity saving throw against your tech save DC, ending this effect on a success. If the target or a creature within 5 feet of it uses an action to put out the flames, or if some other effect douses the flames, the effect ends.</p>
+    chat: ''
+  requirements: Engineer (Cybertech Engineering (Depreciated)) 7, Explosive Amplifier
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 5
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '@abilities.int.mod'
+        - fire
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: engineerInvocation
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: 300
+      turn: 250
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: true
+              formula: '@abilities.int.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '5'
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1680288497263
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: f3ke081tmSJJg5zD
+_key: '!items!f3ke081tmSJJg5zD'

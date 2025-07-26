@@ -1,0 +1,143 @@
+name: Element of Surprise
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1527446+00:00'
+    importer_version: 3
+    uid: Power.name-element_of_surprise.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/ElementOfSurprise.webp
+system:
+  description:
+    value: |-
+      <p>You expel a sabotage charge at the creature that attacked you. The creature must make a Dexterity saving throw. It takes [[/r 2d10]] fire damage on a failed save, or half as much damage on a successful one.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 2nd level or higher, the damage increases by [[/r 1d10]] for each slot level above 1st.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: reaction
+    cost: 1
+    condition: in response to being damaged by a creature within 60 feet of you that you can see
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d10
+        - fire
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  level: 1
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: 1d10
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 2
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: in response to being damaged by a creature within 60 feet of you that you can see
+        type: reaction
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 10
+            number: 2
+            scaling:
+              mode: whole
+              number: 1
+            types:
+              - fire
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '60'
+      save:
+        ability: dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '2'
+effects: []
+_id: 9oa9lVCrr03LBTa8
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!9oa9lVCrr03LBTa8'

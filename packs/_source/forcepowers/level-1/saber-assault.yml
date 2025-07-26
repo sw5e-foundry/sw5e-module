@@ -1,0 +1,161 @@
+_id: 1GVIq7xHPibQ76ja
+name: Saber Assault
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/SaberAssault.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:02.9925182+00:00'
+    importer_version: 3
+    uid: Power.name-saber_assault.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Saber Ward</em></p>
+      <p>The first time you take the Attack action during your turn, you can simultaneously cast this power to blend your melee weapon attacks with the use of the Force. For each successful hit you make with a melee weapon before the power ends, the target must make a Dexterity saving throw or have a new effect apply until the end of its next turn. Once you've made three weapon attacks, the power ends.</p>
+      <ul>
+      <li><strong>1st Hit:</strong> If the target fails its saving throw, it gains 1 slowed level until the end of its next turn.</li>
+      <li><strong>2nd Hit:</strong> If the target fails its saving throw, it takes [[/r 1d6]] kinetic damage and cannot take reactions until after the end of its next turn.</li>
+      <li><strong>3rd Hit:</strong> If the target fails its saving throw, it takes [[/r 2d6]] kinetic damage and cannot take bonus actions during its next turn.</li>
+      </ul>
+      <p><strong><em>Force Potency.</em></strong> When you cast this power using a force slot of 3rd level or higher, the damage of the second and third hit each increase by [[/r 1d6]] for every two slot levels above 1st.</p>
+    chat: ''
+  source:
+    custom: EC
+  activation:
+    type: none
+    cost: null
+    condition: ''
+  duration:
+    value: '1'
+    units: round
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 2
+    scale: true
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6
+        - kinetic
+      - - 2d6
+        - kinetic
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  level: 1
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: level
+    formula: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: none
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+      description: {}
+      duration:
+        units: round
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: self
+      save:
+        ability: dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '2'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979167
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!1GVIq7xHPibQ76ja'

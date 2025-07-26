@@ -1,0 +1,142 @@
+_id: XQw0Axx4Lui3CYwH
+name: Telekinesis
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/Telekinesis.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1267594+00:00'
+    importer_version: 3
+    uid: Power.name-telekinesis.level-5
+  sw5e:
+    migratedProperties:
+      - concentration
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Force Throw</em></p>
+      <p>You gain the ability to move or manipulate creatures and objects with the Force. When you cast this power, and as your action each round for the duration, you can exert your will on one creature or object that you can see within range, causing the appropriate effect below. You can affect the same target round after round, or choose a new one at any time. If you switch targets, the prior target is no longer affected by the power.</p>
+      <p><strong><em>Creature.</em></strong> You can try to move a Huge or smaller creature. The target must make a Strength saving throw. On a failed save, you move the creature up to 30 feet in any direction, including upward but not beyond the range of this power. Until the end of your next turn, the creature is restrained in your telekinetic grip. A creature lifted upward is suspended in mid-air.</p>
+      <p>On subsequent rounds, you can use your action to attempt to maintain your telekinetic grip on the creature by repeating the contest.</p>
+      <p><strong><em>Object.</em></strong> You move an object that isn't being worn or carried and weighs up to 2,500 lbs up to 30 feet in any direction, but not beyond the range of this power.</p>
+      <p>You can exert fine control on objects with your telekinetic grip, such as manipulating a simple tool, opening a door or a container, stowing or retrieving an item from an open container, or pouring the contents from a vial.</p>
+      <p><strong><em>Force Potency.</em></strong> When you cast this power using a force slot of 6th level or higher, the maximum object weight increases by 2,500 lbs for every slot level above 5th.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '10'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 90
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 6
+    scale: true
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: str
+    dc: null
+    scaling: spell
+  level: 5
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: level
+    formula: null
+  properties:
+    - concentration
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: minute
+        value: '10'
+      img: null
+      range:
+        units: ft
+        value: '90'
+      save:
+        ability: str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '6'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979267
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!XQw0Axx4Lui3CYwH'

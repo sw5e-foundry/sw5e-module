@@ -1,0 +1,166 @@
+_id: YpcAy9ZBoM0KKcer
+name: Cape of the Orator
+type: equipment
+img: modules/sw5e/icons/packs/Enhanced%20Items/CapeOfTheOrator.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:04.8374474+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-cape_of_the_orator.subtype-shoulders
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <h4>Adventuring Gear (Shoulders)</h4>
+       <p><em><strong>Requires attunement</strong></em></p>
+      <p><em>Prerequisite:  at least 3 levels in scholar</em></p>
+      <hr />
+      <p>This item can hold a number of charges equal to half your scholar level (rounded up). When you complete a long rest, this item regains all missing charges. When your superiority die is rolled, you can expend one charge to reroll the die and choose either roll.</p>
+      <p>When you reach 5th level in scholar, you can maintain two targets of your Critical Analysis feature, instead of one. If you use your bonus action to analyze a third target, you choose which Critical Analysis ends.</p>
+      <p>When you reach 11th level in scholar, when you use your bonus action to use your Critical Analysis feature, you can target two creatures, instead of just one.</p>
+      <p>When you reach 17th level in scholar, you can take a third reaction each round. You can only take one reaction per turn.</p>
+      <p><em>This color-shifting cloak is immune to wrinkles and always has a pressed appearance.</em></p>
+    chat: ''
+  source:
+    custom: WH
+  quantity: 1
+  weight:
+    value: 0
+    units: lb
+  price:
+    value: 0
+    denomination: gp
+  attunement: required
+  equipped: false
+  rarity: prototype
+  identified: true
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ceil((@classes.scholar.levels)/2)
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  armor:
+    value: null
+    dex: null
+    magicalBonus: null
+  hp:
+    value: 0
+    max: 0
+    dt: null
+    conditions: ''
+  attributes:
+    capx:
+      value: null
+    dmgred:
+      value: null
+    regrateco:
+      value: null
+    cscap:
+      value: null
+    sscap:
+      value: null
+    fuelcostsmod:
+      value: null
+    powerdicerec:
+      value: ''
+    hdclass:
+      value: null
+  modify:
+    chassis: none
+    augmentSlots: 0
+    modSlots: 4
+    items: []
+    changes: {}
+  speed:
+    value: null
+    conditions: ''
+  strength: null
+  properties: []
+  proficient: 1
+  type:
+    value: clothing
+    baseItem: ''
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964760
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!YpcAy9ZBoM0KKcer'

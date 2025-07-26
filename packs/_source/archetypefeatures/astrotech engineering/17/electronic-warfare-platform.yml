@@ -1,0 +1,155 @@
+name: Electronic Warfare Platform
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7387065+00:00'
+    importer_version: 3
+    uid: Feature.name-electronic_warfare_platform.source-archetype.sourceName-astrotech_engineering.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-ARCH-Bonus.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Astrotech Engineering:</strong> 3rd, 9th, and 17th level</em></p>
+      <p>You learn to modify your astrotech's implements into a mobile electronic warfare platform. Over the course of a long rest, you can modify your astrotech's implements. You must have astrotech's implements in order to perform this modification.</p>
+      <p>Your electronic warfare platform is enhanced, requires attunement, can only be used by you, and counts as a tech focus for your tech powers while you are attuned to it. Your electronic warfare platform has 4 modification slots, and it gains more at higher levels, as shown in the Modification Slots column of the engineer table. For each modification installed in excess of your proficiency bonus, your tech point maximum is reduced by 1. Over the course of a long rest, you can install, replace, or remove a number of modifications up to your Intelligence modifier (minimum of one).</p>
+      <p>Some modification effects require saving throws. When you use such an effect from this class, the DC equals your tech save DC.</p>
+      <p>Your electronic warfare platform comes equipped with electromagnetic projection and sensing systems, enabling three fields: ionizing, jamming, and targeting. As a bonus action, you can activate a field, which lasts for 1 minute, causing an effect determined by the field. Only one field can be active at a time, and you can end your field at any time on your turn, no action required. The range of your barriers increases to 15 feet at 9th level and 30 feet at 17th level. You can use these fields a combined number of times equal to your proficiency bonus, as shown in the engineer table. You regain all expended uses when you complete a long rest.</p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.lFqLBUFCX5IeXtWn]{Ionizing Field}</h3>
+      <p>Whenever a droid or construct other than you starts its turn within 5 feet of you, it gains 4 slowed levels and takes ion damage equal to half your engineer level. </p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.cs9eJeHn6PqqmpDk]{Jamming Field}</h3>
+      <p>Whenever you or a friendly creature within 10 feet of you are forced to make a saving throw by a tech power, the creature gains a bonus to the saving throw equal to your Intelligence modifier (minimum of +1). </p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.b9QDTLRLPu8DE6Tc]{Targeting Field}</h3>
+      <p>You and friendly creatures within 5 feet of you gain a bonus to the first ranged weapon damage rolls you </p>
+      <p>make each round equal to your Intelligence modifier (minimum of +1). </p>
+    chat: ''
+  requirements: Engineer (Astrotech Engineering) 17
+  source:
+    custom: EC
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 5
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: 300
+      turn: 250
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: feet
+        value: '5'
+      roll: {}
+      target: {}
+      type: utility
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: bonus
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: ((@classes.engineer.levels)/2)
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ion
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '5'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1680288495940
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: 2YhxQAavnYhms4Sn
+_key: '!items!2YhxQAavnYhms4Sn'

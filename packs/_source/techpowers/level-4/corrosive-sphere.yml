@@ -1,0 +1,154 @@
+name: Corrosive Sphere
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1467481+00:00'
+    importer_version: 3
+    uid: Power.name-corrosive_sphere.level-4
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/CorrosiveSphere.webp
+system:
+  description:
+    value: |-
+      <p>You create a globule of acid and hurl it at a point within range, where it explodes in a 20-foot-radius sphere. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes [[/r 10d4]] acid damage and another [[/r 5d4]] acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage and no damage at the end of its next turn.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 5th level or higher, the initial damage increases by [[/r 2d4]] for each slot level above 4th.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: '20'
+    width: null
+    units: ft
+    type: sphere
+    prompt: true
+  range:
+    value: 150
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 10d4
+        - acid
+      - - 5d4
+        - acid
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  level: 4
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: 2d4
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 5
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 10
+            scaling:
+              mode: whole
+              number: 2
+            types:
+              - acid
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 5
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - acid
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '150'
+      save:
+        ability: dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '20'
+          type: sphere
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '5'
+effects: []
+_id: bESXXZRiJR1ufHXi
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!bESXXZRiJR1ufHXi'

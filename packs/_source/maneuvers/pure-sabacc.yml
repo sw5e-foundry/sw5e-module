@@ -1,0 +1,125 @@
+_id: sO85iGLRliLujjYW
+name: Pure Sabacc
+type: sw5e.maneuver
+img: modules/sw5e/icons/packs/Maneuvers/PureSabacc.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:02.7996296+00:00'
+    importer_version: 3
+    uid: Maneuvers.name-pure_sabacc
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  htmlFields:
+    - description.value
+    - description.chat
+    - unidentified.description
+  description:
+    value: <p>When you score a critical hit with a weapon attack, you can expend a superiority die and roll it. On a roll of 4 or higher, you deal maximum damage on the weapon's damage roll, including the superiority die. On a roll of 3 or lower, you instead deal the minimum.</p>
+    chat: ''
+  requirements: null
+  source:
+    custom: PHB
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: superiority.dice.value
+    amount: 1
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: physical
+    subtype: ''
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  recharge:
+    value: null
+    charged: false
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: ''
+            target: superiority.dice.value
+            type: attribute
+            value: '1'
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493983319
+  modifiedTime: 1739121090591
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!sO85iGLRliLujjYW'

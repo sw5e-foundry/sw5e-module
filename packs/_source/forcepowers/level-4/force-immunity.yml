@@ -1,0 +1,132 @@
+_id: q1r3igPYEHkfAO1v
+name: Force Immunity
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/ForceImmunity.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1507454+00:00'
+    importer_version: 3
+    uid: Power.name-force_immunity.level-4
+  sw5e:
+    migratedProperties:
+      - concentration
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>An immobile, faintly shimmering barrier springs into existence around you and remains for the duration. The barrier moves with you. Any force power of 3rd level or lower cast from outside the barrier can't affect you, even if the power is cast using a higher level force slot. Such a power can target you, but the power has no effect on you. Similarly, the area within the barrier is excluded from the areas affected by such powers.</p>
+      <p><strong><em>Force Potency.</em></strong> When you cast this power using a force slot of 5th level or higher, the barrier blocks powers of one level higher for each slot level above 4th.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 5
+    scale: true
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 4
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: level
+    formula: null
+  properties:
+    - concentration
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        condition: ''
+        type: action
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: self
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '5'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979321
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!q1r3igPYEHkfAO1v'

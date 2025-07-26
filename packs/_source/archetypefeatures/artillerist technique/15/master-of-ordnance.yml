@@ -1,0 +1,128 @@
+_id: BIZGnFjvoTzbcWIV
+name: Master of Ordnance
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCT-ARCH-Passive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: Feature.name-master_of_ordnance.source-archetype.sourceName-artillerist_technique.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Artillerist Technique:</strong> 15th level</em></p>
+      <p>You can now expend two uses of your Modular Munitions feature when you cast a tech power to apply two empowerment effects, instead of only one. Additionally, you gain three additional empowerment effects:</p>
+      <ul>
+      <li><strong>Confusion</strong>: Each creature damaged by this power must make a Charisma saving throw. On a failure, on its next turn, a creature must use its action to make a melee attack against a randomly determined creature within its reach. If there is no creature within its reach, the creature does nothing this turn.</li>
+      <li><strong>Knockout</strong>: Each creature damaged by this power must succeed on a Strength saving throw or be knocked prone.</li>
+      <li><strong>Static</strong>: Each creature damaged by this power must succeed on an Intelligence saving throw or become shocked until the start of your next turn.</li>
+      </ul>
+      <p>Additionally, when you would spend 1 tech point to apply an empowerment effect, it no longer reduces your maximum tech points.</p>
+    chat: ''
+  requirements: Scout (Artillerist Technique) 15
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: cha
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - cha
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957436
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!BIZGnFjvoTzbcWIV'

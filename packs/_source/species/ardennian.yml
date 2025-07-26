@@ -1,0 +1,186 @@
+name: Ardennian
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.272138+00:00'
+    importer_version: 3
+    uid: Species.name-ardennian
+type: race
+img: modules/sw5e/icons/packs/Species/Ardennian.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Ardennians are sentient humanoid simians hailing from the tropical paradise of Ardennia. They are covered in fur from head to their wrists and ankles, with brown and grey being the most common fur colors. Ardennians sport four arms and prehensile feet. All six of their limbs are equally dexterous.</p>
+      <h2>Society and Culture</h2>
+      <p>The Ardennian people themselves are a friendly communal species that are well known for welcoming visitors and inviting newcomers to traditional feasts and dances on the sandy beaches of Ardennia. Rural Ardiennan's live in modern tree-villages in the thick, dim jungle canopy on the majority of the islands. Ground level accommodations are available for off world visitors even in the smaller villages. Most off-worlders stay in the large modern resort complexes which boast having miles of private beaches or in the modern cities. Several large cities exist, scattered around the world, which typically encompass an entire island or a series of smaller islands joined together.</p>
+      <p>Ardennia's distance from the main hyperlanes makes it one of the lesser-known vacation destinations, but it's a popular one for those who don't mind the extra travel time. Some affluent visitors prefer the solitude that Ardennia offers, and occasionally end up purchasing one of the smaller islands to build their own home. Ardennia is notable for having the most beach per square meter in the galaxy. </p>
+      <h2>Names</h2>
+      <p>Ardennian's names are typically concise and rarely more than two syllables, with a familal surname.</p>
+      <p><strong>Male Names.</strong> Rio, Jakar, Hul, Lup, Quil, Jerno</p>
+      <p><strong>Female Names.</strong> Rac, Bras, Nuc, Kua, Karta, Sanya</p>
+      <p><strong>Surnames.</strong> Betal, Durant, Jabut, Karon, Rambuan</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: ardennian
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    climb: 25
+    burrow: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 60
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.fYvS8xTWCImGQZi5
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.4QiJmXakWi34Y6sE
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.E3eDTa9FT9kcAUdF
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.iKpD8JK5b8QJBM2J
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.aBJc2tqGiEftD8ZO
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.YK0D22mciSjrnMs9
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.MsCfqTzn72IkrQDr
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.HD4Zoq7RPNDTeS85
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.VosSBJrUzeqOOsAs
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.qXu46iO7rZZqSGzh
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.15hOHxjyZpzGxvwJ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.9nLbbSoGlFd8uKgv
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.cX5kJZt465oxJa0h
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          cha: 1
+          dex: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+  skinColorOptions:
+    value: Brown or black
+  hairColorOptions:
+    value: Brown to gray
+  eyeColorOptions:
+    value: Brown or black
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Four arms, fur-covered, prehensile feet
+  heightAverage:
+    value: 3'2"
+  heightRollMod:
+    value: +2d8"
+  weightAverage:
+    value: 50 lb.
+  weightRollMod:
+    value: x1 lb.
+  homeworld:
+    value: Ardennia
+  slanguage:
+    value: Adrennian
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: abUBIqj4EjIoc7yP
+    changes:
+      - key: flags.sw5e.maskOfTheWild
+        value: '1'
+        mode: 0
+        priority: 20
+      - key: flags.sw5e.strongLegged
+        value: '1'
+        mode: 0
+        priority: 20
+      - key: flags.sw5e.extraArms
+        value: '1'
+        mode: 0
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Ardennian
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Ardennian.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!DSiVi2O13L4Xl5Rq.abUBIqj4EjIoc7yP'
+_id: DSiVi2O13L4Xl5Rq
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725078
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!DSiVi2O13L4Xl5Rq'

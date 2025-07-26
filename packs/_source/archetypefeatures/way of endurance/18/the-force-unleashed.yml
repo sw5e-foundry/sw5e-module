@@ -1,0 +1,136 @@
+_id: dLHFgesahAtfy7SH
+name: The Force Unleashed
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/CSLR-ARCH-Action.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: Feature.name-the_force_unleashed.source-archetype.sourceName-way_of_endurance.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Way of Endurance:</strong> 18th level</em></p>
+      <p>As an action, you can choose a point within 60 feet. Each creature of your choice within 30 feet of that point must make a Constitution saving throw against your universal force save DC. On a failed save, a creature takes [[/r 5d10]] force damage and suffers 1 level of exhaustion. On a successful save, a creature takes half damage and does not suffer exhaustion.</p>
+      <p>For each creature that fails this saving throw, a friendly creature within 30 feet of them can regain hit points equal to the amount of damage dealt. A friendly creature can only gain this benefit once per turn.</p>
+      <p>You can use this feature a number of times equal to your Wisdom or Charisma modifier (your choice, a minimum of once). You regain all expended uses when you finish a long rest.</p>
+    chat: ''
+  requirements: Consular (Way of Endurance) 18
+  source:
+    custom: EC
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: max(max(@abilities.wis.mod, @abilities.cha.mod), 1)
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 5d10
+        - force
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 10
+            number: 5
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - force
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '60'
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957939
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!dLHFgesahAtfy7SH'

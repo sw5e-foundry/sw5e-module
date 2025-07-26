@@ -1,0 +1,168 @@
+name: Rishii
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.290127+00:00'
+    importer_version: 3
+    uid: Species.name-rishii
+type: race
+img: modules/sw5e/icons/packs/Species/Rishii.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Rishii are a sentient, avian species of carnivores which possess two legs ending in four-toed feet, two arms, a tail, and a head. The species' two arms consist of feathered wings ending in nimble humanoid hands, capable of manipulating tools. The wings grant the Rishii the ability to fly at great speeds, which is their method of travel equivalent to running in land-based species. A Rishii's head contained a beak between two yellow eyes framed by a large brow. Rishii were capable of mimicking anything said to them perfectly, and also possessed extremely strong senses, particularly hearing and sight. </p>
+      <h2>Society and Culture</h2>
+      <p>Native to the planet Rishi, the Rishii live in loose primitive tribes, known as nests, clustered high upon the planet's mountains, away from the hot and humid lowland swamps. Each nest consists of a small number of family units led by a chieftain, with neighbouring nests respecting each others territories and living in harmony. This peaceful and accepting attitude goes beyond just other Rishii and was extended to all neighbours of a nest, including the many other species who colonise the lowlands of Rishi. Due to the unfavorable conditions found in the lowlands, the native avians do not understand the off-worlders' choice to live there, but were not opposed to their presence.</p>
+      <h2>Names</h2>
+      <p>As with much of their speech, Rishii names include clicks, trills, and whistles to the point that other peoples have a difficult time pronouncing them. Typically, a name has two to four syllables with the sounds acting as connectors. Rishii names do not vary based on gender. Rishii are responsive to nicknames given by outsiders. </p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: rishii
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    fly: 30
+    burrow: null
+    climb: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.fqoCfcPNuVuCczFy
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.e7ZLwwOz9idWwtoH
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.HCAVTZgl9bbyEW8H
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.AhaLnpX6KpZ26B6d
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.uMSEdW5PYiU9jnCF
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.OqRJqVjr6qUOvfi8
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.wcHbo6DX4jV7L79S
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.jaq6JIj4XbllvRM2
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.QhmRgv8hAzS9Rk83
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          con: 1
+          dex: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+  skinColorOptions:
+    value: Yellow
+  hairColorOptions:
+    value: Brown or white
+  eyeColorOptions:
+    value: Brown or yellow
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Sound mimicry, enhanced hearing and sight
+  heightAverage:
+    value: 4'2"
+  heightRollMod:
+    value: +2d12"
+  weightAverage:
+    value: 60 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Rishi
+  slanguage:
+    value: Rishii
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: tArIqvo5Lix6635C
+    changes:
+      - key: flags.sw5e.situational.advantage.skill.prc
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.gP8Y6RuZ1cHmNbAR.ActiveEffect.EG1cQYESSqx7uV17
+    origin: Compendium.sw5e.species.Item.gP8Y6RuZ1cHmNbAR
+    name: Keen Hearing and Sight
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Rishii.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!LLds1yYjg5Nbrkeb.tArIqvo5Lix6635C'
+_id: LLds1yYjg5Nbrkeb
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725277
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!LLds1yYjg5Nbrkeb'

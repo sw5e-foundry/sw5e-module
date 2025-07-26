@@ -1,0 +1,172 @@
+_id: QJh5SzbYpzgnW702
+name: Electrifying Dart (Major)
+type: consumable
+img: modules/sw5e/icons/packs/Ammunition/ElectrifyingDart.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:20.4663864+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-electrifying_dart_major.subtype-ammunition
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: "<h4>Consumable (Ammunition)</h4>\n <p>You have a +2 bonus to attack and damage rolls made with this wrist launcher dart, which deals [[/r 1d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the dart has been fired, it no longer gives a bonus. Also on a hit, the creature must make a DC 18 Dexterity saving throw, taking [[/r 1d4]] lightning damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>\_</p>\n<h2>Electrifying dart</h2>\n<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Dexterity saving throw, taking [[/r 1d4]] lightning damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is shocked for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+    chat: ''
+  source:
+    custom: EC
+  quantity: 1
+  weight:
+    value: 0
+    units: lb
+  price:
+    value: 85
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: prototype
+  identified: true
+  activation:
+    type: ''
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    autoDestroy: false
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6 + 2
+        - kinetic
+      - - 1d4
+        - lightning
+      - - 1d6
+        - kinetic
+      - - 1d4
+        - lightning
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: 18
+    scaling: flat
+  properties: []
+  type:
+    value: ammo
+    subtype: dart
+  unidentified:
+    description: ''
+  attack:
+    bonus: '2'
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - lightning
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - lightning
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: ft
+      save:
+        ability: dex
+        dc:
+          calculation: ''
+          formula: '14'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964676
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!QJh5SzbYpzgnW702'

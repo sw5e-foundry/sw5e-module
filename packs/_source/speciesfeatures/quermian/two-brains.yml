@@ -1,0 +1,73 @@
+name: Two Brains
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.7098831+00:00'
+    importer_version: 3
+    uid: Feature.name-two_brains.source-species.sourceName-quermian
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Species/Quermian.webp
+system:
+  description:
+    value: <p>When you make a Wisdom saving throw, you can use your reaction to gain advantage on the roll. Once you've done so, you must complete a short or long rest before you can do so again.</p>
+    chat: ''
+  requirements: Quermian
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: species
+    subtype: ''
+  uses:
+    max: '1'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: reaction
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+  identifier: two-brains
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: bN8OPVul3nhTHldG
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433988012
+  modifiedTime: 1739121096233
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!bN8OPVul3nhTHldG'

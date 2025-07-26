@@ -1,0 +1,205 @@
+name: Droid, Class III
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:55.9146224+00:00'
+    importer_version: 3
+    uid: Species.name-droid_class_iii
+type: race
+img: modules/sw5e/icons/packs/Species/Droid-ClassIii.webp
+system:
+  description:
+    value: |-
+      <h2>Appearance</h2>
+      <p>Class III droids are typically human-like in both shape and size, standing at around 6 feet. They are usually a polished metallic color, though this can vary based on tasks for which they are created, their affiliation, or quirks of their owner.</p>
+      <p>They are noteworthy for their slow, shuffling gait and typically overly talkative nature.</p>
+      <h2>Utility</h2>
+      <p>Class III droids are programmed to interact with humans. They are said to be the most advanced droids ever invented. Protocol, servant, tutor, and child care droids are all class III droids.</p>
+      <p>They are usually equipped with protocol chips which give them the cognitive functionality to engage socially.</p>
+      <h2>Names</h2>
+      <p>Droids are typically called by their designation, given to them when they are created, or some affectation given to them by their owner. Often this affectation is a play on their designation. Occasionally, noteworthy droids will earn monikers based on their accomplishments.</p>
+      <p><strong>Designations (Names).</strong> K-OHN (Kone), I-5YQ (I-Five), O-MR1 (Omri), TC-14 (Teesee Fourteen)</p>
+    chat: ''
+  source:
+    custom: PHB
+  identifier: droid-classiii
+  details:
+    isDroid: true
+  type:
+    value: droid
+  movement:
+    walk: 25
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: sw5e0ig000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.UJlWvH2kEeH5CH08
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.sZFK88CBXJFEy1uu
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.T8aIyx2tD6b0DAP6
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.6hnxSckhYKr8pi2h
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.hr0RKSWz5ZoMRJv3
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.FJ7Fq7YuClQ5NgF9
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.wNP9oHIgpMe0VyX1
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.HektjzXJ9HVudCOS
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.2nv9AZo2tHkscZY6
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.kBtmddmAkFi360FK
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.CKaDRwnthqjLFwG2
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.NaQLTkeIarnVfnlC
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.a7RO49ruIw5na5UL
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.XrKQqhz7CJcm03Xs
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.0tNrf4JBzA1FM0DK
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e1asi00000000
+      configuration:
+        fixed:
+          cha: 2
+        points: 1
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e2s0000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: sw5e3t0000000000
+      configuration:
+        choices: []
+        grants:
+          - dr:necrotic
+          - dr:poison
+          - dr:psychic
+          - ci:poisoned
+          - ci:diseased
+          - dv:ion
+          - skills:lor
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: ''
+  hairColorOptions:
+    value: ''
+  eyeColorOptions:
+    value: ''
+  colorScheme:
+    value: Typically metallic
+  distinctions:
+    value: Human-like size, shuffling gait, typically talkative
+  heightAverage:
+    value: 5'6"
+  heightRollMod:
+    value: +2d4"
+  weightAverage:
+    value: 120 lb.
+  weightRollMod:
+    value: x(2d6) lb.
+  homeworld:
+    value: ''
+  slanguage:
+    value: Varies based on location
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: HFVrCmmsBSqYk1N7
+    changes:
+      - key: flags.sw5e.forceInsensitive
+        mode: 5
+        priority: 20
+        value: '1'
+      - key: flags.sw5e.maintenanceMode
+        mode: 5
+        priority: 20
+        value: '1'
+      - key: flags.sw5e.rapidReconstruction
+        mode: 5
+        priority: 20
+        value: '1'
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Droid, Class III
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Droid%20Class%20III.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!KfQ1DeO82DH7N0uM.HFVrCmmsBSqYk1N7'
+_id: KfQ1DeO82DH7N0uM
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732412596409
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!KfQ1DeO82DH7N0uM'

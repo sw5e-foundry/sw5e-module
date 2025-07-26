@@ -1,0 +1,142 @@
+_id: xs2uWC7n7DOLQDQJ
+name: Master Force Barrier
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/MasterForceBarrier.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1147663+00:00'
+    importer_version: 3
+    uid: Power.name-master_force_barrier.level-8
+  sw5e:
+    migratedProperties:
+      - concentration
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Improved Force Barrier</em></p>
+      <p>This power massively bolsters your allies with toughness and resolve. Creatures of your choice in a 30-foot radius around you when you cast this power gain the following benefits:</p>
+      <ul>
+      <li>The creature sheds dim light in a 5-foot radius.</li>
+      <li>The creature has advantage on all saving throws</li>
+      <li>Other creatures have disadvantage on attack rolls against them.</li>
+      <li>When a dark side creature hits them with a melee attack, that creature must make a Constitution saving throw or be blinded until the power ends.</li></ul>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 9
+    scale: true
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  level: 8
+  school: lgt
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: none
+    formula: null
+  properties:
+    - concentration
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: self
+      save:
+        ability: con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '9'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979341
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!xs2uWC7n7DOLQDQJ'

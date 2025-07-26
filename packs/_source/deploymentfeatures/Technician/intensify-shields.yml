@@ -1,0 +1,88 @@
+_id: rC1rUMK9ydrYST6E
+name: Intensify Shields
+type: feat
+img: modules/sw5e/icons/packs/Deployments/Technician.webp
+effects: []
+folder: null
+sort: 0
+flags: {}
+system:
+  description:
+    value: <p><em><strong>Power Die Location:</strong> Shields</em><br />When you are hit by a ship attack, you can expend one power die as a reaction. Until the start of your next turn, your ship has a bonus to AC equal to the amount rolled on the power die. This includes the triggering attack.</p>
+    chat: ''
+  requirements: Technician 1st Rank
+  source:
+    custom: ''
+  activation:
+    type: reaction
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: powerdice
+    target: attributes.power.shields.value
+    amount: 1
+    scale: false
+  ability: null
+  actionType: ''
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: deployment
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493963467
+  modifiedTime: 1720368730341
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!rC1rUMK9ydrYST6E'

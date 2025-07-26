@@ -1,0 +1,128 @@
+name: Corrosive Mixture
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7427044+00:00'
+    importer_version: 3
+    uid: Feature.name-corrosive_mixture.source-archetype.sourceName-biochem_engineering.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: <p>Your distributor emits a burst of acid. The target must make a Dexterity sav-ing throw. On a failed save, a creature takes [[/r 1d6]] + your Intelligence modifier acid damage. This mixture's damage increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>
+    chat: ''
+  requirements: Engineer (Biochem Engineering) 3
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6 + @abilities.int.mod
+        - acid
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - bonus: '@abilities.int.mod'
+            custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - acid
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1667426104167
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: 9eigvr3eDzFroJA6
+_key: '!items!9eigvr3eDzFroJA6'

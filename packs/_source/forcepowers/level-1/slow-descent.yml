@@ -1,0 +1,126 @@
+_id: aPkTbe1fy2Ikbf6f
+name: Slow Descent
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/SlowDescent.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1257603+00:00'
+    importer_version: 3
+    uid: Power.name-slow_descent.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: <p>Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the power ends. If the creature lands before the power ends, it takes no falling damage and can land on its feet, and the power ends for that creature.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: reaction
+    cost: 1
+    condition: when you or a creature within 60 feet of you falls
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 2
+    scale: true
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 1
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: none
+    formula: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        condition: when you or a creature within 60 feet of you falls
+        type: reaction
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '60'
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '2'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979277
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!aPkTbe1fy2Ikbf6f'

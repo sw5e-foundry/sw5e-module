@@ -1,0 +1,123 @@
+_id: hlFUrB5kiJEFd5i9
+name: Enthralling Performance
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Action.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:15.1674586+00:00'
+    importer_version: 3
+    uid: Feature.name-enthralling_performance.source-archetypeinvocation.sourceName-audiotech_engineering.level-13
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite:</strong> 13th level, Hypnotic Melody</em></p>
+      <p>For the duration of an enhanced song you play, whenever any creature that can hear your song tries to attack you for the first time on a turn, the attacker must make a Charisma saving throw. On a failed save, it can't attack you on this turn, and it must choose a new target for its attack or the attack is wasted. On a successful save, it can attack you on this turn, but it has disadvantage on any saving throw it makes against your powers or features on your next turn.</p>
+      <p>Once you've used this feature, you must complete a long rest before you can use it again.</p>
+    chat: ''
+  requirements: Engineer (Audiotech Engineering) 13, Hypnotic Melody
+  source:
+    custom: EC
+  activation:
+    type: special
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '1'
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: cha
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: engineerInvocation
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: special
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - cha
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493981187
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!hlFUrB5kiJEFd5i9'

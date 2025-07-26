@@ -1,0 +1,183 @@
+name: Chagrian
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2731369+00:00'
+    importer_version: 3
+    uid: Species.name-chagrian
+type: race
+img: modules/sw5e/icons/packs/Species/Chagrian.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Chagrians are born as tadpoles in clutches of three or more and raised in tubs of water in a family's private home. During this time, their arms, legs, and air-breathing lungs develop. Adult Chagrians are truly amphibious, retaining their ability to breathe underwater while also able to function without difficulty in air. They also possess acute low-light vision.</p>
+      <p>The average Chagrian stands taller than a Human. They are distinguished by two fleshy growths protruding from the sides of their heads, which they call lethorns. As they age, the lethorns thicken. Males also sport two horns growing from the top of their skulls. These were once used in underwater duels to attract a mate, and are seen as a sign of the males' strength and virility. Females lack the superior cranial horns, but had more pronounced and longer posterior head plates; these can reach halfway down their back. Chagrians also have very long black forked tongues.</p>
+      <h2>Society and Culture</h2>
+      <p>As a species, Chagrians are generally peaceful and law-abiding to the point of becoming stoic and obstinate. Many Chagrians are motivated only by basic desires such as sustenance, shelter, and healthcare. Chagrian government ensures that every citizen is cared and provided for, so the standard of living for the poorest Chagrian is high compared to the members of other species. Chagrians who expect violence often wear red.</p>
+      <h2>Names</h2>
+      <p>Chagrian names have a very melodic tone. Male names are typically shorter than female names. Surnames are familial.</p>
+      <p><strong>Male Names.</strong> Bom, Chen, Fiet, Nedd, Touk</p>
+      <p><strong>Female Names.</strong>  Chavik, Dabai, Fisil, Oolya, Tinto</p>
+      <p><strong>Surnames.</strong> Kassin, Molya, Nigna, Onirali, Treen</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: chagrian
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    swim: 30
+    burrow: null
+    climb: null
+    fly: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 60
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: sw5e0ig000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.dsYxRsVdL2w5uUtd
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Q8xQLd6SP1Txq1B6
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Y0s3qwXtjHvgyS6F
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.sAEZvNrONWXJkuJj
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.2u1ApDGG6qxRms8B
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.CDVqPUe0TozPRdUv
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.JgjlnPTysIWIJhXd
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.slJId4plwASzL4MT
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ctAQhAXLzZvyh5wa
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.yA8KwtUGt5fnCwBc
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e1asi00000000
+      configuration:
+        fixed:
+          dex: 2
+          wis: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e2s0000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: sw5e3t0000000000
+      configuration:
+        choices: []
+        grants:
+          - dr:poison
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Light to dark blue
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Black
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Horns (male), lethorns, black forked tongues
+  heightAverage:
+    value: 5'5"
+  heightRollMod:
+    value: +2d8"
+  weightAverage:
+    value: 120 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Champala
+  slanguage:
+    value: Chagri
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: yGJG8HBejLZV4hB0
+    changes:
+      - key: flags.sw5e.amphibious
+        mode: 0
+        priority: 20
+        value: '1'
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Chagrian
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Chagrian.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!QVbLMyqLPiFcG5Wn.yGJG8HBejLZV4hB0'
+_id: QVbLMyqLPiFcG5Wn
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732412596409
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!QVbLMyqLPiFcG5Wn'

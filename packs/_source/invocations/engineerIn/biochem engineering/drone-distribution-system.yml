@@ -1,0 +1,71 @@
+name: Drone Distribution System
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:15.1684586+00:00'
+    importer_version: 3
+    uid: Feature.name-drone_distribution_system.source-archetypeinvocation.sourceName-biochem_engineering
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Action.webp
+system:
+  description:
+    value: |-
+      <p>You upgrade your distributor, interfacing it with the target of your <em>tracker droid interface</em> power. When you use your action to activate your distributor, while your tracker droid is within 100 feet of you, you can choose to have your tracker droid deliver the mixture. Your tracker droid must use its reaction to deliver the mixture.</p>
+      <p>You can use this feature twice. You gain an additional use at 5th, 9th, 13th, and 17th level. You </p>
+      <p>regain all expended uses when you complete a short or long rest.</p>
+    chat: ''
+  requirements: Engineer (Biochem Engineering)
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    max: '2'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '100'
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+  identifier: drone-distribution-system
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: ATxnA8p3Oxyrg2sv
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!ATxnA8p3Oxyrg2sv'

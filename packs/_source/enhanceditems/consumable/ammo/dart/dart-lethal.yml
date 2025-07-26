@@ -1,0 +1,147 @@
+_id: 0p4rVjbDlPj5W2cd
+name: Dart (Lethal)
+type: consumable
+img: modules/sw5e/icons/packs/Ammunition/Dart.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:04.8544392+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-dart_lethal.subtype-ammunition
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls and deal an additional [[/r 1d8]] damage with this enhanced wrist launcher dart, which deals [[/r 1d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the dart has been fired, it no longer gives a bonus.</p>\n<p>\_</p>\n<h2>Dart</h2>\n<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit.</p>"
+    chat: ''
+  source:
+    custom: WH
+  quantity: 1
+  weight:
+    value: 0
+    units: lb
+  price:
+    value: 5
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: legendary
+  identified: true
+  activation:
+    type: ''
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    autoDestroy: false
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6 + 1d8
+        - kinetic
+      - - 1d6
+        - kinetic
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: none
+  properties: []
+  type:
+    value: ammo
+    subtype: dart
+  unidentified:
+    description: ''
+  attack:
+    bonus: '3'
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+      description: {}
+      duration:
+        units: inst
+        value: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964359
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!0p4rVjbDlPj5W2cd'

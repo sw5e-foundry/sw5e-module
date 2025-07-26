@@ -1,0 +1,191 @@
+name: Dashade
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2761355+00:00'
+    importer_version: 3
+    uid: Species.name-dashade
+type: race
+img: modules/sw5e/icons/packs/Species/Dashade.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Dashade are a hulking reptillian species known for their strength and aggression. They have three fingers on each hand, each tipped with a long, curving claw.</p>
+      <p>Their most notable feature is their natural resistance to the power of the Force. Along with their resistance to the Force, Dashade possess a high tolerance for radioactive energy, able to withstand contact with radioactive materials much longer than other species.</p>
+      <p>Despite the thick skin Dashade possess, they have the uncanny ability to control the rate that heat dissipates from their skin. This allows them to regulate their body temperature at will.</p>
+      <h2>Society and Culture</h2>
+      <p>Dashade's brute strength and Force resistance makes them prime candidates for mercenary and assassin work. </p>
+      <p>Dashade society is clan-based. Theses clan's often feud over honor and reputation, a trait that the dashade as a species exhibit.</p>
+      <h2>Names</h2>
+      <p>Many dashade names are short, dominated by harsher sounds, while others are longer and seperated by an apostrophe. Dashade names are gender neutral. Surnames are clan-based, but most dashade don't share or use them. </p>
+      <p><strong>First Names.</strong> Anarin, Rak'vhul, Set, Vattix, Vos</p>
+      <p><strong>Surnames.</strong> Ferrex, Gusar, Kruyel, Orath, Xeng, Zath</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: dashade
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: sw5e0ig000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.SH7uMmMFt9SUkY2M
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.dAhD2Z1jWjlRWLbj
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.h7uV6ZMJrqFfqMvp
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.fiewyEMF751au8PB
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Qz8zlW2GbxCO5j2g
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.sMXiFe3X4uRF3oyS
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.gK4lKJodT6bg9Sh5
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.F5JjJIBvXurhWaX9
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.UFGiWUx7k5rgEI3k
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ZfeVo5EMeusiAWWt
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.gnrseIcA5FTgIfdp
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e1asi00000000
+      configuration:
+        fixed:
+          cha: 1
+          con: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e2s0000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: sw5e3t0000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:itm
+          - dr:necrotic
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Black, dark gray, or Olive green
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Black, orange, or red
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Heat dissipation, Force-resistance, radiation resistance
+  heightAverage:
+    value: 5'1"
+  heightRollMod:
+    value: +2d10"
+  weightAverage:
+    value: 145 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Urkupp
+  slanguage:
+    value: Dashadi
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: G99sEwcJAyta31Wz
+    changes:
+      - key: flags.sw5e.advantage.ability.save.force.str
+        mode: 5
+        priority: 20
+        value: '1'
+      - key: flags.sw5e.advantage.ability.save.force.con
+        mode: 5
+        priority: 20
+        value: '1'
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Dashade
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Dashade.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!huaZdadYq0WDFQjt.G99sEwcJAyta31Wz'
+_id: huaZdadYq0WDFQjt
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732412596409
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!huaZdadYq0WDFQjt'

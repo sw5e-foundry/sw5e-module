@@ -1,0 +1,121 @@
+_id: B52ZLcL7kuPMFO42
+name: Monk
+type: feat
+img: modules/sw5e/icons/packs/Classes/Monk.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:21.306899+00:00'
+    importer_version: 3
+    uid: SplashclassImprovement.name-monk
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>Your practice of martial arts grants you the following benefits:</p>
+      <ul>
+      <li>You can make an unarmed strike as a bonus action. If you would already make an unarmed strike as a bonus action, you can instead make this strike in addition to that unarmed strike.</li>
+      <li>You can take the Disengage action as a bonus action. If you would already Disengage as a bonus action, you can instead also Dodge.</li>
+      <li>You can take the Dash action as a bonus action. If you would already Dash as a bonus action, you can instead double your jump distance for the turn.</li>
+      </ul>
+      <p>You can use these features a combined number of times equal to your proficiency bonus. You regain all expended uses when you complete a long rest.</p>
+    chat: ''
+  requirements: No levels in monk
+  source:
+    custom: EC
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '@attributes.prof'
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: customizationOption
+    subtype: splashclassImprovement
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493966768
+  modifiedTime: 1739121097153
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!B52ZLcL7kuPMFO42'

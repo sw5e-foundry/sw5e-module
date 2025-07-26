@@ -1,0 +1,139 @@
+name: Energetic Burst
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1527446+00:00'
+    importer_version: 3
+    uid: Power.name-energetic_burst.level-2
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/EnergeticBurst.webp
+system:
+  description:
+    value: |-
+      <p>A creature you touch gains 10 temporary hit points. While it has these hit points, the creature can add [[/r 1d4]] to its saving throws. Any remaining temporary hit points are lost when the power ends.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power with a tech slot of 3rd level or higher, the target gains 5 additional temporary hit points for each slot level above 2nd. When you cast this power at 4th level or higher, the die size increases for every two slot levels above 2nd ([[/r d6]] at 4th level, [[/r d8]] at 6th level, [[/r d10]] at 8th level).</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '10'
+    units: minute
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: touch
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: heal
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '10'
+        - temphp
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 2
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 3
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        condition: ''
+        type: action
+      description: {}
+      duration:
+        units: minute
+        value: '10'
+      healing:
+        custom:
+          enabled: true
+          formula: '10'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        override: false
+        units: touch
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '3'
+effects: []
+_id: 2ZFzhLRZh6vkTf6r
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!2ZFzhLRZh6vkTf6r'

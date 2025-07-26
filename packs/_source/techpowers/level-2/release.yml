@@ -1,0 +1,128 @@
+name: Release
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1797293+00:00'
+    importer_version: 3
+    uid: Power.name-release.level-2
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/Release.webp
+system:
+  description:
+    value: |-
+      <p>Choose an object that you can see within range. The object can be a door, a box, a chest, a set of binders, a lock, or another object that contains a mundane or enhanced means that prevents access.</p>
+      <p>A target that is held shut by a mundane lock or that is stuck or barred becomes unlocked, unstuck, or unbarred. If the object has multiple locks, only one of them is unlocked.</p>
+      <p>If you choose a target that is held shut with <em>lock</em>, that power is suppressed for 10 minutes, during which time the target can be opened and shut normally.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: other
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 2
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: none
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 3
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        condition: ''
+        type: action
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '60'
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '3'
+effects: []
+_id: HqRSFVVdI8tFGzFp
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!HqRSFVVdI8tFGzFp'

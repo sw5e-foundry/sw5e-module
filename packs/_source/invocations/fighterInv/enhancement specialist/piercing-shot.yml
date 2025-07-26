@@ -1,0 +1,82 @@
+name: Piercing Shot
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:15.1694583+00:00'
+    importer_version: 3
+    uid: Feature.name-piercing_shot.source-archetypeinvocation.sourceName-enhancement_specialist
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/FGTR-Passive.webp
+system:
+  description:
+    value: |-
+      <p>You enhance your shot with armor-piercing properties. When you use this option, you don't make an attack roll for the attack. Instead, the shot shoots forward in a line, which is 1 foot wide and 30 feet long, before disappearing. The shot passes through objects, ignoring cover. Each creature in that line must make a Dexterity saving throw. On a failed save, a creature takes damage as if it were hit by the shot, plus an extra [[/r 1d6]] damage of the weapon's type. On a successful save, a target takes half as much damage.</p>
+      <p>The extra damage increases to [[/r 2d6]] when you reach 18th level in this class.</p>
+    chat: ''
+  requirements: Fighter (Enhancement Specialist)
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: fighterInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+  identifier: piercing-shot
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: lqYd0qYj0eeUv587
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!lqYd0qYj0eeUv587'

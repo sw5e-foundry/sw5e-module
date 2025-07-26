@@ -1,0 +1,136 @@
+_id: N4m8VRMbmlNAdPdo
+name: Phasestorm
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/GRDN-ARCH-Action.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6807408+00:00'
+    importer_version: 3
+    uid: Feature.name-phasestorm.source-archetype.sourceName-ysannanite_form.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Ysannanite Form:</strong> 15th level</em></p>
+      <p>You can use your action to dart across the battlefield, striking up to six such creatures that you can see within 30 feet. You immediately move to each creature in succession without provoking opportunity attacks, after which you return to the space in which you started. Each creature must make a Dexterity saving throw (DC = 8 + your bonus to attacks with your weapon). A creature takes normal weapon damage on a failed save, or half as much on a successful one. If you are wielding separate weapons in each hand with which you are proficient, a creature makes this save with disadvantage, and takes additional damage equal to your Wisdom or Charisma modifier (your choice, minimum of one) on a failed save if the damage doesn't already include that modifier.</p>
+      <p>Once you've used this feature, you must complete a short or long rest before you can use it again.</p>
+    chat: ''
+  requirements: Guardian (Ysannanite Form) 15
+  source:
+    custom: EC
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '1'
+    per: sr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '@mod'
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: true
+              formula: '@mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '30'
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957628
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!N4m8VRMbmlNAdPdo'

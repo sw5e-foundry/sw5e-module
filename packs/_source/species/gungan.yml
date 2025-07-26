@@ -1,0 +1,196 @@
+name: Gungan
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:55.9156216+00:00'
+    importer_version: 3
+    uid: Species.name-gungan
+type: race
+img: modules/sw5e/icons/packs/Species/Gungan.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Starting life as tadpoles, Gungans develop into tall beings with extremely flexible cartilaginous skeletons. Strong leg muscles allow for powerful and quick frog-kick style swimming through water as well as a remarkable jumping ability while on land. Fin-like ears (called haillu) also aid them in swimming, as well as expressing emotions like aggression, friendship, and fear. They have partially retractable eyestalks with nictitating membranes when underwater. Green eyes are unusual amongst Gungans.</p>
+      <h2>Society and Culture</h2>
+      <p>Gungans are generally a generous and peaceful species. They truly love to have visitors and warmly welcome them; however, they would remain suspicious until the visitors have earned their respect. Gungans are not tolerant of anyone who threatens their peaceful culture. They have very strict laws, and will go to the extremes to punish anyone who has committed a minor crime. Vandals, for example, can be given a sentence of exile, caning, or even stoning.</p>
+      <p>If a Gungan is cast out of society, it is very difficult for them to return. If they do manage to return legally, they are often subjected to heavy discrimination. This can make life very difficult for them and can go on for months or years, until their past offenses disappear from memory. Returning back to the settlement they were exiled from illegally will sometimes result in the death penalty, especially if they brought along outsiders. </p>
+      <h2>Names</h2>
+      <p>Gungan names are often repeated syllables hyphenated.</p>
+      <p><strong>Male Names.</strong> Crinn-Crinn, Gic, Noc-Noc, Wal</p>
+      <p><strong>Female Names.</strong> Hew, Khi, La-La, Phro-Phro, Yuss</p>
+      <p><strong>Surnames.</strong> Baud, Gos, Jalles, Mag, Wub</p>
+    chat: ''
+  source:
+    custom: PHB
+  identifier: gungan
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    swim: 30
+    burrow: null
+    climb: null
+    fly: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 60
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.pJB3FAGatOlQlT09
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.5UcDp4VXomUIYVIi
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.eEkCMoDsudNVIZ3K
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.hn8d8psrBYKV5guX
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.FuYCpZjq7BLPaQ9s
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.93jmA597KgrMe1Im
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.SHSCdEgeeyrI4rm9
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.VlZmtr4enaLnc7gl
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.R6Q8u1kMlj37IuGO
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ubGTpjI8tQJYjWiQ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.UGjEKv3xhdZEV4xQ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.waRuMakSObZp6FVF
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.lXkOJV0b6WkBfmxo
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          dex: 2
+          str: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - armor:lgt
+          - armor:med
+          - weapon:techstaff
+          - weapon:vibropike
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Blue, brown, or green
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Light colors
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Extendable tongues, long ears, eye stalks, three toes, aquatic species
+  heightAverage:
+    value: 5'5"
+  heightRollMod:
+    value: +2d10"
+  weightAverage:
+    value: 115 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Naboo
+  slanguage:
+    value: Gungan
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: kgqVkH4CH10efNNT
+    changes:
+      - key: flags.sw5e.amphibious
+        value: '1'
+        mode: 0
+        priority: 20
+      - key: flags.sw5e.strongLegged
+        value: '1'
+        mode: 0
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Gungan
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Gungan.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!NbslJdzeZMVkgn20.kgqVkH4CH10efNNT'
+_id: NbslJdzeZMVkgn20
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725355
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!NbslJdzeZMVkgn20'

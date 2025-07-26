@@ -1,0 +1,185 @@
+name: Mirialan
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2861295+00:00'
+    importer_version: 3
+    uid: Species.name-mirialan
+type: race
+img: modules/sw5e/icons/packs/Species/Mirialan.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Mirialans are a near-human species native to the planet Mirial. They have green to yellow skin and tattoos on their faces. The Mirialans are known for their spirituality and strong connection with the world around them. Mirialans are very flexible and agile, making them fast and formidable foes.</p>
+      <h2>Society and Culture</h2>
+      <p>The Mirialan people are deeply religious and practice a primitive understanding of the Force. They believe each individual's actions contribute to their destiny, building upon past successes and failures to drive them towards their fates. Within their belief system was the view that individual actions ripple through the Force, also affecting the destiny of the species as a whole.</p>
+      <p>A Mirialan often places a unique, geometrically repeated tattoo on their face and hands to signify that they have completed a certain test or task, or achieved sufficient aptitude for a certain skill. The number of tattoos often acts as a good indicator of how mature and/or skilled a Mirialan was. Because the more markings brings about a form of status, Mirialan society is stratified and allows the heavily marked citizens to access greater opportunities. Despite its importance, most Mirialans do not know the entirety of the tattoo lexicon due to its complexity. The interaction between placement and positioning of the shapes is incredibly subtle and changes their meaning greatly.</p>
+      <h2>Names</h2>
+      <p>Mirialan names are typically concise and rarely more than two syllables. Surnames are familial.</p>
+      <p><strong>Male Names.</strong> Boca, Floha, Jemy, Puv, Choqa</p>
+      <p><strong>Female Names.</strong> Buf, Ches, Kebe, Ovof, Shaqa</p>
+      <p><strong>Surnames.</strong> Acave, Ishakee, Kefvi, Uflozi, Zoria</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: mirialan
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 35
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.uignZ46kwMYDKlE9
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.zl8hgEqc2Bnfk0uN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.xURCJ5lETCA6fZVq
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.lLscXJ3ESpvuSAZN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.hgRAsOCqdLiaig27
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.r0DpoRIuctEETLCM
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Yg7VzswwHlicbUHB
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.6SlgKca3x5HGOjHZ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.58YOm7udFbPhiV4H
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          dex: 2
+          int: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:lor
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Green, olive, or yellow
+  hairColorOptions:
+    value: Black, blonde, brown, or red
+  eyeColorOptions:
+    value: Blue, green, violet, grey, red, yellow, or orange
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Facial tattoos, flexible and agile
+  heightAverage:
+    value: 4'6"
+  heightRollMod:
+    value: +2d10"
+  weightAverage:
+    value: 100 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Mirial
+  slanguage:
+    value: Mirialan
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: uLanO2lY6ro8UeYE
+    changes:
+      - key: flags.sw5e.surpriseAttack
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.unarmedCombatant
+        value: '1'
+        mode: 5
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Mirialan
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Mirialan.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!Ckfuud8mqgmAX8L3.uLanO2lY6ro8UeYE'
+_id: Ckfuud8mqgmAX8L3
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725053
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Ckfuud8mqgmAX8L3'

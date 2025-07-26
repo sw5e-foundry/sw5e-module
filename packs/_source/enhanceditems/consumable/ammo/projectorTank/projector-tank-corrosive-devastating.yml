@@ -1,0 +1,150 @@
+_id: fEsLukAUWvpZFy7R
+name: Projector Tank, Corrosive (Devastating)
+type: consumable
+img: modules/sw5e/icons/packs/Ammunition/ProjectorTank-Corrosive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:20.3594487+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-projector_tank_corrosive_devastating.subtype-ammunition
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: "<h4>Consumable (Ammunition)</h4>\n <p>When triggered, this enhanced vapor projector ammunition produces a spray of acid in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 24 Constitution saving throw. On a failed save, a creature takes [[/r 2d6]] acid damage, and the first attack it makes before the end of its next turn has disadvantage. On a successful save, a creature takes half damage and isn't disadvantaged. If this damage reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything it is wearing and carrying are reduced to a pile of fine gray dust. </p>\n<p>\_</p>\n<h2>Projector tank, corrosive</h2>\n<p>When triggered, this vapor projector ammunition produces a spray of acid in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel tank holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Constitution saving throw. On a failed save, a creature takes [[/r 2d6]] acid damage, and the first attack it makes before the end of its next turn has disadvantage. On a successful save, a creature takes half damage and isn't disadvantaged. If this damage reduces a creature to 0 hit points, it must make a DC 13 Constitution saving throw. On a failed save, it dies immediately without making death saving throws. A disintegrated creature and everything it is wearing and carrying are reduced to a pile of fine gray dust. </p>"
+    chat: ''
+  source:
+    custom: EC
+  quantity: 1
+  weight:
+    value: 3
+    units: lb
+  price:
+    value: 625
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: artifact
+  identified: true
+  activation:
+    type: ''
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: '15'
+    width: null
+    units: ft
+    type: cone
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    autoDestroy: false
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d6
+        - acid
+      - - 2d6
+        - acid
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: 24
+    scaling: flat
+  properties: []
+  type:
+    value: ammo
+    subtype: projectorTank
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - acid
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - acid
+      description: {}
+      duration:
+        units: inst
+        value: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      save:
+        ability: con
+        dc:
+          calculation: ''
+          formula: '14'
+      target:
+        template:
+          size: '15'
+          type: cone
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964872
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!fEsLukAUWvpZFy7R'

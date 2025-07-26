@@ -1,0 +1,125 @@
+_id: mpCuNboEL6UmVK4T
+name: Agile Defense
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/AgileDefense.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:02.9875209+00:00'
+    importer_version: 3
+    uid: Power.name-agile_defense.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: <p>As part of the action of casting this power, you take the Dodge action.</p>
+    chat: ''
+  source:
+    custom: EC
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 2
+    scale: true
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 1
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: none
+    formula: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        condition: ''
+        type: bonus
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: self
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '2'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979310
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!mpCuNboEL6UmVK4T'

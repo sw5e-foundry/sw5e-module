@@ -1,0 +1,149 @@
+_id: Vg4WyFTdCJDiRTZ7
+name: Force Storm
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/ForceStorm.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1547431+00:00'
+    importer_version: 3
+    uid: Power.name-force_storm.level-9
+  sw5e:
+    migratedProperties:
+      - concentration
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Force Lightning Cone</em></p>
+      <p>A crackling storm of lightning with a diameter of 60 feet and a height of 120 feet appears in a location you choose within range. Whenever a creature enters the storm or starts its turn there, it must make a Dexterity saving throw. On a failed save, it takes [[/r 30d6]] lightning damage or half as much as a successful one.</p>
+      <p>The power damages objects in the area and ignites flammable objects that aren't being worn or carried.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 150
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 10
+    scale: true
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 30d6
+        - lightning
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  level: 9
+  school: drk
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: none
+    formula: null
+  properties:
+    - concentration
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 30
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - lightning
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '150'
+      save:
+        ability: dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '10'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979260
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Vg4WyFTdCJDiRTZ7'

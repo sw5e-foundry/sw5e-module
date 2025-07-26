@@ -1,0 +1,149 @@
+_id: WmqYvtUqHDZOFIsK
+name: Hysteria
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/Hysteria.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1587408+00:00'
+    importer_version: 3
+    uid: Power.name-hysteria.level-4
+  sw5e:
+    migratedProperties:
+      - concentration
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Hallucination</em></p>
+      <p>You tap into the nightmares of a creature you can see within range and create an illusory manifestation of its deepest fears, visible only to that creature. The target must succeed on a Wisdom saving throw or become frightened for the duration. At the end of each of the target's turns before the power ends, the target must succeed on a Wisdom saving throw or take [[/r 4d10]] psychic damage. On a successful save, the power ends. This power has no effect on droids or constructs.</p>
+      <p><strong><em>Force Potency.</em></strong> When you cast this power using a force power slot of 5th level or higher, the damage increases by [[/r 1d10]] for each slot level above 4th.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 120
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 5
+    scale: true
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 4d10
+        - psychic
+    versatile: ''
+  formula: ''
+  save:
+    ability: wis
+    dc: null
+    scaling: spell
+  level: 4
+  school: drk
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: level
+    formula: 1d10
+  properties:
+    - concentration
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 10
+            number: 4
+            scaling:
+              mode: whole
+              number: 1
+            types:
+              - psychic
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '120'
+      save:
+        ability: wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '5'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979263
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!WmqYvtUqHDZOFIsK'

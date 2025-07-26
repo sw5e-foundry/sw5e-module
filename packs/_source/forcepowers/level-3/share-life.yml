@@ -1,0 +1,141 @@
+_id: iiCOWK92T4G4K15Q
+name: Share Life
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/ShareLife.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1237611+00:00'
+    importer_version: 3
+    uid: Power.name-share_life.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Give Life</em></p>
+      <p>You sacrifice some of your health to mend another creature's injuries. You take [[/r 4d8]] necrotic damage, and one creature of your choice that you can see within range regains a number of hit points equal to twice the necrotic damage you take. This power has no effect on droids or constructs.</p>
+      <p><strong><em>Force Potency.</em></strong> When you cast this power using a force slot of 4th level or higher, the damage increases by [[/r 1d8]] for each slot level above 3rd.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 4
+    scale: true
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 4d8
+        - necrotic
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 3
+  school: lgt
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: level
+    formula: 1d8
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 4
+            scaling:
+              mode: whole
+              number: 1
+            types:
+              - necrotic
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '30'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '4'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979296
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!iiCOWK92T4G4K15Q'

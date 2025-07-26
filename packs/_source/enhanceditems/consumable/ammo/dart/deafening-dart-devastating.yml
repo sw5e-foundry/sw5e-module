@@ -1,0 +1,172 @@
+_id: MnG0Dk6TtW89CQRL
+name: Deafening Dart (Devastating)
+type: consumable
+img: modules/sw5e/icons/packs/Ammunition/DeafeningDart.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:20.4663864+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-deafening_dart_devastating.subtype-ammunition
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack and damage rolls made with this wrist launcher dart, which deals [[/r 1d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the dart has been fired, it no longer gives a bonus. Also on a hit, the creature must make a DC 24 Constitution saving throw, taking [[/r 1d8]] sonic damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>\n<p>\_</p>\n<h2>Deafening dart</h2>\n<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Also on a hit, the creature must make a DC 14 Constitution saving throw, taking [[/r 1d4]] sonic damage on a failed save. </p>\n<p>Additionally, on a failed save, a creature is deafened for 1 minute. At the end of an affected creature's turn, it can repeat this save, ending the effect on a success.</p>"
+    chat: ''
+  source:
+    custom: EC
+  quantity: 1
+  weight:
+    value: 0
+    units: lb
+  price:
+    value: 70
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: artifact
+  identified: true
+  activation:
+    type: ''
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    autoDestroy: false
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6 + 3
+        - kinetic
+      - - 1d4
+        - sonic
+      - - 1d6
+        - kinetic
+      - - 1d8
+        - sonic
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: 24
+    scaling: flat
+  properties: []
+  type:
+    value: ammo
+    subtype: dart
+  unidentified:
+    description: ''
+  attack:
+    bonus: '3'
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - sonic
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - sonic
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: ft
+      save:
+        ability: con
+        dc:
+          calculation: ''
+          formula: '14'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964645
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!MnG0Dk6TtW89CQRL'

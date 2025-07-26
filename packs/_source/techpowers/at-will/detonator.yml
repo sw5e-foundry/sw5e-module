@@ -1,0 +1,152 @@
+name: Detonator
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:03.1884037+00:00'
+    importer_version: 3
+    uid: Power.name-detonator.level-0
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/Detonator.webp
+system:
+  description:
+    value: |-
+      <p>You launch a detonator at a creature. Make a ranged tech attack against a creature you can see within range. On a hit, the target takes [[/r 1d6]] fire damage, and each creature within 5 feet of the target must make a Dexterity saving throw or take [[/r 1d4]] fire damage.</p>
+      <p>This power's damage increases by one die when you reach 5th level ([[/r 2d6]]/[[/r 2d4]]), 11th level ([[/r 3d6]]/[[/r 3d4]]), and 17th level ([[/r 4d6]]/[[/r 4d4]]).</p>
+    chat: ''
+  source:
+    custom: EC
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+    template:
+      units: ft
+      type: radius
+      size: '5'
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: rpak
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6
+        - fire
+      - - 1d4
+        - fire
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  level: 0
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: atwill
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        condition: ''
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: spell
+          value: ranged
+      damage:
+        critical: {}
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '60'
+      target:
+        template:
+          size: '5'
+          type: radius
+      type: attack
+effects: []
+_id: UBxeJ7w4Rkoeezs4
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!UBxeJ7w4Rkoeezs4'

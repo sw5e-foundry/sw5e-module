@@ -1,0 +1,122 @@
+_id: hEtaCq4DRAre5lt3
+name: Emergency Planning
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6827392+00:00'
+    importer_version: 3
+    uid: Feature.name-emergency_planning.source-archetype.sourceName-mastermind_technique.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Mastermind Technique:</strong> 11th level</em></p>
+      <p>You've learned to formulate and execute a plan. As an action, you can choose up to six creatures (including yourself) that you can see within 60 feet of you. For each creature, choose one of the following: ability check, attack roll, or saving throw. Each creature gains an Emergency Planning die, which is a [[/r d8]].</p>
+      <p>Once within the next 10 minutes, each creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw, as determined when you use this feature. The creature can wait until after it rolls the [[/r d20]] before deciding to use the Emergency Planning die, but must decide before the GM says whether the roll succeeds or fails. Once the Emergency Planning die is rolled, it is lost.</p>
+      <p>A creature can have only one Emergency Planning die at a time.</p>
+      <p>Once you've used this feature, you must complete a short or long rest before you can use it again.</p>
+      <p>Your Emergency Planning die changes when you reach certain levels in this class. to [[/r 1d10]] at 13th level, and to [[/r 1d12]] at 17th level.</p>
+    chat: ''
+  requirements: Scout (Mastermind Technique) 11
+  source:
+    custom: EC
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '10'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '1'
+    per: sr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+      description: {}
+      duration:
+        units: minute
+        value: '10'
+      img: null
+      range:
+        units: ft
+        value: '60'
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957979
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!hEtaCq4DRAre5lt3'

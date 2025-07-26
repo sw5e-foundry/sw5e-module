@@ -1,0 +1,122 @@
+_id: 2gNENhRMngBSCGae
+name: Master Strike
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SNTL-ARCH-Passive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: Feature.name-master_strike.source-archetype.sourceName-path_of_focus.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Path of Focus:</strong> 18th level</em></p>
+      <p>At 18th level, your bursts can overpower even the fiercest of foes. Once on your turn, when a creature takes damage from you three times, you can force it to make a Constitution saving throw against your universal force save DC. On a failed save, it becomes stunned until the end of its next turn.</p>
+    chat: ''
+  requirements: Sentinel (Path of Focus) 18
+  source:
+    custom: PHB
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957318
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!2gNENhRMngBSCGae'

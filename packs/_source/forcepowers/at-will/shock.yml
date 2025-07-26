@@ -1,0 +1,137 @@
+_id: HNZGubklAqLXpp0N
+name: Shock
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/Shock.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1247609+00:00'
+    importer_version: 3
+    uid: Power.name-shock.level-0
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>You hurl a bolt of lightning at a target within range, making a ranged force attack. On a hit, the target takes [[/r 1d10]] lightning damage. The lightning ignites flammable objects in the area that aren't being worn or carried.</p>
+      <p>This power's damage increases by [[/r 1d10]] when you reach 5th level ([[/r 2d10]]), 11th level ([[/r 3d10]]), and 17th level ([[/r 4d10]]).</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 120
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: rpak
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d10
+        - lightning
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 0
+  school: drk
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: atwill
+    formula: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  properties: []
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        condition: ''
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: spell
+          value: ranged
+      damage:
+        critical: {}
+        parts:
+          - custom:
+              enabled: false
+            denomination: 10
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - lightning
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '120'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: attack
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979201
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!HNZGubklAqLXpp0N'

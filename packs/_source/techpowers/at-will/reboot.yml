@@ -1,0 +1,122 @@
+name: Reboot
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1787295+00:00'
+    importer_version: 3
+    uid: Power.name-reboot.level-0
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/Reboot.webp
+system:
+  description:
+    value: <p>Choose a Medium or smaller droid or construct you can see. The target must make a Charisma saving throw. On a failed save, it is incapacitated until the start of your next turn. Each time the creature takes damage or is the target of a hostile power while incapacitated in this way, it can repeat this saving throw, ending the effect on a success.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: round
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: cha
+    dc: null
+    scaling: spell
+  level: 0
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: none
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: round
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '60'
+      save:
+        ability: cha
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+effects: []
+_id: dR89FhbsuUQ97rcP
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!dR89FhbsuUQ97rcP'

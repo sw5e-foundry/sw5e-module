@@ -1,0 +1,138 @@
+_id: 19Ynw84P18GY7czH
+name: Torpedo, Plasma (Average)
+type: consumable
+img: modules/sw5e/icons/packs/Ammunition/Torpedo-Plasma.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:20.3464559+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-torpedo_plasma_average.subtype-ammunition
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <h4>Consumable (Ammunition)</h4>
+       <p>You have a +1 bonus to attack and damage rolls made with this enhanced torpedo launcher ammunition, which deals [[/r 20d6]] energy damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Once the torpedo is depleted, it no longer gives a bonus.</p>
+    chat: ''
+  source:
+    custom: EC
+  quantity: 1
+  weight:
+    value: 20
+    units: lb
+  price:
+    value: 725
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: premium
+  identified: true
+  activation:
+    type: ''
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    autoDestroy: false
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 20d6 + 1
+        - energy
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: none
+  properties: []
+  type:
+    value: ammo
+    subtype: torpedo
+  unidentified:
+    description: ''
+  attack:
+    bonus: '1'
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 20
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - energy
+      description: {}
+      duration:
+        units: inst
+        value: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964363
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!19Ynw84P18GY7czH'

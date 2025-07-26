@@ -1,0 +1,188 @@
+name: Gamorrean
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:55.9156216+00:00'
+    importer_version: 3
+    uid: Species.name-gamorrean
+type: race
+img: modules/sw5e/icons/packs/Species/Gamorrean.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Although a typical gamorrean is squat, green, and heavily built, not all shared these characteristics. Most gamorreans have a dark greenish coloration over a large portion of their bodies; however skin coloration does vary, particularly among females, with light skinned and two-toned pigmentation not uncommon. Black, brown, pinkish yellow, and even a rare white pigmentation are possible. Males tended to have less skin variation and had a greater tendency towards dark green skin perhaps because of their higher exposure to the radiation of the Gamorr Star. Eye coloration varied evenly between gold-yellow, blue, black and brown. The gamorreans generally put no importance on skin or eye coloration although there were some superstitions linked to certain markings.</p>
+      <h2>Society and Culture</h2>
+      <p>Gamorreans are organized into clans ruled by a male warlord and his wife, who was the most powerful of the clan matrons. While the warlord and his boars are solely concerned with preparing and participating in battle with rival clans, the matrons of the clan performed all the productive work including farming, hunting, manufacturing, and running businesses. Since the amount of available arable land on Gamorr is scarce, clans often lay claim to the same piece of land, and they spend their time fighting over possession. </p>
+      <h2>Names</h2>
+      <p>Gamorrean names are very gutteral and rough. Male names are typically one syllable while females are two. Surnames are based on clan affiliation rather than family. </p>
+      <p><strong>Male Names.</strong> Ark, Blarrp, Blubrak, Cuab, Shos</p>
+      <p><strong>Female Names.</strong> Dabrisz, Mernoos, Ogreb, Tagorq</p>
+      <p><strong>Surnames.</strong> Doofnarq, Griks, Lurc, Poogmokk</p>
+    chat: ''
+  source:
+    custom: PHB
+  identifier: gamorrean
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.yPldxHLIPDGNkfEu
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.dYM971OepZyX4iaW
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.U9lOj9H7xbBfANgV
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.HMZUjFxebDGZgAwG
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.UFffPjtDEHBKsysX
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.S6DVvWfsEyI9pdQJ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.rqo8b1tgJcVPbfcM
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.iL6m5fE30DGWQesG
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.r1XzqQgBLPXun4Mc
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          con: 1
+          str: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - weapon:vibroaxe
+          - weapon:vibromace
+          - weapon:vibrosword
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Black, brown, green, pink, or yellow
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Blue, black, brown, or gold
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Porcine humanoids with tusks and horns
+  heightAverage:
+    value: 4'10"
+  heightRollMod:
+    value: +2d8"
+  weightAverage:
+    value: 150 lb.
+  weightRollMod:
+    value: x(2d6) lb.
+  homeworld:
+    value: Gamorr
+  slanguage:
+    value: Gamorrese
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: qx2PgWl7zOL8lWE9
+    changes:
+      - key: system.attributes.hp.bonuses.level
+        mode: 2
+        value: '+1'
+        priority: 20
+      - key: flags.sw5e.meleeCriticalDamageDice
+        mode: 2
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.W4oIea3LqP1dAXGu.ActiveEffect.teRJPynVl1RXWsN8
+    origin: Compendium.sw5e.species.Item.W4oIea3LqP1dAXGu
+    name: Gamorrean
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Gamorrean.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!yk3Sq1xbOTkm5k34.qx2PgWl7zOL8lWE9'
+_id: yk3Sq1xbOTkm5k34
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304726449
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!yk3Sq1xbOTkm5k34'

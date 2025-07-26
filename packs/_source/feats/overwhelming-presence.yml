@@ -1,0 +1,163 @@
+_id: iv4QyY1Ig1EBkaq6
+name: Overwhelming Presence
+type: feat
+img: modules/sw5e/icons/packs/Feats/OverwhelmingPresence.webp
+effects:
+  - name: Overwhelming Presence
+    origin: Compendium.sw5e.feats.Item.iv4QyY1Ig1EBkaq6
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    transfer: true
+    disabled: false
+    _id: JanXyQ7pf6ErIBWu
+    changes:
+      - key: system.abilities.cha.proficient
+        mode: 4
+        value: '1'
+        priority: 20
+    description: ''
+    statuses: []
+    flags: {}
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Feats/OverwhelmingPresence.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!iv4QyY1Ig1EBkaq6.JanXyQ7pf6ErIBWu'
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:19.8827249+00:00'
+    importer_version: 3
+    uid: Feat.name-overwhelming_presence
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>You have the presence of the most affluent of leaders, granting the following benefits:</p>
+      <ul>
+      <li>You gain proficiency in Charisma saving throws. If you are already proficient in them, you instead gain expertise in them.</li>
+      <li>While you are conscious, up to five friendly creatures within 30 feet of you who can see or hear you and who can understand you can gain a bonus to one Intelligence, Wisdom, or Charisma saving throw they make equal to your Charisma modifier. Once they've done so, they can't do so again until they finish a short or long rest.</li>
+      <li>As an action, you can attempt to distract up to five creatures you can see within 30 feet of you. Each creature must make a Wisdom saving throw (DC = 8 + your proficiency bonus + your Charisma modifier). Any creature immune to being charmed is unaffected. If you or your companions are fighting a creature, it has advantage on the saving throw. On a failed save, for the next minute, a creature has disadvantage on Wisdom (Perception) checks made to perceive any creature other than you until the effect ends or until the target can no longer see or hear you. This ends early if you are incapacitated or die.</li></ul>
+    chat: ''
+  requirements: 12th level, Charisma 20
+  source:
+    custom: EC
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: wis
+    dc: null
+    scaling: spell
+  type:
+    value: feat
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '30'
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493966820
+  modifiedTime: 1739121097153
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!iv4QyY1Ig1EBkaq6'

@@ -1,0 +1,132 @@
+name: Improved Force Intuition
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:02.9905194+00:00'
+    importer_version: 3
+    uid: Power.name-improved_force_intuition.level-2
+  sw5e:
+    migratedProperties:
+      - concentration
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/ImprovedForceIntuition.webp
+effects: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Force Intuition</em></p>
+      <p>You make your initiative check at advantage, and gain a +2 bonus to AC until the power ends. In addition, until the end of your first turn in the combat, your speed increases by 10 feet and you add [[/r 1d4]] to your attack rolls. This power ends early if you fail a saving throw or are hit by an attack.</p>
+    chat: ''
+  source:
+    custom: EC
+  activation:
+    type: reaction
+    cost: 1
+    condition: when you would roll initiative
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 3
+    scale: true
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: 1d4
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 2
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: none
+    formula: null
+  properties:
+    - concentration
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        condition: when you would roll initiative
+        type: reaction
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: self
+      roll:
+        formula: 1d4
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '3'
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1667426102468
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: 1qeRtfKPWbNyeicE
+_key: '!items!1qeRtfKPWbNyeicE'

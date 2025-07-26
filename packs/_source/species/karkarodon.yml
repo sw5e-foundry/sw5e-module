@@ -1,0 +1,177 @@
+name: Karkarodon
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2821319+00:00'
+    importer_version: 3
+    uid: Species.name-karkarodon
+type: race
+img: modules/sw5e/icons/packs/Species/Karkarodon.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>The amphibious Karkarodons have tall, slim bodies with webbed hands and feet. Their shark-like heads have pointed noses, gill slits, and many rows of razor-sharp teeth, which they use when attacking and eating. Karkarodons are skilled and fast swimmers. They attack by grabbing the target and used their jaws for ripping and tearing.</p>
+      <h2>Society and Culture</h2>
+      <p>Karkarodons hail from the planet Karkaris, which is located in a star system neighboring the planet Mon Cala. They harbor an intense hatred for the Mon Calamari and Quarren inhabitants. The planet is almost entirely under water, and is very uninviting to non-Karkarodons. </p>
+      <p>Karkarodon culture is a warmongering, strength-based culture. Clans often fight eachother for dominance, natural resources, and to cull the weak. Each clan on the planet has a ruling triumvirate, usually comprised of venerated warriors who rule for life. When a younger Karkarodon wants to replace one of the ruling body, they challenge them to single, mortal combat. Occasionally, the challenged may spare the life of the challenger when they win, though that usually leads to resentment from the loser.</p>
+      <p>Karkarodons do not believe in lying or duplicity. They believe in approaching problems head on and saying what they mean, and are generally demeaing towards those they deem their lessers.</p>
+      <h2>Names</h2>
+      <p>Karkarodon names are harsh and gutteral. They are generally one syllable. Surnames are clan-based rather than familial.</p>
+      <p><strong>Male Names.</strong> Aurb, Rend, Riff, Trak, Vour</p>
+      <p><strong>Female Names.</strong> Dewb, Garr, Rast, Scrat, Zend</p>
+      <p><strong>Surnames.</strong> Alben, Gerdall, Kibben, Tamson, Zendall</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: karkarodon
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    swim: 30
+    burrow: null
+    climb: null
+    fly: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.08OoeBda8RThEmMY
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.PdYkkOQXhH5nM6Mn
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.XnbXRx8i3GBqpH0p
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.hgF4awDbwpN6hyTP
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.e7JuBm3AgsuXVdfI
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.mkPXEoenqESmOuBo
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.51jevmqS2fLDcxEn
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.vuHYL3QlwYP8Kcp7
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.FsdVL3eI0o9rpHMd
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.tsV2BXJcqVi6CulB
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          con: 2
+          str: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+  skinColorOptions:
+    value: Blue, gray, or white
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Black
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Multiple rows of sharp teeth, powerful jaws, shark-like heads
+  heightAverage:
+    value: 4'8"
+  heightRollMod:
+    value: +2d10"
+  weightAverage:
+    value: 130 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Karkaris
+  slanguage:
+    value: Karkaran
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: aWzuTfE8yN5RwMdF
+    changes:
+      - key: flags.sw5e.aggressive
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.amphibious
+        value: '1'
+        mode: 5
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Karkarodon
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Karkarodon.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!HJdSzbJwFJCIXX4r.aWzuTfE8yN5RwMdF'
+_id: HJdSzbJwFJCIXX4r
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725168
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!HJdSzbJwFJCIXX4r'

@@ -1,0 +1,161 @@
+_id: 6Dibgd4H91DFelE2
+name: Heavy Weapon Focus
+type: feat
+img: modules/sw5e/icons/packs/Feats/HeavyWeaponFocus.webp
+effects:
+  - name: Heavy Weapon Focus
+    origin: Compendium.sw5e.feats.Item.6Dibgd4H91DFelE2
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    transfer: true
+    disabled: false
+    _id: ybtHiNdLj30EoBnq
+    changes:
+      - key: system.bonuses.rpak.damage
+        mode: 2
+        value: '1'
+        priority: 20
+    description: ''
+    statuses: []
+    flags: {}
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: icons/svg/item-bag.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!6Dibgd4H91DFelE2.ybtHiNdLj30EoBnq'
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:06.8182992+00:00'
+    importer_version: 3
+    uid: WeaponFocus.name-heavy_weapon_focus
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>You've focused your combat training on heavy weapons. You gain the following benefits while wielding any of these weapons, if you are proficient with it:</p>
+      <ul>
+      <li>You gain a +1 bonus to the weapon's damage rolls.</li>
+      <li>When you score a critical hit with the weapon, you add the attack's governing ability modifier twice, instead of once, to the attack's damage.</li>
+      <li>When you take the Attack action, you can choose to forgo one or more attacks to <strong>suppress</strong>. For each attack you forgo, you expend ammunition equal to half your weapon's reload number (minimum of 2) and choose a 10-foot-cube area within your weapon's normal range. Each creature in the area that is no more than one size larger than you (your size or smaller if your weapon has the light property) must make a Wisdom saving throw (DC = 8 + your bonus to attacks with the weapon) or become frightened of you until the end of their next turn.</li></ul>
+    chat: ''
+  requirements: null
+  source:
+    custom: WH
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: '10'
+    width: null
+    units: ft
+    type: cube
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: wis
+    dc: null
+    scaling: spell
+  type:
+    value: customizationOption
+    subtype: weaponFocus
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '10'
+          type: cube
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493966759
+  modifiedTime: 1739121097153
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!6Dibgd4H91DFelE2'

@@ -1,0 +1,78 @@
+name: Aura of Conquest
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.6286281+00:00'
+    importer_version: 3
+    uid: Feature.name-aura_of_conquest.source-classinvocation.sourceName-guardian
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/GRDN-Passive.webp
+system:
+  description:
+    value: <p>Whenever a creature who is frightened of you starts its turn within 5 feet of you, its gains 4 slowed levels and takes psychic damage equal to half your guardian level.</p>
+    chat: ''
+  requirements: Guardian
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: guardianInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: ((@classes.guardian.levels)/2)
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - psychic
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '5'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+  identifier: aura-of-conquest
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: CYxQ9FGhaivegbEO
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!CYxQ9FGhaivegbEO'

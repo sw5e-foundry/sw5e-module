@@ -1,0 +1,82 @@
+name: Harpoon Reel
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.342215+00:00'
+    importer_version: 3
+    uid: Feature.name-harpoon_reel.source-archetypeinvocation.sourceName-armstech_engineering
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp
+system:
+  description:
+    value: |-
+      <p>You install a secondary firemode that launches a harpoon attached to a tightly coiled cord. With this harpoon, you can make a ranged weapon attack with a range of 30/60. On a hit, it deals [[/r 1d6]] kinetic damage. This attack can target a surface, object, or creature.</p>
+      <p>A creature struck by this attack is impaled by the harpoon. As an action, a creature can attempt to remove the harpoon. Removing the harpoon requires a Strength check. While the harpoon is stuck in the target, you are connected to the target by a 60 foot cable.</p>
+      <p>While connected in this manner, you can use your bonus action to activate the reel, pulling yourself to the location if the target is your size or larger. A creature or object smaller than you is pulled to you. Alternatively, you can opt to release the cable (no action required).</p>
+      <p>Once you've used this feature, you can't use it again until you recover and reinsert the harpoon as an action.</p>
+    chat: ''
+  requirements: Engineer (Armstech Engineering)
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    max: '1'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: bonus
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+  identifier: harpoon-reel
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: PPgwLxRHy33MLvBn
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!PPgwLxRHy33MLvBn'

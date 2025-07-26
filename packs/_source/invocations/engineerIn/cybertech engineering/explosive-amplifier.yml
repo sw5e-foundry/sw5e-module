@@ -1,0 +1,77 @@
+name: Explosive Amplifier
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:15.1684586+00:00'
+    importer_version: 3
+    uid: Feature.name-explosive_amplifier.source-archetypeinvocation.sourceName-cybertech_engineering
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Passive.webp
+system:
+  description:
+    value: <p>When a creature takes fire damage from a tech power that you cast that requires an attack roll or saving throw, you deal additional fire damage equal to your Intelligence modifier (rounded up, minimum of +1).</p>
+    chat: ''
+  requirements: Engineer (Cybertech Engineering)
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@abilities.int.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+  identifier: explosive-amplifier
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: Tth3J0jLigslzHam
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!Tth3J0jLigslzHam'

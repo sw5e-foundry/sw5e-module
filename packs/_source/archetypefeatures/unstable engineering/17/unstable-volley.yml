@@ -1,0 +1,137 @@
+_id: nIUV3obxOJMfF7d7
+name: Unstable Volley
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-ARCH-Bonus.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9444448+00:00'
+    importer_version: 3
+    uid: Feature.name-unstable_volley.source-archetype.sourceName-unstable_engineering.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Unstable Engineering:</strong> 3rd, 9th, and 17th level</em></p>
+      <p>While wielding your tinkercannon, as a bonus action you can expend one use of your Potent Aptitude to launch a volley of unstable energy at a surface located within 30 feet of you that you can see. This energy adheres to the surface for 1 minute, after which it erupts. As a part of this bonus action, or as a bonus action on a following turn, you can cause the energy to erupt early. Each creature within 5 feet of it must make a Dexterity saving throw against your tech save DC. A creature takes [[/r 1d6]] lightning damage on a failed save, or half as much on a successfu one. </p>
+      <p>The range at which you can launch your volley increases to 60 feet at 9th level, and 120 feet at 17th level.</p>
+      <p>This damage increases when you reach certain levels in this class, increasing to [[/r 2d6]] at 5th level, [[/r 3d6]] at 11th level, and [[/r 4d6]] at 17th level.</p>
+    chat: ''
+  requirements: Engineer (Unstable Engineering) 17
+  source:
+    custom: PHB
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6
+        - lightning
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - lightning
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '30'
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '5'
+          type: radius
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493958058
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!nIUV3obxOJMfF7d7'

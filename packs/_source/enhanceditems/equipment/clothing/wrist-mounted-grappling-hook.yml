@@ -1,0 +1,175 @@
+name: Wrist-Mounted Grappling Hook
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:04.8434442+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-wrist_mounted_grappling_hook.subtype-forearm
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: equipment
+img: modules/sw5e/icons/packs/Enhanced%20Items/Wrist-MountedGrapplingHook.webp
+effects: []
+system:
+  description:
+    value: |-
+      <h4>Adventuring Gear (Forearm)</h4>
+       <p>You craft a wrist-mounted grappling hook weapon attached to a tightly coiled cord. With this grappler, you can make a ranged weapon attack with a range of 30/60. On a hit, it deals [[/r 1d4]] kinetic damage. This attack can target a surface, object, or creature.</p>
+      <p>A creature struck by this attack is impaled by the hook. As an action, a creature can attempt to remove the hook. Removing the hook requires a DC 13 Strength check. While the hook is stuck in the target, you are connected to the target by a 60 foot cable.</p>
+      <p>While the hook is deployed, you can use your bonus action to activate the reel, pulling yourself to the location if the target is your size or larger. A creature or object smaller than you is pulled to you. Alternatively, you can opt to release the cable (no action required).</p>
+      <p>Once you've used this feature, you can't use it again until you recover and reinsert the hook as an action.</p>
+    chat: ''
+  source:
+    custom: WH
+  quantity: 1
+  weight:
+    value: 0
+    units: lb
+  price:
+    value: 0
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: standard
+  identified: true
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '1'
+    per: charges
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d4
+        - kinetic
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  armor:
+    value: null
+    dex: null
+    magicalBonus: null
+  hp:
+    value: 0
+    max: 0
+    dt: null
+    conditions: ''
+  attributes:
+    capx:
+      value: null
+    dmgred:
+      value: null
+    regrateco:
+      value: null
+    cscap:
+      value: null
+    sscap:
+      value: null
+    fuelcostsmod:
+      value: null
+    powerdicerec:
+      value: ''
+    hdclass:
+      value: null
+  modify:
+    chassis: none
+    augmentSlots: 0
+    modSlots: 4
+    items: []
+    changes: {}
+  speed:
+    value: null
+    conditions: ''
+  strength: null
+  properties: []
+  proficient: 1
+  type:
+    value: clothing
+    baseItem: ''
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: bonus
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1667426100794
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: KBNEdtBbMz4xeYHp
+_key: '!items!KBNEdtBbMz4xeYHp'

@@ -1,0 +1,192 @@
+name: Aing-Tii
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2701392+00:00'
+    importer_version: 3
+    uid: Species.name-aing_tii
+type: race
+img: modules/sw5e/icons/packs/Species/Aing-Tii.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>The aing-tii are a species of sentient, toothless mammals who stand on two clawed feet with two spindly arms, each with three large digits. Their bodies are covered in jointed white, bony plates covered in unique painted motifs. The aing-tii head is small and juts out perpendicularly from their chest, featuring two large eyes and six long, thin, green tongues extending from their mouths. They have a long, prehensile tail. The species is incapable of producing sound and conveys information via tasting, smelling and touching each other with their tongues.</p>
+      <h2>Society and Culture</h2>
+      <p>The aing-tii are native to a planet whose location in the Kathol Rift is a closely guarded secret. Although in a dangerous area of space, the majority of Aing-Tii never leave their homeworld nor have any contact with the outside world. Those who do—commonly called aing-tii warrior monks—are often xenophobic and reclusive. The monks spend their entire lives performing errands for their gods, in the hope that they will receive "an answer" from them. The aing-tii hate slavery, and often attack slavers who roam the Kathol Outback.</p>
+      <p>While the aing-tii are Force-sensitive, they avoid wielding the Force, which they see as sacred. The aing-tii believe that everything is somehow guided by the Force. They do not believe in the light or dark sides of the Force. Instead, they hold that there are many different aspects to the Force.</p>
+      <h2>Names</h2>
+      <p>Aing-tii names are, in reality, non-verbal and only truly understandable via taste, smell, and touch.  The few aing-tii who have been known to the outside world have used translators to convey an auditory identifier. </p>
+      <p><strong>Male Names.</strong> Ben'Sur, Looshen'Fel, Tadar'Ro</p>
+      <p><strong>Female Names.</strong> Kulan'Pa, Laman'So, Te'Nuriel </p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: aing-tii
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.30EvKL8FVcvznDAN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.oMEiy7D9YALhNHum
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.vCC8Bw3GRCTm7DZ8
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.vDEFQgHOUYbOPlHq
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.VQchGHFiWA4jcMct
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.QDj6W7hf2bdB9IaY
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.MAtgkLJk2SG0Ri3y
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.bqM30ZH6WvFffuWF
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.BiIxZbkkfYEmRmLU
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.srq7ywAfKivMNsbN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.qWRnZt0CHIiOMBZd
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          con: 1
+          wis: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:lor
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: White
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Black
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Force-sensitivity, unique technology, six green tongues
+  heightAverage:
+    value: 5'7"
+  heightRollMod:
+    value: +2d10"
+  weightAverage:
+    value: 145 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Aing-Tii homeworld in the Kathol Rift
+  slanguage:
+    value: Non-verbal communication  via taste, smell, and touch
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: 3aUdsUbBSwi6cZH0
+    changes:
+      - key: system.attributes.ac.value
+        value: 13 + @abilities.dex.mod
+        mode: 5
+        priority: 1
+      - key: flags.sw5e.advantage.ability.save.force.wis
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.advantage.ability.save.force.cha
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Aing-Tii
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Aing-Tii.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!p1YZDGVCtL2ChMJn.3aUdsUbBSwi6cZH0'
+_id: p1YZDGVCtL2ChMJn
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304726144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!p1YZDGVCtL2ChMJn'

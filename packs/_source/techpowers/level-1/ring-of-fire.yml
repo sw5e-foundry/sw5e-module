@@ -1,0 +1,145 @@
+name: Ring of Fire
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1807281+00:00'
+    importer_version: 3
+    uid: Power.name-ring_of_fire.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/RingOfFire.webp
+system:
+  description:
+    value: |-
+      <p>A wall of flames erupts out of the ground in a ring around you with a radius of 15 feet and a height of 10 feet. Creatures who start their turn in the ring of fire or pass through it on their turn take [[/r 1d6]] fire damage. Creatures within the ring of fire who willingly try to move through the fire to escape must succeed on a Wisdom saving throw to do so. Creatures who are immune to fear or fire automatically succeed on this saving throw. </p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 2nd level or higher, the damage of the ring of fire increases by [[/r 1d6]] for each slot level above 1st.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6
+        - fire
+    versatile: ''
+  formula: ''
+  save:
+    ability: wis
+    dc: null
+    scaling: spell
+  level: 1
+  school: tec
+  properties:
+    - concentration
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: 1d6
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 2
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: whole
+              number: 1
+            types:
+              - fire
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: self
+      save:
+        ability: wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '2'
+effects: []
+_id: d7l33D6lAecxU2Xk
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!d7l33D6lAecxU2Xk'

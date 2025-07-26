@@ -1,0 +1,136 @@
+_id: lahxD9PioVTSYCeV
+name: You Call This Archaeology?
+type: sw5e.maneuver
+img: modules/sw5e/icons/packs/Maneuvers/YouCallThisArchaeology.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:02.8056261+00:00'
+    importer_version: 3
+    uid: Maneuvers.name-you_call_this_archaeology
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  htmlFields:
+    - description.value
+    - description.chat
+    - unidentified.description
+  description:
+    value: <p>When you or a friendly creature that you can see reduces a hostile creature to 0 hit points, you can use your reaction and expend a superiority die to give yourself or that friendly creature temporary hit points equal to the number rolled + your universal forcecasting modifier.</p>
+    chat: ''
+  requirements: The ability to cast force powers
+  source:
+    custom: PHB
+  activation:
+    type: reaction
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: superiority.dice.value
+    amount: 1
+    scale: false
+  ability: null
+  actionType: heal
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d@superiority.die + @mod
+        - temphp
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: mental
+    subtype: ''
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  recharge:
+    value: null
+    charged: false
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: reaction
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: ''
+            target: superiority.dice.value
+            type: attribute
+            value: '1'
+      description: {}
+      duration:
+        units: inst
+      healing:
+        custom:
+          enabled: true
+          formula: '@mod'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493983313
+  modifiedTime: 1739121090591
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!lahxD9PioVTSYCeV'

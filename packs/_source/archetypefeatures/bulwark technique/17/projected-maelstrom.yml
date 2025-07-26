@@ -1,0 +1,130 @@
+name: Projected Maelstrom
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9954151+00:00'
+    importer_version: 3
+    uid: Feature.name-projected_maelstrom.source-archetype.sourceName-bulwark_technique.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCT-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: |-
+      <p>You create an unstable energy maelstrom in a 5-foot cube at a point you can see within 30 feet that lasts until the start of your next turn. A creature takes [[/r 4d4]] energy damage when it enters the area for the first time on a turn or starts its turn there. You can maintain the barrier by spending an additional barrier hit point at the start of each of your turns (no action required). </p>
+      <p>This feature's damage increases by [[/r 1d4]] when you reach 11th level ([[/r 5d4]]) and 17th level ([[/r 6d4]]).</p>
+    chat: ''
+  requirements: Scout (Bulwark Technique) 17
+  source:
+    custom: PHB
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: '5'
+    width: null
+    units: ft
+    type: cube
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 4d4
+        - energy
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 4
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - energy
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '30'
+      target:
+        template:
+          size: '5'
+          type: cube
+      type: damage
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1667426104140
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: nToLCjV136Eru9ZM
+_key: '!items!nToLCjV136Eru9ZM'

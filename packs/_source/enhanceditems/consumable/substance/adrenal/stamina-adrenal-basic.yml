@@ -1,0 +1,136 @@
+_id: MiuteoMPxNQDXjAa
+name: Stamina Adrenal (Basic)
+type: consumable
+img: modules/sw5e/icons/packs/Enhanced%20Items/StaminaAdrenal.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:04.8514408+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-stamina_adrenal_basic.subtype-adrenal
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <h4>Consumable (Adrenal)</h4>
+       <p>As an action, you can administer this adrenal to a creature within 5 feet. When you administer this adrenal, the target's current and maximum hit points increase by 10. This effect lasts for 1 minute. A creature can benefit from only one adrenal at a time. </p>
+    chat: ''
+  source:
+    custom: WH
+  quantity: 1
+  weight:
+    value: 0
+    units: lb
+  price:
+    value: 0
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: standard
+  identified: true
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 5
+    long: null
+    units: feet
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    autoDestroy: false
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: heal
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '10'
+        - healing
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  properties: []
+  type:
+    value: substance
+    subtype: adrenal
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: action
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      healing:
+        custom:
+          enabled: true
+          formula: '10'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        units: ft
+        value: '5'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964644
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!MiuteoMPxNQDXjAa'

@@ -1,0 +1,141 @@
+name: Absorb Energy
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1417509+00:00'
+    importer_version: 3
+    uid: Power.name-absorb_energy.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/AbsorbEnergy.webp
+system:
+  description:
+    value: |-
+      <p>The power captures some of the incoming energy, lessening its effect on you and storing it for your next melee attack. You have resistance to the triggering damage type until the start of your next turn. Also, the first time you hit with a melee attack on your next turn, the target takes an extra [[/r 1d6]] damage of the triggering type, and the power ends.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a power slot of 2nd level or higher, the extra damage increases by [[/r 1d6]] for each slot level above 1st.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: reaction
+    cost: 1
+    condition: when you take acid, cold, energy, fire, ion, kinetic, lightning, or sonic damage
+  duration:
+    value: '1'
+    units: round
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: other
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 1
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: 1d6
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 2
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        condition: when you take acid, cold, energy, fire, ion, kinetic, lightning, or sonic damage
+        type: reaction
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: whole
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: round
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: self
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '2'
+effects: []
+_id: vCKUxj4hafcp0nmt
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!vCKUxj4hafcp0nmt'

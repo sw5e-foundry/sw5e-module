@@ -1,0 +1,127 @@
+name: Condense/Vaporize
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1457493+00:00'
+    importer_version: 3
+    uid: Power.name-condensevaporize.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/Condense-Vaporize.webp
+system:
+  description:
+    value: |-
+      <p>In an open container, you can create up to 10 gallons of drinkable water. You may also produce a rain that falls within a 30-foot cube and extinguishes open-air flames. You can destroy the same amount of water in an open container, or destroy a 30-foot cube of fog. </p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 2nd level or higher, the amount of water you can create increases by 10 gallons, or the size of the cube increases by 5 feet, for each slot level above 1st.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: '30'
+    width: null
+    units: ft
+    type: cube
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: other
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 1
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 2
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        condition: ''
+        type: action
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '30'
+      roll:
+        formula: ''
+      target:
+        template:
+          size: '30'
+          type: cube
+      type: utility
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '2'
+effects: []
+_id: syzGHG7047xPdKI8
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!syzGHG7047xPdKI8'

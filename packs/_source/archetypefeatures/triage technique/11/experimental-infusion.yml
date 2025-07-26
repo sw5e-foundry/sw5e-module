@@ -1,0 +1,170 @@
+_id: bayEAWiTjhqDChpF
+name: Experimental Infusion
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6897365+00:00'
+    importer_version: 3
+    uid: Feature.name-experimental_infusion.source-archetype.sourceName-triage_technique.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Triage Technique:</strong> 11th level</em></p>
+      <p>When you target a creature with your Ranger's Quarry, you can grant one of the following additional effects of your choice:</p>
+      <ul>
+      <li><strong><em>Adrenaline/Tranquilizer.</em></strong> The creature's movement speed is doubled until the end of its next turn. Alternatively, it gains a level of slowed until the end of its next turn.</li>
+      <li><strong><em>Focus/Dizziness.</em></strong> The creature has either advantage or disadvantage (your choice) on the first ability check, attack roll, or saving throw it makes within the next minute.</li>
+      <li><strong><em>Toughen/Weaken.</em></strong> The creature gains temporary hit points equal to your scout level, which last for 1 minute. Alternatively, the creature must make a Constitution saving throw against your tech save DC. On a failure, it takes psychic damage equal to your scout level and it can't regain hit points until the start of your next turn.</li>
+      </ul>
+      <p>You can use each feature once. You regain any expended uses when you complete a short or long rest.</p>
+    chat: ''
+  requirements: Scout (Triage Technique) 11
+  source:
+    custom: EC
+  activation:
+    type: special
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '1'
+    per: sr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '@classes.scout.levels'
+        - temphp
+      - - '@classes.scout.levels'
+        - psychic
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: special
+      damage:
+        parts:
+          - custom:
+              enabled: true
+              formula: '@classes.scout.levels'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - psychic
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+    sw5e1heal0000000:
+      _id: sw5e1heal0000000
+      activation:
+        type: special
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      healing:
+        custom:
+          enabled: true
+          formula: '@classes.scout.levels'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957914
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!bayEAWiTjhqDChpF'

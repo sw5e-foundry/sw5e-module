@@ -1,0 +1,138 @@
+name: Venomous
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.676743+00:00'
+    importer_version: 3
+    uid: Feature.name-venomous.source-archetype.sourceName-shadow_killer_practice.level-9
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/OPRT-ARCH-Bonus.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Shadow Killer Practice:</strong> 3rd, 5th, 9th, 13th, and 17th level</em></p>
+      <p>You gain proficiency with the poisoner's kit, and you can apply a poison as a bonus action.</p>
+      <p>Additionally, you learn to create a number of special poison vials. Over the course of a short or long rest, you can create two doses of poison. You must have a poisoner's kit in order to create these doses. Your doses can only be used by you, and they lose their potency at the end of your next short or long rest.</p>
+      <p>As an action, you can use one of your doses to coat one vibroweapon, one slug cartridge, or one wrist launcher dart. A creature hit by the coated weapon must make a Constitution saving throw (DC = 8 + your proficiency bonus + your Intelligence modifier), taking [[/r 1d4]] + your Intelligence modifier poison damage on a failed save or half as much on a successful one. Once applied, the poison retains potency for 1 minute before drying.</p>
+      <p>The quantity and damage of your doses increases at higher levels, to three and [[/r 2d4]] at 5th level, four and [[/r 3d4]] at 9th level, five and [[/r 4d4]] at 13th level, and six and [[/r 5d4]] at 17th level.</p>
+    chat: ''
+  requirements: Operative (Shadow Killer Practice) 9
+  source:
+    custom: EC
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d4 + @abilities.int.mod
+        - poison
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: 300
+      turn: 250
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+      damage:
+        parts:
+          - bonus: '@abilities.int.mod'
+            custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - poison
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1680288495976
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: 49joNQIY3dWYVRu5
+_key: '!items!49joNQIY3dWYVRu5'

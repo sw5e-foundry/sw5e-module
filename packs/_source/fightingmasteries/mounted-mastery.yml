@@ -1,0 +1,136 @@
+_id: ZrUYaRoJkjq8hTll
+name: Mounted Mastery
+type: feat
+img: modules/sw5e/icons/packs/Fighting%20Styles%20and%20Masteries/MountedMastery.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:00.3010783+00:00'
+    importer_version: 3
+    uid: FightingMastery.name-mounted_mastery
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>You've mastered the art of fighting while mounted, moving seamlessly with your companion. You gain the following benefits:</p>
+      <ul>
+      <li>If your mount is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, you can use your reaction to have it instead take no damage if it succeeds on the saving throw, and only half damage if it fails.</li>
+      <li>While mounted on a controlled beast, you can use your bonus action to have your mount make a single melee attack against a creature within its reach. If you could already use your bonus action to have your mount make an attack, you can instead do so as a reaction on your turn.</li>
+      <li>While mounted on a vehicle, you can take a vehicle action with your bonus action, instead of your action. If you could already take a vehicle action as a bonus action, you can instead do so as a reaction on your turn. You can't take the same action twice in one turn.</li>
+      <li>Once per turn, you can choose to have advantage on a melee weapon attack roll against an unmounted creature that is smaller than your mount. If the attack hits, you deal additional damage equal to your proficiency bonus.</li></ul>
+    chat: ''
+  requirements: null
+  source:
+    custom: PHB
+  activation:
+    type: reaction
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  type:
+    value: customizationOption
+    subtype: fightingMastery
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: reaction
+      damage:
+        parts:
+          - custom:
+              enabled: true
+              formula: '@prof'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493967821
+  modifiedTime: 1739121097474
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!ZrUYaRoJkjq8hTll'

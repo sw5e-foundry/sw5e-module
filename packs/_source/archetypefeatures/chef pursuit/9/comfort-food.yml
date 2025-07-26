@@ -1,0 +1,127 @@
+_id: OMEv8u23ORmqxHnj
+name: Comfort Food
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCLR-ARCH-Passive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6787413+00:00'
+    importer_version: 3
+    uid: Feature.name-comfort_food.source-archetype.sourceName-chef_pursuit.level-9
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Chef Pursuit:</strong> 9th level</em></p>
+      <p>If you or any friendly creatures who have consumed food you prepared during a short rest regain hit points by spending hit dice at the end of the short rest, each of those creatures regains an extra [[/r 1d8]] hit points.</p>
+      <p>The extra hit points increase when you reach certain levels in this class: to [[/r 1d10]] at 11th level, and to [[/r 1d12]] at 15th level.</p>
+    chat: ''
+  requirements: Scholar (Chef Pursuit) 9
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: heal
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d8
+        - healing
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: action
+      description: {}
+      duration:
+        units: inst
+      healing:
+        custom:
+          enabled: false
+        denomination: 8
+        number: 1
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957645
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!OMEv8u23ORmqxHnj'

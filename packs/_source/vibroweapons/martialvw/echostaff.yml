@@ -1,0 +1,179 @@
+name: Echostaff
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:06.0977176+00:00'
+    importer_version: 3
+    uid: Weapon.name-echostaff.equipmentCategory-weapon
+  sw5e:
+    properties:
+      double: 1d6 kinetic
+      sonorous: 13
+      fin: true
+    reload:
+      types: []
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: weapon
+img: modules/sw5e/icons/packs/Martial%20Vibroweapons/Echostaff.webp
+system:
+  description:
+    value: |-
+      <h3>Double ([[/r 1d6]] kinetic)</h3>
+      <p>A weapon with this property can be used with one or two hands. A damage value in parentheses appears with the property—the damage when the weapon is used with Double-Weapon Fighting. See the rules for Double-Weapon Fighting in chapter 9.</p>
+      <h3>Finesse</h3>
+      <p>When making an attack with a weapon with this property, you use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.</p>
+      <h3>Sonorous 13</h3>
+      <p>When you hit a creature with a weapon with the sonorous property, you can force it to make a Constitution saving throw, DC equal to the sonorous number. On a failed save, the creature takes an additional [[/r 1d4]] sonic damage and becomes deafened until the end of its next turn.</p>
+    chat: ''
+  source:
+    custom: WH
+  quantity: 1
+  weight:
+    value: 5
+    units: lb
+  price:
+    value: 600
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: ''
+  identified: true
+  type:
+    value: martialVW
+    subtype: ''
+    baseItem: echostaff
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  target:
+    value: '1'
+    width: null
+    units: ''
+    type: enemy
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ft
+  actionType: mwak
+  damage:
+    parts:
+      - - 1d6 + @mod
+        - kinetic
+    versatile: ''
+    base:
+      custom: {}
+      scaling:
+        number: 1
+        mode: ''
+      denomination: 6
+      number: 1
+      types:
+        - kinetic
+  properties:
+    - double
+    - fin
+    - sonorous
+  weaponClass: polearm
+  ammo:
+    types: []
+    target: ''
+    value: null
+    use: null
+  unidentified:
+    description: ''
+  container: null
+  attuned: false
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  enchantment: null
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  summons: null
+  armor:
+    value: null
+  hp:
+    value: null
+    max: null
+    dt: null
+    conditions: ''
+  modify:
+    chassis: none
+    augmentSlots: 0
+    modSlots: 4
+    items: []
+    changes: {}
+  magicalBonus: null
+  proficient: null
+  firingArc: ''
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: weapon
+          value: melee
+      damage:
+        critical: {}
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      target:
+        template:
+          size: '1'
+          type: enemy
+          units: ''
+      type: attack
+effects: []
+_id: Xam0lDxRXZxC8MDF
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296019804
+  modifiedTime: 1739121084621
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Xam0lDxRXZxC8MDF'

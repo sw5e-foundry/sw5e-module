@@ -1,0 +1,85 @@
+name: Unnatural Weaponry
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:15.1784519+00:00'
+    importer_version: 3
+    uid: Feature.name-unnatural_weaponry.source-archetypeinvocation.sourceName-geneticist_pursuit
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCLR-Passive.webp
+system:
+  description:
+    value: <p>You sprout claws or some other natural weapon. Your unarmed strikes deal [[/r 1d4]] kinetic damage, and you can use your choice of your Strength, Dexterity, or Critical Analysis ability modifer for the attack and damage rolls. You must use the same modifier for both rolls. When you undergo your mutagenic transformation, your unarmed strikes increase to a [[/r d6]] and are considered enhanced for the duration. Additionally, you deal an additional [[/r 1d4]] acid, lightning, or poison damage when you hit with them.</p>
+    chat: ''
+  requirements: Scholar (Geneticist Pursuit)
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: scholarInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - acid
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+  identifier: unnatural-weaponry
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: VY8hjxiJjvWdJKjX
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!VY8hjxiJjvWdJKjX'

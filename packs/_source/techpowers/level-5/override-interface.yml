@@ -1,0 +1,138 @@
+name: Override Interface
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1757315+00:00'
+    importer_version: 3
+    uid: Power.name-override_interface.level-5
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/OverrideInterface.webp
+system:
+  description:
+    value: |-
+      <p>You choose one droid or construct you can see within range and attempt to remotely override its controls. The target must make an Intelligence saving throw. If the construct has the 'Piloted' trait, and has a pilot controlling it that is not incapacitated, it gains a bonus to the saving throw equal to the pilot's Intelligence modifier. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. On a failed save, the creature is charmed by you for the duration.</p>
+      <p>While the droid is charmed, you have a wireless link with it as long as the two of you are on the same planet. Via your tech focus, you can use this link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as "Attack that creature," "Move over there," or "Fetch that object." If the droid completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability. </p>
+      <p>You can use your action to take total and precise control of the target. Until the end of your next turn, the droid takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well. </p>
+      <p>Each time the target takes damage, it makes a new Intelligence saving throw against the power. If the saving throw succeeds, the power ends.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a 6th-level tech slot, the duration is 10 minutes. When you use a 7th-level tech slot, the duration is 1 hour. When you use a tech slot of 8th level or higher, the duration is 8 hours.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  target:
+    value: '1'
+    width: null
+    units: ''
+    type: droid
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: int
+    dc: null
+    scaling: spell
+  level: 5
+  school: tec
+  properties:
+    - concentration
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 6
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '60'
+      save:
+        ability: int
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '1'
+          type: droid
+          units: ''
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '6'
+effects: []
+_id: Nt3eRRxXxPYstEdG
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Nt3eRRxXxPYstEdG'

@@ -1,0 +1,194 @@
+name: Zabrak
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:55.9186198+00:00'
+    importer_version: 3
+    uid: Species.name-zabrak
+type: race
+img: modules/sw5e/icons/packs/Species/Zabrak.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Zabrak are near-human, but have a number of significant physical characteristics that set them apart from baseline Humanity. The most striking of these are a series of vestigial horns that crown the heads of both males and females. These horns grow at puberty in varying patterns and signified that their rite of passage is drawing near.</p>
+      <p>In addition to their horns, another of the traits that make zabrak instantly recognizable are their facial tattoos, which are made up of thin lines received during their rite of passage. These could symbolize many things, including but not limited to family lineage, place of birth, or even a design that reflected their individual personalities.</p>
+      <p>Lastly, zabraks possess a second heart.</p>
+      <h2>Society and Culture</h2>
+      <p>Zabrak are often seen by most other species as being single-minded, an observation that is not terribly incorrect. This single-minded determination comes from the fact that they are a species with a strong sense of self-assuredness, confident that they are able to accomplish any task that they set out to do. However, this does not lead a zabrak to develop a sense of prideful superiority towards others. Though it is not uncommon to see competition between colonies, this is not seen as a negative. The zabraks believe that the various experiences of the different colonies only serve to add to the species' overall value throughout the galaxy.</p>
+      <h2>Names</h2>
+      <p>Zabrak names are usually derived from the animals living on their planet. Zabraks don't use surnames.</p>
+      <p><strong>Male Names.</strong> Kadro, Muraa, Neqama, Ruvroo, Xadra</p>
+      <p><strong>Female Names.</strong> Blostopa, Mega, Novrar, Rebroke</p>
+    chat: ''
+  source:
+    custom: PHB
+  identifier: zabrak
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.nld38vGaW8MZu7lQ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.O8spsLTXMEwAxZVv
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.XmgBVfHJofMkj6vu
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.4dudsI94p7KUE2Dx
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.AIt5YQy7XRHP6ir5
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.p4XSCEbjB1U2Rys3
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ntlPu2z7pTBiM5tr
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.OS4opGRfLbd7EcxW
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.F7HudsQV19xOUFLW
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Vx78IPBsEdyPUPIG
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.xBWqVP8EwMAR5tiG
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          con: 2
+        points: 1
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - skills:per
+              - skills:itm
+          - count: 1
+            pool:
+              - tool:art:*
+        grants: []
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Pale to dark brown, red, orange and yellow
+  hairColorOptions:
+    value: Black, blonde, brown, red, or purple
+  eyeColorOptions:
+    value: Yellow, green, orange, brown, blue, red, or purple
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Horns, two hearts, facial tattoos
+  heightAverage:
+    value: 5'1"
+  heightRollMod:
+    value: +2d12"
+  weightAverage:
+    value: 120 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: ''
+  slanguage:
+    value: Zabraki
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: o7n6csSMm1fhRWhM
+    changes:
+      - key: flags.sw5e.multipleHearts
+        value: '1'
+        mode: 0
+        priority: 20
+      - key: flags.sw5e.unarmedCombatant
+        value: '1'
+        mode: 0
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Zabrak
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Zabrak.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!J6RBTCTrAOCTh5WL.o7n6csSMm1fhRWhM'
+_id: J6RBTCTrAOCTh5WL
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725234
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!J6RBTCTrAOCTh5WL'

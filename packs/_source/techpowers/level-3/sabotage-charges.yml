@@ -1,0 +1,142 @@
+name: Sabotage Charges
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1807281+00:00'
+    importer_version: 3
+    uid: Power.name-sabotage_charges.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/SabotageCharges.webp
+system:
+  description:
+    value: |-
+      <p>You create six tiny sabotage charges that last for the power's duration. When you cast the power, and as a bonus action on subsequent turns, you can hurl up to two of the charges to points you choose within 120 feet. Each charge explodes if it reaches the point or hits a solid surface. Each creature within 5 feet of the explosion must make a Dexterity save. The explosion deals [[/r 2d6]] fire damage on a failure, or half damage on a success.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> The number of charges created increases by two for each slot level above 3rd.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '10'
+    units: minute
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: other
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d6
+        - fire
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 3
+  school: tec
+  properties:
+    - concentration
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 4
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+      description: {}
+      duration:
+        units: minute
+        value: '10'
+      img: null
+      range:
+        override: false
+        units: self
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '4'
+effects: []
+_id: jtIuvb1H99ls8tfY
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!jtIuvb1H99ls8tfY'

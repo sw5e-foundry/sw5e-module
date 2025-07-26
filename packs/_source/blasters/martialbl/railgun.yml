@@ -1,0 +1,190 @@
+_id: zuPhwZGH0j2ovgG7
+name: Railgun
+type: weapon
+img: modules/sw5e/icons/packs/Martial%20Blasters/Railgun.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:06.0957188+00:00'
+    importer_version: 3
+    uid: Weapon.name-railgun.equipmentCategory-weapon
+  sw5e:
+    properties:
+      piercing: 1
+      rel: 2
+      range: 150
+      strRq: 17
+      reload: 2
+      two: true
+    reload:
+      types:
+        - cartridge
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <h3>Piercing 1</h3>
+      <p>Before you make a weapon attack with a weapon with the piercing property, you can choose to gain a bonus to the attack roll up to the piercing number. If you do so and you hit with it, you suffer an equivalent penalty to the damage roll.</p>
+      <h3>Reload 2</h3>
+      <p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>
+      <h3>Slug cartridge (range 150/600)</h3>
+      <p>A weapon that can be used to make a ranged attack has this property. The range lists two numbers. The first is the weapon's normal range in feet, and the second indicates the weapon's long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can't attack a target beyond the weapon's long range.</p>
+      <h3>Strength 17</h3>
+      <p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>
+      <h3>Two-handed</h3>
+      <p>A weapon with this property requires two hands to use.</p>
+    chat: ''
+  source:
+    custom: WH
+  quantity: 1
+  weight:
+    value: 16
+    units: lb
+  price:
+    value: 1900
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: ''
+  identified: true
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: '1'
+    width: null
+    units: ''
+    type: enemy
+    prompt: true
+  range:
+    value: 150
+    long: 600
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    scale: false
+  ability: ''
+  actionType: rwak
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d6 + @mod
+        - kinetic
+    versatile: ''
+    base:
+      custom: {}
+      scaling:
+        number: 1
+        mode: ''
+      denomination: 6
+      number: 2
+      types:
+        - kinetic
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  armor:
+    value: 10
+  hp:
+    value: 0
+    max: 0
+    dt: null
+    conditions: ''
+  modify:
+    chassis: none
+    augmentSlots: 0
+    modSlots: 4
+    items: []
+    changes: {}
+  weaponClass: rifle
+  ammo:
+    target: null
+    value: null
+    use: null
+    types:
+      - cartridge
+  properties:
+    - piercing
+    - rel
+    - range
+    - strRq
+    - two
+  proficient: null
+  type:
+    value: martialBL
+    subtype: ''
+    baseItem: railgun
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  firingArc: ''
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: weapon
+          value: ranged
+      damage:
+        critical: {}
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '150'
+      target:
+        template:
+          size: '1'
+          type: enemy
+          units: ''
+      type: attack
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493961319
+  modifiedTime: 1739121083882
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!zuPhwZGH0j2ovgG7'

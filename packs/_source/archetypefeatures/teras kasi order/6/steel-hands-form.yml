@@ -1,0 +1,131 @@
+_id: DiAgovghgLcjDmo5
+name: Steel Hands Form
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/MNK-ARCH-Reaction.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6857378+00:00'
+    importer_version: 3
+    uid: Feature.name-steel_hands_form.source-archetype.sourceName-teras_kasi_order.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Teras Kasi Order:</strong> 6th level</em></p>
+      <p>You can draw upon your focus to utilize an array of practiced techniques to strike your opponents with precision and power. You can use your bonus action to enter this stance, and when you do so, you can also enter your Forredari Stance as a part of this same bonus action. This form lasts for 1 minute. While you are in this stance, you gain the following benefits:</p>
+      <ul>
+      <li><strong>Charging Wampa.</strong> Once per round, when you are forced to make a saving throw against a force power, your movement speed increases by 10 feet until the end of your next turn.</li>
+      <li><strong>Nexu Grin.</strong> When a creature you can see within 10 feet of you casts a force power that requires a force attack roll against you or an an allied creature, you can use your reaction and expend 1 focus point to impose disadvantage on the attack roll. If the attack misses, and the higher of the two [[/r d20]] rolls would also miss, the creature cannot cast that force power again until it completes a short or long rest.</li>
+      <li><strong>Screaming Squill.</strong> Once per turn, when you hit a creature that is concentrating on a force power and it makes a Constitution saving throw to maintain concentration, the DC for the check equals your focus save DC, unless the DC for the Constitution saving throw would be higher.</li>
+      </ul>
+      <p>These effects end early if you are incapacitated or die. Once you've used this feature, you can't use it again until you finish a long rest.</p>
+      <p>While you have no remaining uses of this feature, you can instead expend 1 focus point to use it. When you do so, your maximum focus points are reduced by 1 until you complete a long rest.</p>
+    chat: ''
+  requirements: Monk (Teras Kasi Order) 6
+  source:
+    custom: EC
+  activation:
+    type: reaction
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 10
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: reaction
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '10'
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957503
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!DiAgovghgLcjDmo5'

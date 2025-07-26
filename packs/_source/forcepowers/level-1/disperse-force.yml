@@ -1,0 +1,140 @@
+_id: floXp4sveE2n4Vtc
+name: Disperse Force
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/DisperseForce.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1457493+00:00'
+    importer_version: 3
+    uid: Power.name-disperse_force.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Saber Ward</em></p>
+      <p>This power absorbs damage from certain incoming attacks, lessening its effect on you and distributing it throughout your body. You have resistance to the triggering damage type until the start of your next turn. Also, you gain 5 temporary hit points to potentially absorb the attack. These temporary hit points last until the start of your next turn.</p>
+      <p><strong><em>Force Potency.</em></strong> When you cast this power using a force slot of 2nd level or higher, the temporary hit points increases by 5 for each slot level above 1st.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: reaction
+    cost: 1
+    condition: when you take cold, energy, fire, ion, lightning, or sonic damage
+  duration:
+    value: '1'
+    units: round
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 2
+    scale: true
+  ability: null
+  actionType: heal
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '5'
+        - temphp
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 1
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: level
+    formula: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        condition: when you take cold, energy, fire, ion, lightning, or sonic damage
+        type: reaction
+      description: {}
+      duration:
+        units: round
+        value: '1'
+      healing:
+        custom:
+          enabled: true
+          formula: '5'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        override: false
+        units: self
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '2'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979291
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!floXp4sveE2n4Vtc'

@@ -1,0 +1,137 @@
+name: Slow-Release Medpac
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1847261+00:00'
+    importer_version: 3
+    uid: Power.name-slow_release_medpac.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/Slow-ReleaseMedpac.webp
+system:
+  description:
+    value: <p>Kolto energy radiates from you in an aura with a 30-foot radius. Until the power ends, the aura moves with you, centered on you. You can use a bonus action to cause one creature in the aura (including you) to regain [[/r 2d6]] hit points. This power has no effect on droids or constructs.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  target:
+    value: '30'
+    width: null
+    units: ft
+    type: radius
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: heal
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d6
+        - healing
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 3
+  school: tec
+  properties:
+    - concentration
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: none
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 4
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        condition: ''
+        type: action
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      healing:
+        custom:
+          enabled: false
+        denomination: 6
+        number: 2
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        override: false
+        units: self
+      target:
+        template:
+          size: '30'
+          type: radius
+      type: heal
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '4'
+effects: []
+_id: 3VUsvLbIHAK6rLQ4
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!3VUsvLbIHAK6rLQ4'

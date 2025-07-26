@@ -1,0 +1,216 @@
+name: Squib
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.291126+00:00'
+    importer_version: 3
+    uid: Species.name-squib
+type: race
+img: modules/sw5e/icons/packs/Species/Squib.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Squibs are small, sentient, humanoid mammals with both rodent and canine characteristics. Their pink skin is covered in fur that offers some protection from cold weather, but, more importantly, it serves as an olfactory organ, able to pick up scents at a distance and ascertain intrinsic details—such as penetrating through a disguise or identifying a forgery—when rubbed against. The species has both male and female sexes, although non-Squibs often have difficulty determining the sex of a Squib based on appearance alone. Their mouths are full of forbidding, sharp, white teeth, and their flexible cheeks were capable of storing items.</p>
+      <h2>Society and Culture</h2>
+      <p>Squibs are friendly and cheerful to such an extent that, over time, they are considered quite annoying. Squibs are inherently curious, handling items with little regard to care. They are unabashed pack rats, and they wear clothing for the excess storage rather than necessity. The Squibs' overconfidence is a defining trait. The typical Squib response to a threat is not to fight or flee, but to bluff and bluster, especially when not face-to-face. In person, their sharp teeth are their favored means of intimidation. Squibs believe that bargaining is the highest form of communication, and they believe haggling is more important than the goods themselves. A deal is a binding oath to Squibs, and they are incredibly loyal to their business partners.</p>
+      <h2>Names</h2>
+      <p>Squibs combine their first and last names, which are familial, into one long, hyphenated name. They often go by nicknames derived from their full names. Male and female names do not significantly deviate.</p>
+      <p><strong>Full Names.</strong> Galaneever-marmalios, Meelawin-demort, Sleerinwilpher-remalior</p>
+      <p><strong>Nicknames.</strong> Galan, Meela, Wilpher</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: squib
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 25
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.JlUvs1pog8o5A94N
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.xwQFCa29fZD4WlQm
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Q7FGlhTTsKkWuHaP
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.F4eDXWZZPtnAJNSe
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Y3kp9qRYpizo30IH
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.t4cKA3swPKmFxCRt
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.7hlERCl5fumERXNa
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.iQrTSR3AsCazeGhU
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.CWm7kTwYXiGLxtpQ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.RODsbpdOUYazGiNO
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.6YpkMXlgTKGbsngJ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ydoyg2mr4wduSqWe
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.vmTpm0iPWDzhAK3y
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          cha: 2
+          dex: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - sm
+      level: 0
+      type: Size
+      value: {}
+  skinColorOptions:
+    value: Pink
+  hairColorOptions:
+    value: White, gray, black, brown, blue, violet, or red
+  eyeColorOptions:
+    value: Blue, yellow, red, or brown
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Curious, overconfident, hagglers
+  heightAverage:
+    value: 2'11"
+  heightRollMod:
+    value: +2d4"
+  weightAverage:
+    value: 45 lb.
+  weightRollMod:
+    value: x1 lb.
+  homeworld:
+    value: Skor II
+  slanguage:
+    value: Squibbian
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: nu2OtSBRydV6qbHh
+    changes:
+      - key: flags.sw5e.undersized
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.252n5KfccLRdbysj.ActiveEffect.JyXU6gNsxf6u3HUH
+    origin: Compendium.sw5e.species.Item.252n5KfccLRdbysj
+    name: Squib
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Squib.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!ttpUDfrjeu5wIpUh.nu2OtSBRydV6qbHh'
+  - _id: hVGaUSK9JuJrYec5
+    changes:
+      - key: flags.sw5e.situational.advantage.skill.prc
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.252n5KfccLRdbysj.ActiveEffect.JyXU6gNsxf6u3HUH
+    origin: Compendium.sw5e.species.Item.252n5KfccLRdbysj
+    name: Keen Smell
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Squib.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!ttpUDfrjeu5wIpUh.hVGaUSK9JuJrYec5'
+_id: ttpUDfrjeu5wIpUh
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304726323
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!ttpUDfrjeu5wIpUh'

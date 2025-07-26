@@ -1,0 +1,154 @@
+_id: HWp4wg41FFsRt12T
+name: Instinctive Movement
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/InstinctiveMovement.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:02.9905194+00:00'
+    importer_version: 3
+    uid: Power.name-instinctive_movement.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Wall Run</em></p>
+      <p>You enhance your movement with the Force, allowing you to traverse your environment with speed and acrobatic grace. When you cast this power, you gain two speed points. When you cast the power and as a bonus action on subsequent turns, you can expend a speed point, granting yourself all of the following benefits until the end of that turn:</p>
+      <ul>
+      <li>Your speed increases by 5 feet. </li>
+      <li>You have resistance to falling damage. </li>
+      <li>You ignore difficult terrain. </li>
+      <li>You have a climb speed equal to your walking speed. </li>
+      <li>You add 10 feet to your long jump distance and 3 feet to your high jump distance. </li>
+      <li>You can move up, down, and across vertical surfaces and upside down along ceilings, while leaving your hands free. </li>
+      <li>You do not sink when moving over soft or brittle terrain, such as dust, silt, mud, snow, or thin ice. This effect does not allow you to move across liquid surfaces.</li>
+      <li>If you move at least 20 feet straight toward a creature and then hit it with a melee weapon attack for the first time on the same turn, you deal an extra [[/r 1d4]] damage with that attack.</li>
+      </ul>
+      <p>At the end of the turn, the benefits fade entirely until you spend another speed point. If these benefits end while you are still on a vertical surface, or anywhere else where you would normally fall or sink, you immediately fall or begin to sink unless you have some other means to remain there. </p>
+      <p>This power ends when its duration expires, when you cast this power again, or when you have spent all your speed points. When the power ends, any unspent speed points are lost.</p>
+      <p><strong><em>Force Potency.</em></strong> When you cast this power using a force slot of 2nd level or higher, the extra damage increases by [[/r 1d4]] for each slot level above 1st. In addition, if you cast this power with a force slot of 3rd level or higher, you gain one additional speed point for every two slot levels above 1st.</p>
+    chat: ''
+  source:
+    custom: EC
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 2
+    scale: true
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d4
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 1
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: level
+    formula: 1d4
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        condition: ''
+        type: bonus
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: whole
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: self
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '2'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979202
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!HWp4wg41FFsRt12T'

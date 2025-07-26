@@ -1,0 +1,137 @@
+name: Wire Line
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1927216+00:00'
+    importer_version: 3
+    uid: Power.name-wire_line.level-0
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/WireLine.webp
+system:
+  description:
+    value: |-
+      <p>You launch a grappling wire toward a creature you can see within range. Make a melee tech attack against the target. If the attack hits, the creature takes [[/r 1d6]] kinetic damage, and if the creature is Large or smaller, you pull the creature up to 10 feet closer to you.</p>
+      <p>This power's damage increases by [[/r 1d6]] when you reach 5th level ([[/r 2d6]]), 11th level ([[/r 3d6]]), and 17th level ([[/r 4d6]]).</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: mpak
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6
+        - kinetic
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 0
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: atwill
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        condition: ''
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: spell
+          value: melee
+      damage:
+        critical: {}
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '30'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: attack
+effects: []
+_id: GHjqAf4MGEaNjl0U
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!GHjqAf4MGEaNjl0U'

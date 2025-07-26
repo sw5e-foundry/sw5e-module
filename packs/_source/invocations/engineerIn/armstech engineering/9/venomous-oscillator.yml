@@ -1,0 +1,135 @@
+_id: 7cW5VH2AqDgqdv0Y
+name: Venomous Oscillator
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.342215+00:00'
+    importer_version: 3
+    uid: Feature.name-venomous_oscillator.source-archetypeinvocation.sourceName-armstech_engineering.level-9
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite:</strong> 9th level, Vibroweapon</em></p>
+      <p>As a bonus action, you can coat your weapon in a thin layer of poison for 1 minute. The next time you hit with the weapon, the creature must make a Constitution saving throw against your tech save DC. On a failed save, a creature takes [[/r 1d10]] poison damage and becomes poisoned for 1 minute.</p>
+      <p>Once you've used this feature, you must complete a long rest before you can use it again.</p>
+    chat: ''
+  requirements: Engineer (Armstech Engineering) 9, Vibroweapon
+  source:
+    custom: PHB
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '1'
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d10
+        - poison
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: engineerInvocation
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 10
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - poison
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493980997
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!7cW5VH2AqDgqdv0Y'

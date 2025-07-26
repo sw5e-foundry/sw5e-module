@@ -1,0 +1,137 @@
+_id: poz6WlT5uQ9NIzYf
+name: Stormcaller
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SNTL-ARCH-Action.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: Feature.name-stormcaller.source-archetype.sourceName-path_of_witchcraft_companion.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Path of Witchcraft:</strong> 18th level</em></p>
+      <p>You've learned to command the elements to summon a fierce storm in a 30-foot radius around you. As an action, you can gain the following benefits for 1 minute:</p>
+      <ul>
+      <li>You gain a flying speed equal to your walking speed.</li>
+      <li>You have resistance to energy, lightning, and necrotic damage.</li>
+      <li>Whenever a hostile creature enters this radius for the first time on a turn or starts its turn there, it takes 10 lightning damage.</li>
+      </ul>
+      <p>This effect ends early if you are incapacitated or die. Once you've used this feature, you can't use it again until you finish a long rest.</p>
+    chat: ''
+  requirements: Sentinel (Path of Witchcraft (Companion)) 18
+  source:
+    custom: EC
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: '30'
+    width: null
+    units: ft
+    type: radius
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '1'
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '10'
+        - lightning
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '10'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - lightning
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          size: '30'
+          type: radius
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493958135
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!poz6WlT5uQ9NIzYf'

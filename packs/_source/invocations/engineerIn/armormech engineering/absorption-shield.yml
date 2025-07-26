@@ -1,0 +1,79 @@
+name: Absorption Shield
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.342215+00:00'
+    importer_version: 3
+    uid: Feature.name-absorption_shield.source-archetypeinvocation.sourceName-armormech_engineering
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite:</strong> Physical Shield</em></p>
+      <p>You modify your physical shield to block incoming damage. As a bonus action you can activate this ability and gain temporary hit points equal to [[/r 1d4]] + Intelligence modifier, which last for one hour.</p>
+      <p>You can use this feature twice. You gain an additional use at 5th, 9th, 13th, and 17th level. You regain any expended uses when you finish a long rest.</p>
+    chat: ''
+  requirements: Engineer (Armormech Engineering), Physical Shield
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    max: '2'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: hour
+        value: '1'
+      healing:
+        custom:
+          enabled: false
+        denomination: 4
+        number: 1
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+  identifier: absorption-shield
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: CbPwfbxeUUMFESky
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!CbPwfbxeUUMFESky'

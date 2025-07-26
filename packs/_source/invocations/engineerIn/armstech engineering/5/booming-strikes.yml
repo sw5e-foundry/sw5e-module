@@ -1,0 +1,129 @@
+_id: Zw33VBxEljkdadiS
+name: Booming Strikes
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Passive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.342215+00:00'
+    importer_version: 3
+    uid: Feature.name-booming_strikes.source-archetypeinvocation.sourceName-armstech_engineering.level-5
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite:</strong> 5th level</em></p>
+      <p>You pack extra power into your modified weapon. Once per turn, when you hit with the weapon, you can deal an additional [[/r 1d6]] damage. If you do so, the weapon makes a loud boom which can be heard 100 feet away. If you are hidden, Intelligence (Investigation) and Wisdom (Perception) checks made to locate you that rely on sound have advantage.</p>
+    chat: ''
+  requirements: Engineer (Armstech Engineering) 5
+  source:
+    custom: PHB
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: engineerInvocation
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493981147
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Zw33VBxEljkdadiS'

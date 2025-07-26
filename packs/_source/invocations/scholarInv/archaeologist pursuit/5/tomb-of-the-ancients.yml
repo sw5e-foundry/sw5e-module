@@ -1,0 +1,129 @@
+_id: talYZt1amuwSxg56
+name: Tomb of the Ancients
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCLR-Reaction.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-05-30T20:14:20.0051171+00:00'
+    importer_version: 3
+    uid: Feature.name-tomb_of_the_ancients.source-archetypeinvocation.sourceName-archaeologist_pursuit.level-5
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite:</strong> 5th level</em></p>
+      <p>As a reaction when you take damage, you can entomb yourself in the Force until the end of your next turn. For the duration, you have resistance to the triggering damage, you gain temporary hit points equal to [[/r 1d10]] + your universal forcecasting ability modifier + your scholar level to potentially absorb the attack, and your speed is reduced to 0.</p>
+      <p>Once you've used this feature, you can't use it again until you finish a short or long rest. </p>
+    chat: ''
+  requirements: Scholar (Archaeologist Pursuit) 5
+  source:
+    custom: EC
+  activation:
+    type: reaction
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: turn
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '1'
+    per: sr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: heal
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d10 + @mod + @classes.scholar.levels
+        - temphp
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: scholarInvocation
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: reaction
+      description: {}
+      duration:
+        units: turn
+        value: '1'
+      healing:
+        bonus: '@mod + @classes.scholar.levels'
+        custom:
+          enabled: false
+        denomination: 10
+        number: 1
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493981238
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!talYZt1amuwSxg56'

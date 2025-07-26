@@ -1,0 +1,126 @@
+_id: dnfmFctiKVUn8AIt
+name: Shadow Puppetry
+type: sw5e.maneuver
+img: modules/sw5e/icons/packs/Maneuvers/ShadowPuppetry.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:21.5157784+00:00'
+    importer_version: 3
+    uid: Maneuvers.name-shadow_puppetry
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  htmlFields:
+    - description.value
+    - description.chat
+    - unidentified.description
+  description:
+    value: <p>When a creature you can see within 30 feet of you is reduced to 0 hit points, you can use your reaction and expend a superiority die to give that creature a final act of aggression. That creature can immediately move a number of feet equal to 5 times the result of the die and make a single weapon attack against a target of your choice within its attack range, adding the die to the attack roll.</p>
+    chat: ''
+  requirements: null
+  source:
+    custom: EC
+  activation:
+    type: reaction
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: superiority.dice.value
+    amount: 1
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: 5 * (1d@superiority.die)
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: mental
+    subtype: ''
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  recharge:
+    value: null
+    charged: false
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: ''
+            target: superiority.dice.value
+            type: attribute
+            value: '1'
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '30'
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493983302
+  modifiedTime: 1739121090591
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!dnfmFctiKVUn8AIt'

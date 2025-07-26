@@ -1,0 +1,123 @@
+_id: Rx1uGVF1Vb66WT2A
+name: Ion Pulse
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/OPRT-ARCH-Bonus.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-05-30T20:15:26.5541688+00:00'
+    importer_version: 3
+    uid: Feature.name-ion_pulse.source-archetype.sourceName-saboteur_practice.level-13
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Saboteur Practice:</strong> 13th level</em></p>
+      <p>As a bonus action on your turn, you can expend one or more of your tracker droid's Hit Dice to have it emit an pulse of ion energy. Each creature within 5 feet of your tracker droid must make a Constitution saving throw against your tech save DC. A creature takes ion damage for each Hit Die expended in this way on a failed save, or half as much as on a successful one. The size of the damage die equals the size of your tracker droid's Hit Die. Any electronics not being worn or carried within the blast radius are disabled until rebooted.</p>
+    chat: ''
+  requirements: Operative (Saboteur Practice) 13
+  source:
+    custom: EC
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 5
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '5'
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '5'
+          type: radius
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957740
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Rx1uGVF1Vb66WT2A'

@@ -1,0 +1,131 @@
+name: Channel the Force
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6807408+00:00'
+    importer_version: 3
+    uid: Feature.name-channel_the_force.source-archetype.sourceName-ysannanite_form.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/GRDN-ARCH-Passive.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Ysannanite Form:</strong> 3rd level</em></p>
+      <p>You gain the following Channel the Force option.</p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.WXmkn65xHHdShHRX]{Force-Empowered Shots}</h3>
+      <p>Once per turn, when you hit a creature with a ranged weapon attack, you can expend a use of your Channel the Force and expend force points to deal additional damage to the target, which is the same type as the weapon's damage. The additional damage is [[/r 1d8]] for each point spent in this way. You can't deal more additional damage than the amount shown in the Focused Strikes column of the guardian table.</p>
+    chat: ''
+  requirements: Guardian (Ysannanite Form) 3
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d8
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: 300
+      turn: 250
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1680288495993
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: Vl1fYezxoWQRjGDe
+_key: '!items!Vl1fYezxoWQRjGDe'

@@ -1,0 +1,88 @@
+_id: 2NUqt5H4hmf2X9Gl
+name: Overwhelming Presence
+type: feat
+img: modules/sw5e/icons/packs/Deployments/Coordinator.webp
+effects: []
+folder: null
+sort: 0
+flags: {}
+system:
+  description:
+    value: <p><em><strong>Power Die Location:</strong> Comms</em><br />As an action, you can make a Charisma (Impress) or Charisma (Menace) skill check and expend one power die to attempt to charm or frighten a humanoid creature who can see and perceive your ship within 600 feet. Add the power die to the roll. The target makes a contested Intelligence (Probe) check. If your check succeeds, the target is charmed by you if you used Impress, or frightened of you if you used Menace, until the end of your next turn.</p>
+    chat: ''
+  requirements: Coordinator 1st Rank
+  source:
+    custom: ''
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: powerdice
+    target: attributes.power.comms.value
+    amount: 1
+    scale: false
+  ability: null
+  actionType: ''
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: deployment
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493963407
+  modifiedTime: 1720368729730
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!2NUqt5H4hmf2X9Gl'

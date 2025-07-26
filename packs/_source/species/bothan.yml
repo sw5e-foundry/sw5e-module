@@ -1,0 +1,186 @@
+name: Bothan
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:55.9136241+00:00'
+    importer_version: 3
+    uid: Species.name-bothan
+type: race
+img: modules/sw5e/icons/packs/Species/Bothan.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Bothans are a short species of furry humanoids. Bothans are covered in fur which shifted in response to their emotional state by way of gentle ripplings. It is this trait, named Wrendui, that betrays them when members of their kind intend to be duplicitous in their dealings with others. They possess tapered pointed ears, and both males and females were known to sport beards. </p>
+      <p>Bothans are able to interbreed with the other species, though it is rare that they do so. Such hybrids somewhat resembled baseline humans with haunches, hooves, fur, pointed ears and a long tail.</p>
+      <h2>Society and Culture</h2>
+      <p>Bothan culture is guided by the philosophy and principles from the ancient text known as The Way, written by Golm Fervse'dra. In this "Bothan Way", the pursuit of power and influence is paramount. Thus, individual bothans put their own political and economic success above all other concerns, and as a species, bothans put their own advancement ahead of other intergalactic interests. The volume of backstabbing, subtle character assassination and political maneuvering in bothan society is dizzying, and results in many species stereotyping bothans as untrustworthy. In fact, most bothans are habitually paranoid, believing that anyone who's not working with them, is working against them. In times of crisis, the focus of bothan society shifts to a survivalist state known as "ar'krai". When engaged in ar'krai, all fit bothans volunteer to defend their species from impending extinction. </p>
+      <h2>Names</h2>
+      <p>Male bothan names are often trickey while female's are soft. Surnames are familial.</p>
+      <p><strong>Male Names.</strong> Garc, Hibriak, Nith, Tramom, Ventagt </p>
+      <p><strong>Female Names.</strong> Ceerriah, Dhaim, Gnam, Meenn, Vit </p>
+      <p><strong>Surnames.</strong> Bwif'livi, Gra'kit, Hia'faitu, Main'dil</p>
+    chat: ''
+  source:
+    custom: PHB
+  identifier: bothan
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.DqXj5DilpezI6q7k
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.FlMKYflqls9TutYw
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.8QteACXMuKuYfa7i
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.UyBEQOqDEUb8sH4T
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.gKwhfh7kD5vYGCJg
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.MWgUwDULEbDlCx1T
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.1tBz0phiFQCPRaeI
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.j5ZdD9rP90LpJm8C
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.vBqMLXGMQ5Ej0QIf
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          dex: 1
+          int: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:ins
+          - skills:dec
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Brown
+  hairColorOptions:
+    value: Black, brown, or gray (with age)
+  eyeColorOptions:
+    value: Brown or green
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Diminutive stature, mood-sensitive fur
+  heightAverage:
+    value: 4'3"
+  heightRollMod:
+    value: +2d4"
+  weightAverage:
+    value: 60 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Bothawui
+  slanguage:
+    value: Bothese
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: nTIwpqn8tPkjpase
+    changes:
+      - key: flags.sw5e.naturallyStealthy
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.nimbleEscape
+        value: '1'
+        mode: 5
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Bothan
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Bothan.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!zVZbpjA2CjUx3YIC.nTIwpqn8tPkjpase'
+_id: zVZbpjA2CjUx3YIC
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304726463
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!zVZbpjA2CjUx3YIC'

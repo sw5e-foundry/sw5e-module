@@ -1,0 +1,137 @@
+_id: Ni3PTIVEyqriLgwg
+name: Spirit Blade
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/SpiritBlade.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1257603+00:00'
+    importer_version: 3
+    uid: Power.name-spirit_blade.level-0
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>You conjure a blade of spirit energy and attempt to strike one creature. Make a melee force attack against the target. If the attack hits, the creature takes [[/r 1d10]] necrotic damage.</p>
+      <p>This power can make multiple attacks at higher levels: two attacks at 5th level, three attacks at 11th level, and four attacks at 17th level. Each attack can target the same creature or different ones. Make a separate attack roll for each target.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: touch
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: mpak
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d10
+        - necrotic
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 0
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: none
+    formula: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  properties: []
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        condition: ''
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: spell
+          value: melee
+      damage:
+        critical: {}
+        parts:
+          - custom:
+              enabled: false
+            denomination: 10
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - necrotic
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: touch
+      target:
+        template:
+          type: ''
+          units: ''
+      type: attack
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979221
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Ni3PTIVEyqriLgwg'

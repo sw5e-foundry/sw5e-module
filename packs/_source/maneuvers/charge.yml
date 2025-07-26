@@ -1,0 +1,126 @@
+_id: iuovgNnqiA7NRzsR
+name: Charge
+type: sw5e.maneuver
+img: modules/sw5e/icons/packs/Maneuvers/Charge.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:02.7896354+00:00'
+    importer_version: 3
+    uid: Maneuvers.name-charge
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  htmlFields:
+    - description.value
+    - description.chat
+    - unidentified.description
+  description:
+    value: <p>As a bonus action on your turn, you can expend one superiority die to spur your allies to move. Until the start of your next turn, creatures you choose within 10 feet of you who can see or hear you can move an additional distance equal to 5 times the superiority die rolled on their turn and ignore unenhanced difficult terrain.</p>
+    chat: ''
+  requirements: Proficiency in Persuasion
+  source:
+    custom: PHB
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 10
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: superiority.dice.value
+    amount: 1
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: 5 * (1d@superiority.die)
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: mental
+    subtype: ''
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  recharge:
+    value: null
+    charged: false
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: ''
+            target: superiority.dice.value
+            type: attribute
+            value: '1'
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '10'
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493983310
+  modifiedTime: 1739121090591
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!iuovgNnqiA7NRzsR'

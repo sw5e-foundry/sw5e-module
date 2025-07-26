@@ -1,0 +1,174 @@
+name: Talz
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2921258+00:00'
+    importer_version: 3
+    uid: Species.name-talz
+type: race
+img: modules/sw5e/icons/packs/Species/Talz.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Talz are large, bulky, bipedal creatures, that are covered head to toe in thick white fur, which provides exceptional insulation against their frozen world. Talz have four eyes, which are also adaptations to their native environment. The larger set of eyes are shut during the day, when sunlight reflects off the snow with dazzling brightness—able to blind sensitive optical organs—leaving the smaller set to navigate with. Alternatively, during the deep darkness of their homeworld's moonless night, the larger pair are utilized to provide the Talz with adequate vision. Talz use a small proboscis to eat and communicate, creating high-pitched chirps and buzzes.</p>
+      <h2>Society and Culture</h2>
+      <p>Talz are a hunter-gatherer, clan-based society. They work in unison, and treat the entire clan as one single familial entity. Resources on Ordo Plutonia are often scarce, which leads to warring among Talz tribes. However, the clans are adept at forming a unified front when they face a common enemy.</p>
+      <p>Talz are large, brutal creatures and are often used as guards and enforcers. Sometimes they are taken as slaves, though it's rare; they are rebellious against authority and don't take well to slavery. There are rumors that Talz are captured for scientific experimentation.</p>
+      <h2>Names</h2>
+      <p>Talz names are fairly gutteral and are characterized by their harsh nature. Female names are typically longer than male names. Surnames are clan-based, though it's rare that a Talz shares them with non-Talz.</p>
+      <p><strong>Male Names.</strong> Drak, Fedirk, Imom, Ke, Twift</p>
+      <p><strong>Female Names.</strong> Ilnuno, Ontuga, Utrukk, Zimtucc</p>
+      <p><strong>Surnames.</strong> Dic, Noetoc, Suptat, Wume, Zapak</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: talz
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 60
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.UGnXrkp2O9t6703o
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.R2FeRU2wL1R45Inc
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.TG9Doa9OI5PAo6yN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.s5ouiXPmhTDYg9aK
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.qfeCVNNJdAlszqZ9
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.woMjePUOii3Gj2c2
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.UKUNXNs81XDSLnXv
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.QTFgsBBfVl3pMG8c
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.M9ctjlYra58N3iII
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          str: 2
+          wis: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+  skinColorOptions:
+    value: Black or grey
+  hairColorOptions:
+    value: Grey, pink, or white
+  eyeColorOptions:
+    value: Black, dark blue, or dark red
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Covered in fur, four eyes, unable to speak Galactic Basic
+  heightAverage:
+    value: 6'5"
+  heightRollMod:
+    value: +2d10"
+  weightAverage:
+    value: 180 lb.
+  weightRollMod:
+    value: x(2d6) lb.
+  homeworld:
+    value: Orto Plutonia
+  slanguage:
+    value: Talzzi
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: tJH1nruC0gpiDYG8
+    changes:
+      - key: system.attributes.ac.value
+        value: 12+@abilities.dex.mod
+        mode: 5
+        priority: 1
+      - key: flags.sw5e.longlimbed
+        value: '1'
+        mode: 0
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Talz
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Talz.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!TNs4iaQrqxAQ5vMo.tJH1nruC0gpiDYG8'
+_id: TNs4iaQrqxAQ5vMo
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725567
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!TNs4iaQrqxAQ5vMo'

@@ -1,0 +1,213 @@
+name: Droid, Class V
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:55.9146224+00:00'
+    importer_version: 3
+    uid: Species.name-droid_class_v
+type: race
+img: modules/sw5e/icons/packs/Species/Droid-ClassV.webp
+system:
+  description:
+    value: |-
+      <h2>Appearance</h2>
+      <p>Class V droids are typically vaguely human-like in both shape and size, standing at around 6 feet, although many can be larger. They are usually a polished metallic color, though this can vary based on tasks for which they are created, their affiliation, or quirks of their owner.</p>
+      <p>They are noteworthy for their simple programming and quiet, focused work habits.</p>
+      <h2>Utility</h2>
+      <p>Class V droids are programmed for menial and low-skill tasks. Such droids tend to perform basic tasks such as construction, lifting, maintenance, mining, sanitation, and transportation. Labor droids are fifth-degree droids.</p>
+      <h2>Names</h2>
+      <p>Droids are typically called by their designation, given to them when they are created, or some affectation given to them by their owner. Often this affectation is a play on their designation. Occasionally, noteworthy droids will earn monikers based on their accomplishments.</p>
+      <p><strong>Designations (Names).</strong> CO-34 (See-Oh Three Four), FX-9 (Effex), PK-4 (Pook), SAE-B13 (Sable)</p>
+    chat: ''
+  source:
+    custom: PHB
+  identifier: droid-classv
+  details:
+    isDroid: true
+  type:
+    value: droid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: sw5e0ig000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.Yo4Z3sX0NDDxYaiI
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.t0zf7BDJhtJkZqIY
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.R1fDs5IDbPHgN1OI
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.yLaEUGXDB1b59RfU
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.CeErZ5BOkdYQjfhx
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.CJWdGdp4e4If4ytv
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.gJA2igwKInJcdVZJ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.rQwNVwjXixRNMW6m
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Yglw81yCSUaoXWCe
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.r65JSPtWfHKp4xdN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.6dXA2Q9QhoEftRkM
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Sj1kBtuHL2LaXL0T
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Klc1bapD5QW43Qib
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.DJ8nPpQ0bAqU2HcH
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.1HXIOjaapUaQCeBK
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.JdkzP0CbzJjV0xhN
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e1asi00000000
+      configuration:
+        fixed:
+          str: 2
+        points: 1
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e2s0000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: sw5e3t0000000000
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - tool:art:*
+        grants:
+          - dr:necrotic
+          - dr:poison
+          - dr:psychic
+          - ci:poisoned
+          - ci:diseased
+          - dv:ion
+          - skills:ath
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: ''
+  hairColorOptions:
+    value: ''
+  eyeColorOptions:
+    value: ''
+  colorScheme:
+    value: Typically metallic
+  distinctions:
+    value: Vaguely human-like size and shape, typically quiet
+  heightAverage:
+    value: 5'2"
+  heightRollMod:
+    value: +2d12"
+  weightAverage:
+    value: 140 lb.
+  weightRollMod:
+    value: x(2d8) lb.
+  homeworld:
+    value: ''
+  slanguage:
+    value: Binary
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: Z3v7Cj4aSpJg4K8C
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      coreVersion: '12.331'
+      systemId: dnd5e
+      systemVersion: 3.3.1
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+    changes:
+      - key: flags.sw5e.encumbranceMultiplier
+        mode: 2
+        priority: 20
+        value: '+1'
+      - key: flags.sw5e.forceInsensitive
+        mode: 5
+        priority: 20
+        value: '1'
+      - key: flags.sw5e.maintenanceMode
+        mode: 5
+        priority: 20
+        value: '1'
+      - key: flags.sw5e.rapidReconstruction
+        mode: 5
+        priority: 20
+        value: '1'
+    description: ''
+    disabled: false
+    duration:
+      combat: null
+      rounds: null
+      seconds: null
+      startRound: null
+      startTime: null
+      startTurn: null
+      turns: null
+    flags: {}
+    img: modules/sw5e/icons/packs/Species/Droid%20Class%20V.webp
+    name: Droid, Class V
+    origin: null
+    sort: 0
+    statuses: []
+    system: {}
+    tint: '#ffffff'
+    transfer: true
+    type: base
+    _key: '!items.effects!swCRalxq9OlRcwqW.Z3v7Cj4aSpJg4K8C'
+_id: swCRalxq9OlRcwqW
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732412596409
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!swCRalxq9OlRcwqW'

@@ -1,0 +1,136 @@
+name: Channel the Force
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5588128+00:00'
+    importer_version: 3
+    uid: Feature.name-channel_the_force.source-archetype.sourceName-vonilishu_form.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/GRDN-ARCH-Reaction.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Vonil/Ishu Form:</strong> 3rd, 11th, and 17th level</em></p>
+      <p>You gain one of the following Channel the Force options. Choose Smite for Vonil or Shield for Ishu.</p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.xMSmaNTv7YiWb3yU]{Smite}</h3>
+      <p>Once per turn, when an ally is within 10 feet of you and it hits a creature with a melee weapon attack, you can expend a use of your Channel the Force and expend force points to have the chosen ally deal additional damage to the target, which is the same type as the weapon's damage. The additional damage is [[/r 1d8]] for each point spent in this way. You can't deal more additional damage than the amount shown in the Focused Strikes column of the guardian table.</p>
+      <p>At 11th level, the chosen ally must be within 30 feet of you to benefit from this feature. At 17th level, the chosen ally must be within 60 feet.</p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.oW0sAWlBE1sbF9TM]{Shield}</h3>
+      <p>When an ally is hit by a weapon attack while within 10 feet of you, you can use your reaction and expend a use of your Channel the Force to attempt to divert the attack. When you do so, the damage the chosen ally takes from the attack is reduced by [[/r 1d10]] + your Wisdom or Charisma modifier (your choice) + your guardian level.</p>
+      <p>At 11th level, the chosen ally must be within 30 feet of you to benefit from this feature. At 17th level, the chosen ally must be within 60 feet.</p>
+    chat: ''
+  requirements: Guardian (Vonil/Ishu Form) 3
+  source:
+    custom: EC
+  activation:
+    type: reaction
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 10
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d8
+        - ''
+    versatile: ''
+  formula: 1d10 + @mod
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: reaction
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '10'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1679609438441
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: wHTE9kHoU87SzhiE
+_key: '!items!wHTE9kHoU87SzhiE'

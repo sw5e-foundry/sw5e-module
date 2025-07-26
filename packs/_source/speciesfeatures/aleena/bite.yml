@@ -1,0 +1,76 @@
+name: Bite
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.5699648+00:00'
+    importer_version: 3
+    uid: Feature.name-bite.source-species.sourceName-aleena
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Species/Aleena.webp
+system:
+  description:
+    value: <p>Your sharp teeth are a natural weapon, which you can use to make unarmed strikes. Additionally, your unarmed strikes deal [[/r 1d4]] kinetic damage. Lastly, as a bonus action, you can perform a special bite attack. On a hit, the target suffers the attack's normal effects, you gain temporary hit points equal to your Constitution modifier (minimum of 1), and you can't use this trait again until you finish a short or long rest.</p>
+    chat: ''
+  requirements: Aleena
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: species
+    subtype: ''
+  uses:
+    max: '1'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: inst
+      healing:
+        custom:
+          enabled: true
+          formula: '@abilities.con.mod'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+  identifier: bite
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: xa7MENGTXUVhlKeJ
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433988012
+  modifiedTime: 1739121096233
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!xa7MENGTXUVhlKeJ'

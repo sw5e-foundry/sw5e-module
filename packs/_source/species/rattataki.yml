@@ -1,0 +1,187 @@
+name: Rattataki
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.290127+00:00'
+    importer_version: 3
+    uid: Species.name-rattataki
+type: race
+img: modules/sw5e/icons/packs/Species/Rattataki.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>The Rattataki are a near-human species characterized by their nimble movements, chalk-white skin and oft-bald heads. Virtually isolated from the rest of the galaxy, the Rattataki developed a violent society on their home planet of Rattatak, which involves extensive gladiatorial combat. </p>
+      <h2>Society and Culture</h2>
+      <p>While most other inhabitants of Rattatak came from the Unknown Regions, there are a significant number of off-worlder mercenaries who come to Rattatak from time to time, likely to view or participate in gladiatorial combat, only to be stranded there permanently. The remarkably harsh conditions on the planet nearly drove its population to extinction. For eons, the Rattataki constantly battled amongst themselves and their fellow inhabitants (represented primarily by Humans, Zabraks, Siniteens, Vollick, and Weequay) over the planet's limited resources. Despite being nearly completely isolated from the outside galaxy, the Rattataki displayed remarkable initiative and continually created new ways to kill each other.</p>
+      <p>Rattataki culture is bloody and unforgiving. Punishment for even the smallest crimes is unnecessarily harsh, which does little to quell that behavior. In fact, Rattataki who are known to commit crimes without being caught are celebrated.</p>
+      <h2>Names</h2>
+      <p>Rattataki names are harsh sounding and short. Surnames are familial, though many Rattataki abandon them in favor of self-aggrandizing titles.</p>
+      <p><strong>Male Names.</strong> Aidus, Charnagus, Karok, Veran</p>
+      <p><strong>Female Names.</strong> Amaran, Kassien, Silas, Sraja, Vol</p>
+      <p><strong>Surnames.</strong> Anjek, Danvik, Degger, Kolla, Venkorr</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: rattataki
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 35
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.IlQ65JioJgwB7ioI
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.WejqTl389vdRrvXh
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.bOxxdeTbNxFm1E2Y
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.CiEYGFCdGhoTawoZ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.BykNORjQOz2gHetM
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.AmcQDzUFVIQCkZ6u
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.KtqK0g50oz58eIUC
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.tcr0lvtZSsoLE7S4
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.n5FP8cym7n2zI6sD
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.pWkMcIYc82X2KTP8
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          wis: 2
+        points: 1
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:acr
+          - skills:itm
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Chalk-white
+  hairColorOptions:
+    value: Brown, grey or white
+  eyeColorOptions:
+    value: Grey or white
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Near-human features, white skin, usually with a bald head, often tattooed
+  heightAverage:
+    value: 4'4"
+  heightRollMod:
+    value: +2d10"
+  weightAverage:
+    value: 90 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Rattatak
+  slanguage:
+    value: Rattataki
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: 1peB1cOJ8IYxY5Cw
+    changes:
+      - key: flags.sw5e.surpriseAttack
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.unarmedCombatant
+        value: '1'
+        mode: 5
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Rattataki
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Rattataki.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!rWmBISsRpzkFlmUC.1peB1cOJ8IYxY5Cw'
+_id: rWmBISsRpzkFlmUC
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304726235
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!rWmBISsRpzkFlmUC'

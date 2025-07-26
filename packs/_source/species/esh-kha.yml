@@ -1,0 +1,194 @@
+name: Esh-Kha
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2771354+00:00'
+    importer_version: 3
+    uid: Species.name-esh_kha
+type: race
+img: modules/sw5e/icons/packs/Species/Esh-Kha.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Esh-kha are a gray-skinned humanoid species with equine features, including muzzles and digitigrade legs. They also have small black eyes. </p>
+      <h2>Society and Culture</h2>
+      <p>In terms of society, their race's culture resembles that of a hive society though each individual retain their own thoughts and aspirations yet all being bred for a specific role that they were eager to fulfill. A caste system is present amongst the esh-kha which included Force-sensitive simple minded savants, more numerous skilled determined warriors that watched over them and finally the patriarchs that acted as leaders who provided their wisdom as well as decisions to their entire people. Esh-kha appear to outsiders as a savage violent species that care only for the destruction of all other races. This hatred for other sentient species is believed to had stemmed from their tightly-knit hive-like society. It is suspected that the esh-kha are simply unable to tolerate or even adapt to the existence of thinking of outsiders who only suffered their wrath. Their race only turns violent against one another in the most extreme of circumstances.</p>
+      <h2>Names</h2>
+      <p>Whilst their kind are individuals, esh-kha are not named at birth but instead earn their names through their actions. An esh-kha that displayed great skill in battle could be called "Swift Blade", or maybe "Deadly Cutter" or some other such name. It is believed that this partly explained an esh-kha's zeal in battle with young warriors seeking not only victory but an opportunity to lay claim to a name and forge their own identity. Esh-kha do not use surnames, as they believe they are one family.</p>
+      <p><strong>Names.</strong> Bleeding Yell, Dormant Heart, Blue Survivor, Ancient Cull, Sharp Grip, Running Sun, Flame Walker</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: esh-kha
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 60
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.8cB9TuNnbuh3haJZ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.VVnkyb6mQtbO5z03
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ZB1Ae3CxvrZ4KODF
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.uXM1yJ8918dFSWHy
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.djy0tt7xxZlDXVFw
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.RbpWmIMJbSuTgMiB
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.9Gk4qUj9sCNFP8zO
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.fGDfBAfkqIaDjC70
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.v2JfQA9yObS2Rui5
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.8oP63biHdx5KqfbH
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.okymcr3eLmeJSLle
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.xlvlS2VWddL4Ze4I
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          con: 1
+        points: 2
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - skills:*
+          - count: 2
+            pool:
+              - weapon:svb:*
+              - weapon:mvb:*
+              - weapon:sbl:*
+              - weapon:mbl:*
+        grants:
+          - skills:inv
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Gray or tan
+  hairColorOptions:
+    value: Gray
+  eyeColorOptions:
+    value: Black
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Horizontal head protrusions
+  heightAverage:
+    value: 5'4"
+  heightRollMod:
+    value: +2d10"
+  weightAverage:
+    value: 145 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Unknown, Belsavis (adopted)
+  slanguage:
+    value: Kharan
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: ffzoK411b5xIiB1l
+    changes:
+      - key: flags.sw5e.meleeCriticalDamageDice
+        mode: 2
+        value: '+1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.y9srMEmADsqiQNI9.ActiveEffect.aUdPMqzH9ntC1KQB
+    origin: Compendium.sw5e.species.Item.y9srMEmADsqiQNI9
+    name: Esh-Kha
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Esh-Kha.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!IrxTfuovLNTCCBJV.ffzoK411b5xIiB1l'
+_id: IrxTfuovLNTCCBJV
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725221
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!IrxTfuovLNTCCBJV'

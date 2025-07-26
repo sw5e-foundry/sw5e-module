@@ -1,0 +1,128 @@
+_id: M4zlScZCt9t25tEj
+name: Psychometry
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/Psychometry.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1207632+00:00'
+    importer_version: 3
+    uid: Power.name-psychometry.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Telemetry</em></p>
+      <p>For the duration, you gain the ability to "communicate" telepathically with inanimate objects you touch. You can ask up to five questions and receive answers from objects, usually in the form of an auditory or visual hallucination. For example, touching the rusted, broken remains of a lightsaber and asking how it got there may result in a brief vision of a disgruntled Jedi Knight casting it to the ground on that spot. An object "questioned" in this way can only provide information relating to its past. The DM has the final say on what objects can be questioned, and to what extent.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: minute
+    cost: 1
+    condition: ''
+  duration:
+    value: '10'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 4
+    scale: true
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 3
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: none
+    formula: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        condition: ''
+        type: minute
+      description: {}
+      duration:
+        units: minute
+        value: '10'
+      img: null
+      range:
+        override: false
+        units: self
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '4'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979215
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!M4zlScZCt9t25tEj'

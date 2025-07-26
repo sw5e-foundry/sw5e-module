@@ -1,0 +1,133 @@
+_id: xWhFkvuhJJEU70ES
+name: Presence
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/GRDN-ARCH-Passive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9834229+00:00'
+    importer_version: 3
+    uid: Feature.name-presence.source-archetype.sourceName-shiendjem_so_form.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Shien/Djem So Form:</strong> 15th level</em></p>
+      <p>You gain one of the following features. Choose Precise Reflection for Shien or Brutal Strikes for Djem So.</p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.72xZod8mzP1D8fiW]{Precise Reflection}</h3>
+      <p>When you hit with an attack made by the <em>saber reflect</em> power, you can expend force points to deal additional damage to the target, which is the same type as the weapon's damage. The additional damage is [[/r 1d8]] for each point spent in this way. You can't deal more additional damage than the amount shown in the Focused Strikes column of the guardian table.</p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.ikyNmVKFSnURBOhE]{Brutal Strikes}</h3>
+      <p>The Force flowing through you grants you incredible strength. Your Force-Empowered Strikes and Improved Force-Empowered Strikes damage rolls gain a minimum roll threshold, discussed in chapter 7. Additionally, when you spend force points to use your Force-Empowered Strikes feature, you gain temporary hit points equal to twice the number of points spent.</p>
+    chat: ''
+  requirements: Guardian (Shien/Djem So Form) 15
+  source:
+    custom: PHB
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d8
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493958249
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!xWhFkvuhJJEU70ES'

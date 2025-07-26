@@ -1,0 +1,133 @@
+_id: Pqp7qsEGnd2K8unD
+name: Force-Enhanced Strikes
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/MNK-ARCH-Passive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9864201+00:00'
+    importer_version: 3
+    uid: Feature.name-force_enhanced_strikes.source-archetype.sourceName-matukai_order.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Matukai Order:</strong> 3rd level</em></p>
+      <p>You learn to channel the Force into your unarmed strikes and monk weapons, further enhancing your melee strikes. When you hit a creature with an unarmed strike or melee weapon attack with a monk weapon, you can spend 1 focus point to force the creature to make a Strength saving throw against your focus save DC. On a failed save, it takes [[/r 2d6]] force damage and is pushed up to 15 feet away from you. On a successful save, the creature only takes half as much damage and isn't pushed.</p>
+    chat: ''
+  requirements: Monk (Matukai Order) 3
+  source:
+    custom: PHB
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d6
+        - force
+    versatile: ''
+  formula: ''
+  save:
+    ability: str
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - force
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957707
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Pqp7qsEGnd2K8unD'

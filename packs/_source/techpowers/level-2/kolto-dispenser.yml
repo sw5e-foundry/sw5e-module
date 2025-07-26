@@ -1,0 +1,142 @@
+name: Kolto Dispenser
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.169735+00:00'
+    importer_version: 3
+    uid: Power.name-kolto_dispenser.level-2
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/KoltoDispenser.webp
+system:
+  description:
+    value: |-
+      <p>You establish a mobile first aid station that radiates kolto in a 5-foot cube you can see within range.</p>
+      <p>Until the power ends, whenever you or a creature you can see moves into the station's space for the first time on a turn or starts its turn there, you can cause the station to restore [[/r 1d6]] hit points to that creature (no action required). The station can heal a number of times equal to 1 + your techcasting ability modifier (minimum of twice). After healing that number of times, the station disintegrates. This power has no effect on droids or constructs.</p>
+      <p>As a bonus action on your turn, you can move the station up to 30 feet to a space you can see.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 3rd level or higher, the healing increases by [[/r 1d6]] for each slot level above 2nd.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  target:
+    value: '5'
+    width: null
+    units: ft
+    type: cube
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: heal
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6
+        - healing
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 2
+  school: tec
+  properties:
+    - concentration
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: 1d6
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 3
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        condition: ''
+        type: action
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      healing:
+        custom:
+          enabled: false
+        denomination: 6
+        number: 1
+        scaling:
+          formula: 1d6
+          mode: whole
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        units: ft
+        value: '60'
+      target:
+        template:
+          size: '5'
+          type: cube
+      type: heal
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '3'
+effects: []
+_id: aQ7VuMiBalbBDhL8
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!aQ7VuMiBalbBDhL8'

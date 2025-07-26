@@ -1,0 +1,172 @@
+_id: X7XHQKPmHsq1CMyF
+name: Missile, Incendiary (Lethal)
+type: consumable
+img: modules/sw5e/icons/packs/Ammunition/Missile-Incendiary.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:20.3634461+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-missile_incendiary_lethal.subtype-ammunition
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: "<h4>Consumable (Ammunition)</h4>\n <p>You have a +3 bonus to attack rolls made with this enhanced wrist launcher ammunition, which deals [[/r 2d6]] kinetic damage on a hit. This bonus is in addition to any bonuses granted by the weapon. Additionally, hit or miss, the missile then explodes, setting the ground beneath it in a 15 foot radius ablaze for 1 minute. When a creature enters the fire or starts its turn there it must make a DC 22 Dexterity saving throw. On a failed save, the creature takes [[/r 5d8]] fire damage or half as much on a successful one. A construct makes this save with disadvantage.</p>\n<p>\_</p>\n<h2>Missile, incendiary</h2>\n<p>This wrist launcher ammunition deals [[/r 1d6]] kinetic damage on a hit. Additionally, hit or miss, the missile then explodes, setting the ground beneath it in a 15 foot radius ablaze for 1 minute. When a creature enters the fire or starts its turn there it must make a DC 14 Dexterity saving throw. On a failed save, the creature takes [[/r 1d8]] fire damage or half as much on a successful one. A construct makes this save with disadvantage.</p>"
+    chat: ''
+  source:
+    custom: EC
+  quantity: 1
+  weight:
+    value: 0
+    units: lb
+  price:
+    value: 160
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: legendary
+  identified: true
+  activation:
+    type: ''
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    autoDestroy: false
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6
+        - kinetic
+      - - 1d8
+        - fire
+      - - 2d6
+        - kinetic
+      - - 5d8
+        - fire
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: 22
+    scaling: flat
+  properties: []
+  type:
+    value: ammo
+    subtype: missile
+  unidentified:
+    description: ''
+  attack:
+    bonus: '3'
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 5
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: ft
+      save:
+        ability: dex
+        dc:
+          calculation: ''
+          formula: '14'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964741
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!X7XHQKPmHsq1CMyF'

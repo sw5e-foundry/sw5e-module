@@ -1,0 +1,134 @@
+name: Jump Pad
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:03.1904027+00:00'
+    importer_version: 3
+    uid: Power.name-jump_pad.level-2
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/JumpPad.webp
+system:
+  description:
+    value: |-
+      <p>You create a bouncy surface in a 5-foot square on a surface within range. When you cast the power, you can designate creatures that can safely use the jump pad. For the duration, whenever a creature you haven't chosen enters the affected area, it must make a Dexterity saving throw or be launched 10 feet upwards, and 5 feet horizontally in a random direction. To determine the direction, roll a [[/r d8]] and assign a direction to each die face.</p>
+      <p>While a creature you have chosen (or a creature that has succeeded its Dexterity saving throw) is in the area, it can use its reaction to jump with the aid of the bouncy surface. The creature's jump distance for this jump is multiplied by 5.</p>
+    chat: ''
+  source:
+    custom: EC
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  target:
+    value: '5'
+    width: null
+    units: ft
+    type: square
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: 1d8
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  level: 2
+  school: tec
+  properties:
+    - concentration
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: none
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 3
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '60'
+      save:
+        ability: dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '5'
+          type: square
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '3'
+effects: []
+_id: WKwj4bB69cubog9B
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!WKwj4bB69cubog9B'

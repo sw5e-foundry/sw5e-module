@@ -1,0 +1,88 @@
+_id: 9sKkrdkDLFTvdKiX
+name: Defense Screen
+type: feat
+img: modules/sw5e/icons/packs/Deployments/Pilot.webp
+effects: []
+folder: null
+sort: 0
+flags: {}
+system:
+  description:
+    value: <p><em><strong>Power Die Location:</strong> Engines</em><br />As a bonus action, you can expend a power die and take a defensive formation as long as there is a friendly ship within 100 feet of you. When you do so, your AC increases by the amount rolled on the die until the start of your next turn.</p>
+    chat: ''
+  requirements: Pilot 1st Rank
+  source:
+    custom: ''
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: powerdice
+    target: attributes.power.engines.value
+    amount: 1
+    scale: false
+  ability: null
+  actionType: ''
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: deployment
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493963418
+  modifiedTime: 1720368729843
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!9sKkrdkDLFTvdKiX'

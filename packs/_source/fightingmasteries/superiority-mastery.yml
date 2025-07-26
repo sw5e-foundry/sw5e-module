@@ -1,0 +1,120 @@
+_id: hqr2xGS2VfcThscp
+name: Superiority Mastery
+type: feat
+img: modules/sw5e/icons/packs/Fighting%20Styles%20and%20Masteries/SuperiorityMastery.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:00.3020782+00:00'
+    importer_version: 3
+    uid: FightingMastery.name-superiority_mastery
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>You've mastered utilizing maneuvers to enhance your skills on the battlefield, <em>expanded</em>. You gain the following benefits:</p>
+      <ul>
+      <li>You learn one maneuver, detailed in Chapter 13. If you already know at least one maneuver, you instead learn three maneuvers. Your maneuver ability is Strength, Dexterity, or Constitution for physical maneuvers (your choice), your Intelligence, Wisdom, or Charisma for mental maneuvers (your choice), and an ability of your choice for general maneuvers. </li>
+      <li>You gain one superiority die. If you already have at least one superiority die, you instead gain two additional superiority dice. Your superiority die is a [[/r d4]], and it changes as you gain levels: to [[/r d6]] at 5th level, to [[/r d8]] at 9th level, to [[/r d10]] at 13th level, and to [[/r d12]] at 17th level. A superiority die is expended when you use it. You regain all of your expended superiority dice when you finish a short or long rest.</li>
+      <li>When you use a maneuver on your turn that involves rolling a superiority die, you can use your bonus action to gain advantage on the superiority die roll.</li>
+      <li>Choose one maneuver you know. When you would use the chosen maneuver, you can use a [[/r d4]] instead of expending a superiority die. You can do so a number of times equal to your proficiency bonus. You regain all expended uses when you complete a long rest.</li></ul>
+    chat: ''
+  requirements: null
+  source:
+    custom: PHB
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '@attributes.prof'
+    per: sr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: customizationOption
+    subtype: fightingMastery
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493967825
+  modifiedTime: 1739121097474
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!hqr2xGS2VfcThscp'

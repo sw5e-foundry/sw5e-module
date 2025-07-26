@@ -1,0 +1,79 @@
+name: Power Fist
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.342215+00:00'
+    importer_version: 3
+    uid: Feature.name-power_fist.source-archetypeinvocation.sourceName-armormech_engineering
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite:</strong> Armor</em></p>
+      <p>You modify your modified armor gauntlet with increased reinforcement and weight. Your modified armor's unarmed strike deals [[/r 1d4]] kinetic damage.</p>
+      <p>Additionally, when you take the Attack action and make an unarmed strike, you can make an additional unarmed strike as a bonus action.</p>
+    chat: ''
+  requirements: Engineer (Armormech Engineering), Armor
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: bonus
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+  identifier: power-fist
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: v57bPcmBf4mL91CQ
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!v57bPcmBf4mL91CQ'

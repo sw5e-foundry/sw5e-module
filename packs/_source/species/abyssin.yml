@@ -1,0 +1,156 @@
+name: Abyssin
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2701392+00:00'
+    importer_version: 3
+    uid: Species.name-abyssin
+type: race
+img: modules/sw5e/icons/packs/Species/Abyssin.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>The hulking abyssin have long limbs and a single large eye that dominates their foreheads. Typically well-muscled, the abyssin's stooping gait results in a slightly hunched appearance. </p>
+      <p>A distinctive trait of the abyssin is their ability to heal quickly; their fast regeneration is believed to have been an adaptation to prevent fluid loss via bleeding on their desert homeworld. All cells in the abyssin body are replaced every 80 hours, and organs which typically were paired in other species appear singularly.</p>
+      <h2>Society and Culture</h2>
+      <p>A primitive tribal society, the abyssin of Byss are known as violent and brutish, and their planet is avoided by most beings in the civilized galaxy. Unstable resources on Byss do not allow for mass population growth or for the stabilization of a central government, economy or trade system. </p>
+      <p>Existing simply in nomadic tribes, abyssin groups can interact peacefully with one another, though only if both groups have plentiful water and food supplies. Otherwise, they began a 'Blooding', a brawl that ends only when one tribe's warriors are all killed, captured, or incapacitated. Warriors who survive a Blooding are usually allowed to join the winning tribe once they finish their regeneration. This tradition led to some violent incidents when spacers tried to make first contact and trade with Abyssin tribes with scarce water resources, especially since the abyssin assumed the alien traders could regenerate as quickly as they did. </p>
+      <h2>Names</h2>
+      <p>There does not appear to be any distinction between male and female names for abyssin. Abyssin don't use surnames.</p>
+      <p><strong>Names.</strong> Anami, Easym, Myo, Qawohl, Seh-run, Sidie</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: abyssin
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.NrT0VEANxbblzM4Y
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.GtNxSrexuJW5Twcx
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.3NmHDVbKzglc9O6L
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.bVJY5ZPEQ90rH4SY
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.N7xJAYZP8ipabpok
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.SoGRfKVA82kkM1tI
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.RCZ0QwJxfyoyPqvl
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.22hrXNT5I2R1PGgh
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.xnfeAvu6ydah7LEt
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.kR16blth5uBQmEsv
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          con: 2
+          str: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:sur
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+_id: 3v42btRPnbZ1Y6V8
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304724717
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+effects:
+  - _id: JhHAOQyteRjEJhyC
+    changes:
+      - key: flags.sw5e.techImpaired
+        mode: 5
+        value: '1'
+        priority: 20
+      - key: flags.sw5e.meleeCriticalDamageDice
+        mode: 2
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Abyssin
+    description: ''
+    statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      coreVersion: '12.331'
+      systemId: dnd5e
+      systemVersion: 3.3.1
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+    img: modules/sw5e/icons/packs/Species/Abyssin.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!3v42btRPnbZ1Y6V8.JhHAOQyteRjEJhyC'
+_key: '!items!3v42btRPnbZ1Y6V8'

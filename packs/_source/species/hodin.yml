@@ -1,0 +1,197 @@
+name: Ho'din
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2801331+00:00'
+    importer_version: 3
+    uid: Species.name-hodin
+type: race
+img: modules/sw5e/icons/packs/Species/HoDin.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Ho'dins are tall humanoids with multi-colored skin, naturally webbed and suction cup-tipped fingers and toes, and temperature-sensing red-violet "snake hair". Ho'dins are, on average, over nine feet tall—nearly a full head taller than wookiees. Renowned throughout the galaxy as botanists and healers, the ho'din claim an ancestry derived from the plants of their home planet, Moltok—in fact, "ho'din" translates as "walking flower" in Galactic Basic. They are, in fact, reptilian, as their natural climbing skills and cold-bloodedness seem to indicate, and boast a second heart to enhance their survivability. Their "snake hair" is temperature-sensitive, allowing ho'din to sense changes in ambient temperature.</p>
+      <h2>Society and Culture</h2>
+      <p>Ho'dins are known to be self-conscious and vain, particularly when it comes to their looks and their work, and do not take criticism or insults well. Their religion, Dinante Fli'R, is centered around worshipping and communing with nature, a trait that has sent many ho'din out into the galaxy to rejuvenate damaged planets. The ho'din have an aversion to technology and avoid surface mining and manufacturing, opting instead to dwell in trees. They have learned to make incredibly advanced pharmaceuticals and gardens using their botanical skills to concoct natural medicines, some of which have cured plagues on distant worlds. The title of "Master Gardener" is one of high esteem and great respect in ho'din society.</p>
+      <h2>Names</h2>
+      <p>Ho'din names are quite diverse. Some names look complicated and difficult to pronounce, while others are quite simple. Surnames are familial.</p>
+      <p><strong>Male Names.</strong> Baji, Gra'tau, Iwo, Oojoh, Thrung, Vala</p>
+      <p><strong>Female Names.</strong> Chela, Kutu, Lohje, Par'tah, Sirta, Tal</p>
+      <p><strong>Surnames.</strong> Alewune, Kulko, Oolos, Plett, Ustu, Wen</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: hodin
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    climb: 30
+    burrow: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.UIJn7fICPAvapRAX
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.R1leDizcHsGhSjmx
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Y6ozk2WNEt2SjI7S
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.H54JvydqYTozvuKV
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Ba0SLjSC1I4BxkdA
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.rr7FTMK3g5kr80gA
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.og0y4kXiAS9vAHsk
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.nZwNzWMuvgxSpkwW
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.jnSHDRKJIiuWeDal
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.iFPqJGf3i4LHWzSh
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.5otpMfqy5x3SNQAk
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.7mVsGDtpX8nNUZWL
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.4BeqKnWh74TS0C0w
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.4SALHrdauEsRzylr
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          int: 2
+          wis: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - skills:med
+              - skills:sur
+          - count: 1
+            pool:
+              - tool:art:*
+        grants:
+          - skills:nat
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Green, yellow, blue, orange
+  hairColorOptions:
+    value: Red-violet
+  eyeColorOptions:
+    value: Black
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Snake-like "hair", suction-cupped fingers
+  heightAverage:
+    value: 7'10"
+  heightRollMod:
+    value: +2d12"
+  weightAverage:
+    value: 150 lb.
+  weightRollMod:
+    value: x(2d6) lb.
+  homeworld:
+    value: Moltok
+  slanguage:
+    value: Ho'Din
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: BtKp61FR6tISnPzc
+    changes:
+      - key: flags.sw5e.multipleHearts
+        value: '1'
+        mode: 0
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Ho'Din
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Ho%27Din.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!8K45InD6ZRWSdHVh.BtKp61FR6tISnPzc'
+_id: 8K45InD6ZRWSdHVh
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304724895
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!8K45InD6ZRWSdHVh'

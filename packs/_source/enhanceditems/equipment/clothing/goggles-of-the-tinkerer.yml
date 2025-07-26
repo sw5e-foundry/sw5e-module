@@ -1,0 +1,166 @@
+_id: pOvpbyomB4XHzzGh
+name: Goggles of the Tinkerer
+type: equipment
+img: modules/sw5e/icons/packs/Enhanced%20Items/GogglesOfTheTinkerer.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:04.7145191+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-goggles_of_the_tinkerer.subtype-head
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <h4>Adventuring Gear (Head)</h4>
+       <p><em><strong>Requires attunement</strong></em></p>
+      <p><em>Prerequisite:  at least 3 levels in engineer</em></p>
+      <hr />
+      <p>This item can hold a number of charges equal to half your engineer level (rounded up). When you complete a long rest, this item regains all missing charges. Once per turn, when you use a Potent Aptitude feature, you can spend 1 charge to roll the Potent Aptitude dice twice and add them together.</p>
+      <p>When you reach 5th level in engineer, you become a valid target of your Potent Aptitude feature. Additionally, you gain 1 additional modification slot.</p>
+      <p>When you reach 11th level in engineer, you can add half your proficiency bonus, rounded down, to any ability check with tools you make that doesn't already include your proficiency bonus. Additionally, you gain 1 additional modification slot (2).</p>
+      <p>When you reach 17th level in engineer, when use your bonus action to grant a Potent Aptitude die, you can grant a [[/r d4]] instead of expending a use of your Potent Aptitude. Additionally, you gain 1 additional modification slot (3).</p>
+      <p><em>These goggles feature one-way glass lenses. When worn over the eyes, the lenses take whatever appearance the bearer decides.</em></p>
+    chat: ''
+  source:
+    custom: WH
+  quantity: 1
+  weight:
+    value: 0
+    units: lb
+  price:
+    value: 0
+    denomination: gp
+  attunement: required
+  equipped: false
+  rarity: prototype
+  identified: true
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ceil((@classes.engineer.levels)/2)
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  armor:
+    value: null
+    dex: null
+    magicalBonus: null
+  hp:
+    value: 0
+    max: 0
+    dt: null
+    conditions: ''
+  attributes:
+    capx:
+      value: null
+    dmgred:
+      value: null
+    regrateco:
+      value: null
+    cscap:
+      value: null
+    sscap:
+      value: null
+    fuelcostsmod:
+      value: null
+    powerdicerec:
+      value: ''
+    hdclass:
+      value: null
+  modify:
+    chassis: none
+    augmentSlots: 0
+    modSlots: 4
+    items: []
+    changes: {}
+  speed:
+    value: null
+    conditions: ''
+  strength: null
+  properties: []
+  proficient: 1
+  type:
+    value: clothing
+    baseItem: ''
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964965
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!pOvpbyomB4XHzzGh'

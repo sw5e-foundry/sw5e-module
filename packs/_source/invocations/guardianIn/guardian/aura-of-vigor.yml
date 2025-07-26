@@ -1,0 +1,75 @@
+name: Aura of Vigor
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.6286281+00:00'
+    importer_version: 3
+    uid: Feature.name-aura_of_vigor.source-classinvocation.sourceName-guardian
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/GRDN-Passive.webp
+system:
+  description:
+    value: <p>Whenever a friendly creature starts its turn within 5 feet of you, that creature gains temporary hit points equal to your Wisdom or Charisma modifier (your choice, minimum of one).</p>
+    chat: ''
+  requirements: Guardian
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: guardianInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: action
+      description: {}
+      duration:
+        units: inst
+      healing:
+        custom:
+          enabled: true
+          formula: '@mod'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        value: '5'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+  identifier: aura-of-vigor
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: b9Rdij1v4qbiT9qQ
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!b9Rdij1v4qbiT9qQ'

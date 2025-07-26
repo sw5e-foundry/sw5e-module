@@ -1,0 +1,88 @@
+name: Evasive Maneuvers
+type: feat
+flags: {}
+img: modules/sw5e/icons/packs/Starship%20Features/Medium.webp
+effects: []
+_id: BsyAajkYG8yoCLvj
+system:
+  description:
+    value: <p>Also at 1st tier, when a crew member at the helm rolls for initiative, they can immediately move the ship. This movement happens before the initiative order is determined.</p><p>The amount the ship moves is determined by rolling an Evasive Maneuvers die, which is a [[/r 1d4]], and multiplying it by 50 feet. The ship then gains that many feet that it can move or spend to turn.</p><p>Your ship's Evasive Maneuvers die changes when it reaches certain tiers. The die becomes a [[/r 1d6]] at 2nd tier, a [[/r 1d8]] at 3rd tier, a [[/r 1d10]] at 4th tier, and a [[/r 1d12]] at 5th tier.</p><p>This feature can be used a number of times equal to 2 x your ship's tier. All expended uses are regained when the ship is refitted.</p>
+    chat: ''
+  requirements: ''
+  source:
+    custom: SotG
+  activation:
+    type: special
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: 2*@details.tier
+    per: refitting
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    scale: false
+  ability: ''
+  actionType: ''
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: starship
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+ownership:
+  default: 0
+folder: null
+sort: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674494017916
+  modifiedTime: 1720552913533
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!BsyAajkYG8yoCLvj'

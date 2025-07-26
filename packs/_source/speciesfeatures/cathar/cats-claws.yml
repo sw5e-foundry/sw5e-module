@@ -1,0 +1,76 @@
+name: Cat's Claws
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:56.2094514+00:00'
+    importer_version: 3
+    uid: Feature.name-cats_claws.source-species.sourceName-cathar
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Species/Cathar.webp
+system:
+  description:
+    value: <p>Your unarmed strikes deal [[/r 1d6]] kinetic damage and have the finesse property.</p>
+    chat: ''
+  requirements: Cathar
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: species
+    subtype: ''
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+  identifier: cats-claws
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: ionyCEpuPXOepuoL
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433988012
+  modifiedTime: 1739121096233
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!ionyCEpuPXOepuoL'

@@ -1,0 +1,89 @@
+name: Ideal of the Vigorous
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.6296276+00:00'
+    importer_version: 3
+    uid: Feature.name-ideal_of_the_vigorous.source-classinvocation.sourceName-sentinel
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SNTL-Action.webp
+system:
+  description:
+    value: |-
+      <p>When you roll a Hit Die to regain hit points, you may use your Wisdom or Charisma modifier in place of your Constitution modifier when determining the number of hit points you regain.</p>
+      <p>Additionally, as an action, you can manifest this ideal in a brief surge of energy. You gain a number of temporary hit points equal to half your sentinel level + your Wisdom or Charisma modifier (your choice, minimum of one).</p>
+    chat: ''
+  requirements: Sentinel
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: sentinelInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      roll: {}
+      target: {}
+      type: utility
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: action
+      description: {}
+      duration:
+        units: inst
+      healing:
+        custom:
+          enabled: true
+          formula: ((@classes.sentinel.levels)/2) + @mod
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+  identifier: ideal-of-the-vigorous
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: vTMlHVJo5gkbNIUS
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!vTMlHVJo5gkbNIUS'

@@ -1,0 +1,74 @@
+name: Vow of Restoration
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.6286281+00:00'
+    importer_version: 3
+    uid: Feature.name-vow_of_restoration.source-classinvocation.sourceName-monk
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/MNK-Passive.webp
+system:
+  description:
+    value: <p>When you would make an unarmed strike, you can spend 1 focus point to instead touch a willing creature within your reach. Roll your Martial Arts die. The target gains hit points equal to the amount rolled + your Wisdom or Charisma modifier (your choice, minimum of +1).</p>
+    chat: ''
+  requirements: Monk
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: monkInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: action
+      description: {}
+      duration:
+        units: inst
+      healing:
+        custom:
+          enabled: true
+          formula: '@mod'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+  identifier: vow-of-restoration
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: z23EVSK1dN2RBsPh
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!z23EVSK1dN2RBsPh'

@@ -1,0 +1,199 @@
+name: Cerean
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:55.9136241+00:00'
+    importer_version: 3
+    uid: Species.name-cerean
+type: race
+img: modules/sw5e/icons/packs/Species/Cerean.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>The Cereans' enlarged skulls, extending above their foreheads, house complex binary brains, provided with sufficient blood by an extra heart in their heads. The binary structure of Cerean thinking helps them to ponder two sides of an issue at once. It also enables them to process information and solve problems rapidly and provides a highly advanced capacity for concentration and meditation. Because of their thoughtful nature, they tend to be calm, rational and analytical, preferring peaceful philosophies and a lifestyle which works in harmony with nature. Though the quick-thinking Cereans have equally quick reflexes, they are commonly not as well coordinated as humans. </p>
+      <h2>Society and Culture</h2>
+      <p>Cereans developed a low-tech society on their homeworld and prefer to live in isolation from the wider galaxy. Preserving the natural beauty of Cerea, the planet is home to many Outsider Citadels where it is permissible to use offworld technology, though it could not be removed from the Citadel. Meditation is a core part of a Cerean's daily rituals, with many employing specially-forged kasha crystals as a focusing tool. By focusing one's thoughts while in contact with such crystals, distractions are eliminated, creating an exceptional meditation environment. Cerean Jedi sometimes incorporate these crystals into their lightsabers, providing great focus, even during intense physical combat.</p>
+      <h2>Names</h2>
+      <p>Cerean male first names are often hyphenated, while females are not. Surnames are familial.</p>
+      <p><strong>Male Names.</strong> Ji-Cheelia, Ki-Adi, Pick-toh, Sauli-Fanz</p>
+      <p><strong>Female Names.</strong> Dreash, Kilniavy, Melm, Rharoth</p>
+      <p><strong>Surnames.</strong> Codux, Emkom, Kyureft, Lonnik, Mundi</p>
+    chat: ''
+  source:
+    custom: PHB
+  identifier: cerean
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.HAoQkDTrxgI20trH
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.1yppXcf1lWEWBYIJ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.IY1xGqrlXQWNHl30
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.gBaXTDqWKMNvtyf3
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.I0DWEN5SlsVYclMC
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.OPLtVQVtpeRh385U
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.5JWHKCZ4zLW0MPFT
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.stAkZqTvowkgiN9L
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.30E9Kl7RbEXM7zOH
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.gFoV4fdubkP9NNn8
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ILgw7jXj8Vd2ryDm
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          int: 2
+          wis: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - skills:nat
+              - skills:prc
+        grants: []
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Light tones
+  hairColorOptions:
+    value: Blond, brown, or white (usually with age)
+  eyeColorOptions:
+    value: Yellow
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Cone-like skull, binary brain
+  heightAverage:
+    value: 5'8"
+  heightRollMod:
+    value: +2d8"
+  weightAverage:
+    value: 120 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Cerea
+  slanguage:
+    value: Cerean
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: BhqpYkxEEUvVs0Z2
+    changes:
+      - key: flags.sw5e.advantage.ability.save.force.wis
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.strongLegged
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.trance
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.advantage.ability.save.force.cha
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Cerean
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Cerean.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!UiTiNfwlsRuOMhtz.BhqpYkxEEUvVs0Z2'
+_id: UiTiNfwlsRuOMhtz
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725580
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!UiTiNfwlsRuOMhtz'

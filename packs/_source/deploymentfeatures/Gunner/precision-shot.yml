@@ -1,0 +1,88 @@
+_id: 6R7dm1mCOW7Y4bfC
+name: Precision Shot
+type: feat
+img: modules/sw5e/icons/packs/Deployments/Gunner.webp
+effects: []
+folder: null
+sort: 0
+flags: {}
+system:
+  description:
+    value: <p><em><strong>Power Die Location:</strong> Weapons</em><br />When you make a ship attack roll against a ship, you can expend one power die to add it to the roll. If that attack hits, add the power die to the attack's damage roll. You can use this power before or after making the attack roll, but before any effects of the attack are applied.</p>
+    chat: ''
+  requirements: Gunner 1st Rank
+  source:
+    custom: ''
+  activation:
+    type: none
+    cost: null
+    condition: When you make a ship attack roll against a ship
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: powerdice
+    target: attributes.power.weapons.value
+    amount: 1
+    scale: false
+  ability: null
+  actionType: ''
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: deployment
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493963413
+  modifiedTime: 1720368729793
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!6R7dm1mCOW7Y4bfC'

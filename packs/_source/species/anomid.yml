@@ -1,0 +1,191 @@
+name: Anomid
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2711394+00:00'
+    importer_version: 3
+    uid: Species.name-anomid
+type: race
+img: modules/sw5e/icons/packs/Species/Anomid.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Anomid are a species of humanoids with translucent, purple-hued skin that is smooth but wrinkles with age. They have large, slender hands with six fingers on each: two end fingers, two center fingers and two thumbs, with a sharp claw on each. The fingers are paired in twos and slightly spaced apart from the others. The eyes of the anomids are solid, with no visible irises or pupils and have been seen in varying shades of yellow or blue. The anomids have pointed, fin-like ears that protrude from the sides of their heads. Anomid hair is often long and well kept, and is always found in shades of black, gray or white.</p>
+      <h2>Society and Culture</h2>
+      <p>Anomids almost always wear elaborate masks which cover most of their faces. These are not breath masks, but vocalizer units. Since anomids have no vocal cords, they rely on these vocalizer masks to communicate with other species. These masks are often elaborately customized to reflect an anomid's social status, family origin, or profession. Among themselves, anomids communicate using an elaborate sign language. Anomid sign language requires six-fingered hands, which makes it difficult for humans or human-programmed protocol droids to use.</p>
+      <p>Anomid civilization has a long history of pacifism and technical achievement. In fact, most Anomids are pacifists—historians believed that no major wars have ever been fought in the Yablari system.</p>
+      <h2>Names</h2>
+      <p>Anomid names are usually one or two syllables long, featuring hard consonants. Female names are often softer, with a greater flow to them. Surnames are familial.</p>
+      <p><strong>Male Names.</strong> Arkis, Jarak, Magris, Vell </p>
+      <p><strong>Female Names.</strong> Apharis, Eralie, Siphanie, Ulaniye </p>
+      <p><strong>Surnames.</strong> Dekan, Krest, Narroc, Quill, Wode</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: anomid
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.lwW2kr4MybKMlKiP
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.7S8tiRKNFxCcFfMR
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.PelihrKG61irtGpZ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.XJ9vKLc3EL6B5Ewf
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.xGDsXrF6gt9AmFpF
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.pCImcFTSeZ28KqLV
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.5NLAlOGnZGwcF5W8
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.7CNKIikDGXdJswNI
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.MjEs33MvbXFZA5YJ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ORpPvKCdqPf9bSfD
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.sjDKZLe3eyP82KUD
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.eAYkYRWSbwJMM1t9
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          int: 2
+          wis: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:tec
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Translucent violet to light purple
+  hairColorOptions:
+    value: Black, gray, or white
+  eyeColorOptions:
+    value: Opalescent; yellow or blue
+  colorScheme:
+    value: ''
+  distinctions:
+    value: No vocal cords, six-fingered hands
+  heightAverage:
+    value: 4'8"
+  heightRollMod:
+    value: +2d6"
+  weightAverage:
+    value: 100 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Yablari
+  slanguage:
+    value: Anomid Sign Language
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: r8Bt9PJq9d3VlL46
+    changes:
+      - key: flags.sw5e.advantage.ability.save.tech.dex
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.advantage.ability.save.tech.int
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Anomid
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Anomid.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!1HNGQBaZIFbCqkPG.r8Bt9PJq9d3VlL46'
+_id: 1HNGQBaZIFbCqkPG
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304724632
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!1HNGQBaZIFbCqkPG'

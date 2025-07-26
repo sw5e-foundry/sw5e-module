@@ -1,0 +1,203 @@
+_id: fGsRWj9oEKcrukw6
+name: Potent Aptitude
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp
+effects:
+  - _id: kgjdGZaM7KvRGDlN
+    changes:
+      - key: flags.dae
+        mode: 0
+        value: BardicInspirationDice (floor(@classes.engineer.levels/5)+3) * 2
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    origin: Compendium.sw5e.classfeatures.fGsRWj9oEKcrukw6
+    transfer: true
+    flags:
+      core:
+        statusId: ''
+    tint: '#ffffff'
+    name: Potent Aptitude Dice
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!fGsRWj9oEKcrukw6.kgjdGZaM7KvRGDlN'
+  - _id: 87rFIkDTyzEZeKaW
+    changes:
+      - key: ''
+        mode: 2
+        value: '0'
+        priority: 0
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    origin: Compendium.sw5e.classfeatures.fGsRWj9oEKcrukw6
+    transfer: false
+    flags:
+      core:
+        statusId: ''
+    tint: '#ffffff'
+    name: Inspired
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: icons/skills/melee/unarmed-punch-fist.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!fGsRWj9oEKcrukw6.87rFIkDTyzEZeKaW'
+folder: null
+sort: 0
+flags:
+  mre-dnd5e:
+    formulaGroups:
+      - label: Primary
+        formulaSet:
+          - 0
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.5650853+00:00'
+    importer_version: 3
+    uid: Feature.name-potent_aptitude.source-class.sourceName-engineer.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Engineer:</strong> 1st level</em></p>
+      <p>Your technological experience lends you an uncommon insight that you can use to bolster your allies. To do so, you use a bonus action on your turn to choose one creature other than yourself within 60 feet of you who can hear you. That creature gains one Potent Aptitude die, a [[/r d4]]. This die changes as you gain engineer levels, as shown in the Potent Aptitude column of the engineer table.</p>
+      <p>Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. Once the Potent Aptitude die is rolled, it is lost.</p>
+      <p>A creature can have only one Potent Aptitude die at a time.</p>
+      <p>You can use this feature twice. You gain an additional use at 5th, 9th, 13th, and 17th level. You regain any expended uses when you finish a short or long rest.</p>
+    chat: ''
+  requirements: Engineer
+  source:
+    custom: PHB
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: '10'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: '1'
+    width: null
+    units: ''
+    type: creature
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: '2'
+    per: sr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    scale: false
+  ability: ''
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: 1d4
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: minute
+        value: '10'
+      img: null
+      range:
+        units: ft
+        value: '60'
+      roll:
+        formula: 1d4
+      target:
+        template:
+          size: '1'
+          type: creature
+          units: ''
+      type: utility
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493962350
+  modifiedTime: 1739121094035
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!fGsRWj9oEKcrukw6'

@@ -1,0 +1,71 @@
+name: Jet Pack
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.342215+00:00'
+    importer_version: 3
+    uid: Feature.name-jet_pack.source-archetypeinvocation.sourceName-gadgeteer_engineering
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp
+system:
+  description:
+    value: |-
+      <p>You integrate a jet pack into your gadgeteer harness to grant you temporary, limited flight. Activating or deactivating the jets requires a bonus action and, while active, you have a flying speed of 30 feet. </p>
+      <p>The jet pack last for 1 minute before deactivating. Once the jets have been activated, they can't be activated again until you finish a short or long rest.</p>
+      <p>Your jet pack's speed increases to 40 feet at 5th level, 50 feet at 9th level, 60 feet at 13th level, 70 feet at 17th level, and 80 feet at 20th level.</p>
+    chat: ''
+  requirements: Engineer (Gadgeteer Engineering)
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    max: '1'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+  identifier: jet-pack
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: JwW90Np9IKKpHJZQ
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!JwW90Np9IKKpHJZQ'

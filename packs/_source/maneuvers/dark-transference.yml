@@ -1,0 +1,131 @@
+_id: d8yPRQblXURFSd6s
+name: Dark Transference
+type: sw5e.maneuver
+img: modules/sw5e/icons/packs/Maneuvers/DarkTransference.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:21.5147792+00:00'
+    importer_version: 3
+    uid: Maneuvers.name-dark_transference
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  htmlFields:
+    - description.value
+    - description.chat
+    - unidentified.description
+  description:
+    value: <p>When you hit a creature with an attack, you can expend a superiority die and roll it to attempt to siphon life from it. The target must make a Constitution saving throw. On a failed save, add the result to the damage roll, and you regain one expended Hit Die.</p>
+    chat: ''
+  requirements: null
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: superiority.dice.value
+    amount: 1
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: 1d@superiority.die
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  type:
+    value: mental
+    subtype: ''
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  recharge:
+    value: null
+    charged: false
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: ''
+            target: superiority.dice.value
+            type: attribute
+            value: '1'
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493983301
+  modifiedTime: 1739121090591
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!d8yPRQblXURFSd6s'

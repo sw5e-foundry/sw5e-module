@@ -1,0 +1,78 @@
+name: Clever Applications
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.6296276+00:00'
+    importer_version: 3
+    uid: Feature.name-clever_applications.source-classinvocation.sourceName-scholar
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCLR-Passive.webp
+system:
+  description:
+    value: |-
+      <p>You gain proficiency with improvised weapons, and they gain the finesse property for you. Additionally, when you make an attack with an improvised weapon, it deals [[/r 1d6]] damage.</p>
+      <p>You can use your Sage Advice feature to give friendly creatures improvised weapon proficiency if they don't already have it, following the same rules of that feature as if it were a skill or tool. The friendly creatures retain this proficiency for the entire duration instead.</p>
+    chat: ''
+  requirements: Scholar
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: scholarInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+  identifier: clever-applications
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: 1Nrf9OQm5XIBdwk0
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!1Nrf9OQm5XIBdwk0'

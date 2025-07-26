@@ -1,0 +1,127 @@
+name: Jump Jet
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:03.1904027+00:00'
+    importer_version: 3
+    uid: Power.name-jump_jet.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/JumpJet.webp
+system:
+  description:
+    value: |-
+      <p>You boost yourself through the air with a brief surge of repulsor energy. You can rise a number of feet equal to 20 x your techcasting ability modifier. You can also move a number of feet horizontally during any part of the movement equal to 5 x your techcasting ability modifier. At the end of the turn on which you cast this power, you float gently to the ground if you are still aloft.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 2nd level or higher, you can rise an additional 20 feet, and move horizontally by another 5 feet for each slot level above 1st.</p>
+    chat: ''
+  source:
+    custom: EC
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: other
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 1
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 2
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        condition: ''
+        type: bonus
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: self
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '2'
+effects: []
+_id: JZeW0ntasG1NAQyn
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!JZeW0ntasG1NAQyn'

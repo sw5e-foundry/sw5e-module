@@ -1,0 +1,198 @@
+name: Ugnaught
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:11.8983543+00:00'
+    importer_version: 3
+    uid: Species.name-ugnaught
+type: race
+img: modules/sw5e/icons/packs/Species/Ugnaught.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Ugnaughts are diminutive, porcine humanoids who have pink skin, upturned noses, white hair, and thick layers of jowls. Some have tusks that they use in blood duels. They are strong and resilient, and their life-spans reached up to 200 standard years. They notably eat genteslugs.</p>
+      <h2>Society and Culture</h2>
+      <p>Ugnaughts are ruled by councils comprised of elected officers. Ugnaughts live their lives in accordance to their "blood profession", with Ugnaught parents teaching their children their trade. Infant Ugnaughts are known as Ugletts. If the number of new Ugnaughts in a given profession exceeds the need, a blood duel is called. When the Ugnaughts reached their twentieth year of age, these fights are held to the death, with the victor winning the right to inherit their blood profession. Despite this outdated and violent custom, the Ugnaughts are generally a peaceful people with a rich culture.</p>
+      <p>When greeting an Ugnaught, it is advised to bow silently, then wait for a guttural purring as a positive response. Usage of the common galactic greeting "yaa-yaah" is considered a personal insult to Ugnaughts. If this occurrs, it was advisable to duck and cover, as various mechanical implements will be thrown one's way. </p>
+      <p>Ugnaughts are often enslaved as they are fairly meek.</p>
+      <h2>Names</h2>
+      <p>Ugnaught names are generally concise. Female names sound more cheerful. Surnames are determined by blood profession.</p>
+      <p><strong>Male Names.</strong> Banax, Dral, Durn, Togre, Yirkux</p>
+      <p><strong>Female Names.</strong> Admeva, Olnito, Ruskor, Vurlilli</p>
+      <p><strong>Surnames.</strong> Col, Gnatro, Mikk, Roc, Sag</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: ugnaught
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 25
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 60
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: sw5e0ig000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.zk64fXq9kSkkeYR2
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.arSrCDQzu28Gh8iG
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.LDl943tWVGAyJ2bI
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.iN2xI4noV5X6tSCz
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.y6fEAL8Y5f8gFxSW
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.NtmS57aNBbIibNrN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ztiZTZIINYZWaymT
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.3SJoF5ffPU1a0d7A
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ppNnDmZQqKAz9Ha7
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.VBnCGkKPRkBzqFcE
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.1ypdXr8VTztRfeet
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Fkx6cWOX3XIE9MLH
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.dfj6hlNlgxVpYZA7
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e1asi00000000
+      configuration:
+        fixed:
+          int: 2
+          str: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e2s0000000000
+      configuration:
+        sizes:
+          - sm
+      level: 0
+      type: Size
+      value: {}
+    - _id: sw5e3t0000000000
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - tool:*
+        grants:
+          - dr:acid
+          - tool:tinkersimplements
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Varying shades of pink
+  hairColorOptions:
+    value: White
+  eyeColorOptions:
+    value: Black and red
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Diminutive stature, porcine features, technological affinity
+  heightAverage:
+    value: 3'1"
+  heightRollMod:
+    value: +2d12"
+  weightAverage:
+    value: 40 lb.
+  weightRollMod:
+    value: x1 lb.
+  homeworld:
+    value: Gentes
+  slanguage:
+    value: Ugnaught
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: cEL26hyVYxGjv0si
+    changes:
+      - key: flags.sw5e.tinker
+        mode: 0
+        priority: 20
+        value: '1'
+      - key: flags.sw5e.undersized
+        mode: 0
+        priority: 20
+        value: '1'
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Ugnaught
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Ugnaught.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!d2DOlI7nh0KJrJBf.cEL26hyVYxGjv0si'
+_id: d2DOlI7nh0KJrJBf
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732412596409
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!d2DOlI7nh0KJrJBf'

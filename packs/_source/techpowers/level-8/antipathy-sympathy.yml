@@ -1,0 +1,137 @@
+name: Antipathy/Sympathy
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1437497+00:00'
+    importer_version: 3
+    uid: Power.name-antipathysympathy.level-8
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/Antipathy-Sympathy.webp
+system:
+  description:
+    value: |-
+      <p>This power attracts or repels creatures of your choice. You target something within range, either a Huge or smaller object or creature or an area that is no larger than a 200-foot cube. Then specify a kind of intelligent creature, such as rancors, kath hounds, or twi'leks. You invest the target with an aura that either attracts or repels the specified creatures for the duration. Choose antipathy or sympathy as the aura's effect.</p>
+      <p><strong><em>Antipathy.</em></strong> The power causes creatures of the kind you designated to feel an intense urge to leave the area and avoid the target. When such a creature can see the target or comes within 60 feet of it, the creature must succeed on a Wisdom saving throw or become frightened. The creature remains frightened while it can see the target or is within 60 feet of it. While frightened by the target, the creature must use its movement to move to the nearest safe spot from which it can't see the target. If the creature moves more than 60 feet from the target and can't see it, the creature is no longer frightened, but the creature becomes frightened again if it regains sight of the target or moves within 60 feet of it.</p>
+      <p><strong><em>Sympathy.</em></strong> The power causes the specified creatures to feel an intense urge to approach the target while within 60 feet of it or able to see it. When such a creature can see the target or comes within 60 feet of it, the creature must succeed on a Wisdom saving throw or use its movement on each of its turns to enter the area or move within reach of the target. When the creature has done so, it can't willingly move away from the target. </p>
+      <p>If the target damages or otherwise harms an affected creature, the affected creature can make a Wisdom saving throw to end the effect, as described below.</p>
+      <p><strong><em>Ending the Effect.</em></strong> If an affected creature ends its turn while not within 60 feet of the target or able to see it, the creature makes a Wisdom saving throw. On a successful save, the creature is no longer affected by the target and recognizes the feeling of repugnance or attraction as unnatural. In addition, a creature affected by the power is allowed another Wisdom saving throw every 24 hours while the power persists.</p>
+      <p>A creature that successfully saves against this effect is immune to it for 1 minute, after which time it can be affected again.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: hour
+    cost: 1
+    condition: ''
+  duration:
+    value: '10'
+    units: day
+  target:
+    value: '200'
+    width: null
+    units: ft
+    type: cube
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: wis
+    dc: null
+    scaling: spell
+  level: 8
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: none
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 9
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: hour
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: day
+        value: '10'
+      img: null
+      range:
+        units: ft
+        value: '60'
+      save:
+        ability: wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '200'
+          type: cube
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '9'
+effects: []
+_id: p2V3UvM79SbLjTKD
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!p2V3UvM79SbLjTKD'

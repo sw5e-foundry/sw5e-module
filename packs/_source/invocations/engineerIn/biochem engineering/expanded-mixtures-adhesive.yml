@@ -1,0 +1,71 @@
+name: 'Expanded Mixtures: Adhesive'
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:15.1684586+00:00'
+    importer_version: 3
+    uid: Feature.name-expanded_mixtures_adhesive.source-archetypeinvocation.sourceName-biochem_engineering
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Action.webp
+system:
+  description:
+    value: <p>You've created a new mixture from your chemicals that you can use when you activate your distributor. When you do so, the target creature must make a Strength saving throw. If the creature is Large or larger, it has advantage on the saving throw. On a failed save, a creature gains 4 slowed levels until the start of your next turn. As an action on their turn, an affected creature can repeat this saving throw, ending the effect on a success. </p>
+    chat: ''
+  requirements: Engineer (Biochem Engineering)
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+  identifier: expanded-mixtures-adhesive
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: pdxQsadfGd5XIJoe
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!pdxQsadfGd5XIJoe'

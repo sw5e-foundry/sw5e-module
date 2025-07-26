@@ -1,0 +1,149 @@
+name: Saber Storm
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.4758598+00:00'
+    importer_version: 3
+    uid: Feature.name-saber_storm.source-archetype.sourceName-way_of_manipulation.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/CSLR-ARCH-Action.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Way of Manipulation:</strong> 3rd, 5th, 11th, and 17th level</em></p>
+      <p>You learn to deftly control your weapons utilizing the Force. As an action, you can initiate your Saber Storm. When you do so, select a light- or vibro-weapon within 5 feet that is not worn or carried by a conscious creature other than you, and use the Force to cause it to levitate, acting as an extension of your will for 1 minute. When you activate this feature, you can cause the weapon to move up to 10 feet and make a melee force attack against a creature within 5 feet of it. On a hit, the target takes [[/r 1d8]] + your forcecasting ability modifier damage. The type is of the normal damage dealt by the weapon. The weapon then returns to your side.</p>
+      <p>Your weapon moves with you, and while Saber Storm is active and you have a weapon animated, on each of your turns you can use an action to move a weapon up to 10 feet and repeat the attack against a creature within 5 feet of it. The weapon then returns to your side. Your Saber Storm ends early if you are incapacitated. At any time, you can end this feature and return the animated weapon to your hand.</p>
+      <p>Additionally, while your Saber Storm is active, and at least one animated weapon is within 5 feet of you, you gain the following benefits:</p>
+      <ul>
+      <li>You gain a bonus to your AC equal to your Wisdom or Charisma modifier (your choice, minimum of +1) if it doesn't already include that modifier.</li>
+      <li>You gain a bonus to any Constitution saving throw you make to maintain your concentration on a power. The bonus equals your Wisdom or Charisma modifier (your choice, minimum of +1).</li>
+      </ul>
+      <p>This feature can animate more than one weapon when you reach higher levels: two weapons at 5th level, three weapons at 11th level, and four weapons at 17th level. When you use your action to attack with your weapons, you can direct them at the same target or at different ones. Make a separate attack roll for each weapon.</p>
+      <p>At 5th level, the distance your weapon can travel increases to 20 feet. This distance increases to 30 feet at 11th level, and 40 feet at 17th level.</p>
+      <p>You can use this feature twice. You regain all expended uses of it when you finish a short or long rest.</p>
+    chat: ''
+  requirements: Consular (Way of Manipulation) 11
+  source:
+    custom: EC
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 5
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '2'
+    per: sr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: mpak
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d8 + @mod
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: 300
+      turn: 250
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        critical:
+          threshold: null
+        flat: false
+        type:
+          classification: spell
+          value: melee
+      damage:
+        critical: {}
+        parts:
+          - bonus: '@mod'
+            custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '5'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: attack
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1680288495988
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: cbEs3K1SdLg202rO
+_key: '!items!cbEs3K1SdLg202rO'

@@ -1,0 +1,143 @@
+_id: j8ta27jY2ioWqYES
+name: Improved Force Barrier
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/ImprovedForceBarrier.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1107695+00:00'
+    importer_version: 3
+    uid: Power.name-improved_force_barrier.level-5
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Force Barrier</em></p>
+      <p>This power further bolsters your allies with toughness and resolve. Choose up to twelve creatures within range. Each target gains the following benefits:</p>
+      <ul>
+      <li>The becomes immune to poison and disease. Any currently existing poison or diseases still exist.</li>
+      <li>The creature becomes immune to being frightened by powers.</li>
+      <li>The creature's hit point maximum and current hit points increase by [[/r 2d10]] for the duration.</li>
+      </ul>
+      <p>These benefits last for 24 hours or until the end of your next long rest, whichever happens first.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: minute
+    cost: 10
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 6
+    scale: true
+  ability: null
+  actionType: heal
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d10
+        - healing
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 5
+  school: lgt
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: none
+    formula: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        condition: ''
+        type: minute
+      description: {}
+      duration:
+        units: inst
+      healing:
+        custom:
+          enabled: false
+        denomination: 10
+        number: 2
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        units: ft
+        value: '30'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '6'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979297
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!j8ta27jY2ioWqYES'

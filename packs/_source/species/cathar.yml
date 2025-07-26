@@ -1,0 +1,185 @@
+name: Cathar
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:55.9136241+00:00'
+    importer_version: 3
+    uid: Species.name-cathar
+type: race
+img: modules/sw5e/icons/packs/Species/Cathar.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>The Cathar have fur-covered bodies with thick manes as well as prominent, retractable claws that can deliver powerful killing attacks on foes and prey. Their bodies also possess rapid healing abilities. These traits make them the perfect hand-to-hand specialists.</p>
+      <p>The Cathar species also has two subspecies, known as the Juhani and the Myr Rho. Both of these are notably less catlike than mainline Cathar. Cathar are born into a litter. The Cathar species is biologically similar to the Bothan species.</p>
+      <h2>Society and Culture</h2>
+      <p>On their homeworld, Cathar live in cities built into giant trees, and are organized into clans governed by elders. Stories of their great heroes were often carved into the trunks of these tree-homes for following generations to see. The Cathar mate for life, to the extent that when one mate dies, the survivor never has a relationship with another. Cathar clan society includes great pageants and celebrations, especially for their heroes. Their religion includes a ritual known as the "Blood Hunt," in which Cathar warriors individually engaged in combat against entire nests of Kiltik in order to gain honor and purge themselves of inner darkness. The native language of the Cathar is Catharese, which included the emphasis of some spoken words with a growl.</p>
+      <h2>Names</h2>
+      <p>Cathar names can sound both melodic and fairly gutteral, but they almost always sound strong and fierce. Female names are typically longer than male names. Surnames are usually one syllable.</p>
+      <p><strong>Male Names.</strong> Crurbirr, Isyrr, Nynorr, Suro, Tukarr </p>
+      <p><strong>Female Names.</strong> Cuwin, Jyvohr, Mulahr, Solyri</p>
+      <p><strong>Surnames.</strong> Jin, Ki, Mak, Rhir, Ta</p>
+    chat: ''
+  source:
+    custom: PHB
+  identifier: cathar
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    climb: 30
+    burrow: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 60
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.semfCewrrygbQCtq
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.GC4eX2Z457WPChTO
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.MULPerc9acL7YUkW
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.6QjO2GREsq6SEXnv
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.RjDPx8gvdn6tidQt
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ionyCEpuPXOepuoL
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.JXfDHnpN8Wul52Wd
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.siVKyy5hAHdkX2vV
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.rAmaCC86lrddx7Bl
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.do0pzHxJpbcd0PiE
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.sN3OCZ2tBHFl5xPq
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          cha: 1
+          dex: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:ste
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Gold to yellow-brown with dark stripes
+  hairColorOptions:
+    value: Brown, black, or grey
+  eyeColorOptions:
+    value: Yellow or brown
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Lion-like features
+  heightAverage:
+    value: 4'9"
+  heightRollMod:
+    value: +2d12"
+  weightAverage:
+    value: 130 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Cathar
+  slanguage:
+    value: Catharese
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: 6fYB2NZ236PqSl6p
+    changes:
+      - key: flags.sw5e.nimbleAgility
+        value: '1'
+        mode: 0
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Cathar
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Cathar.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!6UMhCaL0ypYqht2M.6fYB2NZ236PqSl6p'
+_id: 6UMhCaL0ypYqht2M
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304724787
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!6UMhCaL0ypYqht2M'

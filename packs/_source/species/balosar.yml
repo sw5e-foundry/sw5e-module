@@ -1,0 +1,186 @@
+name: Balosar
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.272138+00:00'
+    importer_version: 3
+    uid: Species.name-balosar
+type: race
+img: modules/sw5e/icons/packs/Species/Balosar.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Physically similar to humans, balosars appear to be sickly and gaunt when compared with the galaxy's most common species due to the heavy pollution of their homeworld. The most striking difference between balosars and humanity is a pair of antennapalps which sprouts from underneath the thick, coarse hair on their skulls. Retractable, these atennapalps allow them to listen into the subsonic range and give the species physical intuition and preternatural reflexes, which members of the Jedi Order sometimes mistook for Force-sensitivity. Balosars also possess an acute tolerance for poisonous substances, a byproduct of life on their toxic homeworld.</p>
+      <h2>Society and Culture</h2>
+      <p>Early in its history, the balosar homeworld was overrun by galactic megacorporations eager to exploit the world's lax ecological protection laws. The planet was home to the balo mushroom, a key ingredient in death sticks, one of the galaxy's most infamous narcotics. After its discovery, Balosar was wrought with corruption, addiction, and pollution from the production and usage of death sticks.</p>
+      <p>Since there is little opportunity to flourish on their homeworld, balosars often leave in search of fortune elsewhere. Their natural resistance to the lethal—but not the addictive—effects of the drug encourages some to enter the death stick business.</p>
+      <h2>Names</h2>
+      <p>Balosar names have a slight exotic tinge to them—often because Balosar parents name their children while on a death stick high. Their surnames are familial.</p>
+      <p><strong>Male Names.</strong> Barin, Elan, Fantes, Zerba </p>
+      <p><strong>Female Names.</strong> Delaana, Ferrika, Reki, Vetyl </p>
+      <p><strong>Surnames.</strong> Cher'dak, Mer'darro, Sel'Sabagno</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: balosar
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: sw5e0ig000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.MXBpIDs1l68JQTZM
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.52AW67nwSC2NnXCG
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.j6CuhVwTF9X82Z2Z
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.yCIYE9uPiihH4NjV
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.WS6Iv0u8AFRlb368
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.k8jpjNSdNeIjlmZ5
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.6Qq5weH8LxGpkpBB
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.rWmpQWNHvyZKRof6
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.YsJ766zxKfwgO5QF
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.KyKR2ow4GbDydiaN
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e1asi00000000
+      configuration:
+        fixed:
+          cha: 1
+          dex: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e2s0000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: sw5e3t0000000000
+      configuration:
+        choices: []
+        grants:
+          - tool:spicerskit
+          - dr:poison
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Pale
+  hairColorOptions:
+    value: Black, blond, orange, brown, white
+  eyeColorOptions:
+    value: Varies
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Antennapalps, resistance to toxins
+  heightAverage:
+    value: 4'8"
+  heightRollMod:
+    value: +2d8"
+  weightAverage:
+    value: 100 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Balosar
+  slanguage:
+    value: Balosur
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: mebaLEwfl4QjrFOD
+    changes:
+      - key: flags.sw5e.situational.advantage.skill.prc
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.fxX6jiB6zMh5LHdc.ActiveEffect.DkWzA7SfsdXIq6aA
+    origin: Compendium.sw5e.species.Item.fxX6jiB6zMh5LHdc
+    name: Keen Hearing
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Balosar.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!79MesF52wiLq1KdB.mebaLEwfl4QjrFOD'
+_id: 79MesF52wiLq1KdB
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732412596409
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!79MesF52wiLq1KdB'

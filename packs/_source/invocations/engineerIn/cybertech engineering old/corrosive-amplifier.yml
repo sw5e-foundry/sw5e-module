@@ -1,0 +1,81 @@
+name: Corrosive Amplifier
+flags:
+  sw5e-importer:
+    timestamp: '2023-05-30T20:14:19.9961229+00:00'
+    importer_version: 3
+    uid: Feature.name-corrosive_amplifier.source-archetypeinvocation.sourceName-cybertech_engineering_old
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Action.webp
+system:
+  description:
+    value: |-
+      <p>You integrate a booster in your wristpad that enhances your tech powers that deal acid damage. While wielding this amplifier, when a creature takes acid damage from a tech power you cast, you can choose to deal additional acid damage equal to your Intelligence modifier. </p>
+      <p>You can use this amplifier a number of times equal to your Intelligence modifier (a minimum of once). You regain all expended uses when you complete a short or long rest.</p>
+    chat: ''
+  requirements: Engineer (Cybertech Engineering (Old))
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    max: max(@abilities.int.mod, 1)
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: special
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@abilities.int.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - acid
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+  identifier: corrosive-amplifier
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: Mm9AN2YjjHiuDpPs
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!Mm9AN2YjjHiuDpPs'

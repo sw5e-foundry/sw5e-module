@@ -1,0 +1,135 @@
+name: Ion Blast
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1627387+00:00'
+    importer_version: 3
+    uid: Power.name-ion_blast.level-0
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/IonBlast.webp
+system:
+  description:
+    value: |-
+      <p>You create a blast of ion energy. Choose one creature within range that you can see, or choose two creatures within range that are within 5 feet of each other that you can see. A target must succeed on a Dexterity saving throw or take [[/r 1d4]] ion damage. </p>
+      <p>This power's damage increases by [[/r 1d4]] when you reach 5th level ([[/r 2d4]]), 11th level ([[/r 3d4]]), and 17th level ([[/r 4d4]]).</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: '1'
+    width: null
+    units: ''
+    type: creature
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d4
+        - ion
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  level: 0
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: atwill
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ion
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '60'
+      save:
+        ability: dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '1'
+          type: creature
+          units: ''
+      type: save
+effects: []
+_id: 5W6eAYdrAb7MCPUs
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!5W6eAYdrAb7MCPUs'

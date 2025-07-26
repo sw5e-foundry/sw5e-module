@@ -1,0 +1,162 @@
+_id: NVg0sxmTSLXP8xJ9
+name: Carbine Focus
+type: feat
+img: modules/sw5e/icons/packs/Feats/CarbineFocus.webp
+effects:
+  - name: Carbine Focus
+    origin: Compendium.sw5e.feats.Item.NVg0sxmTSLXP8xJ9
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    transfer: true
+    disabled: false
+    _id: ue8efhu7TlWHcOe3
+    changes:
+      - key: system.bonuses.rwak.damage
+        mode: 2
+        value: '1'
+        priority: 20
+    description: ''
+    statuses: []
+    flags: {}
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: icons/svg/item-bag.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!NVg0sxmTSLXP8xJ9.ue8efhu7TlWHcOe3'
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:06.8182992+00:00'
+    importer_version: 3
+    uid: WeaponFocus.name-carbine_focus
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>You've focused your combat training on carbine weapons. You gain the following benefits while wielding any of these weapons, if you are proficient with it:</p>
+      <ul>
+      <li>You gain a +1 bonus to the weapon's damage rolls.</li>
+      <li>When you score a critical hit with the weapon, the next attack roll the target makes before the start of your next turn has disadvantage.</li>
+      <li>When you take the Attack action, you can choose to forgo one or more attacks to  <strong>startle</strong>. For each attack you forgo, you expend 1 ammunition and choose a creature that is no more than one size larger than you (your size or smaller if your weapon has the light property)  and is within your weapon's normal range. The creature must succeed on a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or become shocked until the start of your next turn.</li></ul>
+    chat: ''
+  requirements: null
+  source:
+    custom: WH
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: '1'
+    width: null
+    units: ''
+    type: creature
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  type:
+    value: customizationOption
+    subtype: weaponFocus
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '1'
+          type: creature
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493966790
+  modifiedTime: 1739121097153
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!NVg0sxmTSLXP8xJ9'

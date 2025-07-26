@@ -1,0 +1,166 @@
+_id: WBsOcj5NnpkkO26S
+name: Pauldron of Retribution
+type: equipment
+img: modules/sw5e/icons/packs/Enhanced%20Items/PauldronOfRetribution.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:04.8414455+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-pauldron_of_retribution.subtype-shoulders
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <h4>Adventuring Gear (Shoulders)</h4>
+       <p><em><strong>Requires attunement</strong></em></p>
+      <p><em>Prerequisite:  at least 3 levels in berserker</em></p>
+      <hr />
+      <p>This item can hold a number of charges equal to half your berserker level (rounded up). When you complete a long rest, this item regains all missing charges. While raging, when you deal damage that would include your Rage Damage, you can expend one charge to double your Rage Damage bonus for that damage.</p>
+      <p>When you reach 5th level in berserker, when you use your Reckless Attack feature, your critical hit range increases by 1.</p>
+      <p>When you reach 11th level in berserker, once per critical hit, when you roll maximum damage on a weapon damage die, you can roll an additional die and add both to the total.</p>
+      <p>When you reach 17th level in berserker, when you are conscious and fail a Strength, Dexterity, or Constitution saving throw, you can choose to instead succeed. Once you've done so, you must complete a short or long rest before you can do so again.</p>
+      <p><em>This single pauldron, which can be worn over armor, features the visage of a howling beast.</em></p>
+    chat: ''
+  source:
+    custom: WH
+  quantity: 1
+  weight:
+    value: 0
+    units: lb
+  price:
+    value: 0
+    denomination: gp
+  attunement: required
+  equipped: false
+  rarity: prototype
+  identified: true
+  activation:
+    type: special
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ceil((@classes.berserker.levels)/2)
+    per: sr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  armor:
+    value: null
+    dex: null
+    magicalBonus: null
+  hp:
+    value: 0
+    max: 0
+    dt: null
+    conditions: ''
+  attributes:
+    capx:
+      value: null
+    dmgred:
+      value: null
+    regrateco:
+      value: null
+    cscap:
+      value: null
+    sscap:
+      value: null
+    fuelcostsmod:
+      value: null
+    powerdicerec:
+      value: ''
+    hdclass:
+      value: null
+  modify:
+    chassis: none
+    augmentSlots: 0
+    modSlots: 4
+    items: []
+    changes: {}
+  speed:
+    value: null
+    conditions: ''
+  strength: null
+  properties: []
+  proficient: 1
+  type:
+    value: clothing
+    baseItem: ''
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964734
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!WBsOcj5NnpkkO26S'

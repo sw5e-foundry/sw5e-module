@@ -1,0 +1,189 @@
+name: Noghri
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2871287+00:00'
+    importer_version: 3
+    uid: Species.name-noghri
+type: race
+img: modules/sw5e/icons/packs/Species/Noghri.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Noghri are a primitive humanoid species hailed from the planet Honoghr with steely gray-blue skin that are renowned assassins. A natural gift for stealth and hand-to-hand combat, Noghri are efficient killing machines with their rending claws and strong olfactory sense that can often determine familial lineage. Their smaller size belies their ruthlessness and potent hunting skills.</p>
+      <h2>Society and Culture</h2>
+      <p>Noghri culture relies heavily on honor, with society being clan-based, revolving around the Dukha, a community center in each village. The greatest strength of the Noghri stems from their loyalty and secrecy; when a Noghri takes a job, they always fulfill it, even if it would result in their death. As such, they make exceptional, albeit expensive bodyguards.</p>
+      <p>Noghri are loathe to fight with weapons larger than small daggers, believing combat to be a personal celebration to be sullied by use of heavier weapons. As such, it is rare (though not impossible) to see a Noghri wielding a weapon larger than their forearm.</p>
+      <p>Each Noghri clan village centers around the Dukha, with each clan being led by a Dynast. The Dukha is inhabited by the clan's Maitrakh, who functions as the storyteller, spiritual leader, and lore keep of the clan.</p>
+      <h2>Names</h2>
+      <p>Noghri names vary from short to long, with female names being typically softer. Surnames are clan-based.</p>
+      <p><strong>Male Names.</strong> Cakhmaim, Ezrakh, Khabarakh, Rukh</p>
+      <p><strong>Female Names.</strong> Cilnaas, Edvir, Kahr'corvh, Meewalh</p>
+      <p><strong>Surnames.</strong> Bakh'tor, Eikh'mir, Hakh'khar, Khim'bar</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: noghri
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.AJe83Ld4FcJ3YG9e
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.eiGlAGB9NzIBnihx
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.FPn58vGHi7sBTpzV
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.6nO09BmxItXU5wFy
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.B0lLlqpYWUxY1Boa
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Zot0onFKhEr1STyb
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.OQFLTzH8hE6jSQtE
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Hgcx2QXWyMjanlEh
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.pqjLB7FtUApV6Kk1
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.sqLKta0rgH25nPl7
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.JMINEBxqckbDa9CV
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          dex: 2
+          str: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:sur
+          - skills:ste
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Bluish-gray
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Brown
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Advanced olfactory senses, claws, hunting prowess.
+  heightAverage:
+    value: 4'5"
+  heightRollMod:
+    value: +2d6"
+  weightAverage:
+    value: 115 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Honoghr
+  slanguage:
+    value: Honoghran
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: Z7CSYhnx99Q954zc
+    changes:
+      - key: flags.sw5e.situational.advantage.skill.prc
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.KrhqL2dbdh6LPvYf.ActiveEffect.osToSGRyw3lDaFpz
+    origin: Compendium.sw5e.species.Item.KrhqL2dbdh6LPvYf
+    name: Keen Smell
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Noghri.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!8JLRZDmKG8RIOPTo.Z7CSYhnx99Q954zc'
+_id: 8JLRZDmKG8RIOPTo
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304724881
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!8JLRZDmKG8RIOPTo'

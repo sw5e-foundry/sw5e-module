@@ -1,0 +1,159 @@
+name: Ionic Bond
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1637382+00:00'
+    importer_version: 3
+    uid: Power.name-ionic_bond.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/IonicBond.webp
+system:
+  description:
+    value: |-
+      <p>A beam of ion energy lances out toward a creature within range, forming a sustained line between you and the target. Make a ranged tech attack against that creature. On a hit, the target takes [[/r 1d8]] ion damage, and on each of your turns for the duration, you can use a bonus action to deal [[/r 1d8]] ion damage to the target automatically. The power ends if you use your bonus action to do anything else. The power also ends if the target is ever outside the power's range or if it has total cover from you.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 2nd level or higher, the initial damage increases by [[/r 1d8]] for each slot level above 1st.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: rpak
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d8
+        - ion
+      - - 1d8
+        - ion
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 1
+  school: tec
+  properties:
+    - concentration
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: 1d8
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 2
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        condition: ''
+        type: bonus
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: spell
+          value: ranged
+      damage:
+        critical: {}
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: whole
+              number: 1
+            types:
+              - ion
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ion
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '30'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: attack
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '2'
+effects: []
+_id: XpYtKyEghE0wy5Cw
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!XpYtKyEghE0wy5Cw'

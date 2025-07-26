@@ -1,0 +1,76 @@
+name: Staggering Oscillator
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.342215+00:00'
+    importer_version: 3
+    uid: Feature.name-staggering_oscillator.source-archetypeinvocation.sourceName-armstech_engineering
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Action.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite:</strong> Vibroweapon</em></p>
+      <p>When you hit with the weapon, you can force the target to make a Strength saving throw. On a failed save, the creature is pushed back 10 feet and knocked prone.</p>
+      <p>Once you've used this feature, you must complete a short or long rest before you can use it again.</p>
+    chat: ''
+  requirements: Engineer (Armstech Engineering), Vibroweapon
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    max: '1'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: special
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+  identifier: staggering-oscillator
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: pCQ8rp5ntY4Qcu93
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!pCQ8rp5ntY4Qcu93'

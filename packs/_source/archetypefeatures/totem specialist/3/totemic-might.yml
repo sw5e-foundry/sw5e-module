@@ -1,0 +1,136 @@
+_id: XfQiRawVZiulDJNy
+name: Totemic Might
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/FGTR-ARCH-Bonus.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5498179+00:00'
+    importer_version: 3
+    uid: Feature.name-totemic_might.source-archetype.sourceName-totem_specialist.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Totem Specialist:</strong> 3rd level</em></p>
+      <p>You can channel the power of your Force awareness temporarily. As a bonus action, you can gain the following benefits for 1 minute. You can invoke a totem as a part of this same bonus action.</p>
+      <ul>
+      <li>Your carrying capacity and the weight you can push, drag, or lift doubles. If it would already double, it instead triples.</li>
+      <li>You have advantage on Strength checks and Strength saving throws.</li>
+      <li>Your weapon attacks deal an extra [[/r 1d6]] damage.</li>
+      </ul>
+      <p>This effect ends early if you are incapacitated or die. You can use this feature twice. You regain all expended uses of it when you finish a long rest.</p>
+    chat: ''
+  requirements: Fighter (Totem Specialist) 3
+  source:
+    custom: EC
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '2'
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d6
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: bonus
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957821
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!XfQiRawVZiulDJNy'

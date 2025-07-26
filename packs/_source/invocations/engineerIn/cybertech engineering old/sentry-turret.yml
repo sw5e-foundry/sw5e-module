@@ -1,0 +1,86 @@
+name: Sentry Turret
+flags:
+  sw5e-importer:
+    timestamp: '2023-05-30T20:14:19.9961229+00:00'
+    importer_version: 3
+    uid: Feature.name-sentry_turret.source-archetypeinvocation.sourceName-cybertech_engineering_old
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp
+system:
+  description:
+    value: |-
+      <p>You learn how to craft small sentry turrets shaped like globes that can adhere to any surface. As an action or bonus action (your choice), you can throw a sentry to a point you can see within range (30 feet + your Strength modifier x 5). At the end of each of your turns, a deployed sentry automatically targets a hostile creature within 10 feet of it. If multiple targets are available, one is chosen at random. The target must make a Dexterity saving throw. On a failed save, it takes [[/r 1d4]] energy damage and gains 1 slowed level until the end of your next turn.</p>
+      <p>The sentries have 1 hit point, an armor class of 10, and can be repaired over the course of a long rest. Each sentry lasts for 1 minute before deactivating. You can maintain a number of sentries equal to your Intelligence modifier. Once a sentry has been activated, it can't be activated again until you finish a short or long rest.</p>
+    chat: ''
+  requirements: Engineer (Cybertech Engineering (Old))
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    max: '@abilities.int.mod'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - energy
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '10'
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+  identifier: sentry-turret
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: rNqN6LtnyMVINFEI
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!rNqN6LtnyMVINFEI'

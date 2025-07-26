@@ -1,0 +1,65 @@
+name: Flashlight
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.342215+00:00'
+    importer_version: 3
+    uid: Feature.name-flashlight.source-archetypeinvocation.sourceName-armstech_engineering
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp
+system:
+  description:
+    value: <p>You affix a targeted light to your weapon. As a bonus action, you can toggle the light on or off. While on, your weapon sheds bright light in a 60-foot cone.</p>
+    chat: ''
+  requirements: Engineer (Armstech Engineering)
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      roll:
+        formula: ''
+      target:
+        template:
+          size: '60'
+          type: cone
+      type: utility
+  identifier: flashlight
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: 1tVEtHeTR4d8QF4L
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!1tVEtHeTR4d8QF4L'

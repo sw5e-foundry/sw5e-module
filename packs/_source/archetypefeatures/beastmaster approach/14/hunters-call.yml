@@ -1,0 +1,129 @@
+name: Hunter's Call
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: Feature.name-hunters_call.source-archetype.sourceName-beastmaster_approach.level-14
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/BSKR-ARCH-Action.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Beastmaster Approach:</strong> 14th and 17th level</em></p>
+      <p>When you enter your rage, you can choose up to 5 allies that you can see within 30 feet of you. You gain 5 temporary hit points for each creature. For the duration of your rage, once on each of their turns, an affected ally can add your rage damage bonus to a weapon attack's damage roll.</p>
+      <p>You can use this feature five times. You gain an additional use at 17th level. You regain all expended uses when you finish a long rest.</p>
+    chat: ''
+  requirements: Berserker (Beastmaster Approach) 14
+  source:
+    custom: EC
+  activation:
+    type: special
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '5'
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: heal
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - '5'
+        - temphp
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: special
+      description: {}
+      duration:
+        units: inst
+      healing:
+        custom:
+          enabled: true
+          formula: '5'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        value: '30'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1679609438452
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: gGamflBb8bvq9N0u
+_key: '!items!gGamflBb8bvq9N0u'

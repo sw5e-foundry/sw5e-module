@@ -1,0 +1,141 @@
+_id: RR8JSaSmuyTKRZcb
+name: Master Force Immunity
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/MasterForceImmunity.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1157658+00:00'
+    importer_version: 3
+    uid: Power.name-master_force_immunity.level-8
+  sw5e:
+    migratedProperties:
+      - concentration
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Improved Force Immunity</em></p>
+      <p>A 10-foot-radius faintly shimmering barrier surrounds you. Within the sphere, powers can't be cast and enhanced items become mundane. Until the power ends, the sphere moves with you, centered on you.</p>
+      <p>Powers and other enhanced effects are suppressed in the sphere and can't protrude into it. A slot expended to cast a suppressed power is consumed. While an effect is suppressed, it doesn't function, but the time it spends suppressed counts against its duration.</p>
+      <p><strong><em>Targeted Effects.</em></strong> Powers and other enhanced effects that target a creature or an object in the sphere have no effect on that target.</p>
+      <p><strong><em>Enhanced Areas.</em></strong> The area of another power or enhanced effect, such as <em>force storm</em>, can't extend into the sphere. If the sphere overlaps an enhanced area, the part of the area that is covered by the sphere is suppressed.</p>
+      <p><strong><em>Powers.</em></strong> Any active power or other enhanced effect on a creature or an object in the sphere is suppressed while the creature or object is in it.</p>
+      <p><strong><em>Enhanced Items.</em></strong> The properties and powers of enhanced items are suppressed in the sphere. For example, a +1 vibrosword in the sphere functions as an unenhanced vibrosword.</p>
+      <p>An enhanced weapon's properties and powers are suppressed if it is used against a target in the sphere or wielded by an attacker in the sphere. If an enhanced weapon or a piece of enhanced ammunition fully leaves the sphere (for example, if you fire an enhanced shot or throw an enhanced saberspear at a target outside the sphere), the enhancement of the item ceases to be suppressed as soon as it exits.</p>
+      <p><strong><em>Enhanced Travel.</em></strong> Teleportation fails to work in the sphere, whether the sphere is the destination or the departure point for such enhanced travel. A portal to another location temporarily closes while in the sphere.</p>
+      <p><strong><em>Creatures and Objects.</em></strong> A creature or object summoned or created by powers temporarily winks out of existence in the sphere. Such a creature instantly reappears once the space the creature occupied is no longer within the sphere.</p>
+      <p><strong><em>Tech Override/Sever Force.</em></strong> Powers and enhanced effects such as <em>sever force</em> have no effect on the sphere. Likewise, the spheres created by different scrambling field powers don't nullify each other.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: hour
+  cover: null
+  crewed: false
+  target:
+    value: '10'
+    width: null
+    units: ft
+    type: sphere
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: self
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 9
+    scale: true
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 8
+  school: uni
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: none
+    formula: null
+  properties:
+    - concentration
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        condition: ''
+        type: action
+      description: {}
+      duration:
+        units: hour
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: self
+      roll:
+        formula: ''
+      target:
+        template:
+          size: '10'
+          type: sphere
+      type: utility
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '9'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979231
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!RR8JSaSmuyTKRZcb'

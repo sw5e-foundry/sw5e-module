@@ -1,0 +1,195 @@
+name: Aleena
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2711394+00:00'
+    importer_version: 3
+    uid: Species.name-aleena
+type: race
+img: modules/sw5e/icons/packs/Species/Aleena.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Aleena are short, reptilian bipeds with large eyes and wide mouths full of small, sharp teeth. Aleena's bodies are long compared to their short arms and stubby legs. Warm-blooded reptiles, they possess exceptional reflexes as well as a fast metabolism which allow them to convert food into energy very rapidly in order to escape predators on their harsh home planet. </p>
+      <h2>Society and Culture</h2>
+      <p>Aleena are social and tend to thrive best in with close-knit teams if not with their own kind. They develop strong loyalties to friends and protect those they care about fiercely. Due to their inborn curiosity, the aleena are stereotypically galactic travelers, tourists in every sense. This, combined with their strong dedication to their relatives, results in aleena families traveling even to most unusual and dangerous locations just to see its sights. The appearance of aleena family walking through an intergalactic metropolis is a common sight on many planets. The aleena's love of sports and particularly, adventure and thrill sports, draw many into the galactic community. Most who enter professional classes are experts or diplomats. </p>
+      <p>Aleena settlements were small, and most individuals were part of a single lineage, or tahiko. The leader of each tahiko led the community, and represented their wishes to the planetary advisory body. The advisory body elected a king to govern the planet, and was generally revered as a religious figure as they led religious ceremonies. </p>
+      <h2>Names</h2>
+      <p>Aleena names are generally short and guttural, with longer names being saved for royalty. Surnames are based on their tahiko, or tribal lineage.</p>
+      <p><strong>Male Names.</strong> Batts, Gratz, Wakka, Zakan, Zetts</p>
+      <p><strong>Female Names.</strong> Arkei, Harza, Sutci, Tsuon, Yenn, </p>
+      <p><strong>Surnames.</strong> Anares, Kylar, Ors, Practes, Targae</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: aleena
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 25
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.8fCuFxu0oL9QHdmF
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.HbSBvpegr34FShZ4
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.RbMjFxUlf9xfYL5x
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.UFoijNvb7j9qwY34
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.oAJ1YGKmCrRNfX48
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.xa7MENGTXUVhlKeJ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.paVP6FUoLehF2G1E
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.2LfoIRlehbKF4dNK
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Axb4nQPkTl4jYpfq
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.sueSqS4ah4vF9zo1
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.W6zC0K5DSDKPWIoN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.PBojNla10sgP54Jf
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          cha: 1
+          dex: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - sm
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:lor
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Blue, gray, purple, tan
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Blue
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Short stature, scaly skin, crested head
+  heightAverage:
+    value: 2'1"
+  heightRollMod:
+    value: +2d4"
+  weightAverage:
+    value: 35 lb.
+  weightRollMod:
+    value: x1 lb.
+  homeworld:
+    value: Aleen
+  slanguage:
+    value: Aleena
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: UCJDsDHBIg6vcQ2j
+    changes:
+      - key: flags.sw5e.nimbleEscape
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.undersized
+        value: '1'
+        mode: 5
+        priority: 20
+      - key: flags.sw5e.nimbleness
+        value: '1'
+        mode: 5
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Aleena
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Aleena.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!oswOeIZsuJ5nforM.UCJDsDHBIg6vcQ2j'
+_id: oswOeIZsuJ5nforM
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304726131
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!oswOeIZsuJ5nforM'

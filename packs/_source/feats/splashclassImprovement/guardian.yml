@@ -1,0 +1,129 @@
+_id: CQdviCPoj07vSaKL
+name: Guardian
+type: feat
+img: modules/sw5e/icons/packs/Classes/Guardian.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:21.306899+00:00'
+    importer_version: 3
+    uid: SplashclassImprovement.name-guardian
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>When you hit a creature with a melee weapon attack, you can expend force points to deal additional damage to the target, which is the same type as the weapon's damage. The additional damage is [[/r 1d8]] for each point spent in this way. You can't deal more than [[/r 2d8]] additional damage per hit in this way.</p>
+      <p>You can only spend a number of force points in this way equal to your proficiency bonus. You regain the ability to do so when you complete a long rest.</p>
+    chat: ''
+  requirements: No levels in guardian, the ability to cast force powers
+  source:
+    custom: EC
+  activation:
+    type: special
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '@attributes.prof'
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d8
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: customizationOption
+    subtype: splashclassImprovement
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: special
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493966774
+  modifiedTime: 1739121097153
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!CQdviCPoj07vSaKL'

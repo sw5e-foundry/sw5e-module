@@ -1,0 +1,146 @@
+name: Destroy Tech
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1497461+00:00'
+    importer_version: 3
+    uid: Power.name-destroy_tech.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/DestroyTech.webp
+system:
+  description:
+    value: |-
+      <p>Make a ranged tech attack against a creature within range. On a hit, the target takes [[/r 4d8]] ion damage. Additionally, if the target has tech points, it must make an Intelligence saving throw. On a failed save, it loses 5 tech points, as though it expended a tech slot.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power with a tech slot of 4th level or higher, the ion damage increases by [[/r 1d8]], and the amount of tech points lost increases by 1 for each slot level above 3rd.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 120
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: rpak
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 4d8
+        - ion
+    versatile: ''
+  formula: ''
+  save:
+    ability: int
+    dc: null
+    scaling: spell
+  level: 3
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 4
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        condition: ''
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: spell
+          value: ranged
+      damage:
+        critical: {}
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 4
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ion
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '120'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: attack
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '4'
+effects: []
+_id: tzApxsNAOgavpJt8
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!tzApxsNAOgavpJt8'

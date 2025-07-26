@@ -1,0 +1,141 @@
+_id: s0Bf6Sv2exQNH7vK
+name: Unlimited Power
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/CSLR-ARCH-Action.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: Feature.name-unlimited_power.source-archetype.sourceName-way_of_lightning.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Way of Lightning:</strong> 18th level</em></p>
+      <p>You can increase the power of your simpler lightning force powers. When you cast a force power of 1st through 6th level that deals lightning damage, you can deal maximum damage with that power.</p>
+      <p>You can use this feature with no adverse effects a number of times equal to your Wisdom or Charisma modifier (your choice, a minimum of once). If you use this feature beyond this before you finish a long rest, you take [[/r 2d12]] true damage for each level of the power, immediately after you cast it. Each time you use this feature again before finishing a long rest, the damage increases by [[/r 1d12]].</p>
+    chat: ''
+  requirements: Consular (Way of Lightning) 18
+  source:
+    custom: PHB
+  activation:
+    type: special
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: max(max(@abilities.wis.mod, @abilities.cha.mod), 1)
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: ''
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d12
+        - 'true'
+      - - 1d12
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: special
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 12
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - 'true'
+          - custom:
+              enabled: false
+            denomination: 12
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493958174
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!s0Bf6Sv2exQNH7vK'

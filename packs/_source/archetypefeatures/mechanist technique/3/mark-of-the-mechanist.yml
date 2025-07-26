@@ -1,0 +1,123 @@
+name: Mark of the Mechanist
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6837386+00:00'
+    importer_version: 3
+    uid: Feature.name-mark_of_the_mechanist.source-archetype.sourceName-mechanist_technique.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCT-ARCH-Bonus.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Mechanist Technique:</strong> 3rd level</em></p>
+      <p>As a bonus action, you can cause the target of your Ranger's Quarry to emit an ion pulse, as long as the target is within 60 feet of you. The target, and any creatures within 5 feet of it, must make a Constitution saving throw against your tech save DC. On a failed save, roll your Ranger's Quarry die; each creature takes ion damage equal to the amount rolled.</p>
+    chat: ''
+  requirements: Scout (Mechanist Technique) 3
+  source:
+    custom: EC
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 60
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '60'
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1679609438417
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: czcAcya6I9K5RRXe
+_key: '!items!czcAcya6I9K5RRXe'

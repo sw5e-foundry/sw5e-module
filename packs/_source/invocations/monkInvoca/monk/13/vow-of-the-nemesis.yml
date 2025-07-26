@@ -1,0 +1,126 @@
+_id: Ov2baOEChu6p4ll2
+name: Vow of the Nemesis
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/MNK-Bonus.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.6286281+00:00'
+    importer_version: 3
+    uid: Feature.name-vow_of_the_nemesis.source-classinvocation.sourceName-monk.level-13
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite:</strong> 13th level</em></p>
+      <p>As a bonus action, you can choose one creature within 30 feet that you can see. The creature must make a Wisdom saving throw against your focus save DC. On a successful save, the creature becomes immune to this feature for 24 hours. On a failed save, for the next minute, the creature has disadvantage on attack rolls against creatures other than you, and it must make an additional Wisdom saving throw each time it attempts to move to a space that is more than 30 feet away from you; if it succeeds on this saving throw, this feature doesn't restrict its movement for that turn. </p>
+      <p>This feature ends early if you attack another creature, if you target another hostile creature with a power or class feature, if a friendly creature damages the target, if a friendly creature targets it with a power or class feature, or if you target another creature with this feature.</p>
+    chat: ''
+  requirements: Monk 13
+  source:
+    custom: PHB
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: '24'
+    units: hour
+  cover: null
+  crewed: false
+  target:
+    value: '1'
+    width: null
+    units: ''
+    type: creature
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: wis
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: monkInvocation
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: hour
+        value: '24'
+      img: null
+      range:
+        units: ft
+        value: '30'
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '1'
+          type: creature
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493981086
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Ov2baOEChu6p4ll2'

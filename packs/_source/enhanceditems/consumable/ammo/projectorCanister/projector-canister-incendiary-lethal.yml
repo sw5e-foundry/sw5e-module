@@ -1,0 +1,150 @@
+_id: Xi4EMeeUdSN37Kbd
+name: Projector Canister, Incendiary (Lethal)
+type: consumable
+img: modules/sw5e/icons/packs/Ammunition/ProjectorCanister-Incendiary.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:20.3574496+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-projector_canister_incendiary_lethal.subtype-ammunition
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: "<h4>Consumable (Ammunition)</h4>\n <p>When triggered, this enhanced wrist launcher ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel canister holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 22 Dexterity saving throw, taking [[/r 5d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried. If you lack proficiency in the wrist launcher, you must roll the damage dice twice and take the lesser total.</p>\n<p>\_</p>\n<h2>Projector canister, incendiary</h2>\n<p>When triggered, this wrist launcher ammunition produces a burst of flame in a line 15 feet long and 5 feet wide or a 15-foot cone. A single fuel canister holds enough fuel for three attacks in a line or a single attack in a cone. Each creature must make a DC 14 Dexterity saving throw, taking [[/r 1d8]] fire damage or half as much on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried. If you lack proficiency in the wrist launcher, you must roll the damage dice twice and take the lesser total.</p>"
+    chat: ''
+  source:
+    custom: EC
+  quantity: 1
+  weight:
+    value: 2
+    units: lb
+  price:
+    value: 325
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: legendary
+  identified: true
+  activation:
+    type: ''
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: '15'
+    width: null
+    units: ft
+    type: cone
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    autoDestroy: false
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d8
+        - fire
+      - - 5d8
+        - fire
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: 22
+    scaling: flat
+  properties: []
+  type:
+    value: ammo
+    subtype: projectorCanister
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 5
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+      description: {}
+      duration:
+        units: inst
+        value: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      save:
+        ability: dex
+        dc:
+          calculation: ''
+          formula: '14'
+      target:
+        template:
+          size: '15'
+          type: cone
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964747
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Xi4EMeeUdSN37Kbd'

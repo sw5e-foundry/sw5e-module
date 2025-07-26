@@ -1,0 +1,130 @@
+_id: rUrJ93h2dmQLCKCJ
+name: Fanatic
+type: feat
+img: modules/sw5e/icons/packs/Feats/Fanatic.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.5045407+00:00'
+    importer_version: 3
+    uid: Feat.name-fanatic
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p>Every blow that hits your enemies make you feel closer to victory, making you shake in excitement. You gain the following benefits:</p>
+      <ul>
+      <li>When you score a critical hit with an attack roll or reduce a creature to 0 hit points, you can make one weapon attack as a bonus action.</li>
+      <li>Whenever a creature you can see within 30 feet is reduced to 0 hit points, you go into a fervor gaining temporary hit points equal to [[/r 1d4]] + your Constitution modifier. </li></ul>
+    chat: ''
+  requirements: 4th level
+  source:
+    custom: PHB
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: heal
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d4 + @abilities.con.mod
+        - temphp
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: feat
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: inst
+      healing:
+        bonus: '@abilities.con.mod'
+        custom:
+          enabled: false
+        denomination: 4
+        number: 1
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        value: '30'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493966838
+  modifiedTime: 1739121097153
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!rUrJ93h2dmQLCKCJ'

@@ -1,0 +1,148 @@
+_id: eQtAk1AYRKRlN2qe
+name: Mass Hysteria
+type: spell
+img: modules/sw5e/icons/packs/Force%20Powers/MassHysteria.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1147663+00:00'
+    importer_version: 3
+    uid: Power.name-mass_hysteria.level-9
+  sw5e:
+    migratedProperties:
+      - concentration
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite</strong>: Hysteria</em></p>
+      <p>Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, manifesting their worst nightmares as an implacable threat visible only to them. Each creature in a 30-foot-radius sphere is frightened for the duration of the power. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take [[/r 5d10]] psychic damage. On a successful save, the power ends for that creature. This power has no effect on droids or constructs.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: '30'
+    width: null
+    units: ft
+    type: sphere
+    prompt: true
+  range:
+    value: 120
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: attribute
+    target: powercasting.force.points.value
+    amount: 10
+    scale: true
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 5d10
+        - psychic
+    versatile: ''
+  formula: ''
+  save:
+    ability: wis
+    dc: null
+    scaling: spell
+  level: 9
+  school: drk
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: true
+  scaling:
+    mode: none
+    formula: null
+  properties:
+    - concentration
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 10
+            number: 5
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - psychic
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '120'
+      save:
+        ability: wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '30'
+          type: sphere
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.force.points.value
+            type: attribute
+            value: '10'
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493979286
+  modifiedTime: 1739121089377
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!eQtAk1AYRKRlN2qe'

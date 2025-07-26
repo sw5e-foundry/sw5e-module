@@ -1,0 +1,126 @@
+name: Fire
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6837386+00:00'
+    importer_version: 3
+    uid: Feature.name-fire.source-archetype.sourceName-kro_var_order.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/MNK-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: <p>Your flaming weapon sheds bright light in a 10-foot radius and dim light for an additional 10 feet, deals fire damage, and when you hit a creature with it, the creature takes additional damage equal to half your focus ability modifier (minimum of one).</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 3
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: '10'
+    width: null
+    units: ft
+    type: radius
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: ((@mod)/2)
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          size: '10'
+          type: radius
+      type: damage
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1667426104193
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: M2Vld1EFmOV7OMRx
+_key: '!items!M2Vld1EFmOV7OMRx'

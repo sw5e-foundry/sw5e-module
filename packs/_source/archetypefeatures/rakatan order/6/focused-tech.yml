@@ -1,0 +1,133 @@
+_id: E0Fi3UDnVx3oUGZb
+name: Focused Tech
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/MNK-ARCH-Reaction.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-05-30T20:15:26.6231293+00:00'
+    importer_version: 3
+    uid: Feature.name-focused_tech.source-archetype.sourceName-rakatan_order.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Rakatan Order:</strong> 6th level</em></p>
+      <p>You can cast your tech powers using your focus points. When you do so, your maximum focus points are reduced by 1 until you complete a long rest.</p>
+      <p>Additionally, when you use a Focus feature, you gain the following tech enhancements. Each effect costs 1 tech point.</p>
+      <p><strong><em>Flurry of Blows.</em></strong> When you hit with an attack with Flurry of Blows, you can deal an additional [[/r 1d8]] damage of the same type.</p>
+      <p><strong><em>Patient Defense.</em></strong> While under the effects of your Patient Defense, when you are hit by an attack, you can use your reaction and roll your Martial Arts die to increase your AC against the attack.</p>
+      <p><strong><em>Step of the Wind.</em></strong> While under the effects of your Step of the Wind, you can become immune to the shocked condition, and have each slowed level only reduce your speed by 5 feet, unless it would reduce your speed to 0.</p>
+    chat: ''
+  requirements: Monk (Rakatan Order) 6
+  source:
+    custom: EC
+  activation:
+    type: reaction
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: other
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d8
+        - ''
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: reaction
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957509
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!E0Fi3UDnVx3oUGZb'

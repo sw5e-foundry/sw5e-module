@@ -1,0 +1,76 @@
+name: Cannibalize
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.6269321+00:00'
+    importer_version: 3
+    uid: Feature.name-cannibalize.source-species.sourceName-flesh_raider
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Species/FleshRaider.webp
+system:
+  description:
+    value: <p>If you spend at least 1 minute devouring the corpse of a beast or humanoid, you gain temporary hit points equal to your Constitution modifier (minimum of one). Once you've used this feature, you must complete a short or long rest before you can use it again.</p>
+    chat: ''
+  requirements: Flesh Raider
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: species
+    subtype: ''
+  uses:
+    max: '1'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: special
+      description: {}
+      duration:
+        units: inst
+      healing:
+        custom:
+          enabled: true
+          formula: '@abilities.con.mod'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: heal
+  identifier: cannibalize
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: GRypdFwiXxmJFOSK
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433988012
+  modifiedTime: 1739121096233
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!GRypdFwiXxmJFOSK'

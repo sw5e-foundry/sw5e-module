@@ -1,0 +1,126 @@
+_id: 9iLGiSiIDGl0kbc7
+name: Force of Personality
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCLR-ARCH-Action.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.993416+00:00'
+    importer_version: 3
+    uid: Feature.name-force_of_personality.source-archetype.sourceName-politician_pursuit.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Politician Pursuit:</strong> 6th level</em></p>
+      <p>As an action, you suggest a course of activity (limited to a sentence or two) to influence a creature you can see within range that can hear and understand you. Creatures that can't be charmed are immune to this effect. The suggestion must be worded in such a manner as to make the course of action sound reasonable. Asking the creature to stab itself, throw itself onto a spear, immolate itself, or do some other obviously harmful act ends the effect.</p>
+      <p>The target must make a Wisdom saving throw against your maneuver save DC. On a failed save, the target is charmed by you, and it pursues the course of action you described to the best of its ability. The suggested course of action can continue for up to 24 hours. If the suggested activity can be completed in a shorter time, the effect ends when the subject finishes what it was asked to do.</p>
+      <p>You can also specify conditions that will trigger a special activity during the duration. For example, you might suggest that an officer givers her gun to the first smuggler she meets. If the condition isn't met before the effect ends, the activity isn't performed.</p>
+      <p>If you or any of your companions damage the target, the effect ends.</p>
+      <p>You can use this feature three times. You gain an additional use at 9th, 13th, and 17th level. You regain all expended uses when you finish a long rest.</p>
+    chat: ''
+  requirements: Scholar (Politician Pursuit) 6
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: '3'
+    per: lr
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: wis
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957416
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!9iLGiSiIDGl0kbc7'

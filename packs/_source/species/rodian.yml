@@ -1,0 +1,185 @@
+name: Rodian
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:55.9166212+00:00'
+    importer_version: 3
+    uid: Species.name-rodian
+type: race
+img: modules/sw5e/icons/packs/Species/Rodian.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearence</h2>
+      <p>The rodians are green-skinned humanoids from the planet Rodia. They possess distinctive faces: large, round, multifaceted eyes; tapir-like snouts; and a pair of saucer-shaped antennae on their heads, which served to detect vibrations. The flexible snouts augmented the rodians' finely tuned olfactory senses, collecting and filtering the air. Their characteristically large eyes indicated a primarily nocturnal ancestry and were capable of seeing into the infrared part of the spectrum. Due to their love of fighting and active lifestyles, most rodians kept in good condition, normally lean and wiry; however, some wealthy rodians became complacent and obese.</p>
+      <h2>Society and Culture</h2>
+      <p>Rodian culture is obsessed with violence and death, due to behaviors and practices that are ingrained since their earliest ancestry. Their densely packed jungle homeworld is ill-suited for agriculture, requiring rodians to compete with vicious predators for most of their food, some of which can wipe out entire rodian villages. As the rodians developed cunning hunting tactics to survive, the hunt became central to their culture. Eventually, having driven most of the other predators on the planet to near extinction, they began to hunt each other in various wars and gladiatorial contests.</p>
+      <h2>Names</h2>
+      <p>Female names tend to be longer than male names. Surnames are familial.</p>
+      <p><strong>Male Names.</strong> Dagon, Dwedd, Gweym, Steech, Xeep</p>
+      <p><strong>Female Names.</strong> Heebmu, Iissi, Teezle, Whunam</p>
+      <p><strong>Surnames.</strong> Bluchosso, Encekserr, Gieeseaagg</p>
+    chat: ''
+  source:
+    custom: PHB
+  identifier: rodian
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    climb: 30
+    burrow: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 60
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.o3ALkLTZ0wB0HAgw
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.99qVrf7yYmiz82JQ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.KfaDDwOZiquWx94y
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.di82HnNvsLbgxPF9
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.xEiVw2jyCCKznF37
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.yLRg79NRKqBg8RZ3
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.VQ52FbNf2iL6iToN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.E0g6bcH1Ec1xUwg1
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.xx7ne7S6hiDDM7KO
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.gtDT9bCQaXa7Fe3t
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          con: 1
+          dex: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:sur
+          - skills:ste
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Blue, green, purple, turquoise, or yellow
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Blue, black, green, purple, or red
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Large and round pupil-less eyes, snouts, pointed ears, antennae, scaled and usually green skin
+  heightAverage:
+    value: 4'9"
+  heightRollMod:
+    value: +2d10"
+  weightAverage:
+    value: 115 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Rodia
+  slanguage:
+    value: Rodese
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: gdc1EmOSoDmqyFii
+    changes:
+      - key: flags.sw5e.situational.advantage.skill.prc
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.adaUHwGfIrAKGSn5.ActiveEffect.FUiWLoJwaDtoE4pp
+    origin: Compendium.sw5e.species.Item.adaUHwGfIrAKGSn5
+    name: Keen Hearing and Smell
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Rodian.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!1h7PhcfDlcSmO8sN.gdc1EmOSoDmqyFii'
+_id: 1h7PhcfDlcSmO8sN
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304724647
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!1h7PhcfDlcSmO8sN'

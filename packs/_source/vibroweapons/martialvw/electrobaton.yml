@@ -1,0 +1,179 @@
+name: Electrobaton
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:06.0977176+00:00'
+    importer_version: 3
+    uid: Weapon.name-electrobaton.equipmentCategory-weapon
+  sw5e:
+    properties:
+      shocking: 13
+      fin: true
+      lgt: true
+    reload:
+      types: []
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: weapon
+img: modules/sw5e/icons/packs/Martial%20Vibroweapons/Electrobaton.webp
+system:
+  description:
+    value: |-
+      <h3>Finesse</h3>
+      <p>When making an attack with a weapon with this property, you use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.</p>
+      <h3>Light</h3>
+      <p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>
+      <h3>Shocking 13</h3>
+      <p>When you hit a creature with a weapon with the shocking property, you can force it to make a Dexterity saving throw, DC equal to the shocking number. On a failed save, the creature takes an additional [[/r 1d4]] lightning damage and becomes shocked until the end of its next turn.</p>
+    chat: ''
+  source:
+    custom: WH
+  quantity: 1
+  weight:
+    value: 1
+    units: lb
+  price:
+    value: 275
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: ''
+  identified: true
+  type:
+    value: martialVW
+    subtype: ''
+    baseItem: electrobaton
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  target:
+    value: '1'
+    width: null
+    units: ''
+    type: enemy
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ft
+  actionType: mwak
+  damage:
+    parts:
+      - - 1d4 + @mod
+        - kinetic
+    versatile: ''
+    base:
+      custom: {}
+      scaling:
+        number: 1
+        mode: ''
+      denomination: 4
+      number: 1
+      types:
+        - kinetic
+  properties:
+    - fin
+    - lgt
+    - shocking
+  weaponClass: trip
+  ammo:
+    types: []
+    target: ''
+    value: null
+    use: null
+  unidentified:
+    description: ''
+  container: null
+  attuned: false
+  duration:
+    value: ''
+    units: ''
+  cover: null
+  crewed: false
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  enchantment: null
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  summons: null
+  armor:
+    value: null
+  hp:
+    value: null
+    max: null
+    dt: null
+    conditions: ''
+  modify:
+    chassis: none
+    augmentSlots: 0
+    modSlots: 4
+    items: []
+    changes: {}
+  magicalBonus: null
+  proficient: null
+  firingArc: ''
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: weapon
+          value: melee
+      damage:
+        critical: {}
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        override: false
+        units: ft
+      target:
+        template:
+          size: '1'
+          type: enemy
+          units: ''
+      type: attack
+effects: []
+_id: 2cIp9LguuQCNMK5L
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296019804
+  modifiedTime: 1739121084621
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!2cIp9LguuQCNMK5L'

@@ -1,0 +1,88 @@
+name: Carbonite Shot
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:15.1694583+00:00'
+    importer_version: 3
+    uid: Feature.name-carbonite_shot.source-archetypeinvocation.sourceName-enhancement_specialist
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/FGTR-Passive.webp
+system:
+  description:
+    value: |-
+      <p>When this shot strikes its target, shards of carbonite wrap around the target. The creature hit by the shot takes an extra [[/r 2d6]] cold damage, it gains 1 slowed level, and it takes [[/r 2d6]] kinetic damage the first time on each turn it moves 1 foot or more without teleporting. The target or any creature that can reach it can use its action to remove the carbonite with a successful Strength (Athletics) check against your Special Ammunition save DC. Otherwise, the carbonite lasts for 1 minute or until you use this option again.</p>
+      <p>The cold damage and kinetic damage both increase to [[/r 4d6]] when you reach 18th level in this class.</p>
+    chat: ''
+  requirements: Fighter (Enhancement Specialist)
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: fighterInvocation
+  uses:
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - cold
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+      target:
+        template:
+          type: ''
+          units: ''
+      type: damage
+  identifier: carbonite-shot
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: xDagi48OmlIBkeYD
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!xDagi48OmlIBkeYD'

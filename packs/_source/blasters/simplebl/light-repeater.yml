@@ -1,0 +1,146 @@
+name: Light repeater
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:54.3905058+00:00'
+    importer_version: 3
+    uid: Weapon.name-light_repeater.equipmentCategory-weapon
+  sw5e:
+    properties:
+      auto: true
+      powerCell: range 50/200
+      rapid: 5
+      reload: 20
+      two: true
+    reload:
+      types:
+        - powerCell
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  quantity: 1
+  weight:
+    value: 6
+    units: lb
+  price:
+    value: 625
+    denomination: gp
+  rarity: ''
+  identified: true
+  type:
+    value: simpleBL
+    baseItem: lightrepeater
+  description:
+    value: |-
+      <h3>Auto</h3>
+      <p>Weapons with this property can only fire in burst, penetrating, or rapid modes. If the weapon has any combination of burst, penetrating, and rapid modes, you choose which mode to use. You can only use one mode at a time.</p>
+      <h3>Power cell (range 50/200) Cell</h3>
+      <p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>
+      <h3>Rapid 5</h3>
+      <p>When you would make a ranged weapon attack with a weapon with this property, you can instead unload on a single target, consuming ammunition equal to the rapid number. The target must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon). On a failed save, roll the weapon's damage dice twice and add them together, adding relevant modifiers as normal and subjecting the target to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>
+      <h3>Reload 20</h3>
+      <p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>
+      <h3>Two-handed</h3>
+      <p>A weapon with this property requires two hands to use.</p>
+    chat: ''
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  activities:
+    sw5e1save0000000:
+      _id: sw5e1save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      name: Rapid Attack
+      range:
+        override: false
+        units: ft
+        value: '50'
+      save:
+        ability: dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '1'
+          type: enemy
+          units: ''
+      type: save
+  properties:
+    - auto
+    - powerCell
+    - rapid
+    - rel
+    - two
+  damage:
+    base:
+      number: 1
+      denomination: 6
+      types:
+        - energy
+      custom:
+        enabled: false
+      scaling:
+        number: 1
+        mode: ''
+    versatile:
+      number: null
+      denomination: null
+      types: []
+      custom:
+        enabled: false
+      scaling:
+        number: 1
+  uses:
+    spent: 0
+    recovery: []
+  identifier: light-repeater
+  unidentified:
+    description: ''
+  container: null
+  attunement: ''
+  attuned: false
+  equipped: false
+  armor:
+    value: null
+  cover: null
+  crewed: false
+  hp:
+    value: null
+    max: null
+    dt: null
+    conditions: ''
+  ammunition: {}
+  magicalBonus: null
+  proficient: null
+  range:
+    value: 50
+    long: 200
+    reach: null
+    units: ft
+type: weapon
+img: modules/sw5e/icons/packs/Simple%20Blasters/LightRepeater.webp
+effects: []
+_id: ihm1ryoZcK9IwqWk
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433881093
+  modifiedTime: 1739121083882
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!ihm1ryoZcK9IwqWk'

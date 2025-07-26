@@ -1,0 +1,156 @@
+name: Immolate
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1617396+00:00'
+    importer_version: 3
+    uid: Power.name-immolate.level-5
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/Immolate.webp
+system:
+  description:
+    value: |-
+      <p>Flames wreathe one creature you can see within range. The target must make a Dexterity saving throw. It takes [[/r 8d6]] fire damage on a failed save, or half as much damage on a successful one. On a failed save, the target also burns for the power's duration. The burning target sheds bright light in a 30-foot radius and dim light for an additional 30 feet. At the end of each of its turns, the target repeats the saving throw. It takes [[/r 4d6]] fire damage on a failed save, and the power ends on a successful one. These enhanced flames can't be extinguished by unenhanced means.</p>
+      <p>If damage from this power kills a target, the target is turned to ash.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  target:
+    value: '30'
+    width: null
+    units: ft
+    type: radius
+    prompt: true
+  range:
+    value: 90
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 8d6
+        - fire
+      - - 4d6
+        - fire
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  level: 5
+  school: tec
+  properties:
+    - concentration
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: none
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 6
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 8
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 4
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '90'
+      save:
+        ability: dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '30'
+          type: radius
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '6'
+effects: []
+_id: ygFsgS84rwimQj6C
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!ygFsgS84rwimQj6C'

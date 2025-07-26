@@ -1,0 +1,93 @@
+name: Fury of the Small
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.6179368+00:00'
+    importer_version: 3
+    uid: Feature.name-fury_of_the_small.source-species.sourceName-dug
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Species/Dug.webp
+system:
+  description:
+    value: <p>When you damage a creature with an attack or a power and the creature's size is larger than yours, you can cause the attack or power to deal extra damage to the creature. The extra damage equals your level. Once you use this trait, you can't use it again until you finish a short or long rest.</p>
+    chat: ''
+  requirements: Dug
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  type:
+    value: species
+    subtype: ''
+  uses:
+    max: '1'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: special
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@details.level'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - extra
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      target: {}
+      type: damage
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+      roll:
+        formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: utility
+  identifier: fury-of-the-small
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: LkHH8ag1ZE845EPy
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433988012
+  modifiedTime: 1739121096233
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!LkHH8ag1ZE845EPy'

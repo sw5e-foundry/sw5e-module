@@ -1,0 +1,184 @@
+name: Mikkian
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2851303+00:00'
+    importer_version: 3
+    uid: Species.name-mikkian
+type: race
+img: modules/sw5e/icons/packs/Species/Mikkian.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Mikkians are a species of brightly colored humanoids. The mikkians' most distinctive feature are their motile head-tendrils, with the number, form, and pattern varying between individuals. These head-tendrils primarily serve as sensory organs, particularly detecting sound as a replacement for an ear common in other species. Mikkian head-tendrils also could detect other information, such as humidity, temperature, magnetic direction and radiation. This radiation detection can be detected to the extent that mikkians can "see" light and dark, although their eyes are still their primary visual organs. </p>
+      <h2>Society and Culture</h2>
+      <p>Mikkians place kinship and integrity above all. In fact, their honesty can come across as blunt or even rude to other sentients. Conversely, mikkians often have trouble adjusting to the more flexible views of other races. Their complex code of honor encompass all things in life, with a particular insistance on matters of warfare. Although they respect warrior traditions, the Mikkians nevertheless value discipline and honor over victory or physical might.</p>
+      <p>Different religious traditions exist among the Mikkians, but belief in the Force plays a central role in all of them. In Mikkian society, their head-tendrils have important cultural significance, and as such tendril-reading is used by Mikkian mystics to predict their future. Every facet of the head-tendril contributes to that meaning.</p>
+      <h2>Names</h2>
+      <p>Mikkian names are often short and disyllabic, with a melodic quality to them. Mikkians typically don't use surnames, though some may adopt them. </p>
+      <p><strong>Male Names.</strong> Cage, Fedlas, Mekko, Sakas </p>
+      <p><strong>Female Names.</strong> Beyra, Fenvar, Tiplee, Zelna </p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: mikkian
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.FCP7ndcm2TNkEul6
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.h6ZCGo1pSFh3DztU
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.GI2mvnvZCqoOorQO
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.MZQw4wchIi4ya4H0
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.SlZLaP4RtReLcsdh
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.8ioleYa3fuZHbFsz
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.9XBvIUXyKv5Gr5K5
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Ut98d5BJGkWuAak6
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Rw7sAiomiJ3Pz3vH
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          wis: 2
+        points: 1
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - skills:per
+              - skills:itm
+        grants: []
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Green, pink, red, blue, or yellow
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Blue or Black
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Numerous head-tendrils, acute senses of sight and hearing
+  heightAverage:
+    value: 4'9"
+  heightRollMod:
+    value: +2d6"
+  weightAverage:
+    value: 100 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Mikkia
+  slanguage:
+    value: Mikkian
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: jELd0cuLorurmLHV
+    changes:
+      - key: flags.sw5e.situational.advantage.skill.prc
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.aWyQIk0yQVEBWiY6.ActiveEffect.2FSlkSzlsfoQSsQs
+    origin: Compendium.sw5e.species.Item.aWyQIk0yQVEBWiY6
+    name: Keen Hearing
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Mikkian.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!TJoKXEcs0nJ2sN4B.jELd0cuLorurmLHV'
+_id: TJoKXEcs0nJ2sN4B
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725541
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!TJoKXEcs0nJ2sN4B'

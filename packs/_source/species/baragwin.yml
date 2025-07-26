@@ -1,0 +1,192 @@
+name: Baragwin
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2731369+00:00'
+    importer_version: 3
+    uid: Species.name-baragwin
+type: race
+img: modules/sw5e/icons/packs/Species/Baragwin.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>A hunchbacked species of sentient reptilians, the bipedal baragwin are easily recognized across the galaxy. Noted for their thick, wrinkled skin which can resist most physical attacks and their shuffling gait, the large-headed race have no obvious differences between male and female baragwin. An acute sense of smell give the species enough sensitivity to detect another being's mood and feelings. This leads some of them into careers as big-game hunters, or even as bounty hunters. Due to their ponderous movement, many non-baragwin believe the race to be a dull-witted people while, in fact, they are quite intelligent. Despite this fact, the baragwin frequently keep this intelligence hidden, using the misconceptions of others to their own advantage.</p>
+      <h2>Society and Culture</h2>
+      <p>Baragwin culture, since it does not derive from a single homeworld, is highly dependent on a baragwin's planet of origin, with Tatooinian baragwin behaving quite differently from those from Denuhi-Eight. Baragwin generally have little prejudice, treating all other beings equally regardless of species, culture, or planetary origins; though criminal baragwin will exploit all beings equally instead. Baragwin settlements are generally small and anarchic, with short-term leaders selected by informal democratic processes. Baragwin are famous as skilled weapon-smiths and introduced many different weapons to different worlds. Baragwin-made blasters and vibroblades are among the most powerful personal weapons in the galaxy. </p>
+      <h2>Names</h2>
+      <p>Baragwin have names with wide tones, spoken using the entire mouth, that don't differentiate by gender. Baragwin use familial surnames.</p>
+      <p><strong>First Names.</strong> Dagel, Eskaul, Idalli, Migo</p>
+      <p><strong>Surnames.</strong> Fadani, Igara, Kodrue, Wylbas</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: baragwin
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 25
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.QhMtIwLOAOjQy6QN
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.mh1I6ERlCS48iJfD
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.gCgdBQU1ADcRpDUX
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.NkvnUmVBMDAVOmKZ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Dse0mQnzYaMo1f4I
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.S9dLp6CciHcIUX1m
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.oiSKgznsSLTLlrDQ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.DhiChBGnTsNMPm9E
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.lJRIx4pEHIND7u9l
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.FUGW8nYCR817JwZe
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.iRIMQgv3rYNBxuIK
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.hbVZ78ZYYub82PRT
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          con: 1
+          int: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices:
+          - count: 2
+            pool:
+              - tool:armstechsimplements
+              - tool:munitionskit
+              - weapon:*
+        grants:
+          - skills:sur
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Drag green to dark olive
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Yellow or red
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Hunchback, large heads, strong sense of smell
+  heightAverage:
+    value: 4'9"
+  heightRollMod:
+    value: +2d12"
+  weightAverage:
+    value: 145 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Old Barag
+  slanguage:
+    value: Baragwinian
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: nKa8zU0nbYU67Xh1
+    changes:
+      - key: flags.sw5e.situational.advantage.skill.prc
+        mode: 5
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        sourceId: Compendium.sw5e.species.Item.9I4FSaNm2b5OadQx.ActiveEffect.C7M9etD11dPHPBAr
+    origin: Compendium.sw5e.species.Item.9I4FSaNm2b5OadQx
+    name: Keen Smell
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Baragwin.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!WyBFlEdXJgL2eowF.nKa8zU0nbYU67Xh1'
+_id: WyBFlEdXJgL2eowF
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725645
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!WyBFlEdXJgL2eowF'

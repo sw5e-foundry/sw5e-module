@@ -1,0 +1,133 @@
+_id: Zy87jhJHs3BUGim5
+name: Debilitating Strike
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/OPRT-ARCH-Passive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6747441+00:00'
+    importer_version: 3
+    uid: Feature.name-debilitating_strike.source-archetype.sourceName-sawbones_practice.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Sawbones Practice:</strong> 3rd level</em></p>
+      <p>You learn to apply your anatomical knowledge in direct combat, in order to hinder your targets. When you deal Sneak Attack damage to a creature, you may choose to forgo two of your Sneak Attack Dice in order to hinder the creature, provided they have the appropiate physiology.</p>
+      <p>Some of your debilitating strikes require your target to make a saving throw to resist the debilitating strike's effects. The saving throw DC is calculated as follows: </p>
+      <p><em></em>_</p>
+      <p><strong>Debilitating Strike save DC</strong> = 8 + your proficiency bonus + your Intelligence modifier.</p>
+      <p><em></em>_</p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.LXxXI9uoUX6pAssl]{Bleeding Wound}</h3>
+      <p>You attempt to create a lingering wound in the target for one minute. The target must make a Constitution saving throw. On a failed save, at the start of each of the target's turns, it takes true damage equal to one Sneak Attack die and repeats this saving throw, ending the effect on a success. </p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.Ori7PE7RvngSXv2m]{Crippling Pain}</h3>
+      <p>You attempt to cause distracting pain in the target. The target must make a Constitution saving throw. On a failed save, it has disadvantage on attack rolls until the end of your next turn. </p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.JMbGNwqWllRVK0ZW]{Hampering Shot}</h3>
+      <p>You attempt to hamper the target's movement. The target must make a Constitution saving throw. On a failed save, it gains 1 slowed level and it makes Dexterity saving throws with disadvantage until the end of its next turn.</p>
+    chat: ''
+  requirements: Operative (Sawbones Practice) 3
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957847
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Zy87jhJHs3BUGim5'

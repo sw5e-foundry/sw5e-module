@@ -1,0 +1,123 @@
+_id: Zy1lZOSKK4qcSKQp
+name: Quantum Entanglement
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/SCT-ARCH-Passive.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6887356+00:00'
+    importer_version: 3
+    uid: Feature.name-quantum_entanglement.source-archetype.sourceName-teleportation_technique.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: |-
+      <p><em><strong>Teleportation Technique:</strong> 11th level</em></p>
+      <p>When you use your Personal Teleporter feature, you can place the portal that you would normally place within 5 feet of you in a place you can see within your Personal Teleporter's range. If that space is occupied by a Huge or smaller creature or a Medium or smaller unsecured object, it must make a Dexterity saving throw against your tech save DC. An object automatically fails this saving throw, and a creature can choose to fail. On a failed save, a Medium or smaller creature or object falls through the portal, immediately appearing in a space within 5 feet of the linked portal and falling prone. A Large or Huge creature instead falls prone without moving.</p>
+    chat: ''
+  requirements: Scout (Teleportation Technique) 11
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 5
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '5'
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493957847
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!Zy1lZOSKK4qcSKQp'

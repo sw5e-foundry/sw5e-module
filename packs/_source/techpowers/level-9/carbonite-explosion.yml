@@ -1,0 +1,146 @@
+name: Carbonite Explosion
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1457493+00:00'
+    importer_version: 3
+    uid: Power.name-carbonite_explosion.level-9
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/CarboniteExplosion.webp
+system:
+  description:
+    value: |-
+      <p>You generate an explosion of cryogenic energy in a 60-foot-radius sphere centered on a point you can see </p>
+      <p>within range. Each creature in the affected area must make a Constitution saving throw. On a failed save, the creature takes [[/r 8d6 + 20]] cold damage and is restrained for 1 minute as it is encased in carbonite. On a successful save, the creature takes half damage and is restrained until the end of its next turn. </p>
+      <p>As an action, a restrained creature can make a Strength check against your tech save DC, ending this effect on itself on a success.</p>
+      <p>A creature reduced to 0 hit points by this power dies instantly, as its body shatters into frozen chunks.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: '60'
+    width: null
+    units: ft
+    type: sphere
+    prompt: true
+  range:
+    value: 250
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: save
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 8d6 + 20
+        - cold
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: null
+    scaling: spell
+  level: 9
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: none
+    formula: null
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 10
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        condition: ''
+        type: action
+      damage:
+        parts:
+          - bonus: '20'
+            custom:
+              enabled: false
+            denomination: 6
+            number: 8
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - cold
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '250'
+      save:
+        ability: con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '60'
+          type: sphere
+      type: save
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '10'
+effects: []
+_id: bhxYk5gTU4ujyaQ9
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!bhxYk5gTU4ujyaQ9'

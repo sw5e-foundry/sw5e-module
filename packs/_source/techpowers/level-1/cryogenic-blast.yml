@@ -1,0 +1,162 @@
+name: Cryogenic Blast
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1477482+00:00'
+    importer_version: 3
+    uid: Power.name-cryogenic_blast.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/CryogenicBlast.webp
+system:
+  description:
+    value: |-
+      <p>You release a shard of cryogenic energy at one creature within range. Make a ranged tech attack against the target. On a hit, the target takes [[/r 1d10]] kinetic damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take [[/r 2d6]] cold damage.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 2nd level or higher, the cold damage increases by [[/r 1d6]] for each slot level above 1st.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+    template:
+      units: ft
+      type: radius
+      size: '5'
+  range:
+    value: 60
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: rpak
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 1d10
+        - kinetic
+      - - 2d6
+        - cold
+    versatile: ''
+  formula: ''
+  save:
+    ability: dex
+    dc: null
+    scaling: spell
+  level: 1
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: 1d6
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 2
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        condition: ''
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: spell
+          value: ranged
+      damage:
+        critical: {}
+        parts:
+          - custom:
+              enabled: false
+            denomination: 10
+            number: 1
+            scaling:
+              formula: 1d6
+              mode: whole
+              number: 0
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - cold
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '60'
+      target:
+        template:
+          size: '5'
+          type: radius
+      type: attack
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '2'
+effects: []
+_id: BtPIWqiKDBC6FZng
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!BtPIWqiKDBC6FZng'

@@ -1,0 +1,183 @@
+name: Advozse
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:12.2701392+00:00'
+    importer_version: 3
+    uid: Species.name-advozse
+type: race
+img: modules/sw5e/icons/packs/Species/Advozse.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Advozsec evolved from herbivorous reptile-analogs which fed on the vegetation known to form around Riflor's hot springs. Evolving into a class of reptomammal, advozsec have a single horn at the crown of their heads, four digits on each hand and foot, pointed ears, and large eyes. Advozsec are strictly vegetarian, unable to properly digest meat. The geothermal hot springs that appear on their homeworld forced the species to evolve thick skin in order to survive. The large eyes of the advozsec are adaptations to the clouds of volcanic ash which darken Riflor's skies. </p>
+      <h2>Society and Culture</h2>
+      <p>Since so much of the sunlight on Riflor is blocked by volcanic eruptions, advozsec tend to settle near geothermal springs for heat. Unfortunately, these springs also tend to be in geologically unstable regions, and anything built near them is often destroyed or abandoned due to eruptions or groundquakes. As a result, the advozse people ended up having little attachment to material goods or long-term plans, and developed a pessimistic, selfish, and even paranoid outlook on life. This facet of their culture remained long after contact with the Galactic Republic gave them access to modern construction techniques allowing for more permanent buildings. Seeing financial stability as the only truly achievable stability one could find in life, the advozsec constantly strive to accumulate as much monetary wealth as they can in a lifetime in order to have the ability to rebuild when the worst happens.</p>
+      <h2>Names</h2>
+      <p>Advozsec have simple names that do not distinguish between genders, using familiar surnames.</p>
+      <p><strong>First Names.</strong> Dleck, Fjemm, Gorde, Rollar, Xon</p>
+      <p><strong>Surnames.</strong> Ghantere, Leventraim, Timack, Vy, Zimda</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: advozse
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 30
+    burrow: null
+    climb: null
+    fly: null
+    swim: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 60
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: sw5e0ig000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.GKDQMfpelWWyy25j
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.QJPP1Vz7gnnKIYuh
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.qrXHDxOsZeEzwPuo
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.OkVw7iaeZwp2SVgQ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.cDTt05Ari7ZxIn7m
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.uWEpuS2tQ6Z7VYgX
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.FXHgckWuDajWR5EQ
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.m5wIZ9X2s0ci2prR
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.YBGX8desrCv6xdE7
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.ZP8jH21NvRo5PMTK
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.gzvM3lRI4BR4DJD5
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e1asi00000000
+      configuration:
+        fixed:
+          con: 2
+          wis: 1
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e2s0000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: sw5e3t0000000000
+      configuration:
+        choices: []
+        grants:
+          - dr:fire
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Green, brown, muddy yellow, or tan
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Black or red
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Large eyes, single horn on head, pointed ears
+  heightAverage:
+    value: 4'9"
+  heightRollMod:
+    value: +2d6"
+  weightAverage:
+    value: 100 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Riflor
+  slanguage:
+    value: Advb
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: G49BHyIIfQBdFmUt
+    changes:
+      - key: system.attributes.ac.value
+        mode: 5
+        priority: 20
+        value: 12+@abilities.dex.mod
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Advozse
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/hgttg/packs/Icons/Advozse.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!TLwHDG0EpgcQyop5.G49BHyIIfQBdFmUt'
+_id: TLwHDG0EpgcQyop5
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732412596409
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!TLwHDG0EpgcQyop5'

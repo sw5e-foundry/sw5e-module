@@ -1,0 +1,185 @@
+name: Vurk
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:11.9003529+00:00'
+    importer_version: 3
+    uid: Species.name-vurk
+type: race
+img: modules/sw5e/icons/packs/Species/Vurk.webp
+system:
+  description:
+    value: |-
+      <h2>Biology and Appearance</h2>
+      <p>Vurks are the predominant sentient species of the planet Sembla. They are tall, reptilian humanoids with bulbous dark eyes and sweeping head crests. Their hands and feet have three digits each, one of which was opposable. They have distinguishing gray-green, leathery skin. Being able to breathe both water and air, they are perfectly adapted to travel Sembla's warm, shallow seas dotted with volcanic islands. They share a strong nomadic instinct with their amphibious ancestors.  </p>
+      <h2>Society and Culture</h2>
+      <p>Young Vurk males are married off by their parents; those who failed to marry before reaching adulthood remain bachelors for the rest of their lives. Because their way of living resulted in virtually no sizable permanent settlement whatsoever, Vurks were generally considered primitive by the rest of the galaxy; however, that was not true. They are very intelligent and believe in a highly developed philosophical tradition that emphasizes personal integrity and individual freedom and encourage personal honesty. Their compassionate and calm manner made them better than average diplomats.</p>
+      <p>Vurks are very family-oriented. It is common for multiple generations to remain in the same location as a single household, with the eldest family member being the patriarch or matriarch and making the decision for the entire family.</p>
+      <h2>Names</h2>
+      <p>Vurk names are traditionally two to three syllables. Female names typically end with a vowel, while male names vary. Surnames are familial.</p>
+      <p><strong>Male Names.</strong> Coleman, Jadran, Milanko, Zlatko</p>
+      <p><strong>Female Names.</strong> Elka, Iryna, Miglena, Tanya, Verka</p>
+      <p><strong>Surnames.</strong> Cheevochik, Provric, Trebor, Vorgecz</p>
+    chat: ''
+  source:
+    custom: EC
+  identifier: vurk
+  details:
+    isDroid: false
+  type:
+    value: humanoid
+  movement:
+    walk: 35
+    swim: 30
+    burrow: null
+    climb: null
+    fly: null
+    units: null
+    hover: false
+  senses:
+    darkvision: 60
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e.speciesfeatures.mWQEFMj7GHpc4u31
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.tv3WhHfaulkzYpNH
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.jMMnccxLOZ6o3pL5
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.K0vVOWstHqVCThl8
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.rMNFmfvFTMN9grWi
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.VCfbjwXGukm6hOpm
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.UlcNRpMvSdVdBf3v
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.mk0kBIMwPULHj1jd
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.Zeb2PD3R2Ktz3ING
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.lG0Cq78D2CE0bD27
+            optional: false
+          - uuid: Compendium.sw5e.speciesfeatures.DL4S9aYzAdfsGyqG
+            optional: false
+        optional: true
+        spell: null
+      level: 0
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1asi000000000000
+      configuration:
+        fixed:
+          con: 1
+          wis: 2
+        points: 0
+        cap: 2
+        locked: []
+      level: 0
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: 2s00000000000000
+      configuration:
+        sizes:
+          - med
+      level: 0
+      type: Size
+      value: {}
+    - _id: 3t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:ath
+        mode: default
+        allowReplacements: false
+      level: 0
+      type: Trait
+      value:
+        chosen: []
+  skinColorOptions:
+    value: Dark blues, greens, greys, or reds
+  hairColorOptions:
+    value: None
+  eyeColorOptions:
+    value: Black
+  colorScheme:
+    value: ''
+  distinctions:
+    value: Bulbous eyes, head crests, three-fingered hands
+  heightAverage:
+    value: 5'9"
+  heightRollMod:
+    value: +2d8"
+  weightAverage:
+    value: 130 lb.
+  weightRollMod:
+    value: x(2d4) lb.
+  homeworld:
+    value: Sembla
+  slanguage:
+    value: Semblan
+  droidDistinctions:
+    value: ''
+  manufacturer:
+    value: ''
+  droidLanguage:
+    value: ''
+effects:
+  - _id: Q0QM1el7ltMmxAt5
+    changes:
+      - key: flags.sw5e.amphibious
+        value: '1'
+        mode: 0
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    tint: '#ffffff'
+    transfer: true
+    flags: {}
+    origin: null
+    name: Vurk
+    description: ''
+    statuses: []
+    _stats:
+      coreVersion: '12.330'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e/icons/packs/Species/Vurk.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!E9PQl0AG7sdLt0IP.Q0QM1el7ltMmxAt5'
+_id: E9PQl0AG7sdLt0IP
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296028336
+  modifiedTime: 1732304725115
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!E9PQl0AG7sdLt0IP'

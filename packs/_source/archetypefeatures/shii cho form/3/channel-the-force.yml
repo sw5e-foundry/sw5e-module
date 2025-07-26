@@ -1,0 +1,125 @@
+name: Channel the Force
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.555814+00:00'
+    importer_version: 3
+    uid: Feature.name-channel_the_force.source-archetype.sourceName-shii_cho_form.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/GRDN-ARCH-Passive.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Shii-Cho Form:</strong> 3rd level</em></p>
+      <p>You gain the following Channel the Force option.</p>
+      <h3>@UUID[Compendium.sw5e.archetypefeatures.Item.udzgWcpSdxJuDnnm]{Disarming Slash}</h3>
+      <p>When you hit a creature with a melee weapon attack, you can expend a use of your Channel the Force (no action required)  to attempt to disarm the target, forcing it to drop one item of your choice that it's holding. The creature must make a Strength saving throw against your universal force save DC. On a failed save, it drops the object you choose. If you are within 5 feet of the target, and you have a free hand, you can catch the item. Otherwise, the object lands at its feet.</p>
+    chat: ''
+  requirements: Guardian (Shii-Cho Form) 3
+  source:
+    custom: EC
+  activation:
+    type: ''
+    cost: null
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 5
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts: []
+    versatile: ''
+  formula: ''
+  save:
+    ability: str
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: 300
+      turn: 250
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '5'
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+effects: []
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1680288495976
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: Ds4CC6G37pjF03KS
+_key: '!items!Ds4CC6G37pjF03KS'

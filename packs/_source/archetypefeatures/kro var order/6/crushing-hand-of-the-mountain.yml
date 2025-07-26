@@ -1,0 +1,144 @@
+name: Crushing Hand of the Mountain
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6847388+00:00'
+    importer_version: 3
+    uid: Feature.name-crushing_hand_of_the_mountain.source-archetype.sourceName-kro_var_order.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/MNK-ARCH-Bonus.webp
+effects: []
+system:
+  description:
+    value: <p>As an action, you can choose a 5-foot-square unoccupied space on the ground that you can see within 30 feet. A Medium hand made from soil and stone, which lasts for 1 minute, rises in that space and reaches for one Large or smaller creature you can see within 5 feet of it. The target must make a Strength saving throw. On a failed save, the target takes [[/r 2d6]] kinetic damage and is restrained for the duration. As a bonus action on each of your turns, you can cause the hand to crush the restrained target, which must make a Strength saving throw. It takes [[/r 2d6]] kinetic damage on a failed save, or half as much damage on a successful one. To break out, the restrained creature can use its action to make a Strength check against your focus save DC. On a success, the target escapes and is no longer restrained by the hand. As an action, you can cause the hand to reach for a different creature or to move to a different unoccupied space within range. The hand releases a restrained target if you do either.</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 6
+  source:
+    custom: EC
+  activation:
+    type: bonus
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: '5'
+    width: null
+    units: ft
+    type: square
+    prompt: true
+  range:
+    value: 30
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: null
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d6
+        - kinetic
+      - - 2d6
+        - kinetic
+    versatile: ''
+  formula: ''
+  save:
+    ability: str
+    dc: null
+    scaling: spell
+  type:
+    value: class
+    subtype: ''
+  recharge:
+    value: null
+    charged: false
+  attributes:
+    speed:
+      space: null
+      turn: null
+  attack:
+    bonus: ''
+    flat: false
+  enchantment: null
+  summons: null
+  prerequisites:
+    level: null
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        units: ft
+        value: '30'
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '5'
+          type: square
+      type: save
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1667426104190
+  modifiedTime: 1739121092781
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_id: pJgtWqcGHv0mtIAB
+_key: '!items!pJgtWqcGHv0mtIAB'

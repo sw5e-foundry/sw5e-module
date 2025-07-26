@@ -1,0 +1,157 @@
+name: Acid Dart
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:59.1417509+00:00'
+    importer_version: 3
+    uid: Power.name-acid_dart.level-2
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: spell
+img: modules/sw5e/icons/packs/Tech%20Powers/AcidDart.webp
+system:
+  description:
+    value: |-
+      <p>A shimmering green dart streaks toward a target within range and bursts in a spray of acid. Make a ranged tech attack against the target. On a hit, the target takes [[/r 4d4]] acid damage immediately and [[/r 2d4]] acid damage at the end of its next turn. On a miss, the dart splashes the target with acid for half as much of the initial damage and no damage at the end of its next turn.</p>
+      <p><strong><em>Overcharge Tech.</em></strong> When you cast this power using a tech slot of 3rd level or higher, the damage (both initial and later) increases by [[/r 1d4]] for each slot level above 2nd.</p>
+    chat: ''
+  source:
+    custom: PHB
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: ''
+    units: inst
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: 90
+    long: null
+    units: ft
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    prompt: true
+  ability: null
+  actionType: rpak
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 4d4
+        - acid
+      - - 2d4
+        - acid
+    versatile: ''
+  formula: ''
+  save:
+    ability: ''
+    dc: null
+    scaling: spell
+  level: 2
+  school: tec
+  properties: []
+  materials:
+    value: ''
+    consumed: false
+    cost: 0
+    supply: 0
+  preparation:
+    mode: prepared
+    prepared: false
+  scaling:
+    mode: level
+    formula: 1d4
+  cover: null
+  crewed: false
+  consume:
+    type: attribute
+    target: powercasting.tech.points.value
+    amount: 3
+    scale: true
+  attack:
+    bonus: ''
+    flat: false
+  chatFlavor: ''
+  enchantment: null
+  summons: null
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        condition: ''
+        type: action
+      attack:
+        ability: ''
+        bonus: ''
+        flat: false
+        type:
+          classification: spell
+          value: ranged
+      damage:
+        critical: {}
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 4
+            scaling:
+              mode: whole
+              number: 1
+            types:
+              - acid
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 2
+            scaling:
+              mode: whole
+              number: 1
+            types:
+              - acid
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '90'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: attack
+      consumption:
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: amount
+            target: powercasting.tech.points.value
+            type: attribute
+            value: '3'
+effects: []
+_id: 1YrVk8kNgTbVLEzu
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1720296025398
+  modifiedTime: 1739121090144
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!1YrVk8kNgTbVLEzu'

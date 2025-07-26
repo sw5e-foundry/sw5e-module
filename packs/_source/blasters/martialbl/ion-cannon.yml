@@ -1,0 +1,150 @@
+name: Ion cannon
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:54.3945039+00:00'
+    importer_version: 3
+    uid: Weapon.name-ion_cannon.equipmentCategory-weapon
+  sw5e:
+    properties:
+      auto: true
+      burst: 4
+      powerCell: range 90/360
+      reload: 4
+      strRq: 15
+      two: true
+    reload:
+      types:
+        - powerCell
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  quantity: 1
+  price:
+    value: 3800
+    denomination: gp
+  rarity: ''
+  identified: true
+  type:
+    value: martialBL
+    baseItem: ioncannon
+  description:
+    value: |-
+      <h3>Auto</h3>
+      <p>Weapons with this property can only fire in burst, penetrating, or rapid modes. If the weapon has any combination of burst, penetrating, and rapid modes, you choose which mode to use. You can only use one mode at a time.</p>
+      <h3>Burst 4</h3>
+      <p>When you would make a ranged weapon attack with a weapon with this property, you can instead spray a 10-foot-cube area within range with shots, consuming ammunition equal to the burst number. Each creature in the area must make a Dexterity saving throw (DC = 8 + your bonus to attacks with the weapon) or take the weapon's normal damage. Before you use this property, you can declare one creature that would be affected by it. If the creature fails its save, in addition to the weapon's normal damage, it is subjected to any additional effects that would occur on a hit. If you would have advantage on your attack roll, the creature instead has disadvantage on their saving throw, and if you would have disadvantage on your attack roll, the creature instead has advantage on their saving throw.</p>
+      <h3>Power cell (range 90/360) Cell</h3>
+      <p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>
+      <h3>Reload 4</h3>
+      <p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>
+      <h3>Strength 15</h3>
+      <p>A weapon with this property has a heavy kickback. While wielding it, you have disadvantage on attack rolls unless you meet the Strength requirement. If the weapon has the burst, penetrating, or rapid property, you must meet the Strength requirement to use this feature. If the weapon lacks the two-handed property, you can wield the weapon in two hands to temporarily reduce the strength number by one step (from 19 to 17, 17 to 15, 15 to 13, or 13 to 11). If this would reduce the strength number below 11, you ignore it entirely.</p>
+      <h3>Two-handed</h3>
+      <p>A weapon with this property requires two hands to use.</p>
+    chat: ''
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  activities:
+    sw5e1save0000000:
+      _id: sw5e1save0000000
+      activation:
+        type: action
+      damage:
+        parts: []
+      description: {}
+      duration:
+        units: inst
+      img: null
+      name: Burst Attack
+      range:
+        override: false
+        units: ft
+        value: '90'
+      save:
+        ability: dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '1'
+          type: enemy
+          units: ''
+      type: save
+  properties:
+    - auto
+    - burst
+    - powerCell
+    - rel
+    - strRq
+    - two
+  damage:
+    base:
+      number: 1
+      denomination: 10
+      types:
+        - ion
+      custom:
+        enabled: false
+      scaling:
+        number: 1
+        mode: ''
+    versatile:
+      number: null
+      denomination: null
+      types: []
+      custom:
+        enabled: false
+      scaling:
+        number: 1
+  uses:
+    spent: 0
+    recovery: []
+  identifier: ion-cannon
+  unidentified:
+    description: ''
+  container: null
+  weight:
+    value: 0
+    units: lb
+  attunement: ''
+  attuned: false
+  equipped: false
+  armor:
+    value: null
+  cover: null
+  crewed: false
+  hp:
+    value: null
+    max: null
+    dt: null
+    conditions: ''
+  ammunition: {}
+  magicalBonus: null
+  proficient: null
+  range:
+    value: 90
+    long: 360
+    reach: null
+    units: ft
+type: weapon
+img: modules/sw5e/icons/packs/Martial%20Blasters/IonCannon.webp
+effects: []
+_id: 1BGl0Qy3bz3MgSBD
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433881093
+  modifiedTime: 1739121083882
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!1BGl0Qy3bz3MgSBD'

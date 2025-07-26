@@ -1,0 +1,150 @@
+_id: skiN6IhejcpbZuxK
+name: Poison (Major)
+type: consumable
+img: modules/sw5e/icons/packs/Medical/Poison.webp
+effects: []
+folder: null
+sort: 0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:04.8084654+00:00'
+    importer_version: 3
+    uid: EnhancedItem.name-poison_major.subtype-poison
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: "<h4>Consumable (Poison)</h4>\n <p>As an action, you can use the poison in this vial to coat one vibroweapon, one slug cartridge, or one wrist launcher dart. A creature hit by the poisoned weapon must make a DC 18 Constitution saving throw, taking [[/r 6d4]] poison damage on a failed save or half as much on a successful one. Once applied, the poison retains potency for 1 minute before drying.</p>\n<p>\_</p>\n<h2>Poison</h2>\n<p>As an action, you can use the poison in this vial to coat one vibroweapon, one slug cartridge, or one wrist launcher dart. A creature hit by the poisoned weapon must make a DC 14 Constitution saving throw, taking [[/r 2d4]] poison damage on a failed save or half as much on a successful one. Once applied, the poison retains potency for 1 minute before drying.</p>"
+    chat: ''
+  source:
+    custom: WH
+  quantity: 1
+  weight:
+    value: 0
+    units: lb
+  price:
+    value: 125
+    denomination: gp
+  attunement: ''
+  equipped: false
+  rarity: prototype
+  identified: true
+  activation:
+    type: action
+    cost: 1
+    condition: ''
+  duration:
+    value: '1'
+    units: minute
+  cover: null
+  crewed: false
+  target:
+    value: ''
+    width: null
+    units: ''
+    type: ''
+    prompt: true
+  range:
+    value: null
+    long: null
+    units: ''
+  uses:
+    value: null
+    max: ''
+    per: null
+    recovery: ''
+    autoDestroy: false
+    prompt: true
+  consume:
+    type: ''
+    target: null
+    amount: null
+    scale: false
+  ability: ''
+  actionType: save
+  chatFlavor: ''
+  critical:
+    threshold: null
+    damage: ''
+  damage:
+    parts:
+      - - 2d4
+        - poison
+      - - 6d4
+        - poison
+    versatile: ''
+  formula: ''
+  save:
+    ability: con
+    dc: 18
+    scaling: flat
+  properties: []
+  type:
+    value: poison
+    subtype: ''
+  unidentified:
+    description: ''
+  attack:
+    bonus: ''
+    flat: false
+  container: null
+  attuned: false
+  enchantment: null
+  summons: null
+  magicalBonus: null
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - poison
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 6
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - poison
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+      img: null
+      range:
+        override: false
+        units: ft
+      save:
+        ability: con
+        dc:
+          calculation: ''
+          formula: '14'
+      target:
+        template:
+          type: ''
+          units: ''
+      type: save
+ownership:
+  default: 0
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  coreVersion: '12.331'
+  createdTime: 1674493964991
+  modifiedTime: 1739121086510
+  lastModifiedBy: dnd5ebuilder0000
+  duplicateSource: null
+_key: '!items!skiN6IhejcpbZuxK'

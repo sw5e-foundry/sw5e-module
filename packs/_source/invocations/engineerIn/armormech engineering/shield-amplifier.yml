@@ -1,0 +1,71 @@
+name: Shield Amplifier
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.342215+00:00'
+    importer_version: 3
+    uid: Feature.name-shield_amplifier.source-archetypeinvocation.sourceName-armormech_engineering
+  dnd5e:
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e/icons/packs/Class%20Features/ENGR-Bonus.webp
+system:
+  description:
+    value: |-
+      <p><em><strong>Prerequisite:</strong> Shield Generator</em></p>
+      <p>You modify your shield generator to project outward. As a bonus action you can amplify your shield until the start of your next turn. Each creature within 5 feet of you gains a bonus to AC equal to your shield's bonus.</p>
+      <p>You can use this feature twice. You gain an additional use at 5th, 9th, 13th, and 17th level. You regain any expended uses when you finish a long rest.</p>
+    chat: ''
+  requirements: Engineer (Armormech Engineering), Shield Generator
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  type:
+    value: class
+    subtype: engineerInvocation
+  uses:
+    max: '2'
+    spent: 0
+    recovery: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+      description: {}
+      duration:
+        units: inst
+      img: null
+      range:
+        units: ft
+        value: '5'
+      roll:
+        formula: ''
+      target:
+        template:
+          size: '5'
+          type: radius
+      type: utility
+  identifier: shield-amplifier
+  enchant: {}
+  prerequisites:
+    level: null
+  properties: []
+effects: []
+_id: Vw9QCl6J5E75NoKE
+folder: null
+sort: 0
+ownership:
+  default: 0
+_stats:
+  duplicateSource: null
+  coreVersion: '12.331'
+  systemId: dnd5e
+  systemVersion: 3.3.1
+  createdTime: 1730433983637
+  modifiedTime: 1739121094709
+  lastModifiedBy: dnd5ebuilder0000
+_key: '!items!Vw9QCl6J5E75NoKE'
