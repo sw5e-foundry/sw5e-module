@@ -107,12 +107,13 @@ function prepareSuperiority() {
 		const { attributes, superiority } = _this.system;
 		const base = 8 + attributes.prof ?? 0;
 
-		// TODO: Add rules
-		// // Simplified forcecasting rule
-		// if (game.settings.get("sw5e", "simplifiedForcecasting")) {
-		// 	CONFIG.DND5E.superiority.types.physical.attr = CONFIG.DND5E.superiority.types.general.attr;
-		// 	CONFIG.DND5E.superiority.types.mental.attr = CONFIG.DND5E.superiority.types.general.attr;
-		// }
+		// Simplified superiority rule - all maneuver types use the same attribute
+		if (game.settings.get("sw5e", "simplifiedSuperiority")) {
+			// Make all superiority types use the general type's attribute
+			const genAttr = CONFIG.DND5E.superiority.types.general.attr;
+			CONFIG.DND5E.superiority.types.physical.attr = genAttr;
+			CONFIG.DND5E.superiority.types.mental.attr = genAttr;
+		}
 
 		// Superiority DC for Actors and NPCs
 		const superConfig = CONFIG.DND5E.superiority;
