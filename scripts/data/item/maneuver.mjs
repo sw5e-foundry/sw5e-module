@@ -115,8 +115,6 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 
 	/** @inheritDoc */
 	prepareDerivedData() {
-		ActivitiesTemplate._applyActivityShims.call(this);
-		this._applyManeuverShims();
 		super.prepareDerivedData();
 		this.prepareDescriptionData();
 
@@ -127,7 +125,7 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 
 		labels.properties = this.properties.reduce((acc, c) => {
 			const config = this.validProperties.has(c) ? CONFIG.DND5E.itemProperties[c] : null;
-			if ( !config ) return acc;
+			if (!config) return acc;
 			const { abbreviation: abbr, label, icon } = config;
 			acc.push({ abbr, icon, tag: config.isTag });
 			return acc;
@@ -155,7 +153,7 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 	/* -------------------------------------------- */
 
 	/** @inheritDoc */
-	async getCardData(enrichmentOptions={}) {
+	async getCardData(enrichmentOptions = {}) {
 		const context = await super.getCardData(enrichmentOptions);
 		context.isManeuver = true;
 		context.subtitle = CONFIG.DND5E.superiority.types[this.type.value]?.label ?? "";
@@ -177,14 +175,14 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 
 	/** @inheritDoc */
 	async getSheetData(context) {
-		if ( this.parent.actor ) {
+		if (this.parent.actor) {
 			const ability = CONFIG.DND5E.abilities[
 				this.parent.actor.system?.superiority?.types?.[this.type.value]?.attr
 				?? CONFIG.DND5E.superiority.types[this.type.value]?.attr?.[0]
 				?? this.parent.actor.system.attributes?.spellcasting
 				?? "int"
 			]?.label?.toLowerCase();
-			if ( ability ) context.defaultAbility = game.i18n.format("DND5E.DefaultSpecific", { default: ability });
+			if (ability) context.defaultAbility = game.i18n.format("DND5E.DefaultSpecific", { default: ability });
 			else context.defaultAbility = game.i18n.localize("DND5E.Default");
 		}
 		context.subtitles = [
@@ -210,7 +208,7 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 
 	/** @override */
 	get availableAbilities() {
-		if ( this.ability ) return new Set([this.ability]);
+		if (this.ability) return new Set([this.ability]);
 		return new Set(CONFIG.DND5E.superiority.types[this.type.value].attr ?? []);
 	}
 
@@ -258,9 +256,9 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 
 	/** @inheritDoc */
 	_preCreate(data, options, user) {
-		if ( super._preCreate(data, options, user) === false ) return false;
+		if (super._preCreate(data, options, user) === false) return false;
 		const classes = new Set(Object.keys(this.parent.actor?.spellcastingClasses ?? {}));
-		if ( !classes.size ) return;
+		if (!classes.size) return;
 
 		// Set the source class
 		const setClass = cls => {
@@ -269,97 +267,9 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 		};
 
 		// If only a single spellcasting class is present, use that
-		if ( classes.size === 1 ) {
+		if (classes.size === 1) {
 			setClass(classes.first());
 			return;
 		}
-	}
-
-	/* -------------------------------------------- */
-	/*  Shims                                       */
-	/* -------------------------------------------- */
-
-	/**
-	 * Add additional data shims for maneuvers.
-	 */
-	_applyManeuverShims() {
-		Object.defineProperty(this.activation, "cost", {
-			get() {
-				foundry.utils.logCompatibilityWarning(
-					"The `activation.cost` property on `ManeuverData` has been renamed `activation.value`.",
-					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
-				);
-				return this.value;
-			},
-			configurable: true,
-			enumerable: false
-		});
-		Object.defineProperty(this, "scaling", {
-			get() {
-				foundry.utils.logCompatibilityWarning(
-					"The `scaling` property on `ManeuverData` has been deprecated and is now handled by individual damage parts.",
-					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
-				);
-				return { mode: "none", formula: null };
-			},
-			configurable: true,
-			enumerable: false
-		});
-		Object.defineProperty(this.target, "value", {
-			get() {
-				foundry.utils.logCompatibilityWarning(
-					"The `target.value` property on `ManeuverData` has been split into `target.template.size` and `target.affects.count`.",
-					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
-				);
-				return this.template.size || this.affects.count;
-			},
-			configurable: true,
-			enumerable: false
-		});
-		Object.defineProperty(this.target, "width", {
-			get() {
-				foundry.utils.logCompatibilityWarning(
-					"The `target.width` property on `ManeuverData` has been moved to `target.template.width`.",
-					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
-				);
-				return this.template.width;
-			},
-			configurable: true,
-			enumerable: false
-		});
-		Object.defineProperty(this.target, "units", {
-			get() {
-				foundry.utils.logCompatibilityWarning(
-					"The `target.units` property on `ManeuverData` has been moved to `target.template.units`.",
-					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
-				);
-				return this.template.units;
-			},
-			configurable: true,
-			enumerable: false
-		});
-		Object.defineProperty(this.target, "type", {
-			get() {
-				foundry.utils.logCompatibilityWarning(
-					"The `target.type` property on `ManeuverData` has been split into `target.template.type` and `target.affects.type`.",
-					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
-				);
-				return this.template.type || this.affects.type;
-			},
-			configurable: true,
-			enumerable: false
-		});
-		const firstActivity = this.activities.contents[0] ?? {};
-		Object.defineProperty(this.target, "prompt", {
-			get() {
-				foundry.utils.logCompatibilityWarning(
-					"The `target.prompt` property on `ManeuverData` has moved into its activity.",
-					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
-				);
-				return firstActivity.target?.prompt;
-			},
-			configurable: true,
-			enumerable: false
-		});
 	}
 };
