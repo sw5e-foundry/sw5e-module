@@ -11,12 +11,12 @@ async function preloadHandlebarsTemplates() {
 	];
 
 	const paths = {};
-	for ( const path of partials ) {
+	for (const path of partials) {
 		paths[path.replace(".hbs", ".html")] = path;
 		paths[`sw5e.${path.split("/").pop().replace(".hbs", "")}`] = path;
 	}
 
-	return loadTemplates(paths);
+	return foundry.applications.handlebars.loadTemplates(paths);
 }
 
 

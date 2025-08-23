@@ -1,4 +1,4 @@
-export function patchConfig(config, strict=true) {
+export function patchConfig(config, strict = true) {
 	const preLocalize = game.dnd5e.utils.preLocalize;
 
 	// Default Abilities
@@ -99,7 +99,7 @@ export function patchConfig(config, strict=true) {
 			fullKey: "swindle"
 		}
 	};
-	preLocalize( "starshipSkills", { key: "label", sort: true } );
+	preLocalize("starshipSkills", { key: "label", sort: true });
 	// Weapon proficiencies
 	if (strict) config.weaponProficiencies = {};
 	config.weaponProficiencies = {
@@ -280,7 +280,7 @@ export function patchConfig(config, strict=true) {
 		"sunsaber": "Compendium.sw5e.lightweapons.Item.0Mwf5lFw326kCXaP",
 		"warsaber": "Compendium.sw5e.lightweapons.Item.aJmL8jD1ZbmurHGe",
 		"wristsaber": "Compendium.sw5e.lightweapons.Item.tct3YIDnft6YS1zm",
-    	// Vibroweapons
+		// Vibroweapons
 		"atlatl": "Compendium.sw5e.vibroweapons.Item.NWifgokJSFzhq181",
 		"bolas": "Compendium.sw5e.vibroweapons.Item.OPGMDrcn02FOCZia",
 		"cesta": "Compendium.sw5e.vibroweapons.Item.BfV4LUJHoOrQTu6N",
@@ -491,14 +491,14 @@ export function patchConfig(config, strict=true) {
 		wristpad: "SW5E.EquipmentWristpad",
 		focusgenerator: "SW5E.EquipmentFocusGenerator"
 	};
-	preLocalize( "castingEquipmentTypes", { sort: true } );
+	preLocalize("castingEquipmentTypes", { sort: true });
 	config.ssEquipmentTypes = {
 		hyper: "SW5E.EquipmentHyperdrive",
 		powerc: "SW5E.EquipmentPowerCoupling",
 		reactor: "SW5E.EquipmentReactor",
 		ssshield: "SW5E.EquipmentStarshipShield"
 	};
-	preLocalize( "ssEquipmentTypes", { sort: true } );
+	preLocalize("ssEquipmentTypes", { sort: true });
 	config.miscEquipmentTypes = { ...config.miscEquipmentTypes, ...config.castingEquipmentTypes };
 	config.equipmentTypes = { ...config.miscEquipmentTypes, ...config.ssEquipmentTypes, ...config.armorTypes };
 	if (strict) config.armorIds = {
@@ -544,14 +544,14 @@ export function patchConfig(config, strict=true) {
 		snare: "SW5E.ConsumableAmmoSnare",
 		torpedo: "SW5E.ConsumableAmmoTorpedo"
 	};
-	preLocalize( "ammoStandardTypes", { sort: true } );
+	preLocalize("ammoStandardTypes", { sort: true });
 	config.ammoStarshipTypes = {
 		sscluster: "SW5E.ConsumableAmmoSsCluster",
 		ssmissile: "SW5E.ConsumableAmmoSsMissile",
 		sstorpedo: "SW5E.ConsumableAmmoSsTorpedo",
 		ssbomb: "SW5E.ConsumableAmmoSsBomb"
 	};
-	preLocalize( "ammoStarshipTypes", { sort: true } );
+	preLocalize("ammoStarshipTypes", { sort: true });
 	config.consumableTypes.ammo.subtypes = {
 		...config.ammoStandardTypes,
 		...config.ammoStarshipTypes
@@ -565,7 +565,7 @@ export function patchConfig(config, strict=true) {
 			thermal: "SW5E.ConsumableExplosiveThermal",
 		},
 	}
-	preLocalize( `consumableTypes.explosive.subtypes`, { sort: true } );
+	preLocalize(`consumableTypes.explosive.subtypes`, { sort: true });
 	// Containers
 	if (strict) config.containerTypes = {
 		backpack: "Compendium.sw5e.adventuringgear.Item.PN7A13FrDSyo2Neg",
@@ -621,8 +621,8 @@ export function patchConfig(config, strict=true) {
 		scoutInvocation: "SW5E.Feature.Class.ScoutRoutine",
 		sentinelInvocation: "SW5E.Feature.Class.SentinelIdeal",
 		sentinelFES: "SW5E.Feature.Class.SentinelFES"
-  	};
-  	config.featureTypes.customizationOption = {
+	};
+	config.featureTypes.customizationOption = {
 		label: "SW5E.Feature.CustomizationOption.Label",
 		subtypes: {
 			classImprovement: "SW5E.Feature.CustomizationOption.ClassImprovement",
@@ -657,8 +657,8 @@ export function patchConfig(config, strict=true) {
 			passenger: "SW5E.Feature.StarshipAction.Passenger"
 		}
 	};
-	for ( const key of ["customizationOption", "deployment", "starship", "starshipAction"] ) {
-		preLocalize( `featureTypes.${key}.subtypes`, { sort: true } );
+	for (const key of ["customizationOption", "deployment", "starship", "starshipAction"]) {
+		preLocalize(`featureTypes.${key}.subtypes`, { sort: true });
 	}
 	// Properties
 	if (strict) config.itemProperties = {};
@@ -1498,14 +1498,14 @@ export function patchConfig(config, strict=true) {
 	if (strict) config.validProperties = {};
 	config.validProperties = {
 		...config.validProperties,
-		consumable: new Set( [
+		consumable: new Set([
 			"mgc"
-		] ),
-		container: new Set( [
+		]),
+		container: new Set([
 			"mgc",
 			"weightlessContents"
-		] ),
-		equipment: new Set( [
+		]),
+		equipment: new Set([
 			"concentration",
 			"mgc",
 			"absorptive",
@@ -1560,15 +1560,15 @@ export function patchConfig(config, strict=true) {
 			"surging",
 			"withering",
 			"stealthDisadvantage"
-		] ),
-		feat: new Set( [
+		]),
+		feat: new Set([
 			"concentration",
 			"mgc"
-		] ),
-		loot: new Set( [
+		]),
+		loot: new Set([
 			"mgc"
-		] ),
-		weapon: new Set( [
+		]),
+		weapon: new Set([
 			"mgc",
 			"auto",
 			"burst",
@@ -1626,16 +1626,16 @@ export function patchConfig(config, strict=true) {
 			"power",
 			"saturate",
 			"zone"
-		] ),
-		spell: new Set( [
+		]),
+		spell: new Set([
 			"concentration",
 			"ritual",
 			"freeLearn"
-		] ),
-		tool: new Set( [
+		]),
+		tool: new Set([
 			"concentration",
 			"mgc"
-		] )
+		])
 	};
 	// Currencies
 	if (strict) config.currencies = {};
@@ -1679,7 +1679,7 @@ export function patchConfig(config, strict=true) {
 		label: "SW5E.Powercasting.Label",
 		usesPoints: true,
 		upcast: true,
-	};	
+	};
 	config.powerCasting = {
 		force: {
 			label: "SW5E.Powercasting.Force.Label",
@@ -1795,11 +1795,11 @@ export function patchConfig(config, strict=true) {
 			shortRest: true
 		}
 	};
-	preLocalize( "powercasting", { key: "label", sort: true } );
-	preLocalize( "powercasting.force.progression", { key: "label" } );
-	preLocalize( "powercasting.tech.progression", { key: "label" } );
-	preLocalize( "powercasting.force.schools", { key: "label", sort: true } );
-	preLocalize( "powercasting.tech.schools", { key: "label", sort: true } );
+	preLocalize("powercasting", { key: "label", sort: true });
+	preLocalize("powercasting.force.progression", { key: "label" });
+	preLocalize("powercasting.tech.progression", { key: "label" });
+	preLocalize("powercasting.force.schools", { key: "label", sort: true });
+	preLocalize("powercasting.tech.schools", { key: "label", sort: true });
 
 	if (strict) config.spellSchools = {};
 	config.spellSchools = {
@@ -1847,8 +1847,8 @@ export function patchConfig(config, strict=true) {
 			}
 		}
 	};
-	preLocalize( "superiority.progression", { key: "label" } );
-	preLocalize( "superiority.types", { key: "label" } );
+	preLocalize("superiority.progression", { key: "label" });
+	preLocalize("superiority.types", { key: "label" });
 	// Weapons
 	if (strict) {
 		delete config.weaponTypes.simpleM;
@@ -1868,14 +1868,14 @@ export function patchConfig(config, strict=true) {
 		simpleLW: "SW5E.WeaponSimpleLW",
 		simpleVW: "SW5E.WeaponSimpleVW"
 	};
-	preLocalize( "weaponStandardTypes" );
+	preLocalize("weaponStandardTypes");
 	config.weaponStarshipTypes = {
 		"primary (starship)": "SW5E.WeaponPrimarySS",
 		"secondary (starship)": "SW5E.WeaponSecondarySS",
 		"tertiary (starship)": "SW5E.WeaponTertiarySS",
 		"quaternary (starship)": "SW5E.WeaponQuaternarySS"
 	};
-	preLocalize( "weaponStarshipTypes" );
+	preLocalize("weaponStarshipTypes");
 	config.weaponTypes = {
 		...config.weaponStandardTypes,
 		...config.weaponStarshipTypes
@@ -1898,24 +1898,24 @@ export function patchConfig(config, strict=true) {
 	config.conditionTypes = {
 		...config.conditionTypes,
 		corroded: {
-			label: "SW5E.ConCorroded",
-			icon: "systems/sw5e/icons/svg/statuses/corroded.svg"
+			name: "SW5E.ConCorroded",
+			img: "systems/sw5e/icons/svg/statuses/corroded.svg"
 			// reference: "" // TODO
 		},
 		ignited: {
-			label: "SW5E.ConIgnited",
-			icon: "systems/sw5e/icons/svg/statuses/ignited.svg"
+			name: "SW5E.ConIgnited",
+			img: "systems/sw5e/icons/svg/statuses/ignited.svg"
 			// reference: "" // TODO
 		},
 		shocked: {
-			label: "SW5E.ConShocked",
-			icon: "systems/sw5e/icons/svg/statuses/shocked.svg",
+			name: "SW5E.ConShocked",
+			img: "systems/sw5e/icons/svg/statuses/shocked.svg",
 			reference: "Compendium.sw5e.conditions.JournalEntry.HBSJojgAGu9Gsctd.JournalEntryPage.0000000000000000"
 			// reference: "" // TODO
 		},
 		slowed: {
-			label: "SW5E.ConSlowed",
-			icon: "systems/sw5e/icons/svg/statuses/slowed.svg",
+			name: "SW5E.ConSlowed",
+			img: "systems/sw5e/icons/svg/statuses/slowed.svg",
 			// reference: "", // TODO
 			levels: 4,
 			speedReduction: [
@@ -1938,16 +1938,16 @@ export function patchConfig(config, strict=true) {
 			]
 		},
 		weakened: {
-			label: "SW5E.ConWeakened",
-			icon: "systems/sw5e/icons/svg/statuses/weakened.svg"
+			name: "SW5E.ConWeakened",
+			img: "systems/sw5e/icons/svg/statuses/weakened.svg"
 			// reference: "" // TODO
 		}
 	};
 	config.conditionEffects = {
 		...config.conditionEffects,
-		slowedMovement1: new Set( ["slowed-1"] ),
-		slowedMovement2: new Set( ["slowed-2"] ),
-		slowedMovement3: new Set( ["slowed-3"] )
+		slowedMovement1: new Set(["slowed-1"]),
+		slowedMovement2: new Set(["slowed-2"]),
+		slowedMovement3: new Set(["slowed-3"])
 	};
 	// Languages
 	if (strict) config.languages = {
