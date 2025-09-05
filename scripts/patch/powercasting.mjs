@@ -378,6 +378,21 @@ function patchAbilityUseDialog() {
 					name: _this.item.name
 				})
 			});
+
+			// Optional debug logging for upcasting options
+			try {
+				if (game.settings?.get?.("sw5e", "debugPowercasting")) {
+					console.debug("[sw5e] Upcast options", {
+						actor: _this.actor?.name,
+						item: _this.item?.name,
+						powercastingType,
+						minimumLevel,
+						maximumLevel,
+						used: Array.from(powercasting.used),
+						spellSlotOptions
+					});
+				}
+			} catch (e) {/* no-op */}
 		}
 	});
 	Hooks.on('sw5e.ActivityUsageDialog._prepareSubmitData', function (_this, result, config, ...args) {
@@ -398,6 +413,17 @@ function patchAbilityUseDialog() {
 		if (level >= powercasting.limit) {
 			powercasting.used.add(level);
 			updates.actor[`system.powercasting.${powercastingType}.used`] = powercasting.used;
+			try {
+				if (game.settings?.get?.("sw5e", "debugPowercasting")) {
+					console.debug("[sw5e] Marked level as used", {
+						actor: activity?.actor?.name,
+						item: activity?.item?.name,
+						powercastingType,
+						level,
+						used: Array.from(powercasting.used)
+					});
+				}
+			} catch (e) {/* no-op */}
 		}
 	});
 }
@@ -442,6 +468,11 @@ function showPowercastingBar() {
 			// Tidy5e specific handling
 			sidebarClasses = '.attributes .side-panel';
 			append = false;
+			try {
+				if (game.settings?.get?.("sw5e", "debugPowercasting")) {
+					console.debug("[sw5e] Detected Tidy5e sheet; will prepend powercasting meters.", { actor: data.actor.name });
+				}
+			} catch (e) {/* no-op */}
 		}
 
 		const powerCasting = data.actor.system.powercasting;
@@ -468,9 +499,27 @@ function showPowercastingBar() {
 					'tempmax': tempmax,
 					'tempmaxSign': (tempmax > 0) ? 'temp-positive' : (tempmax < 0) ? 'temp-negative' : '',
 					'effectiveMax': effectiveMax,
+					'ariaMax': denom,
 					'pct': pct,
 					'bonus': game.dnd5e.utils.formatNumber(tempmax, { signDisplay: "always" })
 				};
+
+				// Optional debug logging for verification
+				try {
+					if (game.settings?.get?.("sw5e", "debugPowercasting")) {
+						console.debug("[sw5e] Powercasting meter", {
+							actor: data.actor.name,
+							castType,
+							value,
+							temp,
+							max,
+							tempmax,
+							effectiveMax,
+							denom,
+							pct
+						});
+					}
+				} catch (e) {/* no-op */}
 
 				let container = $('<div class="meter-group"></div>');
 

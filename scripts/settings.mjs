@@ -11,6 +11,16 @@ export function registerModuleSettings() {
 		default: ""
 	});
 
+	// Debug: Powercasting UI and usage
+	game.settings.register("sw5e", "debugPowercasting", {
+		name: "Debug Powercasting",
+		hint: "Log powercasting meters, upcasting options, and usage updates to the browser console.",
+		scope: "client",
+		config: true,
+		type: Boolean,
+		default: false
+	});
+
 	// // Allow 'feat + 1 ASI' variant rule
 	// game.settings.register("sw5e", "allowFeatsAndASI", {
 	//   name: "SETTINGS.5eFeatsAndASIN",

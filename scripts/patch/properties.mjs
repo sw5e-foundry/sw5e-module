@@ -68,7 +68,7 @@ function patchSheet() {
 				const spanNode = document.createElement("span");
 				const textNode = document.createTextNode(config.label);
 				spanNode.appendChild(textNode);
-				labelNode.appendChild(textNode);
+				labelNode.appendChild(spanNode);
 
 				const inputNode = document.createElement("input");
 				inputNode.setAttribute("type", "text");
