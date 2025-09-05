@@ -49,7 +49,8 @@ function preparePowercasting() {
 				const level = _this.system.details?.[`power${castType.capitalize()}Level`];
 				if (level) {
 					obj.classes = 1;
-					obj.points = level * typeConfig.obj.full.powerPoints;
+					// Use full progression to determine points for NPCs
+					obj.points = level * typeConfig.progression.full.powerPoints;
 					obj.casterLevel = level;
 					obj.maxClassLevel = level;
 					obj.maxClassProg = "full";
@@ -107,7 +108,11 @@ function preparePowercasting() {
 					obj.maxPowerLevel = progConfig.powerMaxLevel[obj.maxClassLevel];
 				} else {
 					// Don't allow multiclassing to achieve a higher max power level than a 20th level character of any of those classes
-					obj.maxPowerLevel = Math.min(obj.maxPowerLevel, typeConfig.progression.full[obj.casterLevel]);
+					// Clamp against the full progression's max power level at the computed caster level
+					obj.maxPowerLevel = Math.min(
+						obj.maxPowerLevel,
+						typeConfig.progression.full.powerMaxLevel[obj.casterLevel]
+					);
 				}
 			}
 
@@ -240,13 +245,9 @@ function patchItemSheet() {
 }
 
 function patchPowerAbilityScore() {
-	Hooks.on('sw5e.preActor5e.spellcastingClasses', function (_this, ...args) {
-		_this['sw5e-preCalculatedSpellcastingClasses2'] = _this._spellcastingClasses !== undefined;
-	});
+	// If Actor5e already computed classes, skip
 	Hooks.on('sw5e.Actor5e.spellcastingClasses', function (_this, result, config, ...args) {
-		const preCalculated = _this['sw5e-preCalculatedSpellcastingClasses'] = _this._spellcastingClasses !== undefined;
-		delete _this['sw5e-preCalculatedSpellcastingClasses'];
-
+		const preCalculated = _this._spellcastingClasses !== undefined;
 		if (preCalculated) return;
 		for (const [identifier, cls] of Object.entries(_this.classes)) for (const castType of ["force", "tech"]) {
 			if (cls.spellcasting && (cls.spellcasting[`${castType}Progression`] !== "none")) result[identifier] = cls;

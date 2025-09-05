@@ -252,7 +252,7 @@ function convertSW5EPackEntry(data, { forceConvert=false }={}) {
 	if ( !forceConvert && (data._stats?.systemId !== "sw5e") ) return false;
 
 	if ( data._stats?.systemId ) data._stats.systemId = "dnd5e";
-	if ( data._stats?.systemVersion ) data._stats.systemVersion = "3.3.1";
+	if ( data._stats?.systemVersion ) data._stats.systemVersion = "5.1.4";
 	if ( data._stats?.lastModifiedBy ) data._stats.lastModifiedBy = "sw5ebuilder00000";
 
 	if ( data.system?._propertyValues ) {
@@ -283,7 +283,8 @@ function convertSW5EPackEntry(data, { forceConvert=false }={}) {
 	}
 
 	if ( data.type === "power" ) data.type = "spell";
-	if ( data.type === "species" ) data.type = "race";
+	// Keep species type in DND5e v5.x
+	// if ( data.type === "species" ) data.type = "race";
 	if ( data.type === "archetype" ) data.type = "subclass";
 	if ( data.type === "maneuver" ) data.type = "sw5e.maneuver";
 	if ( data.changes ) data.changes.forEach(ch => { if ( ch.key === "system.traits.languages.value" && ch.value === "basic" ) ch.value = "common"; });
