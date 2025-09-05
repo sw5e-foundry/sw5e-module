@@ -209,8 +209,9 @@ function showPowercastingStats() {
 
 function patchItemSheet() {
 	Hooks.on("renderItemSheet5e", (app, html, data) => {
-		html.find(`select[name|='system.spellcasting.progression']`).each((idx, el) => {
+			html.find(`select[name|='system.spellcasting.progression']`).each((idx, el) => {
 			const root = el.parentNode.parentNode;
+			const isEditable = (app.isEditable ?? app.editable ?? false);
 			for (const castType of ["Tech", "Force"]) {
 				const selectedValue = app.item.system.spellcasting[`${castType.toLowerCase()}Progression`];
 				const div = document.createElement("div");
@@ -228,7 +229,7 @@ function patchItemSheet() {
 					selected: selectedValue === "none",
 					label: "DND5E.None"
 				}));
-				if (!app.isEditable) select.setAttribute("disabled", null);
+				if (!isEditable) select.setAttribute("disabled", null);
 				for (const [key, prog] of Object.entries(CONFIG.DND5E.powerCasting[castType.toLowerCase()].progression)) {
 					select.appendChild(makeProgOption({
 						value: key,
@@ -454,17 +455,20 @@ function showPowercastingBar() {
 				const temp = castData.points.temp ?? 0;
 				const max = castData.points.max;
 				const tempmax = castData.points.tempmax ?? 0;
+				const effectiveMax = (Number(max) || 0) + tempmax;
+				const denom = (max > 0) ? max : (effectiveMax > 0 ? effectiveMax : 1);
+				const pct = Math.max(0, Math.min(100, (value / denom) * 100));
 				const templateData = {
 					'castType': castType,
 					'pointsLabel': game.i18n.localize(`SW5E.Powercasting.${castType.capitalize()}.Point.Label`),
-					'isEditable': app.editable,
+					'isEditable': (app.isEditable ?? app.editable ?? false),
 					'value': value,
 					'temp': temp,
 					'max': max,
 					'tempmax': tempmax,
 					'tempmaxSign': (tempmax > 0) ? 'temp-positive' : (tempmax < 0) ? 'temp-negative' : '',
-					'effectiveMax': max + tempmax,
-					'pct': (value / max) * 100,
+					'effectiveMax': effectiveMax,
+					'pct': pct,
 					'bonus': game.dnd5e.utils.formatNumber(tempmax, { signDisplay: "always" })
 				};
 
