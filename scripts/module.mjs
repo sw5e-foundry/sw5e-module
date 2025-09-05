@@ -11,32 +11,32 @@ import { handleTemplates } from "./templates.mjs";
 import { registerModuleSettings } from "./settings.mjs";
 
 globalThis.sw5e = {
-	migrations
+  migrations,
 };
 
 const strict = true;
 
-Hooks.once('init', async function() {
-	// Register Module Settings
-	registerModuleSettings();
-	// Register lib-wrapper hooks
-	addHooks();
-	// Pre-load templates
-	handleTemplates();
+Hooks.once("init", async function () {
+  // Register Module Settings
+  registerModuleSettings();
+  // Register lib-wrapper hooks
+  addHooks();
+  // Pre-load templates
+  handleTemplates();
 
-	patchConfig(CONFIG.DND5E, strict);
-	patchDataModels();
+  patchConfig(CONFIG.DND5E, strict);
+  patchDataModels();
 
-	patchManeuver();
-	patchPowercasting();
-	patchProficiencyInit();
-	patchProperties();
+  patchManeuver();
+  patchPowercasting();
+  patchProficiencyInit();
+  patchProperties();
 });
 
-Hooks.once('ready', async function() {
-	patchPacks(strict);
-	patchProficiencyReady();
+Hooks.once("ready", async function () {
+  patchPacks(strict);
+  patchProficiencyReady();
 
-	// Perform module migration if it is required and feasible
-	if (migrations.needsMigration()) migrations.migrateWorld();
+  // Perform module migration if it is required and feasible
+  if (migrations.needsMigration()) migrations.migrateWorld();
 });
