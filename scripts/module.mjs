@@ -9,6 +9,7 @@ import { patchProperties } from "./patch/properties.mjs";
 import * as migrations from "./migration.mjs";
 import { handleTemplates } from "./templates.mjs";
 import { registerModuleSettings } from "./settings.mjs";
+import StarshipVehicleSheet from "./applications/actor/vehicle-starship-sheet.mjs";
 
 globalThis.sw5e = {
   migrations,
@@ -23,6 +24,17 @@ Hooks.once("init", async function () {
   addHooks();
   // Pre-load templates
   handleTemplates();
+
+  // Register the Starship overlay sheet for Vehicle actors
+  try {
+    Actors.registerSheet("sw5e", StarshipVehicleSheet, {
+      types: ["vehicle"],
+      makeDefault: false,
+      label: "SW5E Starship (Vehicle)",
+    });
+  } catch (err) {
+    console.warn("SW5E: failed to register StarshipVehicleSheet", err);
+  }
 
   patchConfig(CONFIG.DND5E, strict);
   patchDataModels();

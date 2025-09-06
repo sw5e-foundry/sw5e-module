@@ -10,6 +10,7 @@
     "fmt:prettier": "prettier --write \"**/*.{md,css,scss,js,mjs,ts,tsx,json,yml,yaml}\"",
     "fmt": "npm run fmt:yaml && npm run fmt:prettier",
     "check:fmt": "prettier --check \"**/*.{md,css,scss,js,mjs,ts,tsx,json,yml,yaml}\"",
+    "gen:starting-eq": "node ./utils/generate-starting-equipment.mjs ./data/starting-equipment.yml",
     "postinstall": "node -e \"if (process.env.CI) process.exit(1)\" && npm run build:db"
   },
   "devDependencies": {

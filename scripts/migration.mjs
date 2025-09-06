@@ -285,6 +285,73 @@ export const migrateActorData = function (actor, migrationData, flags = {}, { ac
   _migrateImage(actor, updateData);
   _migrateObjectFlags(actor, updateData);
 
+  // Starship flag key normalization (older overlays)
+  try {
+    const sf = actor.flags?.sw5e?.starship ?? null;
+    if (sf) {
+      const set = (path, val) => foundry.utils.setProperty(updateData, path, val);
+      // shld -> shields
+      if (sf.shld && !sf.shields) {
+        if (sf.shld.value !== undefined) set("flags.sw5e.starship.shields.value", sf.shld.value);
+        if (sf.shld.max !== undefined) set("flags.sw5e.starship.shields.max", sf.shld.max);
+        if (sf.shld.depleted !== undefined) set("flags.sw5e.starship.shields.depleted", sf.shld.depleted);
+        set("flags.sw5e.starship.-=shld", null);
+      }
+      // speed -> movement
+      if (sf.speed && !sf.movement) {
+        if (sf.speed.space !== undefined) set("flags.sw5e.starship.movement.space", sf.speed.space);
+        if (sf.speed.turn !== undefined) set("flags.sw5e.starship.movement.turn", sf.speed.turn);
+        if (sf.speed.units !== undefined) set("flags.sw5e.starship.movement.units", sf.speed.units);
+        set("flags.sw5e.starship.-=speed", null);
+      }
+      // route -> routing
+      if (sf.route !== undefined && sf.routing === undefined) {
+        set("flags.sw5e.starship.routing", sf.route);
+        set("flags.sw5e.starship.-=route", null);
+      }
+      // deployed -> deployment
+      if (sf.deployed && !sf.deployment) {
+        set("flags.sw5e.starship.deployment", sf.deployed);
+        set("flags.sw5e.starship.-=deployed", null);
+      }
+      // fuel.capacity -> fuel.cap
+      if (sf.fuel && sf.fuel.capacity !== undefined && sf.fuel.cap === undefined) {
+        set("flags.sw5e.starship.fuel.cap", sf.fuel.capacity);
+        set("flags.sw5e.starship.fuel.-=capacity", null);
+      }
+      // power.dice -> power.die
+      if (sf.power && sf.power.dice !== undefined && sf.power.die === undefined) {
+        set("flags.sw5e.starship.power.die", sf.power.dice);
+        set("flags.sw5e.starship.power.-=dice", null);
+      }
+      // skills full -> abbrev
+      if (sf.skills && typeof sf.skills === "object") {
+        const map = {
+          astrogation: "ast",
+          maneuvering: "man",
+          ram: "ram",
+          patch: "pat",
+          scan: "scn",
+          boost: "bst",
+          data: "dat",
+          hide: "hid",
+          impress: "imp",
+          interfere: "inf",
+          menace: "men",
+          probe: "prb",
+          regulation: "reg",
+          swindle: "swn",
+        };
+        for (const [k, v] of Object.entries(sf.skills)) {
+          const abbr = map[k];
+          if (abbr && sf.skills[abbr] === undefined) set(`flags.sw5e.starship.skills.${abbr}`, v);
+        }
+      }
+    }
+  } catch (e) {
+    console.warn("SW5E migration: starship flag normalization failed", e);
+  }
+
   // Migrate embedded effects
   if (actor.effects) {
     const effects = migrateEffects(actor, migrationData);
