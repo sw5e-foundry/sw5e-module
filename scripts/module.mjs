@@ -9,34 +9,46 @@ import { patchProperties } from "./patch/properties.mjs";
 import * as migrations from "./migration.mjs";
 import { handleTemplates } from "./templates.mjs";
 import { registerModuleSettings } from "./settings.mjs";
+import StarshipVehicleSheet from "./applications/actor/vehicle-starship-sheet.mjs";
 
 globalThis.sw5e = {
-	migrations
+  migrations,
 };
 
 const strict = true;
 
-Hooks.once('init', async function() {
-	// Register Module Settings
-	registerModuleSettings();
-	// Register lib-wrapper hooks
-	addHooks();
-	// Pre-load templates
-	handleTemplates();
+Hooks.once("init", async function () {
+  // Register Module Settings
+  registerModuleSettings();
+  // Register lib-wrapper hooks
+  addHooks();
+  // Pre-load templates
+  handleTemplates();
 
-	patchConfig(CONFIG.DND5E, strict);
-	patchDataModels();
+  // Register the Starship overlay sheet for Vehicle actors
+  try {
+    Actors.registerSheet("sw5e", StarshipVehicleSheet, {
+      types: ["vehicle"],
+      makeDefault: false,
+      label: "SW5E Starship (Vehicle)",
+    });
+  } catch (err) {
+    console.warn("SW5E: failed to register StarshipVehicleSheet", err);
+  }
 
-	patchManeuver();
-	patchPowercasting();
-	patchProficiencyInit();
-	patchProperties();
+  patchConfig(CONFIG.DND5E, strict);
+  patchDataModels();
+
+  patchManeuver();
+  patchPowercasting();
+  patchProficiencyInit();
+  patchProperties();
 });
 
-Hooks.once('ready', async function() {
-	patchPacks(strict);
-	patchProficiencyReady();
+Hooks.once("ready", async function () {
+  patchPacks(strict);
+  patchProficiencyReady();
 
-	// Perform module migration if it is required and feasible
-	if (migrations.needsMigration()) migrations.migrateWorld();
+  // Perform module migration if it is required and feasible
+  if (migrations.needsMigration()) migrations.migrateWorld();
 });

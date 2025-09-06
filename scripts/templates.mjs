@@ -5,21 +5,20 @@
  * @returns {Promise}
  */
 async function preloadHandlebarsTemplates() {
-	const partials = [
-		// Item Sheet Partials
-		"modules/sw5e/templates/items/details/details-maneuver.hbs",
-	];
+  const partials = [
+    // Item Sheet Partials
+    "modules/sw5e/templates/items/details/details-maneuver.hbs",
+  ];
 
-	const paths = {};
-	for (const path of partials) {
-		paths[path.replace(".hbs", ".html")] = path;
-		paths[`sw5e.${path.split("/").pop().replace(".hbs", "")}`] = path;
-	}
+  const paths = {};
+  for (const path of partials) {
+    paths[path.replace(".hbs", ".html")] = path;
+    paths[`sw5e.${path.split("/").pop().replace(".hbs", "")}`] = path;
+  }
 
-	return foundry.applications.handlebars.loadTemplates(paths);
+  return foundry.applications.handlebars.loadTemplates(paths);
 }
 
-
 export function handleTemplates() {
-	preloadHandlebarsTemplates();
+  preloadHandlebarsTemplates();
 }

@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/Foundry-v11-informational)
-![Latest Release Download Count](https://img.shields.io/github/downloads/sw5e-foundry/sw5e-module/latest/module.zip) 
+![Latest Release Download Count](https://img.shields.io/github/downloads/sw5e-foundry/sw5e-module/latest/module.zip)
 
 # SW5E
 
@@ -69,7 +69,6 @@ If you wish to manually install the system, you must clone or extract it into th
 ### Removed
 
 - Reload system temporarily removed.
-
 
 ### [1.2.0] - 2024-11-26
 
