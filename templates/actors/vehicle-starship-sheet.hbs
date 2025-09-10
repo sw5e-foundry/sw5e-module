@@ -1,0 +1,296 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header flexrow">
+    <img class="profile" src="{{actor.img}}" data-edit="img" width="64" height="64"/>
+    <div class="header-details flexcol">
+      <h1 class="charname">
+        <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+      </h1>
+      <div class="flexrow">
+        <button type="button" class="control" data-action="toggle-starship">
+          {{#if starship.enabled}}{{localize "SW5E.Starship.ToggleDisable"}}{{else}}{{localize "SW5E.Starship.ToggleEnable"}}{{/if}}
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sheet-tabs tabs root-tabs" data-group="primary">
+    <a class="item" data-tab="starship">{{localize "SW5E.Starship.Tab"}}</a>
+  </nav>
+
+  <section class="sheet-body">
+    <div class="tab" data-group="primary" data-tab="starship">
+      <section class="grid grid-3col">
+        <div class="resource">
+          <label>{{localize "DND5E.ArmorClass"}}</label>
+          <div class="value">
+            <span>{{system.attributes.ac.value}}</span>
+          </div>
+        </div>
+        <div class="resource">
+          <label>{{localize "SW5E.HullPoints"}}</label>
+          <div class="value">
+            <input type="number" name="system.attributes.hp.value" value="{{system.attributes.hp.value}}" min="0"/>
+            <span>/</span>
+            <input type="number" name="system.attributes.hp.max" value="{{system.attributes.hp.max}}" min="0"/>
+          </div>
+        </div>
+        <div class="resource">
+          <label>{{localize "SW5E.ShieldPoints"}}</label>
+          <div class="value">
+            <input type="number" name="flags.sw5e.starship.shields.value" value="{{starship.shields.value}}" min="0"/>
+            <span>/</span>
+            {{#if starship.config.shields.autoDerive}}
+            {{#if starship.config.shields.allowManualMax}}
+            <input type="number" name="flags.sw5e.starship.shields.max" value="{{starship.shields.max}}" min="0"/>
+            {{else}}
+            <input type="number" name="flags.sw5e.starship.shields.max" value="{{starship.shields.max}}" min="0" readonly title="{{localize 'SW5E.Starship.ShieldMaxDerived'}}"/>
+            {{/if}}
+            {{else}}
+            <input type="number" name="flags.sw5e.starship.shields.max" value="{{starship.shields.max}}" min="0"/>
+            {{/if}}
+            <label style="margin-left:8px;display:flex;align-items:center;gap:4px;">
+              <input type="checkbox" {{#if starship.shields.depleted}}checked{{/if}} readonly />
+              {{localize "SW5E.ShieldDepleted"}}
+            </label>
+            <button type="button" data-action="set-shields-depleted" title="{{localize 'SW5E.ToggleDepleted'}}">⚡</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-3col">
+        <div class="resource">
+          <label>{{localize "SW5E.Fuel"}}</label>
+          <div class="value">
+            <input type="number" name="flags.sw5e.starship.fuel.value" value="{{starship.fuel.value}}" min="0"/>
+            <span>/</span>
+            <input type="number" name="flags.sw5e.starship.fuel.cap" value="{{starship.fuel.cap}}" min="0"/>
+            <span> ({{starship.fuel.cost}} {{localize "SW5E.FuelPerUnit"}})</span>
+          </div>
+        </div>
+        <div class="resource">
+          <label>{{localize "SW5E.MovementSpace"}}</label>
+          <div class="value">
+            <input type="number" name="flags.sw5e.starship.movement.space" value="{{starship.movement.space}}" min="0"/>
+            <span>{{starship.movement.units}}</span>
+          </div>
+        </div>
+        <div class="resource">
+          <label>{{localize "SW5E.MovementTurn"}}</label>
+          <div class="value">
+            <input type="number" name="flags.sw5e.starship.movement.turn" value="{{starship.movement.turn}}" min="0"/>
+            <span>{{starship.movement.units}}</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.Repairs"}}</h2>
+        <div class="flexrow" style="gap:8px;">
+          <button type="button" data-action="recharge">{{localize "SW5E.Recharge"}}</button>
+          <button type="button" data-action="refitting">{{localize "SW5E.Refitting"}}</button>
+          <button type="button" data-action="shield-regen">{{localize "SW5E.ShieldRegen"}}</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.PowerRouting"}}</h2>
+        <div class="flexrow" style="gap:6px;">
+          <button type="button" data-action="set-routing" data-route="engines" title="{{lookup starship.routeTooltips 'engines'}}">{{localize "SW5E.Starship.Route.Engines"}}</button>
+          <button type="button" data-action="set-routing" data-route="shields" title="{{lookup starship.routeTooltips 'shields'}}">{{localize "SW5E.Starship.Route.Shields"}}</button>
+          <button type="button" data-action="set-routing" data-route="weapons" title="{{lookup starship.routeTooltips 'weapons'}}">{{localize "SW5E.Starship.Route.Weapons"}}</button>
+          <button type="button" data-action="set-routing" data-route="none" title="{{lookup starship.routeTooltips 'none'}}">{{localize "SW5E.Starship.Route.None"}}</button>
+        </div>
+        <div class="routing-effects"><small>{{localize "SW5E.Starship.Routing.Effects"}}: {{starship.routingEffects.positive}} | {{starship.routingEffects.neutral}} | {{starship.routingEffects.negative}}</small></div>
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.PowerDice"}} ({{starship.power.die}})</h2>
+        <div class="grid grid-3col">
+          <label>{{localize "SW5E.Starship.PowerSlot.Central"}}</label>
+          <input type="number" min="0" name="flags.sw5e.starship.power.central" value="{{starship.power.central}}"/>
+          <span></span>
+
+          <label>{{localize "SW5E.Starship.PowerSlot.Comms"}}</label>
+          <input type="number" min="0" name="flags.sw5e.starship.power.comms" value="{{starship.power.comms}}"/>
+          <span></span>
+
+          <label>{{localize "SW5E.Starship.PowerSlot.Engines"}}</label>
+          <input type="number" min="0" name="flags.sw5e.starship.power.engines" value="{{starship.power.engines}}"/>
+          <span></span>
+
+          <label>{{localize "SW5E.Starship.PowerSlot.Sensors"}}</label>
+          <input type="number" min="0" name="flags.sw5e.starship.power.sensors" value="{{starship.power.sensors}}"/>
+          <span></span>
+
+          <label>{{localize "SW5E.Starship.PowerSlot.Shields"}}</label>
+          <input type="number" min="0" name="flags.sw5e.starship.power.shields" value="{{starship.power.shields}}"/>
+          <span></span>
+
+          <label>{{localize "SW5E.Starship.PowerSlot.Weapons"}}</label>
+          <input type="number" min="0" name="flags.sw5e.starship.power.weapons" value="{{starship.power.weapons}}"/>
+          <span></span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.StarshipSkills"}}</h2>
+        <div class="grid grid-3col">
+          <label>{{localize "SW5E.StarshipSkillAst"}}</label>
+          <input type="number" name="flags.sw5e.starship.skills.ast" value="{{starship.skills.ast}}"/>
+          <span></span>
+
+          <label>{{localize "SW5E.StarshipSkillMan"}}</label>
+          <input type="number" name="flags.sw5e.starship.skills.man" value="{{starship.skills.man}}"/>
+          <span></span>
+
+          <label>{{localize "SW5E.StarshipSkillRam"}}</label>
+          <input type="number" name="flags.sw5e.starship.skills.ram" value="{{starship.skills.ram}}"/>
+          <span></span>
+
+          <label>{{localize "SW5E.StarshipSkillPat"}}</label>
+          <input type="number" name="flags.sw5e.starship.skills.pat" value="{{starship.skills.pat}}"/>
+          <span></span>
+
+          <label>{{localize "SW5E.StarshipSkillScn"}}</label>
+          <input type="number" name="flags.sw5e.starship.skills.scn" value="{{starship.skills.scn}}"/>
+          <span></span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.CrewDeployment"}}</h2>
+        <div class="grid grid-3col">
+          <div>
+            <label>{{localize "SW5E.Pilot"}} (UUID)</label>
+            <input type="text" name="flags.sw5e.starship.deployment.pilot" value="{{starship.deployment.pilot}}"/>
+          </div>
+          <div>
+            <label>{{localize "SW5E.Crew"}} (UUIDs, comma or newline)</label>
+            <textarea rows="3" name="flags.sw5e.starship.deployment.crew"></textarea>
+          </div>
+          <div>
+            <label>{{localize "SW5E.Passengers"}} (UUIDs, comma or newline)</label>
+            <textarea rows="3" name="flags.sw5e.starship.deployment.passenger"></textarea>
+          </div>
+          <div>
+            <label>{{localize "SW5E.Active"}} (UUID)</label>
+            <input type="text" name="flags.sw5e.starship.deployment.active" value="{{starship.deployment.active}}"/>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.StarshipArmor"}}</h2>
+        <ol class="items-list">
+          {{#each starship.categories.armor}}
+          <li class="item flexrow" data-item-id="{{this.id}}">
+            <div class="item-name">{{this.name}}</div>
+            <div class="item-controls">
+              {{#if this.system.equipped}}
+              <a class="item-toggle" title="{{localize 'SW5E.Uninstall'}}">{{localize 'SW5E.Uninstall'}}</a>
+              {{else}}
+              <a class="item-toggle" title="{{localize 'SW5E.Install'}}">{{localize 'SW5E.Install'}}</a>
+              {{/if}}
+            </div>
+          </li>
+          {{/each}}
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.StarshipEquipment"}}</h2>
+        {{#each starship.categories.equipment as |arr key|}}
+        {{#if arr.length}}
+        <h3 style="margin-top:8px;">{{key}}</h3>
+        <ol class="items-list">
+          {{#each arr}}
+          <li class="item flexrow" data-item-id="{{this.id}}">
+<div class="item-name">{{this.name}}</div><div class="item-controls"><a class="item-use">{{localize "SW5E.Use"}}</a></div>
+            <div class="item-controls">
+              {{#if this.system.equipped}}
+              <a class="item-toggle" title="{{localize 'SW5E.Uninstall'}}">{{localize 'SW5E.Uninstall'}}</a>
+              {{else}}
+              <a class="item-toggle" title="{{localize 'SW5E.Install'}}">{{localize 'SW5E.Install'}}</a>
+              {{/if}}
+            </div>
+          </li>
+          {{/each}}
+        </ol>
+        {{/if}}
+        {{/each}}
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.StarshipModifications"}}</h2>
+        {{#each starship.categories.modifications as |arr key|}}
+        {{#if arr.length}}
+        <h3 style="margin-top:8px;">{{key}}</h3>
+        <ol class="items-list">
+          {{#each arr}}
+          <li class="item flexrow" data-item-id="{{this.id}}">
+            <div class="item-name">{{this.name}}</div>
+          </li>
+          {{/each}}
+        </ol>
+        {{/if}}
+        {{/each}}
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.StarshipWeapons"}}</h2>
+        {{#each starship.categories.weapons as |arr key|}}
+        {{#if arr.length}}
+        <h3 style="margin-top:8px;">{{key}}</h3>
+        <ol class="items-list">
+          {{#each arr}}
+          <li class="item flexrow" data-item-id="{{this.id}}">
+            <div class="item-name">{{this.name}}</div>
+            <div class="item-controls"><a class="item-use">{{localize "SW5E.Use"}}</a></div>
+          </li>
+          {{/each}}
+        </ol>
+        {{/if}}
+        {{/each}}
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.StarshipActions"}}</h2>
+        {{#each starship.categories.actions as |arr key|}}
+        {{#if arr.length}}
+        <h3 style="margin-top:8px;">{{key}}</h3>
+        <ol class="items-list">
+          {{#each arr}}
+          <li class="item flexrow" data-item-id="{{this.id}}">
+            <div class="item-name">{{this.name}}</div>
+            <div class="item-controls"><a class="item-use">{{localize "SW5E.Use"}}</a></div>
+          </li>
+          {{/each}}
+        </ol>
+        {{/if}}
+        {{/each}}
+      </section>
+
+      <section class="panel">
+        <h2>{{localize "SW5E.StarshipFeatures"}}</h2>
+        {{#each starship.categories.features as |arr key|}}
+        {{#if arr.length}}
+        <h3 style="margin-top:8px;">{{key}}</h3>
+        <ol class="items-list">
+          {{#each arr}}
+          <li class="item flexrow" data-item-id="{{this.id}}">
+            <div class="item-name">{{this.name}}</div>
+            <div class="item-controls"><a class="item-use">{{localize "SW5E.Use"}}</a></div>
+          </li>
+          {{/each}}
+        </ol>
+        {{/if}}
+        {{/each}}
+      </section>
+
+      <section class="panel">
+        <em>{{localize "SW5E.StarshipSheet.OverlayNote"}}</em>
+      </section>
+    </div>
+  </section>
+</form>
+

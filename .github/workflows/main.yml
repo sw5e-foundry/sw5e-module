@@ -32,7 +32,6 @@
 #
 name: Create Module Files For GitHub Release
 
-
 env:
   # The URL used for the module's "Project URL" link on FoundryVTT's website.
   project_url: "https://github.com/${{github.repository}}"
@@ -47,7 +46,6 @@ env:
   # processed by this workflow.
   release_module_url: "https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.zip"
 
-
 on:
   # Only run this workflow when a release is published.
   # To modify this workflow when other events occur, see:
@@ -61,7 +59,6 @@ on:
   release:
     types: [published]
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -71,7 +68,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
 
       # Extract version embedded in the tag.
       # This step expects the tag to be one of the following formats:
@@ -84,7 +80,6 @@ jobs:
         id: get_version
         uses: battila7/get-version-action@v2
 
-
       # Modify "module.json" with values specific to the release.
       # Since the values for the "version" and "url" keys aren't known ahead of
       # time, the manifest file in the repository is updated with these values.
@@ -95,33 +90,29 @@ jobs:
         id: sub_manifest_link_version
         uses: cschleiden/replace-tokens@v1
         with:
-          files: 'module.json'
+          files: "module.json"
         env:
           VERSION: ${{steps.get_version.outputs.version-without-v}}
           URL: ${{ env.project_url }}
           MANIFEST: ${{ env.latest_manifest_url }}
           DOWNLOAD: ${{ env.release_module_url }}
 
-
       # Set up Node
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
-          cache: 'npm'
-
+          node-version: "18.x"
+          cache: "npm"
 
       # `npm ci` is recommended:
       # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
       - name: Install Dependencies
         run: npm ci
 
-
       # Run our `build` script
       - name: Build All
         run: |
           npm run build:db
-
 
       # Create a "module.zip" archive containing all the module's required files.
       # If you have other directories or files that will need to be added to
@@ -150,7 +141,6 @@ jobs:
           # Don't forget to add a backslash at the end of the line for any
           # additional files or directories!
 
-
       # Update the GitHub release with the manifest and module archive files.
       - name: Update Release With Files
         id: create_version_release
@@ -161,6 +151,6 @@ jobs:
           draft: ${{ github.event.release.unpublished }}
           prerelease: ${{ github.event.release.prerelease }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: './module.json, ./module.zip'
+          artifacts: "./module.json, ./module.zip"
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}

@@ -3,12 +3,21 @@
     "build": "npm run build:db",
     "build:clean": "node ./utils/packs.mjs package clean",
     "build:db": "node ./utils/packs.mjs package pack",
-    "build:json": "node ./utils/packs.mjs package unpack",
-    "postinstall": "npm run build:db"
+    "build:src": "node ./utils/packs.mjs package unpack",
+    "build:json": "npm run build:src",
+    "build:convert": "node ./utils/packs.mjs package convert",
+    "fmt:yaml": "node ./utils/format-yaml.mjs",
+    "fmt:prettier": "prettier --write \"**/*.{md,css,scss,js,mjs,ts,tsx,json,yml,yaml}\"",
+    "fmt": "npm run fmt:yaml && npm run fmt:prettier",
+    "check:fmt": "prettier --check \"**/*.{md,css,scss,js,mjs,ts,tsx,json,yml,yaml}\"",
+    "gen:starting-eq": "node ./utils/generate-starting-equipment.mjs ./data/starting-equipment.yml",
+    "postinstall": "node -e \"if (process.env.CI) process.exit(1)\" && npm run build:db"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^1.0.0-rc.4",
     "fancy-log": "^2.0.0",
+    "js-yaml": "^4.1.0",
+    "prettier": "^3.3.3",
     "yargs": "^17.7.2"
   }
 }

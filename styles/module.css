@@ -2,6 +2,7 @@
   flex: 0 0 100%;
   margin: 0;
 }
+
 .dnd5e .form-group.grid label.number,
 .dnd5e .form-group.grid label.checkbox,
 .dnd5e .form-group.grid label.radio {
@@ -25,8 +26,7 @@
   mask-image: linear-gradient(to bottom, black, transparent); */
 }
 
-
-/* Tech Point CSS for the main sheet */
+/* Force Point CSS for the main sheet */
 
 .dnd5e2.sheet.actor .meter.force-points {
   flex: 1;
@@ -46,7 +46,7 @@
 }
 
 .dnd5e2.sheet.actor .meter.force-points .progress::before {
-  background: linear-gradient(to right, #08568a  0%, #AFC6D5 100%);
+  background: linear-gradient(to right, #08568a 0%, #afc6d5 100%);
 }
 
 .dnd5e2.sheet.actor .meter.sectioned > .force-points > input {
@@ -71,6 +71,33 @@
 
 /* Tech Point CSS for the main sheet */
 
+/* Starship overlay basics */
+.sw5e.sheet.actor.vehicle.starship .panel {
+  border: 1px solid var(--color-border-dark-3,#444);
+  padding: 8px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+.sw5e.sheet.actor.vehicle.starship .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sw5e.sheet.actor.vehicle.starship .items-list .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--color-border-light-2,#666);
+}
+.sw5e.sheet.actor.vehicle.starship .items-list .item .item-name {
+  flex: 1;
+}
+.sw5e.sheet.actor.vehicle.starship .items-list .item .item-controls a {
+  cursor: pointer;
+  color: var(--dnd5e-color-gold, #d3ad3f);
+}
+
 .dnd5e2.sheet.actor .meter.tech-points {
   flex: 1;
   position: relative;
@@ -89,7 +116,7 @@
 }
 
 .dnd5e2.sheet.actor .meter.tech-points .progress::before {
-  background: linear-gradient(to right, #2F2F2F  0%, #7e7e7e  100%);
+  background: linear-gradient(to right, #2f2f2f 0%, #7e7e7e 100%);
 }
 
 .dnd5e2.sheet.actor .meter.sectioned > .tech-points > input {
