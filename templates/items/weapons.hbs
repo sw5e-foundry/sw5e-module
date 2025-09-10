@@ -1,0 +1,17 @@
+{{!-- Blaster Charges --}}
+{{#if (or (eq data.data.weaponType "simpleBL") (eq data.data.weaponType "martialBL") (eq data.data.weaponType "exoticBL"))}}
+<div class="form-group">
+    <label>{{ localize "SW5E.Charges" }}</label>
+    <div class="form-fields">
+        <input type="text" name="data.data.uses.value" value="{{data.data.uses.value}}" data-dtype="Number"> / {{data.data.flags.sw5e.reload}}
+    </div>
+</div>
+
+{{!-- Reload Button --}}
+<div class="form-group">
+    <label></label>
+    <div class="form-fields">
+        <button type="button" class="reload-blaster" data-item-id="{{_id}}"><i class="fas fa-redo"></i> {{ localize "SW5E.Reload" }}</button>
+    </div>
+</div>
+{{/if}}
