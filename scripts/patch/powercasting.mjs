@@ -7,7 +7,7 @@ import { getBestAbility } from "./../utils.mjs";
 function adjustItemSpellcastingGetter() {
 	Hooks.on('sw5e.Item5e.spellcasting', function (_this, result, config, ...args) {
 		const spellcasting = _this.system.spellcasting;
-		if ( !spellcasting ) return;
+		if (!spellcasting) return;
 		const isSubclass = _this.type === "subclass";
 		const classSC = isSubclass ? _this.class?.system?.spellcasting : spellcasting;
 		const subclassSC = isSubclass ? spellcasting : _this.subclass?.system?.spellcasting;
@@ -255,18 +255,18 @@ function patchPowerAbilityScore() {
 
 	Hooks.on('sw5e.SpellData.getSheetData', function (_this, result, config, ...args) {
 		const context = args[0];
-		if ( _this.parent.actor ) {
+		if (_this.parent.actor) {
 			for (const [castType, castData] of Object.entries(_this.parent.actor.system?.powercasting ?? {})) {
 				if (_this.school in castData.schools) {
 					const abl = castData.schools[_this.school].attr;
 					const ability = CONFIG.DND5E.abilities[abl]?.label?.toLowerCase();
-					if ( ability ) context.defaultAbility = game.i18n.format("DND5E.DefaultSpecific", { default: ability });
+					if (ability) context.defaultAbility = game.i18n.format("DND5E.DefaultSpecific", { default: ability });
 				}
 			}
 		}
 	});
 	Hooks.on('sw5e.SpellData.availableAbilities', function (_this, result, config, ...args) {
-		if ( _this.ability ) return;
+		if (_this.ability) return;
 		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
 			if (_this.school in typeConfig.schools) {
 				config.result = new Set(typeConfig.schools[_this.school].attr);
@@ -296,7 +296,7 @@ function patchPowerbooks() {
 				uses: 0,
 				slots: 0,
 				override: 0,
-				dataset: {type: "spell", level: i, preparationMode: "powerCasting"},
+				dataset: { type: "spell", level: i, preparationMode: "powerCasting" },
 				prop: sl,
 				editable: context.editable
 			});
@@ -314,13 +314,13 @@ function patchPowerbooks() {
 
 	Hooks.on('sw5e.ActorSheet5e._onDropSpell', function (_this, result, config, ...args) {
 		const itemData = args[0];
-	    const prep = itemData.system.preparation;
+		const prep = itemData.system.preparation;
 
-	    if (prep.mode !== "innate") return;
+		if (prep.mode !== "innate") return;
 
 		// Determine the section it is dropped on, if any.
 		let header = _this._event.target.closest(".items-header"); // Dropped directly on the header.
-		if ( !header ) {
+		if (!header) {
 			const list = _this._event.target.closest(".item-list"); // Dropped inside an existing list.
 			header = list?.previousElementSibling;
 		}
@@ -331,14 +331,14 @@ function patchPowerbooks() {
 		const isCaster = Object.values(_this.actor.system.powercasting).reduce(((acc, obj) => acc || !!obj.level), false);
 
 		// Case 1: Drop a cantrip.
-		if ( itemData.system.level === 0 ) {
+		if (itemData.system.level === 0) {
 			const modes = CONFIG.DND5E.spellPreparationModes;
-			if ( !preparationMode && isCaster ) prep.mode = "powerCasting";
+			if (!preparationMode && isCaster) prep.mode = "powerCasting";
 		}
 
 		// Case 2: Drop a leveled spell in a section without a mode.
-		else if ( (level === "0") || !preparationMode ) {
-			if ( _this.document.type !== "npc" ) prep.mode = "powerCasting";
+		else if ((level === "0") || !preparationMode) {
+			if (_this.document.type !== "npc") prep.mode = "powerCasting";
 		}
 	});
 }
@@ -347,9 +347,9 @@ function patchAbilityUseDialog() {
 	Hooks.on('sw5e.ActivityUsageDialog._prepareScalingContext', function (_this, result, config, ...args) {
 		const context = config.result;
 
-		if ( _this.activity.requiresSpellSlot && (_this.config.scaling !== false) && (_this.item.system.preparation.mode === "powerCasting") ) {
+		if (_this.activity.requiresSpellSlot && (_this.config.scaling !== false) && (_this.item.system.preparation.mode === "powerCasting")) {
 			if (context.notes.length >= 1) {
-				const note = context.notes[context.notes.length-1];
+				const note = context.notes[context.notes.length - 1];
 				if (note.type === "warn" && note.message.startsWith("You have no available")) context.notes.pop();
 			}
 			const powercastingType = _this.item.system.school === "tec" ? "tech" : "force";
@@ -364,14 +364,14 @@ function patchAbilityUseDialog() {
 				return { value: lvl, label, disabled: powercasting.used.has(lvl) };
 			});
 
-			if ( spellSlotOptions ) context.spellSlots = {
+			if (spellSlotOptions) context.spellSlots = {
 				field: new foundry.data.fields.StringField({ label: game.i18n.localize("DND5E.SpellCastUpcast") }),
 				name: "spell.slot",
 				value: _this.config.spell?.slot,
 				options: spellSlotOptions
 			};
 
-			if ( !spellSlotOptions.some(o => !o.disabled) ) context.notes.push({
+			if (!spellSlotOptions.some(o => !o.disabled)) context.notes.push({
 				type: "warn", message: game.i18n.format("DND5E.SpellCastNoSlotsLeft", {
 					name: _this.item.name
 				})
@@ -382,7 +382,7 @@ function patchAbilityUseDialog() {
 		if (_this.item.system.preparation?.mode !== "powerCasting") return;
 
 		const submitData = result;
-		if ( foundry.utils.hasProperty(submitData, "spell.slot") ) {
+		if (foundry.utils.hasProperty(submitData, "spell.slot")) {
 			const level = submitData.spell.slot ?? 0;
 			const scaling = Math.max(0, level - _this.item.system.level);
 			submitData.scaling = scaling;
@@ -419,7 +419,7 @@ function recoverPowerPoints() {
 }
 
 function makePowerPointsConsumable() {
-	Hooks.once("setup", function() {
+	Hooks.once("setup", function () {
 		for (const castType of ["force", "tech"]) {
 			CONFIG.DND5E.consumableResources.push(`powercasting.${castType}.points.value`);
 		}
@@ -428,69 +428,70 @@ function makePowerPointsConsumable() {
 
 function showPowercastingBar() {
 	const { simplifyBonus } = dnd5e.utils;
-	Hooks.on("renderActorSheet5eCharacter2", (app, html, data) => {
-		const hpHTML = html.find('.meter-group')[0];
+	Hooks.on("renderActorSheetV2", async (app, html, data) => {
+		if (data.actor.type != "character" && data.actor.type != "npc") {
+			return;
+		}
+
+		let sidebarClasses = '.sidebar .stats'
+		let append = true;
+
+		if (app.classList.value.includes('tidy5e-sheet')) {
+			// Tidy5e specific handling
+			sidebarClasses = '.attributes .side-panel';
+			append = false;
+		}
+
 		const powerCasting = data.actor.system.powercasting;
 
 		// Add meters for the tech and force powercasting values. This 
 		// will be added right after the hit points meter.
-		for (const castType of ["tech", "force"]) {
+		for (const castType of ["force", "tech"]) {
 			if (powerCasting[castType].level > 0) {
 				const castData = powerCasting[castType];
-				const pointsLabel = game.i18n.localize(`SW5E.Powercasting.${castType.capitalize()}.Point.Label`);
 				const value = castData.points.value;
 				const temp = castData.points.temp ?? 0;
 				const max = castData.points.max;
 				const tempmax = castData.points.tempmax ?? 0;
-				const effectiveMax = max + tempmax;
-				const pct = (value / max) * 100;
-				const castingHTMLMeter = `
-					<div class="meter-group">
-						<div class="label roboto-condensed-upper">
-							<span>${pointsLabel}</span>
-					` + (app.editable ? `
-							<a class="config-button" data-action="hitPoints" data-tooltip="DND5E.HitPointsConfig"
-							   aria-label="{{ localize "DND5E.HitPointsConfig" }}">
-								<i class="fas fa-cog"></i>
-							</a>
-					` : '') + `
-						</div>
-						<div class="meter sectioned ${castType}-points">
-							<div class="progress ${castType}-points
-					` + ((castData.tempmax > 0) ? 'temp-positive' : (castData.tempmax < 0) ? 'temp-negative' : '') + `
-								 "
-								 role="meter" aria-valuemin="0" aria-valuenow="${value}"
-								 aria-valuemax="${max}" style="--bar-percentage: ${pct}%">
-								<div class="label">
-									<span class="value">${value}</span>
-									<span class="separator">&sol;</span>
-									<span class="max">${effectiveMax}</span>
-					` + (tempmax ? `
-									<span class="bonus">${game.dnd5e.utils.formatNumber(tempmax, { signDisplay:"always" })}</span>
-					` : '') + `
-								</div>
-								<input type="text" name="system.powercasting.${castType}.points.value" data-dtype="Number"
-									   placeholder="0" value="${value}" hidden>
-							</div>
-							<div class="tmp">
-								<input type="text" name="system.powercasting.${castType}.points.temp" data-dtype="Number"
-									   placeholder="{{ localize "DND5E.TMP" }}" value="${temp}">
-							</div>
-						</div>
-					</div>
-				`;
-				$(hpHTML).after(castingHTMLMeter);
-				const statsHTML = $(hpHTML.parentNode);
+				const templateData = {
+					'castType': castType,
+					'pointsLabel': game.i18n.localize(`SW5E.Powercasting.${castType.capitalize()}.Point.Label`),
+					'isEditable': app.editable,
+					'value': value,
+					'temp': temp,
+					'max': max,
+					'tempmax': tempmax,
+					'tempmaxSign': (tempmax > 0) ? 'temp-positive' : (tempmax < 0) ? 'temp-negative' : '',
+					'effectiveMax': max + tempmax,
+					'pct': (value / max) * 100,
+					'bonus': game.dnd5e.utils.formatNumber(tempmax, { signDisplay: "always" })
+				};
+
+				let container = $('<div class="meter-group"></div>');
+
+				const templateFile = "modules/sw5e/templates/powercasting-sheet-tracker.hbs";
+				const renderedHtml = await foundry.applications.handlebars.renderTemplate(templateFile, templateData);
+
+				container.append(renderedHtml);
+
+				if (append) {
+					$(sidebarClasses, html).append(container);
+				} else {
+					$(sidebarClasses, html).prepend(container);
+				}
+
+				//				$(hpHTML).after(castingHTMLMeter);
+				//				const statsHTML = $(hpHTML.parentNode);
 
 				// Editable Only Listeners
-				if (app.isEditable) {
-					statsHTML.find(`.meter > .${castType}-points`).on("click", event => _toggleEditPoints(castType, event, true));
-					statsHTML.find(`.meter > .${castType}-points > input`).on("blur", event => _toggleEditPoints(castType, event, false));
-					// Input focus and update
-					const inputs = statsHTML.find("input");
-					inputs.focus(ev => ev.currentTarget.select());
-					inputs.addBack().find('[type="text"][data-dtype="Number"]').change(app._onChangeInputDelta.bind(app));
-				}
+				//				if (app.isEditable) {
+				//					statsHTML.find(`.meter > .${castType}-points`).on("click", event => _toggleEditPoints(castType, event, true));
+				//					statsHTML.find(`.meter > .${castType}-points > input`).on("blur", event => _toggleEditPoints(castType, event, false));
+				//					// Input focus and update
+				//					const inputs = statsHTML.find("input");
+				//					inputs.focus(ev => ev.currentTarget.select());
+				//					inputs.addBack().find('[type="text"][data-dtype="Number"]').change(app._onChangeInputDelta.bind(app));
+				//				}
 			}
 		}
 	});
@@ -509,7 +510,7 @@ function _toggleEditPoints(pointType, event, edit) {
 	const input = target.querySelector(":scope > input");
 	label.hidden = edit;
 	input.hidden = !edit;
-	if ( edit ) input.focus();
+	if (edit) input.focus();
 }
 
 export function patchPowercasting() {
