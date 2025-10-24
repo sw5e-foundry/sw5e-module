@@ -1899,24 +1899,23 @@ export function patchConfig(config, strict = true) {
 		...config.conditionTypes,
 		corroded: {
 			name: "SW5E.ConCorroded",
-			img: "systems/sw5e/icons/svg/statuses/corroded.svg"
-			// reference: "" // TODO
+			img: "modules/sw5e/icons/packs/Conditions/svg/Corroded.svg",
+			reference: "Compendium.sw5e.conditions.JournalEntry.eyo6JvadhVCWr4xD.JournalEntryPage.WZcSCaBuYZjNJ4LG"
 		},
 		ignited: {
 			name: "SW5E.ConIgnited",
-			img: "systems/sw5e/icons/svg/statuses/ignited.svg"
-			// reference: "" // TODO
+			img: "modules/sw5e/icons/packs/Conditions/svg/Ignited.svg",
+			reference: "Compendium.sw5e.conditions.JournalEntry.SqRuG6FvP1Lutzvq.JournalEntryPage.CduLkVFKbfzSVEq8"
 		},
 		shocked: {
 			name: "SW5E.ConShocked",
-			img: "systems/sw5e/icons/svg/statuses/shocked.svg",
+			img: "modules/sw5e/icons/packs/Conditions/svg/Shocked.svg",
 			reference: "Compendium.sw5e.conditions.JournalEntry.HBSJojgAGu9Gsctd.JournalEntryPage.0000000000000000"
-			// reference: "" // TODO
 		},
 		slowed: {
 			name: "SW5E.ConSlowed",
-			img: "systems/sw5e/icons/svg/statuses/slowed.svg",
-			// reference: "", // TODO
+			img: "modules/sw5e/icons/packs/Conditions/svg/Slowed.svg",
+			reference: "Compendium.sw5e.conditions.JournalEntry.ZhAPlYd3gQ2KgbzV.JournalEntryPage.GTgBAVw76eIKJGEL",
 			levels: 4,
 			speedReduction: [
 				{
@@ -1939,8 +1938,8 @@ export function patchConfig(config, strict = true) {
 		},
 		weakened: {
 			name: "SW5E.ConWeakened",
-			img: "systems/sw5e/icons/svg/statuses/weakened.svg"
-			// reference: "" // TODO
+			img: "modules/sw5e/icons/packs/Conditions/svg/Weakened.svg",
+			reference: "Compendium.sw5e.conditions.JournalEntry.ffDhL5tDJ8lD07uN.JournalEntryPage.xGHbrLsJf1B5Gmtd"
 		}
 	};
 	config.conditionEffects = {
