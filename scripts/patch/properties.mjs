@@ -2,6 +2,7 @@ import { getFlag } from "../utils.mjs";
 
 import { patchKeen } from "./properties/keen.mjs";
 import { patchReload } from "./properties/reload.mjs";
+import { patchBurstRapid } from "./properties/burst-rapid.mjs";
 
 function addHelper() {
 	dnd5e.dataModels.ItemDataModel.prototype.getProperty = function (prop) {
@@ -100,6 +101,7 @@ export function patchProperties() {
 	addHelper();
 	patchSheet();
 
-	// patchReload();
+	patchReload();
 	patchKeen();
+	patchBurstRapid();
 }

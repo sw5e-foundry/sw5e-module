@@ -128,12 +128,13 @@ function preparePowercasting() {
 		const base = 8 + attributes.prof ?? 0;
 		const lvl = Number(_this.system.details?.level ?? _this.system.details.cr ?? 0);
 
-		// TODO: Add rules
-		// // Simplified forcecasting rule
-		// if (game.settings.get("sw5e", "simplifiedForcecasting")) {
-		// 	CONFIG.DND5E.powerCasting.force.schools.lgt.attr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
-		// 	CONFIG.DND5E.powerCasting.force.schools.drk.attr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
-		// }
+		// Simplified forcecasting rule - all force schools use the same attribute
+		if (game.settings.get("sw5e", "simplifiedForcecasting")) {
+			// Make all force schools use the universal school's attribute
+			const uniAttr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
+			CONFIG.DND5E.powerCasting.force.schools.lgt.attr = uniAttr;
+			CONFIG.DND5E.powerCasting.force.schools.drk.attr = uniAttr;
+		}
 
 		// Powercasting DC for Actors and NPCs
 		const ability = {};

@@ -6,6 +6,7 @@ import { patchManeuver } from "./patch/maneuver.mjs";
 import { patchPowercasting } from "./patch/powercasting.mjs";
 import { patchProficiencyInit, patchProficiencyReady } from "./patch/proficiency.mjs";
 import { patchProperties } from "./patch/properties.mjs";
+import { patchCharacterFlags } from "./patch/character-flags.mjs";
 import * as migrations from "./migration.mjs";
 import { handleTemplates } from "./templates.mjs";
 import { registerModuleSettings } from "./settings.mjs";
@@ -31,6 +32,7 @@ Hooks.once('init', async function() {
 	patchPowercasting();
 	patchProficiencyInit();
 	patchProperties();
+	patchCharacterFlags();
 });
 
 Hooks.once('ready', async function() {
