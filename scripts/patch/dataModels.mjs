@@ -159,4 +159,16 @@ export function patchDataModels() {
 	Object.assign(CONFIG.Item.dataModels, dataModels.item.config);
 	const types = Object.keys(game.modules.get("sw5e").documentTypes.Item).map(t => `sw5e.${t}`);
 	// DocumentSheetConfig.registerSheet(Item, "sw5e.maneuver", ItemSheetSW5E, { types, makeDefault: true });
+	DocumentSheetConfig.registerSheet(Item, "sw5e", dnd5e.applications.item.ItemSheet5e, {
+		types: ["sw5e.deployment", "sw5e.starshipmod", "sw5e.starshipsize"],
+		makeDefault: true,
+		label: "SW5E Item"
+	});
+
+	Object.assign(CONFIG.Actor.dataModels, dataModels.actor.config);
+	DocumentSheetConfig.registerSheet(Actor, "sw5e", dnd5e.applications.actor.VehicleActorSheet, {
+		types: ["sw5e.starship"],
+		makeDefault: true,
+		label: "SW5E Starship"
+	});
 }
