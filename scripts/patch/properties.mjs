@@ -13,7 +13,7 @@ const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1);
 function patchSheet() {
 	Hooks.on("renderItemSheet5e", (app, html, data) => {
 		if (app.item.type !== "weapon" && app.item.type !== "equipment") return;
-		const tabDetails = html.querySelectorAll('.tab.details')[0];
+		const tabDetails = html.querySelector('.tab.details');
 		const fieldset = tabDetails.firstElementChild;
 		const wpDiv = Array.from(fieldset.querySelectorAll('div')).find(div => {
 			const label = div.querySelector('label');

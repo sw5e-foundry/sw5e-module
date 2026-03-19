@@ -536,7 +536,21 @@ export function patchConfig(config, strict = true) {
 		heavyphysicalshield: "Compendium.sw5e.armor.Item.KvzKRKNWATwdzxjz",
 		heavyshieldgenerator: "Compendium.sw5e.armor.Item.2u9493AUhrh2AfES",
 	};
-	config.armorClasses.unarmoredMonk.formula = "10 + @abilities.dex.mod + max(@abilities.wis.mod, @abilities.cha.mod)"
+	config.armorClasses.unarmoredMonk.formula = "10 + @abilities.dex.mod + max(@abilities.wis.mod, @abilities.cha.mod)";
+	config.armorClasses.starship = { label: "SW5E.ArmorClassStarship", formula: "@attributes.ac.flat" };
+	// Register non-standard abilities used by starship actors so data is preserved on save
+	config.abilities.hon = {
+		label: "SW5E.AbilityHon",
+		abbreviation: "SW5E.AbilityHonAbbr",
+		type: "mental",
+		fullKey: "honor"
+	};
+	config.abilities.san = {
+		label: "SW5E.AbilitySan",
+		abbreviation: "SW5E.AbilitySanAbbr",
+		type: "mental",
+		fullKey: "sanity"
+	};
 	// Consumables
 	if (strict) {
 		delete config.consumableTypes.ammo.blowgunNeedle;
@@ -1694,10 +1708,11 @@ export function patchConfig(config, strict = true) {
 		delete config.damageTypes.radiant;
 	}
 	// Powercasting
-	config.spellPreparationModes.powerCasting = {
+	config.spellcasting.powerCasting = {
 		label: "SW5E.Powercasting.Label",
 		usesPoints: true,
 		upcast: true,
+		order: 30,
 	};
 	config.powerCasting = {
 		force: {
@@ -1918,22 +1933,22 @@ export function patchConfig(config, strict = true) {
 		...config.conditionTypes,
 		corroded: {
 			name: "SW5E.ConCorroded",
-			img: "modules/sw5e/icons/svg/conditions/corroded.svg",
+			img: "systems/dnd5e/icons/svg/statuses/diseased.svg", // TODO: add systems/sw5e/icons/svg/statuses/corroded.svg
 			reference: "Compendium.sw5e.conditions.JournalEntry.eyo6JvadhVCWr4xD.JournalEntryPage.WZcSCaBuYZjNJ4LG"
 		},
 		ignited: {
 			name: "SW5E.ConIgnited",
-			img: config.conditionTypes.burning.img,
+			img: "systems/dnd5e/icons/svg/statuses/burning.svg", // TODO: add systems/sw5e/icons/svg/statuses/ignited.svg
 			reference: "Compendium.sw5e.conditions.JournalEntry.SqRuG6FvP1Lutzvq.JournalEntryPage.CduLkVFKbfzSVEq8"
 		},
 		shocked: {
 			name: "SW5E.ConShocked",
-			img: "modules/sw5e/icons/svg/conditions/shocked.svg",
+			img: "systems/dnd5e/icons/svg/statuses/silenced.svg", // TODO: add systems/sw5e/icons/svg/statuses/shocked.svg
 			reference: "Compendium.sw5e.conditions.JournalEntry.HBSJojgAGu9Gsctd.JournalEntryPage.0000000000000000"
 		},
 		slowed: {
 			name: "SW5E.ConSlowed",
-			img: "modules/sw5e/icons/svg/conditions/slowed.svg",
+			img: "systems/dnd5e/icons/svg/statuses/encumbered.svg", // TODO: add systems/sw5e/icons/svg/statuses/slowed.svg
 			reference: "Compendium.sw5e.conditions.JournalEntry.ZhAPlYd3gQ2KgbzV.JournalEntryPage.GTgBAVw76eIKJGEL",
 			levels: 4,
 			speedReduction: [
@@ -1957,7 +1972,7 @@ export function patchConfig(config, strict = true) {
 		},
 		weakened: {
 			name: "SW5E.ConWeakened",
-			img: "modules/sw5e/icons/svg/conditions/weakened.svg",
+			img: "systems/dnd5e/icons/svg/statuses/exhaustion.svg", // TODO: add systems/sw5e/icons/svg/statuses/weakened.svg
 			reference: "Compendium.sw5e.conditions.JournalEntry.ffDhL5tDJ8lD07uN.JournalEntryPage.xGHbrLsJf1B5Gmtd"
 		}
 	};
@@ -2088,6 +2103,8 @@ export function patchConfig(config, strict = true) {
 		zabraki: "SW5E.LanguagesZabraki",
 		zygerrian: "SW5E.LanguagesZygerrian"
 	};
+	// Vehicle Types — add starship so VehicleActorSheet sidebar shows "Starship" instead of "Water Vehicle"
+	config.vehicleTypes = { ...config.vehicleTypes, starship: game.i18n.localize("SW5E.ActorTypeStarship") };
 	// Traits
 	config.traits = {
 		...config.traits,
@@ -2096,7 +2113,7 @@ export function patchConfig(config, strict = true) {
 				title: "SW5E.ShieldDamImm",
 				localization: "SW5E.TraitSDIPlural"
 			},
-			icon: config.traits.di.icon,
+			icon: "systems/dnd5e/icons/svg/trait-damage-immunities.svg",
 			configKey: "damageTypes"
 		},
 		sdr: {
@@ -2104,7 +2121,7 @@ export function patchConfig(config, strict = true) {
 				title: "SW5E.ShieldDamRes",
 				localization: "SW5E.TraitSDRPlural"
 			},
-			icon: config.traits.dr.icon,
+			icon: "systems/dnd5e/icons/svg/trait-damage-resistances.svg",
 			configKey: "damageTypes"
 		},
 		sdv: {
@@ -2112,7 +2129,7 @@ export function patchConfig(config, strict = true) {
 				title: "SW5E.ShieldDamVuln",
 				localization: "SW5E.TraitSDVPlural"
 			},
-			icon: config.traits.dv.icon,
+			icon: "systems/dnd5e/icons/svg/trait-damage-vulnerabilities.svg",
 			configKey: "damageTypes"
 		},
 	};

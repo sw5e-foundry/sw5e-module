@@ -112,14 +112,14 @@ function patchSheet() {
 	Hooks.on("renderItemSheet5e", (app, html, data) => {
 		const item = app.item;
 		if (item.system.reload?.max) {
-			html.find(`.weapon-properties`).each(async (idx, el) => {
+			for (const el of html.querySelectorAll(`.weapon-properties`)) {
 				const sibling = el.nextElementSibling;
 				const parentNode = sibling.parentNode;
 
 				const reloadNode = buildReloadNode(item, app);
 
 				parentNode.insertBefore(reloadNode, sibling);
-			});
+			}
 		}
 	});	
 }

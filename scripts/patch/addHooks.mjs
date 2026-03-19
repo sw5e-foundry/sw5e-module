@@ -52,10 +52,11 @@ export function addHooks() {
 	// Application Hooks //
 	//-------------------//
 
-	// ActorSheet5e Hooks
-	// addHook('dnd5e.applications.actor.ActorSheet5e.prototype._onDropSpell', 'ActorSheet5e._onDropSpell');
-	// addHook('dnd5e.applications.actor.ActorSheet5e.prototype._prepareSpellbook', 'ActorSheet5e._prepareSpellbook');
-	// addHookAsync('dnd5e.applications.actor.ActorSheet5e.prototype.getData', 'ActorSheet5eCharacter.getData');
+	// CharacterActorSheet Hooks (replaces old ActorSheet5e/ActorSheet5eCharacter/ActorSheet5eCharacter2)
+	addHook('dnd5e.applications.actor.CharacterActorSheet.prototype._prepareSpellbook', 'ActorSheet5e._prepareSpellbook');
+	addHookAsync('dnd5e.applications.actor.CharacterActorSheet.prototype._prepareContext', 'ActorSheet5eCharacter.getData');
+	// NPCActorSheet Hooks
+	addHook('dnd5e.applications.actor.NPCActorSheet.prototype._prepareSpellbook', 'ActorSheet5e._prepareSpellbook');
 	// ItemSheet5e Hooks
 	// ?
 	// ActivityUsageDialog Hooks

@@ -115,8 +115,14 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 
 	/** @inheritDoc */
 	prepareDerivedData() {
-		super.prepareDerivedData();
-		this.prepareDescriptionData();
+		try {
+			ActivitiesTemplate._applyActivityShims.call(this);
+			this._applyManeuverShims();
+			super.prepareDerivedData();
+			this.prepareDescriptionData();
+		} finally {
+			if (this.source && this.source.label === undefined) this.source.label = "";
+		}
 
 		this.duration.concentration = this.properties.has("concentration");
 
@@ -271,5 +277,93 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 			setClass(classes.first());
 			return;
 		}
+	}
+
+	/* -------------------------------------------- */
+	/*  Shims                                       */
+	/* -------------------------------------------- */
+
+	/**
+	 * Add additional data shims for maneuvers.
+	 */
+	_applyManeuverShims() {
+		Object.defineProperty(this.activation, "cost", {
+			get() {
+				foundry.utils.logCompatibilityWarning(
+					"The `activation.cost` property on `ManeuverData` has been renamed `activation.value`.",
+					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
+				);
+				return this.value;
+			},
+			configurable: true,
+			enumerable: false
+		});
+		Object.defineProperty(this, "scaling", {
+			get() {
+				foundry.utils.logCompatibilityWarning(
+					"The `scaling` property on `ManeuverData` has been deprecated and is now handled by individual damage parts.",
+					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
+				);
+				return { mode: "none", formula: null };
+			},
+			configurable: true,
+			enumerable: false
+		});
+		Object.defineProperty(this.target, "value", {
+			get() {
+				foundry.utils.logCompatibilityWarning(
+					"The `target.value` property on `ManeuverData` has been split into `target.template.size` and `target.affects.count`.",
+					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
+				);
+				return this.template.size || this.affects.count;
+			},
+			configurable: true,
+			enumerable: false
+		});
+		Object.defineProperty(this.target, "width", {
+			get() {
+				foundry.utils.logCompatibilityWarning(
+					"The `target.width` property on `ManeuverData` has been moved to `target.template.width`.",
+					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
+				);
+				return this.template.width;
+			},
+			configurable: true,
+			enumerable: false
+		});
+		Object.defineProperty(this.target, "units", {
+			get() {
+				foundry.utils.logCompatibilityWarning(
+					"The `target.units` property on `ManeuverData` has been moved to `target.template.units`.",
+					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
+				);
+				return this.template.units;
+			},
+			configurable: true,
+			enumerable: false
+		});
+		Object.defineProperty(this.target, "type", {
+			get() {
+				foundry.utils.logCompatibilityWarning(
+					"The `target.type` property on `ManeuverData` has been split into `target.template.type` and `target.affects.type`.",
+					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
+				);
+				return this.template.type || this.affects.type;
+			},
+			configurable: true,
+			enumerable: false
+		});
+		const firstActivity = this.activities.contents[0] ?? {};
+		Object.defineProperty(this.target, "prompt", {
+			get() {
+				foundry.utils.logCompatibilityWarning(
+					"The `target.prompt` property on `ManeuverData` has moved into its activity.",
+					{ since: "DnD5e 4.0", until: "DnD5e 4.4", once: true }
+				);
+				return firstActivity.target?.prompt;
+			},
+			configurable: true,
+			enumerable: false
+		});
 	}
 };

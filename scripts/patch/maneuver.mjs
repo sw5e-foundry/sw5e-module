@@ -163,7 +163,7 @@ function showPowercastingStats() {
 
 function patchItemSheet() {
 	Hooks.on("renderItemSheet5e", (app, html, data) => {
-		html.querySelectorAll(`select[name|='system.spellcasting.progression']`).forEach((el, idx) => {
+		for (const el of html.querySelectorAll(`select[name|='system.spellcasting.progression']`)) {
 			const root = el.parentNode.parentNode;
 			const selectedValue = app.item.system.spellcasting.superiorityProgression;
 			const div = document.createElement("div");
@@ -192,7 +192,7 @@ function patchItemSheet() {
 			div2.appendChild(select);
 			div.appendChild(div2);
 			root.nextElementSibling.insertAdjacentElement("afterend", div);
-		});
+		}
 	});
 }
 
@@ -212,34 +212,25 @@ function patchPowerAbilityScore() {
 }
 
 function patchPowerbooks() {
-	/*
-	Hooks.on('sw5e.ActorSheet5e._prepareSpellbook', function (_this, powerbook, config, ...args) {
-		const [context, spells] = args;
-
-		// Format a powerbook entry for a certain indexed level
-		const registerSection = (sl, i, label, dataset) => {
-			if (powerbook.find(section => section.order === i)) return;
-			const section = {
+	Hooks.on('sw5e.ActorSheet5e._prepareSpellbook', function (_this, spellbook, config, ...args) {
+		// In dnd5e 5.x, _prepareSpellbook returns a plain object keyed by slot, not an array.
+		let idx = 1000;
+		const registerSection = (key, i, label, dataset) => {
+			if (key in spellbook) return spellbook[key];
+			const section = spellbook[key] = {
 				order: i,
 				label: label,
 				usesSlots: false,
-				canCreate: _this.actor.isOwner,
-				canPrepare: false,
-				spells: [],
-				uses: 0,
-				slots: 0,
-				override: 0,
-				dataset: {type: "maneuver", ...dataset},
-				prop: sl,
-				editable: context.editable
+				id: "maneuver",
+				slot: key,
+				items: [],
+				dataset: { type: "maneuver", ...dataset },
 			};
-			powerbook.push(section);
 			return section;
 		};
 
 		const superiorityBook = {};
 		const superData = _this.actor.system.superiority;
-		let idx = 1000;
 		if (superData.level !== 0) {
 			for (const type of Object.keys(CONFIG.DND5E.superiority.types)) {
 				const section = registerSection(`maneuvers-${type}`, idx++, `SW5E.Superiority.Type.${type.capitalize()}.Label`, {'type.value': type});
@@ -247,25 +238,26 @@ function patchPowerbooks() {
 			}
 		}
 
-		// Iterate over every maneuver item, adding maneuvers to the powerbook by section
-		context.actor.itemTypes['sw5e.maneuver'].forEach(maneuver => {
+		// Iterate over every maneuver item, adding maneuvers to the spellbook by section
+		_this.actor.itemTypes['sw5e.maneuver'].forEach(maneuver => {
 			const type = maneuver.system.type.value || "general";
-			const mt = `maneuver-${type}`;
+			const key = `maneuvers-${type}`;
 
 			// Sections for maneuvers which the caster "should not" have, but maneuver items exist for
 			if (!superiorityBook[type]) {
-				const section = registerSection(mt, idx++, `SW5E.Superiority.Type.${type.capitalize()}.Label`, {'type.value': type});
+				const section = registerSection(key, idx++, `SW5E.Superiority.Type.${type.capitalize()}.Label`, {'type.value': type});
 				superiorityBook[type] = section;
 			}
 
 			// Add the maneuver to the relevant heading
-			superiorityBook[type].spells.push(maneuver);
+			superiorityBook[type].items.push(maneuver);
 		});
 
-		// Sort the powerbook by section level
-		config.result = powerbook.sort((a, b) => a.order - b.order);
+		// Sort the spellbook object by section order
+		config.result = Object.fromEntries(
+			Object.entries(spellbook).sort(([, a], [, b]) => a.order - b.order)
+		);
 	});
-	*/
 }
 
 function recoverSuperiorityDice() {
