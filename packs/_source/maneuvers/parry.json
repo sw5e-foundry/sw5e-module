@@ -79,7 +79,7 @@
     "damage": {
       "parts": [
         [
-          "1d@superiority.die + @mod",
+          "1d@superiority.die + max(@abilities.str.mod, @abilities.dex.mod, @abilities.con.mod, @abilities.int.mod, @abilities.wis.mod, @abilities.cha.mod)",
           "temphp"
         ]
       ],
@@ -139,7 +139,7 @@
         "healing": {
           "custom": {
             "enabled": true,
-            "formula": "1d@superiority.die + @mod"
+            "formula": "1d@superiority.die + max(@abilities.str.mod, @abilities.dex.mod, @abilities.con.mod, @abilities.int.mod, @abilities.wis.mod, @abilities.cha.mod)"
           },
           "denomination": null,
           "number": null,
