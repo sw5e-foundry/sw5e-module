@@ -30,7 +30,7 @@ mask-image: linear-gradient(to bottom, black, transparent);
 content: "";
 background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
 opacity: 0.5;
-filter: hue-rotate(90deg);
+filter: hue-rotate(315deg);
 }
 
 .dnd5e2.sheet.actor.group:not(.minimized)::before {
@@ -59,40 +59,6 @@ content: "";
 background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
 opacity: 0.5;
 filter: hue-rotate(225deg);
-}
-
-/* Force Point CSS for the main sheet */
-
-.dnd5e2.sheet.actor .meter.sw5e-power-points .progress {
-  flex: 1 1 auto;
-  width: 100%;
-  min-width: 0;
-  position: relative;
-}
-
-.dnd5e2.sheet.actor .meter.sw5e-power-points .progress::before {
-  z-index: 0;
-}
-
-.dnd5e2.sheet.actor .meter.sw5e-power-points .progress > .label,
-.dnd5e2.sheet.actor .meter.sw5e-power-points .progress > input {
-  position: relative;
-  z-index: 1;
-}
-
-.dnd5e2.sheet.actor .meter.sw5e-power-points .progress.editing > input {
-  width: 100%;
-  height: 100%;
-  padding: 0 0.5rem;
-  text-align: center;
-  color: var(--dnd5e-color-text-dark-primary);
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-}
-
-.dnd5e2.sheet.actor .meter.force-points .progress::before {
-  background: linear-gradient(to right, #08568a 0%, #AFC6D5 100%);
 }
 
 /* Force Point CSS for the main sheet */
