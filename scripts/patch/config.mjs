@@ -5,6 +5,11 @@ function normalizeCompendiumRecord(record = {}) {
 	return Object.fromEntries(Object.entries(record).map(([key, uuid]) => [key, normalizeCompendiumUuid(uuid)]));
 }
 
+const SW5E_CHARACTER_SKILL_KEYS = [
+	"acr", "ani", "ath", "dec", "ins", "itm", "inv", "lor", "med",
+	"nat", "pil", "prc", "prf", "per", "slt", "ste", "sur", "tec"
+];
+
 export function patchConfig(config, strict = true) {
 	const preLocalize = game.dnd5e.utils.preLocalize;
 	const getConditionReference = reference => normalizeCompendiumUuid(reference);
@@ -18,8 +23,6 @@ export function patchConfig(config, strict = true) {
 	config.defaultAbilities.shieldPoints = "str";
 
 	// Skills
-	// Keep native DND5E skill keys available so stock actor sheets
-	// can still render and sort existing non-starship skill entries.
 	config.skills.lor = {
 		label: "SW5E.SkillLor",
 		ability: "int",
@@ -35,6 +38,9 @@ export function patchConfig(config, strict = true) {
 		ability: "int",
 		fullKey: "technology"
 	};
+	config.skills = Object.fromEntries(SW5E_CHARACTER_SKILL_KEYS
+		.map(key => [key, config.skills[key]])
+		.filter(([, value]) => value));
 	// Starship Skills
 	config.starshipSkills = {
 		ast: {
