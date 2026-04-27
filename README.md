@@ -132,6 +132,19 @@ For the current beta coverage checklist spanning `1.2.9` and `1.3.0`, see [1.2.9
 
 ## Changelog
 
+### [1.3.4] TEMP - 2026-04-26
+
+### Added
+- Added hue-rotate filters to the dual_color_saber background image used on encounter, group, npc, vehicle and item sheets to provide a visual distinction between the sheets.
+
+### Changed
+- Removed ".dnd5e2.sheet.actor .window-content {position: relative;}" as it was causing the tabs on the group sheet to not function and was offsetting buttons on the sheet.
+
+### Fixed
+- dual_color_saber background image now replaces the DND5e image used for encounter, group, npc, vehicle and item sheets properly where it had not before due to formatting differences between the player sheet and the others.
+- Tabs of the group sheet now render properly to the right of the sheet and function as intended.
+
+
 ### [1.3.3] - 2026-04-23
 
 ### Added

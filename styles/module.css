@@ -11,21 +11,54 @@
   text-align: left;
 }
 
-.dnd5e2.sheet.actor .window-content {
-  position: relative;
+/* Background of sheets */
+
+.dnd5e2.sheet.actor.character:not(.minimized) .window-content::before {
+content: "";
+position: absolute;
+inset: 0 0 auto 0;
+height: 300px;
+border-radius: inherit;
+opacity: 0.5;
+pointer-events: none;
+background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
+-webkit-mask-image: linear-gradient(to bottom, black, transparent);
+mask-image: linear-gradient(to bottom, black, transparent);
 }
 
-.dnd5e2.sheet.actor .window-content::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 300px;
-  border-radius: inherit;
-  opacity: 0.5;
-  pointer-events: none;
-  background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
-  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
-  mask-image: linear-gradient(to bottom, black, transparent);
+.dnd5e2.sheet.actor.encounter:not(.minimized)::before {
+content: "";
+background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
+opacity: 0.5;
+filter: hue-rotate(315deg);
+}
+
+.dnd5e2.sheet.actor.group:not(.minimized)::before {
+content: "";
+background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
+opacity: 0.5;
+filter: hue-rotate(45deg);
+}
+
+.dnd5e2.sheet.actor.npc:not(.minimized)::before {
+content: "";
+background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
+opacity: 0.5;
+filter: hue-rotate(135deg);
+}
+
+.dnd5e2.sheet.actor.vehicle:not(.minimized)::before {
+content: "";
+background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
+opacity: 0.5;
+filter: hue-rotate(270deg);
+}
+
+.dnd5e2.sheet.item:not(.minimized)::before {
+content: "";
+background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
+opacity: 0.5;
+filter: hue-rotate(225deg);
 }
 
 /* Force Point CSS for the main sheet */
