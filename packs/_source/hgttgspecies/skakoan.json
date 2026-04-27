@@ -2,13 +2,26 @@
   "name": "Skakoan",
   "flags": {
     "sw5e-importer": {
-      "timestamp": "2026-04-03T15:18:33.692Z",
+      "timestamp": "2026-04-27T20:44:31.610Z",
       "importer_version": 4,
       "uid": "Species.name-skakoan"
+    },
+    "sw5e-module": {
+      "hgttgArt": {
+        "source": "HGTTG PDF",
+        "pdfPath": "C:\\Users\\ckauble\\OneDrive - Riverside Bank of Dublin\\Documents\\SW5e Docs\\hgttg.pdf",
+        "pdfPage": 93,
+        "sourceXref": null,
+        "extractedImage": "icons/packs/Species/hgttg/skakoan.png",
+        "localPath": "icons/packs/Species/hgttg/skakoan.png",
+        "modulePath": "modules/sw5e-module/icons/packs/Species/hgttg/skakoan.png",
+        "confidence": "high",
+        "retrievedAt": "2026-04-27T20:43:07.160Z"
+      }
     }
   },
   "type": "race",
-  "img": "modules/sw5e-module/icons/packs/Species/Skakoan.webp",
+  "img": "modules/sw5e-module/icons/packs/Species/hgttg/skakoan.png",
   "system": {
     "description": {
       "value": "<h2>Biology and Appearance</h2>\n<p>Native to the high-pressure atmosphere of Skako, skakoans breath a methane-based air supply. Skakoans have skin which hangs in folds over their skeletons, lack hair and have sunken, beady eyes. Thin nasal slits allow them to detect odor, while a thin, lipless mouth allows them to speak. Because skakoan do not ingest solid food, they lack teeth in their gaping mouths. Due to the nature of their homeworld's above-average pressure, traveling offworld means wearing a specialized protective suit which maintains internal pressure and feeds methane through special piping. Fear of decompression or rupturing of their suits keeps most skakoans on their world; only those driven by a very compelling motive are ever seen far from Skako.</p>\n<h2>Society and Culture</h2>\n<p>Skakoans are cool and calculating beings with a strong sense of self-preservation. Because outsiders only see skakoans encased in their pressurized suits, many non-skakoans believe the race to be emotionless and machine-like. In spite of the misconception, the skakoans are extremely emotional, harboring strong xenophobia for all non-skakoans. Skakoans are severe and self-centered, and focus on self-preservation above all else. They have a deep logic which allows them to solve nearly any problem and driving their society towards the mathematical, scientific and technological professions. A deeply spiritual people, the skakoans developed an advanced religion centered around a beast known as the Albino Cyclops.</p>\n<h2>Names</h2>\n<p>Skakoan names will often uniformly use the same number of syllables, but this is not a hard rule. Surnames are familiar.</p>\n<p>&nbsp;&nbsp;<strong>Male Names.</strong> Bast, Gos, Hrent, Kolt, Rust, Vond</p>\n<p>&nbsp;&nbsp;<strong>Female Names.</strong> Dul, Kus, Kym, Nam, Ramb, Wyt</p>\n<p>&nbsp;&nbsp;<strong>Surnames.</strong> Doskos, Mantros, Nota, Tondar, Voskarr</p>",
@@ -43,7 +56,7 @@
     },
     "advancement": [
       {
-        "_id": "Fku7Eog23s3fEpI4",
+        "_id": "XfC7ByAcVkg0yrSs",
         "configuration": {
           "items": [
             {
@@ -64,10 +77,6 @@
             },
             {
               "uuid": "Compendium.sw5e-module.hgttgspeciesfeatures.2upRFWXCtqR7poxc",
-              "optional": false
-            },
-            {
-              "uuid": "Compendium.sw5e-module.hgttgspeciesfeatures.7IpCWdA3ZTx0KVfz",
               "optional": false
             },
             {
@@ -128,11 +137,12 @@
         "value": {}
       },
       {
-        "_id": "Xa5IFHquiVx4jDWA",
+        "_id": "EnvsoPIM98lT2Ff2",
         "configuration": {
           "choices": [],
           "grants": [
-            "skills:tec"
+            "skills:tec",
+            "dr:poison"
           ],
           "mode": "default",
           "allowReplacements": false
@@ -145,37 +155,37 @@
       }
     ],
     "skinColorOptions": {
-      "value": "Grey, white, or green"
+      "value": ""
     },
     "hairColorOptions": {
-      "value": "None"
+      "value": ""
     },
     "eyeColorOptions": {
-      "value": "Black"
+      "value": ""
     },
     "colorScheme": {
       "value": ""
     },
     "distinctions": {
-      "value": "Atmospheric pressure sensitive"
+      "value": ""
     },
     "heightAverage": {
-      "value": "5'2\""
+      "value": ""
     },
     "heightRollMod": {
-      "value": "+2d8\""
+      "value": ""
     },
     "weightAverage": {
-      "value": "100 lb."
+      "value": ""
     },
     "weightRollMod": {
-      "value": "x(2d4) lb."
+      "value": ""
     },
     "homeworld": {
-      "value": "Skako"
+      "value": ""
     },
     "slanguage": {
-      "value": "Skakoform, Skakoverbal"
+      "value": ""
     },
     "droidDistinctions": {
       "value": ""
@@ -187,57 +197,7 @@
       "value": ""
     }
   },
-  "effects": [
-    {
-      "_id": "IeatFeMKdgOVXY2w",
-      "changes": [
-        {
-          "key": "flags.sw5e.foreignBiology",
-          "mode": 0,
-          "priority": 20,
-          "value": "1"
-        },
-        {
-          "key": "system.attributes.ac.value",
-          "mode": 5,
-          "priority": 20,
-          "value": "17+(((@data.attributes.ac.value)-10)-@abilities.dex.mod)"
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "tint": "#ffffff",
-      "transfer": true,
-      "flags": {},
-      "origin": null,
-      "name": "Skakoan",
-      "description": "",
-      "statuses": [],
-      "_stats": {
-        "coreVersion": "12.330",
-        "systemId": null,
-        "systemVersion": null,
-        "createdTime": null,
-        "modifiedTime": null,
-        "lastModifiedBy": null,
-        "compendiumSource": null,
-        "duplicateSource": null
-      },
-      "img": "modules/sw5e-module/icons/packs/Species/Skakoan.webp",
-      "type": "base",
-      "system": {},
-      "sort": 0,
-      "_key": "!items.effects!T3Bh55JWEcqo84Bs.IeatFeMKdgOVXY2w"
-    }
-  ],
+  "effects": [],
   "_id": "T3Bh55JWEcqo84Bs",
   "folder": null,
   "sort": 0,
