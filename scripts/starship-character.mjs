@@ -26,7 +26,7 @@ function sanitizeCrewImagePath(path) {
 	if ( !normalized ) return "icons/svg/mystery-man.svg";
 	const lower = normalized.toLowerCase();
 	const isBrokenExternal = /^https?:\/\/(?:static\.wikia\.nocookie\.net|cdn[ab]\.artstation\.com)\//.test(lower);
-	if ( ["undefined", "null", "nan"].includes(lower) || lower.startsWith("tokenizer/") || isBrokenExternal ) {
+	if ( ["undefined", "null", "nan"].includes(lower) || isBrokenExternal ) {
 		return "icons/svg/mystery-man.svg";
 	}
 	return normalized;

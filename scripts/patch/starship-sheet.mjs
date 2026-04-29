@@ -1641,7 +1641,7 @@ function sanitizeImagePath(value) {
 	if ( !normalized ) return "";
 	const lower = normalized.toLowerCase();
 	// Placeholder / invalid only — do not block specific hosts; rely on `error` fallback for broken loads.
-	if ( ["undefined", "null", "nan"].includes(lower) || lower.startsWith("tokenizer/") ) return "";
+	if ( ["undefined", "null", "nan"].includes(lower) ) return "";
 	return normalized;
 }
 
