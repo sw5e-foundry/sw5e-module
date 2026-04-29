@@ -61,6 +61,90 @@ opacity: 0.5;
 filter: hue-rotate(225deg);
 }
 
+/*
+ * Applications = Light — two domains (Foundry v13):
+ * 1) Core/generic apps use .application.theme-light and are not .dnd5e2.
+ * 2) dnd5e 5.2.x paints .dnd5e2.application from --dnd5e-application-background; character body is .sheet-body.
+ * Cover both dnd5e light-theme paths used by 5.2.x: body.theme-light .dnd5e2 and .themed.theme-light.dnd5e2.
+ */
+.application.theme-light:not(.theme-dark):not(.dnd5e2):not(.dnd5e2-journal) {
+  --sw5e-light-application-background: linear-gradient(
+      180deg,
+      color-mix(in oklab, #ffffff 50%, transparent) 0%,
+      color-mix(in oklab, #ffffff 28%, transparent) 40%,
+      color-mix(in oklab, #ffffff 15%, transparent) 100%
+    ),
+    url("/modules/sw5e-module/assets/ui/parchment.webp");
+  background-color: var(--color-canvas-1, #f4f0e8);
+  background-image: var(--sw5e-light-application-background);
+  background-size: 100% 100%, 420px auto;
+  background-position: 0 0, center top;
+  background-repeat: no-repeat, repeat;
+}
+
+.application.theme-light:not(.theme-dark):not(.dnd5e2):not(.dnd5e2-journal) .window-content {
+  background-color: var(--color-canvas-1, #f4f0e8);
+  background-image: var(--sw5e-light-application-background);
+  background-size: 100% 100%, 420px auto;
+  background-position: 0 0, center top;
+  background-repeat: no-repeat, repeat;
+}
+
+.themed.theme-light:is(.dnd5e2, .dnd5e2-journal).application,
+.dnd5e2.application.theme-light:not(.theme-dark),
+body.theme-light .dnd5e2.application:not(.theme-dark) {
+  --dnd5e-application-background: linear-gradient(
+      180deg,
+      color-mix(in oklab, #ffffff 50%, transparent) 0%,
+      color-mix(in oklab, #ffffff 28%, transparent) 40%,
+      color-mix(in oklab, #ffffff 15%, transparent) 100%
+    ),
+    url("/modules/sw5e-module/assets/ui/parchment.webp");
+  background-color: var(--color-canvas-1, #f4f0e8);
+  background-size: 100% 100%, cover;
+  background-position: 0 0, center center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.themed.theme-light.dnd5e2.sheet.actor.character,
+.dnd5e2.application.theme-light.sheet.actor.character:not(.theme-dark),
+body.theme-light .dnd5e2.sheet.actor.character:not(.theme-dark) {
+  --dnd5e-character-header-image: transparent;
+  --dnd5e-character-body-image: linear-gradient(
+      180deg,
+      color-mix(in oklab, #ffffff 45%, transparent) 0%,
+      color-mix(in oklab, #ffffff 22%, transparent) 40%,
+      color-mix(in oklab, #ffffff 12%, transparent) 100%
+    ),
+    url("/modules/sw5e-module/assets/ui/parchment.webp");
+}
+
+.themed.theme-light.dnd5e2.sheet.actor.character .sheet-body,
+.dnd5e2.application.theme-light.sheet.actor.character:not(.theme-dark) .sheet-body,
+body.theme-light .dnd5e2.sheet.actor.character:not(.theme-dark) .sheet-body {
+  background-color: var(--color-canvas-1, #f4f0e8);
+  background-image: var(--dnd5e-character-body-image);
+  background-size: 100% 100%, cover;
+  background-position: 0 0, center center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* Character: dnd5e 5.2.x — .window-content::before; light apps use content/image vars none/transparent. */
+.themed.theme-light.dnd5e2.sheet.actor.character:not(.minimized) .window-content::before,
+.dnd5e2.application.theme-light.sheet.actor.character:not(.minimized):not(.theme-dark) .window-content::before,
+body.theme-light .dnd5e2.sheet.actor.character:not(.minimized):not(.theme-dark) .window-content::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 300px;
+  border-radius: 5px 5px 0 0;
+  opacity: 0.5;
+  pointer-events: none;
+  background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
 /* Force Point CSS for the main sheet */
 
 .dnd5e2.sheet.actor .meter.sw5e-power-points .progress {
@@ -99,6 +183,17 @@ filter: hue-rotate(225deg);
 
 .dnd5e2.sheet.actor .meter.tech-points .progress::before {
   background: linear-gradient(to right, #2F2F2F 0%, #7e7e7e 100%);
+}
+
+.dnd5e2.sheet.actor .meter.superiority-dice-points .progress::before {
+  background: linear-gradient(to right, #6b4423 0%, #c4916b 100%);
+}
+
+.dnd5e2.sheet.actor .meter-group.sw5e-superiority-meter > .label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .dnd5e2.sheet.actor .meter-group.sw5e-powercasting-meter > .label {
@@ -3728,4 +3823,49 @@ section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove {
   background: rgb(60 22 24 / 55%);
   color: rgb(255 210 205);
   white-space: nowrap;
+}
+
+/* Global pause overlay — SW5E-style dual rings (module-owned SVGs, see assets/ui/) */
+@keyframes sw5e-pause-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#pause {
+  background: none;
+  height: 128px;
+}
+
+#pause img {
+  display: none !important;
+}
+
+#pause::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 128px;
+  height: 128px;
+  margin-left: -64px;
+  background: url("/modules/sw5e-module/assets/ui/pause-inner.svg") no-repeat 50% 50%;
+  animation: sw5e-pause-spin 10s linear infinite;
+  pointer-events: none;
+}
+
+#pause::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 128px;
+  height: 128px;
+  margin-left: -64px;
+  background: url("/modules/sw5e-module/assets/ui/pause-outer.svg") no-repeat 50% 50%;
+  animation: sw5e-pause-spin 5s linear infinite reverse;
+  pointer-events: none;
 }

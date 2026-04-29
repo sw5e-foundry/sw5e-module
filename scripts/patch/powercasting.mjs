@@ -311,6 +311,50 @@ function actorHasPowercastingUi(actor, castType) {
 	return false;
 }
 
+/** Schools that belong to a SW5E power casting type (force / tech). */
+function getPowerCastTypeSchoolIds(castType) {
+	return Object.keys(CONFIG.DND5E.powerCasting?.[castType]?.schools ?? {});
+}
+
+/** At least one owned spell item uses a school from this casting type. */
+function actorHasOwnedPowerInCastSchools(actor, castType) {
+	const schools = getPowerCastTypeSchoolIds(castType);
+	if ( !schools.length ) return false;
+	return (actor?.itemTypes?.spell ?? []).some(power => schools.includes(power?.system?.school));
+}
+
+/** NPC stat-block or prepared data indicates this casting type. */
+function npcHasStatBlockPowerCasting(actor, castType) {
+	const levelKey = `power${castType.capitalize()}Level`;
+	if ( (getNumericValue(actor.system?.details?.[levelKey]) ?? 0) > 0 ) return true;
+	if ( (getNumericValue(actor._source?.system?.details?.[levelKey]) ?? 0) > 0 ) return true;
+	if ( (getNumericValue(actor.system?.powercasting?.[castType]?.level) ?? 0) > 0 ) return true;
+	return false;
+}
+
+/**
+ * Sidebar-only rule for Force/Tech meters — stricter than {@link actorHasPowercastingUi}.
+ * Characters: at least one owned power in that type’s schools. NPCs: same, or stat-block caster level / prepared level.
+ */
+function shouldShowSidebarPowerMeter(actor, castType) {
+	if ( actorHasOwnedPowerInCastSchools(actor, castType) ) return true;
+	if ( actor?.type === "npc" && npcHasStatBlockPowerCasting(actor, castType) ) return true;
+	return false;
+}
+
+function shouldShowSuperioritySidebarMeter(actor) {
+	const sup = actor?.system?.superiority;
+	if ( (getNumericValue(sup?.dice?.max) ?? 0) > 0 ) return true;
+	if ( (getNumericValue(sup?.level) ?? 0) > 0 ) return true;
+	const classes = actor.itemTypes?.class ?? [];
+	if ( classes.some(clss => {
+		const prog = clss.system?.spellcasting?.superiorityProgression;
+		return prog && prog !== "none";
+	}) ) return true;
+	if ( Array.from(actor.items ?? []).some(i => isModuleType(i.type, "maneuver")) ) return true;
+	return false;
+}
+
 function insertPowercastingElement(containerElement, mountPoint, mountContainer, insertReference) {
 	if ( mountPoint.insertAfter && insertReference?.parentElement ) {
 		insertReference.insertAdjacentElement("afterend", containerElement);
@@ -1056,14 +1100,13 @@ function makePowerPointsConsumable() {
 }
 
 function showPowercastingBar() {
-	const { simplifyBonus } = dnd5e.utils;
 	Hooks.on("renderActorSheetV2", async (app, html, data) => {
 		const root = getHtmlRoot(html);
 		if ( !root ) return;
 		if (data.actor.type != "character" && data.actor.type != "npc") {
 			return;
 		}
-		root.querySelectorAll(".sw5e-powercasting-meter").forEach(node => node.remove());
+		root.querySelectorAll(".sw5e-powercasting-meter, .sw5e-superiority-meter").forEach(node => node.remove());
 
 		const powerCasting = data.actor.system.powercasting;
 		const mountPoint = getPowercastingMountPoint(root, data.actor.type);
@@ -1071,8 +1114,6 @@ function showPowercastingBar() {
 		if ( !mountContainer ) return;
 		let insertReference = mountPoint.reference;
 		const isEditable = typeof app.isEditable === "boolean" ? app.isEditable : false;
-		// Add meters for the tech and force powercasting values. This 
-		// will be added right after the hit points meter.
 		for (const castType of ["force", "tech"]) {
 			const castData = powerCasting[castType];
 			const value = Number.isFinite(Number(castData?.points?.value)) ? Number(castData.points.value) : 0;
@@ -1081,7 +1122,7 @@ function showPowercastingBar() {
 			const tempmax = Number.isFinite(Number(castData?.points?.tempmax)) ? Number(castData.points.tempmax) : 0;
 			const effectiveMax = Math.max(0, max + tempmax);
 			const clampedValue = Math.max(0, Math.min(value, effectiveMax || value));
-			const shouldRenderMeter = actorHasPowercastingUi(data.actor, castType);
+			const shouldRenderMeter = shouldShowSidebarPowerMeter(data.actor, castType);
 			if ( shouldRenderMeter ) {
 				const templateData = {
 					'castType': castType,
@@ -1106,11 +1147,12 @@ function showPowercastingBar() {
 				const containerElement = container[0];
 				insertReference = insertPowercastingElement(containerElement, mountPoint, mountContainer, insertReference);
 				if ( isEditable ) {
-					const pointBar = containerElement.querySelector(`.progress.${castType}-points`);
+					const progressClass = `${castType}-points`;
+					const pointBar = containerElement.querySelector(`.progress.${progressClass}`);
 					const configButton = containerElement.querySelector('[data-action="configure-power-points"]');
 					const currentInput = pointBar?.querySelector('input[name$=".points.value"]');
-					pointBar?.addEventListener("click", event => _toggleEditPoints(castType, event, true));
-					currentInput?.addEventListener("blur", event => _toggleEditPoints(castType, event, false));
+					pointBar?.addEventListener("click", event => _toggleEditPoints(progressClass, event, true));
+					currentInput?.addEventListener("blur", event => _toggleEditPoints(progressClass, event, false));
 					currentInput?.addEventListener("focus", ev => ev.currentTarget.select());
 					currentInput?.addEventListener("change", app._onChangeInputDelta.bind(app));
 					configButton?.addEventListener("click", event => {
@@ -1122,18 +1164,50 @@ function showPowercastingBar() {
 			}
 		}
 
+		if ( shouldShowSuperioritySidebarMeter(data.actor) ) {
+			const sup = data.actor.system.superiority ?? {};
+			const dice = sup.dice ?? {};
+			const dieSize = getNumericValue(sup.die) ?? 0;
+			const diceMax = Math.max(0, getNumericValue(dice.max) ?? 0);
+			const diceVal = Math.max(0, getNumericValue(dice.value) ?? 0);
+			const clampedDice = diceMax > 0 ? Math.min(diceVal, diceMax) : diceVal;
+			const maxSegment = dieSize > 0 ? `${diceMax}d${dieSize}` : String(diceMax);
+			const supTemplate = getModulePath("templates/superiority-sheet-tracker.hbs");
+			const supHtml = await foundry.applications.handlebars.renderTemplate(supTemplate, {
+				label: game.i18n.localize("SW5E.Superiority.Dice.Label"),
+				value: clampedDice,
+				maxSegment,
+				ariaMax: Math.max(1, diceMax),
+				pct: diceMax > 0 ? (clampedDice / diceMax) * 100 : 0,
+				isEditable
+			});
+			const supContainer = $('<div class="meter-group sw5e-superiority-meter"></div>');
+			supContainer.append(supHtml);
+			const supEl = supContainer[0];
+			insertReference = insertPowercastingElement(supEl, mountPoint, mountContainer, insertReference);
+			if ( isEditable ) {
+				const progressClass = "superiority-dice-points";
+				const bar = supEl.querySelector(`.progress.${progressClass}`);
+				const input = bar?.querySelector("input[name=\"system.superiority.dice.value\"]");
+				bar?.addEventListener("click", event => _toggleEditPoints(progressClass, event, true));
+				input?.addEventListener("blur", event => _toggleEditPoints(progressClass, event, false));
+				input?.addEventListener("focus", ev => ev.currentTarget.select());
+				input?.addEventListener("change", app._onChangeInputDelta.bind(app));
+			}
+		}
+
 	});
 }
 
 /**
  * Toggle editing points bar.
- * @param {string} pointType    The type of points.
+ * @param {string} progressClass    CSS class on `.progress` (e.g. `force-points`, `superiority-dice-points`).
  * @param {PointerEvent} event  The triggering event.
  * @param {boolean} edit        Whether to toggle to the edit state.
  * @protected
  */
-function _toggleEditPoints(pointType, event, edit) {
-	const target = event.currentTarget.closest(`.${pointType}-points`);
+function _toggleEditPoints(progressClass, event, edit) {
+	const target = event.currentTarget.closest(`.${progressClass}`);
 	if ( !target ) return;
 	const label = target.querySelector(":scope > .label");
 	const input = target.querySelector(":scope > input");

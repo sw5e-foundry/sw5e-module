@@ -119,6 +119,8 @@ Same item should not need to appear in more than one of those pools; the Custom 
 
 For a contributor-focused overview of the repo layout, runtime entrypoints, compendium build pipeline, and release packaging, see [docs/developer-guide.md](docs/developer-guide.md).
 
+For **Active Effect** property paths on actors (superiority dice, Force/Tech points, and related SW5E fields), see [docs/active-effect-keys.md](docs/active-effect-keys.md).
+
 ## Included Legacy Content
 
 The module includes Heretic's Guide to the Galaxy species content as dedicated baked-in compendiums instead of mixing it into the core species lists:
