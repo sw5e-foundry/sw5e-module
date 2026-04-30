@@ -75,24 +75,33 @@ filter: hue-rotate(225deg);
       color-mix(in oklab, #ffffff 15%, transparent) 100%
     ),
     url("/modules/sw5e-module/assets/ui/parchment.webp");
+  --background: var(--sw5e-light-application-background);
   background-color: var(--color-canvas-1, #f4f0e8);
   background-image: var(--sw5e-light-application-background);
-  background-size: 100% 100%, 420px auto;
-  background-position: 0 0, center top;
-  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, cover;
+  background-position: 0 0, center center;
+  background-repeat: no-repeat, no-repeat;
 }
 
 .application.theme-light:not(.theme-dark):not(.dnd5e2):not(.dnd5e2-journal) .window-content {
   background-color: var(--color-canvas-1, #f4f0e8);
   background-image: var(--sw5e-light-application-background);
-  background-size: 100% 100%, 420px auto;
-  background-position: 0 0, center top;
-  background-repeat: no-repeat, repeat;
+  background-size: 100% 100%, cover;
+  background-position: 0 0, center center;
+  background-repeat: no-repeat, no-repeat;
 }
 
 .themed.theme-light:is(.dnd5e2, .dnd5e2-journal).application,
 .dnd5e2.application.theme-light:not(.theme-dark),
 body.theme-light .dnd5e2.application:not(.theme-dark) {
+  --sw5e-light-parchment-color: color-mix(in oklab, #dceaf0 76%, #ffffff);
+  --sw5e-light-parchment-surface: linear-gradient(
+      180deg,
+      color-mix(in oklab, #ffffff 45%, transparent) 0%,
+      color-mix(in oklab, #ffffff 22%, transparent) 40%,
+      color-mix(in oklab, #ffffff 12%, transparent) 100%
+    ),
+    url("/modules/sw5e-module/assets/ui/parchment.webp");
   --dnd5e-application-background: linear-gradient(
       180deg,
       color-mix(in oklab, #ffffff 50%, transparent) 0%,
@@ -100,7 +109,35 @@ body.theme-light .dnd5e2.application:not(.theme-dark) {
       color-mix(in oklab, #ffffff 15%, transparent) 100%
     ),
     url("/modules/sw5e-module/assets/ui/parchment.webp");
+  --separated-list-item-background-color: var(--sw5e-light-parchment-color);
+  --item-summary-background: var(--sw5e-light-parchment-color);
+  --filigree-background-color: var(--sw5e-light-parchment-color);
+  --table-background-color: var(--sw5e-light-parchment-color);
+  --multi-select-tag-background: var(--sw5e-light-parchment-color);
   background-color: var(--color-canvas-1, #f4f0e8);
+  background-size: 100% 100%, cover;
+  background-position: 0 0, center center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.themed.theme-light .chat-message.dnd5e2,
+body.theme-light .chat-message.dnd5e2 {
+  --sw5e-light-parchment-color: color-mix(in oklab, #dceaf0 76%, #ffffff);
+  --sw5e-light-parchment-surface: linear-gradient(
+      180deg,
+      color-mix(in oklab, #ffffff 45%, transparent) 0%,
+      color-mix(in oklab, #ffffff 22%, transparent) 40%,
+      color-mix(in oklab, #ffffff 12%, transparent) 100%
+    ),
+    url("/modules/sw5e-module/assets/ui/parchment.webp");
+  --chat-message-background: var(--sw5e-light-parchment-surface);
+  --separated-list-item-background-color: var(--sw5e-light-parchment-color);
+  --item-summary-background: var(--sw5e-light-parchment-color);
+  --filigree-background-color: var(--sw5e-light-parchment-color);
+  --table-background-color: var(--sw5e-light-parchment-color);
+  --multi-select-tag-background: var(--sw5e-light-parchment-color);
+  background-color: var(--color-canvas-1, #f4f0e8);
+  background-image: var(--sw5e-light-parchment-surface);
   background-size: 100% 100%, cover;
   background-position: 0 0, center center;
   background-repeat: no-repeat, no-repeat;
@@ -110,13 +147,7 @@ body.theme-light .dnd5e2.application:not(.theme-dark) {
 .dnd5e2.application.theme-light.sheet.actor.character:not(.theme-dark),
 body.theme-light .dnd5e2.sheet.actor.character:not(.theme-dark) {
   --dnd5e-character-header-image: transparent;
-  --dnd5e-character-body-image: linear-gradient(
-      180deg,
-      color-mix(in oklab, #ffffff 45%, transparent) 0%,
-      color-mix(in oklab, #ffffff 22%, transparent) 40%,
-      color-mix(in oklab, #ffffff 12%, transparent) 100%
-    ),
-    url("/modules/sw5e-module/assets/ui/parchment.webp");
+  --dnd5e-character-body-image: var(--sw5e-light-parchment-surface);
 }
 
 .themed.theme-light.dnd5e2.sheet.actor.character .sheet-body,
@@ -143,6 +174,21 @@ body.theme-light .dnd5e2.sheet.actor.character:not(.minimized):not(.theme-dark) 
   background: url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover;
   -webkit-mask-image: linear-gradient(to bottom, black, transparent);
   mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.themed.theme-light.dnd5e2 :is(.card, fieldset.card > legend, item-list-controls search, .filter-element search, .pill-lg, .form-group.card, .currency-style button:not(.split-control), .starting-equipment li[data-entry-id][data-depth="1"], .starting-equipment li[data-entry-id][data-depth="2"], .sw5e-chassis-panel, .sw5e-starship-group.items-section.card),
+.dnd5e2.application.theme-light:not(.theme-dark) :is(.card, fieldset.card > legend, item-list-controls search, .filter-element search, .pill-lg, .form-group.card, .currency-style button:not(.split-control), .starting-equipment li[data-entry-id][data-depth="1"], .starting-equipment li[data-entry-id][data-depth="2"], .sw5e-chassis-panel, .sw5e-starship-group.items-section.card),
+body.theme-light .dnd5e2:not(.theme-dark) :is(.card, fieldset.card > legend, item-list-controls search, .filter-element search, .pill-lg, .form-group.card, .currency-style button:not(.split-control), .starting-equipment li[data-entry-id][data-depth="1"], .starting-equipment li[data-entry-id][data-depth="2"], .sw5e-chassis-panel, .sw5e-starship-group.items-section.card),
+.themed.theme-light.dnd5e2 .pills .pill:not(.green):not(.maroon):not(.transparent):not(.pill-sm),
+.dnd5e2.application.theme-light:not(.theme-dark) .pills .pill:not(.green):not(.maroon):not(.transparent):not(.pill-sm),
+body.theme-light .dnd5e2:not(.theme-dark) .pills .pill:not(.green):not(.maroon):not(.transparent):not(.pill-sm),
+.themed.theme-light .chat-message.dnd5e2 .chat-card :is(.description, .card-tray, .effects-tray, .targets-tray),
+body.theme-light .chat-message.dnd5e2 .chat-card :is(.description, .card-tray, .effects-tray, .targets-tray) {
+  background-color: var(--color-canvas-1, #f4f0e8);
+  background-image: var(--sw5e-light-parchment-surface);
+  background-size: 100% 100%, cover;
+  background-position: 0 0, center center;
+  background-repeat: no-repeat, no-repeat;
 }
 
 /* Force Point CSS for the main sheet */
