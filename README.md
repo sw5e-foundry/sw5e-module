@@ -1,4 +1,5 @@
 ![](https://img.shields.io/badge/Foundry-v13-informational)
+![](https://img.shields.io/badge/DND5e-v5.2.5-informational)
 ![Latest Release Download Count](https://img.shields.io/github/downloads/sw5e-foundry/sw5e-module/latest/module.zip)
 
 # SW5E
