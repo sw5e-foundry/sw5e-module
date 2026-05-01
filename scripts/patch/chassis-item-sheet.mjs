@@ -361,7 +361,7 @@ async function openInstallModificationDialog(app, browserCtx = {}) {
 
 	await DialogV2.wait({
 		rejectClose: false,
-		modal: true,
+		modal: false,
 		window: { title: game.i18n.localize("SW5E.Chassis.InstallBrowserTitle") },
 		position: { width: 560 },
 		classes: ["sw5e-chassis-install-browser-app"],
