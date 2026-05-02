@@ -376,16 +376,21 @@ function adjustItemSpellcastingGetter() {
 	Hooks.on('sw5e.Item5e.spellcasting', function (_this, result, config, ...args) {
 		const spellcasting = _this.system.spellcasting;
 		if (!spellcasting) return;
+
 		const isSubclass = _this.type === "subclass";
 		const classSC = isSubclass ? _this.class?.system?.spellcasting : spellcasting;
 		const subclassSC = isSubclass ? spellcasting : _this.subclass?.system?.spellcasting;
+
 		for (const castType of ["force", "tech"]) {
-			const prop = castType + "Progression"
+			const prop = castType + "Progression";
 			delete result[prop];
+
 			const classPC = classSC?.[prop] ?? "none";
 			const subclassPC = subclassSC?.[prop] ?? "none";
-			if (subclassPC !== "none") result[castType] = subclassPC;
-			else result[castType] = classPC;
+
+			if (subclassPC && subclassPC !== "none") result[castType] = subclassPC;
+			else if (classPC && classPC !== "none") result[castType] = classPC;
+			else result[castType] = "none";
 		}
 	});
 }
@@ -902,7 +907,7 @@ function patchPowerAbilityScore() {
 
 		if (preCalculated) return;
 		for (const [identifier, cls] of Object.entries(_this.classes)) for (const castType of ["force", "tech"]) {
-			if (cls.spellcasting && (cls.spellcasting[`${castType}Progression`] !== "none")) result[identifier] = cls;
+			if (cls.spellcasting && (cls.spellcasting[castType] !== "none")) result[identifier] = cls;
 		}
 	});
 
@@ -1062,14 +1067,28 @@ function patchAbilityUseDialog() {
 		}
 	});
 	Hooks.on('dnd5e.activityConsumption', function (activity, usageConfig, messageConfig, updates) {
-		if (activity?.item?.type !== "spell" || activity?.item?.system?.method !== "powerCasting") return;
-		const powercastingType = getPowercastingTypeFromItem(activity.item);
-		const powercasting = activity?.actor?.system?.powercasting?.[powercastingType];
-		if ( !powercasting ) return;
-		const level = usageConfig?.spell?.slot ?? 0;
-		if (level >= powercasting.limit) {
-			powercasting.used.add(level);
-			updates.actor[`system.powercasting.${powercastingType}.used`] = powercasting.used;
+	if (activity?.item?.type !== "spell" || activity?.item?.system?.method !== "powerCasting") return;
+
+	const powercastingType = getPowercastingTypeFromItem(activity.item);
+	const powercasting = activity?.actor?.system?.powercasting?.[powercastingType];
+	if ( !powercasting ) return;
+
+	const castLevel = Number(usageConfig?.spell?.slot) || 0;
+	const itemLevel = getNumericValue(activity.item.system.level) ?? 0;
+	const scaling = Math.max(0, castLevel - itemLevel);
+
+	if ( scaling > 0 ) {
+		const pointsPath = `system.powercasting.${powercastingType}.points.value`;
+		const currentValue = Number.isFinite(updates.actor[pointsPath])
+			? updates.actor[pointsPath]
+			: (foundry.utils.getProperty(activity.actor, pointsPath) ?? 0);
+
+		updates.actor[pointsPath] = currentValue - scaling;
+		}
+
+	if ( castLevel >= powercasting.limit ) {
+		powercasting.used.add(castLevel);
+		updates.actor[`system.powercasting.${powercastingType}.used`] = powercasting.used;
 		}
 	});
 }
