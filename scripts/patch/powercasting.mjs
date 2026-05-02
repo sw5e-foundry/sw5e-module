@@ -991,7 +991,7 @@ function patchAbilityUseDialog() {
 	Hooks.on('sw5e.ActivityUsageDialog._prepareScalingContext', function (_this, result, config, ...args) {
 		const context = config.result;
 
-		if (_this.activity.requiresSpellSlot && (_this.config.scaling !== false) && (_this.item.system.method === "powerCasting")) {
+		if ((_this.item.system.method === "powerCasting") && ((getNumericValue(_this.item.system.level) ?? 0) > 0)) {
 			if (context.notes.length >= 1) {
 				const note = context.notes[context.notes.length - 1];
 				if (note.type === "warn" && note.message.startsWith("You have no available")) context.notes.pop();
@@ -999,6 +999,7 @@ function patchAbilityUseDialog() {
 			const powercastingType = getPowercastingTypeFromItem(_this.item);
 			const powercasting = _this.actor.system.powercasting[powercastingType];
 			if ( !powercasting ) return;
+			context.hasScaling = true;
 
 			const minimumLevel = getNumericValue(_this.item.system.level) ?? 1;
 			const maximumLevel = getNumericValue(powercasting.maxPowerLevel) ?? 0;
