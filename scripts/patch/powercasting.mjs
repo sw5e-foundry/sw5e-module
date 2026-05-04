@@ -1,5 +1,9 @@
 import { getBestAbility } from "./../utils.mjs";
-import { getModulePath, isModuleType } from "../module-support.mjs";
+import {
+  getModulePath,
+  isModuleType,
+  SETTINGS_NAMESPACE,
+} from "../module-support.mjs";
 import { openPowerPointConfig } from "../power-point-config.mjs";
 
 const PRECALCULATED_SPELLCASTING_KEY = "sw5e-preCalculatedSpellcastingClasses";
@@ -569,10 +573,10 @@ function preparePowercasting() {
 
 		// TODO: Add rules
 		// // Simplified forcecasting rule
-		// if (game.settings.get("sw5e", "simplifiedForcecasting")) {
-		// 	CONFIG.DND5E.powerCasting.force.schools.lgt.attr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
-		// 	CONFIG.DND5E.powerCasting.force.schools.drk.attr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
-		// }
+		if (game.settings.get(SETTINGS_NAMESPACE, "simplifiedForcecasting")) {
+			CONFIG.DND5E.powerCasting.force.schools.lgt.attr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
+			CONFIG.DND5E.powerCasting.force.schools.drk.attr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
+		}
 
 		// Powercasting DC for Actors and NPCs
 		const ability = {};
