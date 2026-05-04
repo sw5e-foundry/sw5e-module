@@ -24,6 +24,7 @@ import { droidCustomizationsApi } from "./droid-customizations.mjs";
 import { DroidCustomizationsApp } from "./droid-customizations-app.mjs";
 import { AugmentationsApp } from "./augmentations-app.mjs";
 import { registerModuleSettings } from "./settings.mjs";
+import { patchVariantRules } from "./patch/variantRules.mjs";
 
 globalThis.sw5e = {
 	migrations,
@@ -66,6 +67,7 @@ Hooks.once('init', async function() {
 	patchStarshipSheet();
 	patchAugmentationsSheet();
 	patchDroidCustomizationsSheet();
+	patchVariantRules();
 });
 
 Hooks.once('ready', async function() {

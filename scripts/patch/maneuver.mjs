@@ -1,5 +1,5 @@
 import { getBestAbility } from "./../utils.mjs";
-import { getModuleType, getModuleTypeCandidates, isModuleType, normalizeModuleType } from "../module-support.mjs";
+import { getModuleType, getModuleTypeCandidates, isModuleType, normalizeModuleType, SETTINGS_NAMESPACE} from "../module-support.mjs";
 
 const PRECALCULATED_SPELLCASTING_KEY = "sw5e-preCalculatedSpellcastingClasses";
 const MANEUVER_TYPE = getModuleType("maneuver");
@@ -186,10 +186,10 @@ function prepareSuperiority() {
 
 		// TODO: Add rules
 		// // Simplified forcecasting rule
-		// if (game.settings.get("sw5e", "simplifiedForcecasting")) {
-		// 	CONFIG.DND5E.superiority.types.physical.attr = CONFIG.DND5E.superiority.types.general.attr;
-		// 	CONFIG.DND5E.superiority.types.mental.attr = CONFIG.DND5E.superiority.types.general.attr;
-		// }
+		if (game.settings.get(SETTINGS_NAMESPACE , "simplifiedForcecasting")) {
+			CONFIG.DND5E.superiority.types.physical.attr = CONFIG.DND5E.superiority.types.general.attr;
+			CONFIG.DND5E.superiority.types.mental.attr = CONFIG.DND5E.superiority.types.general.attr;
+		}
 
 		// Superiority DC for Actors and NPCs
 		const superConfig = CONFIG.DND5E.superiority;
