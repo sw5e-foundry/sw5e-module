@@ -1,0 +1,119 @@
+_id: RKjHaIE5W6h9okyV
+name: The Way of the Hawk-Bat
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Bonus.webp
+effects: []
+folder: 20yE1Ian8SYjyhfH
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5528156+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-the_way_of_the_hawk_bat.source-archetype.sourceName-ataru_form.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Ataru Form:</strong> 3rd level</em></p>
+
+      <p>As a bonus action, you can take an aggressive stance, leaping around
+      the battlefield for 1 minute. As a part of this bonus action, and as a
+      bonus action on each of your turns, you can cast the <em>force jump</em>
+      power at 1st-level without expending force points. Additionally, when you
+      cast <em>force jump</em>, you have advantage on the first attack roll you
+      make against each creature within 5 feet of where you land.</p>
+
+      <p>This effect ends early if you are incapacitated or die. Once you've
+      used this feature, you can't use it again until you finish a long
+      rest.</p>
+    chat: ''
+  requirements: Guardian (Ataru Form) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          size: '5'
+          type: radius
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: the-way-of-the-hawk-bat
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!RKjHaIE5W6h9okyV'
+

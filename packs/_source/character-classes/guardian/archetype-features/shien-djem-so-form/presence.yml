@@ -1,0 +1,133 @@
+_id: xWhFkvuhJJEU70ES
+name: Presence
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Passive.webp
+effects: []
+folder: hoknkuwVo8RJMMzI
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9834229+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-presence.source-archetype.sourceName-shiendjem_so_form.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Shien/Djem So Form:</strong> 15th level</em></p>
+
+      <p>You gain one of the following features. Choose Precise Reflection for
+      Shien or Brutal Strikes for Djem So.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.72xZod8mzP1D8fiW]{Precise
+      Reflection}</h3>
+
+      <p>When you hit with an attack made by the <em>saber reflect</em> power,
+      you can expend force points to deal additional damage to the target, which
+      is the same type as the weapon's damage. The additional damage is [[/r
+      1d8]] for each point spent in this way. You can't deal more additional
+      damage than the amount shown in the Focused Strikes column of the guardian
+      table.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.ikyNmVKFSnURBOhE]{Brutal
+      Strikes}</h3>
+
+      <p>The Force flowing through you grants you incredible strength. Your
+      Force-Empowered Strikes and Improved Force-Empowered Strikes damage rolls
+      gain a minimum roll threshold, discussed in chapter 7. Additionally, when
+      you spend force points to use your Force-Empowered Strikes feature, you
+      gain temporary hit points equal to twice the number of points spent.</p>
+    chat: ''
+  requirements: Guardian (Shien/Djem So Form) 15
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: presence
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!xWhFkvuhJJEU70ES'
+

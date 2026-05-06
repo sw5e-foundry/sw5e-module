@@ -1,0 +1,142 @@
+name: Crushing Hand of the Mountain
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6847388+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-crushing_hand_of_the_mountain.source-archetype.sourceName-kro_var_order.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Bonus.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>As an action, you can choose a 5-foot-square unoccupied space on the
+      ground that you can see within 30 feet. A Medium hand made from soil and
+      stone, which lasts for 1 minute, rises in that space and reaches for one
+      Large or smaller creature you can see within 5 feet of it. The target must
+      make a Strength saving throw. On a failed save, the target takes [[/r
+      2d6]] kinetic damage and is restrained for the duration. As a bonus action
+      on each of your turns, you can cause the hand to crush the restrained
+      target, which must make a Strength saving throw. It takes [[/r 2d6]]
+      kinetic damage on a failed save, or half as much damage on a successful
+      one. To break out, the restrained creature can use its action to make a
+      Strength check against your focus save DC. On a success, the target
+      escapes and is no longer restrained by the hand. As an action, you can
+      cause the hand to reach for a different creature or to move to a different
+      unoccupied space within range. The hand releases a restrained target if
+      you do either.</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 6
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '5'
+          type: square
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: crushing-hand-of-the-mountain
+  enchant: {}
+folder: aCedWASuu1FMbboa
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: pJgtWqcGHv0mtIAB
+ownership:
+  default: 0
+sort: 0
+_key: '!items!pJgtWqcGHv0mtIAB'
+

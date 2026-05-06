@@ -1,0 +1,115 @@
+_id: sZZ2LNKMInGa6qst
+name: All-Out Attack
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Action.webp
+effects: []
+folder: 2yXG2JWLLnWWIr8B
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9944159+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-all_out_attack.source-archetype.sourceName-tactician_pursuit.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Tactician Pursuit:</strong> 17th level</em></p>
+
+      <p>You can use your action to initiate an all-out attack. Choose a number
+      of allies up to your Critical Analysis ability modifier within 60 feet who
+      can see or hear you. The chosen allies may then immediately use their
+      reaction to make one weapon attack against a target of your choice. You
+      may choose the target for each attack separately.</p>
+
+      <p>Once you use this feature, you cannot use it again until you finish a
+      short or long rest.</p>
+    chat: ''
+  requirements: Scholar (Tactician Pursuit) 17
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: all-out-attack
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!sZZ2LNKMInGa6qst'
+

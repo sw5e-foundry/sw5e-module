@@ -1,0 +1,111 @@
+name: Earth
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6837386+00:00'
+    importer_version: 3
+    uid: Feature.name-earth.source-archetype.sourceName-kro_var_order.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Passive.webp
+system:
+  description:
+    value: >-
+      <p>Your earthen weapon takes the form of stone, and deals kinetic damage
+      on a hit. Additionally, when you hit a creature with it, you can force the
+      target to make a Strength saving throw. On a failed save, the target is
+      pushed back 5 feet. Lastly, while active, you can use Strength instead of
+      Dexterity when determining your AC, as long as it doesn't already include
+      that modifier.</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: earth
+  enchant: {}
+effects: []
+folder: aCedWASuu1FMbboa
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: zSWfLVSWOFNkcLWo
+ownership:
+  default: 0
+sort: 0
+_key: '!items!zSWfLVSWOFNkcLWo'
+

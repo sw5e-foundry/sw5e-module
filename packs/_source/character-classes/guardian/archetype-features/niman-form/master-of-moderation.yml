@@ -1,0 +1,130 @@
+_id: 1a5Un991dfb6whRr
+name: Master of Moderation
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Action.webp
+effects: []
+folder: BsuP9mfiMveVjX32
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-master_of_moderation.source-archetype.sourceName-niman_form.level-20
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Niman Form:</strong> 20th level</em></p>
+
+      <p>The Force flows in perfect concert with your weapon attacks. Your
+      Dexterity and Wisdom or Charisma scores (your choice) increase by 2. Your
+      maximum for these scores increases by 2. Additionally, you can use your
+      action to gain the following benefits for 1 minute:</p>
+
+      <ul>
+
+      <li>You have resistance to kinetic and energy damage from unenhanced
+      weapons.</li>
+
+      <li>You have advantage on saving throws against force powers.
+      Additionally, you have resistance against the damage of force powers.</li>
+
+      <li>When you use your action to cast an at-will force power that targets
+      only one creature, you can target an additional creature within 5 feet of
+      the original target and within the power's range.</li>
+
+      </ul>
+
+      <p>This effect ends early if you are incapacitated or die. Once you've
+      used this feature, you can't use it again until you finish a long
+      rest.</p>
+    chat: ''
+  requirements: Guardian (Niman Form) 20
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: master-of-moderation
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!1a5Un991dfb6whRr'
+

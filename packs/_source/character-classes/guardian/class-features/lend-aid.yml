@@ -1,0 +1,115 @@
+name: Lend Aid
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.5700824+00:00'
+    importer_version: 3
+    uid: Feature.name-lend_aid.source-class.sourceName-guardian.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-Bonus.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>As a bonus action, you can expend a use of your Channel the Force and
+      touch a beast or humanoid within 5 feet of you. That creature regains hit
+      points equal to your guardian level + your Wisdom modifier (minimum of
+      +1). Alternatively, if the beast or humanoid is poisoned or diseased, you
+      neutralize the poison or disease. If more than one poison or disease
+      afflicts the target, you neutralize one poison or disease that you know is
+      present, or you neutralize one at random.</p>
+    chat: ''
+  requirements: Guardian
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: guardianCTF
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '@classes.guardian.levels + @abilities.wis.mod'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: lend-aid
+  enchant: {}
+folder: SuxX921ywvnCOjZ6
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: W5BTzqlndyiKfRyF
+ownership:
+  default: 0
+sort: 0
+_key: '!items!W5BTzqlndyiKfRyF'
+

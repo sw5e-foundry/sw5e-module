@@ -1,0 +1,134 @@
+name: Potent Tech
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6837386+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-potent_tech.source-archetype.sourceName-mechanist_technique.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Mechanist Technique:</strong> 7th, 9th, 13th, and 17th
+      level</em></p>
+
+      <p>You can use your ingenuity to bolster yourself or an ally. As an
+      action, you can touch one creature (which can be yourself) and confer one
+      of the following benefits of your choice to that creature:</p>
+
+      <ul>
+
+      <li>For 10 minutes, the creature can roll a [[/r d3]] whenever making an
+      attack roll or an ability check and add the number rolled to the [[/r
+      d20]] roll. Once a creature receives this benefit, that creature can't
+      receive it again until it finishes a short or long rest.</li>
+
+      <li>Roll a [[/r d4]]. The creature regains a number of tech points equal
+      to the result. Once a creature receives this benefit, that creature can't
+      receive it again until it finishes a long rest.</li>
+
+      </ul>
+
+      <p>You can use this feature three times. You gain an additional use at
+      9th, 13th, and 17th level. You regain all expended uses when you finish a
+      long rest.</p>
+    chat: ''
+  requirements: Scout (Mechanist Technique) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: minute
+        value: '10'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: potent-tech
+  enchant: {}
+effects: []
+folder: 1eyyfI547c8QWxRH
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: n61Di59i1v3AHzbe
+ownership:
+  default: 0
+sort: 0
+_key: '!items!n61Di59i1v3AHzbe'
+

@@ -1,0 +1,115 @@
+name: Growing Momentum
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7497019+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-growing_momentum.source-archetype.sourceName-adept_specialist.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/FGTR-ARCH-Action.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Adept Specialist:</strong> 3rd, 5th, 9th, 13th, and 17th
+      level</em></p>
+
+      <p>You can cast the <em>burst of speed</em> force power targeting yourself
+      at 1st-level without expending force points. At 10th level, when you do
+      so, your speed increases by an additional 10 feet. At 18th level, when you
+      do so, your speed increases by an additional 10 feet.</p>
+
+      <p>You can use this feature twice. You gain an additional use at 5th, 9th,
+      13th, and 17th level. You regain any expended uses when you finish a long
+      rest.</p>
+    chat: ''
+  requirements: Fighter (Adept Specialist) 17
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '2'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: growing-momentum
+  enchant: {}
+folder: e50QIXiuYeArqCG0
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: yE23wtpR1PzBS2Fg
+ownership:
+  default: 0
+sort: 0
+_key: '!items!yE23wtpR1PzBS2Fg'
+

@@ -1,0 +1,109 @@
+name: Brutal Hit
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6757439+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-brutal_hit.source-archetype.sourceName-scrapper_practice.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>You attempt to knock the target prone while within 15 feet of it. The
+      target must make a Strength saving throw or be knocked prone.</p>
+    chat: ''
+  requirements: Operative (Scrapper Practice) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '15'
+        override: false
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: brutal-hit
+  enchant: {}
+folder: xtdrQEf7BTbQnp4l
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: g4gArnIja0kXFvp2
+ownership:
+  default: 0
+sort: 0
+_key: '!items!g4gArnIja0kXFvp2'
+

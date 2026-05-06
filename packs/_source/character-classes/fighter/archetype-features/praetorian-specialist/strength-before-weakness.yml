@@ -1,0 +1,116 @@
+_id: WayeFkeZ0UZogQXl
+name: Strength Before Weakness
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/FGTR-ARCH-Reaction.webp
+effects: []
+folder: jsdN3nnRMNpx1iom
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-strength_before_weakness.source-archetype.sourceName-praetorian_specialist.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Praetorian Specialist:</strong> 18th level</em></p>
+
+      <p>Your fighting spirit can delay the grasp of death. If you take damage
+      that reduces you to 0 hit points, you can use your reaction to delay
+      falling unconscious, and you can immediately take an extra turn. While you
+      have 0 hit points during that extra turn, taking damage causes death
+      saving throw failures as normal, and three death saving throw failures can
+      still kill you. When the extra turn ends, you fall unconscious if you
+      still have 0 hit points.</p>
+
+      <p>Once you've used this feature, you can't use it again until you finish
+      a long rest.</p>
+    chat: ''
+  requirements: Fighter (Praetorian Specialist) 18
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: strength-before-weakness
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!WayeFkeZ0UZogQXl'
+

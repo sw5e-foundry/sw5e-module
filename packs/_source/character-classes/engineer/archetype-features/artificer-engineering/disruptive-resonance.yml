@@ -1,0 +1,118 @@
+_id: NqkOB6YZfthk3RhW
+name: Disruptive Resonance
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-ARCH-Passive.webp
+effects: []
+folder: el9Cy2ZI1O9hY4ev
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7387065+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-disruptive_resonance.source-archetype.sourceName-artificer_engineering.level-14
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Artificer Engineering:</strong> 14th level</em></p>
+
+      <p>When you hit a creature that is concentrating on a power with your
+      modified lightsaber, the creature has disadvantage on the Constitution
+      saving throw to maintain concentration. Additionally, on a failed save,
+      the creature immediately takes psychic damage equal to your engineer level
+      + your Intelligence modifier.</p>
+    chat: ''
+  requirements: Engineer (Artificer Engineering) 14
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@classes.engineer.levels + @abilities.int.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - psychic
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: disruptive-resonance
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!NqkOB6YZfthk3RhW'
+

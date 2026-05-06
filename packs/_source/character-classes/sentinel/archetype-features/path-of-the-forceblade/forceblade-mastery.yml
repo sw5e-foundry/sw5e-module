@@ -1,0 +1,117 @@
+_id: P5jlHfbFfEgppwin
+name: Forceblade Mastery
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Action.webp
+effects: []
+folder: W8pEUEBpMgFjTknx
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-forceblade_mastery.source-archetype.sourceName-path_of_the_forceblade.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Path of the Forceblade:</strong> 18th level</em></p>
+
+      <p>You've mastered controlling your forceblade with your mind, using it to
+      keep your enemies at bay. As an action, you can telekinetically control
+      your forceblade and have it strike any number of creatures within 10 feet
+      of you, spending 1 force point per target. Each target must make a
+      Dexterity saving throw (DC = 8 + your bonus to weapon attack rolls with
+      that weapon). On a failed save, it takes damage using your Kinetic Combat
+      die + half your sentinel level (rounded down), is pushed back 10 feet and
+      knocked prone.</p>
+    chat: ''
+  requirements: Sentinel (Path of the Forceblade) 18
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '10'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: forceblade-mastery
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!P5jlHfbFfEgppwin'
+

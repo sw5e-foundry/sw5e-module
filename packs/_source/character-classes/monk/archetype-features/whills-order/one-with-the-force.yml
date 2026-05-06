@@ -1,0 +1,116 @@
+_id: mCJv9MUv4Zp11I8G
+name: One With the Force
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Action.webp
+effects: []
+folder: 4bD6FPd3N6wEA5Rf
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6867375+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-one_with_the_force.source-archetype.sourceName-whills_order.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Whills Order:</strong> 11th level</em></p>
+
+      <p>You learn how to enter a trance, preparing to unleash yourself upon
+      your enemy. While in this trance, you can still talk and move. If you stay
+      in the trance for at least one minute, when you roll initiative, you can
+      make a ranged weapon attack on a number of creatures up to your focus
+      ability modifier (a minimum of one) within 30 feet of you when you were in
+      this trance.</p>
+
+      <p>Once you've used this feature, you must complete a short or long rest
+      before you can use it again.</p>
+    chat: ''
+  requirements: Monk (Whills Order) 11
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: one-with-the-force
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!mCJv9MUv4Zp11I8G'
+

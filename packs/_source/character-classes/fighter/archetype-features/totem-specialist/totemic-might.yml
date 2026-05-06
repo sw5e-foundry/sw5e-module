@@ -1,0 +1,134 @@
+_id: XfQiRawVZiulDJNy
+name: Totemic Might
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/FGTR-ARCH-Bonus.webp
+effects: []
+folder: bfzF1fSeBBnhP8YK
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5498179+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-totemic_might.source-archetype.sourceName-totem_specialist.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Totem Specialist:</strong> 3rd level</em></p>
+
+      <p>You can channel the power of your Force awareness temporarily. As a
+      bonus action, you can gain the following benefits for 1 minute. You can
+      invoke a totem as a part of this same bonus action.</p>
+
+      <ul>
+
+      <li>Your carrying capacity and the weight you can push, drag, or lift
+      doubles. If it would already double, it instead triples.</li>
+
+      <li>You have advantage on Strength checks and Strength saving throws.</li>
+
+      <li>Your weapon attacks deal an extra [[/r 1d6]] damage.</li>
+
+      </ul>
+
+      <p>This effect ends early if you are incapacitated or die. You can use
+      this feature twice. You regain all expended uses of it when you finish a
+      long rest.</p>
+    chat: ''
+  requirements: Fighter (Totem Specialist) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '2'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: totemic-might
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!XfQiRawVZiulDJNy'
+

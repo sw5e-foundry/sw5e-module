@@ -1,0 +1,121 @@
+name: Cause Harm
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.5700824+00:00'
+    importer_version: 3
+    uid: Feature.name-cause_harm.source-class.sourceName-guardian.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-Action.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>As an action, you can expend a use of your Channel the Force to sap the
+      life from a hostile creature you can see within 60 feet. That creature
+      must make a Constitution saving throw. On a failed save, the creature
+      takes necrotic damage equal to your guardian level + your Charisma
+      modifier (minimum of +1), or half as much on a successful one.</p>
+    chat: ''
+  requirements: Guardian
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: guardianCTF
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: true
+              formula: '@classes.guardian.levels + @abilities.cha.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - necrotic
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: cause-harm
+  enchant: {}
+folder: SuxX921ywvnCOjZ6
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: mtj0QHmUrLJNrgCW
+ownership:
+  default: 0
+sort: 0
+_key: '!items!mtj0QHmUrLJNrgCW'
+

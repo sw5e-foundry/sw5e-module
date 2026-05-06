@@ -1,0 +1,127 @@
+_id: DzzBvbZTTc1CutJ7
+name: Force-Empowered Allies
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Reaction.webp
+effects: []
+folder: kzLxbZYUHuIhO3Xx
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.693733+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-force_empowered_allies.source-archetype.sourceName-path_of_meditation.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Path of Meditation:</strong> 3rd level</em></p>
+
+      <p>While you are concentrating on a power that benefits a friendly
+      creature other than you, you gain new ways to utilize your Force-Empowered
+      Self features. Each option costs 1 force point, and you can only target a
+      creature that is benefiting from a power you cast.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.lWYE1SVJKKSb9BYt]{Deflection}</h3>
+
+      <p>When an ally is hit with an attack roll, you can use your reaction and
+      roll a Kinetic Combat die to add it to your ally's AC, potentially causing
+      the attack to miss.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.qqtcoMTZqfO93deM]{Double
+      Strike}</h3>
+
+      <p>When an ally hits with an attack roll, you can use your reaction and
+      roll a Kinetic Combat die to deal additional damage of the same type as
+      the attack.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.ecknmT1BRjvp9cID]{Slow
+      Time}</h3>
+
+      <p>When an ally moves on their turn, you can use your reaction and roll a
+      Kinetic Combat die to increase their speed by 5 x the amount rolled until
+      the end of the turn.</p>
+    chat: ''
+  requirements: Sentinel (Path of Meditation) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: force-empowered-allies
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!DzzBvbZTTc1CutJ7'
+

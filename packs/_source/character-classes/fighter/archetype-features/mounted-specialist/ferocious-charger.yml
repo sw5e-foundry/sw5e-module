@@ -1,0 +1,114 @@
+_id: nmFUs2mLNxFsuY6k
+name: Ferocious Charger
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/FGTR-ARCH-Passive.webp
+effects: []
+folder: 83ShzpU0NfoENxcb
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5488178+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-ferocious_charger.source-archetype.sourceName-mounted_specialist.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Mounted Specialist:</strong> 15th level</em></p>
+
+      <p>You can run down your foes, whether you're mounted or not. If you move
+      at least 10 feet in a straight line right before attacking a creature and
+      you hit it with the attack, that target must succeed on a Strength saving
+      throw (DC = 8 + your proficiency bonus + your Strength modifier) or be
+      knocked prone. You can use this feature only once on each of your
+      turns.</p>
+    chat: ''
+  requirements: Fighter (Mounted Specialist) 15
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: ferocious-charger
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!nmFUs2mLNxFsuY6k'
+

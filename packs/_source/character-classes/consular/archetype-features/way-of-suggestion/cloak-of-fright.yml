@@ -1,0 +1,112 @@
+name: Cloak of Fright
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-cloak_of_fright.source-archetype.sourceName-way_of_suggestion.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>Each creature of your choice that is within 60 feet must succeed on a
+      Wisdom saving throw against your universal force save DC or become
+      frightened for 1 minute. A creature can repeat the saving throw at the end
+      of each of its turns, ending the effect on itself on a success.</p>
+    chat: ''
+  requirements: Consular (Way of Suggestion) 18
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: cloak-of-fright
+  enchant: {}
+folder: ecBy855XMQkIJ5l6
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: pqHVFtabBkkTOJVJ
+ownership:
+  default: 0
+sort: 0
+_key: '!items!pqHVFtabBkkTOJVJ'
+

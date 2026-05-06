@@ -1,0 +1,119 @@
+name: Rush of the Shyrack
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6847388+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-rush_of_the_shyrack.source-archetype.sourceName-kro_var_order.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Bonus.webp
+system:
+  description:
+    value: >-
+      <p>As an action, you form a line of strong wind 60 feet long and 10 feet
+      wide that blasts from you in a direction you choose for one minute or
+      until you lose concentration or dismiss the effect (no action required).
+      Each Large or smaller creature that starts its turn in the line must
+      succeed on a Strength saving throw or be pushed 15 feet away from you in a
+      direction following the line. Any creature in the line must spend 2 feet
+      of movement for every 1 foot it moves when moving closer to you. The gust
+      disperses gas or vapor, and it extinguishes candles, torches, and similar
+      unprotected flames in the area. It causes protected flames, such as those
+      of lanterns, to dance wildly and has a 50 percent chance to extinguish
+      them. As a bonus action on each of your turns before the effect ends, you
+      can change the direction in which the line blasts from you.</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 6
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: rush-of-the-shyrack
+  enchant: {}
+effects: []
+folder: aCedWASuu1FMbboa
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: P6sE6tDcb8AMQMrH
+ownership:
+  default: 0
+sort: 0
+_key: '!items!P6sE6tDcb8AMQMrH'
+

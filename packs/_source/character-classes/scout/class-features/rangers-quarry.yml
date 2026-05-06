@@ -1,0 +1,138 @@
+name: Ranger's Quarry
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.6680254+00:00'
+    importer_version: 3
+    uid: Feature.name-rangers_quarry.source-class.sourceName-scout.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-Reaction.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Scout:</strong> 1st, 5th, 9th, and 17th level</em></p>
+
+      <p>You learn how to effectively read and track your prey. Once on each of
+      your turns, you can choose a creature you can see within 120 feet and mark
+      it as your quarry (no action required). For the next hour, you gain the
+      following benefits:</p>
+
+      <ul>
+
+      <li>Once per turn, when you hit the target with a weapon attack, you can
+      deal [[/r 1d4]] additional damage to it of the same type as the weapon's
+      damage. This die changes as you gain scout levels, as shown in the
+      Ranger's Quarry column of the scout table.</li>
+
+      <li>You have advantage on any Wisdom (Perception) or Wisdom (Survival)
+      check you make to find it while it's on the same planet as you.</li>
+
+      </ul>
+
+      <p>You can only have one creature marked in this way at a time. Beginning
+      at 5th level, you can use your reaction to mark a creature when it enters
+      your line of sight, provided it is within range of your Ranger's
+      Quarry.</p>
+
+      <p>The duration increases to 8 hours at 9th level and 24 hours at 17th
+      level.</p>
+    chat: ''
+  requirements: Scout
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: reaction
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: hour
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '120'
+        override: false
+      target:
+        template:
+          size: '1'
+          type: creature
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: rangers-quarry
+  enchant: {}
+effects: []
+folder: WYjA4idQca6yXa2o
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: LJx9u00u8Ee2nkVe
+ownership:
+  default: 0
+sort: 0
+_key: '!items!LJx9u00u8Ee2nkVe'
+

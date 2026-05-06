@@ -1,0 +1,115 @@
+name: Colossus Slayer
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9954151+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-colossus_slayer.source-archetype.sourceName-hunter_technique.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>Your tenacity can wear down the most potent foes. When you hit a
+      creature with a weapon attack, the creature takes an extra [[/r 1d8]]
+      damage if it's below its hit point maximum. You can deal this extra damage
+      only once per turn, and this damage is the same type as the weapon's
+      damage.</p>
+    chat: ''
+  requirements: Scout (Hunter Technique) 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: colossus-slayer
+  enchant: {}
+folder: QW0R32GZhiptXoYD
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: bkHPKACByCvSf2br
+ownership:
+  default: 0
+sort: 0
+_key: '!items!bkHPKACByCvSf2br'
+

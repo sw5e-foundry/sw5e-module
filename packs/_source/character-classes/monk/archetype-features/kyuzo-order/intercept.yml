@@ -1,0 +1,115 @@
+_id: Dw0pSUiZm534NIFz
+name: Intercept
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Reaction.webp
+effects: []
+folder: M8GU2pw0ujyRFjyP
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6837386+00:00'
+    importer_version: 3
+    uid: Feature.name-intercept.source-archetype.sourceName-kyuzo_order.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Kyuzo Order:</strong> 3rd level</em></p>
+
+      <p>You gain proficiency in vibroweapons with the thrown property and they
+      become monk weapons for you. Additionally, when you throw an improvised
+      weapon, you are considered proficient in it, and it uses your Martial Arts
+      die instead of its [[/r 1d4]]. </p>
+
+      <p>Additionally, you've learned to use thrown weapons to intercept
+      projectiles traveling towards your allies. When you are wielding a weapon
+      with which you are proficient, and a creature within your weapon's normal
+      thrown range is hit by a ranged attack, you can use your reaction to throw
+      your weapon to intercept the projectile. When you do so, the damage the
+      creature takes from the attack is reduced by [[/r 1d10]] + your Dexterity
+      modifier + your monk level. If the weapon has the returning property, it
+      then returns to your hand.</p>
+    chat: ''
+  requirements: Monk (Kyuzo Order) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: 1d10 + @abilities.dex.mod + @classes.monk.levels
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: intercept
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!Dw0pSUiZm534NIFz'
+

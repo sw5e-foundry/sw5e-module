@@ -1,0 +1,114 @@
+name: Disruption Pulse
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.693733+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-disruption_pulse.source-archetype.sourceName-path_of_synthesis.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p>As an action, you can send out a 30 foot cone of
+      electromagnetically-charged energy to overload enemy weapons. Each
+      creature within the cone that is wearing or carrying a weapon with
+      electric components must make an Intelligence saving throw. If the weapon
+      is being worn, this save is made with disadvantage. On a failed save, the
+      first attack they attempt to make with that weapon has disadvantage. A
+      creature with multiple weapons must make a separate save for each
+      weapon.</p>
+    chat: ''
+  requirements: Sentinel (Path of Synthesis) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - int
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: disruption-pulse
+  enchant: {}
+effects: []
+folder: p9NVpdalYchhkr8j
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: H9vVr7czXkxAxKmG
+ownership:
+  default: 0
+sort: 0
+_key: '!items!H9vVr7czXkxAxKmG'
+

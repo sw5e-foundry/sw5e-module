@@ -1,0 +1,149 @@
+name: Deadeye Superiority
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.687736+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-deadeye_superiority.source-archetype.sourceName-deadeye_technique.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Deadeye Technique:</strong> 3rd level</em></p>
+
+      <p>You learn maneuvers that are fueled by special dice called superiority
+      dice. See chapter 13 for the maneuvers list.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.Fbcw9zlpCiIwsqBJ]{Maneuvers
+      Known}</h3>
+
+      <p>You learn two maneuvers of your choice, and you earn more at higher
+      levels, as shown in the Maneuvers Known column of the Deadeye Superiority
+      table. Many maneuvers enhance an attack in some way. You can use only one
+      maneuver per attack, and you may only use each maneuver once per turn.</p>
+
+      <p>Each time you learn new maneuvers, you can also replace one maneuver
+      you know with a different one.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.W2SOriNOHFTWCUzN]{Superiority
+      Dice}</h3>
+
+      <p>You have two superiority dice, which are d4s, and you earn more at
+      higher levels, as shown in the Superiority Dice Quantity column of the
+      Deadeye Superiority table. This die changes as you gain scout levels, as
+      shown in the Superiority Dice Size column of the Deadeye Superiority
+      table. A superiority die is expended when you use it. </p>
+
+      <p>You regain all of your expended superiority dice when you finish a
+      short or long rest.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.Xj87dvhb8UaHnwD3]{Maneuver
+      Ability}</h3>
+
+      <p>Your maneuver ability varies based on the type of the maneuver you use.
+      You use Strength, Dexterity, or Constitution for physical maneuvers (your
+      choice), Intelligence, Wisdom, or Charisma for mental maneuvers (your
+      choice), and an ability of your choice for general maneuvers. You use this
+      ability whenever a maneuver refers to your maneuver ability. Additionally,
+      you use this ability modifier when setting the saving throw DC for a
+      maneuver you use.</p>
+
+      <p><em></em>_</p>
+
+      <p><strong>Maneuver save DC</strong> = 8 + your proficiency bonus + your
+      maneuver ability modifier</p>
+
+      <p><em></em>_</p>
+    chat: ''
+  requirements: Scout (Deadeye Technique) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '2'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: 1d4
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: deadeye-superiority
+  enchant: {}
+folder: FsSIjNV46LEoCDpx
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: TIsAJUQXEH32Dfgr
+ownership:
+  default: 0
+sort: 0
+_key: '!items!TIsAJUQXEH32Dfgr'
+

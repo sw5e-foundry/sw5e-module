@@ -1,0 +1,118 @@
+_id: 9UP919oW3qE3p31P
+name: Disruptive Throw
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Reaction.webp
+effects: []
+folder: W8pEUEBpMgFjTknx
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.8704881+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-disruptive_throw.source-archetype.sourceName-path_of_the_forceblade.level-13
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Path of the Forceblade:</strong> 13th level</em></p>
+
+      <p>When you are the target of a ranged attack, and the source is within
+      range of your <em>saber throw</em> force power, you can use your reaction
+      to throw your forceblade at the source of the attack. Make a ranged force
+      attack. On a hit, this attack deals damage using your Kinetic Combat die
+      instead of the weapon's damage die and you impose disadvantage on the
+      triggering attack roll.</p>
+    chat: ''
+  requirements: Sentinel (Path of the Forceblade) 13
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0attack00000:
+      _id: sw5e0attack00000
+      activation:
+        type: reaction
+        override: false
+      attack:
+        ability: ''
+        bonus: ''
+        critical:
+          threshold: null
+        flat: false
+        type:
+          classification: spell
+          value: ranged
+      damage:
+        critical: {}
+        parts: []
+        includeBase: true
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: attack
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: disruptive-throw
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!9UP919oW3qE3p31P'
+

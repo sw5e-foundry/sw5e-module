@@ -1,0 +1,113 @@
+_id: 9RlZQaQbXOowxZ3c
+name: Improved Danger Sense
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Passive.webp
+effects: []
+folder: JdsaVvDAHBVLw5tQ
+flags:
+  sw5e-importer:
+    timestamp: '2023-05-30T20:15:26.4132476+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-improved_danger_sense.source-archetype.sourceName-precision_approach.level-10
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Precision Approach:</strong> 10th level</em></p>
+
+      <p>While raging, when you are subjected to an effect that allows you to
+      make a Dexterity saving throw to take only half damage against effects
+      that you can see, such as traps and powers, you are treated as proficient
+      in the save, and you instead take no damage if you succeed on a saving
+      throw, and only half damage if you fail.</p>
+    chat: ''
+  requirements: Berserker (Precision Approach) 10
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: improved-danger-sense
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!9RlZQaQbXOowxZ3c'
+

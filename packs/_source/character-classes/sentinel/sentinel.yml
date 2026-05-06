@@ -1,0 +1,437 @@
+_id: Me7s9qQT3WLmFGHq
+name: Sentinel
+type: class
+img: modules/sw5e-module/icons/packs/Classes/Sentinel.webp
+effects: []
+folder: pydnRZmbVTFiafSB
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.6296276+00:00'
+    importer_version: 3
+    uid: Class.name-sentinel
+system:
+  description:
+    value: >-
+      <img style="margin:5px;border:0px;float:right"
+      src="modules/sw5e-module/icons/packs/Classes/sentinel_01.webp" /><p>Clad
+      in black robes, the rattataki pulls his hood forward and steps into the
+      shadowy alcove, only to reappear further down the hall. As his quarry
+      walks past, he presses the hilt of his lightsaber to the back of their
+      head, quickly toggling it on-and-off. He is gone before the corpse hits
+      the ground.</p><p>The togruta dashes across the battlefield, doublesaber
+      deflecting blaster shots to the ground. She pulls her wounded padawan to
+      her feet, and guides her away from the warzone.</p><p>Green-bladed
+      lightsaber a blur, the cathar ferociously presses the attack. With each
+      strike, she guides her opponent closer to the ravine's edge. A flurry of
+      blows followed by a quick <em>force push</em> and her foe tumbles over the
+      edge.</p><p>Sentinels are the masters of blending force powers with weapon
+      attacks. They weave the two together so expertly that their foes have
+      trouble predicting them.</p><h2>The Middle of the Road</h2><p>The sentinel
+      uses stealth and subterfuge to accomplish the will of the Force. Where the
+      consular focuses on mastery of the Force and the guardian focuses on the
+      mastery of the lightsaber, the sentinel focuses on merging the
+      two.</p><h2>Solitary Action</h2><p>Sentinels are notoriously independent,
+      most comfortable acting alone and without backup; where some use a team to
+      make up for their weaknesses, the sentinel uses the Force to overcome
+      theirs. While some take this independent streak to the extreme, they are
+      usually accepting of authority, as long as they are allowed to carry out
+      directions using their preferred methods.</p><p>While creating your
+      sentinel, consider your personal philosophy in regards to the Force and
+      its most famous practitioners â€" the Jedi and the Sith. Are you a member
+      of one of the two orders, or do you walk a different path? Are you an
+      operative tapping into a latent Force-sensitivity? Were you trained in the
+      force from a young age, or did you discover it as an adult? How do you
+      treat those weaker than you? What was your family like? Do you see the
+      Force as light and dark, or an impartial river of gray?</p><h3>Quick
+      Build</h3><p>You can make a sentinel quickly by following these
+      suggestions. First, make Dexterity your highest ability score, followed by
+      Wisdom or Charisma. Second, choose the Jedi or Sith background.</p>
+    chat: ''
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  identifier: sentinel
+  levels: 1
+  advancement:
+    - _id: sw5e0hp000000000
+      configuration: {}
+      type: HitPoints
+      value: {}
+    - _id: sw5e1sv000000000
+      configuration:
+        identifier: kinetic-combat
+        scale:
+          '2':
+            number: 1
+            faces: 4
+            modifiers: []
+          '5':
+            number: 1
+            faces: 6
+            modifiers: []
+          '9':
+            number: 1
+            faces: 8
+            modifiers: []
+          '13':
+            number: 1
+            faces: 10
+            modifiers: []
+          '17':
+            number: 1
+            faces: 12
+            modifiers: []
+        type: dice
+        distance:
+          units: ''
+      title: Kinetic Combat
+      type: ScaleValue
+      value: {}
+    - _id: sw5e2sv000000000
+      configuration:
+        identifier: ideals-known
+        scale:
+          '2':
+            value: 2
+          '6':
+            value: 3
+          '11':
+            value: 4
+        type: number
+        distance:
+          units: ''
+      title: Ideals Known
+      type: ScaleValue
+      value: {}
+    - _id: sw5e3sv000000000
+      configuration:
+        identifier: ideal-manifests
+        scale:
+          '2':
+            value: 2
+          '9':
+            value: 3
+          '17':
+            value: 4
+        type: number
+        distance:
+          units: ''
+      title: Ideal Manifests
+      type: ScaleValue
+      value: {}
+    - _id: sw5e4asi00000000
+      configuration:
+        cap: null
+        fixed: {}
+        locked: []
+        points: 2
+        recommendation: null
+      level: 4
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e5asi00000000
+      configuration:
+        cap: null
+        fixed: {}
+        locked: []
+        points: 2
+        recommendation: null
+      level: 8
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e6asi00000000
+      configuration:
+        cap: null
+        fixed: {}
+        locked: []
+        points: 2
+        recommendation: null
+      level: 12
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e7asi00000000
+      configuration:
+        cap: null
+        fixed: {}
+        locked: []
+        points: 2
+        recommendation: null
+      level: 16
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e8asi00000000
+      configuration:
+        cap: null
+        fixed: {}
+        locked: []
+        points: 2
+        recommendation: null
+      level: 19
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e9t0000000000
+      classRestriction: primary
+      configuration:
+        choices: []
+        grants:
+          - armor:lgt
+        mode: default
+        allowReplacements: false
+      level: 1
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e10t000000000
+      classRestriction: primary
+      configuration:
+        choices: []
+        grants:
+          - weapon:slw
+          - weapon:svb
+          - weapon:mlw
+          - weapon:mvb
+        mode: default
+        allowReplacements: false
+      level: 1
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e11t000000000
+      classRestriction: primary
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - tool:specialist:*
+        grants: []
+        mode: default
+        allowReplacements: false
+      level: 1
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e12t000000000
+      classRestriction: primary
+      configuration:
+        choices: []
+        grants:
+          - saves:dex
+          - saves:cha
+        mode: default
+        allowReplacements: false
+      level: 1
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e13t000000000
+      classRestriction: primary
+      configuration:
+        choices:
+          - count: 3
+            pool:
+              - skills:acr
+              - skills:ani
+              - skills:ins
+              - skills:itm
+              - skills:prc
+              - skills:per
+              - skills:pil
+              - skills:ste
+              - skills:tec
+        grants: []
+        mode: default
+        allowReplacements: false
+      level: 1
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e14t000000000
+      classRestriction: secondary
+      configuration:
+        choices: []
+        grants:
+          - armor:lgt
+          - weapon:slw
+          - weapon:svb
+        mode: default
+        allowReplacements: false
+      level: 1
+      title: Multiclass Proficiencies
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e15ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.zysnaJwbNrYiEbXb
+            optional: false
+          - uuid: Compendium.sw5e-module.character-classes.C1UAdaL6DzVkJBiV
+            optional: false
+        optional: false
+        spell: null
+      level: 1
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e16ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.4obIpzhQVjzV203q
+            optional: false
+          - uuid: Compendium.sw5e-module.character-classes.2BtuxZqgiBUJwgJj
+            optional: false
+        optional: false
+        spell: null
+      level: 2
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e17ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.naRAU6qvgDvktTV4
+            optional: false
+        optional: false
+        spell: null
+      level: 3
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e18ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.LaRxCNespONqb3Mb
+            optional: false
+        optional: false
+        spell: null
+      level: 5
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e19ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.59fmNR7GZhUw4ofI
+            optional: false
+        optional: false
+        spell: null
+      level: 10
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e20ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.RPvmlGBBhy5pKwxn
+            optional: false
+        optional: false
+        spell: null
+      level: 15
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e21ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.jTKDvLAy0d52oVjL
+            optional: false
+        optional: false
+        spell: null
+      level: 20
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e22ic00000000
+      configuration:
+        allowDrops: true
+        choices:
+          '2':
+            count: 2
+            replacement: false
+          '6':
+            count: 1
+            replacement: false
+          '11':
+            count: 1
+            replacement: false
+        pool:
+          - uuid: Compendium.sw5e-module.character-classes.b1mbsxLmndcYYCA4
+          - uuid: Compendium.sw5e-module.character-classes.TfkT3drFNihZrSPn
+          - uuid: Compendium.sw5e-module.character-classes.gTrwVuDzaHJBzHRN
+          - uuid: Compendium.sw5e-module.character-classes.dcrEgLp1fY1jVtsM
+          - uuid: Compendium.sw5e-module.character-classes.DCQWKpZ0ja1k9Th0
+          - uuid: Compendium.sw5e-module.character-classes.Yy7DjdtFw1wieKDn
+          - uuid: Compendium.sw5e-module.character-classes.MfeT5I7A4RiOX5L1
+          - uuid: Compendium.sw5e-module.character-classes.coJqwLxZNTnq7Y2P
+          - uuid: Compendium.sw5e-module.character-classes.vTMlHVJo5gkbNIUS
+        restriction:
+          level: ''
+          subtype: sentinelInvocation
+          type: class
+          list: []
+        type: feat
+        spell: null
+      title: Sentinel Ideals
+      type: ItemChoice
+      value:
+        added: {}
+        replaced: {}
+      hint: >-
+        You adopt ideals that exemplify your bond with the Force. You adopt two
+        ideals of your choice, as detailed at the end of the class description,
+        and you adopt more at higher levels, as shown in the Ideals Known column
+        of the sentinel table.
+
+        You can manifest your ideals a combined total of twice, and you can
+        manifest them more times at higher levels as shown in the Ideal
+        Manifests column of the sentinel table.
+    - _id: sw5e23ic00000000
+      configuration: {}
+      title: Sentinel Callings
+      type: Subclass
+      value:
+        document: null
+        uuid: null
+      hint: >-
+        Different sentinels select different callings, called Paths, to follow
+        as they hone their powers. Your calling grants you features at 3rd, 7th,
+        13th, and 18th level.
+      level: 0
+  startingEquipment: []
+  spellcasting:
+    forceProgression: 3/4
+    superiorityProgression: none
+    progression: none
+    preparation:
+      formula: ''
+    techProgression: none
+    ability: ''
+  hd:
+    denomination: d8
+    spent: 0
+    additional: ''
+  primaryAbility:
+    value: []
+    all: true
+  properties: []
+  wealth: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!Me7s9qQT3WLmFGHq'
+

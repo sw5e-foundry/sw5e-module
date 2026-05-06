@@ -1,0 +1,141 @@
+_id: 9H0lc69pjr25CmUA
+name: Personal Barrier
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+effects: []
+folder: MfzxWD8ZTJBfdTaE
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9944159+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-personal_barrier.source-archetype.sourceName-bulwark_technique.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Bulwark Technique:</strong> 3rd level</em></p>
+
+      <p>You gain access to a powerful personal barrier. Whenever you complete a
+      short or long rest, you create a barrier on yourself that lasts until you
+      finish a short or long rest. That barrier has hit points equal to twice
+      your scout level + your Intelligence modifier. Your barrier can never have
+      hit points greater than twice your scout level + your Intelligence
+      modifier.</p>
+
+      <p>Whenever you take damage, the barrier takes the damage instead. If this
+      damage reduces the barrier to 0 hit points, you take any remaining
+      damage.</p>
+
+      <p>While the barrier has 0 hit points, it can't absorb damage, but its
+      power remains. Whenever you cast a tech power of 1st level or higher, your
+      barrier regains hit points equal to the number of tech points spent.</p>
+
+      <p>Additionally, for as long as your barrier has hit points, you gain the
+      following benefits:</p>
+
+      <ul>
+
+      <li>You are considered proficient in Constitution saving throws for the
+      purpose of maintaining concentration on tech powers.</li>
+
+      <li>Hostile creatures that hit you with melee attacks take energy damage
+      equal to your Intelligence modifier (minimum of one).</li></ul>
+    chat: ''
+  requirements: Scout (Bulwark Technique) 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: 2 * @classes.scout.levels + @abilities.int.mod
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: special
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@abilities.int.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - energy
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: personal-barrier
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!9H0lc69pjr25CmUA'
+

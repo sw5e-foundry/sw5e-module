@@ -1,0 +1,117 @@
+_id: r0nbaq3ZkbLxSes8
+name: Painkiller
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Passive.webp
+effects: []
+folder: 2JnAmZKHptYnlkY6
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.4718615+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-painkiller.source-archetype.sourceName-industrial_approach.level-10
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Industrial Approach:</strong> 10th level</em></p>
+
+      <p>Whenever you cast a tech power of 1st-level or higher, or deal damage
+      using your Explosive Resilience feature, you can cause a friendly creature
+      you can see within 30 feet to gain temporary hit points equal to half your
+      berserker level + your Intelligence modifier. Additionally, while they
+      have these temporary hit points, they have advantage on saving throws
+      against effects that would cause them to be frightened.</p>
+    chat: ''
+  requirements: Berserker (Industrial Approach) 10
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: ((@classes.berserker.levels)/2) + @abilities.int.mod
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: painkiller
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!r0nbaq3ZkbLxSes8'
+

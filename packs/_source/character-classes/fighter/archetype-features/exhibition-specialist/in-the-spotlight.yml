@@ -1,0 +1,137 @@
+_id: YSAfyMOlaN0NS360
+name: In The Spotlight
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/FGTR-ARCH-Bonus.webp
+effects: []
+folder: YLPXma80y0nq0y5C
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5418217+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-in_the_spotlight.source-archetype.sourceName-exhibition_specialist.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Exhibition Specialist:</strong> 3rd level</em></p>
+
+      <p>You can overwhelm an opponent with your unique blend of skill and
+      style. As a bonus action, you can choose one creature you can see within
+      30 feet of you. The target is marked for 1 minute. While the target is
+      marked, you gain the following benefits:</p>
+
+      <ul>
+
+      <li>You can add half your Charisma modifier (minimum of one) to any weapon
+      damage roll you make against the marked target that doesn't already
+      include that modifier.</li>
+
+      <li>Your critical hit range against the marked target increases by 1.</li>
+
+      <li>If the marked target is reduced to 0 hit points, you regain hit points
+      equal to your fighter level + your Charisma modifier (minimum of 1).</li>
+
+      </ul>
+
+      <p>This effect ends early if you're incapacitated or die. Once you've used
+      this feature, you can't use it again until you finish a short or long
+      rest. </p>
+    chat: ''
+  requirements: Fighter (Exhibition Specialist) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '@classes.fighter.levels + @abilities.cha.mod'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      target:
+        template:
+          size: '1'
+          type: creature
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: in-the-spotlight
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!YSAfyMOlaN0NS360'
+

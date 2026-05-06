@@ -1,0 +1,136 @@
+_id: DvhArPbaYQ5K81Ow
+name: Rising Whirlwind
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Action.webp
+effects: []
+folder: snDqBA9TNvVaVz7E
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5548133+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-rising_whirlwind.source-archetype.sourceName-jarkai_form.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Jar'Kai Form:</strong> 15th level</em></p>
+
+      <p>As an action, you can rush forward up to 30 feet to an unoccupied space
+      you can see without provoking opportunity attacks. Each creature within 5
+      feet of your path must make a Dexterity saving throw (DC = 8 + your bonus
+      to attacks with your weapon). A creature takes normal weapon damage on a
+      failed save, or half as much on a successful one. If you are wielding
+      separate two light- or vibro-weapons in each hand with which you are
+      proficient, or a weapon with the double property, a creature makes this
+      save with disadvantage, and takes additional damage equal to your Strength
+      or Dexterity modifier (your choice, minimum of one) on a failed save if it
+      doesn't already include that modifier.</p>
+
+      <p>Once you've used this feature, you must complete a short or long rest
+      before you can use it again.</p>
+    chat: ''
+  requirements: Guardian (Jar'Kai Form) 15
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: true
+              formula: '@mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '5'
+          type: radius
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: rising-whirlwind
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!DvhArPbaYQ5K81Ow'
+

@@ -1,0 +1,130 @@
+name: Showoff
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5418217+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-showoff.source-archetype.sourceName-exhibition_specialist.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/FGTR-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Exhibition Specialist:</strong> 3rd, 5th, 9th, 13th, and
+      17th level</em></p>
+
+      <p>You're a master at dazzling your friends and enemies alike. When you
+      would make a Strength, Dexterity, Constitution, or Charisma  check, you
+      can roll a [[/r d4]] and add it to the roll. On a success, you can
+      immediately choose a number of creatures within 30 feet of you that can
+      see you up to your Charisma modifier (no action required, minimum of one).
+      Each creature must succeed on a Wisdom saving throw (DC = 8 + your
+      proficiency bonus + your Charisma modifier) or be charmed by you. This
+      effects ends on a target after 1 minute, if it takes any damage, if you
+      attack it, or if it witnesses you attacking or damaging any of its allies.
+      If a target succeeds on this saving throw, the target has no hint you
+      tried to charm it.</p>
+
+      <p>This die increases to [[/r 1d6]] at 5th level, [[/r 1d8]] at 9th level,
+      [[/r 1d10]] at 13th level, and [[/r 1d12]] at 17th level.</p>
+
+      <p>Once you've used this feature, you must complete a short or long rest
+      before you can use it again.</p>
+    chat: ''
+  requirements: Fighter (Exhibition Specialist) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: special
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: showoff
+  enchant: {}
+effects: []
+folder: YLPXma80y0nq0y5C
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: z8n8EvW4rn2hhJ0m
+ownership:
+  default: 0
+sort: 0
+_key: '!items!z8n8EvW4rn2hhJ0m'
+

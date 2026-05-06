@@ -1,0 +1,123 @@
+name: Concealment
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9974163+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-concealment.source-archetype.sourceName-stalker_technique.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Stalker Technique:</strong> 7th, 9th, 13th, and 17th
+      level</em></p>
+
+      <p>You've become adept at evading creatures that rely on darkvision. While
+      in darkness, you are invisible to any creature that relies on darkvision
+      to see you in that darkness.</p>
+
+      <p>Additionally, when you hit a creature with a ranged weapon attack while
+      hidden, you can force that creature to make a Dexterity saving throw
+      against your tech save DC. On a failed save, the creature's speed is
+      reduced to 0 until the end of your next turn. You can use this feature
+      three times. You gain an additional use at 9th, 13th, and 17th level. You
+      regain all expended uses when you finish a short or long rest.</p>
+    chat: ''
+  requirements: Scout (Stalker Technique) 7
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '3'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: special
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: turn
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: concealment
+  enchant: {}
+effects: []
+folder: 9zbsA57Qc0pHzQeD
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: yPmmGhJdfJi5CTHO
+ownership:
+  default: 0
+sort: 0
+_key: '!items!yPmmGhJdfJi5CTHO'
+

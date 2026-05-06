@@ -1,0 +1,182 @@
+_id: gyGfm8RxCPlB4ObC
+name: Heroes' Feast
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Passive.webp
+effects: []
+folder: IgPJBwh9xEy0uaH8
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6787413+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-heroes_feast.source-archetype.sourceName-chef_pursuit.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Chef Pursuit:</strong> 17th level</em></p>
+
+      <p>You have developed a signature feast that is the purest distillation of
+      your knowledge and talent as a chef.</p>
+
+      <p>Over the course of a long rest, you can expend rare culinary supplies
+      worth 1,000 cr to create your feast, which can feed a number of creatures
+      equal to twice your Critical Analysis ability modifer. Any creature
+      partaking in the feast gains the following benefits:</p>
+
+      <ul>
+
+      <li>It is cured of all poisons and disease, and becomes immune to poison
+      and disease.</li>
+
+      <li>It makes Wisdom saving throws to avoid being frightened with
+      advantage.</li>
+
+      <li>Its hit point maximum and current hit points increase by [[/r
+      2d10]].</li>
+
+      </ul>
+
+      <p>These benefits last until the end of the creature's next long rest or
+      24 hours have passed. This feature has no effect on droids or
+      constructs.</p>
+    chat: ''
+  requirements: Scholar (Chef Pursuit) 17
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+    sw5e1heal0000000:
+      _id: sw5e1heal0000000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: false
+        denomination: 10
+        number: 2
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: heroes-feast
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!gyGfm8RxCPlB4ObC'
+

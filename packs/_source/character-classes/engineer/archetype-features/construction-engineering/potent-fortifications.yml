@@ -1,0 +1,112 @@
+_id: CIhtAVNI1zSGCuCC
+name: Potent Fortifications
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-ARCH-Reaction.webp
+effects: []
+folder: VZWduOFEZksknI0K
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7447036+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-potent_fortifications.source-archetype.sourceName-construction_engineering.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Construction Engineering:</strong> 3rd level</em></p>
+
+      <p>When a friendly creature other than you that you can see is hit with a
+      ranged attack while within 5 feet of your deployed portable structure, you
+      can use your reaction and expend one use of your Potent Aptitude to have
+      your structure take the damage instead. If your structure would normally
+      have immunity or resistance to this damage, it loses that immunity or
+      resistance for this attack. When you do so, the damage is reduced by an
+      amount equal to [[/r 1d10]] + your Intelligence modifier + your engineer
+      level.</p>
+    chat: ''
+  requirements: Engineer (Construction Engineering) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      roll:
+        formula: 1d10 + @abilities.int.mod + @classes.engineer.levels
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: potent-fortifications
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!CIhtAVNI1zSGCuCC'
+

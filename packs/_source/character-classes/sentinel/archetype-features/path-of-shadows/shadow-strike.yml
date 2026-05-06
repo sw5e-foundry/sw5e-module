@@ -1,0 +1,118 @@
+_id: S8EKDemG7wOzKU7x
+name: Shadow Strike
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Passive.webp
+effects: []
+folder: iO8C8kbD1QlDH2kn
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.8704881+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-shadow_strike.source-archetype.sourceName-path_of_shadows.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Path of Shadows:</strong> 7th level</em></p>
+
+      <p>You learn to strike from the shadows. Once per turn, you can deal an
+      extra [[/r 1d6]] damage to one creature you hit with an attack if you have
+      advantage on the roll. </p>
+
+      <p>The extra damage increases to [[/r 2d6]] at 11th level and [[/r 3d6]]
+      at 17th level.</p>
+    chat: ''
+  requirements: Sentinel (Path of Shadows) 7
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: shadow-strike
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!S8EKDemG7wOzKU7x'
+

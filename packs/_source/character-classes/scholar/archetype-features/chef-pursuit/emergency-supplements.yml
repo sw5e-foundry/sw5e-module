@@ -1,0 +1,116 @@
+_id: nCs6NVeaLoDueywC
+name: Emergency Supplements
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Action.webp
+effects: []
+folder: IgPJBwh9xEy0uaH8
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6787413+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-emergency_supplements.source-archetype.sourceName-chef_pursuit.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Chef Pursuit:</strong> 3rd level</em></p>
+
+      <p>You are prepared to assist allies with specially prepared, instantly
+      effective supplements. When an ally is the target of your Critical
+      Analysis feature and within 5 feet of you, you may expend a superiority
+      die and give that ally the benefits of any discovery that utilizes a
+      superiority die and is exclusive to the Chef Pursuit, regardless of
+      whether or not you've chosen it. </p>
+
+      <p>Once you've used this feature, you must complete a short or long rest
+      before you can use it again.</p>
+    chat: ''
+  requirements: Scholar (Chef Pursuit) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: emergency-supplements
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!nCs6NVeaLoDueywC'
+
