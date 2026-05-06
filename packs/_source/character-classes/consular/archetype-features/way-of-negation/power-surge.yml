@@ -1,0 +1,126 @@
+_id: 1N8gUi86pD87Ezh0
+name: Power Surge
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-ARCH-Action.webp
+effects: []
+folder: 2km9eoADWffMEjNT
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.4778592+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-power_surge.source-archetype.sourceName-way_of_negation.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Way of Negation:</strong> 6th level</em></p>
+
+      <p>You learn to simultaneously limit a creature's force powers and store
+      that power within yourself to later strengthen your damaging force
+      powers.</p>
+
+      <p>You can store a maximum number of power surges equal to your Wisdom or
+      Charisma modifier (your choice, minimum of one). Whenever you successfully
+      end a force power with a power such as <em>force suppression</em> or
+      <em>sever force</em>, or use your Force Shield or Force Deflection
+      features to successfully avoid an attack or succeed on a saving throw, you
+      gain one power surge, as you redirect the flow of the Force into yourself.
+      </p>
+
+      <p>Once per turn, when you deal damage to a creature or object with a
+      force power, you can spend one power surge to deal extra damage to that
+      target. The extra damage is of the same type as the power's damage, and it
+      equals half your consular level.</p>
+
+      <p>Whenever you finish a long rest, your number of power surges resets to
+      one. If you end a short rest with no power surges, you gain one power
+      surge.</p>
+    chat: ''
+  requirements: Consular (Way of Negation) 6
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: max(@abilities.wis.mod, @abilities.cha.mod)
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: power-surge
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!1N8gUi86pD87Ezh0'
+

@@ -1,0 +1,132 @@
+_id: KKh8VZnbhTMAfXyY
+name: Predator's Resolve
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+effects: []
+folder: eNimixCs2u2Oclqw
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6867375+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-predators_resolve.source-archetype.sourceName-predator_technique.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Predator Technique:</strong> 7th level</em></p>
+
+      <p>You can use your action to gain the following benefits for 1
+      minute:</p>
+
+      <ul>
+
+      <li>You have advantage on Constitution saving throws.</li>
+
+      <li>At the start of each of your turns, you gain temporary hit points
+      equal to your Constitution modifier (minimum of one).</li>
+
+      <li>When you use your Hunting Party feature and the target of the attack
+      is your Ranger's Quarry, your ally gains a bonus to damage on the attack
+      equal to your Ranger's Quarry Damage Die.</li>
+
+      </ul>
+
+      <p>Once you've used this feature, you can't use it again until you finish
+      a short or long rest.</p>
+    chat: ''
+  requirements: Scout (Predator Technique) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '@abilities.con.mod'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: predators-resolve
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!KKh8VZnbhTMAfXyY'
+

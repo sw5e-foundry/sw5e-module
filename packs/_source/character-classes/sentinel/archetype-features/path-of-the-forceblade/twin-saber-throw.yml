@@ -1,0 +1,118 @@
+name: Twin Saber Throw
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.8694888+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-twin_saber_throw.source-archetype.sourceName-path_of_the_forceblade.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Bonus.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Path of the Forceblade:</strong> 7th, 9th, 13th, and 17th
+      level</em></p>
+
+      <p>When you cast <em>saber throw</em> while wielding your forceblade, you
+      can attack the same target multiple times.</p>
+
+      <p>Additionally, when you deal damage to a creature within 30 feet of you
+      with your forceblade, you can use your bonus action to teleport to within
+      5 feet of that creature and make a melee weapon attack against that
+      creature. This attack uses your Kinetic Combat die instead of your
+      weapon's damage die. You can use this feature three times. You gain an
+      additional use at 9th, 13th, and 17th level. You regain all expended uses
+      when you complete a long rest.</p>
+    chat: ''
+  requirements: Sentinel (Path of the Forceblade) 7
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: twin-saber-throw
+  enchant: {}
+effects: []
+folder: W8pEUEBpMgFjTknx
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: Yq4cBPxGVtcsjwdT
+ownership:
+  default: 0
+sort: 0
+_key: '!items!Yq4cBPxGVtcsjwdT'
+

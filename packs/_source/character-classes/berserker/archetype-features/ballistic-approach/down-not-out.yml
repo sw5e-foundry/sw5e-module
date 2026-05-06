@@ -1,0 +1,107 @@
+_id: DWm0s5SZ86921Q72
+name: Down, Not Out
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Reaction.webp
+effects: []
+folder: rs06OdzqjhBdatwb
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.932453+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-down_not_out.source-archetype.sourceName-ballistic_approach.level-10
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Ballistic Approach:</strong> 10th level</em></p>
+
+      <p>When you are hit with an attack by a creature within 30 feet of you,
+      you can use your reaction to make a single attack against that creature
+      with a blaster with which you are proficient.</p>
+    chat: ''
+  requirements: Berserker (Ballistic Approach) 10
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: down-not-out
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!DWm0s5SZ86921Q72'
+

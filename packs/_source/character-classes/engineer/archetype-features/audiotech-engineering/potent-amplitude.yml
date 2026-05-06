@@ -1,0 +1,157 @@
+_id: kmcrjj0s9p4KfNEM
+name: Potent Amplitude
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-ARCH-Reaction.webp
+effects: []
+folder: hEjPZE8m5dQm2a4G
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7417055+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-potent_amplitude.source-archetype.sourceName-audiotech_engineering.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Audiotech Engineering:</strong> 3rd level</em></p>
+
+      <p>As an action while wielding your modified instrument, you can begin
+      performing an enhanced song, which lasts for 1 minute. While playing a
+      song, you gain access to a new use for your Potent Aptitude, as determined
+      by the song, listed below. You can end your song at any time, no action
+      required.</p>
+
+      <p>Whenever you take damage while playing your song, you must make a
+      Constitution saving throw to continue playing. The DC equals 10 or half
+      the damage you take, which number is higher. If you take damage from
+      multiple sources, you must make a separate saving throw for each source of
+      damage.</p>
+
+      <p>When you cast a damage dealing tech power while playing your song that
+      requires an attack roll or saving throw, you can cause that power to
+      instead deal sonic damage. If you do so, instead of an attack roll or
+      saving throw, the power instead requires a Constitution saving throw.</p>
+
+      <p>Your song ends early if you are incapacitated or die, or if you are no
+      longer holding your modified instrument.</p>
+
+      <p>You can initiate playing an enhanced song twice. You regain all
+      expended songs when you finish a short or long rest.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.eM7gZd3GPoln9Eim]{Song
+      of Battle}</h3>
+
+      <p>When an ally within 60 feet of you that can hear you deals damage to a
+      creature, you can use your reaction to expend one use of your Potent
+      Aptitude, adding the result of the die to the damage dealt.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.Q6C0UCQTXs2xZTN0]{Song
+      of Support}</h3>
+
+      <p>When an ally within 60 feet of you that can hear you makes a saving
+      throw against a harmful effect, you can use your reaction to expend one
+      use of your Potent Aptitude, adding the result of the die to their saving
+      throw.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.VbwFEDctru2bR22M]{Song
+      of Disruption}</h3>
+
+      <p>When an enemy within 60 feet of you that can hear you makes a saving
+      throw, you can use your reaction to expend one use of your Potent
+      Aptitude, subtracting the result of the die from their saving throw.</p>
+    chat: ''
+  requirements: Engineer (Audiotech Engineering) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '2'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: reaction
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: potent-amplitude
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!kmcrjj0s9p4KfNEM'
+

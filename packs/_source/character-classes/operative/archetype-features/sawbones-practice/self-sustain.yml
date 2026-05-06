@@ -1,0 +1,111 @@
+_id: IBxXS7o4VV3znf5i
+name: Self-Sustain
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Action.webp
+effects: []
+folder: Zvdai55K0wQdOpj0
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-self_sustain.source-archetype.sourceName-sawbones_practice.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Sawbones Practice:</strong> 17th level</em></p>
+
+      <p>You have advantage on death saving throws.</p>
+
+      <p>Additionally, when you are stabilized, you regain 1 hit point. Once
+      you've used this feature, you can't use it again until you finish a short
+      or long rest.</p>
+    chat: ''
+  requirements: Operative (Sawbones Practice) 17
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: self-sustain
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!IBxXS7o4VV3znf5i'
+

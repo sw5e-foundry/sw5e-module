@@ -1,0 +1,111 @@
+name: Cloak of Invisibility
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-cloak_of_invisibility.source-archetype.sourceName-way_of_suggestion.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>You and everything you are wearing or carrying become invisible to
+      creatures of your choice. If you damage a creature or affect it with a
+      force power, it can make a Wisdom saving throw against your universal
+      force save DC. On a success, you are no longer invisible to that
+      creature.</p>
+    chat: ''
+  requirements: Consular (Way of Suggestion) 18
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: cloak-of-invisibility
+  enchant: {}
+folder: ecBy855XMQkIJ5l6
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: JUIYByM1R6zC0mRY
+ownership:
+  default: 0
+sort: 0
+_key: '!items!JUIYByM1R6zC0mRY'
+

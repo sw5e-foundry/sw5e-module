@@ -1,0 +1,115 @@
+_id: nscmGga7GrAqtS2J
+name: Mark of the Mechanist
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Bonus.webp
+effects: []
+folder: SdZE2ZGaujjU5RJz
+flags:
+  sw5e-importer:
+    timestamp: '2023-05-30T20:15:26.6131342+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-mark_of_the_mechanist.source-archetype.sourceName-mechanist_technique_companion.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Mechanist Technique:</strong> 7th level</em></p>
+
+      <p>As a bonus action, you can cause the target of your Ranger's Quarry to
+      emit an ion pulse, as long as the target is within 60 feet of you. The
+      target, and any creatures within 5 feet of it, must make a Constitution
+      saving throw against your tech save DC. On a failed save, roll your
+      Ranger's Quarry die; each creature takes ion damage equal to the amount
+      rolled.</p>
+    chat: ''
+  requirements: Scout (Mechanist Technique (Companion)) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: mark-of-the-mechanist
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!nscmGga7GrAqtS2J'
+

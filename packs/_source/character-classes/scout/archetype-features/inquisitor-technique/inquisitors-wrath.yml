@@ -1,0 +1,117 @@
+_id: 3g7tveozmCHAkd5R
+name: Inquisitor's Wrath
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+effects: []
+folder: lknRLQF5UfvRmnBY
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-inquisitors_wrath.source-archetype.sourceName-inquisitor_technique.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Inquisitor Technique:</strong> 15th level</em></p>
+
+      <p>You can cast the force suppression and sever force force powers at 3rd
+      level against the target of your Ranger's Quarry without expending tech
+      points. If they are within 30 feet of you, you have advantage on the
+      forcecasting ability check for these powers.</p>
+
+      <p>You can use this feature a number of times equal to 1 + your
+      Intelligence modifier (a minimum of once). You regain all expended uses
+      when you finish a long rest.</p>
+
+      <p>The radius of this feature increases to 60 feet at 17th level.</p>
+    chat: ''
+  requirements: Scout (Inquisitor Technique) 15
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: max(1 + @abilities.int.mod, 1)
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: inquisitors-wrath
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!3g7tveozmCHAkd5R'
+

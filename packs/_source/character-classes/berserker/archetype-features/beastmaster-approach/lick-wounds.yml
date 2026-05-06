@@ -1,0 +1,113 @@
+name: Lick Wounds
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.4668646+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-lick_wounds.source-archetype.sourceName-beastmaster_approach.level-10
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Passive.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Beastmaster Approach:</strong> 10th level</em></p>
+
+      <p>Whenever you reduce a creature to 0 hit points while raging, you gain a
+      number of temporary hit points equal to your berserker level, which last
+      for the duration of your rage.</p>
+    chat: ''
+  requirements: Berserker (Beastmaster Approach) 10
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '@classes.berserker.levels'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: lick-wounds
+  enchant: {}
+effects: []
+folder: hlCKH3HTvZqi2LK9
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: zPefcpvQYV1o1ooJ
+ownership:
+  default: 0
+sort: 0
+_key: '!items!zPefcpvQYV1o1ooJ'
+

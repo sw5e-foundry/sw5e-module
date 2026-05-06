@@ -1,0 +1,169 @@
+_id: DAq5ZmQ6aQ88Q9oI
+name: Biochem Engineering
+type: subclass
+img: modules/sw5e-module/icons/packs/Archetypes/BiochemEngineering.webp
+effects: []
+folder: b6EaSyJ2lQxL657w
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:15.1684586+00:00'
+    importer_version: 3
+    uid: Archetype.name-biochem_engineering
+system:
+  description:
+    value: >-
+      <h1>Biochem Engineering</h1><p>Those engineers who choose the Biochem
+      Engineering discipline focus on utilizing their vast knowledge of medicine
+      and chemistry to supply allies with potent healing and enemies with
+      debilitating poisons and acids.</p>
+    chat: ''
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  identifier: biochemengineering
+  classIdentifier: engineer
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.83FQ0ajjAzJk0WYO
+            optional: false
+          - uuid: Compendium.sw5e-module.character-classes.xvHfbGtOjBzLFol1
+            optional: false
+          - uuid: Compendium.sw5e-module.character-classes.zy2QsyaXYjXAE3eY
+            optional: false
+        optional: false
+        spell: null
+      level: 3
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.ImzVZdODzSmUbTlC
+            optional: false
+        optional: false
+        spell: null
+      level: 6
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 2ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.MH30Nb0CA4JCDDG8
+            optional: false
+        optional: false
+        spell: null
+      level: 14
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 3ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.DXuupgy5zkVoO2i8
+            optional: false
+        optional: false
+        spell: null
+      level: 18
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 4t00000000000000
+      configuration:
+        choices: []
+        grants:
+          - skills:med
+          - tool:specialist:biochemistskit
+          - tool:specialist:poisonerskit
+        mode: default
+        allowReplacements: false
+      level: 3
+      type: Trait
+      value:
+        chosen: []
+    - _id: 5ic0000000000000
+      configuration:
+        allowDrops: true
+        choices:
+          '3':
+            count: 4
+            replacement: false
+          '5':
+            count: 1
+            replacement: false
+          '9':
+            count: 1
+            replacement: false
+          '11':
+            count: 1
+            replacement: false
+          '13':
+            count: 1
+            replacement: false
+          '17':
+            count: 1
+            replacement: false
+        pool:
+          - uuid: Compendium.sw5e-module.character-classes.LfTrbvbqbEqQLDun
+          - uuid: Compendium.sw5e-module.character-classes.Mdu6WsjRdm3iEttj
+          - uuid: Compendium.sw5e-module.character-classes.PIOL0sfdsGR6zujV
+          - uuid: Compendium.sw5e-module.character-classes.ta2H90QbKOotinUs
+          - uuid: Compendium.sw5e-module.character-classes.mlogXFVLlu9QV5xk
+          - uuid: Compendium.sw5e-module.character-classes.ATxnA8p3Oxyrg2sv
+          - uuid: Compendium.sw5e-module.character-classes.Ds8gW9BLb4x4uwpv
+          - uuid: Compendium.sw5e-module.character-classes.Q8c0oFdBWTToEIJv
+          - uuid: Compendium.sw5e-module.character-classes.8eCrF1T49p8VQbay
+          - uuid: Compendium.sw5e-module.character-classes.pdxQsadfGd5XIJoe
+          - uuid: Compendium.sw5e-module.character-classes.mvxr81RTwpYlxfUx
+          - uuid: Compendium.sw5e-module.character-classes.yAh1xw4AY4ehYlqz
+          - uuid: Compendium.sw5e-module.character-classes.0icDtA2NotdAztc4
+          - uuid: Compendium.sw5e-module.character-classes.bXC9xIkWXCu3osEe
+          - uuid: Compendium.sw5e-module.character-classes.kXoEJyW0cFSQaz4G
+          - uuid: Compendium.sw5e-module.character-classes.2WzMiADNCAGiAQFF
+          - uuid: Compendium.sw5e-module.character-classes.FwpYyIgcbCW9Zy8A
+          - uuid: Compendium.sw5e-module.character-classes.RRGXZn2p5Ve41m6B
+          - uuid: Compendium.sw5e-module.character-classes.UEUg3dfbRL5OBK4H
+          - uuid: Compendium.sw5e-module.character-classes.d3iUIKASjt1IsQuF
+          - uuid: Compendium.sw5e-module.character-classes.X0WkNJb8mEfpwt32
+          - uuid: Compendium.sw5e-module.character-classes.ZAMzQUI7zzk6DjfL
+          - uuid: Compendium.sw5e-module.character-classes.Wilf9tE4FcMVMlRS
+          - uuid: Compendium.sw5e-module.character-classes.LnUmcmx19JvVemDX
+          - uuid: Compendium.sw5e-module.character-classes.Q9pw6twlMIiLDE0c
+        restriction:
+          level: ''
+          subtype: biochem engineeringInvocation
+          type: class
+          list: []
+        type: feat
+        spell: null
+      title: Biochem Modifications
+      type: ItemChoice
+      value:
+        added: {}
+        replaced: {}
+  spellcasting:
+    superiorityProgression: none
+    progression: none
+    preparation:
+      formula: ''
+    forceProgression: none
+    techProgression: none
+    ability: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!DAq5ZmQ6aQ88Q9oI'
+

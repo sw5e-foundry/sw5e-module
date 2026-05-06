@@ -1,0 +1,160 @@
+_id: wokNr8mYw9khsGQK
+name: Voodoo Doll
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Action.webp
+effects: []
+folder: 3Zopx5gFtoKvkFY3
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6827392+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-voodoo_doll.source-archetype.sourceName-occultist_pursuit.level-9
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Occultist Pursuit:</strong> 9th level</em></p><p>Over the
+      course of an hour, which can be done during a short rest, you can perform
+      a ritual to construct an effigy of a creature. In order to do so, you must
+      have at least heard of or seen the creature before, and the target must be
+      in the same system as you. At the end of the hour, the creature must make
+      a Wisdom saving throw against your maneuver save DC. This saving throw is
+      modified by how well you know the target and the sort of physical
+      connection you have to it, as shown in the Knowledge Save Modifier and
+      Connection Save Modifier tables below.</p><h4>Knowledge Save
+      Modifier</h4><p>|||</p><p>|:--|--:|</p><table><tbody><tr><td><p>Secondhand
+      (you have heard of the
+      target)</p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td></tr><tr><td><p></p></td><td><p></p></td></tr></tbody></table><p>|
+      |+5|</p><p>|Firsthand (you have met the target) |+0|</p><p>|Familiar (you
+      know the target well) |-5|</p><h4>Connection Save
+      Modifier</h4><p>|||</p><p>|:--|--:|</p><p>|Likeness or picture
+      |-2|</p><p>|Curse of Objurgation |-3|</p><p>|Possession or garment
+      |-4|</p><p>|Body part, lock of hair, bit of nail, or the like
+      |-10|</p><p>On a successful save, the target isn't affected, and you can't
+      use this ritual against it again for 24 hours. On a failed save, the
+      ritual creates a Tiny doll that is linked to the target. The doll remains
+      linked for 24 hours, or for 10 minutes after you first use it. It
+      disintegrates at the end of this duration. For the duration, you can see
+      and hear the target through the doll as if you were within 5 feet of the
+      creature.</p><p>Additionally, as action while the doll is in your
+      possession, you can expend a Hit Die to torment the target, choosing an
+      effect from the following options:</p><ul><li><strong>Burn:</strong> The
+      target must succeed on a Wisdom saving throw. On a failed save, the target
+      believes it is burning. While burning in this way, the target has has
+      disadvantage on attack rolls made with Strength or Dexterity. This effect
+      lasts for 1 hour.</li><li><strong>Pain:</strong> The target must succeed
+      on a Constitution saving throw or be wracked with pain for 1 hour. While
+      in pain in this way, the target takes an additional [[/r 1d4]] psychic
+      damage whenever it takes damage.</li><li><strong>Stab:</strong> The target
+      must succeed on a Dexterity saving throw or gain 2 slowed levels and fall
+      prone. The slowed levels effect lasts for 1 hour.</li></ul><p>The target
+      can only be under 1 effect at a time. When you use a new effect, any
+      existing effects end. Placing an effect on a target requires maintaining
+      your concentration, as if concentrating on a power.</p><p>You can use this
+      feature twice. You regain all expended uses when you finish a long
+      rest.</p>
+    chat: ''
+  requirements: Scholar (Occultist Pursuit) 9
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '2'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: special
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - psychic
+        onSave: half
+      description: {}
+      duration:
+        units: hour
+        value: '24'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: voodoo-doll
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!wokNr8mYw9khsGQK'
+

@@ -1,0 +1,122 @@
+_id: 3kxULrcQfqD0PHCi
+name: Phasethrow
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Passive.webp
+effects: []
+folder: W8pEUEBpMgFjTknx
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.8694888+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-phasethrow.source-archetype.sourceName-path_of_the_forceblade.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Path of the Forceblade:</strong> 3rd level</em></p>
+
+      <p>You learn the <em>saber throw</em> force power, which does not count
+      against your total powers known. Additionally, you no longer have
+      disadvantage on the attack roll with it if you are within 5 feet of a
+      hostile creature, and you can use the Double Strike Force-Empowered Self
+      options when you cast it as your action and hit a target. Finally, when
+      you hit a creature with the <em>saber throw</em> force power, you deal
+      additional damage equal to half your Wisdom or Charisma modifier (your
+      choice, minimum of +1) if it doesn't already include that modifier.</p>
+    chat: ''
+  requirements: Sentinel (Path of the Forceblade) 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: ((@mod)/2)
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: phasethrow
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!3kxULrcQfqD0PHCi'
+

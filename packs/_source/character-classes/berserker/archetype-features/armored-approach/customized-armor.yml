@@ -1,0 +1,206 @@
+_id: 5WF625vhVkpAdH6M
+name: Customized Armor
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Bonus.webp
+effects: []
+folder: cOXE8jZPkHmrWdqS
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.4658655+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-customized_armor.source-archetype.sourceName-armored_approach.level-10
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Armored Approach:</strong> 10th level</em></p>
+
+      <p>You learn new ways to customize your spiked armor. Choose one of the
+      following options. While wearing your spiked armor, you gain the effects
+      of the chosen option. Over the course of a long rest, you can select a
+      different option, provided you have the armor and armormech's implements
+      with you.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.uwmpvr689xwEfw8v]{Defensive
+      Field}</h3>
+
+      <p>On your turn, you can use a bonus action to gain temporary hit points
+      equal to [[/r 1d12]] + your berserker level. Once you use this feature,
+      you must finish a short or long rest before you can use it again.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.pN2fdACArMiJFD1d]{Deflective
+      Layer}</h3>
+
+      <p>Your armor class increases by 1.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.tN4Rk4ZH5RWRff9n]{Grappling
+      Line}</h3>
+
+      <p>You can use a bonus action to launch a grappling line at one creature
+      of your choice that you can see within 15 feet. The target must succeed on
+      a Strength saving throw (DC = 8 + your proficiency bonus + your Strength
+      modifier) or be pulled up to 10 feet in a straight line towards you. If it
+      ends this movement within 5 feet of you, it takes kinetic damage from your
+      armor spikes equal to your Strength modifier.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.15ekdJEmUXMekrXr]{Integrated
+      Sonar}</h3>
+
+      <p>You can use an action to give yourself the benefits of the <em>true
+      sight</em> force power for 1 hour. Once you use this feature, you must
+      finish a short or long rest before you can use it again.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.KOuyAcZE4scfOYJJ]{Neural
+      Interface}</h3>
+
+      <p>You are immune to all effects that would cause you to be charmed or
+      frightened.</p>
+    chat: ''
+  requirements: Berserker (Armored Approach) 10
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: hour
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '15'
+        override: false
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+    sw5e1heal0000000:
+      _id: sw5e1heal0000000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: hour
+        value: '1'
+        concentration: false
+        override: false
+      healing:
+        bonus: '@classes.berserker.levels'
+        custom:
+          enabled: false
+        denomination: 12
+        number: 1
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        value: '15'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: customized-armor
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!5WF625vhVkpAdH6M'
+

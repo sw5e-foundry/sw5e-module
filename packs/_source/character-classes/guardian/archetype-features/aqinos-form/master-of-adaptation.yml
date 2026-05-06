@@ -1,0 +1,133 @@
+_id: MCnskAoVOzPJIzSX
+name: Master of Adaptation
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Action.webp
+effects: []
+folder: QmaMZbCQDzKkdYtu
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-master_of_adaptation.source-archetype.sourceName-aqinos_form.level-20
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Aqinos Form:</strong> 20th level</em></p>
+
+      <p>Your masteries of the Force and technology have achieved equilibrium.
+      Your Constitution and Wisdom or Charisma (your choice) scores increase by
+      2. Your maximum for those scores increases by 2. Additionally, you can use
+      your action to gain the following benefits for 1 minute:</p>
+
+      <ul>
+
+      <li>You have resistance to ion damage, and you can't have disadvantage on
+      saving throws against ion or lightning damage.</li>
+
+      <li>You can't have disadvantage on attack rolls you make as a part of a
+      tech power, and enemies can't have advantage on saving throws against your
+      tech powers.</li>
+
+      <li>You add your governing ability modifier (minimum of +1) to any damage
+      or healing you do with tech powers you cast that don't already include
+      that modifier.</li>
+
+      </ul>
+
+      <p>While you are conscious and your droid is within 60 feet of you and
+      conscious, it also gains these benefits.</p>
+
+      <p>This effect ends early if you are incapacitated or die. Once you use
+      this feature, you can't use it again until you finish a long rest.</p>
+    chat: ''
+  requirements: Guardian (Aqinos Form) 20
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: master-of-adaptation
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!MCnskAoVOzPJIzSX'
+

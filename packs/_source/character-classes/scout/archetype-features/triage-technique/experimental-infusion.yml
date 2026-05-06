@@ -1,0 +1,198 @@
+_id: bayEAWiTjhqDChpF
+name: Experimental Infusion
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+effects: []
+folder: U6xbzGokZbATg9FA
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6897365+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-experimental_infusion.source-archetype.sourceName-triage_technique.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Triage Technique:</strong> 11th level</em></p>
+
+      <p>When you target a creature with your Ranger's Quarry, you can grant one
+      of the following additional effects of your choice:</p>
+
+      <ul>
+
+      <li><strong><em>Adrenaline/Tranquilizer.</em></strong> The creature's
+      movement speed is doubled until the end of its next turn. Alternatively,
+      it gains a level of slowed until the end of its next turn.</li>
+
+      <li><strong><em>Focus/Dizziness.</em></strong> The creature has either
+      advantage or disadvantage (your choice) on the first ability check, attack
+      roll, or saving throw it makes within the next minute.</li>
+
+      <li><strong><em>Toughen/Weaken.</em></strong> The creature gains temporary
+      hit points equal to your scout level, which last for 1 minute.
+      Alternatively, the creature must make a Constitution saving throw against
+      your tech save DC. On a failure, it takes psychic damage equal to your
+      scout level and it can't regain hit points until the start of your next
+      turn.</li>
+
+      </ul>
+
+      <p>You can use each feature once. You regain any expended uses when you
+      complete a short or long rest.</p>
+    chat: ''
+  requirements: Scout (Triage Technique) 11
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: special
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: true
+              formula: '@classes.scout.levels'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - psychic
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+    sw5e1heal0000000:
+      _id: sw5e1heal0000000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '@classes.scout.levels'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: experimental-infusion
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!bayEAWiTjhqDChpF'
+

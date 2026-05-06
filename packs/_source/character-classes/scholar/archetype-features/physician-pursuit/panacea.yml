@@ -1,0 +1,121 @@
+name: Panacea
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Bonus.webp
+effects: []
+folder: 5y6ev6oDEP7qyUWn
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9924175+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-panacea.source-archetype.sourceName-physician_pursuit.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+_id: eAem3vy3uo6k4AQE
+system:
+  description:
+    value: >-
+      <p><em><strong>Physician Pursuit:</strong> 17th level</em></p>
+
+      <p>You've developed the formula to concoct a cure-all miracle solution: a
+      panacea. Over the course of 10 minutes, you can expend rare medical
+      supplies worth 1,000 cr to create your panacea in a simple syringe. The
+      panacea retains its potency for 24 hours. As a bonus action, a creature
+      can use the panacea. Alternatively, as an action, they can administer it
+      to another creature within 5 feet.</p>
+
+      <p>The target has its exhaustion level reduced by one and regains all of
+      its hit points. If the target is diseased, poisoned, paralyzed, or
+      stunned, the condition ends.</p>
+
+      <p>Once you create a panacea, you can't create another until you finish a
+      long rest.</p>
+    chat: ''
+  requirements: Scholar (Physician Pursuit) 17
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: hour
+        value: '24'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: panacea
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!eAem3vy3uo6k4AQE'
+

@@ -1,0 +1,122 @@
+_id: ysGth3KGrTcWz6DX
+name: Overwhelming Cleave
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Passive.webp
+effects: []
+folder: qL9zCeJt2kwmIc2P
+flags:
+  sw5e-importer:
+    timestamp: '2022-05-29T01:36:47.5045681+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-overwhelming_cleave.source-archetype.sourceName-juggernaut_approach.level-10
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Juggernaut Approach:</strong> 10th level</em></p>
+
+      <p>When you successfully push a creature into a surface or another
+      creature while raging, the pushed creature takes kinetic damage equal to
+      your Rage Damage. Additionally, the first time you hit with a melee weapon
+      attack using Strength each turn, you can attempt to damage another
+      creature with the same attack. Choose another creature within 5 feet of
+      the original target and within your reach. If the original attack roll
+      would hit the second creature, it takes damage equal to your Strength
+      modifier. The damage is of the same type dealt by the original attack.</p>
+    chat: ''
+  requirements: Berserker (Juggernaut Approach) 10
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@abilities.str.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: overwhelming-cleave
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!ysGth3KGrTcWz6DX'
+

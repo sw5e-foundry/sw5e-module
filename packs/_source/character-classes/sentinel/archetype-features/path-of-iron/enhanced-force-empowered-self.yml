@@ -1,0 +1,138 @@
+name: Enhanced Force-Empowered Self
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.692734+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-enhanced_force_empowered_self.source-archetype.sourceName-path_of_iron.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Action.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Path of Iron:</strong> 7th level</em></p>
+
+      <p>Through intense physical training, you've improved your body's ability
+      to access and channel the force flowing within you. </p>
+
+      <p>When you would use a Force-Empowered Self option, you can choose to
+      bolster the option, gaining an additional effect as listed below. You can
+      only bolster a Force-Empowered Self option once per turn. </p>
+
+      <p>You can use these features a combined three times. You gain an
+      additional use at 9th, 13th, and 17th level. You regain any expended uses
+      when you finish a short or long rest.</p>
+
+      <p>While you have no remaining uses of this feature, you can instead
+      expend 1 force point to use it.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.4PAEl9iiT7bvd6Ri]{Aegis}</h3>
+
+      <p>When you bolster Deflection, when an attack would hit you before the
+      start of your next turn, you subtract the same value rolled for Deflection
+      from the damage taken.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.lPUZkEctW4LFDcew]{Cleave}</h3>
+
+      <p>When you bolster Double Strike, you choose another creature within 5
+      feet of your target. They take damage of the same type equal to the result
+      of the die rolled for Double Strike.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.ZnbNH69k0Aoet3aG]{Momentum}</h3>
+
+      <p>When you bolster Slow Time, until the end of your turn you ignore
+      difficult terrain, and can move along vertical surfaces and across liquids
+      without falling during the move.</p>
+    chat: ''
+  requirements: Sentinel (Path of Iron) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '3'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: enhanced-force-empowered-self
+  enchant: {}
+folder: 13AP98XUhyANBT0U
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: ePW9BKKzIbPk6iS3
+ownership:
+  default: 0
+sort: 0
+_key: '!items!ePW9BKKzIbPk6iS3'
+

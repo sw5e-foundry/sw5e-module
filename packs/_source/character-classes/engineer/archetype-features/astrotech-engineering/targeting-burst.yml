@@ -1,0 +1,110 @@
+name: Targeting Burst
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7397064+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-targeting_burst.source-archetype.sourceName-astrotech_engineering.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>Choose up to 10 creatures of your choice that are within 60 feet. Each
+      creature must succeed on a Constitution saving throw against your tech
+      save DC or be blinded for [[/r 1d4+1]] turns.</p>
+    chat: ''
+  requirements: Engineer (Astrotech Engineering) 18
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: targeting-burst
+  enchant: {}
+folder: gdfavuhogO2DxYtA
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: gT09WHlMz3U5Vu4m
+ownership:
+  default: 0
+sort: 0
+_key: '!items!gT09WHlMz3U5Vu4m'
+

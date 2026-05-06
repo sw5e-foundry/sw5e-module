@@ -1,0 +1,140 @@
+_id: qJpHcl1Aw7pw5uVo
+name: Echani Weapons
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Bonus.webp
+effects: []
+folder: 2dl5fVaxGtyxaqBw
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9854218+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-echani_weapons.source-archetype.sourceName-echani_order.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Echani Order:</strong> 3rd level</em></p>
+
+      <p>Your special martial arts training leads you to master the use of
+      certain weapons. You gain the following benefits. Choose two types of
+      weapons to be your Echani weapons: one vibroweapon and one blaster. Each
+      of these weapons can be any simple or martial </p>
+
+      <p>weapon that lacks the special property. You gain proficiency with these
+      weapons if you don't already have it. Weapons of the chosen types are monk
+      weapons for you. Many of this order's features work only with your Echani
+      weapons. When you reach 6th, 11th, and 17th level in this class, you can
+      choose another type of weapon to be an Echani weapon for you, following
+      the criteria above.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.7HFu2KCPHDjXLMcn]{Agile
+      Parry}</h3>
+
+      <p>If you make an unarmed strike as part of the Attack action on your turn
+      and are holding an Echani weapon, you can use it to defend yourself if it
+      is a melee weapon. You gain a +2 bonus to AC until the start of your next
+      turn, while the weapon is in your hand and you aren't incapacitated.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.wzl4vGyu4zr4yRCr]{Echani's
+      Shot}</h3>
+
+      <p>You can use a bonus action on your turn to make your ranged attacks
+      with an Echani weapon more deadly. When you do so, any target you hit with
+      a ranged attack using an Echani weapon takes an extra [[/r 1d4]] damage of
+      the weapon's type. You retain this benefit until the end of the current
+      turn.</p>
+    chat: ''
+  requirements: Monk (Echani Order) 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: echani-weapons
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!qJpHcl1Aw7pw5uVo'
+

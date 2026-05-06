@@ -1,0 +1,114 @@
+_id: Rkeqzwdy1u70ReDg
+name: Force Shield
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-Reaction.webp
+effects: []
+folder: ANdrdlER39j2NHtV
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.563086+00:00'
+    importer_version: 3
+    uid: Feature.name-force_shield.source-class.sourceName-consular.level-2
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Consular:</strong> 2nd level</em></p>
+
+      <p>You learn how to defend yourself purely through your strength with the
+      Force. When you are hit by an attack, you can use your reaction to shroud
+      yourself in Force energy. Until the start of your next turn, you have a
+      bonus to AC equal to your Wisdom or Charisma modifier (your choice,
+      minimum of +1). This includes the triggering attack.</p>
+
+      <p>You can use this feature twice. You gain an additional use at 5th, 9th,
+      13th, and 17th level. You regain all expended uses when you finish a long
+      rest.</p>
+    chat: ''
+  requirements: Consular 2
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '2'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: force-shield
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!Rkeqzwdy1u70ReDg'
+

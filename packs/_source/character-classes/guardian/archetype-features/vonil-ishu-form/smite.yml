@@ -1,0 +1,121 @@
+name: Smite
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5588128+00:00'
+    importer_version: 3
+    uid: Feature.name-smite.source-archetype.sourceName-vonilishu_form.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Passive.webp
+system:
+  description:
+    value: >-
+      <p>Once per turn, when an ally is within 10 feet of you and it hits a
+      creature with a melee weapon attack, you can expend a use of your Channel
+      the Force and expend force points to have the chosen ally deal additional
+      damage to the target, which is the same type as the weapon's damage. The
+      additional damage is [[/r 1d8]] for each point spent in this way. You
+      can't deal more additional damage than the amount shown in the Focused
+      Strikes column of the guardian table.</p>
+
+      <p>At 11th level, the chosen ally must be within 30 feet of you to benefit
+      from this feature. At 17th level, the chosen ally must be within 60
+      feet.</p>
+    chat: ''
+  requirements: Guardian (Vonil/Ishu Form) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: guardianCTF
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '10'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: smite
+  enchant: {}
+effects: []
+folder: ap3majE7bXDoYp9z
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: xMSmaNTv7YiWb3yU
+ownership:
+  default: 0
+sort: 0
+_key: '!items!xMSmaNTv7YiWb3yU'
+

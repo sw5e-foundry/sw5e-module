@@ -1,0 +1,127 @@
+_id: CnVQJRpnRpsY0OFA
+name: Final Countdown
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Passive.webp
+effects: []
+folder: 2JnAmZKHptYnlkY6
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-final_countdown.source-archetype.sourceName-industrial_approach.level-14
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Industrial Approach:</strong> 14th level</em></p>
+
+      <p>When you are reduced to 0 hit points but not killed outright, and you
+      have at least one tech point remaining, you can expend all your remaining
+      tech points and instead to drop to one hit point (no action required). If
+      you do so, each creature within 30 feet of you must make a Dexterity
+      saving throw against your tech save DC. On a failed save, they take [[/r
+      1d12]] acid, cold, fire, ion, or lightning damage (your choice) damage for
+      each tech point spent in this way, or half as much on a successful
+      one.</p>
+    chat: ''
+  requirements: Berserker (Industrial Approach) 14
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 12
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - acid
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '30'
+          type: radius
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: final-countdown
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!CnVQJRpnRpsY0OFA'
+

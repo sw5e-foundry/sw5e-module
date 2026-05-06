@@ -1,0 +1,120 @@
+_id: 6RT32klOd7URbApH
+name: Potent Electromagnetism
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-ARCH-Passive.webp
+effects: []
+folder: gdfavuhogO2DxYtA
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7387065+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-potent_electromagnetism.source-archetype.sourceName-astrotech_engineering.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Astrotech Engineering:</strong> 3rd level</em></p>
+
+      <p>Once per round, when you deal damage to a droid or construct, you can
+      expend one use of your Potent Aptitude to deal an extra [[/r 2d6]] damage
+      to that target. The damage is the same type as the source of the
+      damage.</p>
+
+      <p>The damage increases when you reach certain levels in this class,
+      increasing to [[/r 3d6]] at 5th level, [[/r 5d6]] at 10th level, and [[/r
+      8d6]] at 15th level.</p>
+    chat: ''
+  requirements: Engineer (Astrotech Engineering) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: potent-electromagnetism
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!6RT32klOd7URbApH'
+

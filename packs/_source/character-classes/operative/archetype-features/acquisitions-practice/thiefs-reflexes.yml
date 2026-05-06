@@ -1,0 +1,120 @@
+_id: 0QBWeM5Z0iSgUShC
+name: Thief's Reflexes
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Reaction.webp
+effects: []
+folder: TEmPPcOVtQE318xA
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-thiefs_reflexes.source-archetype.sourceName-acquisitions_practice.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Acquisitions Practice:</strong> 17th level</em></p>
+
+      <p>You can take two turns during the first round of any combat. You take
+      your first turn at your normal initiative and your second turn at your
+      initiative minus 10. You can't use this feature when you are
+      surprised.</p>
+
+      <p>Additionally, you learn to utilize the momentum of your fall to make
+      deadly vertical strikes. Whenever you fall at least 50 feet and land
+      within 5 feet of an enemy creature you can use your reaction to make one
+      weapon attack against that creature. If the attack is a Sneak Attack, you
+      can deal three additional weapon dice worth of damage and the creature
+      must make a Dexterity saving throw or be knocked prone.</p>
+    chat: ''
+  requirements: Operative (Acquisitions Practice) 17
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: reaction
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: thiefs-reflexes
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!0QBWeM5Z0iSgUShC'
+

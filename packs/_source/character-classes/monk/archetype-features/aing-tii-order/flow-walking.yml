@@ -1,0 +1,118 @@
+_id: lvgzAhoGNZu6IyRy
+name: Flow-Walking
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Action.webp
+effects: []
+folder: FKYBBdZMl2UgkrNy
+flags:
+  sw5e-importer:
+    timestamp: '2023-05-30T20:15:26.6191308+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-flow_walking.source-archetype.sourceName-aing_tii_order.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Aing-Tii Order:</strong> 6th, 9th, 13th, and 17th
+      level</em></p>
+
+      <p>You can cast the <em>phasestrike</em> force power without expending
+      force points. When you reach 11th level, the damage bonus of the special
+      attack made during <em>phasestrike</em> increases to [[/r 2d8]], and at
+      17th level it increases to [[/r 3d8]].</p>
+
+      <p>Additionally, when you use your action to cast an at-will force power,
+      you can use your Martial Arts or Focus features.</p>
+
+      <p>You can use these features a combined three times. You gain an
+      additional use at 9th, 13th, and 17th level. You regain any expended uses
+      when you finish a long rest.</p>
+    chat: ''
+  requirements: Monk (Aing-Tii Order) 6
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: flow-walking
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!lvgzAhoGNZu6IyRy'
+

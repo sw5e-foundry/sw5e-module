@@ -1,0 +1,140 @@
+_id: 2mEEwJZkHwAA2w5m
+name: The Way of the Krayt Dragon
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Bonus.webp
+effects: []
+folder: hoknkuwVo8RJMMzI
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9834229+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-the_way_of_the_krayt_dragon.source-archetype.sourceName-shiendjem_so_form.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Shien/Djem So Form:</strong> 3rd level</em></p>
+
+      <p>As a bonus action, you can take a threatening stance for one minute.
+      While in this stance, the first time you hit with a melee weapon attack
+      using Strength each turn, you can choose to deal additional damage equal
+      to your Strength modifier. If there is another creature within 5 feet of
+      the original target and within your reach, you can attempt to deal the
+      additional damage to that creature instead. If the original attack roll
+      would hit the second creature, it takes damage equal to your Strength
+      modifier. The damage is of the same type dealt by the original attack.</p>
+
+      <p>This effect ends early if you are incapacitated or die. Once you've
+      used this feature, you can't use it again until you finish a long
+      rest.</p>
+    chat: ''
+  requirements: Guardian (Shien/Djem So Form) 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@abilities.str.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+          - custom:
+              enabled: true
+              formula: '@abilities.str.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: the-way-of-the-krayt-dragon
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!2mEEwJZkHwAA2w5m'
+

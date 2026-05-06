@@ -1,0 +1,134 @@
+_id: s0Bf6Sv2exQNH7vK
+name: Unlimited Power
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-ARCH-Action.webp
+effects: []
+folder: 42TPys4xorTOvlvL
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-unlimited_power.source-archetype.sourceName-way_of_lightning.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Way of Lightning:</strong> 18th level</em></p>
+
+      <p>You can increase the power of your simpler lightning force powers. When
+      you cast a force power of 1st through 6th level that deals lightning
+      damage, you can deal maximum damage with that power.</p>
+
+      <p>You can use this feature with no adverse effects a number of times
+      equal to your Wisdom or Charisma modifier (your choice, a minimum of
+      once). If you use this feature beyond this before you finish a long rest,
+      you take [[/r 2d12]] true damage for each level of the power, immediately
+      after you cast it. Each time you use this feature again before finishing a
+      long rest, the damage increases by [[/r 1d12]].</p>
+    chat: ''
+  requirements: Consular (Way of Lightning) 18
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: max(max(@abilities.wis.mod, @abilities.cha.mod), 1)
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: special
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 12
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - 'true'
+          - custom:
+              enabled: false
+            denomination: 12
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: unlimited-power
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!s0Bf6Sv2exQNH7vK'
+

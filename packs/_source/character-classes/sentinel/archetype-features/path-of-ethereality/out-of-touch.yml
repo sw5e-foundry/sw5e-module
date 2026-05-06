@@ -1,0 +1,125 @@
+_id: VjnTTjD2eKKwImLP
+name: Out of Touch
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Action.webp
+effects: []
+folder: qW1P3fAoqGCXZrFH
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6917347+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-out_of_touch.source-archetype.sourceName-path_of_ethereality.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Path of Ethereality:</strong> 7th level</em></p>
+
+      <p>As an action, you can step out of sync with the rest of the universe
+      for 1 minute. At the start of each of your turns, roll a [[/r d20]]. If
+      you roll 11 or higher, you and everything your are wearing or carrying are
+      completely invisible to all beings, except for those with truesight. On a
+      roll of 10 or lower, you instead appear as an indistinguishably blurred
+      form roughly your normal height and weight, though a being with truesight
+      sees you normally. Regardless of your appearance, for the duration, your
+      speed doubles, you gain a flying speed equal to your walking speed, and
+      you can move through creatures and objects willingly though you can not
+      affect them and they can not affect you. You can end this feature early on
+      your turn (no action required). When this effect ends, if you are inside a
+      solid object or creature, you are immediately shunted to the nearest
+      unoccupied space that you can occupy and take force damage equal to twice
+      the number of feet you are moved. </p>
+
+      <p>This effect ends early if you are incapacitated or die. Once you've
+      used this feature, you must complete a short or long rest before you can
+      use it again.</p>
+    chat: ''
+  requirements: Sentinel (Path of Ethereality) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: 1d20
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: out-of-touch
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!VjnTTjD2eKKwImLP'
+

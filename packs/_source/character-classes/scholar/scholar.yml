@@ -1,0 +1,490 @@
+_id: ZHxuZ0IOqwdM727e
+name: Scholar
+type: class
+img: modules/sw5e-module/icons/packs/Classes/Scholar.webp
+effects: []
+folder: 3doHezForTTYT7Qf
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.6296276+00:00'
+    importer_version: 3
+    uid: Class.name-scholar
+system:
+  description:
+    value: >-
+      <img style="margin:5px;border:0px;float:right"
+      src="modules/sw5e-module/icons/packs/Classes/scholar_01.webp" /><p>An
+      overwhelming horde of tusken raiders bears down on a chiss and her fellow
+      adventurers. She gives the order and her allies unleash a single
+      coordinated attack cutting deep into their lines. Under her command the
+      enemy is quickly routed against all odds, all according to
+      plan.</p><p>Deep within the once thought abandoned ruins, a nautolan tends
+      to his companions wounds as they rest. Countless long nights of study and
+      training have conditioned him to keep going even when all others have
+      exhausted themselves. He will see them through this.</p><p>A twi'lek in
+      fine vestments addresses a gathering crowd. What was the making of an
+      angry mob begins to disperse, his mere presence putting them at ease,
+      giving his companions time to make their escape.</p><p>Scholars are master
+      of the mundane arts, using methodical practices to turn the tables to
+      their advantage. From years of study and testing, scholars take in the
+      situation around them and quickly formulate the means to achieve whatever
+      they have minds set to. Whatever pursuit they follow, a scholar will have
+      a plan for anything that comes their way.</p><h2>The Pursuit of
+      Knowledge</h2><p>A true scholar is never satisfied. They are always
+      seeking out a new answer to a new question. This often goes hand-in-hand
+      with seeking a life of adventure, to explore new, hidden areas, or
+      accompany those that do. The life of a scholar often times begins in the
+      mundane, as a teacher or sage. Sometimes they serve as doctors, diplomats,
+      or as officers in the military.</p><h2>To Learn, To Know</h2><p>For
+      scholars, mundane life is often too slow. When life becomes stagnant or
+      when an answer cannot be found, the call to adventure rings louder.
+      Scholars will often go to ancient, forgotten, and often dangerous places
+      to find something to quench their thirst for knowledge.</p><p>As you
+      create a scholar, it's important to think of where you gained your
+      knowledge. Did you serve as an apprentice under a master? Did you attend
+      college or other formal education? Perhaps you gained it on your own,
+      searching out and pouring over dusty tomes found in forgotten places.
+      Where did your thirst for knowledge come from? Insatiable curiosity?
+      Always wanting to know the right answer? Or do you have something to
+      prove? Think about what field you wish to pursue and think of what is
+      driving you in that direction.</p><h3>Quick Build</h3><p>You can make a
+      scholar quickly by following these suggestions. First, make Intelligence
+      your highest ability score. Your next-highest score should be Dexterity.
+      Second, choose the noble background.</p>
+    chat: ''
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  identifier: scholar
+  levels: 1
+  advancement:
+    - _id: sw5e0hp000000000
+      configuration: {}
+      type: HitPoints
+      value: {}
+    - _id: sw5e1sv000000000
+      configuration:
+        identifier: superiority-dice-quantity
+        scale:
+          '1':
+            value: 3
+          '3':
+            value: 4
+          '5':
+            value: 5
+          '7':
+            value: 6
+          '9':
+            value: 7
+          '11':
+            value: 8
+          '13':
+            value: 9
+          '15':
+            value: 10
+          '17':
+            value: 11
+          '19':
+            value: 12
+        type: number
+        distance:
+          units: ''
+      title: Superiority Dice Quantity
+      type: ScaleValue
+      value: {}
+    - _id: sw5e2sv000000000
+      configuration:
+        identifier: superiority-dice-size
+        scale:
+          '1':
+            number: 1
+            faces: 4
+            modifiers: []
+          '5':
+            number: 1
+            faces: 6
+            modifiers: []
+          '9':
+            number: 1
+            faces: 8
+            modifiers: []
+          '13':
+            number: 1
+            faces: 10
+            modifiers: []
+          '17':
+            number: 1
+            faces: 12
+            modifiers: []
+        type: dice
+        distance:
+          units: ''
+      title: Superiority Dice Size
+      type: ScaleValue
+      value: {}
+    - _id: sw5e3sv000000000
+      configuration:
+        identifier: discoveries
+        scale:
+          '2':
+            value: 2
+          '3':
+            value: 4
+          '5':
+            value: 5
+          '9':
+            value: 6
+          '11':
+            value: 7
+          '13':
+            value: 8
+          '17':
+            value: 9
+        type: number
+        distance:
+          units: ''
+      title: Discoveries
+      type: ScaleValue
+      value: {}
+    - _id: sw5e4asi00000000
+      configuration:
+        cap: null
+        fixed: {}
+        locked: []
+        points: 2
+        recommendation: null
+      level: 4
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e5asi00000000
+      configuration:
+        cap: null
+        fixed: {}
+        locked: []
+        points: 2
+        recommendation: null
+      level: 8
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e6asi00000000
+      configuration:
+        cap: null
+        fixed: {}
+        locked: []
+        points: 2
+        recommendation: null
+      level: 12
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e7asi00000000
+      configuration:
+        cap: null
+        fixed: {}
+        locked: []
+        points: 2
+        recommendation: null
+      level: 16
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e8asi00000000
+      configuration:
+        cap: null
+        fixed: {}
+        locked: []
+        points: 2
+        recommendation: null
+      level: 19
+      type: AbilityScoreImprovement
+      value:
+        type: asi
+    - _id: sw5e9t0000000000
+      classRestriction: primary
+      configuration:
+        choices: []
+        grants:
+          - armor:lgt
+        mode: default
+        allowReplacements: false
+      level: 1
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e10t000000000
+      classRestriction: primary
+      configuration:
+        choices: []
+        grants:
+          - weapon:sbl
+          - weapon:svb
+          - weapon:mvb
+        mode: default
+        allowReplacements: false
+      level: 1
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e11t000000000
+      classRestriction: primary
+      configuration:
+        choices:
+          - count: 1
+            pool:
+              - tool:*
+        grants: []
+        mode: default
+        allowReplacements: false
+      level: 1
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e12t000000000
+      classRestriction: primary
+      configuration:
+        choices: []
+        grants:
+          - saves:int
+          - saves:wis
+        mode: default
+        allowReplacements: false
+      level: 1
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e13t000000000
+      classRestriction: primary
+      configuration:
+        choices:
+          - count: 3
+            pool:
+              - skills:dec
+              - skills:ins
+              - skills:itm
+              - skills:inv
+              - skills:lor
+              - skills:med
+              - skills:nat
+              - skills:per
+              - skills:sur
+        grants: []
+        mode: default
+        allowReplacements: false
+      level: 1
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e14t000000000
+      classRestriction: secondary
+      configuration:
+        choices: []
+        grants:
+          - armor:lgt
+        mode: default
+        allowReplacements: false
+      level: 1
+      title: Multiclass Proficiencies
+      type: Trait
+      value:
+        chosen: []
+    - _id: sw5e15ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.aiD0jaJJZzmoHESz
+            optional: false
+          - uuid: Compendium.sw5e-module.character-classes.julwa4Ma5myCpsZa
+            optional: false
+        optional: false
+        spell: null
+      level: 1
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e16ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.B6NJI9z0SkEMMJFh
+            optional: false
+          - uuid: Compendium.sw5e-module.character-classes.myRBcNnOr8RVAWhp
+            optional: false
+        optional: false
+        spell: null
+      level: 2
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e17ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.XQPJBvLrsacGI1tT
+            optional: false
+          - uuid: Compendium.sw5e-module.character-classes.VJDGJuow6V6gNqv7
+            optional: false
+        optional: false
+        spell: null
+      level: 3
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e18ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.vwAX7gH2U9C2cgRh
+            optional: false
+        optional: false
+        spell: null
+      level: 5
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e19ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.gBTZEQNzearHcftD
+            optional: false
+        optional: false
+        spell: null
+      level: 14
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e20ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.ibQTjE4laa1vJuUf
+            optional: false
+        optional: false
+        spell: null
+      level: 18
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e21ig00000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.j0CGv1G7GU5WtLhh
+            optional: false
+        optional: false
+        spell: null
+      level: 20
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: sw5e22ic00000000
+      configuration:
+        allowDrops: true
+        choices:
+          '2':
+            count: 2
+            replacement: false
+          '3':
+            count: 2
+            replacement: false
+          '5':
+            count: 1
+            replacement: false
+          '9':
+            count: 1
+            replacement: false
+          '11':
+            count: 1
+            replacement: false
+          '13':
+            count: 1
+            replacement: false
+          '17':
+            count: 1
+            replacement: false
+        pool:
+          - uuid: Compendium.sw5e-module.character-classes.SpT3wy8DCNvOguih
+          - uuid: Compendium.sw5e-module.character-classes.HVEhmRaHaSmiDv8X
+          - uuid: Compendium.sw5e-module.character-classes.MxpZirJVkhOn1x5f
+          - uuid: Compendium.sw5e-module.character-classes.1Nrf9OQm5XIBdwk0
+          - uuid: Compendium.sw5e-module.character-classes.eqHf2Ftxnk0C9CNY
+          - uuid: Compendium.sw5e-module.character-classes.FpBil7rCO3B7GAfQ
+          - uuid: Compendium.sw5e-module.character-classes.gWppw1b30Ja7oFUa
+          - uuid: Compendium.sw5e-module.character-classes.YXXaPvtOUI0B03RW
+          - uuid: Compendium.sw5e-module.character-classes.MWwfKBTSfLgWSm98
+          - uuid: Compendium.sw5e-module.character-classes.mzHeorjeUUikzpRB
+          - uuid: Compendium.sw5e-module.character-classes.vXcJENxiP0OzaJ2c
+          - uuid: Compendium.sw5e-module.character-classes.jFfobDzdgZVcONfo
+          - uuid: Compendium.sw5e-module.character-classes.weN3hZQjfrbtKurj
+          - uuid: Compendium.sw5e-module.character-classes.hU4VPWXoaNHNwuuA
+          - uuid: Compendium.sw5e-module.character-classes.KkOytUUxt7qfGC8y
+          - uuid: Compendium.sw5e-module.character-classes.iQijVjIASMU1gv1e
+          - uuid: Compendium.sw5e-module.character-classes.xSwoOnoA77rXl4NA
+          - uuid: Compendium.sw5e-module.character-classes.sacmDENmckpaXVdY
+          - uuid: Compendium.sw5e-module.character-classes.538xLvSTw4mG5Eo5
+          - uuid: Compendium.sw5e-module.character-classes.esnLUEIDjwn9zBpF
+          - uuid: Compendium.sw5e-module.character-classes.6h8iknt0hteOGWsS
+          - uuid: Compendium.sw5e-module.character-classes.fpiYcUt717TBAzPC
+          - uuid: Compendium.sw5e-module.character-classes.pp9rihkrjmfcRQE4
+        restriction:
+          level: ''
+          subtype: scholarInvocation
+          type: class
+          list: []
+        type: feat
+        spell: null
+      title: Discoveries
+      type: ItemChoice
+      value:
+        added: {}
+        replaced: {}
+      hint: >-
+        As you adventure, your studies have helped you discover new practices
+        you can apply to your skills. You master two discoveries of your choice.
+        Your discovery options are detailed at the end of the class description.
+        When you gain certain scholar levels, you gain additional discoveries of
+        your choice, as shown in the Discoveries column of the scholar table.
+
+        Additionally, when you gain a level in this class, you can choose one of
+        the discoveries you know and replace it with another discovery that you
+        could learn at that level.
+    - _id: sw5e23ic00000000
+      configuration: {}
+      title: Academic Pursuits
+      type: Subclass
+      value:
+        document: null
+        uuid: null
+      hint: >-
+        Your pursuit is a representation of which fields you have studied or how
+        you practically apply your knowledge. Your pursuit grants you features
+        at 3rd, 6th, 9th, and 17th level.
+      level: 0
+  startingEquipment: []
+  spellcasting:
+    superiorityProgression: full
+    progression: none
+    preparation:
+      formula: ''
+    forceProgression: none
+    techProgression: none
+    ability: ''
+  hd:
+    denomination: d8
+    spent: 0
+    additional: ''
+  primaryAbility:
+    value: []
+    all: true
+  properties: []
+  wealth: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!ZHxuZ0IOqwdM727e'
+

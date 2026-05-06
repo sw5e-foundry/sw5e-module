@@ -1,0 +1,129 @@
+_id: qkYPBgM3P4vTXaQc
+name: Clinch Strike
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Bonus.webp
+effects: []
+folder: fVQhvUH1E0BZ0oLd
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6887356+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-clinch_strike.source-archetype.sourceName-disabling_practice.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Disabling Practice:</strong> 3rd level</em></p>
+
+      <p>You learn how to discourage, debilitate, and harm your enemies. You
+      gain the following benefits while you aren't wearing heavy armor or
+      wielding a medium or heavy shield:</p>
+
+      <ul>
+
+      <li>Your damage die for your unarmed strikes and natural weapons increases
+      by one step (from 1 to [[/r d4]], [[/r d4]] to [[/r d6]], or [[/r d6]] to
+      [[/r d8]]), and you can apply your Sneak Attack damage when you hit with
+      an unarmed strike even if it doesn't have the finesse property.</li>
+
+      <li>You don't need advantage on your attack roll to use your Sneak Attack
+      if the target of your Sneak Attack is a creature grappled by you. All the
+      other rules for the Sneak Attack class feature still apply to you.</li>
+
+      <li>You can use the bonus action granted by your Cunning Action to make an
+      unarmed strike against a creature you are grappling.</li></ul>
+    chat: ''
+  requirements: Operative (Disabling Practice) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - versatile
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: clinch-strike
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!qkYPBgM3P4vTXaQc'
+

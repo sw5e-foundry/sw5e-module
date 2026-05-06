@@ -1,0 +1,110 @@
+_id: fOWavPfPILnRtux6
+name: Enlightenment
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Action.webp
+effects: []
+folder: BsuP9mfiMveVjX32
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9824224+00:00'
+    importer_version: 3
+    uid: Feature.name-enlightenment.source-archetype.sourceName-niman_form.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Niman Form:</strong> 7th level</em></p>
+
+      <p>When you reduce a hostile creature to 0 hit points with a force power,
+      or you restore hit points to a friendly creature that is at 0 hit points
+      with a force power, you gain temporary force points equal to your Wisdom
+      or Charisma modifier (your choice, minimum of one). Once you've done so,
+      you can't do so again until you complete a short or long rest.</p>
+    chat: ''
+  requirements: Guardian (Niman Form) 7
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: enlightenment
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!fOWavPfPILnRtux6'
+

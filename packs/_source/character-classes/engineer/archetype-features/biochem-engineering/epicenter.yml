@@ -1,0 +1,118 @@
+_id: MH30Nb0CA4JCDDG8
+name: Epicenter
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-ARCH-Reaction.webp
+effects: []
+folder: RZKhJ5zuu9RE0bXh
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7427044+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-epicenter.source-archetype.sourceName-biochem_engineering.level-14
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Biochem Engineering:</strong> 14th level</em></p>
+
+      <p>As a reaction when you take damage from a creature within 15 feet of
+      you that you can see, you can use one of your mixtures. The effects of the
+      mixture release in a 15-foot-radius sphere centered on you, and if the
+      mixture requires a saving throw, you automatically succeed on it.
+      Additionally, the affected area is difficult terrain to creatures other
+      than you until the end of your next turn.</p>
+
+      <p>Once you've used this feature, you must complete a short or long rest
+      before you can use it again.</p>
+    chat: ''
+  requirements: Engineer (Biochem Engineering) 14
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: turn
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '15'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          size: '15'
+          type: sphere
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: epicenter
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!MH30Nb0CA4JCDDG8'
+

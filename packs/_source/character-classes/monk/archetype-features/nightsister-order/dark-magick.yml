@@ -1,0 +1,115 @@
+_id: PctiBJbVoRWajmmI
+name: Dark Magick
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Action.webp
+effects: []
+folder: yoiCH0pFoxAnBS89
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9874223+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-dark_magick.source-archetype.sourceName-nightsister_order.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Nightsister Order:</strong> 6th level</em></p>
+
+      <p>You can use your action to force each creature within 30 feet of you
+      that can see you to make a Wisdom saving throw against your focus save DC
+      or be charmed or frightened (your choice) of you until the end of your
+      next turn. </p>
+    chat: ''
+  requirements: Monk (Nightsister Order) 6
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: turn
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '30'
+          type: radius
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: dark-magick
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!PctiBJbVoRWajmmI'
+

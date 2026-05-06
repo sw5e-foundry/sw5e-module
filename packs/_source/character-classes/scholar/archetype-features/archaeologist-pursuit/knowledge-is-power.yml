@@ -1,0 +1,129 @@
+_id: wNQS0Ptg34IyGxZZ
+name: Knowledge is Power
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Action.webp
+effects: []
+folder: ww09tTUzZPpgA72U
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6787413+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-knowledge_is_power.source-archetype.sourceName-archaeologist_pursuit.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Archaeologist Pursuit:</strong> 17th level</em></p>
+
+      <p>You gain the ability to steal the knowledge of how to cast a power from
+      another forcecaster. When a hostile creature casts a force power that
+      affects a friendly creature within range of your Critical Analysis
+      feature, and you use your reaction target that friendly creature with your
+      Critical Analysis feature, you can force the creature casting the power to
+      make a Wisdom or Charisma saving throw (your choice) against your
+      universal force save DC. On a successful save, the power is cast as
+      normal.</p>
+
+      <p>On a failed save, you negate the power's effects, and you steal the
+      knowledge of that power if it is at least 1st level and of a level you can
+      cast. For the next 8 hours, you know the power and can cast it using your
+      force points. The creature cannot cast that power again until the 8 hours
+      have passed.</p>
+
+      <p>Once you've used this feature, you cannot use it again until you finish
+      a long rest.</p>
+    chat: ''
+  requirements: Scholar (Archaeologist Pursuit) 17
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: special
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: hour
+        value: '8'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: knowledge-is-power
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!wNQS0Ptg34IyGxZZ'
+

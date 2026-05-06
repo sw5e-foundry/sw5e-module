@@ -1,0 +1,152 @@
+name: Figure of Flame
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6847388+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-figure_of_flame.source-archetype.sourceName-kro_var_order.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Bonus.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Prerequisite:</strong> River of Hungry Flame</em></p>
+
+      <p>As an action, you cause flames to race across your body, granting the
+      following benefits until the start of your next turn:</p>
+
+      <ul>
+
+      <li>You have resistance to fire damage.</li>
+
+      <li>The flames shed bright light in a 30-foot radius and dim light for an
+      additional 30 feet.</li>
+
+      <li>Any creature that moves within 5 feet of you for the first time on a
+      turn or ends its turn there takes [[/r 1d10]] fire damage.</li>
+
+      <li>You can use your action to create a line of fire 15 feet long and 5
+      feet wide extending from you in a direction you choose. Each creature in
+      the line must make a Dexterity saving throw, taking [[/r 4d8]] fire damage
+      on a failed save, or half as much on a successful one.</li>
+
+      </ul>
+
+      <p>At the start of each of your turns, you can use your bonus action to
+      extend the benefits of this feature until the start of your next turn, to
+      a maximum duration of 1 minute. This effect ends immediately if you are
+      incapacitated or die.</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 17
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 10
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 4
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '30'
+          type: radius
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: figure-of-flame
+  enchant: {}
+folder: aCedWASuu1FMbboa
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: Jf3iz7Sn86isOcXe
+ownership:
+  default: 0
+sort: 0
+_key: '!items!Jf3iz7Sn86isOcXe'
+

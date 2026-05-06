@@ -1,0 +1,114 @@
+_id: HjT00X0XmbF5QqSr
+name: Unrelenting Resilience
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-ARCH-Action.webp
+effects: []
+folder: VJNVvlIKdv7sXCJz
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.4758598+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-unrelenting_resilience.source-archetype.sourceName-way_of_endurance.level-14
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Way of Endurance:</strong> 14th level</em></p>
+
+      <p>When you use your Boundless Vitality feature while concentrating on a
+      force power, you can add the result of the roll to the Constitution saving
+      throw made to maintain concentration.</p>
+
+      <p>Additionally, when you are reduced to 0 hit points but not killed
+      outright while Upheld by the Force is active, you can drop to 1 hit point
+      instead. You can't use this feature again until you finish a long
+      rest.</p>
+    chat: ''
+  requirements: Consular (Way of Endurance) 14
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: unrelenting-resilience
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!HjT00X0XmbF5QqSr'
+

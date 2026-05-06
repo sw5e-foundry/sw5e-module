@@ -1,0 +1,125 @@
+_id: bcFE1wrOE90hfVrM
+name: Toil and Trouble
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Passive.webp
+effects: []
+folder: 3Zopx5gFtoKvkFY3
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6827392+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-toil_and_trouble.source-archetype.sourceName-occultist_pursuit.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Occultist Pursuit:</strong> 17th level</em></p>
+
+      <p>You perfect your control of your curses, granting them unmatched
+      potency. When the target of your Curse of </p>
+
+      <p>Objurgation fails a saving throw against one of your maneuvers, you can
+      choose to amplify that maneuver by expending a number of Hit Dice of your
+      choice. The target immediately takes [[/r 1d8]] psychic damage for every
+      Hit Die spent in this way.</p>
+
+      <p>Additionally, when a creature attempts to use a power like <em>remove
+      curse</em> or other similar abilities to remove a curse you set, they must
+      roll a Wisdom or Charisma check (their choice) against your maneuver save
+      DC. On a failed save, their attempt fails, and any force or tech points
+      spent in this way are wasted.</p>
+    chat: ''
+  requirements: Scholar (Occultist Pursuit) 17
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - psychic
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: toil-and-trouble
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!bcFE1wrOE90hfVrM'
+

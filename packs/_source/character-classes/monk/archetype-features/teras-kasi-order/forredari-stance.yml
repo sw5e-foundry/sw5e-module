@@ -1,0 +1,197 @@
+_id: Qs43m1GM0Zan6OQR
+name: Forredari Stance
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Bonus.webp
+effects: []
+folder: jN0Y39z4If2Eb7go
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6857378+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-forredari_stance.source-archetype.sourceName-teras_kasi_order.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Teras Kasi Order:</strong> 3rd level</em></p>
+
+      <p>Your honed focus allows you to enter a stance of mental fortification
+      and power. You can use your bonus action to enter this stance. When you do
+      so, you unleash a flurry of blows on creatures of your choice that you can
+      see within 10 feet of you. Each creature in the area must make a Dexterity
+      saving throw (DC = 8 + your bonus to attacks with the weapon) or take the
+      weapon's normal damage.</p>
+
+      <p>This stance lasts for 1 minute. While you are in this stance, you gain
+      the following benefits:</p>
+
+      <ul>
+
+      <li><strong>Death Weave.</strong> When you reduce a creature to 0 hit
+      points, you gain temporary hit points equal to your focus ability modifier
+      + half your monk level.</li>
+
+      <li><strong>Gundark Slap.</strong> Once on each of your turns, when you
+      hit a creature with an unarmed strike or a monk weapon, you can choose to
+      make it unable to take reactions until the end of your next turn.</li>
+
+      <li><strong>Sleeping Krayt.</strong> You can use your focus ability
+      modifier instead of Strength whenever you would make a Strength check or a
+      Strength saving throw. Additionally, you have advantage on saving throws
+      against being charmed or frightened.</li>
+
+      </ul>
+
+      <p>These effects end early if you are incapacitated or die. Once you've
+      used this feature, you can't use it again until you finish a long
+      rest.</p>
+
+      <p>While you have no remaining uses of this feature, you can instead
+      expend 1 focus point to use it. When you do so, your maximum focus points
+      are reduced by 1 until you complete a long rest.</p>
+    chat: ''
+  requirements: Monk (Teras Kasi Order) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '10'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+    sw5e1heal0000000:
+      _id: sw5e1heal0000000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '@mod + ((@classes.monk.levels)/2)'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        value: '10'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: forredari-stance
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!Qs43m1GM0Zan6OQR'
+

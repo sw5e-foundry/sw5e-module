@@ -1,0 +1,122 @@
+name: Hunter's Call
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-hunters_call.source-archetype.sourceName-beastmaster_approach.level-14
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Beastmaster Approach:</strong> 14th and 17th level</em></p>
+
+      <p>When you enter your rage, you can choose up to 5 allies that you can
+      see within 30 feet of you. You gain 5 temporary hit points for each
+      creature. For the duration of your rage, once on each of their turns, an
+      affected ally can add your rage damage bonus to a weapon attack's damage
+      roll.</p>
+
+      <p>You can use this feature five times. You gain an additional use at 17th
+      level. You regain all expended uses when you finish a long rest.</p>
+    chat: ''
+  requirements: Berserker (Beastmaster Approach) 14
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '5'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '5'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: hunters-call
+  enchant: {}
+effects: []
+folder: hlCKH3HTvZqi2LK9
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: gGamflBb8bvq9N0u
+ownership:
+  default: 0
+sort: 0
+_key: '!items!gGamflBb8bvq9N0u'
+

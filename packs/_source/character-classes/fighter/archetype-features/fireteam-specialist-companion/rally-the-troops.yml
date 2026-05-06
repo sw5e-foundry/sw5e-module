@@ -1,0 +1,117 @@
+name: Rally the Troops
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5448199+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-rally_the_troops.source-archetype.sourceName-fireteam_specialist_companion.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/FGTR-ARCH-Passive.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Fireteam Specialist:</strong> 7th level</em></p>
+
+      <p>When you use your Second Wind feature while your companion is within 10
+      feet of you, your companion regains hit points and gains temporary hit
+      points equal to your fighter level.</p>
+
+      <p>This radius increases to 30 feet at 11th level, and 60 feet at 17th
+      level. </p>
+    chat: ''
+  requirements: Fighter (Fireteam Specialist (Companion)) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '@classes.fighter.levels'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        value: '10'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: rally-the-troops
+  enchant: {}
+effects: []
+folder: Oquc6OTaqHbq1nQz
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: k5FWh0AqBi5j9oTJ
+ownership:
+  default: 0
+sort: 0
+_key: '!items!k5FWh0AqBi5j9oTJ'
+

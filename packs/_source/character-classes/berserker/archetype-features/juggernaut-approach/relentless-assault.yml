@@ -1,0 +1,147 @@
+_id: hwww57Bl4DAqvd5q
+name: Relentless Assault
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Action.webp
+effects: []
+folder: qL9zCeJt2kwmIc2P
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-relentless_assault.source-archetype.sourceName-juggernaut_approach.level-14
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Juggernaut Approach:</strong> 14th level</em></p>
+
+      <p>You're able to charge in unerring bursts. As an action, you can charge
+      up to twice your speed in a straight line without provoking opportunity
+      attacks. Each creature within 5 feet of your path must make a Strength or
+      Dexterity saving throw (DC = 8 + your proficiency bonus + your Strength
+      modifier, the target chooses the ability they use use). On a failed save,
+      a creature takes damage equal to your Strength modifier + your Rage Bonus
+      and is pushed back 5 feet in a direction of your choice. Creatures smaller
+      than you make this save with disadvantage. When you end this movement, if
+      a creature is within 5 feet of you, you can make one melee weapon attack
+      (no action required). On a hit, the creature takes additional damage equal
+      to your berserker level.</p>
+
+      <p>Once you've used this feature, you must complete a short or long rest
+      before you can use it again.</p>
+    chat: ''
+  requirements: Berserker (Juggernaut Approach) 14
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: true
+              formula: '@abilities.str.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+          - custom:
+              enabled: true
+              formula: '@classes.berserker.levels'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '5'
+          type: radius
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: relentless-assault
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!hwww57Bl4DAqvd5q'
+

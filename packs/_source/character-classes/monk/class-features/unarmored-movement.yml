@@ -1,0 +1,97 @@
+name: Unarmored Movement
+flags:
+  sw5e-importer:
+    timestamp: '2021-10-12T11:17:35.8672754+00:00'
+    importer_version: 3
+    uid: Feature.name-unarmored_movement.source-class.sourceName-monk.level-3
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Monk:</strong> 3rd and 9th level</em></p>
+
+      <p>Your speed increases by 10 feet while you are not wearing armor or
+      wielding a shield. This bonus increases when you reach certain monk
+      levels, as shown in the Unarmored Movement column of the monk table.</p>
+
+      <p>At 9th level, you gain the ability to move along vertical surfaces and
+      across liquids on your turn without falling during the move.</p>
+    chat: ''
+  requirements: Monk 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities: {}
+  advancement: []
+  identifier: unarmored-movement
+  enchant: {}
+effects:
+  - _id: d0vaTfluRWKVZJkk
+    changes:
+      - key: system.attributes.movement.walk
+        mode: 2
+        value: '@scale.monk.unarmored-movement'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    origin: Compendium.sw5e-module.character-classes.FeiOrQG28deFgBT1
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      core:
+        statusId: ''
+    name: Walk Speed
+    description: ''
+    statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      lastModifiedBy: null
+    img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!j3MilBSO0RDAKpK1.d0vaTfluRWKVZJkk'
+folder: EuaUbhYGJmRG0ki8
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: j3MilBSO0RDAKpK1
+ownership:
+  default: 0
+sort: 0
+_key: '!items!j3MilBSO0RDAKpK1'
+

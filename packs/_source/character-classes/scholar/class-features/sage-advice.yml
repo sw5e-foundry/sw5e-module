@@ -1,0 +1,121 @@
+name: Sage Advice
+flags:
+  sw5e-importer:
+    timestamp: '2022-05-29T01:36:28.4237839+00:00'
+    importer_version: 3
+    uid: Feature.name-sage_advice.source-class.sourceName-scholar.level-2
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-Action.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Scholar:</strong> 2nd and 13th level</em></p>
+
+      <p>You can spend 1 minute spreading your knowledge and experience,
+      advising those around you. When you do so, choose a skill or tool you are
+      proficient with and a number of friendly creatures up to your Intelligence
+      modifier within 30 feet of you who can hear you and who can understand
+      you. Once within the next hour, the next time each creature would make an
+      ability check with the chosen skill or tool, they may add their
+      proficiency bonus to the roll if they are not already proficient. A
+      creature may only benefit from this feature once. If a creature is
+      targeted by this feature again before using it, they can choose to retain
+      the first benefit or replace it with the new skill or tool instead.</p>
+
+      <p>Once you've used this feature, you can't use it again until you finish
+      a long rest. Starting at 13th level, you regain the ability to use it
+      after you complete a short or long rest.</p>
+    chat: ''
+  requirements: Scholar 2
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: hour
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: sage-advice
+  enchant: {}
+effects: []
+folder: lMll0HiBGZ8eIa0n
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: myRBcNnOr8RVAWhp
+ownership:
+  default: 0
+sort: 0
+_key: '!items!myRBcNnOr8RVAWhp'
+

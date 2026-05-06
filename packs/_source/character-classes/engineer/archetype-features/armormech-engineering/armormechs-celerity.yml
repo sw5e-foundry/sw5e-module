@@ -1,0 +1,113 @@
+_id: sCMaEqHoPH3n5dP9
+name: Armormech's Celerity
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-ARCH-Bonus.webp
+effects: []
+folder: daRZDBhTnRiOl9Jp
+flags:
+  sw5e-importer:
+    timestamp: '2022-05-29T01:36:27.7400067+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-armormechs_celerity.source-archetype.sourceName-armormech_engineering.level-14
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Armormech Engineering:</strong> 14th and 17th
+      level</em></p>
+
+      <p>When you take the Attack action or use your action to a cast a tech
+      power of 1st-level or higher, you can make one weapon attack as a bonus
+      action.</p>
+
+      <p>You can use this feature five times. You gain an additional use at 17th
+      level. You regain all expended uses when you complete a long rest.</p>
+    chat: ''
+  requirements: Engineer (Armormech Engineering) 14
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '5'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: armormechs-celerity
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!sCMaEqHoPH3n5dP9'
+

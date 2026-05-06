@@ -1,0 +1,129 @@
+_id: hEtaCq4DRAre5lt3
+name: Emergency Planning
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+effects: []
+folder: 1gdAjhEaJWUGCATe
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6827392+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-emergency_planning.source-archetype.sourceName-mastermind_technique.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Mastermind Technique:</strong> 11th level</em></p>
+
+      <p>You've learned to formulate and execute a plan. As an action, you can
+      choose up to six creatures (including yourself) that you can see within 60
+      feet of you. For each creature, choose one of the following: ability
+      check, attack roll, or saving throw. Each creature gains an Emergency
+      Planning die, which is a [[/r d8]].</p>
+
+      <p>Once within the next 10 minutes, each creature can roll the die and add
+      the number rolled to one ability check, attack roll, or saving throw, as
+      determined when you use this feature. The creature can wait until after it
+      rolls the [[/r d20]] before deciding to use the Emergency Planning die,
+      but must decide before the GM says whether the roll succeeds or fails.
+      Once the Emergency Planning die is rolled, it is lost.</p>
+
+      <p>A creature can have only one Emergency Planning die at a time.</p>
+
+      <p>Once you've used this feature, you must complete a short or long rest
+      before you can use it again.</p>
+
+      <p>Your Emergency Planning die changes when you reach certain levels in
+      this class. to [[/r 1d10]] at 13th level, and to [[/r 1d12]] at 17th
+      level.</p>
+    chat: ''
+  requirements: Scout (Mastermind Technique) 11
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '10'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: emergency-planning
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!hEtaCq4DRAre5lt3'
+

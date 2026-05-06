@@ -1,0 +1,110 @@
+name: Shield
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5588128+00:00'
+    importer_version: 3
+    uid: Feature.name-shield.source-archetype.sourceName-vonilishu_form.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Reaction.webp
+system:
+  description:
+    value: >-
+      <p>When an ally is hit by a weapon attack while within 10 feet of you, you
+      can use your reaction and expend a use of your Channel the Force to
+      attempt to divert the attack. When you do so, the damage the chosen ally
+      takes from the attack is reduced by [[/r 1d10]] + your Wisdom or Charisma
+      modifier (your choice) + your guardian level.</p>
+
+      <p>At 11th level, the chosen ally must be within 30 feet of you to benefit
+      from this feature. At 17th level, the chosen ally must be within 60
+      feet.</p>
+    chat: ''
+  requirements: Guardian (Vonil/Ishu Form) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: guardianCTF
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '10'
+        override: false
+      roll:
+        formula: 1d10 + @mod
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: shield
+  enchant: {}
+effects: []
+folder: ap3majE7bXDoYp9z
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: oW0sAWlBE1sbF9TM
+ownership:
+  default: 0
+sort: 0
+_key: '!items!oW0sAWlBE1sbF9TM'
+

@@ -1,0 +1,108 @@
+_id: fUtkSOA3uOmiZW1W
+name: Damage Absorption
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-ARCH-Reaction.webp
+effects: []
+folder: daRZDBhTnRiOl9Jp
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9384491+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-damage_absorption.source-archetype.sourceName-armormech_engineering.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Armormech Engineering:</strong> 3rd level</em></p>
+
+      <p>When you take damage, you can use your reaction and expend one use of
+      your Potent Aptitude to absorb some of that damage. When you do so, the
+      damage you take from the attack is reduced by the amount rolled on the die
+      + your Intelligence modifier (minimum of +1). You must be wearing your
+      modified armor or wielding your modified shield to gain this benefit.</p>
+    chat: ''
+  requirements: Engineer (Armormech Engineering) 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: damage-absorption
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!fUtkSOA3uOmiZW1W'
+

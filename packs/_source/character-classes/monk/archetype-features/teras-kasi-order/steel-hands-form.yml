@@ -1,0 +1,146 @@
+_id: DiAgovghgLcjDmo5
+name: Steel Hands Form
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Reaction.webp
+effects: []
+folder: jN0Y39z4If2Eb7go
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6857378+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-steel_hands_form.source-archetype.sourceName-teras_kasi_order.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Teras Kasi Order:</strong> 6th level</em></p>
+
+      <p>You can draw upon your focus to utilize an array of practiced
+      techniques to strike your opponents with precision and power. You can use
+      your bonus action to enter this stance, and when you do so, you can also
+      enter your Forredari Stance as a part of this same bonus action. This form
+      lasts for 1 minute. While you are in this stance, you gain the following
+      benefits:</p>
+
+      <ul>
+
+      <li><strong>Charging Wampa.</strong> Once per round, when you are forced
+      to make a saving throw against a force power, your movement speed
+      increases by 10 feet until the end of your next turn.</li>
+
+      <li><strong>Nexu Grin.</strong> When a creature you can see within 10 feet
+      of you casts a force power that requires a force attack roll against you
+      or an an allied creature, you can use your reaction and expend 1 focus
+      point to impose disadvantage on the attack roll. If the attack misses, and
+      the higher of the two [[/r d20]] rolls would also miss, the creature
+      cannot cast that force power again until it completes a short or long
+      rest.</li>
+
+      <li><strong>Screaming Squill.</strong> Once per turn, when you hit a
+      creature that is concentrating on a force power and it makes a
+      Constitution saving throw to maintain concentration, the DC for the check
+      equals your focus save DC, unless the DC for the Constitution saving throw
+      would be higher.</li>
+
+      </ul>
+
+      <p>These effects end early if you are incapacitated or die. Once you've
+      used this feature, you can't use it again until you finish a long
+      rest.</p>
+
+      <p>While you have no remaining uses of this feature, you can instead
+      expend 1 focus point to use it. When you do so, your maximum focus points
+      are reduced by 1 until you complete a long rest.</p>
+    chat: ''
+  requirements: Monk (Teras Kasi Order) 6
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: reaction
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '10'
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: steel-hands-form
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!DiAgovghgLcjDmo5'
+

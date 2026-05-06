@@ -1,0 +1,130 @@
+_id: hiImvWE5BU0Ef9iK
+name: Mutagenic Transformation
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Bonus.webp
+effects: []
+folder: TIMXWLueC1qkKEsT
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6807408+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-mutagenic_transformation.source-archetype.sourceName-geneticist_pursuit.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Geneticist Pursuit:</strong> 6th level</em></p>
+
+      <p>When you target yourself with your Critical Analysis feature, you can
+      choose to undergo a mutagenic transformation. Your form shifts,
+      exaggerating and strengthening your geneticist discoveries for 1 hour. You
+      gain the following benefits:</p>
+
+      <ul>
+
+      <li>You can attack twice, instead of once, whenever you take the Attack
+      action on your turn.</li>
+
+      <li>Your Strength score becomes equal to your Critical Analysis
+      score.</li>
+
+      <li>You gain a bonus to your AC equal to half your Critical Analysis
+      ability modifer (minimum of +1) if it doesn't already include that
+      modifier.</li>
+
+      </ul>
+
+      <p>You can end this effect early on your turn as a bonus action. This
+      effect ends early if you are incapacitated or die. You can use this
+      feature twice. You regain all expended uses of it when you finish a long
+      rest.</p>
+    chat: ''
+  requirements: Scholar (Geneticist Pursuit) 6
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '2'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: hour
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: mutagenic-transformation
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!hiImvWE5BU0Ef9iK'
+

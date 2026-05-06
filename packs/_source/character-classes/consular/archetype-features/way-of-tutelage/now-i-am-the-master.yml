@@ -1,0 +1,125 @@
+_id: pPyeqnE1GnMeG1og
+name: Now I Am The Master
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-ARCH-Action.webp
+effects: []
+folder: uhu8GDoXkw8txw9u
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-now_i_am_the_master.source-archetype.sourceName-way_of_tutelage.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Way of Tutelage:</strong> 18th level</em></p>
+
+      <p>Your companion has learned almost all that it can from you. As an
+      action on its turn, your companion can take the lead, gaining the
+      following benefits for 1 minute:</p>
+
+      <ul>
+
+      <li>It gains temporary hit points equal to twice its level.</li>
+
+      <li>Once per turn, when it deals damage or restores hit points, it can
+      roll an additional die.</li>
+
+      <li>It gains resistance to kinetic and energy damage.</li>
+
+      </ul>
+
+      <p>This effect ends early if your companion is incapacitated or dies. Once
+      your companion has used this feature, it can't use it again until it
+      finishes a long rest.</p>
+    chat: ''
+  requirements: Consular (Way of Tutelage) 18
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: now-i-am-the-master
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!pPyeqnE1GnMeG1og'
+

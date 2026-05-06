@@ -1,0 +1,129 @@
+_id: uloX5RRFXBGEeogK
+name: Teamwork
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Passive.webp
+effects: []
+folder: WY8P4LrFw9kLCeN4
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6797409+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-teamwork.source-archetype.sourceName-vonilishu_form_companion.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Vonil/Ishu Form:</strong> 15th level</em></p>
+
+      <p>You gain one of the following features. Choose Takedown for Vonil or
+      Rebuttal for Ishu.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.eepEY1v2oMkGSWlz]{Takedown}</h3>
+
+      <p>When your companion takes the Help action and helps you, you have
+      advantage on the next two ability checks or attack rolls you make before
+      the start of your next turn, instead of only one. When you take the Help
+      action and help your companion, your companion has advantage on the next
+      two ability checks or attack rolls it makes before the start of its next
+      turn, instead of only one.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.Y0FyqlJ5Zuyecwqi]{Rebuttal}</h3>
+
+      <p>When your companion takes the Help action and helps you, you gain
+      temporary hit points equal to your guardian level that last until the
+      start of your next turn. When you take the Help action and help your
+      companion, it gains temporary hit points equal to your guardian level that
+      last until the start of its next turn. </p>
+    chat: ''
+  requirements: Guardian (Vonil/Ishu Form (Companion)) 15
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '@classes.guardian.levels'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - temphp
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: teamwork
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!uloX5RRFXBGEeogK'
+
