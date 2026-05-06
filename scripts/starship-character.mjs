@@ -20,18 +20,6 @@ function toNumber(value, fallback = 0) {
 	return Number.isFinite(numeric) ? numeric : fallback;
 }
 
-function sanitizeCrewImagePath(path) {
-	if ( typeof path !== "string" ) return "icons/svg/mystery-man.svg";
-	const normalized = path.trim();
-	if ( !normalized ) return "icons/svg/mystery-man.svg";
-	const lower = normalized.toLowerCase();
-	const isBrokenExternal = /^https?:\/\/(?:static\.wikia\.nocookie\.net|cdn[ab]\.artstation\.com)\//.test(lower);
-	if ( ["undefined", "null", "nan"].includes(lower) || isBrokenExternal ) {
-		return "icons/svg/mystery-man.svg";
-	}
-	return normalized;
-}
-
 function normalizeUuidSet(value) {
 	if ( value instanceof Set ) return Array.from(value).filter(Boolean);
 	if ( Array.isArray(value) ) return value.filter(Boolean);
@@ -163,7 +151,7 @@ function buildResolvedCrewRecord(deployment, uuid) {
 	return {
 		uuid,
 		name: actor?.name ?? "Unknown Crew",
-		img: sanitizeCrewImagePath(actor?.img),
+		img: actor?.img || "icons/svg/mystery-man.svg",
 		type: actor?.type ?? "",
 		isPilot: roles.includes("pilot"),
 		isCrew: roles.includes("crew"),

@@ -23,6 +23,11 @@ export function patchConfig(config, strict = true) {
 	config.defaultAbilities.shieldPoints = "str";
 
 	// Skills
+	if (strict) {
+		delete config.skills.arc;
+		delete config.skills.his;
+		delete config.skills.rel;
+	}
 	config.skills.lor = {
 		label: "SW5E.SkillLor",
 		ability: "int",

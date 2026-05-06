@@ -1,5 +1,9 @@
 import { getBestAbility } from "./../utils.mjs";
-import { getModulePath, isModuleType } from "../module-support.mjs";
+import {
+  getModulePath,
+  isModuleType,
+  SETTINGS_NAMESPACE,
+} from "../module-support.mjs";
 import { openPowerPointConfig } from "../power-point-config.mjs";
 
 const PRECALCULATED_SPELLCASTING_KEY = "sw5e-preCalculatedSpellcastingClasses";
@@ -311,6 +315,50 @@ function actorHasPowercastingUi(actor, castType) {
 	return false;
 }
 
+/** Schools that belong to a SW5E power casting type (force / tech). */
+function getPowerCastTypeSchoolIds(castType) {
+	return Object.keys(CONFIG.DND5E.powerCasting?.[castType]?.schools ?? {});
+}
+
+/** At least one owned spell item uses a school from this casting type. */
+function actorHasOwnedPowerInCastSchools(actor, castType) {
+	const schools = getPowerCastTypeSchoolIds(castType);
+	if ( !schools.length ) return false;
+	return (actor?.itemTypes?.spell ?? []).some(power => schools.includes(power?.system?.school));
+}
+
+/** NPC stat-block or prepared data indicates this casting type. */
+function npcHasStatBlockPowerCasting(actor, castType) {
+	const levelKey = `power${castType.capitalize()}Level`;
+	if ( (getNumericValue(actor.system?.details?.[levelKey]) ?? 0) > 0 ) return true;
+	if ( (getNumericValue(actor._source?.system?.details?.[levelKey]) ?? 0) > 0 ) return true;
+	if ( (getNumericValue(actor.system?.powercasting?.[castType]?.level) ?? 0) > 0 ) return true;
+	return false;
+}
+
+/**
+ * Sidebar-only rule for Force/Tech meters — stricter than {@link actorHasPowercastingUi}.
+ * Characters: at least one owned power in that type’s schools. NPCs: same, or stat-block caster level / prepared level.
+ */
+function shouldShowSidebarPowerMeter(actor, castType) {
+	if ( actorHasOwnedPowerInCastSchools(actor, castType) ) return true;
+	if ( actor?.type === "npc" && npcHasStatBlockPowerCasting(actor, castType) ) return true;
+	return false;
+}
+
+function shouldShowSuperioritySidebarMeter(actor) {
+	const sup = actor?.system?.superiority;
+	if ( (getNumericValue(sup?.dice?.max) ?? 0) > 0 ) return true;
+	if ( (getNumericValue(sup?.level) ?? 0) > 0 ) return true;
+	const classes = actor.itemTypes?.class ?? [];
+	if ( classes.some(clss => {
+		const prog = clss.system?.spellcasting?.superiorityProgression;
+		return prog && prog !== "none";
+	}) ) return true;
+	if ( Array.from(actor.items ?? []).some(i => isModuleType(i.type, "maneuver")) ) return true;
+	return false;
+}
+
 function insertPowercastingElement(containerElement, mountPoint, mountContainer, insertReference) {
 	if ( mountPoint.insertAfter && insertReference?.parentElement ) {
 		insertReference.insertAdjacentElement("afterend", containerElement);
@@ -332,16 +380,21 @@ function adjustItemSpellcastingGetter() {
 	Hooks.on('sw5e.Item5e.spellcasting', function (_this, result, config, ...args) {
 		const spellcasting = _this.system.spellcasting;
 		if (!spellcasting) return;
+
 		const isSubclass = _this.type === "subclass";
 		const classSC = isSubclass ? _this.class?.system?.spellcasting : spellcasting;
 		const subclassSC = isSubclass ? spellcasting : _this.subclass?.system?.spellcasting;
+
 		for (const castType of ["force", "tech"]) {
-			const prop = castType + "Progression"
+			const prop = castType + "Progression";
 			delete result[prop];
+
 			const classPC = classSC?.[prop] ?? "none";
 			const subclassPC = subclassSC?.[prop] ?? "none";
-			if (subclassPC !== "none") result[castType] = subclassPC;
-			else result[castType] = classPC;
+
+			if (subclassPC && subclassPC !== "none") result[castType] = subclassPC;
+			else if (classPC && classPC !== "none") result[castType] = classPC;
+			else result[castType] = "none";
 		}
 	});
 }
@@ -520,10 +573,10 @@ function preparePowercasting() {
 
 		// TODO: Add rules
 		// // Simplified forcecasting rule
-		// if (game.settings.get("sw5e", "simplifiedForcecasting")) {
-		// 	CONFIG.DND5E.powerCasting.force.schools.lgt.attr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
-		// 	CONFIG.DND5E.powerCasting.force.schools.drk.attr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
-		// }
+		if (game.settings.get(SETTINGS_NAMESPACE, "simplifiedForcecasting")) {
+			CONFIG.DND5E.powerCasting.force.schools.lgt.attr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
+			CONFIG.DND5E.powerCasting.force.schools.drk.attr = CONFIG.DND5E.powerCasting.force.schools.uni.attr;
+		}
 
 		// Powercasting DC for Actors and NPCs
 		const ability = {};
@@ -858,7 +911,7 @@ function patchPowerAbilityScore() {
 
 		if (preCalculated) return;
 		for (const [identifier, cls] of Object.entries(_this.classes)) for (const castType of ["force", "tech"]) {
-			if (cls.spellcasting && (cls.spellcasting[`${castType}Progression`] !== "none")) result[identifier] = cls;
+			if (cls.spellcasting && (cls.spellcasting[castType] !== "none")) result[identifier] = cls;
 		}
 	});
 
@@ -947,7 +1000,7 @@ function patchAbilityUseDialog() {
 	Hooks.on('sw5e.ActivityUsageDialog._prepareScalingContext', function (_this, result, config, ...args) {
 		const context = config.result;
 
-		if (_this.activity.requiresSpellSlot && (_this.config.scaling !== false) && (_this.item.system.method === "powerCasting")) {
+		if ((_this.item.system.method === "powerCasting") && ((getNumericValue(_this.item.system.level) ?? 0) > 0)) {
 			if (context.notes.length >= 1) {
 				const note = context.notes[context.notes.length - 1];
 				if (note.type === "warn" && note.message.startsWith("You have no available")) context.notes.pop();
@@ -955,6 +1008,7 @@ function patchAbilityUseDialog() {
 			const powercastingType = getPowercastingTypeFromItem(_this.item);
 			const powercasting = _this.actor.system.powercasting[powercastingType];
 			if ( !powercasting ) return;
+			context.hasScaling = true;
 
 			const minimumLevel = getNumericValue(_this.item.system.level) ?? 1;
 			const maximumLevel = getNumericValue(powercasting.maxPowerLevel) ?? 0;
@@ -1017,14 +1071,28 @@ function patchAbilityUseDialog() {
 		}
 	});
 	Hooks.on('dnd5e.activityConsumption', function (activity, usageConfig, messageConfig, updates) {
-		if (activity?.item?.type !== "spell" || activity?.item?.system?.method !== "powerCasting") return;
-		const powercastingType = getPowercastingTypeFromItem(activity.item);
-		const powercasting = activity?.actor?.system?.powercasting?.[powercastingType];
-		if ( !powercasting ) return;
-		const level = usageConfig?.spell?.slot ?? 0;
-		if (level >= powercasting.limit) {
-			powercasting.used.add(level);
-			updates.actor[`system.powercasting.${powercastingType}.used`] = powercasting.used;
+	if (activity?.item?.type !== "spell" || activity?.item?.system?.method !== "powerCasting") return;
+
+	const powercastingType = getPowercastingTypeFromItem(activity.item);
+	const powercasting = activity?.actor?.system?.powercasting?.[powercastingType];
+	if ( !powercasting ) return;
+
+	const castLevel = Number(usageConfig?.spell?.slot) || 0;
+	const itemLevel = getNumericValue(activity.item.system.level) ?? 0;
+	const scaling = Math.max(0, castLevel - itemLevel);
+
+	if ( scaling > 0 ) {
+		const pointsPath = `system.powercasting.${powercastingType}.points.value`;
+		const currentValue = Number.isFinite(updates.actor[pointsPath])
+			? updates.actor[pointsPath]
+			: (foundry.utils.getProperty(activity.actor, pointsPath) ?? 0);
+
+		updates.actor[pointsPath] = currentValue - scaling;
+		}
+
+	if ( castLevel >= powercasting.limit ) {
+		powercasting.used.add(castLevel);
+		updates.actor[`system.powercasting.${powercastingType}.used`] = powercasting.used;
 		}
 	});
 }
@@ -1056,14 +1124,13 @@ function makePowerPointsConsumable() {
 }
 
 function showPowercastingBar() {
-	const { simplifyBonus } = dnd5e.utils;
 	Hooks.on("renderActorSheetV2", async (app, html, data) => {
 		const root = getHtmlRoot(html);
 		if ( !root ) return;
 		if (data.actor.type != "character" && data.actor.type != "npc") {
 			return;
 		}
-		root.querySelectorAll(".sw5e-powercasting-meter").forEach(node => node.remove());
+		root.querySelectorAll(".sw5e-powercasting-meter, .sw5e-superiority-meter").forEach(node => node.remove());
 
 		const powerCasting = data.actor.system.powercasting;
 		const mountPoint = getPowercastingMountPoint(root, data.actor.type);
@@ -1071,8 +1138,6 @@ function showPowercastingBar() {
 		if ( !mountContainer ) return;
 		let insertReference = mountPoint.reference;
 		const isEditable = typeof app.isEditable === "boolean" ? app.isEditable : false;
-		// Add meters for the tech and force powercasting values. This 
-		// will be added right after the hit points meter.
 		for (const castType of ["force", "tech"]) {
 			const castData = powerCasting[castType];
 			const value = Number.isFinite(Number(castData?.points?.value)) ? Number(castData.points.value) : 0;
@@ -1081,7 +1146,7 @@ function showPowercastingBar() {
 			const tempmax = Number.isFinite(Number(castData?.points?.tempmax)) ? Number(castData.points.tempmax) : 0;
 			const effectiveMax = Math.max(0, max + tempmax);
 			const clampedValue = Math.max(0, Math.min(value, effectiveMax || value));
-			const shouldRenderMeter = actorHasPowercastingUi(data.actor, castType);
+			const shouldRenderMeter = shouldShowSidebarPowerMeter(data.actor, castType);
 			if ( shouldRenderMeter ) {
 				const templateData = {
 					'castType': castType,
@@ -1106,11 +1171,12 @@ function showPowercastingBar() {
 				const containerElement = container[0];
 				insertReference = insertPowercastingElement(containerElement, mountPoint, mountContainer, insertReference);
 				if ( isEditable ) {
-					const pointBar = containerElement.querySelector(`.progress.${castType}-points`);
+					const progressClass = `${castType}-points`;
+					const pointBar = containerElement.querySelector(`.progress.${progressClass}`);
 					const configButton = containerElement.querySelector('[data-action="configure-power-points"]');
 					const currentInput = pointBar?.querySelector('input[name$=".points.value"]');
-					pointBar?.addEventListener("click", event => _toggleEditPoints(castType, event, true));
-					currentInput?.addEventListener("blur", event => _toggleEditPoints(castType, event, false));
+					pointBar?.addEventListener("click", event => _toggleEditPoints(progressClass, event, true));
+					currentInput?.addEventListener("blur", event => _toggleEditPoints(progressClass, event, false));
 					currentInput?.addEventListener("focus", ev => ev.currentTarget.select());
 					currentInput?.addEventListener("change", app._onChangeInputDelta.bind(app));
 					configButton?.addEventListener("click", event => {
@@ -1122,18 +1188,50 @@ function showPowercastingBar() {
 			}
 		}
 
+		if ( shouldShowSuperioritySidebarMeter(data.actor) ) {
+			const sup = data.actor.system.superiority ?? {};
+			const dice = sup.dice ?? {};
+			const dieSize = getNumericValue(sup.die) ?? 0;
+			const diceMax = Math.max(0, getNumericValue(dice.max) ?? 0);
+			const diceVal = Math.max(0, getNumericValue(dice.value) ?? 0);
+			const clampedDice = diceMax > 0 ? Math.min(diceVal, diceMax) : diceVal;
+			const maxSegment = dieSize > 0 ? `${diceMax}d${dieSize}` : String(diceMax);
+			const supTemplate = getModulePath("templates/superiority-sheet-tracker.hbs");
+			const supHtml = await foundry.applications.handlebars.renderTemplate(supTemplate, {
+				label: game.i18n.localize("SW5E.Superiority.Dice.Label"),
+				value: clampedDice,
+				maxSegment,
+				ariaMax: Math.max(1, diceMax),
+				pct: diceMax > 0 ? (clampedDice / diceMax) * 100 : 0,
+				isEditable
+			});
+			const supContainer = $('<div class="meter-group sw5e-superiority-meter"></div>');
+			supContainer.append(supHtml);
+			const supEl = supContainer[0];
+			insertReference = insertPowercastingElement(supEl, mountPoint, mountContainer, insertReference);
+			if ( isEditable ) {
+				const progressClass = "superiority-dice-points";
+				const bar = supEl.querySelector(`.progress.${progressClass}`);
+				const input = bar?.querySelector("input[name=\"system.superiority.dice.value\"]");
+				bar?.addEventListener("click", event => _toggleEditPoints(progressClass, event, true));
+				input?.addEventListener("blur", event => _toggleEditPoints(progressClass, event, false));
+				input?.addEventListener("focus", ev => ev.currentTarget.select());
+				input?.addEventListener("change", app._onChangeInputDelta.bind(app));
+			}
+		}
+
 	});
 }
 
 /**
  * Toggle editing points bar.
- * @param {string} pointType    The type of points.
+ * @param {string} progressClass    CSS class on `.progress` (e.g. `force-points`, `superiority-dice-points`).
  * @param {PointerEvent} event  The triggering event.
  * @param {boolean} edit        Whether to toggle to the edit state.
  * @protected
  */
-function _toggleEditPoints(pointType, event, edit) {
-	const target = event.currentTarget.closest(`.${pointType}-points`);
+function _toggleEditPoints(progressClass, event, edit) {
+	const target = event.currentTarget.closest(`.${progressClass}`);
 	if ( !target ) return;
 	const label = target.querySelector(":scope > .label");
 	const input = target.querySelector(":scope > input");
