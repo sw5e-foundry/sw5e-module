@@ -63,12 +63,6 @@ function getHtmlRoot(html) {
 	return html instanceof HTMLElement ? html : html?.[0] ?? html;
 }
 
-/** @param {JQuery|HTMLElement|HTMLElement[]} html */
-function dialogFormRoot(html) {
-	if ( globalThis.jQuery && html instanceof globalThis.jQuery ) return html[0];
-	return html instanceof HTMLElement ? html : html?.[0] ?? null;
-}
-
 function getDetailsTabEl(root) {
 	return root.querySelector(".sheet-body section.tab.details")
 		?? root.querySelector("section.tab.details")
@@ -444,8 +438,22 @@ async function openInstallModificationDialog(app, browserCtx = {}) {
  * @param {string} [installCtx.slotSemantic]
  */
 async function openPlacementPickDialog(app, host, modItem, placements, installCtx = {}) {
+	const chassis = normalizeChassis(host, getChassis(host));
+	const baseMax = Math.max(0, Number(chassis?.slots?.baseMax) || 0);
+	const augmentMax = Math.max(0, Number(chassis?.slots?.augmentMax) || 0);
+
 	const opts = placements.map((p, i) => {
-		const label = `${formatSlotKind(p.slotKind)} ${p.slotIndex}`;
+		const isAugment = p.slotKind === "augment";
+		const idx0 = Number.isFinite(Number(p.slotIndex)) ? Number(p.slotIndex) : 0;
+		const displayN = idx0 + 1;
+		const totalInGroup = isAugment ? augmentMax : baseMax;
+		const label = totalInGroup > 0
+			? (isAugment
+				? game.i18n.format("SW5E.Chassis.SlotLabelAugment", { n: displayN, total: totalInGroup })
+				: game.i18n.format("SW5E.Chassis.SlotLabelBase", { n: displayN, total: totalInGroup }))
+			: (isAugment
+				? game.i18n.format("SW5E.Chassis.SlotTagAugment", { n: displayN })
+				: game.i18n.format("SW5E.Chassis.SlotTagBase", { n: displayN }));
 		return `<label class="chassis-placement-opt"><input type="radio" name="place" value="${i}" ${i === 0 ? "checked" : ""}/> ${foundry.utils.escapeHTML(label)}</label>`;
 	}).join("");
 	const content = `<p>${game.i18n.localize("SW5E.Chassis.PickPlacement")}</p><div class="chassis-placement-list">${opts}</div>`;
@@ -580,27 +588,38 @@ async function openRemoveModificationDialog(app) {
 			<p class="notes">${game.i18n.localize("SW5E.Chassis.RemoveOutcomeHint")}</p>
 		</form>`;
 
-	new Dialog({
-		title: game.i18n.localize("SW5E.Chassis.ActionRemove"),
+	await DialogV2.wait({
+		rejectClose: false,
+		modal: true,
+		window: { title: game.i18n.localize("SW5E.Chassis.ActionRemove") },
+		position: { width: 480 },
 		content,
-		buttons: {
-			remove: {
-				icon: '<i class="fas fa-minus"></i>',
-				label: game.i18n.localize("SW5E.Chassis.RemoveConfirm"),
-				callback: html => {
-					const el = dialogFormRoot(html);
-					const uuid = el?.querySelector("select[name=\"rm\"]")?.value;
-					const out = el?.querySelector("input[name=\"out\"]:checked")?.value ?? "salvaged";
-					void runRemoveValidationAndCommit(app, host, uuid, out);
-				}
-			},
-			cancel: {
+		buttons: [
+			{
+				action: "cancel",
 				label: game.i18n.localize("SW5E.Chassis.Cancel"),
-				callback: () => {}
+				icon: "fas fa-times"
+			},
+			{
+				action: "remove",
+				label: game.i18n.localize("SW5E.Chassis.RemoveConfirm"),
+				icon: "fas fa-minus",
+				default: true,
+				callback: (event, button, dialog) => {
+					const form = getDialogV2Form(button, dialog);
+					if ( !form ) return false;
+					const sel = form.querySelector("select[name=\"rm\"]");
+					const uuid = typeof sel?.value === "string" ? sel.value : "";
+					if ( !uuid ) return false;
+					const checked = form.querySelector("input[name=\"out\"]:checked");
+					const rawOut = typeof checked?.value === "string" ? checked.value : "salvaged";
+					const outcome = rawOut === "destroyed" ? /** @type {const} */ ("destroyed") : /** @type {const} */ ("salvaged");
+					void runRemoveValidationAndCommit(app, host, uuid, outcome);
+					return true;
+				}
 			}
-		},
-		default: "remove"
-	}).render(true);
+		]
+	});
 }
 
 /**
@@ -635,28 +654,45 @@ async function runRemoveValidationAndCommit(app, host, installedUuid, outcome) {
 		return;
 	}
 	if ( mode === "strict" ) {
-		new Dialog({
-			title: game.i18n.localize("SW5E.Chassis.RemoveBlockedTitle"),
-			content: formatValidationHtml(v),
-			buttons: {
-				close: { label: game.i18n.localize("SW5E.Chassis.DialogClose"), callback: () => {} }
-			}
-		}).render(true);
+		await DialogV2.wait({
+			rejectClose: false,
+			modal: true,
+			window: { title: game.i18n.localize("SW5E.Chassis.RemoveBlockedTitle") },
+			position: { width: 480 },
+			content: `<div class="chassis-val-report">${formatValidationHtml(v)}</div>`,
+			buttons: [
+				{
+					action: "close",
+					label: game.i18n.localize("SW5E.Chassis.DialogClose"),
+					icon: "fas fa-times",
+					default: true
+				}
+			]
+		});
 		return;
 	}
 	if ( mode === "guided" && userMayRulesOverride() ) {
-		new Dialog({
-			title: game.i18n.localize("SW5E.Chassis.RemoveValidateTitle"),
-			content: formatValidationHtml(v),
-			buttons: {
-				force: {
-					label: game.i18n.localize("SW5E.Chassis.RemoveAnyway"),
-					callback: () => commit()
+		const result = await DialogV2.wait({
+			rejectClose: false,
+			modal: true,
+			window: { title: game.i18n.localize("SW5E.Chassis.RemoveValidateTitle") },
+			position: { width: 480 },
+			content: `<div class="chassis-val-report">${formatValidationHtml(v)}</div>`,
+			buttons: [
+				{
+					action: "cancel",
+					label: game.i18n.localize("SW5E.Chassis.Cancel"),
+					icon: "fas fa-times",
+					default: true
 				},
-				cancel: { label: game.i18n.localize("SW5E.Chassis.Cancel"), callback: () => {} }
-			},
-			default: "cancel"
-		}).render(true);
+				{
+					action: "force",
+					label: game.i18n.localize("SW5E.Chassis.RemoveAnyway"),
+					icon: "fas fa-exclamation-triangle"
+				}
+			]
+		});
+		if ( result === "force" ) commit();
 		return;
 	}
 	ui.notifications.warn(game.i18n.localize("SW5E.Chassis.RemoveNotAllowed"));
@@ -746,6 +782,8 @@ async function buildChassisPanelContext(app) {
 	const normalized = rawChassis ? normalizeChassis(item, rawChassis) : null;
 	const chassisEnabled = Boolean(normalized?.enabled);
 	const effectiveMode = chassisEnabled ? getEffectiveChassisRulesMode(item) : worldMode;
+	const worldRulesModeLabel = labelRulesMode(worldMode);
+	const effectiveRulesModeLabel = labelRulesMode(effectiveMode);
 
 	const override = normalized?.rulesMode;
 	const rulesModeOptions = [
@@ -762,23 +800,41 @@ async function buildChassisPanelContext(app) {
 	];
 
 	const slotRowsRaw = normalized ? buildChassisSlotDisplayRows(normalized) : [];
-	const slotRows = slotRowsRaw.map(row => ({
-		...row,
-		kindLabel: formatSlotKind(row.kind),
-		slotSemantic: normalized ? getChassisSlotSemantic(normalized, row.kind, row.index) : null
-	}));
+	const baseMaxSlots = normalized ? Math.max(0, Number(normalized.slots.baseMax) || 0) : 0;
+	const augmentMaxSlots = normalized ? Math.max(0, Number(normalized.slots.augmentMax) || 0) : 0;
+	const slotRows = slotRowsRaw.map(row => {
+		const kindLabel = formatSlotKind(row.kind);
+		const displayIndex = Number(row.index) + 1;
+		const totalInGroup = row.kind === "augment" ? augmentMaxSlots : baseMaxSlots;
+		const slotLabelDisplay = row.kind === "augment"
+			? game.i18n.format("SW5E.Chassis.SlotLabelAugment", { n: displayIndex, total: totalInGroup })
+			: game.i18n.format("SW5E.Chassis.SlotLabelBase", { n: displayIndex, total: totalInGroup });
+		return {
+			...row,
+			kindLabel,
+			slotLabelDisplay,
+			slotSemantic: normalized ? getChassisSlotSemantic(normalized, row.kind, row.index) : null
+		};
+	});
 	const slotRowsBase = slotRows.filter(r => r.kind === "base");
 	const slotRowsAugment = slotRows.filter(r => r.kind === "augment");
 
 	const installedRows = (normalized?.installedMods ?? []).map(m => {
 		const snapR = m?.snapshot?.rarity;
 		const name = m?.snapshot?.name || m?.uuid || "—";
+		const rawKind = (m?.slotKind ?? "base") === "augment" ? "augment" : "base";
+		const idx0 = Number(m?.slotIndex) || 0;
+		const displayIndex = idx0 + 1;
+		const slotPositionLabel = rawKind === "augment"
+			? game.i18n.format("SW5E.Chassis.SlotTagAugment", { n: displayIndex })
+			: game.i18n.format("SW5E.Chassis.SlotTagBase", { n: displayIndex });
 		return {
 			name,
 			uuid: m?.uuid ?? "",
 			rarityDisplay: formatDndItemRarity(snapR),
 			slotKindLabel: formatSlotKind(m?.slotKind ?? "base"),
 			slotIndex: m?.slotIndex ?? 0,
+			slotPositionLabel,
 			slotCost: m?.slotCost ?? 1,
 			installedTime: formatInstalledTime(m?.installedAt)
 		};
@@ -790,6 +846,8 @@ async function buildChassisPanelContext(app) {
 	let chassisTypeLabel = "";
 	let chassisRarityLabel = "";
 	let rulesModeLine = "";
+	let rulesModePrimaryText = "";
+	let rulesModeSecondaryText = "";
 	let hasRulesOverride = false;
 	let canUpgradeChassis = false;
 	if ( normalized ) {
@@ -813,17 +871,38 @@ async function buildChassisPanelContext(app) {
 		hasRulesOverride = ro != null && ro !== "";
 		rulesModeLine = hasRulesOverride
 			? game.i18n.format("SW5E.Chassis.RulesLineOverride", { mode: labelRulesMode(ro) })
-			: game.i18n.format("SW5E.Chassis.RulesLineWorld", { world: labelRulesMode(worldMode) });
+			: game.i18n.format("SW5E.Chassis.RulesLineWorld", { world: worldRulesModeLabel });
+		if ( chassisEnabled ) {
+			rulesModePrimaryText = game.i18n.format("SW5E.Chassis.RulesModePrimary", { mode: effectiveRulesModeLabel });
+			rulesModeSecondaryText = hasRulesOverride
+				? game.i18n.format("SW5E.Chassis.RulesModeSecondaryOverride", { world: worldRulesModeLabel })
+				: game.i18n.localize("SW5E.Chassis.RulesModeSecondaryFollowingWorld");
+		}
 	}
+
+	/** Read-only sheet cue when installed mods exceed normalized slot budget (homebrew/import/override). */
+	let chassisSlotOverflow = false;
+	if ( normalized?.slots && chassisEnabled ) {
+		const usedN = Number(normalized.slots.used);
+		const totalN = Number(normalized.slots.totalMax);
+		chassisSlotOverflow = Number.isFinite(usedN) && Number.isFinite(totalN) && usedN > totalN;
+	}
+
+	const installedLogSummaryText = installedRows.length
+		? game.i18n.format("SW5E.Chassis.InstalledLogSummary", { count: installedRows.length })
+		: "";
 
 	return {
 		isEditable: app.isEditable,
 		chassisEnabled,
+		chassisSlotOverflow,
 		chassisTypeLabel,
 		chassisRarityLabel,
-		effectiveRulesModeLabel: labelRulesMode(effectiveMode),
-		worldRulesModeLabel: labelRulesMode(worldMode),
+		effectiveRulesModeLabel,
+		worldRulesModeLabel,
 		rulesModeLine,
+		rulesModePrimaryText,
+		rulesModeSecondaryText,
 		hasRulesOverride,
 		slotsSummaryText,
 		slotsUsedTotal,
@@ -834,6 +913,7 @@ async function buildChassisPanelContext(app) {
 		slotRowsBase,
 		slotRowsAugment,
 		installedRows,
+		installedLogSummaryText,
 		canUpgradeChassis
 	};
 }

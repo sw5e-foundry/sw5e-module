@@ -2503,6 +2503,51 @@ body.theme-light .chat-message.dnd5e2 .chat-card :is(.description, .card-tray, .
   line-height: 1.35;
 }
 
+.sheet.item .sw5e-chassis-section-intro,
+.dnd5e2.sheet.item .sw5e-chassis-section-intro {
+  margin: 0 0 0.45rem;
+  line-height: 1.35;
+  font-size: var(--font-size-11);
+}
+
+.sheet.item .sw5e-chassis-rules-primary,
+.dnd5e2.sheet.item .sw5e-chassis-rules-primary {
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.sheet.item .sw5e-chassis-rules-secondary,
+.dnd5e2.sheet.item .sw5e-chassis-rules-secondary {
+  margin-top: 0.2rem;
+  font-size: var(--font-size-11);
+  line-height: 1.35;
+}
+
+.sheet.item .sw5e-chassis-slot-overflow,
+.dnd5e2.sheet.item .sw5e-chassis-slot-overflow {
+  margin: 0 0 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--dnd5e-color-gold, rgba(180, 150, 90, 0.45));
+  border-radius: 4px;
+  background: color-mix(in oklab, var(--dnd5e-color-gold, #b89528) 12%, transparent);
+  font-size: var(--font-size-11);
+  line-height: 1.35;
+}
+
+.sheet.item .sw5e-chassis-slot-overflow-title,
+.dnd5e2.sheet.item .sw5e-chassis-slot-overflow-title {
+  display: block;
+  margin: 0 0 0.25rem;
+  font-size: var(--font-size-12);
+  font-weight: 600;
+}
+
+.sheet.item .sw5e-chassis-slot-overflow-body,
+.dnd5e2.sheet.item .sw5e-chassis-slot-overflow-body {
+  margin: 0;
+  opacity: 0.92;
+}
+
 /* Summary key/value grid */
 .sheet.item .sw5e-chassis-summary,
 .dnd5e2.sheet.item .sw5e-chassis-summary {
@@ -2885,6 +2930,28 @@ body.theme-light .chat-message.dnd5e2 .chat-card :is(.description, .card-tray, .
   font-style: italic;
 }
 
+/* Installation log — collapsible (Phase 2) */
+.sheet.item .sw5e-chassis-installed-details,
+.dnd5e2.sheet.item .sw5e-chassis-installed-details {
+  margin: 0.35rem 0 0.25rem;
+}
+
+.sheet.item .sw5e-chassis-installed-summary,
+.dnd5e2.sheet.item .sw5e-chassis-installed-summary {
+  cursor: pointer;
+  font-size: var(--font-size-12);
+  font-weight: 600;
+  padding: 0.15rem 0;
+  color: var(--dnd5e-color-gold, var(--color-text-light-highlight, inherit));
+}
+
+.sheet.item .sw5e-chassis-installed-details-body,
+.dnd5e2.sheet.item .sw5e-chassis-installed-details-body {
+  margin-top: 0.35rem;
+  padding: 0.35rem 0 0 0.45rem;
+  border-left: 2px solid var(--dnd5e-color-dark-4, rgba(255, 255, 255, 0.12));
+}
+
 /* Actions — hierarchy */
 .sheet.item .sw5e-chassis-actions,
 .dnd5e2.sheet.item .sw5e-chassis-actions {
@@ -2893,7 +2960,44 @@ body.theme-light .chat-message.dnd5e2 .chat-card :is(.description, .card-tray, .
   border-top: 1px solid var(--dnd5e-color-dark-4, rgba(255, 255, 255, 0.08));
   display: flex;
   flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sheet.item .sw5e-chassis-actions-group,
+.dnd5e2.sheet.item .sw5e-chassis-actions-group {
+  display: flex;
+  flex-direction: column;
   gap: 0.35rem;
+}
+
+.sheet.item .sw5e-chassis-actions-heading,
+.dnd5e2.sheet.item .sw5e-chassis-actions-heading {
+  margin: 0;
+  font-size: var(--font-size-10);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.sheet.item .sw5e-chassis-actions-heading--danger,
+.dnd5e2.sheet.item .sw5e-chassis-actions-heading--danger {
+  color: var(--color-warm-2, #c53030);
+  opacity: 0.95;
+}
+
+.sheet.item .sw5e-chassis-actions-hint,
+.dnd5e2.sheet.item .sw5e-chassis-actions-hint {
+  margin: 0 0 0.1rem;
+  font-size: var(--font-size-11);
+  line-height: 1.35;
+}
+
+.sheet.item .sw5e-chassis-actions-divider,
+.dnd5e2.sheet.item .sw5e-chassis-actions-divider {
+  margin: 0.15rem 0;
+  border: 0;
+  border-top: 1px solid var(--dnd5e-color-dark-4, rgba(255, 255, 255, 0.1));
 }
 
 .sheet.item .sw5e-chassis-actions-row,
