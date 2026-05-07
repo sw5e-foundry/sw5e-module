@@ -182,6 +182,26 @@ export const migrateWorld = async function() {
 		await migrateCompendium(p);
 	}
 
+	// Delete empty folders that existed prior to YAML migration
+	for (const folder of game.folders) {
+		if (
+			[
+				'Powers & Maneuvers',
+				'Tools',
+				'Weapons',
+				'Customization Options'
+			].includes(folder.name)
+		) {
+			// Check that they are empty
+			if (
+				folder.contents.length === 0 &&
+				folder.children.length === 0
+			) {
+				await folder.delete();
+			}
+		}
+	}
+
 	// Set the migration as complete
 	const moduleVersion = getModule()?.version ?? version;
 	if (moduleVersion !== "#{VERSION}#") game.settings.set(SETTINGS_NAMESPACE, "moduleMigrationVersion", moduleVersion);
