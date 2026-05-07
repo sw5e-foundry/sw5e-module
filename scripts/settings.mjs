@@ -62,7 +62,8 @@ export function registerModuleSettings() {
 		config: true,
 		type: String,
 		choices: chassisRulesChoices,
-		default: "guided"
+		default: "guided",
+		requiresReload: true
 	});
 
 	game.settings.register(SETTINGS_NAMESPACE, CHASSIS_SETTING_KEYS.enforceTools, {
@@ -71,7 +72,8 @@ export function registerModuleSettings() {
 		scope: "world",
 		config: true,
 		type: Boolean,
-		default: true
+		default: true,
+		requiresReload: true
 	});
 
 	game.settings.register(SETTINGS_NAMESPACE, CHASSIS_SETTING_KEYS.enforceRarity, {
@@ -80,7 +82,8 @@ export function registerModuleSettings() {
 		scope: "world",
 		config: true,
 		type: Boolean,
-		default: true
+		default: true,
+		requiresReload: true
 	});
 
 	game.settings.register(SETTINGS_NAMESPACE, CHASSIS_SETTING_KEYS.enforceSlots, {
@@ -89,28 +92,31 @@ export function registerModuleSettings() {
 		scope: "world",
 		config: true,
 		type: Boolean,
-		default: true
+		default: true,
+		requiresReload: true
 	});
 
 	// // Allow 'feat + 1 ASI' variant rule
-	// game.settings.register("sw5e", "allowFeatsAndASI", {
-	//   name: "SETTINGS.5eFeatsAndASIN",
-	//   hint: "SETTINGS.5eFeatsAndASIL",
-	//   scope: "world",
-	//   config: true,
-	//   default: false,
-	//   type: Boolean
-	// });
+	game.settings.register(SETTINGS_NAMESPACE, "allowFeatsAndASI", {
+		name: "SW5E.variant.AllowFeatsAndASI",
+		hint: "SW5E.variant.AllowFeatsAndASIHint",
+		scope: "world",
+		config: true,
+		default: false,
+		type: Boolean,
+		requiresReload: true,
+	});
 
 	// // Simplified Forcecasting
-	// game.settings.register("sw5e", "simplifiedForcecasting", {
-	//   name: "SETTINGS.SWSimplifiedForcecastingN",
-	//   hint: "SETTINGS.SWSimplifiedForcecastingL",
-	//   scope: "world",
-	//   config: true,
-	//   type: Boolean,
-	//   default: false
-	// });
+	game.settings.register(SETTINGS_NAMESPACE, "simplifiedForcecasting", {
+		name: "SW5E.variant.SimplifiedForcecasting",
+		hint: "SW5E.variant.SimplifiedForcecastingHint",
+		scope: "world",
+		config: true,
+		type: Boolean,
+		default: false,
+		requiresReload: true
+  	});
 
 	// // Use old starship movement calculation rules
 	// game.settings.register("sw5e", "oldStarshipMovement", {
@@ -120,6 +126,7 @@ export function registerModuleSettings() {
 	//   config: true,
 	//   type: Boolean,
 	//   default: false
+	//   requiresReload: true
 	// });
 
 	// // NPCs consume ammo
@@ -129,6 +136,7 @@ export function registerModuleSettings() {
 	//   scope: "world",
 	//   config: true,
 	//   type: Boolean,
-	//   default: false
+	//   default: false,
+	//   requiresReload: true
 	// });
 }
