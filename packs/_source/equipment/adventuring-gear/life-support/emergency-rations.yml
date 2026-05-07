@@ -1,4 +1,4 @@
-name: Emergency rations (one day's)
+name: Emergency rations
 flags:
   sw5e-importer:
     timestamp: '2023-03-09T01:52:13.4664447+00:00'
@@ -8,7 +8,10 @@ type: consumable
 img: modules/sw5e-module/icons/packs/Life%20Support/EmergencyRations-OneDayS.webp
 system:
   description:
-    value: null
+    value: >-
+      <p>Emergency rations come in small pill form, provide all the necessary
+      nourishment for one person for one day, and take up roughly one-tenth the
+      space of field rations.</p>
     chat: ''
   source:
     custom: EC
@@ -44,10 +47,10 @@ system:
     units: ''
   uses:
     value: null
-    max: ''
+    max: '1'
     per: null
     recovery: ''
-    autoDestroy: false
+    autoDestroy: true
     prompt: true
   consume:
     type: ''
@@ -82,6 +85,62 @@ system:
   enchantment: null
   summons: null
   magicalBonus: null
+  activities:
+    KWycNmGeQfurLmnm:
+      type: utility
+      _id: KWycNmGeQfurLmnm
+      sort: 0
+      activation:
+        type: action
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects: []
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      name: Consume
+      img: ''
 effects: []
 folder: t2xPeQaceWCNxdDv
 sort: 0
@@ -90,11 +149,12 @@ ownership:
 _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
-  coreVersion: '12.331'
+  coreVersion: '13.351'
   createdTime: 1684819087914
-  modifiedTime: 1720402000951
+  modifiedTime: 1778174478531
   lastModifiedBy: dnd5ebuilder0000
   duplicateSource: null
+  exportSource: null
 _id: 8KlT4WbSyhu4KGT6
 _key: '!items!8KlT4WbSyhu4KGT6'
 

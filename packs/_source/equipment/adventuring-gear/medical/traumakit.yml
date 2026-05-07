@@ -2,7 +2,44 @@ _id: wymQ620QCDVhZ17m
 name: Traumakit
 type: consumable
 img: modules/sw5e-module/icons/packs/Medical/Traumakit.webp
-effects: []
+effects:
+  - name: Stabilized
+    img: systems/dnd5e/icons/svg/trait-damage-vulnerabilities.svg
+    origin: Compendium.sw5e-module.equipment.Item.wymQ620QCDVhZ17m
+    transfer: false
+    _id: LXboasDr86KVFebz
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses:
+      - stable
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1778179680028
+      modifiedTime: 1778179773437
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!wymQ620QCDVhZ17m.LXboasDr86KVFebz'
 folder: v261QrEf7p3lmuhZ
 sort: 0
 flags:
@@ -10,10 +47,6 @@ flags:
     timestamp: '2023-03-09T01:51:54.5993849+00:00'
     importer_version: 3
     uid: Consumable.name-traumakit.equipmentCategory-medical
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
@@ -56,10 +89,10 @@ system:
     units: ''
   uses:
     value: null
-    max: ''
+    max: '5'
     per: null
     recovery: ''
-    autoDestroy: false
+    autoDestroy: true
     prompt: true
   consume:
     type: ''
@@ -82,7 +115,7 @@ system:
     scaling: spell
   properties: []
   type:
-    value: medical
+    value: ''
     subtype: ''
   unidentified:
     description: ''
@@ -95,37 +128,76 @@ system:
   summons: null
   magicalBonus: null
   activities:
-    sw5e0check000000:
-      _id: sw5e0check000000
+    HqnEH6TLCgDYBNxI:
+      type: utility
+      _id: HqnEH6TLCgDYBNxI
+      sort: 0
       activation:
         type: action
-      check:
-        ability: ''
-        associated: []
-        dc:
-          calculation: ''
-          formula: ''
-      description: {}
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
-      img: null
-      range:
+        concentration: false
         override: false
-        units: ft
+      effects:
+        - _id: LXboasDr86KVFebz
+      flags: {}
+      range:
+        units: touch
+        override: false
+        special: ''
       target:
         template:
+          contiguous: false
+          units: ft
           type: ''
-          units: ''
-      type: check
+        affects:
+          choice: false
+          type: creature
+          count: '1'
+          special: 0 Hit Points and isn't dead
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      name: ''
+      img: ''
 ownership:
   default: 0
 _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
-  coreVersion: '12.331'
+  coreVersion: '13.351'
   createdTime: 1674493956193
-  modifiedTime: 1739121083337
+  modifiedTime: 1778179873578
   lastModifiedBy: dnd5ebuilder0000
   duplicateSource: null
+  exportSource: null
 _key: '!items!wymQ620QCDVhZ17m'
 

@@ -2,7 +2,44 @@ _id: RwiuTRw8tkyqp8My
 name: Emergency battery
 type: consumable
 img: modules/sw5e-module/icons/packs/Medical/EmergencyBattery.webp
-effects: []
+effects:
+  - name: Stabilized
+    img: systems/dnd5e/icons/svg/trait-damage-vulnerabilities.svg
+    origin: Compendium.sw5e-module.equipment.Item.RwiuTRw8tkyqp8My
+    transfer: false
+    _id: bQQDwPEoc3BGPWem
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses:
+      - stable
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1778188662377
+      modifiedTime: 1778188706177
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!RwiuTRw8tkyqp8My.bQQDwPEoc3BGPWem'
 folder: v261QrEf7p3lmuhZ
 sort: 0
 flags:
@@ -10,10 +47,6 @@ flags:
     timestamp: '2023-03-09T01:51:54.5993849+00:00'
     importer_version: 3
     uid: Consumable.name-emergency_battery.equipmentCategory-medical
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
@@ -56,10 +89,10 @@ system:
     units: ''
   uses:
     value: null
-    max: ''
+    max: '10'
     per: null
     recovery: ''
-    autoDestroy: false
+    autoDestroy: true
     prompt: true
   consume:
     type: ''
@@ -82,7 +115,7 @@ system:
     scaling: spell
   properties: []
   type:
-    value: medical
+    value: ''
     subtype: droid
   unidentified:
     description: ''
@@ -99,29 +132,54 @@ system:
       _id: sw5e0utility0000
       activation:
         type: action
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
-      img: null
+      img: ''
       range:
         override: false
-        units: ft
+        units: touch
+        value: ''
+        special: ''
       roll:
         formula: ''
+        name: ''
       target:
         template:
           type: ''
           units: ''
+        affects:
+          type: creature
+          count: '1'
+          special: Droid with 0 Hit Points and isn't dead
       type: utility
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      name: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        identifier: ''
+      uses:
+        max: ''
+      effects:
+        - _id: bQQDwPEoc3BGPWem
 ownership:
   default: 0
 _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
-  coreVersion: '12.331'
+  coreVersion: '13.351'
   createdTime: 1674493956150
-  modifiedTime: 1739121083337
+  modifiedTime: 1778188662442
   lastModifiedBy: dnd5ebuilder0000
   duplicateSource: null
+  exportSource: null
 _key: '!items!RwiuTRw8tkyqp8My'
 
