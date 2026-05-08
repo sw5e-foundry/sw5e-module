@@ -10,10 +10,6 @@ flags:
     timestamp: '2023-03-09T01:51:54.5993849+00:00'
     importer_version: 3
     uid: Consumable.name-antitoxkit.equipmentCategory-medical
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
@@ -58,7 +54,7 @@ system:
     units: ''
   uses:
     value: null
-    max: ''
+    max: '5'
     per: null
     recovery: ''
     autoDestroy: false
@@ -84,7 +80,7 @@ system:
     scaling: spell
   properties: []
   type:
-    value: medical
+    value: ''
     subtype: ''
   unidentified:
     description: ''
@@ -101,30 +97,51 @@ system:
       _id: sw5e0utility0000
       activation:
         type: action
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: hour
         value: '1'
-      img: null
+      img: ''
       range:
         override: false
-        units: ft
+        units: touch
+        value: ''
+        special: ''
       roll:
         formula: ''
+        name: ''
       target:
         template:
           type: ''
           units: ''
+        affects:
+          type: ''
       type: utility
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      name: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        identifier: ''
+      uses:
+        max: ''
 ownership:
   default: 0
 _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
-  coreVersion: '12.331'
+  coreVersion: '13.351'
   createdTime: 1674493956106
-  modifiedTime: 1739121083337
+  modifiedTime: 1778188318189
   lastModifiedBy: dnd5ebuilder0000
   duplicateSource: null
+  exportSource: null
 _key: '!items!19FJcVlsjBysN0x3'
 
