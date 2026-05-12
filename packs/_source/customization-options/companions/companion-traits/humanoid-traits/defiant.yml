@@ -1,0 +1,296 @@
+name: Defiant
+type: feat
+img: modules/sw5e-module/icons/packs/Companions/humanoid.webp
+effects: []
+folder: Z5pJIXT8OAJSLTio
+flags:
+  cf:
+    id: temp_xz6g1ixu53k
+  midi-qol:
+    effectActivation: false
+    rollAttackPerTarget: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+    idr: false
+    idi: false
+    idv: false
+    ida: false
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  babonus:
+    bonuses:
+      - name: 'Defiant: Ability'
+        img: modules/sw5e-module/icons/packs/Species/Human.webp
+        id: SGbaSlhDM4c0vFdl
+        sort: 0
+        type: test
+        enabled: true
+        exclusive: false
+        optional: true
+        reminder: false
+        description: >-
+          <p>You can add 1d4 to the result (1x per SR), before the DM determines
+          if you've passed or failed.</p>
+        consume:
+          enabled: true
+          type: uses
+          subtype: ''
+          scales: false
+          formula: ''
+          value:
+            min: '1'
+            max: ''
+            step: null
+        aura:
+          enabled: false
+          template: false
+          range: ''
+          self: true
+          disposition: 2
+          blockers: []
+          require:
+            light: false
+            sight: false
+            sound: false
+            move: false
+        flags: {}
+        bonuses:
+          bonus: ''
+        filters:
+          abilities:
+            - str
+            - dex
+            - con
+            - int
+            - wis
+            - cha
+            - soc
+          actorCreatureSizes: []
+          actorCreatureTypes: []
+          actorLanguages: []
+          arbitraryComparisons: []
+          baseArmors: []
+          customScripts: ''
+          healthPercentages:
+            value: 50
+            type: null
+          remainingSpellSlots:
+            min: null
+            max: null
+            size: false
+          statusEffects: []
+          baseTools: []
+          proficiencyLevels: []
+          skillIds: []
+      - name: 'Defiant: Attack'
+        img: modules/sw5e-module/icons/packs/Species/Human.webp
+        id: g1jkJnTv5SxyoUDH
+        sort: 0
+        type: attack
+        enabled: true
+        exclusive: false
+        optional: true
+        reminder: false
+        description: >-
+          <p>You can add 1d4 to the result (1x per SR), before the DM determines
+          if you've passed or failed.</p>
+        consume:
+          enabled: true
+          type: uses
+          subtype: ''
+          scales: false
+          formula: ''
+          value:
+            min: '1'
+            max: ''
+            step: null
+        aura:
+          enabled: false
+          template: false
+          range: ''
+          self: true
+          disposition: 2
+          blockers: []
+          require:
+            light: false
+            sight: false
+            sound: false
+            move: false
+        flags: {}
+        bonuses:
+          bonus: 1d4
+          criticalRange: ''
+          fumbleRange: ''
+        filters:
+          abilities:
+            - str
+            - dex
+            - con
+            - int
+            - wis
+            - cha
+            - soc
+          actorCreatureSizes: []
+          actorCreatureTypes: []
+          actorLanguages: []
+          arbitraryComparisons: []
+          baseArmors: []
+          customScripts: ''
+          healthPercentages:
+            value: 50
+            type: null
+          remainingSpellSlots:
+            min: null
+            max: null
+            size: false
+          statusEffects: []
+          attackTypes: []
+          baseWeapons: []
+          creatureTypes: []
+          damageTypes: []
+          featureTypes:
+            subtype: ''
+          itemTypes: []
+          preparationModes: []
+          spellComponents:
+            types: []
+            match: ANY
+          spellLevels: []
+          spellSchools: []
+          targetArmors: []
+          targetEffects: []
+          tokenSizes:
+            size: null
+            type: 0
+            self: false
+          weaponProperties: []
+          proficiencyLevels: []
+      - name: 'Defiant: Save'
+        img: modules/sw5e-module/icons/packs/Species/Human.webp
+        id: 2z4lwnr4rZcQgtgc
+        sort: 0
+        type: throw
+        enabled: true
+        exclusive: false
+        optional: true
+        reminder: false
+        description: >-
+          <p>You can add 1d4 to the result (1x per SR), before the DM determines
+          if you've passed or failed.</p>
+        consume:
+          enabled: true
+          type: uses
+          subtype: ''
+          scales: false
+          formula: ''
+          value:
+            min: '1'
+            max: ''
+            step: null
+        aura:
+          enabled: false
+          template: false
+          range: ''
+          self: true
+          disposition: 2
+          blockers: []
+          require:
+            light: false
+            sight: false
+            sound: false
+            move: false
+        flags: {}
+        bonuses:
+          bonus: 1d4
+          targetValue: ''
+          deathSaveCritical: ''
+        filters:
+          throwTypes:
+            - str
+            - dex
+            - con
+            - int
+            - wis
+            - cha
+            - soc
+            - death
+            - concentration
+  dnd5e:
+    riders:
+      activity: []
+    migratedUses: 1
+system:
+  description:
+    value: >-
+      <p>When your companion or a creature it can see that can see and
+      understand it makes an ability check, attack roll, or saving throw, your
+      companion can roll a d4 and add it to their roll (no action required). It
+      can use this before or after the roll, but before the GM determines the
+      roll's outcome. Once your companion has used this feature, it must
+      complete a short or long rest before it can use it again.</p>
+    chat: ''
+  requirements: Humanoid
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: race
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities: {}
+  advancement: []
+  identifier: defiant
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778241149578
+  lastModifiedBy: dnd5ebuilder0000
+_id: AMxnLGG4e9QrXRDl
+ownership:
+  default: 0
+sort: 0
+_key: '!items!AMxnLGG4e9QrXRDl'
+

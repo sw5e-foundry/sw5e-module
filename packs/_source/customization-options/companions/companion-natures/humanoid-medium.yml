@@ -1,0 +1,197 @@
+folder: 9mFYphatELOB9hwg
+name: Humanoid (Medium)
+type: race
+img: modules/sw5e-module/icons/packs/Companions/humanoid.webp
+system:
+  description:
+    value: "<h4>HUMANOID COMPANION</h4><p><em><strong>Prerequisite:</strong> Proficiency in Intimidation or Persuasion</em><br />Through menacing or recruitment, you gain the fidelity of a humanoid companion.</p><hr /><p>Your humanoid takes a form and size of your choosing. Your humanoid's size determines its features. Once you've chosen the size of your humanoid, you assign your humanoid's ability scores using standard array (16, 14, 14, 12, 10, 8) as you see fit.</p><p></p><h3>HUMANOID FEATURES</h3><p>All humanoids share the following features.</p><h4>PROFICIENCIES AND FEATURES</h4><hr /><ul><li>Languages:\_Humanoids can speak, read, and write Galactic Basic and one language of your choice. If your humanoid takes the form of a species that can't speak Galactic Basic, you choose whether or not your humanoid can speak it.</li><li>Type:\_Humanoid</li><li>Armor Class:\_Your humanoid's armor class equals 10 + its Dexterity modifier.</li><li>Attitude:\_The humanoid obeys your commands as best it can. It acts on your turn, and you determine its actions, decisions, attitudes, and so on. If you are incapacitated or absent, your humanoid acts on its own.</li></ul><h2 style=\"border-bottom:1px solid var(--color-underline-header)\"></h2><h2 style=\"border-bottom:1px solid var(--color-underline-header)\">MEDIUM HUMANOIDS</h2><p>Medium humanoids are the most common seen in the galaxy.</p><p>As a medium humanoid, your humanoid companion has the following features.</p><h4>HIT POINTS</h4><hr style=\"border-top:1px solid var(--color-border-light-primary);border-bottom:1px solid var(--color-border-light-highlight)\" /><ul><li>Hit Dice:\_1d8 per humanoid level</li><li>Hit Points at 1st Level:\_8 + your humanoid's Constitution modifier</li><li>Hit Points at Higher Levels:\_1d8 (or 5) + your humanoid's Constitution modifier per humanoid level after 1st</li></ul><h4>PROFICIENCIES AND FEATURES</h4><hr style=\"border-top:1px solid var(--color-border-light-primary);border-bottom:1px solid var(--color-border-light-highlight)\" /><ul><li>Size:\_Medium</li><li>Speed:\_30 ft.</li><li>Armored: Your humanoid has proficiency in light armor. If it would already have proficiency in light armor, it instead has proficiency in medium armor. If it would already have proficiency in light and medium armor, it instead has proficiency in heavy armor. If it would already have proficiency in all armor, it instead has proficiency in a skill or tool of your choice.</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  advancement:
+    - _id: 04YT5vVtm4N8yC3M
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - languages:standard:common
+        choices:
+          - count: 1
+            pool:
+              - languages:standard:*
+      value:
+        chosen: []
+      level: 1
+      title: ''
+      hint: ''
+    - _id: BfNTLJ4ziPjhL5bK
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.WECQOXVzDytQXDHt
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.n6wakdr7u4FRCass
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.IcMXjsn2KrqFBt0H
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.7305J7QEyjpvoVf8
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 1
+      title: Size Trait
+      icon: null
+    - _id: FyNsfnLOMmeBNFfq
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - armor:lgt
+        choices: []
+      value:
+        chosen: []
+      level: 1
+      title: Armored
+      icon: null
+    - _id: By2iflUY7U56DgZM
+      type: Size
+      configuration:
+        sizes:
+          - med
+      value: {}
+      level: 0
+    - _id: AEgUpF2rye3HeuVJ
+      type: ItemChoice
+      configuration:
+        choices:
+          '1':
+            count: 2
+            replacement: false
+          '5':
+            count: 1
+            replacement: false
+          '9':
+            count: 1
+            replacement: false
+          '13':
+            count: 1
+            replacement: false
+          '17':
+            count: 1
+            replacement: false
+        allowDrops: true
+        type: null
+        pool:
+          - uuid: Compendium.sw5e-module.customization-options.Item.wsrImirvvkfhSxIx
+          - uuid: Compendium.sw5e-module.customization-options.Item.kLHs6UdWDWqcTKSX
+          - uuid: Compendium.sw5e-module.customization-options.Item.jOytYDk2BIjem0Q0
+          - uuid: Compendium.sw5e-module.customization-options.Item.mrHKuSimFo4Uyugw
+          - uuid: Compendium.sw5e-module.customization-options.Item.H2zKugjKoM52KZHS
+          - uuid: Compendium.sw5e-module.customization-options.Item.BjmBtfEBO1C84wfD
+          - uuid: Compendium.sw5e-module.customization-options.Item.ugFph0EeMuYnQVAm
+          - uuid: Compendium.sw5e-module.customization-options.Item.md6GyHh0vPwfjuO3
+          - uuid: Compendium.sw5e-module.customization-options.Item.GAGotRxkWvm82gEj
+          - uuid: Compendium.sw5e-module.customization-options.Item.AMxnLGG4e9QrXRDl
+          - uuid: Compendium.sw5e-module.customization-options.Item.rbgPmAMSu1oHO89J
+          - uuid: Compendium.sw5e-module.customization-options.Item.DwcwVKALkgrMAKNr
+          - uuid: Compendium.sw5e-module.customization-options.Item.PAydETozKAZkCEFI
+          - uuid: Compendium.sw5e-module.customization-options.Item.fRxjSf20JsRp5cJi
+          - uuid: Compendium.sw5e-module.customization-options.Item.mal2tkA3aHSOhhj6
+          - uuid: Compendium.sw5e-module.customization-options.Item.GZPAl96VMlmKif94
+          - uuid: Compendium.sw5e-module.customization-options.Item.VvChtbjdVRcih0xb
+          - uuid: Compendium.sw5e-module.customization-options.Item.JnmdPLcoTRAJLlXl
+          - uuid: Compendium.sw5e-module.customization-options.Item.iVOEfcaMV42gMhoL
+          - uuid: Compendium.sw5e-module.customization-options.Item.QgBApTqKsETXcYoZ
+          - uuid: Compendium.sw5e-module.customization-options.Item.L05L4W2KJSzlqr0p
+          - uuid: Compendium.sw5e-module.customization-options.Item.0qU2HLFJ52DQVLdW
+          - uuid: Compendium.sw5e-module.customization-options.Item.47dhLM5iQKYjJY0n
+          - uuid: Compendium.sw5e-module.customization-options.Item.LzUAVZPOxWbuhbaK
+          - uuid: Compendium.sw5e-module.customization-options.Item.sWCDsYcVjjOQJfiM
+          - uuid: Compendium.sw5e-module.customization-options.Item.u1mbDcfQMw6Nyi5M
+          - uuid: Compendium.sw5e-module.customization-options.Item.af6Q2jTPcnQVs6Yf
+          - uuid: Compendium.sw5e-module.customization-options.Item.8IQob78Gz57vZOj0
+          - uuid: Compendium.sw5e-module.customization-options.Item.pX08tScipzXyBU4m
+          - uuid: Compendium.sw5e-module.customization-options.Item.tpiX7WlhaVTZOKFe
+          - uuid: Compendium.sw5e-module.customization-options.Item.4mxmNDsljdI4gFfs
+          - uuid: Compendium.sw5e-module.customization-options.Item.8lm5TGTNA0HlYVdC
+          - uuid: Compendium.sw5e-module.customization-options.Item.inezyXCmmzsJbsR7
+          - uuid: Compendium.sw5e-module.customization-options.Item.S6AcWF95ttwCxebG
+          - uuid: Compendium.sw5e-module.customization-options.Item.oZfnse1SdzIBpFVb
+          - uuid: Compendium.sw5e-module.customization-options.Item.Kj8pQaXCd1EcmbZz
+          - uuid: Compendium.sw5e-module.customization-options.Item.OzPeiYYDU13iBcHv
+          - uuid: Compendium.sw5e-module.customization-options.Item.Q23EQAQaxn4KmPHf
+          - uuid: Compendium.sw5e-module.customization-options.Item.bSSZxBtwZuwCNOPi
+          - uuid: Compendium.sw5e-module.customization-options.Item.niEE1fpB58EcTmM2
+          - uuid: Compendium.sw5e-module.customization-options.Item.09au7DrrGPMt4rLB
+          - uuid: Compendium.sw5e-module.customization-options.Item.RijLfUyBMN9N5PRR
+          - uuid: Compendium.sw5e-module.customization-options.Item.EqXgB6SPZM2W7NhU
+          - uuid: Compendium.sw5e-module.customization-options.Item.ypfHM4bRVwnuIFW3
+          - uuid: Compendium.sw5e-module.customization-options.Item.p7Ld5Vk7w8oN4ojZ
+          - uuid: Compendium.sw5e-module.customization-options.Item.ZXp25g6r81QqTo35
+          - uuid: Compendium.sw5e-module.customization-options.Item.gk6ByEKIKdqbWzO2
+          - uuid: Compendium.sw5e-module.customization-options.Item.JTHA6TL6vdpZz9v2
+          - uuid: Compendium.sw5e-module.customization-options.Item.GR0iXZzVMdygJfGh
+          - uuid: Compendium.sw5e-module.customization-options.Item.CWcnmnPvvWQoXgWv
+          - uuid: Compendium.sw5e-module.customization-options.Item.5bc478TovC0ChzkH
+        spell: null
+        restriction:
+          list: []
+      value:
+        added: {}
+        replaced: {}
+      title: Humanoid Traits
+      hint: ''
+  movement:
+    walk: '30'
+    units: null
+    hover: false
+    ignoredDifficultTerrain: []
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  type:
+    value: humanoid
+    subtype: ''
+  identifier: humanoid-companion
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  dnd5e:
+    riders:
+      activity: []
+_stats:
+  duplicateSource: null
+  exportSource:
+    worldId: swtor-3652-runaway-pegasus
+    uuid: null
+    coreVersion: '11.315'
+    systemId: sw5e
+    systemVersion: 2.4.1.2.8.0
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778544764007
+  lastModifiedBy: dnd5ebuilder0000
+_id: BjcdvZzr2VLNbzyF
+ownership:
+  default: 0
+sort: 103125
+_key: '!items!BjcdvZzr2VLNbzyF'
+

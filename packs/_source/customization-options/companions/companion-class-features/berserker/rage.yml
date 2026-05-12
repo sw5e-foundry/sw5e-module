@@ -1,0 +1,333 @@
+name: Rage
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-Bonus.webp
+effects:
+  - _id: joJ14rFFXKalCoSZ
+    changes:
+      - key: system.bonuses.mwak.damage
+        mode: 2
+        value: '@scale.berserker.rage-damage'
+        priority: 20
+      - key: system.traits.dr.value
+        mode: 0
+        value: kinetic
+        priority: 20
+      - key: system.traits.dr.value
+        mode: 0
+        value: energy
+        priority: 20
+      - key: system.abilities.str.check.roll.mode
+        mode: 2
+        value: '1'
+        priority: 20
+      - key: system.abilities.str.save.roll.mode
+        mode: 2
+        value: '1'
+        priority: 20
+    disabled: true
+    duration:
+      rounds: 10
+      startTime: null
+      seconds: 60
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    origin: Compendium.sw5e.classfeatures.DAk6NKEfJq4gEyhB
+    tint: '#ffffff'
+    transfer: false
+    flags:
+      core:
+        overlay: false
+      dae:
+        stackable: noneName
+        durationExpression: ''
+        specialDuration: []
+        transfer: false
+        selfTarget: false
+        selfTargetAlways: true
+        macroRepeat: none
+        disableIncapacitated: false
+        dontApply: false
+        showIcon: false
+        enableCondition: ''
+        disableCondition: ''
+      ActiveAuras:
+        isAura: false
+        aura: None
+        radius: undefined
+        alignment: ''
+        type: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+        nameOverride: ''
+        customCheck: ''
+        wallsBlock: system
+      dnd5e:
+        riders:
+          statuses: []
+    name: Rage
+    description: ''
+    statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      lastModifiedBy: dnd5ebuilder0000
+      modifiedTime: 1778266386566
+    img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-Bonus.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!ZWSZB3z8H8Ga1Rxn.joJ14rFFXKalCoSZ'
+flags:
+  betterRollssw5e:
+    critRange:
+      type: String
+      value: ''
+    critDamage:
+      type: String
+      value: ''
+    quickDesc:
+      type: Boolean
+      value: true
+      altValue: true
+    quickAttack:
+      type: Boolean
+      value: true
+      altValue: true
+    quickSave:
+      type: Boolean
+      value: true
+      altValue: true
+    quickDamage:
+      type: Array
+      value: []
+      altValue: []
+      context: []
+    quickProperties:
+      type: Boolean
+      value: true
+      altValue: true
+    quickCharges:
+      type: Boolean
+      value:
+        use: true
+        resource: true
+        charge: true
+      altValue:
+        use: true
+        resource: true
+        charge: true
+    quickTemplate:
+      type: Boolean
+      value: true
+      altValue: true
+    quickOther:
+      type: Boolean
+      value: true
+      altValue: true
+      context: ''
+    quickFlavor:
+      type: Boolean
+      value: true
+      altValue: true
+    quickPrompt:
+      type: Boolean
+      value: false
+      altValue: false
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.5600877+00:00'
+    importer_version: 3
+    uid: Feature.name-rage.source-class.sourceName-berserker.level-1
+  midi-qol:
+    effectActivation: false
+    rollAttackPerTarget: default
+    forceCEOff: false
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    forceCEOn: false
+    removeAttackDamageButtons: default
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+    idr: false
+    idi: false
+    idv: false
+    ida: false
+  journal-backlinks:
+    references: []
+  cf:
+    id: temp_jslb99moxp
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  rest-recovery:
+    data:
+      recovery:
+        enabled: false
+  dnd5e:
+    persistSourceMigration: true
+    migratedUses: null
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p>Beginning when your companion chooses this class at 3rd level, in
+      battle, it fights with primal ferocity. On your companion's turns, it can
+      enter a rage as a bonus action if it isn't wearing heavy
+      armor.</p><p>While raging, your companion gains the following
+      benefits:</p><ul><li><p>It has advantage on Strength checks and Strength
+      saving throws.</p></li><li><p>When it makes a melee weapon attack using
+      Strength, it gains a +2 bonus to the damage roll. This bonus increases to
+      +3 at 11th level.</p></li><li><p>It has resistance to kinetic and energy
+      damage.</p></li><li><p>If it is able to cast powers, it can't cast them or
+      concentrate on them while raging.</p></li></ul><p>Your companion's rage
+      lasts for 1 minute. It ends early if your companion is knocked
+      unconscious, it dons heavy armor, or if its turn ends and it hasn't
+      attacked a hostile creature or taken damage since its last turn. It can
+      also end its rage on your turn as a bonus action.</p><p>Your companion can
+      use this feature twice. It gains an additional use at 11th level. Your
+      companion regains all expended uses when it finishes a long
+      rest.</p><section class="secret"
+      id="secret-ajxfxbDgbflYTdrW"><p><strong>Foundry Note</strong></p><p>This
+      feature includes an Active Effect which automates the Resistance and
+      additional damage. This feature will also automatically recharge your Rage
+      uses on a Long Rest.</p></section>
+    chat: ''
+  requirements: Berserker 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2024'
+  cover: null
+  crewed: false
+  uses:
+    max: '@scale.berserker.rages'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    repeatable: false
+    items: []
+  properties: []
+  activities:
+    dnd5eactivity000:
+      _id: dnd5eactivity000
+      type: utility
+      activation:
+        type: bonus
+        value: 1
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+            scaling: {}
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: true
+      description:
+        chatFlavor: ''
+      duration:
+        concentration: false
+        value: '1'
+        units: minute
+        special: ''
+        override: false
+      effects:
+        - _id: joJ14rFFXKalCoSZ
+          level: {}
+      range:
+        units: self
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: self
+          choice: false
+          special: ''
+        prompt: false
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      roll:
+        formula: ''
+        name: Rage
+        prompt: false
+        visible: false
+      sort: 0
+      name: Rage
+      flags: {}
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  identifier: rage-20
+  advancement: []
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778266426351
+  lastModifiedBy: dnd5ebuilder0000
+folder: OQRMura41E5mzd4T
+_id: ZWSZB3z8H8Ga1Rxn
+ownership:
+  default: 0
+sort: 0
+_key: '!items!ZWSZB3z8H8Ga1Rxn'
+

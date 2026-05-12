@@ -1,0 +1,236 @@
+folder: COUZsxKjlUNvbJPk
+name: Scout
+type: subclass
+img: modules/sw5e-module/icons/packs/Classes/Scout.webp
+system:
+  description:
+    value: "<h2>SCOUT</h2><p>In order to become a scout, your companion must have a Strength, Dexterity, or Intelligence score of 13 or higher.</p><p>As a scout, your companion gains the following class features.</p><h4>PROFICIENCIES</h4><hr /><ul><li>Armor:\_Light armor, medium armor</li><li>Weapons:\_All blasters, all vibroweapons</li><li>Tools:\_None</li></ul><hr /><ul><li>Saving Throws:\_Strength, Dexterity</li><li>Skills:\_Choose three from Animal Handling, Athletics, Insight, Investigation, Perception, Piloting, Stealth, Survival, and Technology</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  identifier: scout
+  classIdentifier: follower
+  advancement:
+    - _id: kis5f5no0xtsrlm2
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.uCnXU9XUUjRqvCuB
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.mD0D4e2CApYU82Gs
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 3
+      title: Features
+    - _id: p3sg6np6tgo1bju6
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.KKAnUqwBlfzoZfQX
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 15
+      title: Features
+    - _id: mhVs05wZa2wajVqn
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - saves:str
+          - saves:dex
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: oWDA4hlAmtUy8EwU
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 3
+            pool:
+              - skills:ani
+              - skills:ath
+              - skills:ins
+              - skills:inv
+              - skills:prc
+              - skills:pil
+              - skills:ste
+              - skills:sur
+              - skills:tec
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: th6tIidvlwsYqHH0
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - armor:lgt
+          - armor:med
+          - armor:shl:lightphysicalshield
+          - armor:shl:lightshieldgenerator
+          - armor:shl:mediumphysicalshield
+          - armor:shl:mediumshieldgenerator
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: gTdaX69tH2St0W5G
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - weapon:mbl
+          - weapon:mvb
+          - weapon:sbl
+          - weapon:svb
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      hint: ''
+    - _id: O0uXAux8C5VVW4Jv
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: dice
+        distance:
+          units: ''
+        scale:
+          '3':
+            number: 1
+            faces: 4
+            modifiers: []
+          '7':
+            number: 1
+            faces: 6
+            modifiers: []
+          '15':
+            number: 1
+            faces: 8
+            modifiers: []
+      value: {}
+      title: Rangers Quarry
+      icon: null
+    - _id: BwR1hK4rIQthJEPF
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 1
+          '7':
+            value: 2
+          '18':
+            value: 3
+      value: {}
+      title: Tech Power Level
+      hint: ''
+    - _id: 9KIaNFoWsPRwzlJO
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 2
+          '7':
+            value: 4
+          '18':
+            value: 6
+      value: {}
+      title: Tech Powers Known
+      hint: ''
+    - _id: 1YgGMc2B57K1lSOt
+      type: ItemGrant
+      configuration:
+        items:
+          - optional: false
+            uuid: Compendium.sw5e-module.customization-options.Item.zoAPdGETtfvUY04b
+        optional: false
+        spell: null
+      value: {}
+      level: 11
+      title: Features
+      hint: ''
+    - type: ItemGrant
+      title: Features
+      _id: FNUhx21RNvunP6HN
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.qg60BE5mkIFw7NWy
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 7
+      hint: ''
+    - type: ItemGrant
+      title: Features
+      _id: jmYhtkxxVpTaaglp
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.YnDUJQ2kziHX81iv
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 18
+      hint: ''
+  spellcasting:
+    progression: none
+    ability: ''
+    forceProgression: none
+    techProgression: arch
+    superiorityProgression: none
+    preparation:
+      formula: ''
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778542026833
+  lastModifiedBy: dnd5ebuilder0000
+_id: RCPhdmCqyjoC2R2D
+ownership:
+  default: 0
+sort: 0
+_key: '!items!RCPhdmCqyjoC2R2D'
+

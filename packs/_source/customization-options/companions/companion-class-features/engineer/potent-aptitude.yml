@@ -1,0 +1,219 @@
+name: Potent Aptitude
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-Passive.webp
+effects:
+  - name: Potent Aptitude
+    img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-Passive.webp
+    origin: Compendium.sw5e-module.customization-options.Item.FLiwwVvhy54Rw2wG
+    transfer: false
+    _id: gSBrS9E90zgVSHlu
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: 3600
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: >-
+      <p>You have received Potent Aptitude. Once within the next 10 minutes, you
+      can roll the Potent Aptitude die and add the number rolled to one ability
+      check, attack roll, or saving throw you make. You wait until after rolling
+      the d20 before deciding to use the Potent Aptitude die, but must decide
+      before the GM says whether the roll succeeds or fails. Once the Potent
+      Aptitude die is rolled, it is lost.</p>
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1778528974322
+      modifiedTime: 1778529154987
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!FLiwwVvhy54Rw2wG.gSBrS9E90zgVSHlu'
+flags:
+  sw5e:
+    sourceId: Compendium.sw5e-module.customization-options.HZkoGShULE7iWO6C
+    advancementOrigin: 8zFDUeZoXxVS45UO.tega66xjwmp4j4hd
+  cf:
+    id: temp_ahdvp8owvs
+  journal-backlinks:
+    references: []
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  midiProperties:
+    confirmTargets: default
+    critOther: false
+    concentration: false
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  midi-qol:
+    rollAttackPerTarget: default
+    effectActivation: false
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    forceCEOff: false
+    removeAttackDamageButtons: default
+  dnd5e:
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p>Also at 3rd level, your companion's technological experience lends it
+      an uncommon insight that it can use to bolster its allies. To do so, it
+      uses a bonus action on its turn to choose one creature other than itself
+      within 60 feet of it who can hear it. That creature gains one Potent
+      Aptitude die, a d4. This die increases to a d6 at 7th level and a d8 at
+      15th level.</p><p>Once within the next 10 minutes, the creature can roll
+      the die and add the number rolled to one ability check, attack roll, or
+      saving throw it makes. The creature can wait until after it rolls the d20
+      before deciding to use the Potent Aptitude die, but must decide before the
+      GM says whether the roll succeeds or fails. Once the Potent Aptitude die
+      is rolled, it is lost.</p><p>A creature can have only one Potent Aptitude
+      die at a time.</p><p>Your companion can use this feature once. It gains an
+      additional use at 5th and 13th level. It regains any expended uses when it
+      finishes a short or long rest.</p>
+    chat: ''
+  requirements: Engineer 3 (Companion)
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '@scale.engineer.potent-aptitude-uses'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: 3
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    dnd5eactivity000:
+      name: ''
+      img: ''
+      target:
+        prompt: false
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      appliedEffects: []
+    UfVRts7gcDMOGmpT:
+      type: utility
+      _id: UfVRts7gcDMOGmpT
+      sort: 0
+      activation:
+        type: bonus
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      description:
+        chatFlavor: ''
+      duration:
+        units: minute
+        concentration: false
+        override: false
+        value: '10'
+      effects:
+        - _id: gSBrS9E90zgVSHlu
+          level:
+            min: null
+            max: null
+      flags: {}
+      range:
+        units: ft
+        override: false
+        special: ''
+        value: '60'
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: creature
+          count: '1'
+          special: ''
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: true
+        name: Potent Aptitude
+        formula: '@scale.engineer.potent-aptitude'
+      name: Potent Aptitude
+      img: ''
+  advancement: []
+  identifier: potent-aptitude
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778529296813
+  lastModifiedBy: dnd5ebuilder0000
+folder: aLSzMEQhiLnYjtYS
+_id: FLiwwVvhy54Rw2wG
+ownership:
+  default: 0
+sort: 0
+_key: '!items!FLiwwVvhy54Rw2wG'
+

@@ -1,0 +1,202 @@
+folder: COUZsxKjlUNvbJPk
+name: Berserker
+type: subclass
+img: modules/sw5e-module/icons/packs/Classes/Berserker.webp
+system:
+  description:
+    value: "<p>In order to become a berserker, your companion must have a Strength score of 13 or higher.</p><p>As a berserker, your companion gains the following class features.</p><h4>PROFICIENCIES</h4><hr /><ul><li>Armor:\_Light armor, medium armor</li><li>Weapons:\_All vibroweapons, simple blasters</li><li>Tools:\_None</li></ul><hr /><ul><li>Saving Throws: Strength, Constitution</li><li>Skills:\_Choose two from Animal Handling, Athletics, Intimidation, Nature, Perception, Survival</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  identifier: berserker
+  classIdentifier: follower
+  advancement:
+    - _id: 6eimin9wssi9hqgy
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.W0T5Yqoa9mxtn7Kv
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.ZWSZB3z8H8Ga1Rxn
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 3
+      title: Features
+    - _id: htbzgty5mtp9z400
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.q6bhBINuJnRq7PFN
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 7
+      title: Features
+    - _id: 7n44jxt3tupkc8ep
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.Smiv4P4OQ7JzMfXV
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 11
+      title: Features
+      hint: ''
+    - _id: dgth2g3hynvxw1sm
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.fBVwIeocZUCFN6PZ
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 15
+      title: Features
+    - _id: o3wzv0oj4kmxq46h
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.fVVnsYFj3Z1kzZlB
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 18
+      title: Features
+    - _id: gheavt5gi2tr3fo1
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 2
+          '11':
+            value: 3
+      value: {}
+      title: Rage Damage
+      icon: null
+    - _id: GJsNVylkQzfJGoWf
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - saves:str
+          - saves:con
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: QEa1rMrhVPN4jAbj
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 2
+            pool:
+              - skills:ath
+              - skills:itm
+              - skills:nat
+              - skills:prc
+              - skills:sur
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: W7Hlu51LpqXqOYhG
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - armor:lgt
+          - armor:med
+          - armor:shl:lightphysicalshield
+          - armor:shl:lightshieldgenerator
+          - armor:shl:mediumphysicalshield
+          - armor:shl:mediumshieldgenerator
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: PXbBYFzphBK4EJFO
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - weapon:mvb
+          - weapon:sbl
+          - weapon:svb
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      hint: ''
+    - _id: DX6pIWmuW2RCTxNr
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 2
+          '11':
+            value: 3
+      value: {}
+      title: Rages
+      hint: ''
+  spellcasting:
+    progression: none
+    ability: ''
+    forceProgression: none
+    techProgression: none
+    superiorityProgression: none
+    preparation:
+      formula: ''
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778530617350
+  lastModifiedBy: dnd5ebuilder0000
+_id: m0MM6FpMP0W9FWew
+ownership:
+  default: 0
+sort: 0
+_key: '!items!m0MM6FpMP0W9FWew'
+
