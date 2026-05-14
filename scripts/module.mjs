@@ -27,6 +27,7 @@ import { registerModuleSettings } from "./settings.mjs";
 import { patchVariantRules } from "./patch/variantRules.mjs";
 import { patchCharacterDeploymentSheet } from "./patch/character-deployment-sheet.mjs";
 import { getCharacterDeploymentSummary } from "./character-deployments.mjs";
+import { registerCharacterFeaturesDiagnostics } from "./dev/character-features-diagnostics.mjs";
 
 globalThis.sw5e = {
 	migrations,
@@ -79,6 +80,7 @@ Hooks.once('init', async function() {
 Hooks.once('ready', async function() {
 	patchPacks(strict);
 	patchProficiencyReady();
+	registerCharacterFeaturesDiagnostics(globalThis.sw5e);
 
 	// Perform module migration if it is required and feasible
 	if (migrations.needsMigration()) await migrations.migrateWorld();
