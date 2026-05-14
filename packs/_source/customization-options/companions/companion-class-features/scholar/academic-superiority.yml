@@ -1,0 +1,235 @@
+name: Academic Superiority
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-Action.webp
+effects:
+  - origin: Compendium.sw5e-module.customization-options.C3OysHi1MmOl01k6
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: Z9Sb2Okh6uelJcdd
+    changes:
+      - key: system.attributes.super.known.max
+        mode: 2
+        value: '2'
+        priority: 20
+      - key: system.attributes.super.dice.max
+        mode: 2
+        value: '2'
+        priority: 20
+    tint: '#ffffff'
+    transfer: true
+    flags:
+      dae:
+        selfTarget: false
+        selfTargetAlways: false
+        stackable: noneName
+        durationExpression: ''
+        macroRepeat: none
+        specialDuration: []
+      core:
+        statusId: ''
+      ActiveAuras:
+        isAura: false
+        aura: None
+        radius: ''
+        alignment: ''
+        type: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+    name: Academic Superiority
+    description: ''
+    statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      lastModifiedBy: null
+    img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-Action.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!8SJmmB8RdDgJLBrX.Z9Sb2Okh6uelJcdd'
+flags:
+  betterRollssw5e:
+    critRange:
+      type: String
+      value: ''
+    critDamage:
+      type: String
+      value: ''
+    quickDesc:
+      type: Boolean
+      value: true
+      altValue: true
+    quickAttack:
+      type: Boolean
+      value: true
+      altValue: true
+    quickSave:
+      type: Boolean
+      value: true
+      altValue: true
+    quickDamage:
+      type: Array
+      value:
+        - true
+      altValue:
+        - true
+      context: []
+    quickProperties:
+      type: Boolean
+      value: true
+      altValue: true
+    quickCharges:
+      type: Boolean
+      value:
+        use: true
+        resource: true
+        charge: true
+      altValue:
+        use: true
+        resource: true
+        charge: true
+    quickTemplate:
+      type: Boolean
+      value: true
+      altValue: true
+    quickOther:
+      type: Boolean
+      value: true
+      altValue: true
+      context: ''
+    quickFlavor:
+      type: Boolean
+      value: true
+      altValue: true
+    quickPrompt:
+      type: Boolean
+      value: false
+      altValue: false
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.6650276+00:00'
+    importer_version: 3
+    uid: Feature.name-academic_superiority.source-class.sourceName-scholar.level-1
+  midi-qol:
+    effectActivation: false
+    fumbleThreshold: null
+    rollAttackPerTarget: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  journal-backlinks:
+    references: []
+  cf:
+    id: temp_ppg765odswn
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p>Beginning when your companion chooses this class at 3rd level, your
+      companion has learned maneuvers that are fueled by special dice called
+      superiority dice..</p><h3>Maneuvers Known</h3><p>Your companion learns two
+      maneuvers of its choice. Many maneuvers enhance an attack in some way.
+      Your companion can use only one maneuver per attack, and it may only use
+      each maneuver once per turn.</p><p>Your companion learns an additional
+      maneuver at 5th, 7th, 9th, 11th, 13th, 15th, and 17th level. each time
+      your companion gains a level, it can also replace one maneuver it knows
+      with a different one.</p><h3>Superiority Dice</h3><p>Your companion has
+      two superiority dice, which are d4s. This die increases to a d6 at 9th
+      level and a d8 at 17th level. A superiority die is expended when your
+      companion uses it. Your companion regains all of its expended superiority
+      dice when it finishes a short or long rest.</p><p>Your companion gains an
+      additional superiority die at 5th, 9th, 13th, and 17th
+      level.</p><h3>Maneuver Ability</h3><p>Your companion's maneuver ability
+      varies based on the type of the maneuver it uses. It uses Strength,
+      Dexterity, or Constitution for physical maneuvers (its choice);
+      Intelligence, Wisdom, or Charisma for mental maneuvers (its choice); and
+      an ability of its choice for general maneuvers. It uses this ability
+      whenever a maneuver refers to its maneuver ability. Additionally, it uses
+      this ability modifier when setting the saving throw DC for a maneuver it
+      uses.</p><hr /><p><strong>Maneuver save DC</strong> = 8 + your proficiency
+      bonus + your maneuver ability modifier</p><hr />
+    chat: ''
+  requirements: Scholar 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '@scale.scholar.superiority-dice-quantity'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities: {}
+  advancement: []
+  identifier: academic-superiority
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778241149578
+  lastModifiedBy: dnd5ebuilder0000
+folder: F1lwjqFnjuCoP4Gv
+_id: 8SJmmB8RdDgJLBrX
+ownership:
+  default: 0
+sort: 0
+_key: '!items!8SJmmB8RdDgJLBrX'
+

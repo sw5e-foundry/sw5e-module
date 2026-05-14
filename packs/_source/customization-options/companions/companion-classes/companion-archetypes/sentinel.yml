@@ -1,0 +1,237 @@
+folder: COUZsxKjlUNvbJPk
+name: Sentinel
+type: subclass
+img: modules/sw5e-module/icons/packs/Classes/Sentinel.webp
+system:
+  description:
+    value: "<h2>SENTINEL</h2><p>In order to become a sentinel, your companion must have a Dexterity, Wisdom, or Charisma score of 13 or higher.</p><p>As a sentinel, your companion gains the following class features.</p><h4>PROFICIENCIES</h4><hr /><ul><li>Armor:\_Light armor</li><li>Weapons:\_Simple vibroweapons, simple lightweapons, chakram, doubleblade, doublesaber, doubleshoto, doublesword, hidden blade, lightfoil, light ring, saberwhip, vibrorapier, vibrowhip</li><li>Tools:\_One specialist's kit of your choice</li></ul><hr /><ul><li>Saving Throws:\_Dexterity, Charisma</li><li>Skills:\_Choose three from Acrobatics, Animal Handling, Insight, Intimidation, Perception, Persuasion, Piloting, Stealth, and Technology</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  identifier: sentinel
+  classIdentifier: follower
+  advancement:
+    - _id: uckhis7hc9oeeki9
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.cQtA9HMsThIMi5Yt
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.kKxY11I3eEtQbq46
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 3
+      title: Features
+    - _id: 2nm5ftpdudqpfgvc
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.WNfnU5b4Wfl3jiPq
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 11
+      title: Features
+      hint: ''
+    - _id: 7cuiwPWqiLWMfYuJ
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - saves:dex
+          - saves:cha
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: V7mWrsTRBEhAOAuk
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 3
+            pool:
+              - skills:acr
+              - skills:ani
+              - skills:ins
+              - skills:itm
+              - skills:prc
+              - skills:per
+              - skills:pil
+              - skills:ste
+              - skills:tec
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: c630vJzLG2fPXGmJ
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - armor:lgt
+          - armor:shl:lightphysicalshield
+          - armor:shl:lightshieldgenerator
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: K54WEwvy8q6y6jnE
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - weapon:mlw:doublesaber
+          - weapon:mlw:doubleshoto
+          - weapon:mlw:lightfoil
+          - weapon:mlw:lightring
+          - weapon:mlw:saberwhip
+          - weapon:mvb:chakram
+          - weapon:mvb:doubleblade
+          - weapon:mvb:doublesword
+          - weapon:mvb:hiddenblade
+          - weapon:mvb:vibrorapier
+          - weapon:mvb:vibrowhip
+          - weapon:slw
+          - weapon:svb
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: f9hqR6UwvK5qCGGz
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 1
+            pool:
+              - tool:specialist:*
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      hint: ''
+    - _id: BwR1hK4rIQthJEPF
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 1
+          '7':
+            value: 2
+          '15':
+            value: 3
+          '18':
+            value: 4
+      value: {}
+      title: Force Power Level
+      hint: ''
+    - _id: 9KIaNFoWsPRwzlJO
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 3
+          '7':
+            value: 6
+          '18':
+            value: 9
+      value: {}
+      title: Force Powers Known
+      hint: ''
+    - type: ItemGrant
+      title: Features
+      _id: GDCV6Au2I5rY9UAy
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.tX1fQ4ZK7VOTXIre
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 7
+      hint: ''
+    - type: ItemGrant
+      title: Features
+      _id: cTyV4NB9OMy7IhXf
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.WGaRo7meH8CKucWa
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 15
+      hint: ''
+    - type: ItemGrant
+      title: Features
+      _id: 4HmDRTQyRP5TP5mw
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.fMlDqWRRA3J7OOKt
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 18
+      hint: ''
+  spellcasting:
+    progression: none
+    ability: ''
+    forceProgression: arch
+    techProgression: none
+    superiorityProgression: none
+    preparation:
+      formula: ''
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778542026296
+  lastModifiedBy: dnd5ebuilder0000
+_id: oSmQZfzIXdS95Izq
+ownership:
+  default: 0
+sort: 0
+_key: '!items!oSmQZfzIXdS95Izq'
+

@@ -1,0 +1,305 @@
+folder: 9mFYphatELOB9hwg
+name: Tracker Droid
+type: race
+img: modules/sw5e-module/icons/packs/Companions/tracker_droid.webp
+system:
+  description:
+    value: "<h4>TRACKER DROID COMPANION</h4><p><em><strong>Prerequisite:</strong> The ability to cast tech powers</em><br />Through fabrication of your own or purchase from a vendor, you gain the assistance of a tracker droid companion.</p><hr /><p>Your tracker droid takes a form of your choosing. Once you've selected your tracker droid's appearance, you assign your tracker droid's ability scores using a standard array (16, 14, 12, 10, 8, 6) as you see fit.</p><p></p><h3>TRACKER DROID FEATURES</h3><p>All tracker droids share the following traits.</p><h4>HIT POINTS</h4><hr /><ul><li>Hit Dice:\_1d4 per tracker droid companion level</li><li>Hit Points at 1st Level:\_4 + your tracker droid's Constitution modifier</li><li>Hit Points at Higher Levels:\_1d4 (or 3) + your tracker droid's Constitution modifier per tracker droid level after 1st</li></ul><h4>RESISTANCES AND VULNERABILITIES</h4><hr /><ul><li>Droid Resistances:\_Your tracker droid is resistant to necrotic, poison, and psychic damage, and immune to poison and disease.</li><li>Droid Vulnerabilities:\_Your tracker droid is vulnerable to ion damage. Additionally, your tracker droid has disadvantage on saving throws against effects that would deal ion or lightning damage.</li></ul><h4>PROFICIENCIES AND FEATURES</h4><hr /><ul><li>Skills:\_Two of your choice</li><li>Tools:\_One of your choice, which comes integrated into the droid</li><li>Languages:\_Tracker droids can speak, read, and write Binary. They can understand spoken and written Galactic Basic and one language of your choice, but can not speak it.</li><li>Size:\_Tiny</li><li>Speed:\_20 feet</li><li>Type:\_Droid</li><li>Armor Class:\_Your tracker droid's armor class equals 10 + its Dexterity modifier. Your tracker droid can't wear armor or have it integrated.</li><li>Droid Systems:\_Your tracker droid does not need to eat or drink. Additionally, your tracker droid does not require a tech focus to cast tech powers, and it is a valid target of the\_tracker droid interface\_tech power.</li><li>Droid Weaponry:\_Your tracker droid has an integrated shockprod with which it can make weapon attacks. This weapon can't be removed while your tracker droid is conscious. Your tracker droid's shockprod deals 1 lightning damage on a hit, and it has the finesse property.</li><li>Force Insensitive:\_Your tracker droid can not use force powers or take levels in forcecasting classes.</li><li>Maintenance Mode:\_Rather than sleep, your companion must spend 3 hours performing routine maintenance during a long rest to gain its benefits, during which it has disadvantage on Wisdom (Perception) checks. Additionally, if your companion's long rest would be interrupted, it only needs to complete the long rest instead of restarting it.</li><li>Attitude:\_The tracker droid obeys your commands as best it can. It acts on your turn, and you determine its actions, decisions, attitudes, and so on. If you are incapacitated or absent, your tracker droid acts on its own.</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  advancement:
+    - _id: By2iflUY7U56DgZM
+      type: Size
+      configuration:
+        sizes:
+          - tiny
+      value: {}
+      level: 0
+      title: ''
+      icon: null
+    - _id: 77DKblf1hgcKWj7n
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.dM5nalwySHzKUuUv
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.Lpw2zc3c2lJooChl
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.NhI4iThHNX6GqVIF
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.kAJtrYwG0kw18ZZz
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.ROdaLk9ZTaKzyupj
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.ZdbHzmKpB1fIJnTK
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.e05LdlgSLf7qnBLo
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.sW0zzrn5lu7wuP0Q
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.DHS1hsxsAss1gDmT
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.XOvtDDufil2DoZmO
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 0
+      title: Innate Tracker Droid Traits
+      icon: null
+    - _id: rJqMfe7hYTYyyAbC
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - dr:necrotic
+          - dr:poison
+          - dr:psychic
+        choices: []
+      value:
+        chosen: []
+      level: 0
+      title: ''
+      hint: ''
+    - _id: EY5ppeAtvgfge87l
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - dv:ion
+        choices: []
+      value:
+        chosen: []
+      level: 0
+      title: ''
+      icon: null
+    - _id: 5IQaVYBoW206C9Gf
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 2
+            pool:
+              - skills:*
+      value:
+        chosen: []
+      level: 0
+      title: ''
+      icon: null
+    - _id: nLblwNDbsRKm6otJ
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - languages:standard:binary
+          - languages:standard:common
+        choices:
+          - count: 1
+            pool:
+              - languages:standard:*
+      value:
+        chosen: []
+      level: 0
+      title: ''
+      hint: ''
+    - _id: BJqy6sEONuqkYuw1
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 1
+            pool:
+              - tool:*
+      value:
+        chosen: []
+      level: 0
+      title: ''
+      icon: null
+    - _id: AEgUpF2rye3HeuVJ
+      type: ItemChoice
+      configuration:
+        choices:
+          '1':
+            count: 2
+            replacement: false
+          '5':
+            count: 1
+            replacement: false
+          '9':
+            count: 1
+            replacement: false
+          '13':
+            count: 1
+            replacement: false
+          '17':
+            count: 1
+            replacement: false
+        allowDrops: true
+        type: null
+        pool:
+          - uuid: Compendium.sw5e-module.customization-options.Item.OtLrluw7dQ928cqX
+          - uuid: Compendium.sw5e-module.customization-options.Item.YVSoOL47ZjLJokXD
+          - uuid: Compendium.sw5e-module.customization-options.Item.i2blVeGbqaIPIR1H
+          - uuid: Compendium.sw5e-module.customization-options.Item.A4hFz3R6RrfqEqrU
+          - uuid: Compendium.sw5e-module.customization-options.Item.4o1EXE6ieFSuu5jv
+          - uuid: Compendium.sw5e-module.customization-options.Item.TlRwiWV2QXwJk6J0
+          - uuid: Compendium.sw5e-module.customization-options.Item.XmYq6lrdzt5O3XYu
+          - uuid: Compendium.sw5e-module.customization-options.Item.JVzOOs8hAzWnEmnk
+          - uuid: Compendium.sw5e-module.customization-options.Item.bbkJSo3i74yT1Afz
+          - uuid: Compendium.sw5e-module.customization-options.Item.OpltiIx4KhOJCJmi
+          - uuid: Compendium.sw5e-module.customization-options.Item.6QYJJUhoWlGs0cHQ
+          - uuid: Compendium.sw5e-module.customization-options.Item.xmiKpVfNC6U8jVa0
+          - uuid: Compendium.sw5e-module.customization-options.Item.FQxET1Nm1qqnpfjK
+          - uuid: Compendium.sw5e-module.customization-options.Item.l6WEyaH5jlFt9oqd
+          - uuid: Compendium.sw5e-module.customization-options.Item.WFMU1ToDtHujWOgx
+          - uuid: Compendium.sw5e-module.customization-options.Item.x6gdPvcf7rdwCewu
+          - uuid: Compendium.sw5e-module.customization-options.Item.ejrUyG4toXTF7TPs
+          - uuid: Compendium.sw5e-module.customization-options.Item.WWbIHsraHVMFunLu
+          - uuid: Compendium.sw5e-module.customization-options.Item.OxfoOnClo2wyrYO2
+          - uuid: Compendium.sw5e-module.customization-options.Item.0pMBwSz5a4g9A8C7
+          - uuid: Compendium.sw5e-module.customization-options.Item.AsnXZ25EoIf1Fqsa
+          - uuid: Compendium.sw5e-module.customization-options.Item.vwLA1VEsuL8ypvpY
+          - uuid: Compendium.sw5e-module.customization-options.Item.amTNFPXTXl1bwjb2
+          - uuid: Compendium.sw5e-module.customization-options.Item.75c5sm8X98XdHZmb
+          - uuid: Compendium.sw5e-module.customization-options.Item.wBmuAiSOj6G5XaMp
+          - uuid: Compendium.sw5e-module.customization-options.Item.PZzKGAiGVqZtJ5di
+          - uuid: Compendium.sw5e-module.customization-options.Item.SInMpeM6DaeG6Oxu
+          - uuid: Compendium.sw5e-module.customization-options.Item.LCq85Yhaq7su1Z9f
+        spell: null
+        restriction:
+          list: []
+      value:
+        added: {}
+        replaced: {}
+      title: Tracker Droid Traits
+      hint: ''
+    - type: Trait
+      _id: e4zzQttcMs4tO9jh
+      configuration:
+        allowReplacements: false
+        choices: []
+        grants:
+          - ci:diseased
+          - ci:poisoned
+        mode: default
+      level: 0
+      title: ''
+      hint: ''
+      value: {}
+  movement:
+    walk: '20'
+    units: null
+    hover: false
+    ignoredDifficultTerrain: []
+  senses:
+    darkvision: null
+    blindsight: null
+    tremorsense: null
+    truesight: null
+    units: null
+    special: ''
+  type:
+    value: droid
+    subtype: Tracker
+    custom: ''
+  identifier: tracker-droid-companion
+effects:
+  - _id: a9zcUOYiyfhqXQTp
+    changes:
+      - key: system.details.species
+        mode: 5
+        value: Tracker Droid
+        priority: 20
+      - key: system.attributes.movement.walk
+        mode: 5
+        value: '20'
+        priority: 20
+      - key: flags.sw5e.maintenanceMode
+        mode: 0
+        value: '1'
+        priority: 20
+      - key: flags.sw5e.forceInsensitive
+        mode: 0
+        value: '1'
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    origin: Compendium.sw5e-module.customization-options.GqiPfKDx7jg29x3v
+    transfer: true
+    flags:
+      dae:
+        selfTarget: false
+        stackable: none
+        durationExpression: ''
+        specialDuration: []
+        transfer: true
+        selfTargetAlways: false
+        macroRepeat: none
+        disableIncapacitated: false
+        dontApply: false
+        showIcon: false
+      core:
+        statusId: ''
+    tint: '#ffffff'
+    name: Tracker Droid
+    description: ''
+    statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      lastModifiedBy: null
+    img: modules/sw5e-module/icons/packs/Companions/tracker_droid.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!ca37p3zRJi1u8XyF.a9zcUOYiyfhqXQTp'
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+_stats:
+  duplicateSource: null
+  exportSource:
+    worldId: swtor-3652-runaway-pegasus
+    uuid: null
+    coreVersion: '11.315'
+    systemId: sw5e
+    systemVersion: 2.4.1.2.8.0
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778546451922
+  lastModifiedBy: dnd5ebuilder0000
+_id: ca37p3zRJi1u8XyF
+ownership:
+  default: 0
+sort: 100391
+_key: '!items!ca37p3zRJi1u8XyF'
+

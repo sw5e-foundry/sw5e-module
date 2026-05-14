@@ -1,0 +1,212 @@
+folder: COUZsxKjlUNvbJPk
+name: Operative
+type: subclass
+img: modules/sw5e-module/icons/packs/Classes/Operative.webp
+system:
+  description:
+    value: "<h2>OPERATIVE</h2><p>In order to become an operative, your companion must have a Dexterity or Intelligence score of 13 or higher.</p><p>As an operative, your companion gains the following class features.</p><h4>PROFICIENCIES</h4><hr /><ul><li>Armor:\_Light armor</li><li>Weapons:\_Simple blasters, simple vibroweapons, blaster pistol, hidden blade, techblade, vibrorapier</li><li>Tools:\_One specialist's kit of your choice</li></ul><hr /><ul><li>Saving Throws:\_Dexterity, Intelligence</li><li>Skills:\_Choose any four</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  identifier: operative
+  classIdentifier: follower
+  advancement:
+    - _id: o2un61oblzt4igqt
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: dice
+        distance:
+          units: ''
+        scale:
+          '3':
+            number: 1
+            faces: 6
+            modifiers: []
+          '7':
+            number: 2
+            faces: 6
+            modifiers: []
+          '11':
+            number: 3
+            faces: 6
+            modifiers: []
+          '15':
+            number: 4
+            faces: 6
+            modifiers: []
+          '17':
+            number: 5
+            faces: 6
+            modifiers: []
+      value: {}
+      title: Sneak Attack
+      hint: ''
+    - _id: fy1aau0f8lh8qwqm
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.MnP923bTTRYovCSV
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.2i0SzkTmjycezrQg
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 3
+      title: Features
+    - _id: e2tlo4r7qkyq8b16
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.V8AJULkpWmHJr9Jg
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 7
+      title: Features
+    - _id: 5oycqea6tljz930i
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.Pm0EVaryEFiD97yA
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 11
+      title: Features
+    - _id: y5wa8ok0oaxxerha
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.BBI686e0g6PGbkqc
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 15
+      title: Features
+    - _id: fwl21wzgpb4l05lb
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.c0va088SE7OVA93H
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 18
+      title: Features
+    - _id: ESHpwKyAMuh4uLRG
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - saves:dex
+          - saves:int
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: L4LjsT303UHuAVDF
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 4
+            pool:
+              - skills:*
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: zaK4sBIUDMVEjCNm
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - armor:lgt
+          - armor:shl:lightphysicalshield
+          - armor:shl:lightshieldgenerator
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: eX2UWzCJ8Ymyk1MF
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - weapon:mvb:hiddenblade
+          - weapon:mvb:techblade
+          - weapon:mvb:vibrorapier
+          - weapon:sbl
+          - weapon:svb
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      hint: ''
+    - _id: ltJmnz1tRrqq2weS
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 1
+            pool:
+              - tool:specialist:*
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      hint: ''
+  spellcasting:
+    progression: none
+    ability: ''
+    forceProgression: none
+    techProgression: none
+    superiorityProgression: none
+    preparation:
+      formula: ''
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778542007663
+  lastModifiedBy: dnd5ebuilder0000
+_id: NKrBPv63ywWoCdvJ
+ownership:
+  default: 0
+sort: 0
+_key: '!items!NKrBPv63ywWoCdvJ'
+
