@@ -31,29 +31,22 @@
         </header>
         <div class="sw5e-starship-v2-skills">
           {{#each skills}}
-          <article class="sw5e-starship-v2-skill-row{{#if tierZero}} sw5e-starship-v2-skill-row--tier-zero{{/if}}{{#if ../editable}} sw5e-starship-v2-skill-row--has-config{{/if}}" data-skill-id="{{id}}">
+          <article class="sw5e-starship-v2-skill-row sw5e-starship-v2-skill-row--pc{{proficiencyClass}}{{#if tierZero}} sw5e-starship-v2-skill-row--tier-zero{{/if}}{{#if ../editable}} sw5e-starship-v2-skill-row--has-config{{/if}}" data-skill-id="{{id}}">
             <button
               type="button"
               class="sw5e-starship-v2-skill-roll-area"
               data-sw5e-action="roll-skill"
               data-skill-id="{{id}}"
-              title="{{rollTooltip}}"
-              aria-label="{{ localize 'DND5E.Roll' }} {{label}} — {{rollTooltip}}"
+              title="{{rowTooltip}}"
+              aria-label="{{ localize "DND5E.Roll" }} {{label}} — {{rowTooltip}}"
             >
-              <div class="sw5e-starship-v2-skill-main">
-                <strong class="sw5e-starship-v2-skill-name">{{label}}</strong>
-                <span class="sw5e-starship-v2-skill-ability">{{ability}}</span>
-              </div>
-              <div class="sw5e-starship-v2-skill-tier">
-                <span class="sw5e-starship-v2-skill-tier-label">{{tierLabel}}</span>
-                {{#if tierZero}}
-                <span class="sw5e-starship-v2-skill-badge">{{zeroTierBadge}}</span>
-                {{/if}}
-              </div>
-              <div class="sw5e-starship-v2-skill-math">
+              <span class="sw5e-starship-v2-skill-prof" aria-hidden="true">{{{icon}}}</span>
+              <span class="sw5e-starship-v2-skill-ability-abbr">{{abilityAbbr}}</span>
+              <span class="sw5e-starship-v2-skill-label">{{label}}</span>
+              <span class="sw5e-starship-v2-skill-math">
                 <span class="sw5e-starship-v2-skill-modifier">{{modifier}}</span>
-                <span class="sw5e-starship-v2-skill-passive">Passive {{passive}}</span>
-              </div>
+                <span class="sw5e-starship-v2-skill-passive">{{passive}}</span>
+              </span>
             </button>
             {{#if ../editable}}
             <button
@@ -96,22 +89,4 @@
       </section>
     </aside>
   </div>
-
-  <section class="sw5e-starship-v2-warnings sw5e-starship-v2-card card" aria-label="{{warningsTitle}}">
-    <header class="sw5e-starship-v2-card-header">
-      <h3>{{warningsTitle}}</h3>
-    </header>
-    {{#if warnings.length}}
-    <ul class="sw5e-starship-v2-warning-list sw5e-starship-v2-warning-list--full">
-      {{#each warnings}}
-      <li class="sw5e-starship-v2-warning sw5e-starship-v2-warning--full sw5e-starship-v2-warning--{{severity}}">
-        <strong class="sw5e-starship-v2-warning-code">{{code}}</strong>
-        <span class="sw5e-starship-v2-warning-message">{{message}}</span>
-      </li>
-      {{/each}}
-    </ul>
-    {{else}}
-    <p class="sw5e-starship-v2-empty">{{noWarningsText}}</p>
-    {{/if}}
-  </section>
 </section>

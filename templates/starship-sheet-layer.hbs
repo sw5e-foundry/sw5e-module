@@ -146,18 +146,14 @@
                   class="sw5e-starship-skill-roll-area"
                   data-sw5e-action="roll-skill"
                   data-skill-id="{{id}}"
-                  title="{{displayTooltip}}"
-                  aria-label="{{ localize "DND5E.Roll" }} {{label}} — {{displayTooltip}}"
+                  title="{{rowTooltip}}"
+                  aria-label="{{ localize "DND5E.Roll" }} {{label}} — {{rowTooltip}}"
                 >
-                  <span class="sw5e-starship-skill-prof" title="{{displayTooltip}}" data-tooltip="{{tierLabel}}" aria-hidden="true">{{{icon}}}</span>
+                  <span class="sw5e-starship-skill-prof" aria-hidden="true">{{{icon}}}</span>
                   <span class="sw5e-starship-skill-ability-abbr">{{abilityAbbr}}</span>
                   <span class="sw5e-starship-skill-label">{{label}}</span>
-                  <span class="sw5e-starship-skill-mod" data-tooltip="SW5E.Modifier" title="{{displayTooltip}}">{{modDisplay}}</span>
-                  {{#unless @root.sotgSheetEditMode}}
-                  {{#if passiveDisplay}}
-                  <span class="sw5e-starship-skill-passive" title="{{displayTooltip}}">{{passiveDisplay}}</span>
-                  {{/if}}
-                  {{/unless}}
+                  <span class="sw5e-starship-skill-mod" data-tooltip="SW5E.Modifier">{{modDisplay}}</span>
+                  <span class="sw5e-starship-skill-passive">{{#if passiveDisplay}}{{passiveDisplay}}{{else}}—{{/if}}</span>
                 </button>
                 {{#if ../editable}}
                 <button

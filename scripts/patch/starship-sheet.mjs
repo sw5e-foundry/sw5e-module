@@ -1138,13 +1138,6 @@ function isExperimentalStarshipSheetV2Enabled() {
 	return Boolean(getModuleSettingValue(STARSHIP_SHEET_V2_SETTING_KEY, false));
 }
 
-function localizeLabelOrText(value, fallback = "") {
-	if ( typeof value !== "string" || !value ) return fallback;
-	const localized = game.i18n.localize(value);
-	if ( localized && localized !== value ) return localized;
-	return value || fallback;
-}
-
 function formatStarshipV2Value(value, fallback = null) {
 	const empty = fallback ?? localizeOrFallback("SW5E.StarshipSheet.V2NoData", "—");
 	if ( value === undefined || value === null || value === "" ) return empty;
@@ -1173,15 +1166,30 @@ function getStarshipSkillProficiencyClass(level) {
 	return " custom proficient";
 }
 
-function buildStarshipSkillDisplayTooltip(entry) {
-	const tierLabel = formatStarshipSkillTierOptionLabel(entry.proficiencyMode);
-	const detail = entry.effectiveCrewPbLine ?? "";
-	const localized = game.i18n.format("SW5E.Starship.SkillTier.DisplayTooltip", {
-		tier: tierLabel,
-		detail
-	});
-	if ( localized && localized !== "SW5E.Starship.SkillTier.DisplayTooltip" ) return localized;
-	return detail ? `${tierLabel}. ${detail}` : tierLabel;
+/** Resolve a short ability abbreviation for starship skill rows (mirrors Core sheet labeling). */
+function resolveStarshipSkillAbilityAbbreviation(entry) {
+	const abil = CONFIG?.DND5E?.abilities?.[entry.ability];
+	let abilityAbbr = entry.ability?.toUpperCase?.() ?? "";
+	if ( abil?.abbreviation ) {
+		const loc = game.i18n.localize(abil.abbreviation);
+		abilityAbbr = loc && loc !== abil.abbreviation ? loc : abilityAbbr;
+	}
+	return abilityAbbr;
+}
+
+/**
+ * Concise hover/aria summary: name, ability abbr, mod, passive, tier label, optional crew PB line.
+ * Does not affect roll math or stored tier semantics.
+ */
+function buildStarshipSkillRowHoverTooltip({ label, abilityAbbr, modDisplay, passiveDisplay, tierLabel, crewLine }) {
+	const ab = abilityAbbr ? ` (${abilityAbbr})` : "";
+	const passivePart = passiveDisplay !== undefined && passiveDisplay !== null && String(passiveDisplay).trim() !== ""
+		? ` · passive ${passiveDisplay}`
+		: "";
+	let s = `${label}${ab}. Mod ${modDisplay}${passivePart}. ${tierLabel}`;
+	const crew = String(crewLine ?? "").trim();
+	if ( crew ) s += `. ${crew}`;
+	return s;
 }
 
 /**
@@ -1192,14 +1200,19 @@ function enrichStarshipSkillsForSheet(actor) {
 	const passiveCfg = CONFIG?.DND5E?.skillPassive;
 	const passiveBase = Number.isFinite(Number(passiveCfg?.base)) ? Number(passiveCfg.base) : 10;
 	return getStarshipSkillDisplayEntries(actor, game.user).map(entry => {
-		const abil = CONFIG?.DND5E?.abilities?.[entry.ability];
-		let abilityAbbr = entry.ability?.toUpperCase?.() ?? "";
-		if ( abil?.abbreviation ) {
-			const loc = game.i18n.localize(abil.abbreviation);
-			abilityAbbr = loc && loc !== abil.abbreviation ? loc : abilityAbbr;
-		}
+		const abilityAbbr = resolveStarshipSkillAbilityAbbreviation(entry);
 		const passiveTotal = passiveBase + Number(entry.effectiveTotal);
-		const displayTooltip = buildStarshipSkillDisplayTooltip(entry);
+		const tierLabel = formatStarshipSkillTierOptionLabel(entry.proficiencyMode);
+		const modDisplay = formatSignedSkillMod(entry.effectiveTotal);
+		const passiveDisplay = Number.isFinite(passiveTotal) ? String(passiveTotal) : "";
+		const rowTooltip = buildStarshipSkillRowHoverTooltip({
+			label: entry.label,
+			abilityAbbr,
+			modDisplay,
+			passiveDisplay,
+			tierLabel,
+			crewLine: entry.effectiveCrewPbLine ?? ""
+		});
 		return {
 			...entry,
 			value: entry.proficiencyMode,
@@ -1208,10 +1221,10 @@ function enrichStarshipSkillsForSheet(actor) {
 			proficiencyClass: getStarshipSkillProficiencyClass(entry.proficiencyMode),
 			abilityAbbr,
 			abbreviation: abilityAbbr,
-			tierLabel: formatStarshipSkillTierOptionLabel(entry.proficiencyMode),
-			displayTooltip,
-			modDisplay: formatSignedSkillMod(entry.effectiveTotal),
-			passiveDisplay: Number.isFinite(passiveTotal) ? String(passiveTotal) : ""
+			tierLabel,
+			rowTooltip,
+			modDisplay,
+			passiveDisplay
 		};
 	});
 }
@@ -1258,17 +1271,6 @@ function formatStarshipSkillTierOptionLabel(value) {
 			return localized === "SW5E.Starship.SkillTier.Custom" ? `Custom (${value})` : localized;
 		}
 	}
-}
-
-function buildV2SkillRollTooltip(entry) {
-	const tierLabel = formatStarshipSkillTierOptionLabel(entry.proficiencyMode);
-	const detail = entry.crewPbLine ?? "";
-	const localized = game.i18n.format("SW5E.Starship.SkillTier.DisplayTooltip", {
-		tier: tierLabel,
-		detail
-	});
-	if ( localized && localized !== "SW5E.Starship.SkillTier.DisplayTooltip" ) return localized;
-	return detail ? `${tierLabel}. ${detail}` : tierLabel;
 }
 
 function buildStarshipSheetV2ShellContext(starshipContext, options = {}) {
@@ -1348,18 +1350,30 @@ function buildStarshipSheetV2ShellContext(starshipContext, options = {}) {
 		skillConfigureTitle: localizeOrFallback("SW5E.SkillConfigure", "Configure skill"),
 		skillsTitle: localizeOrFallback("SW5E.StarshipSheet.V2SkillsTitle", "Skills"),
 		skills: (starshipContext.skills?.entries ?? []).map(entry => {
-			const rollTooltip = buildV2SkillRollTooltip(entry);
+			const label = formatStarshipV2Value(entry.label, noData);
+			const abilityAbbr = resolveStarshipSkillAbilityAbbreviation(entry);
+			const tierLabel = formatStarshipSkillTierOptionLabel(entry.proficiencyMode);
+			const modDisplay = formatSignedSkillMod(entry.displayMod);
+			const passiveStr = formatStarshipV2Value(entry.passive, noData);
+			const passiveForTip = passiveStr === noData ? "" : passiveStr;
+			const rowTooltip = buildStarshipSkillRowHoverTooltip({
+				label,
+				abilityAbbr,
+				modDisplay,
+				passiveDisplay: passiveForTip,
+				tierLabel,
+				crewLine: entry.crewPbLine ?? ""
+			});
 			return {
 				id: entry.id,
-				label: formatStarshipV2Value(entry.label, noData),
-				ability: localizeLabelOrText(entry.abilityLabel, formatStarshipV2Value(entry.ability, noData)),
-				tierLabel: formatStarshipSkillTierOptionLabel(entry.proficiencyMode),
-				modifier: formatSignedSkillMod(entry.displayMod),
-				passive: formatStarshipV2Value(entry.passive, noData),
+				label,
+				abilityAbbr,
+				icon: getStarshipProficiencyIcon(entry.proficiencyMode),
+				proficiencyClass: getStarshipSkillProficiencyClass(entry.proficiencyMode),
+				modifier: modDisplay,
+				passive: passiveStr,
 				tierZero: Boolean(entry.tierZero),
-				zeroTierBadge: localizeOrFallback("SW5E.StarshipSheet.V2ZeroTierBadge", "Tier 0"),
-				title: entry.crewPbLine || formatStarshipSkillTierOptionLabel(entry.proficiencyMode),
-				rollTooltip
+				rowTooltip
 			};
 		}),
 		systemsTitle: localizeOrFallback("SW5E.StarshipSheet.V2SystemsTitle", "Systems & resources"),
