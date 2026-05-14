@@ -1,0 +1,209 @@
+name: Calm and Collected
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-Action.webp
+effects: []
+flags:
+  betterRollssw5e:
+    critRange:
+      type: String
+      value: ''
+    critDamage:
+      type: String
+      value: ''
+    quickDesc:
+      type: Boolean
+      value: true
+      altValue: true
+    quickAttack:
+      type: Boolean
+      value: true
+      altValue: true
+    quickSave:
+      type: Boolean
+      value: true
+      altValue: true
+    quickDamage:
+      type: Array
+      value: []
+      altValue: []
+      context: []
+    quickProperties:
+      type: Boolean
+      value: true
+      altValue: true
+    quickCharges:
+      type: Boolean
+      value:
+        use: true
+        resource: true
+        charge: true
+      altValue:
+        use: true
+        resource: true
+        charge: true
+    quickTemplate:
+      type: Boolean
+      value: true
+      altValue: true
+    quickOther:
+      type: Boolean
+      value: true
+      altValue: true
+      context: ''
+    quickFlavor:
+      type: Boolean
+      value: true
+      altValue: true
+    quickPrompt:
+      type: Boolean
+      value: false
+      altValue: false
+  sw5e-importer:
+    timestamp: '2022-05-29T01:36:28.4257831+00:00'
+    importer_version: 3
+    uid: Feature.name-calm_and_collected.source-class.sourceName-scholar.level-14
+  midi-qol:
+    effectActivation: false
+    rollAttackPerTarget: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  journal-backlinks:
+    references: []
+  cf:
+    id: temp_ppg765odswn
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: 1
+system:
+  description:
+    value: >-
+      <p>As of 18th level, when your companion makes a saving throw caused by an
+      effect it can see, it may gain a bonus to the saving throw equal to its
+      Intelligence modifier.</p><p>Once your companion has used this feature, it
+      must complete a short or long rest before it can use it again.</p>
+    chat: ''
+  requirements: Scholar 18
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    U4EBzY4ZskYc0XuV:
+      type: utility
+      _id: U4EBzY4ZskYc0XuV
+      sort: 0
+      activation:
+        type: special
+        value: null
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+            scaling: {}
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects: []
+      range:
+        override: false
+        units: self
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+          special: ''
+        override: false
+        prompt: false
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      roll:
+        prompt: false
+        visible: false
+        name: Save Bonus
+        formula: '@abilities.int.mod'
+      name: Save Bonus
+      flags: {}
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: calm-and-collected
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778241149578
+  lastModifiedBy: dnd5ebuilder0000
+folder: F1lwjqFnjuCoP4Gv
+_id: x3XcgE4Z79l8Mbxa
+ownership:
+  default: 0
+sort: 0
+_key: '!items!x3XcgE4Z79l8Mbxa'
+

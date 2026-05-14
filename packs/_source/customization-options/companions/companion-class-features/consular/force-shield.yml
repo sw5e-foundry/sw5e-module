@@ -1,0 +1,296 @@
+name: Force Shield
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-Reaction.webp
+effects:
+  - origin: Compendium.sw5e-module.customization-options.b1Te6sQ6HtotYlyB
+    duration:
+      rounds: 1
+      startTime: null
+      seconds: null
+      combat: null
+      turns: null
+      startRound: null
+      startTurn: null
+    disabled: false
+    _id: 5pZvOW5WmL0P3i72
+    changes:
+      - key: system.attributes.ac.bonus
+        mode: 2
+        value: '@abilities.cha.mod'
+        priority: 20
+    tint: '#ffffff'
+    transfer: false
+    flags:
+      dae:
+        selfTarget: false
+        selfTargetAlways: true
+        stackable: noneName
+        durationExpression: ''
+        macroRepeat: none
+        specialDuration: []
+        enableCondition: ''
+        disableCondition: ''
+        disableIncapacitated: false
+        dontApply: false
+        showIcon: false
+      core:
+        overlay: false
+      ActiveAuras:
+        isAura: false
+        aura: None
+        radius: ''
+        alignment: ''
+        type: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+      dnd5e:
+        riders:
+          statuses: []
+    name: Force Shield
+    description: ''
+    statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      lastModifiedBy: null
+    img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-Reaction.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!52lVqPAr5LFsUpzp.5pZvOW5WmL0P3i72'
+flags:
+  betterRollssw5e:
+    critRange:
+      type: String
+      value: ''
+    critDamage:
+      type: String
+      value: ''
+    quickDesc:
+      type: Boolean
+      value: true
+      altValue: true
+    quickAttack:
+      type: Boolean
+      value: true
+      altValue: true
+    quickSave:
+      type: Boolean
+      value: true
+      altValue: true
+    quickDamage:
+      type: Array
+      value: []
+      altValue: []
+      context: []
+    quickProperties:
+      type: Boolean
+      value: true
+      altValue: true
+    quickCharges:
+      type: Boolean
+      value:
+        use: true
+        resource: true
+        charge: true
+      altValue:
+        use: true
+        resource: true
+        charge: true
+    quickTemplate:
+      type: Boolean
+      value: true
+      altValue: true
+    quickOther:
+      type: Boolean
+      value: true
+      altValue: true
+      context: ''
+    quickFlavor:
+      type: Boolean
+      value: true
+      altValue: true
+    quickPrompt:
+      type: Boolean
+      value: false
+      altValue: false
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.563086+00:00'
+    importer_version: 3
+    uid: Feature.name-force_shield.source-class.sourceName-consular.level-2
+  midi-qol:
+    effectActivation: false
+    rollAttackPerTarget: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  journal-backlinks:
+    references: []
+  cf:
+    id: temp_0emcotd2ei4
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: 2
+system:
+  description:
+    value: >-
+      <p><em><strong>Consular:</strong> 3nd level</em></p><p>Also at 3rd level,
+      your companion learns how to defend itself purely through its strength
+      with the Force. When your companion is hit by an attack, it can use its
+      reaction to shroud itself in Force energy. Until the start of its next
+      turn it has a bonus to AC equal to its Wisdom or Charisma modifier (your
+      companion's choice, a minimum of +1). This includes the triggering
+      attack.</p><p>Your companion can use this feature twice. It gains an
+      additional use at 11th level. Your companion regains all expended uses
+      when it finishes a long rest.</p>
+    chat: ''
+  requirements: Consular 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '@scale.consular.force-shield-uses'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: 3
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    dnd5eactivity000:
+      name: Wisdom
+      img: ''
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      range:
+        units: self
+      appliedEffects:
+        - 5pZvOW5WmL0P3i72
+      target:
+        prompt: false
+        affects:
+          type: self
+    NcwnEAxLZHf72Jzk:
+      type: utility
+      activation:
+        type: reaction
+        value: 1
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+            scaling: {}
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: true
+      description:
+        chatFlavor: ''
+      duration:
+        concentration: false
+        value: ''
+        units: inst
+        special: ''
+        override: false
+      effects:
+        - _id: 5pZvOW5WmL0P3i72
+          level: {}
+      range:
+        units: self
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: self
+          choice: false
+          special: ''
+        prompt: false
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      roll:
+        formula: ''
+        name: ''
+        prompt: false
+        visible: false
+      name: Charisma
+      sort: 0
+      _id: NcwnEAxLZHf72Jzk
+      flags: {}
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: force-shield
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778514024589
+  lastModifiedBy: dnd5ebuilder0000
+folder: ZsLV9pnHied3wcWv
+_id: 52lVqPAr5LFsUpzp
+ownership:
+  default: 0
+sort: 100000
+_key: '!items!52lVqPAr5LFsUpzp'
+

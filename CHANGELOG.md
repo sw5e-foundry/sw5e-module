@@ -2,6 +2,19 @@
 
 ### [1.3.5] TEMP
 
+### 2026-05-11
+### Added
+- Added Companions based on previous standalone module by unrealkakeman89. Special thanks to Vizaer for help in migrating the module's content.
+    - This includes Companion classes, class feautres, Natures and traits.
+    - Folders have been reorganized for our new compendium layout formatting.
+- Added icons for the companion types.
+### Changed
+- Adjusted compendium flags in module.json for customization-options to include classes and subclasses from companions in the compendium browser.
+### Implementation Notes
+- Currently we do not handle the special rules for companion powers or maneuvers natively. This has been noted on the relevant powercasting features.
+- When creating a companion it is best to select your nature first and then add the first level of the follower class. The Hit Die size of the follower class will then need to be modified manually based on your chosen nature/traits. Then you can level the follower class up as needed.
+- Not all traits/features have been automated as much as might be possible. I believe more of these traits will be worth automating once we are on foundry v14 to allow for more token changes with active effects.
+
 ### 2026-05-07
 ### Added
 - Added Equipment Packs

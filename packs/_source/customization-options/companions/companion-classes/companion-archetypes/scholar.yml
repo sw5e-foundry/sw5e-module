@@ -1,0 +1,286 @@
+folder: COUZsxKjlUNvbJPk
+name: Scholar
+type: subclass
+img: modules/sw5e-module/icons/packs/Classes/Scholar.webp
+system:
+  description:
+    value: "<h2>SCHOLAR</h2><p>In order to become a scholar, your companion must have an Intelligence score of 13 or higher.</p><p>As a scholar, your companion gains the following class features.</p><h4>PROFICIENCIES</h4><hr /><ul><li>Armor:\_Light armor</li><li>Weapons:\_Simple blasters, simple vibroweapons, techblades</li><li>Tools:\_Any one</li></ul><hr /><ul><li>Saving Throws:\_Wisdom, Intelligence</li><li>Skills:\_Choose three from Deception, Insight, Intimidation, Investigation, Lore, Medicine, Nature, Persuasion, and Survival</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  identifier: scholar
+  classIdentifier: follower
+  advancement:
+    - _id: f9tbckjtsrsqw8br
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: dice
+        distance:
+          units: ''
+        scale:
+          '3':
+            number: 1
+            faces: 4
+            modifiers: []
+          '9':
+            number: 1
+            faces: 6
+            modifiers: []
+          '15':
+            number: 1
+            faces: 0
+            modifiers: []
+          '16':
+            number: 1
+            faces: 6
+            modifiers: []
+          '17':
+            number: 1
+            faces: 8
+            modifiers: []
+      value: {}
+      title: Superiority Dice Size
+      hint: ''
+    - _id: 6p6b4ofeqhl199ow
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.8SJmmB8RdDgJLBrX
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.6t4YImtAIEpdJwym
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 3
+      title: Features
+    - _id: 7lh3zu8wel2pkhyo
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.ODf43bxEcRzC9L6k
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 11
+      title: Features
+    - _id: 7t37m7kjrqcrv5ed
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.YI6CMhnC50WDowuY
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 15
+      title: Features
+    - _id: dfj9j6v70tl0u32h
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.x3XcgE4Z79l8Mbxa
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 18
+      title: Features
+    - _id: mNeE3KXfM3O0afQn
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - saves:int
+          - saves:wis
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: TZn0AoBHMlrCFabt
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 3
+            pool:
+              - skills:dec
+              - skills:ins
+              - skills:itm
+              - skills:inv
+              - skills:lor
+              - skills:med
+              - skills:nat
+              - skills:per
+              - skills:sur
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: 4dxinMCD6mtI1RB5
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - armor:lgt
+          - armor:shl:lightphysicalshield
+          - armor:shl:lightshieldgenerator
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: 9z7dtXxnifqHnQk9
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - weapon:mvb:techblade
+          - weapon:sbl
+          - weapon:svb
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      hint: ''
+    - _id: FTpZTlGC0JNFxENL
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 1
+            pool:
+              - tool:*
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: 8SiC5OvrJ2PiEj4T
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 2
+          '5':
+            value: 3
+          '9':
+            value: 4
+          '13':
+            value: 5
+          '17':
+            value: 6
+      value: {}
+      title: Superiority Dice Quantity
+      icon: null
+    - _id: umOpy5soDxk1pkIb
+      type: ItemChoice
+      configuration:
+        choices:
+          '7':
+            count: 2
+            replacement: false
+        allowDrops: true
+        type: feat
+        pool: []
+        restriction:
+          type: class
+          subtype: scholarInvocation
+          level: ''
+          list: []
+        spell: null
+      value:
+        added: {}
+        replaced: {}
+      title: Discoveries
+      icon: null
+      hint: >-
+        As you adventure, your studies have helped you discover new practices
+        you can apply to your skills. You master two discoveries of your choice.
+        Your discovery options are detailed at the end of the class description.
+        When you gain certain scholar levels, you gain additional discoveries of
+        your choice, as shown in the Discoveries column of the scholar table.
+
+        Additionally, when you gain a level in this class, you can choose one of
+        the discoveries you know and replace it with another discovery that you
+        could learn at that level.
+    - _id: 9KIaNFoWsPRwzlJO
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 2
+          '5':
+            value: 3
+          '7':
+            value: 4
+          '9':
+            value: 5
+          '11':
+            value: 6
+          '13':
+            value: 7
+          '15':
+            value: 8
+          '17':
+            value: 9
+      value: {}
+      title: Maneuvers Known
+      hint: ''
+  spellcasting:
+    progression: none
+    ability: ''
+    forceProgression: none
+    techProgression: none
+    superiorityProgression: half
+    preparation:
+      formula: ''
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778542027879
+  lastModifiedBy: dnd5ebuilder0000
+_id: BcDXJpRLviXHcYyz
+ownership:
+  default: 0
+sort: 0
+_key: '!items!BcDXJpRLviXHcYyz'
+

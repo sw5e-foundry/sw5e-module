@@ -1,0 +1,211 @@
+name: Bad Feeling
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-Action.webp
+effects: []
+flags:
+  betterRollssw5e:
+    critRange:
+      type: String
+      value: ''
+    critDamage:
+      type: String
+      value: ''
+    quickDesc:
+      type: Boolean
+      value: true
+      altValue: true
+    quickAttack:
+      type: Boolean
+      value: true
+      altValue: true
+    quickSave:
+      type: Boolean
+      value: true
+      altValue: true
+    quickDamage:
+      type: Array
+      value: []
+      altValue: []
+      context: []
+    quickProperties:
+      type: Boolean
+      value: true
+      altValue: true
+    quickCharges:
+      type: Boolean
+      value:
+        use: true
+        resource: true
+        charge: true
+      altValue:
+        use: true
+        resource: true
+        charge: true
+    quickTemplate:
+      type: Boolean
+      value: true
+      altValue: true
+    quickOther:
+      type: Boolean
+      value: true
+      altValue: true
+      context: ''
+    quickFlavor:
+      type: Boolean
+      value: true
+      altValue: true
+    quickPrompt:
+      type: Boolean
+      value: false
+      altValue: false
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.6630288+00:00'
+    importer_version: 3
+    uid: Feature.name-bad_feeling.source-class.sourceName-operative.level-3
+  midi-qol:
+    effectActivation: false
+    rollAttackPerTarget: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  journal-backlinks:
+    references: []
+  cf:
+    id: temp_dld8sar58pb
+  dnd5e:
+    migratedUses: 1
+system:
+  description:
+    value: >-
+      <p>At 7th level, your companion has a wary eye, bordering on paranoia.
+      When your companion rolls for initiative, it can move up to its speed.
+      This movement happens before the initiative order is
+      determined.</p><p>Once your companion has used this feature, it must
+      finish a long rest before it can use it again.</p>
+    chat: ''
+  requirements: Operative 7
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    dnd5eactivity000:
+      name: ''
+      img: ''
+      target:
+        prompt: false
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      range:
+        units: self
+      appliedEffects: []
+    qDkSvS3A8Cb2jamm:
+      type: utility
+      _id: qDkSvS3A8Cb2jamm
+      sort: 0
+      activation:
+        type: special
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects: []
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      name: ''
+      img: ''
+  advancement: []
+  identifier: bad-feeling
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778539986237
+  lastModifiedBy: dnd5ebuilder0000
+folder: XBxtunYmghZ1bMVE
+_id: V8AJULkpWmHJr9Jg
+ownership:
+  default: 0
+sort: 0
+_key: '!items!V8AJULkpWmHJr9Jg'
+

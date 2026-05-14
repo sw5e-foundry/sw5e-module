@@ -1,0 +1,216 @@
+folder: COUZsxKjlUNvbJPk
+name: Consular
+type: subclass
+img: modules/sw5e-module/icons/packs/Classes/Consular.webp
+system:
+  description:
+    value: "<p>In order to become a consular, your companion must have a Wisdom or Charisma score of 13 or higher.</p><p>As a consular, your companion gains the following class features.</p><h4>PROFICIENCIES</h4><hr /><ul><li>Armor:\_None</li><li>Weapons:\_Simple lightweapons, simple vibroweapons</li><li>Tools:\_None</li></ul><hr /><ul><li>Saving Throws:\_Wisdom, Charisma</li><li>Skills:\_Choose two from Deception, Insight, Intimidation, Investigation, Lore, Medicine, and Persuasion</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  identifier: consular
+  classIdentifier: follower
+  advancement:
+    - _id: tega66xjwmp4j4hd
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.6kVQIvq1LZva9Vhx
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.52lVqPAr5LFsUpzp
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 3
+      title: Features
+    - _id: s9nsYdVNSwlS4Uxl
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - saves:wis
+          - saves:cha
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: Saving Throws
+      icon: null
+      hint: Wisdom, Charisma
+    - _id: Si7sa0kt0LB9lPBT
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 2
+            pool:
+              - skills:dec
+              - skills:ins
+              - skills:itm
+              - skills:inv
+              - skills:lor
+              - skills:med
+              - skills:per
+      value:
+        chosen: []
+      level: 3
+      title: Skills
+      icon: null
+    - _id: 1ei8kAVlr3WJUUUA
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - weapon:slw
+          - weapon:svb
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: BwR1hK4rIQthJEPF
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 1
+          '7':
+            value: 2
+          '11':
+            value: 3
+          '15':
+            value: 4
+          '18':
+            value: 5
+      value: {}
+      title: Force Power Level
+      hint: ''
+    - _id: 9KIaNFoWsPRwzlJO
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 3
+          '7':
+            value: 6
+          '11':
+            value: 9
+          '15':
+            value: 12
+          '18':
+            value: 15
+      value: {}
+      title: Force Powers Known
+      hint: ''
+    - _id: 8SxoptOzbKGTlsQc
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: string
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: '2'
+          '11':
+            value: '3'
+      value: {}
+      title: Force Shield Uses
+      hint: ''
+    - type: ItemGrant
+      _id: 7fzGjhAgwYui2tp9
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.WuhbnW354ETDooYR
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 7
+      title: Features
+      hint: ''
+    - type: ItemGrant
+      _id: P8QEzUKVOGIh4YAM
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.iz5fiyyNZxV9MVuS
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 11
+      title: Features
+      hint: ''
+    - type: ItemGrant
+      _id: sUWUVsiSfIEibPZD
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.kRneGYafFViiUxe0
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 15
+      title: Features
+      hint: ''
+    - type: ItemGrant
+      _id: CxR6SQYNoJxZTOTf
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.eBg4n7EoRg599jPE
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 18
+      title: Features
+      hint: ''
+  spellcasting:
+    progression: none
+    ability: ''
+    forceProgression: arch
+    techProgression: none
+    superiorityProgression: none
+    preparation:
+      formula: ''
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778541978260
+  lastModifiedBy: dnd5ebuilder0000
+_id: v4J0F1lDJmwwrP0R
+ownership:
+  default: 0
+sort: 0
+_key: '!items!v4J0F1lDJmwwrP0R'
+

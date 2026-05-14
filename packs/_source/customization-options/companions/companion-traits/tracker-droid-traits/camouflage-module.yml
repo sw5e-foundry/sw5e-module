@@ -1,0 +1,159 @@
+name: Camouflage Module
+type: feat
+img: modules/sw5e-module/icons/packs/Companions/tracker_droid.webp
+effects: []
+folder: XxbZ6IDL415XY4LF
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  midiProperties:
+    confirmTargets: default
+    critOther: false
+    concentration: false
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+    idr: false
+    idi: false
+    idv: false
+    ida: false
+  midi-qol:
+    rollAttackPerTarget: default
+    effectActivation: false
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  dnd5e:
+    persistSourceMigration: true
+    migratedUses: 1
+system:
+  description:
+    value: >-
+      <p>You install a camouflage module in your companion. Your companion can
+      activate its camouflage module to become invisible. While it is invisible,
+      anything it is carrying or wearing is also invisible. It becomes visible
+      if it attacks, casts a power, takes a hostile action, or when it
+      deactivates the module. Activating or deactivating the module requires an
+      action.</p>
+
+      <p>Deduct the time your companion is invisible, in increments of 1 minute,
+      from the module's maximum duration of 2 hours. After 2 hours of use, the
+      module ceases to function. For every uninterrupted period of 12 hours the
+      module goes unused, it regains 1 hour of use.</p>
+    chat: ''
+  requirements: Tracker Droid
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    spent: 0
+    recovery: []
+  type:
+    value: ''
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    dnd5eactivity000:
+      _id: dnd5eactivity000
+      type: utility
+      activation:
+        type: action
+        value: 1
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: true
+      description:
+        chatFlavor: ''
+      duration:
+        concentration: false
+        value: '120'
+        units: minute
+        special: ''
+        override: false
+      effects: []
+      range:
+        units: self
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      roll:
+        formula: ''
+        name: ''
+        prompt: false
+        visible: false
+      sort: 0
+      flags: {}
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: camouflage-module
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778241149578
+  lastModifiedBy: dnd5ebuilder0000
+_id: YVSoOL47ZjLJokXD
+ownership:
+  default: 0
+sort: 0
+_key: '!items!YVSoOL47ZjLJokXD'
+

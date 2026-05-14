@@ -1,0 +1,162 @@
+name: Patient Defense
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.6600307+00:00'
+    importer_version: 3
+    uid: Feature.name-extra_attack.source-class.sourceName-monk.level-5
+  midi-qol:
+    effectActivation: false
+    rollAttackPerTarget: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  journal-backlinks:
+    references: []
+  cf:
+    id: temp_lo5aprokay
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p>When your companion uses its bonus action to Disengage, it can spend 1
+      focus point to also Dodge (no action required). At 18th level, it can
+      instead spend 2 focus points to Dodge and gain an additional reaction
+      until the start of its next turn. It can only take one reaction per
+      turn.</p>
+    chat: ''
+  requirements: Monk 7
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    dnd5eactivity000:
+      name: ''
+      img: ''
+      target:
+        prompt: false
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: Focus
+      range:
+        units: self
+      appliedEffects: []
+    Jr8jrt5EbS4QQvgN:
+      type: utility
+      _id: Jr8jrt5EbS4QQvgN
+      sort: 0
+      activation:
+        type: special
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '1'
+            target: Compendium.sw5e-module.customization-options.Item.tarwzogdwmrQSIlu
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects: []
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      name: ''
+      img: ''
+  advancement: []
+  identifier: patient-defense
+  enchant: {}
+effects: []
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778539019752
+  lastModifiedBy: dnd5ebuilder0000
+folder: vPd7vX51R0gsf5CS
+_id: iHSdbjzVtKkbKg3Y
+ownership:
+  default: 0
+sort: 0
+_key: '!items!iHSdbjzVtKkbKg3Y'
+
