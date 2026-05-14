@@ -998,12 +998,7 @@ function resolveStarshipSkillCrewPbSource(starshipActor, rollingUser) {
 	};
 }
 
-/**
- * Localized chat line describing which crew actor supplied PB (or why none).
- * @param {{ actor: Actor|null, source: string, name?: string, reasonKey?: string }} pbSource
- * @returns {string}
- */
-function buildStarshipSkillCrewPbChatLine(pbSource) {
+function getStarshipSkillCrewPbSourceLabel(pbSource) {
 	if ( !pbSource || pbSource.source === "none" ) {
 		const reasonKey = pbSource?.reasonKey ?? "SW5E.Starship.Roll.CrewPBSourceNoneReason";
 		const reason = game.i18n.localize(reasonKey);
@@ -1023,6 +1018,86 @@ function buildStarshipSkillCrewPbChatLine(pbSource) {
 	return game.i18n.format("SW5E.Starship.Roll.CrewPBSourceNone", {
 		reason: game.i18n.localize("SW5E.Starship.Roll.CrewPBSourceNoneReason")
 	});
+}
+
+/**
+ * Localized chat line describing which crew actor supplied PB (or why none), plus whether numeric PB applied.
+ * This is a messaging-only P1 slice: no roll math changes, only clearer attribution for tier-0 / PB-0 cases.
+ * @param {{ actor: Actor|null, source: string, name?: string, reasonKey?: string }} pbSource
+ * @param {{ rollerPb?: number, proficiencyMode?: number, multiplier?: number, rollProficiencyPoints?: number }} [detail]
+ * @returns {string}
+ */
+function buildStarshipSkillCrewPbChatLine(pbSource, detail={}) {
+	const sourceLine = getStarshipSkillCrewPbSourceLabel(pbSource);
+	if ( !pbSource || pbSource.source === "none" ) return sourceLine;
+
+	const rollProficiencyPoints = toFiniteNumber(detail.rollProficiencyPoints, 0) ?? 0;
+	const multiplier = toFiniteNumber(detail.multiplier, 0) ?? 0;
+	const rollerPb = toFiniteNumber(detail.rollerPb, 0) ?? 0;
+
+	if ( rollProficiencyPoints > 0 ) {
+		const applied = game.i18n.format("SW5E.Starship.Roll.CrewPBAppliedDetail", {
+			value: rollProficiencyPoints
+		});
+		return `${sourceLine}; ${applied}`;
+	}
+
+	if ( multiplier <= 0 ) {
+		return `${sourceLine}; ${game.i18n.localize("SW5E.Starship.Roll.CrewPBSourceZeroSkillTier")}`;
+	}
+
+	if ( rollerPb <= 0 ) {
+		return `${sourceLine}; ${game.i18n.localize("SW5E.Starship.Roll.CrewPBSourceZeroCrewPB")}`;
+	}
+
+	return `${sourceLine}; ${game.i18n.localize("SW5E.Starship.Roll.CrewPBSourceZeroGeneric")}`;
+}
+
+function buildStarshipSkillChatFlavorSuffix(pbSource, detail={}) {
+	const rollProficiencyPoints = toFiniteNumber(detail.rollProficiencyPoints, 0) ?? 0;
+	const multiplier = toFiniteNumber(detail.multiplier, 0) ?? 0;
+	const rollerPb = toFiniteNumber(detail.rollerPb, 0) ?? 0;
+
+	if ( !pbSource || pbSource.source === "none" ) {
+		return game.i18n.localize("SW5E.Starship.Roll.NoCrewPBShort");
+	}
+	if ( rollProficiencyPoints > 0 ) return "";
+	if ( multiplier <= 0 ) {
+		return game.i18n.localize("SW5E.Starship.Roll.SkillNotProficientShort");
+	}
+	if ( rollerPb <= 0 ) {
+		return game.i18n.localize("SW5E.Starship.Roll.CrewPBZeroShort");
+	}
+	return game.i18n.localize("SW5E.Starship.Roll.NoCrewPBShort");
+}
+
+function buildStarshipSkillDisplayEntry(actor, entry, rollingUser = globalThis.game?.user) {
+	const crewPbSource = resolveStarshipSkillCrewPbSource(actor, rollingUser);
+	const deployedRoller = crewPbSource.actor;
+	const rollerPb = toFiniteNumber(deployedRoller?.system?.attributes?.prof, 0) ?? 0;
+	const proficiencyMultiplier = getStarshipSkillProficiencyMultiplier(entry.proficiencyMode);
+	const effectiveProficiency = deployedRoller
+		? Math.round(rollerPb * proficiencyMultiplier)
+		: 0;
+	const effectiveTotal = entry.parts.abilityMod + effectiveProficiency + entry.parts.bonus;
+	return {
+		...entry,
+		effectiveCrewPbSource: crewPbSource,
+		effectiveCrewPbSourceLabel: getStarshipSkillCrewPbSourceLabel(crewPbSource),
+		effectiveCrewPbLine: buildStarshipSkillCrewPbChatLine(crewPbSource, {
+			rollerPb,
+			proficiencyMode: entry.proficiencyMode,
+			multiplier: proficiencyMultiplier,
+			rollProficiencyPoints: effectiveProficiency
+		}),
+		effectiveCrewPb: rollerPb,
+		effectiveProficiency,
+		effectiveTotal,
+		displayParts: {
+			...entry.parts,
+			proficiency: effectiveProficiency
+		}
+	};
 }
 
 /**
@@ -1074,6 +1149,21 @@ export function getStarshipSkillEntries(actor) {
 			}
 		};
 	}).sort((left, right) => left.label.localeCompare(right.label));
+}
+
+/**
+ * Display-only starship skill rows for the current user: keeps stored tier / bonus data from
+ * {@link getStarshipSkillEntries} but swaps the displayed proficiency contribution to the same
+ * ship-centric crew PB source used by {@link rollStarshipSkill}. This preserves current roll math
+ * and data shape while fixing row parity for the sheet.
+ * @param {Actor} actor
+ * @param {User} [rollingUser]
+ * @returns {Array<object>}
+ */
+export function getStarshipSkillDisplayEntries(actor, rollingUser = globalThis.game?.user) {
+	return getStarshipSkillEntries(actor)
+		.map(entry => buildStarshipSkillDisplayEntry(actor, entry, rollingUser))
+		.sort((left, right) => left.label.localeCompare(right.label));
 }
 
 function getStarshipAdvantageMode(event) {
@@ -1310,8 +1400,9 @@ export async function rollStarshipSkill(actor, skillId, event, rollingUser) {
 	const crewPbSource = resolveStarshipSkillCrewPbSource(actor, roller);
 	const deployedRoller = crewPbSource.actor;
 	const rollerPb = toFiniteNumber(deployedRoller?.system?.attributes?.prof, 0) ?? 0;
+	const proficiencyMultiplier = getStarshipSkillProficiencyMultiplier(entry.proficiencyMode);
 	const rollProficiencyPoints = deployedRoller
-		? Math.round(rollerPb * getStarshipSkillProficiencyMultiplier(entry.proficiencyMode))
+		? Math.round(rollerPb * proficiencyMultiplier)
 		: 0;
 	const rollDataProficiency = deployedRoller ? rollerPb : 0;
 	const dialogEntry = {
@@ -1372,9 +1463,25 @@ export async function rollStarshipSkill(actor, skillId, event, rollingUser) {
 
 	await roll.evaluate();
 
-	const chatFlavor = starshipCrewPbUi
-		? `${entry.label} (${abilityLabel}) — ${buildStarshipSkillCrewPbChatLine(crewPbSource)}`
-		: `${entry.label} (${abilityLabel})`;
+	const localizedAbilityLabel = abilityLabel
+		? game.i18n.localize(abilityLabel)
+		: abilityLabel;
+	const finalAbilityLabel = localizedAbilityLabel && localizedAbilityLabel !== abilityLabel
+		? localizedAbilityLabel
+		: abilityLabel;
+	const baseFlavor = game.i18n.format("SW5E.Starship.Roll.SkillCheckFlavor", {
+		skill: entry.label,
+		ability: finalAbilityLabel
+	});
+	const flavorSuffix = starshipCrewPbUi
+		? buildStarshipSkillChatFlavorSuffix(crewPbSource, {
+			rollerPb,
+			proficiencyMode: entry.proficiencyMode,
+			multiplier: proficiencyMultiplier,
+			rollProficiencyPoints
+		})
+		: "";
+	const chatFlavor = flavorSuffix ? `${baseFlavor} — ${flavorSuffix}` : baseFlavor;
 
 	await roll.toMessage({
 		speaker: ChatMessage.getSpeaker({ actor }),

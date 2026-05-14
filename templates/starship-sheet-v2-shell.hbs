@@ -1,0 +1,117 @@
+<section class="sw5e-starship-v2-shell" data-application-part="sw5e-starship-v2-shell">
+  <header class="sw5e-starship-v2-header">
+    <div class="sw5e-starship-v2-header-body">
+      <div class="sw5e-starship-v2-header-identity">
+        {{#if identity.image}}
+        <img class="sw5e-starship-v2-header-thumb" src="{{identity.image}}" alt="" />
+        {{else}}
+        <div class="sw5e-starship-v2-header-thumb sw5e-starship-v2-header-thumb--fallback" aria-hidden="true"><i class="fas fa-rocket"></i></div>
+        {{/if}}
+        <div class="sw5e-starship-v2-header-copy">
+          <span class="sw5e-starship-kicker">{{kicker}}</span>
+          <h2 class="sw5e-starship-v2-ship-name">{{identity.name}}</h2>
+          <p class="sw5e-starship-v2-identity-meta">Tier {{identity.tier}} | {{identity.size}} | {{identity.role}}</p>
+          <p class="sw5e-starship-v2-lede">{{lede}}</p>
+        </div>
+      </div>
+      <div class="sw5e-starship-v2-header-meta">
+        {{#if warningCount}}
+        <span class="sw5e-starship-v2-badge sw5e-starship-v2-badge--warning">{{warningSummary}}</span>
+        {{/if}}
+        <span class="sw5e-starship-v2-badge">{{readOnlyBadge}}</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="sw5e-starship-v2-dashboard">
+    <main class="sw5e-starship-v2-main">
+      <section class="sw5e-starship-v2-card card sw5e-starship-v2-card--skills">
+        <header class="sw5e-starship-v2-card-header">
+          <h3>{{skillsTitle}}</h3>
+        </header>
+        <div class="sw5e-starship-v2-skills">
+          {{#each skills}}
+          <article class="sw5e-starship-v2-skill-row{{#if tierZero}} sw5e-starship-v2-skill-row--tier-zero{{/if}}{{#if ../editable}} sw5e-starship-v2-skill-row--has-config{{/if}}" data-skill-id="{{id}}">
+            <button
+              type="button"
+              class="sw5e-starship-v2-skill-roll-area"
+              data-sw5e-action="roll-skill"
+              data-skill-id="{{id}}"
+              title="{{rollTooltip}}"
+              aria-label="{{ localize 'DND5E.Roll' }} {{label}} — {{rollTooltip}}"
+            >
+              <div class="sw5e-starship-v2-skill-main">
+                <strong class="sw5e-starship-v2-skill-name">{{label}}</strong>
+                <span class="sw5e-starship-v2-skill-ability">{{ability}}</span>
+              </div>
+              <div class="sw5e-starship-v2-skill-tier">
+                <span class="sw5e-starship-v2-skill-tier-label">{{tierLabel}}</span>
+                {{#if tierZero}}
+                <span class="sw5e-starship-v2-skill-badge">{{zeroTierBadge}}</span>
+                {{/if}}
+              </div>
+              <div class="sw5e-starship-v2-skill-math">
+                <span class="sw5e-starship-v2-skill-modifier">{{modifier}}</span>
+                <span class="sw5e-starship-v2-skill-passive">Passive {{passive}}</span>
+              </div>
+            </button>
+            {{#if ../editable}}
+            <button
+              type="button"
+              class="sw5e-starship-v2-skill-config sw5e-starship-v2-skill-config--edit-only"
+              data-sw5e-action="configure-skill"
+              data-skill-id="{{id}}"
+              title="{{../skillConfigureTitle}}"
+              aria-label="{{../skillConfigureTitle}}: {{label}}"
+            >
+              <i class="fas fa-cog" aria-hidden="true"></i>
+            </button>
+            {{/if}}
+          </article>
+          {{/each}}
+        </div>
+      </section>
+    </main>
+
+    <aside class="sw5e-starship-v2-side" aria-label="{{crewTitle}}">
+      <section class="sw5e-starship-v2-card card">
+        <header class="sw5e-starship-v2-card-header">
+          <h3>{{crewTitle}}</h3>
+        </header>
+        <dl class="sw5e-starship-v2-facts sw5e-starship-v2-facts--side">
+          {{#each crewRows}}
+          <div class="sw5e-starship-v2-fact">
+            <dt>{{label}}</dt>
+            <dd>{{value}}</dd>
+          </div>
+          {{/each}}
+        </dl>
+        {{#if crewWarnings.length}}
+        <ul class="sw5e-starship-v2-warning-list">
+          {{#each crewWarnings}}
+          <li class="sw5e-starship-v2-warning sw5e-starship-v2-warning--{{severity}}">{{message}}</li>
+          {{/each}}
+        </ul>
+        {{/if}}
+      </section>
+    </aside>
+  </div>
+
+  <section class="sw5e-starship-v2-warnings sw5e-starship-v2-card card" aria-label="{{warningsTitle}}">
+    <header class="sw5e-starship-v2-card-header">
+      <h3>{{warningsTitle}}</h3>
+    </header>
+    {{#if warnings.length}}
+    <ul class="sw5e-starship-v2-warning-list sw5e-starship-v2-warning-list--full">
+      {{#each warnings}}
+      <li class="sw5e-starship-v2-warning sw5e-starship-v2-warning--full sw5e-starship-v2-warning--{{severity}}">
+        <strong class="sw5e-starship-v2-warning-code">{{code}}</strong>
+        <span class="sw5e-starship-v2-warning-message">{{message}}</span>
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <p class="sw5e-starship-v2-empty">{{noWarningsText}}</p>
+    {{/if}}
+  </section>
+</section>
