@@ -4468,3 +4468,71 @@ section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove {
   animation: sw5e-pause-spin 5s linear infinite reverse;
   pointer-events: none;
 }
+
+/* Character Deployment summary (read-only, dnd5e 5.2.x actor sheets) */
+.dnd5e2.sheet.actor .sw5e-deployment-summary {
+  --sw5e-deployment-fg: color-mix(in oklab, var(--color-text-primary, var(--color-text, #e6e6e6)) 92%, transparent);
+  --sw5e-deployment-muted: color-mix(in oklab, var(--color-text-secondary, #bfc9d8) 88%, transparent);
+  --sw5e-deployment-bg: color-mix(in oklab, var(--dnd5e-application-background, var(--color-background, #141414)) 82%, transparent);
+  --sw5e-deployment-border: color-mix(in oklab, var(--color-border-highlight, #ffffff) 14%, transparent);
+  margin: 6px 0 10px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--sw5e-deployment-border);
+  background: var(--sw5e-deployment-bg);
+  color: var(--sw5e-deployment-fg);
+  pointer-events: none;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-summary--header-fallback {
+  margin-top: 8px;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-summary-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-summary-inner > .fas.fa-rocket {
+  margin-top: 2px;
+  opacity: 0.85;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-summary-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-summary-kicker {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  opacity: 0.82;
+  margin-bottom: 2px;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-summary-body {
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-summary-line--multi .sw5e-deployment-summary-multi-label {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-summary-tail {
+  align-self: center;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-summary-ventures.subdued {
+  font-size: 11px;
+  color: var(--sw5e-deployment-muted);
+  white-space: nowrap;
+}
+
+body.theme-light .dnd5e2.sheet.actor .sw5e-deployment-summary {
+  --sw5e-deployment-bg: color-mix(in oklab, #ffffff 10%, transparent);
+  --sw5e-deployment-border: color-mix(in oklab, #000000 12%, transparent);
+}
