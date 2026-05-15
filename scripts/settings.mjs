@@ -9,6 +9,9 @@ import {
 import { CHASSIS_SETTING_KEYS, CHASSIS_RULES_MODES } from "./chassis.mjs";
 import { LEGACY_SETTINGS_NAMESPACE, SETTINGS_NAMESPACE } from "./module-support.mjs";
 
+/** Client-side diagnostic logs for Features-tab Deployment pill injection (default off). */
+export const DEPLOYMENT_CARD_DEBUG_SETTING = "deploymentCardDebug";
+
 function registerHiddenWorldSetting(namespace, key, data) {
 	game.settings.register(namespace, key, {
 		scope: "world",
@@ -122,6 +125,15 @@ export function registerModuleSettings() {
 		name: "SW5E.Settings.StarshipSheetV2.Name",
 		hint: "SW5E.Settings.StarshipSheetV2.Hint",
 		scope: "world",
+		config: true,
+		type: Boolean,
+		default: false
+	});
+
+	game.settings.register(SETTINGS_NAMESPACE, DEPLOYMENT_CARD_DEBUG_SETTING, {
+		name: "SW5E.Settings.DeploymentCardDebug.Name",
+		hint: "SW5E.Settings.DeploymentCardDebug.Hint",
+		scope: "client",
 		config: true,
 		type: Boolean,
 		default: false

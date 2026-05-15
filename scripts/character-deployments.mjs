@@ -1,12 +1,24 @@
 /**
  * Character Deployment summary helpers (SotG-style feats on actors).
- * Reads embedded Deployment/Venture feats; optional stored rank lives on `flags.sw5e.deployment.rank`
- * on **parent** Deployment items only.
+ * Reads embedded Deployment/Venture feats; optional stored rank lives on `flags.<moduleId>.deployment.rank`
+ * (canonical module id `sw5e-module`) on **parent** Deployment items, with legacy read fallback `flags.sw5e.deployment.rank`.
  * Does not apply advancement grants or mutate advancement definitions.
  */
 
+import { getModuleId } from "./module-support.mjs";
+
 /** @type {Readonly<{ min: number, max: number }>} */
 export const DEPLOYMENT_RANK_BOUNDS = Object.freeze({ min: 0, max: 5 });
+
+/**
+ * Deployment payload on parent feats (`deployment.rank`). Canonical scope is the active module id; legacy `sw5e` is still read.
+ *
+ * @param {unknown} item
+ */
+function getItemDeploymentFlagBlock(item) {
+	const scope = getModuleId();
+	return item?.flags?.[scope]?.deployment ?? item?.flags?.sw5e?.deployment;
+}
 
 /**
  * @param {unknown} item
@@ -93,7 +105,7 @@ function getMaxConfiguredRankFromAdvancement(item) {
  * @returns {{ storedRank: number|null, rankFlagInvalid: boolean }}
  */
 function readStoredDeploymentRank(item) {
-	const raw = item?.flags?.sw5e?.deployment?.rank;
+	const raw = getItemDeploymentFlagBlock(item)?.rank;
 	if ( raw === undefined || raw === null || raw === "" ) return { storedRank: null, rankFlagInvalid: false };
 	const n = Number(raw);
 	if ( !Number.isFinite(n) || !Number.isInteger(n)
@@ -104,16 +116,15 @@ function readStoredDeploymentRank(item) {
 }
 
 /**
+ * Effective rank for UI (0–5). Missing or invalid stored rank displays as 0.
+ *
  * @param {number|null} storedRank
- * @returns {string}
+ * @param {boolean} rankFlagInvalid
+ * @returns {number}
  */
-function formatDeploymentRankLabel(storedRank) {
-	if ( typeof game !== "undefined" && game?.i18n ) {
-		if ( storedRank !== null ) return game.i18n.format("SW5E.Deployment.Rank", { rank: storedRank });
-		return game.i18n.localize("SW5E.Deployment.RankUnset");
-	}
-	if ( storedRank !== null ) return `Rank ${storedRank}`;
-	return "Rank ?";
+export function getDeploymentDisplayRank(storedRank, rankFlagInvalid) {
+	if ( storedRank !== null && !rankFlagInvalid ) return storedRank;
+	return DEPLOYMENT_RANK_BOUNDS.min;
 }
 
 /**
@@ -139,9 +150,8 @@ function* iterateEmbeddedItems(actor) {
  *     identifier: string,
  *     legacyMirror: boolean,
  *     storedRank: number|null,
- *     rankSource: "stored"|"unset",
- *     rankUncertain: boolean,
  *     rankFlagInvalid: boolean,
+ *     displayRank: number,
  *     maxConfiguredRank: number|null,
  *     maxConfiguredUncertain: boolean,
  *     rankLabel: string,
@@ -180,7 +190,6 @@ export function getCharacterDeploymentSummary(actor) {
 		const deployments = [];
 		const deploymentFeatures = [];
 		const ventures = [];
-		const warnings = [];
 
 		for ( const item of iterateEmbeddedItems(actor) ) {
 			if ( !item ) continue;
@@ -209,8 +218,7 @@ export function getCharacterDeploymentSummary(actor) {
 			if ( parent ) {
 				const { maxConfiguredRank, maxConfiguredUncertain } = getMaxConfiguredRankFromAdvancement(item);
 				const { storedRank, rankFlagInvalid } = readStoredDeploymentRank(item);
-				const rankSource = storedRank !== null ? "stored" : "unset";
-				const rankUncertain = storedRank === null;
+				const displayRank = getDeploymentDisplayRank(storedRank, rankFlagInvalid);
 
 				deployments.push({
 					id: item.id ?? "",
@@ -219,17 +227,17 @@ export function getCharacterDeploymentSummary(actor) {
 					img: typeof item.img === "string" ? item.img : "",
 					legacyMirror,
 					storedRank,
-					rankSource,
-					rankUncertain,
 					rankFlagInvalid,
+					displayRank,
 					maxConfiguredRank,
 					maxConfiguredUncertain,
-					rankLabel: formatDeploymentRankLabel(storedRank)
+					rankLabel: String(displayRank)
 				});
 
-				if ( rankFlagInvalid ) warnings.push("SW5E.Deployment.RankInvalidWarning");
-				if ( legacyMirror && rankUncertain ) {
-					warnings.push(`legacyDeployment mirror on "${item.name ?? item.id}" — rank may require manual verification`);
+				if ( rankFlagInvalid ) {
+					console.warn(
+						`SW5E | Ignoring invalid deployment rank flag on "${item.name ?? item.id}" — displaying rank 0 until corrected.`
+					);
 				}
 			}
 			else if ( isDeploymentFeatureFeat(item) ) {
@@ -246,17 +254,13 @@ export function getCharacterDeploymentSummary(actor) {
 		const hasVentures = ventures.length > 0;
 		const hasAny = hasDeployments || hasDeploymentFeatures || hasVentures;
 
-		if ( hasDeployments && deployments.every(d => d.rankUncertain) ) {
-			warnings.push("SW5E.DeploymentSummary.WarningUnclear");
-		}
-
 		return {
 			actorId: actor.id ?? null,
 			actorName: actor.name ?? "",
 			deployments,
 			deploymentFeatures,
 			ventures,
-			warnings,
+			warnings: [],
 			hasDeployments,
 			hasDeploymentFeatures,
 			hasVentures,

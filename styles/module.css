@@ -4469,118 +4469,88 @@ section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove {
   pointer-events: none;
 }
 
-/* Character Deployment header cards — Features tab only (dnd5e 5.2.x actor sheets V2) */
-.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-features-header {
-  --sw5e-deployment-fg: color-mix(in oklab, var(--color-text-primary, var(--color-text, #e6e6e6)) 92%, transparent);
-  --sw5e-deployment-muted: color-mix(in oklab, var(--color-text-secondary, #bfc9d8) 88%, transparent);
-  --sw5e-deployment-bg: color-mix(in oklab, var(--dnd5e-application-background, var(--color-background, #141414)) 82%, transparent);
-  --sw5e-deployment-border: color-mix(in oklab, var(--color-border-highlight, #ffffff) 14%, transparent);
-  margin: 4px 0 8px;
-  padding: 0;
-  color: var(--sw5e-deployment-fg);
-  pointer-events: auto;
+/* Character Deployment — Features tab: mirror dnd5e 5.2.x `section.classes` pill row + `.level-selector` */
+
+/* Nested inside stock class pills strip: wrappers must not break flex layout */
+.dnd5e2.sheet.actor section.tab[data-tab="features"] section.classes .sw5e-deployment-features-header--in-classes {
+  display: contents;
 }
 
-.dnd5e2.sheet.actor .sw5e-features-deployment-cards {
+.dnd5e2.sheet.actor section.tab[data-tab="features"] section.classes .sw5e-deployment-features-header--in-classes .sw5e-features-deployment-cards {
+  display: contents;
+}
+
+/* Fallback mount (before inventory / legacy rows): cluster Deployment pills */
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-features-header:not(.sw5e-deployment-features-header--in-classes) {
+  margin: 4px 0 8px;
+}
+
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-features-header:not(.sw5e-deployment-features-header--in-classes) .sw5e-features-deployment-cards {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: stretch;
   gap: 8px;
 }
 
-.dnd5e2.sheet.actor .sw5e-deployment-class-card {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 9rem;
-  max-width: 14rem;
-  padding: 6px 8px;
-  border-radius: 6px;
-  border: 1px solid var(--sw5e-deployment-border);
-  background: var(--sw5e-deployment-bg);
+/* Inline legacy flexrow mount */
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-features-header--inline:not(.sw5e-deployment-features-header--in-classes) {
+  margin: 0;
+  align-self: stretch;
+  display: inline-flex;
+  align-items: stretch;
+  flex: 0 1 auto;
 }
 
-.dnd5e2.sheet.actor .sw5e-deployment-card-open {
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-features-header--inline:not(.sw5e-deployment-features-header--in-classes) .sw5e-features-deployment-cards {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 8px;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
+}
+
+/* Open deployment item: real hit target (avoid `display: contents` on `<button>`); icon + name share one control */
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill .sw5e-deployment-card-open {
+  display: inline-flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
   padding: 0;
   margin: 0;
-  background: transparent;
   border: none;
+  background: transparent;
+  cursor: pointer;
   color: inherit;
   font: inherit;
+  text-align: inherit;
 }
 
-.dnd5e2.sheet.actor .sw5e-deployment-card-open:hover {
-  filter: brightness(1.08);
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill .sw5e-deployment-card-open:hover .gold-icon,
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill .sw5e-deployment-card-open:hover .sw5e-deployment-icon-placeholder {
+  filter: brightness(1.06);
 }
 
-.dnd5e2.sheet.actor .sw5e-deployment-card-img {
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
-  object-fit: cover;
-  border: 1px solid var(--sw5e-deployment-border);
-  flex-shrink: 0;
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill .sw5e-deployment-card-open:hover .name-stacked .title {
+  filter: brightness(1.06);
 }
 
-.dnd5e2.sheet.actor .sw5e-deployment-card-img-placeholder {
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill .icons .sw5e-deployment-icon-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
-  border: 1px solid var(--sw5e-deployment-border);
+  min-width: 2rem;
+  min-height: 2rem;
   opacity: 0.85;
-  flex-shrink: 0;
 }
 
-.dnd5e2.sheet.actor .sw5e-deployment-card-name {
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1.2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+/* PLAY rank readonly: rank column not editable; icon/name still use `.sw5e-deployment-card-open` when OBSERVER+ */
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill--rank-readonly > .level {
+  cursor: default;
 }
 
-.dnd5e2.sheet.actor .sw5e-deployment-card-rank {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  padding-left: 36px;
-}
-
-.dnd5e2.sheet.actor .sw5e-deployment-features-warnings {
-  margin-top: 6px;
-  font-size: 11px;
-}
-
-.dnd5e2.sheet.actor .sw5e-deployment-rank-select {
-  min-width: 6.5rem;
-  max-width: 11rem;
-  font-size: 11px;
-  padding: 1px 4px;
-  border-radius: 4px;
-}
-
-.dnd5e2.sheet.actor .sw5e-deployment-rank-hint {
-  font-size: 10px;
-  line-height: 1.2;
-  color: var(--sw5e-deployment-muted);
-}
-
-.dnd5e2.sheet.actor .sw5e-deployment-summary-rank-readonly {
-  font-size: 12px;
-}
-
-body.theme-light .dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-features-header {
-  --sw5e-deployment-bg: color-mix(in oklab, #ffffff 10%, transparent);
-  --sw5e-deployment-border: color-mix(in oklab, #000000 12%, transparent);
+/* Rank `<select>` uses stock `.level-selector`; keep only a scoped hook for debugging/overrides */
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-rank-select {
+  /* Intentionally minimal: inherit dnd5e `.level-selector` presentation */
+  max-width: none;
 }
