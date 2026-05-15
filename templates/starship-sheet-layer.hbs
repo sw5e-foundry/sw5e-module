@@ -79,6 +79,9 @@
   <div class="sw5e-starship-main-body">
     <nav class="sw5e-starship-sotg-nav" role="tablist" aria-label="Starship Systems">
       <button type="button" class="sw5e-starship-sotg-tab active" role="tab" data-sw5e-sotg-tab="overview" aria-selected="true" id="sw5e-sotg-tab-overview">Core</button>
+      {{#if starshipSheetV2Enabled}}
+      <button type="button" class="sw5e-starship-sotg-tab" role="tab" data-sw5e-sotg-tab="v2" aria-selected="false" id="sw5e-sotg-tab-v2">{{starshipSheetV2TabTitle}}</button>
+      {{/if}}
       {{#if crew}}
       <button type="button" class="sw5e-starship-sotg-tab" role="tab" data-sw5e-sotg-tab="crew" aria-selected="false" id="sw5e-sotg-tab-crew">Crew</button>
       {{/if}}
@@ -137,23 +140,20 @@
             </header>
             <ul class="sw5e-starship-skill-list sw5e-starship-skill-list--pc" role="list">
               {{#each skills}}
-              <li class="sw5e-starship-skill-row sw5e-starship-skill-row--pc{{#if value}} proficient{{/if}}" data-skill-id="{{id}}">
+              <li class="sw5e-starship-skill-row sw5e-starship-skill-row--pc{{proficiencyClass}}" data-skill-id="{{id}}">
                 <button
                   type="button"
                   class="sw5e-starship-skill-roll-area"
                   data-sw5e-action="roll-skill"
                   data-skill-id="{{id}}"
-                  title="{{ localize "DND5E.Roll" }} {{label}}"
+                  title="{{rowTooltip}}"
+                  aria-label="{{ localize "DND5E.Roll" }} {{label}} — {{rowTooltip}}"
                 >
-                  <span class="sw5e-starship-skill-prof" data-tooltip="{{hover}}" aria-hidden="true">{{{icon}}}</span>
+                  <span class="sw5e-starship-skill-prof" aria-hidden="true">{{{icon}}}</span>
                   <span class="sw5e-starship-skill-ability-abbr">{{abilityAbbr}}</span>
                   <span class="sw5e-starship-skill-label">{{label}}</span>
                   <span class="sw5e-starship-skill-mod" data-tooltip="SW5E.Modifier">{{modDisplay}}</span>
-                  {{#unless @root.sotgSheetEditMode}}
-                  {{#if passiveDisplay}}
-                  <span class="sw5e-starship-skill-passive" title="{{../overviewPassiveHint}}">{{passiveDisplay}}</span>
-                  {{/if}}
-                  {{/unless}}
+                  <span class="sw5e-starship-skill-passive">{{#if passiveDisplay}}{{passiveDisplay}}{{else}}—{{/if}}</span>
                 </button>
                 {{#if ../editable}}
                 <button
@@ -175,6 +175,12 @@
         </section>
         {{/if}}
       </section>
+
+      {{#if starshipSheetV2Enabled}}
+      <section class="sw5e-starship-sotg-panel" data-sw5e-sotg-panel="v2" role="tabpanel" aria-labelledby="sw5e-sotg-tab-v2" id="sw5e-sotg-panel-v2" hidden>
+        {{{starshipSheetV2Shell}}}
+      </section>
+      {{/if}}
 
       {{#if crew}}
       <section class="sw5e-starship-sotg-panel" data-sw5e-sotg-panel="crew" role="tabpanel" aria-labelledby="sw5e-sotg-tab-crew" id="sw5e-sotg-panel-crew" hidden>

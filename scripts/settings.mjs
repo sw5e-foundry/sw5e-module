@@ -118,6 +118,15 @@ export function registerModuleSettings() {
 		requiresReload: true
   	});
 
+	game.settings.register(SETTINGS_NAMESPACE, "experimentalStarshipSheetV2", {
+		name: "SW5E.Settings.StarshipSheetV2.Name",
+		hint: "SW5E.Settings.StarshipSheetV2.Hint",
+		scope: "world",
+		config: true,
+		type: Boolean,
+		default: false
+	});
+
 	// // Use old starship movement calculation rules
 	// game.settings.register("sw5e", "oldStarshipMovement", {
 	//   name: "SETTINGS.SWOldStarshipMovementN",

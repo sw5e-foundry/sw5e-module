@@ -25,6 +25,9 @@ import { DroidCustomizationsApp } from "./droid-customizations-app.mjs";
 import { AugmentationsApp } from "./augmentations-app.mjs";
 import { registerModuleSettings } from "./settings.mjs";
 import { patchVariantRules } from "./patch/variantRules.mjs";
+import { patchCharacterDeploymentSheet } from "./patch/character-deployment-sheet.mjs";
+import { getCharacterDeploymentSummary } from "./character-deployments.mjs";
+import { registerCharacterFeaturesDiagnostics } from "./dev/character-features-diagnostics.mjs";
 
 globalThis.sw5e = {
 	migrations,
@@ -36,6 +39,9 @@ globalThis.sw5e = {
 	droidCustomizations: {
 		...droidCustomizationsApi,
 		openManager: actor => DroidCustomizationsApp.openForActor(actor)
+	},
+	deployments: {
+		getCharacterDeploymentSummary
 	}
 };
 
@@ -68,11 +74,13 @@ Hooks.once('init', async function() {
 	patchAugmentationsSheet();
 	patchDroidCustomizationsSheet();
 	patchVariantRules();
+	patchCharacterDeploymentSheet();
 });
 
 Hooks.once('ready', async function() {
 	patchPacks(strict);
 	patchProficiencyReady();
+	registerCharacterFeaturesDiagnostics(globalThis.sw5e);
 
 	// Perform module migration if it is required and feasible
 	if (migrations.needsMigration()) await migrations.migrateWorld();
