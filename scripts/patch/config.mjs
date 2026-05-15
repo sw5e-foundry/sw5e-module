@@ -1200,6 +1200,8 @@ export function patchConfig(config, strict = true) {
 			full: "SW5E.FreeLearn",
 			type: "Boolean",
 			abbreviation: "SW5E.FreeLearnAbbr",
+			// Inventory (dnd5e 5.2.x) renders labels.components.all chips with {{#if tag}} only; missing icon produced dnd5e-icon fetches to /undefined.
+			icon: defaultSpellImg || ritual_icon,
 			isTag: true
 		},
 		material: {

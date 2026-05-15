@@ -776,6 +776,24 @@ async function persistStarshipFuelPowerSystemPath(act, systemPath, value) {
 	await act.update(payload);
 }
 
+/** @returns {Promise<void>} */
+async function persistStarshipTierSystemPath(act, systemPath, value) {
+	// Tier must be mirrored independently as it's not a native value in the dnd5e vehicle dataModel
+	let payload;
+    if ( systemPath === "system.details.tier" && isSw5eStarshipActor(act) ) {
+		// Tier value should cap at 5 as per SW5e ruleset
+		if( value > 5){
+			ui.notifications.warn(localizeOrFallback("SW5E.StarshipSheet.TierExceededWarning", "Starship Tiers cap at 5."));
+			value = 5;
+		}
+        payload = {
+            [systemPath]: value,
+            "flags.sw5e.legacyStarshipActor.system.details.tier": value
+        };
+    }
+	await act.update(payload);
+}
+
 function coerceSidebarTier(actor, raw) {
 	const prev = Number(actor?.system?.details?.tier);
 	const fallback = Number.isFinite(prev) ? Math.max(0, Math.trunc(prev)) : 0;
@@ -856,7 +874,11 @@ function ensureStarshipTrustedSystemPathDelegate(root, app) {
 
 			try {
 				stashStarshipPendingSidebarScroll(app, el);
-				await persistStarshipFuelPowerSystemPath(act, path, value);
+				if(path === "system.details.tier"){
+					await persistStarshipTierSystemPath(act, path, value);
+				} else {
+					await persistStarshipFuelPowerSystemPath(act, path, value);
+				}
 			} catch ( err ) {
 				consumeStarshipPendingSidebarScroll(app);
 				console.error("SW5E MODULE | Starship sidebar quick-edit update failed.", err);
