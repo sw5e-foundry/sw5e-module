@@ -1,0 +1,119 @@
+_id: Zy1lZOSKK4qcSKQp
+name: Quantum Entanglement
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Passive.webp
+effects: []
+folder: 8AJaz8gHz7DJFqet
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6887356+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-quantum_entanglement.source-archetype.sourceName-teleportation_technique.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Teleportation Technique:</strong> 11th level</em></p>
+
+      <p>When you use your Personal Teleporter feature, you can place the portal
+      that you would normally place within 5 feet of you in a place you can see
+      within your Personal Teleporter's range. If that space is occupied by a
+      Huge or smaller creature or a Medium or smaller unsecured object, it must
+      make a Dexterity saving throw against your tech save DC. An object
+      automatically fails this saving throw, and a creature can choose to fail.
+      On a failed save, a Medium or smaller creature or object falls through the
+      portal, immediately appearing in a space within 5 feet of the linked
+      portal and falling prone. A Large or Huge creature instead falls prone
+      without moving.</p>
+    chat: ''
+  requirements: Scout (Teleportation Technique) 11
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: quantum-entanglement
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!Zy1lZOSKK4qcSKQp'
+

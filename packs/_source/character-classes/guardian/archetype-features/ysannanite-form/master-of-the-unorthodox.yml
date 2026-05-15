@@ -1,0 +1,131 @@
+_id: fJOMvX0p6D3Uklrr
+name: Master of the Unorthodox
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Action.webp
+effects: []
+folder: GjAWwJLiCdcXwYvk
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-master_of_the_unorthodox.source-archetype.sourceName-ysannanite_form.level-20
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Ysannanite Form:</strong> 20th level</em></p>
+
+      <p>You've mastered the unity between blaster and blade. Your Dexterity and
+      Wisdom or Charisma scores (your choice) increase by 2. Your maximum for
+      these scores increases by 2. Additionally, you can use your action to gain
+      the following benefits for 1 minute:</p>
+
+      <ul>
+
+      <li>You have resistance to kinetic, energy, and ion damage from
+      weapons.</li>
+
+      <li>When you hit a creature with a ranged weapon attack, you have
+      advantage on the next melee weapon attack you make against that creature.
+      When you hit a creature with a melee weapon attack, you have advantage on
+      the next ranged weapon attack you make against that creature.</li>
+
+      <li>When you roll below half the maximum on a damage die, you can treat
+      the roll as if you'd rolled half the maximum on the damage die. You can
+      only affect a number of dice up to half your Wisdom or Charisma modifier
+      (your choice, rounded up, minimum of one) in this way.</li>
+
+      </ul>
+
+      <p>This effect ends early if you are incapacitated or die. Once you use
+      this feature, you can't use it again until you finish a long rest.</p>
+    chat: ''
+  requirements: Guardian (Ysannanite Form) 20
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: master-of-the-unorthodox
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!fJOMvX0p6D3Uklrr'
+

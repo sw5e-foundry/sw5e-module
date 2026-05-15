@@ -41,6 +41,7 @@ All runtime dnd5e integration lives here. Key files:
 | `powercasting.mjs` | Force/tech powercasting point computation; hooks into actor prep and sheet rendering |
 | `starship-prepare.mjs` | Derives starship runtime data (hull/shields, movement, crew) from legacy JSON flags |
 | `starship-sheet.mjs` | Injects SW5E and Starship Features tabs into the dnd5e VehicleActorSheet via `renderActorSheetV2` hook — see [`docs/actor-sheet-tabs.md`](docs/actor-sheet-tabs.md) for tab system details |
+| `character-deployment-sheet.mjs` | Character Features tab: injects parent Deployment as stock `section.classes` pills (`class pill-lg`, `.level-selector` in EDIT); Ventures/Deployment feat grouping + hide parent Deployment from ordinary feature rows |
 | `maneuver.mjs` | Maneuver item type behavior |
 | `addHooks.mjs` | Central hook/wrapper registration |
 

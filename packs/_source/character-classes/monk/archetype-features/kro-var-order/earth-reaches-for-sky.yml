@@ -1,0 +1,127 @@
+name: Earth Reaches for Sky
+flags:
+  sw5e-importer:
+    timestamp: '2021-10-12T11:17:47.9533687+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-earth_reaches_for_sky.source-archetype.sourceName-kro_var_order.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Prerequisite:</strong> Crushing Hand of the Mountain</em>
+      or <em>Patient Bantha Listens</em></p>
+
+      <p>As an action, you can choose a point you can see on the ground within
+      120 feet. A fountain of churned earth and stone erupts in a 20-foot cube
+      centered on that point. Each creature in that area must make a Dexterity
+      saving throw. A creature takes [[/r 3d12]] kinetic damage on a failed
+      save, or half as much damage on a successful one. Additionally, the ground
+      in that area becomes difficult terrain until cleared. Each 5-foot-square
+      portion of the area requires at least 1 minute to clear by hand.</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 11
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 12
+            number: 3
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - kinetic
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '120'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '20'
+          type: cube
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: earth-reaches-for-sky
+  enchant: {}
+effects: []
+folder: aCedWASuu1FMbboa
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: TfRXhAzWeEz5yvNl
+ownership:
+  default: 0
+sort: 0
+_key: '!items!TfRXhAzWeEz5yvNl'
+

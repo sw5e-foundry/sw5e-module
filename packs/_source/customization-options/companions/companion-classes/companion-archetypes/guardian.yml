@@ -1,0 +1,213 @@
+folder: COUZsxKjlUNvbJPk
+name: Guardian
+type: subclass
+img: modules/sw5e-module/icons/packs/Classes/Guardian.webp
+system:
+  description:
+    value: "<h2>GUARDIAN</h2><p>In order to become a guardian, your companion must have a Constitution, Wisdom, or Charisma score of 13 or higher.</p><p>As a guardian, your companion gains the following class features.</p><h4>PROFICIENCIES</h4><hr /><ul><li>Armor:\_Light armor, medium armor</li><li>Weapons:\_All lightweapons, all vibroweapons</li><li>Tools:\_None</li></ul><hr /><ul><li>Saving Throws:\_Constitution, Charisma</li><li>Skills:\_Choose two from Acrobatics, Athletics, Deception, Insight, Intimidation, Lore, Perception, Persuasion, and Piloting</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  identifier: guardian
+  classIdentifier: follower
+  advancement:
+    - _id: 1fyxipc6rxm02wwy
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.ZMsNel0SMz7cKsub
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.vaHIO3WJoym9Ailu
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 3
+      title: Features
+    - _id: 3ky5fetaumq7mk5p
+      type: ItemGrant
+      configuration:
+        items:
+          - optional: false
+            uuid: Compendium.sw5e-module.customization-options.Item.DU62BoBBp75xKXbf
+        optional: false
+        spell: null
+      value: {}
+      level: 11
+      title: Features
+      hint: ''
+    - _id: x82oade2s9m8svpk
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.4DnAnYCGb5P8KaLx
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 15
+      title: Features
+    - _id: RQ43PKbxPIqJbGJt
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - saves:con
+          - saves:cha
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: AZafIaCi1wACo8c5
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 2
+            pool:
+              - skills:acr
+              - skills:ath
+              - skills:dec
+              - skills:ins
+              - skills:itm
+              - skills:lor
+              - skills:prc
+              - skills:per
+              - skills:pil
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: 7A176S2NBKNQfEDW
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - armor:lgt
+          - armor:med
+          - armor:shl:lightphysicalshield
+          - armor:shl:lightshieldgenerator
+          - armor:shl:mediumphysicalshield
+          - armor:shl:mediumshieldgenerator
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: R0SXeyNsl6OWzmSz
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - weapon:mlw
+          - weapon:mvb
+          - weapon:slw
+          - weapon:svb
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: 9KIaNFoWsPRwzlJO
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 3
+          '7':
+            value: 6
+          '18':
+            value: 9
+      value: {}
+      title: Force Powers Known
+      hint: ''
+    - _id: BwR1hK4rIQthJEPF
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 1
+          '7':
+            value: 2
+          '18':
+            value: 3
+      value: {}
+      title: Force Power Level
+      hint: ''
+    - type: ItemGrant
+      title: Feature
+      _id: RX0re0Pt0lfoTF9n
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.a3H3awGvU5jZmIj4
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 7
+      hint: ''
+    - type: ItemGrant
+      title: Feature
+      _id: yDBrXpxh5GH82a0O
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.YxUo02oo62owGKgO
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 18
+      hint: ''
+  spellcasting:
+    progression: none
+    ability: ''
+    forceProgression: arch
+    techProgression: none
+    superiorityProgression: none
+    preparation:
+      formula: ''
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778542017411
+  lastModifiedBy: dnd5ebuilder0000
+_id: bRu1nafCbPdkqweS
+ownership:
+  default: 0
+sort: 0
+_key: '!items!bRu1nafCbPdkqweS'
+

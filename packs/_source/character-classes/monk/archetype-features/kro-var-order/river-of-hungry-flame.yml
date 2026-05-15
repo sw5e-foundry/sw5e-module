@@ -1,0 +1,143 @@
+name: River of Hungry Flame
+flags:
+  sw5e-importer:
+    timestamp: '2021-10-12T11:17:47.9533687+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-river_of_hungry_flame.source-archetype.sourceName-kro_var_order.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Action.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Prerequisite:</strong> Burning Ember Flourish</em> or
+      <em>Hatchling's Flame</em></p>
+
+      <p>As an action, you can create a wall of fire on a solid surface within
+      120 feet. You can make the wall up to 60 feet long, 20 feet high, and 1
+      foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and
+      1 foot thick. The wall is opaque and lasts for 1 minute.</p>
+
+      <p>When the wall appears, each creature within its area must make a
+      Dexterity saving throw. On a failed save, a creature takes [[/r 5d8]] fire
+      damage, or half as much damage on a successful save.</p>
+
+      <p>One side of the wall, chosen by you when you use this feature, deals
+      [[/r 5d8]] fire damage to each creature that ends its turn within 10 feet
+      of that side of the wall. A creature takes the same damage when it enters
+      the wall for the first time on a turn or ends its turn there. The other
+      side of the wall deals no damage.</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 11
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 5
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 5
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '120'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: river-of-hungry-flame
+  enchant: {}
+folder: aCedWASuu1FMbboa
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: Vn0v64LmdsxuTl2c
+ownership:
+  default: 0
+sort: 0
+_key: '!items!Vn0v64LmdsxuTl2c'
+

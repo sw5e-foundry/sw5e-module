@@ -1,0 +1,114 @@
+_id: eWjwLseohzB8EhYQ
+name: Swift Surgery
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Bonus.webp
+effects: []
+folder: Zvdai55K0wQdOpj0
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6747441+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-swift_surgery.source-archetype.sourceName-sawbones_practice.level-9
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Sawbones Practice:</strong> 9th level</em></p>
+
+      <p>You know how to quickly patch up wounds, given the right tools. You are
+      able to use a traumakit or administer a medpac as a bonus action, and when
+      you use a traumakit to stabilize a dying creature, that creature also
+      regains a number of hit points equal to your Intelligence modifier.</p>
+    chat: ''
+  requirements: Operative (Sawbones Practice) 9
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0heal0000000:
+      _id: sw5e0heal0000000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '@abilities.int.mod'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: swift-surgery
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!eWjwLseohzB8EhYQ'
+

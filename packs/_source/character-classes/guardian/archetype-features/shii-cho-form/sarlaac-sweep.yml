@@ -1,0 +1,121 @@
+_id: 5Lmr5vBJS3s6ma6H
+name: Sarlaac Sweep
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Reaction.webp
+effects: []
+folder: qNVqrwRi5wIrFfxe
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5568127+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-sarlaac_sweep.source-archetype.sourceName-shii_cho_form.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Shii-Cho Form:</strong> 15th level</em></p>
+
+      <p>When a creature moves to within 5 feet of you, you can use your
+      reaction to make a melee weapon attack against that creature. If the
+      attack hits, you can attempt to damage another creature within 5 feet of
+      the original target and within your reach. If the original attack roll
+      would hit the second creature, it takes damage equal to your Strength or
+      Dexterity modifier (your choice). The damage is of the same type dealt by
+      the original attack.</p>
+    chat: ''
+  requirements: Guardian (Shii-Cho Form) 15
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: reaction
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: sarlaac-sweep
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!5Lmr5vBJS3s6ma6H'
+

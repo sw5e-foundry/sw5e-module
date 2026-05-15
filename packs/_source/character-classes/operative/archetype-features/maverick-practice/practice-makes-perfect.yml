@@ -1,0 +1,114 @@
+name: Practice Makes Perfect
+flags:
+  sw5e-importer:
+    timestamp: '2022-10-18T11:21:21.9121339+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-practice_makes_perfect.source-archetype.sourceName-maverick_practice.level-13
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Action.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Maverick Practice:</strong> 13th and 17th level</em></p>
+
+      <p>When you make an ability check as part of or that is affected by a
+      maneuver you use, you can choose to increase your level of proficiency in
+      that check by one step (from trained to proficient, from proficient to
+      expertise, from expertise to mastery, from mastery to high mastery, or
+      from high mastery to grand mastery).</p>
+
+      <p>You can use this feature five times. You gain an additional use at 17th
+      level. You regain all expended uses when you complete a long rest.</p>
+    chat: ''
+  requirements: Operative (Maverick Practice) 13
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '5'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: practice-makes-perfect
+  enchant: {}
+folder: oNFmZa9J5Y33XZsB
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: hgekmyNSua3zFx7e
+ownership:
+  default: 0
+sort: 0
+_key: '!items!hgekmyNSua3zFx7e'
+

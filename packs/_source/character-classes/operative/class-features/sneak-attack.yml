@@ -1,0 +1,124 @@
+_id: QnmqVZ7cnRibd1f3
+name: Sneak Attack
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-Passive.webp
+effects: []
+folder: bzDwsoXa1cjWOAs7
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.6620289+00:00'
+    importer_version: 3
+    uid: Feature.name-sneak_attack.source-class.sourceName-operative.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Operative:</strong> 1st level</em></p>
+
+      <p>You know how to strike subtly and exploit a foe's distraction. Once per
+      turn, you can deal an extra [[/r 1d6]] damage to one creature you hit with
+      a weapon attack if you have advantage on the attack roll. This damage is
+      the same as the weapon's damage, and the attack must use a finesse or a
+      ranged weapon. </p>
+
+      <p>You don't need advantage on the attack roll if another enemy of the
+      target is within 5 feet of it, that enemy isn't incapacitated, and you
+      don't have disadvantage on the attack roll.</p>
+
+      <p>The amount of the extra damage increases as you gain levels in this
+      class, as shown in the Sneak Attack column of the operative table.</p>
+    chat: ''
+  requirements: Operative
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: sneak-attack
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!QnmqVZ7cnRibd1f3'
+

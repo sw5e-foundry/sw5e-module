@@ -1,0 +1,269 @@
+name: Channel the Force
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.5528156+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-channel_the_force.source-archetype.sourceName-aqinos_form.level-7
+  midi-qol:
+    effectActivation: false
+    rollAttackPerTarget: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  journal-backlinks:
+    references: []
+  cf:
+    id: temp_dh8yyu4rtej
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  dnd5e:
+    persistSourceMigration: true
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Passive.webp
+system:
+  description:
+    value: >-
+      <p>Also at 3rd level, your companion knows how to channel the Force to
+      create a unique effect. Your companion starts with its choice of one from
+      two such effects: Cause Harm or Lend Aid.</p><p>Some Channel the Force
+      effects require saving throws. When your companion uses such an effect
+      from this class, the DC equals its universal force save
+      DC.</p><p><strong><span style="text-decoration:underline">Your companion
+      can use this feature a number of times equal to its Wisdom or Charisma
+      modifier</span></strong> (your companion's choice, minimum of once). Your
+      companion regains all expended uses when it finishes a short or long
+      rest.</p><h4>CAUSE HARM</h4><p>As an action, your companion can expend a
+      use of its Channel the Force to sap the life from a hostile creature it
+      can see within 60 feet. That creature must make a constitution saving
+      throw. On a failed save, the creature takes necrotic damage equal to your
+      companion's level + its Charisma modifier (minimum of one), or half as
+      much on a successful one.</p><h4>LEND AID</h4><p>As a bonus action, your
+      companion can expend a use of Channel the Force and touch a beast or
+      humanoid within 5 feet of it. That creature regains hit points equal to
+      your companion's guardian level + its Wisdom modifier (minimum of one).
+      Alternatively, if the beast or humanoid is poisoned or diseased, your
+      companion neutralizes the poison or disease. If more than one poison or
+      disease afflicts the target, your companion neutralizes one poison or
+      disease that it knows is present, or it neutralizes one at random.</p>
+    chat: ''
+  requirements: Guardian 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2024'
+  cover: null
+  crewed: false
+  uses:
+    max: max(@abilities.wis.mod,@abilities.cha.mod)
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    repeatable: false
+    items: []
+  properties: []
+  activities:
+    TgUV1hu5SOa5v7LN:
+      type: save
+      activation:
+        type: action
+        value: 1
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+            scaling: {}
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: true
+      description:
+        chatFlavor: ''
+      duration:
+        concentration: false
+        value: ''
+        units: inst
+        special: ''
+        override: false
+      effects: []
+      range:
+        value: '60'
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: '1'
+          type: creature
+          choice: false
+          special: ''
+        prompt: false
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      damage:
+        onSave: half
+        parts:
+          - custom:
+              enabled: true
+              formula: '@classes.follower.levels + @abilities.cha.mod'
+            number: null
+            denomination: null
+            bonus: ''
+            types:
+              - necrotic
+            scaling:
+              number: 1
+      save:
+        ability:
+          - con
+        dc:
+          calculation: cha
+          formula: ''
+      sort: 0
+      _id: TgUV1hu5SOa5v7LN
+      name: Cause Harm
+      flags: {}
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+    FNfWDSWshM4XhdAe:
+      type: heal
+      activation:
+        type: bonus
+        value: 1
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+            scaling: {}
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: true
+      description:
+        chatFlavor: ''
+      duration:
+        concentration: false
+        value: ''
+        units: inst
+        special: ''
+        override: false
+      effects: []
+      range:
+        value: '5'
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: '1'
+          type: creature
+          choice: false
+          special: ''
+        prompt: false
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      healing:
+        number: null
+        denomination: null
+        bonus: ''
+        types:
+          - healing
+        custom:
+          enabled: true
+          formula: '@classes.follower.levels + @abilities.wis.mod'
+        scaling:
+          mode: whole
+          number: null
+          formula: ''
+      sort: 0
+      _id: FNfWDSWshM4XhdAe
+      name: Lend Aid
+      flags: {}
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  identifier: channel-the-force
+  advancement: []
+  enchant: {}
+effects: []
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778532227847
+  lastModifiedBy: dnd5ebuilder0000
+folder: 8sUoM9J2DkYjxhj3
+_id: vaHIO3WJoym9Ailu
+ownership:
+  default: 0
+sort: 50000
+_key: '!items!vaHIO3WJoym9Ailu'
+

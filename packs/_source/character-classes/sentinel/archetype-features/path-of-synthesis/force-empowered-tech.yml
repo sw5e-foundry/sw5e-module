@@ -1,0 +1,148 @@
+_id: VJgOOiZqdccEI7W3
+name: Force-Empowered Tech
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Action.webp
+effects: []
+folder: p9NVpdalYchhkr8j
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.693733+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-force_empowered_tech.source-archetype.sourceName-path_of_synthesis.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Path of Synthesis:</strong> 7th, 9th, 13th, and 17th
+      level</em></p>
+
+      <p>You learn to fully blend your technological aptitude with your use of
+      the Force. You have three such effects: Disruption Pulse, Force Override,
+      and Techcasting Insight. When you use your Force-Empowered Tech, you
+      choose which effect to create.</p>
+
+      <p>You can use this feature three times. You gain an additional use at
+      9th, 13th, and 17th level. You regain all expended uses when you finish a
+      short or long rest.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.H9vVr7czXkxAxKmG]{Disruption
+      Pulse}</h3>
+
+      <p>As an action, you can send out a 30 foot cone of
+      electromagnetically-charged energy to overload enemy weapons. Each
+      creature within the cone that is wearing or carrying a weapon with
+      electric components must make an Intelligence saving throw. If the weapon
+      is being worn, this save is made with disadvantage. On a failed save, the
+      first attack they attempt to make with that weapon has disadvantage. A
+      creature with multiple weapons must make a separate save for each
+      weapon.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.8MLF03J44Mo2pd61]{Forced
+      Override}</h3>
+
+      <p>When you cast a tech power that requires a saving throw, you can impose
+      disadvantage on the save (no action required).</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.IIRvsgJWEo7YGTNA]{Techcasting
+      Insight}</h3>
+
+      <p>As an action, you can attempt to determine another creature's
+      experience with techcasting. When you do so, you make an Intelligence
+      (Technology) check contested by the target's Intelligence (Technology)
+      check. If you succeed, you immediately learn the target's techcasting Max
+      Power Level, as well as any tech powers currently affecting the
+      target.</p>
+    chat: ''
+  requirements: Sentinel (Path of Synthesis) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '3'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - int
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: force-empowered-tech
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!VJgOOiZqdccEI7W3'
+

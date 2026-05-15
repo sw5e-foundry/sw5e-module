@@ -1,0 +1,240 @@
+folder: COUZsxKjlUNvbJPk
+name: Fighter
+type: subclass
+img: modules/sw5e-module/icons/packs/Classes/Fighter%20Alt.webp
+system:
+  description:
+    value: "<h2>FIGHTER</h2><p>In order to become a warrior, your companion must have a Strength, Dexterity, or Constitution score of 13 or higher.</p><p>As a fighter, your companion gains the following class features.</p><h4>PROFICIENCIES</h4><hr /><ul><li>Armor:\_All armor</li><li>Weapons:\_All blasters, all vibroweapons</li><li>Tools:\_None</li></ul><hr /><ul><li>Saving Throws:\_Strength, Constitution</li><li>Skills:\_Choose two skills from Acrobatics, Animal Handling, Athletics, Lore, Insight, Intimidation, Perception, and Survival</li></ul><p>\_</p>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  identifier: fighter
+  classIdentifier: follower
+  advancement:
+    - _id: g98280mja7gcj2qi
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.LNXlp28ZlrXVTXGT
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.PjDNHLXzEqVC8Bgg
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 3
+      title: Features
+    - _id: vnj0ftswtsc372gq
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: dice
+        distance:
+          units: ''
+        scale:
+          '7':
+            number: null
+            faces: 4
+            modifiers: []
+          '9':
+            number: null
+            faces: 6
+            modifiers: []
+          '17':
+            number: null
+            faces: 8
+            modifiers: []
+      value: {}
+      title: Superiority Dice Size
+      hint: ''
+    - _id: 4kzgkzf9kndkhhhp
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.uudPxX9IADSP8gOX
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 11
+      title: Features
+      hint: ''
+    - _id: chz4iwd6sxhjerg1
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.st29NeLnxp36G3m1
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 15
+      title: Features
+    - _id: 4ajwo9q6a2cwhuea
+      type: ItemGrant
+      configuration:
+        items:
+          - optional: false
+            uuid: Compendium.sw5e-module.customization-options.Item.uPTbFEUBP7WOj5Sn
+        optional: false
+        spell: null
+      value: {}
+      level: 18
+      title: Features
+      hint: ''
+    - _id: GSzTnbpSw2RFEEk4
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - saves:str
+          - saves:con
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: xZxRWshfx6GJA6eD
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 2
+            pool:
+              - skills:acr
+              - skills:ani
+              - skills:ath
+              - skills:ins
+              - skills:itm
+              - skills:lor
+              - skills:prc
+              - skills:sur
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: 1xubSxq925eTiLJd
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - armor:lgt
+          - armor:med
+          - armor:hvy
+          - armor:shl
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: Y0TW71uhNJOk5ZXr
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - weapon:mbl
+          - weapon:mvb
+          - weapon:sbl
+          - weapon:svb
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      hint: ''
+    - _id: 9KIaNFoWsPRwzlJO
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '7':
+            value: 1
+          '9':
+            value: 2
+          '13':
+            value: 3
+          '15':
+            value: 4
+          '17':
+            value: 5
+      value: {}
+      title: Maneuvers Known
+      hint: ''
+    - type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '7':
+            value: 1
+          '9':
+            value: 2
+          '17':
+            value: 3
+      value: {}
+      title: Superiority Dice Quantity
+      _id: LjgT3DO4JHk5NxzI
+      hint: ''
+    - _id: KknT9rjaKzoQSSul
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.Dt5ISDPN4j5DYzW3
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 7
+      title: Features
+      hint: ''
+  spellcasting:
+    progression: none
+    ability: ''
+    forceProgression: none
+    techProgression: none
+    superiorityProgression: half
+    preparation:
+      formula: ''
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  dnd5e:
+    riders:
+      activity: []
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778542028720
+  lastModifiedBy: dnd5ebuilder0000
+_id: NF3t4XKruSwaB8SH
+ownership:
+  default: 0
+sort: 0
+_key: '!items!NF3t4XKruSwaB8SH'
+

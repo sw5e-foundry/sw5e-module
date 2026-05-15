@@ -1,0 +1,120 @@
+name: Battle Crescendo
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7417055+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-battle_crescendo.source-archetype.sourceName-audiotech_engineering.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>Choose up to 10 creatures of your choice that you can see and that can
+      hear your song. Each must make a Constitution saving throw. On a failed
+      save, a target takes [[/r 14d6]] sonic damage and is stunned for [[/r
+      1d4+1]] turns. On a success, it takes half damage and isn't stunned. If a
+      creature is killed by this power, its head explodes.</p>
+    chat: ''
+  requirements: Engineer (Audiotech Engineering) 18
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 14
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - sonic
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: battle-crescendo
+  enchant: {}
+folder: hEjPZE8m5dQm2a4G
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: QaNZyDJsLfuBepL5
+ownership:
+  default: 0
+sort: 0
+_key: '!items!QaNZyDJsLfuBepL5'
+

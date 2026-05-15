@@ -1,0 +1,110 @@
+name: Deflection
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.6730225+00:00'
+    importer_version: 3
+    uid: Feature.name-deflection.source-class.sourceName-sentinel.level-2
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-Passive.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>When you are the target of an attack, you can roll a Kinetic Combat die
+      and add it to your AC (no action required). You can do so before or after
+      the attack is made, but you must choose to do so before the GM determines
+      if the attack hits.</p>
+    chat: ''
+  requirements: Sentinel 2
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: sentinelFES
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+        override: false
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: false
+        targets:
+          - scaling:
+              formula: ''
+              mode: ''
+            target: powercasting.force.points.value
+            type: attribute
+            value: '1'
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: '@scale.sentinel.kinetic-combat.die'
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: deflection
+  enchant: {}
+folder: NAaKbV6LnMCVZOjZ
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: DkeBmqxtDGB5IS25
+ownership:
+  default: 0
+sort: 0
+_key: '!items!DkeBmqxtDGB5IS25'
+

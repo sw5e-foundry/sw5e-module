@@ -1,0 +1,114 @@
+_id: wucg8tZ2hIeP6aGS
+name: Sense Force
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+effects: []
+folder: lknRLQF5UfvRmnBY
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6907345+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-sense_force.source-archetype.sourceName-inquisitor_technique.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Inquisitor Technique:</strong> 7th, 9th, 13th, and 17th
+      level</em></p>
+
+      <p>You can use your action to gain the benefits of the <em>force
+      sight</em> force power until the end of your next turn.</p>
+
+      <p>You can use this feature three times. You gain an additional use at
+      9th, 13th, and 17th level. You regain all expended uses when you finish a
+      long rest.</p>
+    chat: ''
+  requirements: Scout (Inquisitor Technique) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: action
+        override: false
+      description: {}
+      duration:
+        units: turn
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: sense-force
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!wucg8tZ2hIeP6aGS'
+

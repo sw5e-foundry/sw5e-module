@@ -1,0 +1,137 @@
+_id: 9iLGiSiIDGl0kbc7
+name: Force of Personality
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Action.webp
+effects: []
+folder: mZXn6N7p9lYmOHoj
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.993416+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-force_of_personality.source-archetype.sourceName-politician_pursuit.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Politician Pursuit:</strong> 6th level</em></p>
+
+      <p>As an action, you suggest a course of activity (limited to a sentence
+      or two) to influence a creature you can see within range that can hear and
+      understand you. Creatures that can't be charmed are immune to this effect.
+      The suggestion must be worded in such a manner as to make the course of
+      action sound reasonable. Asking the creature to stab itself, throw itself
+      onto a spear, immolate itself, or do some other obviously harmful act ends
+      the effect.</p>
+
+      <p>The target must make a Wisdom saving throw against your maneuver save
+      DC. On a failed save, the target is charmed by you, and it pursues the
+      course of action you described to the best of its ability. The suggested
+      course of action can continue for up to 24 hours. If the suggested
+      activity can be completed in a shorter time, the effect ends when the
+      subject finishes what it was asked to do.</p>
+
+      <p>You can also specify conditions that will trigger a special activity
+      during the duration. For example, you might suggest that an officer givers
+      her gun to the first smuggler she meets. If the condition isn't met before
+      the effect ends, the activity isn't performed.</p>
+
+      <p>If you or any of your companions damage the target, the effect
+      ends.</p>
+
+      <p>You can use this feature three times. You gain an additional use at
+      9th, 13th, and 17th level. You regain all expended uses when you finish a
+      long rest.</p>
+    chat: ''
+  requirements: Scholar (Politician Pursuit) 6
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: force-of-personality
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!9iLGiSiIDGl0kbc7'
+

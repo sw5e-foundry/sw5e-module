@@ -1,0 +1,129 @@
+name: Mark of the Inquisitor
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6907345+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-mark_of_the_inquisitor.source-archetype.sourceName-inquisitor_technique.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Passive.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Inquisitor Technique:</strong> 3rd, 11th, and 17th
+      level</em></p>
+
+      <p>When the target of your Ranger's Quarry feature is within 15 feet of
+      you, you gain the following benefits:</p>
+
+      <ul>
+
+      <li>Whenever the creature casts a force power, it must first succeed on a
+      Constitution saving throw against your tech save DC to maintain
+      concentration. On a failed save, the casting is disrupted, the force power
+      fails, and the force points are wasted.</li>
+
+      <li>Whenever the creature starts its turn while concentrating on a force
+      power, it must make a Constitution saving throw against your tech save DC
+      to maintain concentration. On a failed save, it loses concentration on the
+      power.</li>
+
+      </ul>
+
+      <p>The radius of this feature increases to 30 feet at 11th level and 60
+      feet at 17th level.</p>
+    chat: ''
+  requirements: Scout (Inquisitor Technique) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '15'
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: mark-of-the-inquisitor
+  enchant: {}
+effects: []
+folder: lknRLQF5UfvRmnBY
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: DENenKejHk5CSGI4
+ownership:
+  default: 0
+sort: 0
+_key: '!items!DENenKejHk5CSGI4'
+

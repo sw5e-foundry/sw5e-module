@@ -1,0 +1,176 @@
+_id: rBbMl7A3ozHfDoaQ
+name: Matter Over Mind
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Reaction.webp
+effects: []
+folder: jN0Y39z4If2Eb7go
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6857378+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-matter_over_mind.source-archetype.sourceName-teras_kasi_order.level-11
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Teras Kasi Order:</strong> 11th level</em></p>
+
+      <p>You tap into the greater power of your focus. While both your Forredari
+      Stance and your Steel Hands Form are active, you gain the following
+      benefits:</p>
+
+      <ul>
+
+      <li><strong>Dancing Dragonsnake.</strong> When you take force, lightning,
+      or necrotic damage, you can use your reaction to deflect it. When you do
+      so, the damage you take is reduced by [[/r 1d10]] + your focus ability
+      modifier + your monk level.</li>
+
+      <li><strong>Aryx Slash.</strong> Once on each of your turns, when you hit
+      a target with an unarmed strike or monk weapon, you can roll a Martial
+      Arts die and deal additional psychic damage equal to the amount
+      rolled.</li>
+
+      <li><strong>Piercing Gaze.</strong> When you would make an Insight check
+      against a creature you know to wield the Force, you can use your focus
+      ability modifier for the roll, and you are considered to have expertise in
+      the Insight skill. If you would already have expertise in the check, you
+      instead have advantage on the roll. </li></ul>
+    chat: ''
+  requirements: Monk (Teras Kasi Order) 11
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        prompt: false
+        visible: false
+      target:
+        template:
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: reaction
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@scale.teras-kasi-order.martial-arts.die'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - psychic
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: matter-over-mind
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!rBbMl7A3ozHfDoaQ'
+

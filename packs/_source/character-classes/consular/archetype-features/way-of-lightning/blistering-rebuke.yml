@@ -1,0 +1,134 @@
+name: Blistering Rebuke
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9354503+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-blistering_rebuke.source-archetype.sourceName-way_of_lightning.level-10
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-ARCH-Reaction.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Way of Lightning:</strong> 10th, 13th, and 17th
+      level</em></p>
+
+      <p>When a creature within 5 feet of you that you can see hits you with an
+      attack, you can use your reaction to cause the creature to make a
+      Dexterity saving throw against your universal force save DC. On a failed
+      save, the creature takes [[/r 1d10]] plus your consular level lightning
+      damage, is pushed back 10 feet, and becomes <em>shocked</em> until the end
+      of their next turn. On a successful save, the creature takes half as much
+      damage and isn't moved or <em>shocked</em>.</p>
+
+      <p>You can use this feature four times. You gain an additional use at 13th
+      and 17th level. You regain all expended uses when you finish a long
+      rest.</p>
+    chat: ''
+  requirements: Consular (Way of Lightning) 10
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '4'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: reaction
+        override: false
+      damage:
+        parts:
+          - bonus: '@classes.consular.levels'
+            custom:
+              enabled: false
+            denomination: 10
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - lightning
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: blistering-rebuke
+  enchant: {}
+effects: []
+folder: 42TPys4xorTOvlvL
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: 8cubxZfCakEZPJO2
+ownership:
+  default: 0
+sort: 0
+_key: '!items!8cubxZfCakEZPJO2'
+

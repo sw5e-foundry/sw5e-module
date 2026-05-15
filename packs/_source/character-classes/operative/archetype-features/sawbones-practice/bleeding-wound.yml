@@ -1,0 +1,112 @@
+name: Bleeding Wound
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6747441+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-bleeding_wound.source-archetype.sourceName-sawbones_practice.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>You attempt to create a lingering wound in the target for one minute.
+      The target must make a Constitution saving throw. On a failed save, at the
+      start of each of the target's turns, it takes true damage equal to one
+      Sneak Attack die and repeats this saving throw, ending the effect on a
+      success.</p>
+    chat: ''
+  requirements: Operative (Sawbones Practice) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: bleeding-wound
+  enchant: {}
+folder: Zvdai55K0wQdOpj0
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: LXxXI9uoUX6pAssl
+ownership:
+  default: 0
+sort: 0
+_key: '!items!LXxXI9uoUX6pAssl'
+

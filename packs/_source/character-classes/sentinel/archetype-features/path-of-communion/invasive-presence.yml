@@ -1,0 +1,128 @@
+_id: kAYHyZ2j11MuED94
+name: Invasive Presence
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-ARCH-Action.webp
+effects: []
+folder: YWqOTs3NFRmwTN2V
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6917347+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-invasive_presence.source-archetype.sourceName-path_of_communion.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Path of Communion:</strong> 7th level</em></p>
+
+      <p>Your spirit can invade another creature's being. As an action, your
+      spirit can touch a creature within 5 feet of it, forcing it to make a
+      Wisdom saving throw against your universal force save DC. If you or
+      creatures that are friendly to you are fighting it, it has advantage on
+      the saving throw. </p>
+
+      <p>On a failed save, your spirit moves into that creatures space,
+      inhabiting its body, for 1 minute. The affected creature has disadvantage
+      on the first attack roll, ability check, or saving throw it makes each
+      turn. At the end of each its turns, the creature repeats this save. On a
+      success, it repels the spirit from its body, and it becomes immune to this
+      feature for 24 hours.</p>
+
+      <p>Once you've used this feature, you must complete a long rest before you
+      can use it again.</p>
+    chat: ''
+  requirements: Sentinel (Path of Communion) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      save:
+        ability:
+          - wis
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: invasive-presence
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!kAYHyZ2j11MuED94'
+

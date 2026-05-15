@@ -1,0 +1,174 @@
+name: Projected Barrier
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9954151+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-projected_barrier.source-archetype.sourceName-bulwark_technique.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Bulwark Technique:</strong> 7th, 11th, and 17th
+      level</em></p>
+
+      <p>You've learned how to manipulate your barrier to create new effects. As
+      an action, you can spend three of your barrier's hit points to create a
+      unique effect. You have three such effects: Projected Sphere, Projected
+      Maelstrom, and Projected Wave. When you use your Projected Barrier, you
+      choose which effect to create.</p>
+
+      <p>Some Projected Barrier Effects require saving throws. When you use such
+      an effect from this class, the DC equals your tech save DC.</p>
+
+      <p>If your barrier's hit points are reduced to 0, any Projected Barrier
+      features immediately end.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.CYbJVo9kU7OCRe2s]{Projected
+      Sphere}</h3>
+
+      <p>You create a protective spherical barrier in a 5-foot-radius sphere a
+      point you can see within 30 feet that lasts until the start of your next
+      turn. Creatures within the barrier have three-quarters cover from attacks
+      originating from outside the barrier. You can maintain the barrier by
+      spending an additional barrier hit point at the start of each of your
+      turns (no action required).</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.Sg0C7GVFnLgE5dVV]{Projected
+      Maelstrom}</h3>
+
+      <p>You create an unstable energy maelstrom in a 5-foot cube at a point you
+      can see within 30 feet that lasts until the start of your next turn. A
+      creature takes [[/r 4d4]] energy damage when it enters the area for the
+      first time on a turn or starts its turn there. You can maintain the
+      barrier by spending an additional barrier hit point at the start of each
+      of your turns (no action required). </p>
+
+      <p>This feature's damage increases by [[/r 1d4]] when you reach 11th level
+      ([[/r 5d4]]) and 17th level ([[/r 6d4]]).</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.sV5dhI5gUPch4AZa]{Projected
+      Wave}</h3>
+
+      <p>You create a wave of barrier energy in a 15-foot cone. Each creature
+      within the cone must make a Dexterity saving throw. On a failed save, a
+      creature takes [[/r 2d6]] energy damage and is pushed back to the edge of
+      the cone. On a success, they take half damage and aren't pushed.</p>
+
+      <p>This feature's damage increases by [[/r 1d6]] when you reach 11th level
+      ([[/r 3d6]]) and 17th level ([[/r 4d6]]).</p>
+    chat: ''
+  requirements: Scout (Bulwark Technique) 7
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 4
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - energy
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 2
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - energy
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '5'
+          type: sphere
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: projected-barrier
+  enchant: {}
+effects: []
+folder: MfzxWD8ZTJBfdTaE
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: oWnJ0vssqOQZl6cC
+ownership:
+  default: 0
+sort: 0
+_key: '!items!oWnJ0vssqOQZl6cC'
+

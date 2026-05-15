@@ -1,0 +1,120 @@
+name: Explosive Resilience
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.4708631+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-explosive_resilience.source-archetype.sourceName-industrial_approach.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Industrial Approach:</strong> 6th, 9th, 13th, and 17th
+      level</em></p>
+
+      <p>Once per round, when you deal damage that includes your rage damage,
+      you can cause a localized explosion around the recipient of that damage.
+      Each creature within 5 feet of the damaged creature other than you takes
+      acid, cold, fire, ion, or lightning damage (your choice) equal to your
+      rage damage bonus, and you gain resistance to the chosen damage type until
+      the end of your next turn.</p>
+
+      <p>You can use this feature three times. You gain an additional use at
+      9th, 13th, and 17th level. You regain all expended uses when you complete
+      a short or long rest.</p>
+    chat: ''
+  requirements: Berserker (Industrial Approach) 6
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '3'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: turn
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          size: '5'
+          type: radius
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: explosive-resilience
+  enchant: {}
+effects: []
+folder: 2JnAmZKHptYnlkY6
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: sofKTOzfdd0bJF2E
+ownership:
+  default: 0
+sort: 0
+_key: '!items!sofKTOzfdd0bJF2E'
+

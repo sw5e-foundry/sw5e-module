@@ -1,0 +1,139 @@
+_id: 1QqM6EmrNj4Mvcjw
+name: Master of Deception
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Action.webp
+effects: []
+folder: Lg5OvBl6CZ4YCP0q
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-master_of_deception.source-archetype.sourceName-trakata_form.level-20
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Trakata Form:</strong> 20th level</em></p>
+
+      <p>Your skill with a lightweapon is both mesmerizing and confounding. Your
+      Dexterity and Wisdom or Charisma scores (your choice) increase by 2. Your
+      maximum for these scores increases by 2. Additionally, you can use your
+      action to gain the following benefits for 1 minute:</p>
+
+      <ul>
+
+      <li>You have resistance to kinetic, energy, and ion damage from
+      weapons.</li>
+
+      <li>Your attack rolls can't suffer from disadvantage.</li>
+
+      <li>Whenever a creature misses you with a melee attack, it takes 5 energy
+      damage.</li>
+
+      <li>Whenever a creature hits you with a melee attack, it takes damage
+      equal to half of the damage you take from the attack.</li>
+
+      </ul>
+
+      <p>This effect ends early if you are incapacitated or die. Once you use
+      this feature, you can't use it again until you finish a long rest.</p>
+    chat: ''
+  requirements: Guardian (Trakata Form) 20
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '5'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - energy
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: master-of-deception
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!1QqM6EmrNj4Mvcjw'
+

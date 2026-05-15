@@ -1,0 +1,111 @@
+name: Tell Me the Odds
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9914181+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-tell_me_the_odds.source-archetype.sourceName-gambler_pursuit.level-9
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Reaction.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Gambler Pursuit:</strong> 9th, 13th, and 17th
+      level</em></p>
+
+      <p>If the target of your Critical Analysis hits you with a weapon attack
+      roll, you can use your reaction to roll a [[/r d8]]. On a 4 or higher, you
+      impose disadvantage on the roll. If the target already had disadvantage,
+      they must instead reroll one of the dice once (your choice).</p>
+
+      <p>This die increases to [[/r d10]] at 13th level and [[/r d12]] at 17th
+      level.</p>
+    chat: ''
+  requirements: Scholar (Gambler Pursuit) 9
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: 1d8
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: tell-me-the-odds
+  enchant: {}
+effects: []
+folder: hydwSkMbrmjRfnng
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: oOR0EGzlGILqjiZ7
+ownership:
+  default: 0
+sort: 0
+_key: '!items!oOR0EGzlGILqjiZ7'
+

@@ -1,0 +1,228 @@
+folder: COUZsxKjlUNvbJPk
+name: Monk
+type: subclass
+img: modules/sw5e-module/icons/packs/Classes/Monk.webp
+system:
+  description:
+    value: "<h2>MONK</h2><p>In order to become a monk, your companion must have a Dexterity, Wisdom, or Charisma score of 13 or higher.</p><p>As a monk, your companion gains the following class features.</p><h4>PROFICIENCIES</h4><hr /><ul><li>Armor:\_None</li><li>Weapons:\_Simple blasters, simple vibroweapons, chakrams, techblades</li><li>Tools:\_None</li></ul><hr /><ul><li>Saving Throws:\_Strength, Dexterity</li><li>Skills:\_Choose two from Acrobatics, Athletics, Insight, Lore, Perception, and Stealth</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  identifier: monk
+  classIdentifier: follower
+  advancement:
+    - _id: 9rds1dpfv2x19yoh
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: dice
+        distance:
+          units: ''
+        scale:
+          '3':
+            number: 1
+            faces: 4
+            modifiers: []
+          '7':
+            number: 1
+            faces: 6
+            modifiers: []
+          '15':
+            number: 1
+            faces: 8
+            modifiers: []
+      value: {}
+      title: Martial Arts Die
+      hint: ''
+    - _id: tplhd11j05iwlmi5
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.KHl1heQYUIMYGqsG
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.czAKnNaetR7YSMi0
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.3sEkjLfNxBSNAGel
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.TQrIUNpcd6RffWf7
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 3
+      title: Features
+    - _id: c2lroagq19q9khbn
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.tarwzogdwmrQSIlu
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.PeXIYcaFVOovJZCy
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.iHSdbjzVtKkbKg3Y
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.pEEtrfPLrRFe0i8B
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.2KCv7bLMERQh3W6C
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 7
+      title: Features
+    - _id: lgxw4yprt5sy3140
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.BqiyKwMGr7mrEFwf
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 11
+      title: Features
+      hint: ''
+    - _id: l0l64jcv46r98v06
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.XSnBkKlnWzhPhZcI
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 15
+      title: Features
+    - _id: 3pcmvue7xa9l3pp9
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.UQLuGQVd2qZq66es
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 18
+      title: Features
+    - _id: FiaSZoxtJMOs46fG
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - saves:str
+          - saves:dex
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: hXITJpvTFOPnYsmE
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 2
+            pool:
+              - skills:acr
+              - skills:ath
+              - skills:ins
+              - skills:lor
+              - skills:prc
+              - skills:ste
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: UqFyyKXm0ab52Cnl
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - weapon:mvb:chakram
+          - weapon:mvb:techblade
+          - weapon:sbl
+          - weapon:svb
+          - weapon:unarmedstrike
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      hint: ''
+    - _id: 9hgmZpRjl10aGYFM
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '7':
+            value: 3
+          '9':
+            value: 4
+          '13':
+            value: 5
+          '17':
+            value: 6
+      value: {}
+      title: Focus Points
+      hint: ''
+    - type: Trait
+      _id: sYRlSm17uzIjT1to
+      configuration:
+        allowReplacements: false
+        choices: []
+        grants:
+          - saves:str
+          - saves:dex
+          - saves:con
+          - saves:int
+          - saves:wis
+          - saves:cha
+        mode: default
+      level: 18
+      title: Diamond Soul
+      hint: ''
+      value: {}
+  spellcasting:
+    progression: none
+    ability: ''
+    forceProgression: none
+    techProgression: none
+    superiorityProgression: none
+    preparation:
+      formula: ''
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778539317383
+  lastModifiedBy: dnd5ebuilder0000
+_id: 9fcnnc7gIks8vg31
+ownership:
+  default: 0
+sort: 0
+_key: '!items!9fcnnc7gIks8vg31'
+

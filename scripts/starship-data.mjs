@@ -923,19 +923,199 @@ function collectStarshipDeploymentUuids(starshipActor) {
 }
 
 /**
- * SotG: starship skill proficiency comes from a crewmember, not the vehicle. Use the rolling user’s assigned
- * character when (and only when) that actor is on this ship’s deployment roster.
+ * Pilot + crew + passenger UUIDs only (excludes the `active` station pointer).
+ * Used to require active/pilot fallbacks to reference actors who are actually on the deployed roster.
+ * Phase 1 — see `ai/rules-research/starships/starship-crew-pb-source-design.md`.
  */
-function resolveRollingActorForStarshipSkill(starshipActor, user) {
-	const char = user?.character;
-	if ( !char || char.documentName !== "Actor" ) return null;
-	const uuid = char.uuid;
-	if ( !uuid ) return null;
-	if ( !collectStarshipDeploymentUuids(starshipActor).has(uuid) ) return null;
-	return char;
+function collectStarshipDeploymentRosterCoreUuids(starshipActor) {
+	const legacy = getLegacyStarshipActorSystem(starshipActor);
+	const deployment = legacy.attributes?.deployment ?? {};
+	const pilot = deployment.pilot?.value ?? deployment.pilot ?? null;
+	const crew = getDeploymentUuidList(deployment.crew);
+	const passenger = getDeploymentUuidList(deployment.passenger);
+	return new Set([pilot, ...crew, ...passenger].filter(Boolean));
 }
 
-/** Prepared skill rows for the sheet sidebar; proficiency uses the merged vehicle `attributes.prof` × tier (often 0). Rolls use the clicking user’s deployed character — see {@link rollStarshipSkill}. */
+function normalizeDeploymentActorUuid(raw) {
+	if ( raw === undefined || raw === null || raw === "" ) return null;
+	if ( typeof raw === "string" ) return raw;
+	return String(raw);
+}
+
+/**
+ * Ship-centric crew proficiency source for starship skills (Phase 1).
+ * Order: rolling user’s assigned character if deployed → active station (if on core roster) → pilot (if on core roster) → none.
+ * Read-only; does not mutate deployment. Avoids importing `starship-character.mjs` (no circular dependency).
+ * @param {Actor} starshipActor
+ * @param {User} rollingUser
+ * @returns {{ actor: Actor|null, source: "assigned"|"active"|"pilot"|"none", name: string, reasonKey?: string }}
+ */
+function resolveStarshipSkillCrewPbSource(starshipActor, rollingUser) {
+	const deploymentMembers = collectStarshipDeploymentUuids(starshipActor);
+	const coreRoster = collectStarshipDeploymentRosterCoreUuids(starshipActor);
+
+	const char = rollingUser?.character;
+	if ( char?.documentName === "Actor" && char.uuid && deploymentMembers.has(char.uuid) ) {
+		return {
+			actor: char,
+			source: "assigned",
+			name: char.name ?? ""
+		};
+	}
+
+	const legacy = getLegacyStarshipActorSystem(starshipActor);
+	const deployment = legacy.attributes?.deployment ?? {};
+
+	const activeUuid = normalizeDeploymentActorUuid(deployment.active?.value ?? deployment.active ?? null);
+	if ( activeUuid && coreRoster.has(activeUuid) ) {
+		const activeActor = resolveActorDocument(activeUuid);
+		if ( activeActor ) {
+			return {
+				actor: activeActor,
+				source: "active",
+				name: activeActor.name ?? ""
+			};
+		}
+	}
+
+	const pilotUuid = normalizeDeploymentActorUuid(deployment.pilot?.value ?? deployment.pilot ?? null);
+	if ( pilotUuid && coreRoster.has(pilotUuid) ) {
+		const pilotActor = resolveActorDocument(pilotUuid);
+		if ( pilotActor ) {
+			return {
+				actor: pilotActor,
+				source: "pilot",
+				name: pilotActor.name ?? ""
+			};
+		}
+	}
+
+	return {
+		actor: null,
+		source: "none",
+		name: "",
+		reasonKey: "SW5E.Starship.Roll.CrewPBSourceNoneReason"
+	};
+}
+
+function getStarshipSkillCrewPbSourceLabel(pbSource) {
+	if ( !pbSource || pbSource.source === "none" ) {
+		const reasonKey = pbSource?.reasonKey ?? "SW5E.Starship.Roll.CrewPBSourceNoneReason";
+		const reason = game.i18n.localize(reasonKey);
+		return game.i18n.format("SW5E.Starship.Roll.CrewPBSourceNone", { reason });
+	}
+
+	const name = pbSource.name ?? pbSource.actor?.name ?? "";
+	if ( pbSource.source === "assigned" ) {
+		return game.i18n.format("SW5E.Starship.Roll.CrewPBSourceAssigned", { name });
+	}
+	if ( pbSource.source === "active" ) {
+		return game.i18n.format("SW5E.Starship.Roll.CrewPBSourceActive", { name });
+	}
+	if ( pbSource.source === "pilot" ) {
+		return game.i18n.format("SW5E.Starship.Roll.CrewPBSourcePilot", { name });
+	}
+	return game.i18n.format("SW5E.Starship.Roll.CrewPBSourceNone", {
+		reason: game.i18n.localize("SW5E.Starship.Roll.CrewPBSourceNoneReason")
+	});
+}
+
+/**
+ * Localized chat line describing which crew actor supplied PB (or why none), plus whether numeric PB applied.
+ * This is a messaging-only P1 slice: no roll math changes, only clearer attribution for tier-0 / PB-0 cases.
+ * @param {{ actor: Actor|null, source: string, name?: string, reasonKey?: string }} pbSource
+ * @param {{ rollerPb?: number, proficiencyMode?: number, multiplier?: number, rollProficiencyPoints?: number }} [detail]
+ * @returns {string}
+ */
+function buildStarshipSkillCrewPbChatLine(pbSource, detail={}) {
+	const sourceLine = getStarshipSkillCrewPbSourceLabel(pbSource);
+	if ( !pbSource || pbSource.source === "none" ) return sourceLine;
+
+	const rollProficiencyPoints = toFiniteNumber(detail.rollProficiencyPoints, 0) ?? 0;
+	const multiplier = toFiniteNumber(detail.multiplier, 0) ?? 0;
+	const rollerPb = toFiniteNumber(detail.rollerPb, 0) ?? 0;
+
+	if ( rollProficiencyPoints > 0 ) {
+		const applied = game.i18n.format("SW5E.Starship.Roll.CrewPBAppliedDetail", {
+			value: rollProficiencyPoints
+		});
+		return `${sourceLine}; ${applied}`;
+	}
+
+	if ( multiplier <= 0 ) {
+		return `${sourceLine}; ${game.i18n.localize("SW5E.Starship.Roll.CrewPBSourceZeroSkillTier")}`;
+	}
+
+	if ( rollerPb <= 0 ) {
+		return `${sourceLine}; ${game.i18n.localize("SW5E.Starship.Roll.CrewPBSourceZeroCrewPB")}`;
+	}
+
+	return `${sourceLine}; ${game.i18n.localize("SW5E.Starship.Roll.CrewPBSourceZeroGeneric")}`;
+}
+
+function buildStarshipSkillChatFlavorSuffix(pbSource, detail={}) {
+	const rollProficiencyPoints = toFiniteNumber(detail.rollProficiencyPoints, 0) ?? 0;
+	const multiplier = toFiniteNumber(detail.multiplier, 0) ?? 0;
+	const rollerPb = toFiniteNumber(detail.rollerPb, 0) ?? 0;
+
+	if ( !pbSource || pbSource.source === "none" ) {
+		return game.i18n.localize("SW5E.Starship.Roll.NoCrewPBShort");
+	}
+	if ( rollProficiencyPoints > 0 ) return "";
+	if ( multiplier <= 0 ) {
+		return game.i18n.localize("SW5E.Starship.Roll.SkillNotProficientShort");
+	}
+	if ( rollerPb <= 0 ) {
+		return game.i18n.localize("SW5E.Starship.Roll.CrewPBZeroShort");
+	}
+	return game.i18n.localize("SW5E.Starship.Roll.NoCrewPBShort");
+}
+
+function buildStarshipSkillDisplayEntry(actor, entry, rollingUser = globalThis.game?.user) {
+	const crewPbSource = resolveStarshipSkillCrewPbSource(actor, rollingUser);
+	const deployedRoller = crewPbSource.actor;
+	const rollerPb = toFiniteNumber(deployedRoller?.system?.attributes?.prof, 0) ?? 0;
+	const proficiencyMultiplier = getStarshipSkillProficiencyMultiplier(entry.proficiencyMode);
+	const effectiveProficiency = deployedRoller
+		? Math.round(rollerPb * proficiencyMultiplier)
+		: 0;
+	const effectiveTotal = entry.parts.abilityMod + effectiveProficiency + entry.parts.bonus;
+	return {
+		...entry,
+		effectiveCrewPbSource: crewPbSource,
+		effectiveCrewPbSourceLabel: getStarshipSkillCrewPbSourceLabel(crewPbSource),
+		effectiveCrewPbLine: buildStarshipSkillCrewPbChatLine(crewPbSource, {
+			rollerPb,
+			proficiencyMode: entry.proficiencyMode,
+			multiplier: proficiencyMultiplier,
+			rollProficiencyPoints: effectiveProficiency
+		}),
+		effectiveCrewPb: rollerPb,
+		effectiveProficiency,
+		effectiveTotal,
+		displayParts: {
+			...entry.parts,
+			proficiency: effectiveProficiency
+		}
+	};
+}
+
+/**
+ * Whether starship skill roll UX (crew PB notice/warning) should apply — avoids changing plain vehicle sheets.
+ * @param {Actor} actor
+ * @returns {boolean}
+ */
+function qualifiesForStarshipSkillRollMessaging(actor) {
+	if ( actor?.flags?.sw5e?.legacyStarshipActor?.type === "starship" ) return true;
+	if ( actor?.flags?.sw5e?.createStarship ) return true;
+	return isLegacyStarshipLikeActor({
+		type: actor?.type,
+		flags: actor?.flags,
+		items: Array.from(actor?.items ?? [])
+	});
+}
+
+/** Prepared skill rows for the sheet sidebar; proficiency uses the merged vehicle `attributes.prof` × tier (often 0). Rolls resolve crew PB ship-centrically — see {@link rollStarshipSkill}. */
 export function getStarshipSkillEntries(actor) {
 	const legacySystem = getLegacyStarshipActorSystem(actor);
 	const runtime = getDerivedStarshipRuntime(actor);
@@ -969,6 +1149,21 @@ export function getStarshipSkillEntries(actor) {
 			}
 		};
 	}).sort((left, right) => left.label.localeCompare(right.label));
+}
+
+/**
+ * Display-only starship skill rows for the current user: keeps stored tier / bonus data from
+ * {@link getStarshipSkillEntries} but swaps the displayed proficiency contribution to the same
+ * ship-centric crew PB source used by {@link rollStarshipSkill}. This preserves current roll math
+ * and data shape while fixing row parity for the sheet.
+ * @param {Actor} actor
+ * @param {User} [rollingUser]
+ * @returns {Array<object>}
+ */
+export function getStarshipSkillDisplayEntries(actor, rollingUser = globalThis.game?.user) {
+	return getStarshipSkillEntries(actor)
+		.map(entry => buildStarshipSkillDisplayEntry(actor, entry, rollingUser))
+		.sort((left, right) => left.label.localeCompare(right.label));
 }
 
 function getStarshipAdvantageMode(event) {
@@ -1195,18 +1390,19 @@ function buildStarshipSkillFormula(
  * @param {Actor} actor Starship (vehicle) actor
  * @param {string} skillId Starship skill key
  * @param {Event} [event] Click / key modifiers for fast-forward rolls
- * @param {User} [rollingUser] User performing the roll (defaults to `game.user`). Proficiency uses `rollingUser.character`
- *                            when that actor is deployed on this starship; otherwise the proficiency term is 0.
+ * @param {User} [rollingUser] User performing the roll (defaults to `game.user`). Crew PB is resolved ship-centrically inside `rollStarshipSkill` (assigned+deployed, then active, then pilot — see `starship-crew-pb-source-design.md`).
  */
 export async function rollStarshipSkill(actor, skillId, event, rollingUser) {
 	const entry = getStarshipSkillEntries(actor).find(skill => skill.id === skillId);
 	if ( !entry ) return null;
 
 	const roller = rollingUser ?? game.user;
-	const deployedRoller = resolveRollingActorForStarshipSkill(actor, roller);
+	const crewPbSource = resolveStarshipSkillCrewPbSource(actor, roller);
+	const deployedRoller = crewPbSource.actor;
 	const rollerPb = toFiniteNumber(deployedRoller?.system?.attributes?.prof, 0) ?? 0;
+	const proficiencyMultiplier = getStarshipSkillProficiencyMultiplier(entry.proficiencyMode);
 	const rollProficiencyPoints = deployedRoller
-		? Math.round(rollerPb * getStarshipSkillProficiencyMultiplier(entry.proficiencyMode))
+		? Math.round(rollerPb * proficiencyMultiplier)
 		: 0;
 	const rollDataProficiency = deployedRoller ? rollerPb : 0;
 	const dialogEntry = {
@@ -1254,10 +1450,42 @@ export async function rollStarshipSkill(actor, skillId, event, rollingUser) {
 		rollMode: dialogSelection.rollMode
 	});
 
+	const abilityLabel = CONFIG?.DND5E?.abilities?.[selectedAbility]?.label
+		?? CONFIG?.SW5E?.abilities?.[selectedAbility]?.label
+		?? entry.abilityLabel;
+	const starshipCrewPbUi = qualifiesForStarshipSkillRollMessaging(actor);
+
+	if ( starshipCrewPbUi && crewPbSource.source === "none" ) {
+		const warnTitle = game.i18n.localize("SW5E.Starship.Roll.NoCrewPBTitle");
+		const warnBody = game.i18n.localize("SW5E.Starship.Roll.NoCrewPBWarning");
+		ui.notifications.warn(`${warnTitle}: ${warnBody}`);
+	}
+
 	await roll.evaluate();
+
+	const localizedAbilityLabel = abilityLabel
+		? game.i18n.localize(abilityLabel)
+		: abilityLabel;
+	const finalAbilityLabel = localizedAbilityLabel && localizedAbilityLabel !== abilityLabel
+		? localizedAbilityLabel
+		: abilityLabel;
+	const baseFlavor = game.i18n.format("SW5E.Starship.Roll.SkillCheckFlavor", {
+		skill: entry.label,
+		ability: finalAbilityLabel
+	});
+	const flavorSuffix = starshipCrewPbUi
+		? buildStarshipSkillChatFlavorSuffix(crewPbSource, {
+			rollerPb,
+			proficiencyMode: entry.proficiencyMode,
+			multiplier: proficiencyMultiplier,
+			rollProficiencyPoints
+		})
+		: "";
+	const chatFlavor = flavorSuffix ? `${baseFlavor} — ${flavorSuffix}` : baseFlavor;
+
 	await roll.toMessage({
 		speaker: ChatMessage.getSpeaker({ actor }),
-		flavor: `${entry.label} (${CONFIG?.DND5E?.abilities?.[selectedAbility]?.label ?? CONFIG?.SW5E?.abilities?.[selectedAbility]?.label ?? entry.abilityLabel})`
+		flavor: chatFlavor
 	});
 	return roll;
 }

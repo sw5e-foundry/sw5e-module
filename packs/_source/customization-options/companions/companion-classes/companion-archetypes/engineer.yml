@@ -1,0 +1,273 @@
+folder: COUZsxKjlUNvbJPk
+name: Engineer
+type: subclass
+img: modules/sw5e-module/icons/packs/Classes/Engineer.webp
+system:
+  description:
+    value: "<p>In order to become an engineer, your companion must have an Intelligence score of 13 or higher.</p><p>As an engineer, your companion gains the following class features.</p><h4>PROFICIENCIES</h4><hr /><ul><li>Armor:\_Light armor</li><li>Weapons:\_Simple blasters, simple vibroweapons</li><li>Tools:\_Tinker's implements and one of your choice</li></ul><hr /><ul><li>Saving Throws:\_Constitution, Intelligence</li><li>Skills:\_Choose three from Investigation, Lore, Medicine, Nature, Piloting, and Technology</li></ul>"
+    chat: ''
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  identifier: engineer
+  classIdentifier: follower
+  advancement:
+    - _id: sus04wzzverb45bq
+      type: ItemGrant
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.MPNoFSFzXmzqdKqq
+            optional: false
+          - uuid: Compendium.sw5e-module.customization-options.Item.FLiwwVvhy54Rw2wG
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 3
+      title: Features
+    - _id: n0mr648k9wlelir6
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: dice
+        distance:
+          units: ''
+        scale:
+          '3':
+            number: 1
+            faces: 4
+            modifiers: []
+          '7':
+            number: 1
+            faces: 6
+            modifiers: []
+          '15':
+            number: 1
+            faces: 8
+            modifiers: []
+      value: {}
+      title: Potent Aptitude
+      icon: null
+    - _id: fDQGax8d2QPx5NyC
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - saves:con
+          - saves:int
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: 037uvz7z9z9tOWCu
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants: []
+        choices:
+          - count: 3
+            pool:
+              - skills:inv
+              - skills:lor
+              - skills:med
+              - skills:nat
+              - skills:pil
+              - skills:tec
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: imHzNwLQyuEOjbtP
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - armor:lgt
+          - armor:shl:lightphysicalshield
+          - armor:shl:lightshieldgenerator
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: 3IxnFUlfSFWHqeMa
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - weapon:sbl
+          - weapon:svb
+        choices: []
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      hint: ''
+    - _id: fPPeOdISOiereF8X
+      type: Trait
+      configuration:
+        mode: default
+        allowReplacements: false
+        grants:
+          - tool:artisan:tinkersimplements
+        choices:
+          - count: 1
+            pool:
+              - tool:*
+      value:
+        chosen: []
+      level: 3
+      title: ''
+      icon: null
+    - _id: 514zQJj9eDxIdcTt
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 1
+          '5':
+            value: 2
+          '13':
+            value: 3
+      value: {}
+      title: Potent Aptitude Uses
+      hint: ''
+    - _id: 9KIaNFoWsPRwzlJO
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 2
+          '7':
+            value: 4
+          '11':
+            value: 6
+          '15':
+            value: 8
+          '18':
+            value: 10
+      value: {}
+      title: Tech Powers Known
+      hint: ''
+    - _id: BwR1hK4rIQthJEPF
+      type: ScaleValue
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '3':
+            value: 1
+          '7':
+            value: 2
+          '11':
+            value: 3
+          '15':
+            value: 4
+          '18':
+            value: 5
+      value: {}
+      title: Tech Power Level
+      hint: ''
+    - type: ItemGrant
+      title: Feature
+      _id: 5RIYROj7gJLHFho9
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.0OaXVWD4FlSFzPuz
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 7
+      hint: ''
+    - type: ItemGrant
+      title: Feature
+      _id: VS0PaaZQIAx52BNN
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.OWbWxYqPHwU03FRL
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 11
+      hint: ''
+    - type: ItemGrant
+      title: Feature
+      _id: ZVYwg2BYoXO8sohn
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.dxGWJHw4jb1PoyMd
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 15
+      hint: ''
+    - type: ItemGrant
+      title: Feature
+      _id: juefsIaj9dqXAVfw
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.customization-options.Item.tFFFwlGEaHjwgKWy
+            optional: false
+        optional: false
+        spell: null
+      value: {}
+      level: 18
+      hint: ''
+  spellcasting:
+    progression: none
+    ability: ''
+    forceProgression: none
+    techProgression: arch
+    superiorityProgression: none
+    preparation:
+      formula: ''
+effects: []
+flags:
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  dnd5e:
+    riders:
+      activity: []
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778541984940
+  lastModifiedBy: dnd5ebuilder0000
+_id: 6BqhfrknyGFOyRUL
+ownership:
+  default: 0
+sort: 0
+_key: '!items!6BqhfrknyGFOyRUL'
+

@@ -1,0 +1,112 @@
+_id: aFi5QjHFdex1KgUF
+name: Strength Flows from the Force
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-ARCH-Action.webp
+effects: []
+folder: uhu8GDoXkw8txw9u
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7367078+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-strength_flows_from_the_force.source-archetype.sourceName-way_of_tutelage.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Way of Tutelage:</strong> 6th level</em></p>
+
+      <p>When you cast a power that affects only your companion, you can choose
+      to treat the power as if cast at your Max Power Level.</p>
+
+      <p>You can use this feature a number of times equal to your proficiency
+      bonus, as shown in the consular table. You regain all expended uses when
+      you finish a long rest.</p>
+    chat: ''
+  requirements: Consular (Way of Tutelage) 6
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '@attributes.prof'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: strength-flows-from-the-force
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!aFi5QjHFdex1KgUF'
+

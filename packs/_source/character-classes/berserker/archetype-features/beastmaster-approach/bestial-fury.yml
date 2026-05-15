@@ -1,0 +1,133 @@
+_id: JmxNU4GhxU4TvefX
+name: Bestial Fury
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-ARCH-Passive.webp
+effects: []
+folder: hlCKH3HTvZqi2LK9
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.4668646+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-bestial_fury.source-archetype.sourceName-beastmaster_approach.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Beastmaster Approach:</strong> 3rd level</em></p>
+
+      <p>While raging, you have advantage on any Wisdom (Perception) or Wisdom
+      (Survival) checks.</p>
+
+      <p>Additionally, once on each of your turns while raging, you can mark a
+      creature you can see as your prey for the duration of your rage (no action
+      required). When you do so, once per turn when you deal damage to the
+      creature with a weapon attack, you deal an additional [[/r 1d4]] damage of
+      the same type. Once per turn when the creature deals damage to you with a
+      weapon attack, you take an additional [[/r 1d4]] damage of the same type.
+      This die increases to [[/r d6]] at 5th level, [[/r d8]] at 9th level, [[/r
+      d10]] at 13th level, and [[/r d12]] at 17th level. You can only have one
+      creature marked in this way at a time.</p>
+    chat: ''
+  requirements: Berserker (Beastmaster Approach) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+          - custom:
+              enabled: false
+            denomination: 4
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: bestial-fury
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!JmxNU4GhxU4TvefX'
+

@@ -1,0 +1,110 @@
+name: Hampering Shot
+flags:
+  sw5e-importer:
+    timestamp: '2023-05-30T20:15:26.6271255+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-hampering_shot.source-archetype.sourceName-gunslinger_practice.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Passive.webp
+system:
+  description:
+    value: >-
+      <p>You attempt to hobble the enemy's movement. The target must make a
+      Dexterity saving throw. If it fails, it gains 1 slowed level and it has
+      disadvantage on Dexterity saving throws until the end of its next
+      turn.</p>
+    chat: ''
+  requirements: Operative (Gunslinger Practice) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: hampering-shot
+  enchant: {}
+effects: []
+folder: 2tM8ClYjVrGyDFJZ
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: 3wFAYlr2qDchR7Y0
+ownership:
+  default: 0
+sort: 0
+_key: '!items!3wFAYlr2qDchR7Y0'
+

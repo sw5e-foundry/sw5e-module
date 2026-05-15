@@ -1,0 +1,118 @@
+_id: kuyt0JMu56ObIrNW
+name: Charged Illusions
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Passive.webp
+effects: []
+folder: nG0n5fD1tpUnBavO
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6897365+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-charged_illusions.source-archetype.sourceName-illusionist_technique.level-7
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Illusionist Technique:</strong> 7th level</em></p>
+
+      <p>When a creature discerns the nature of an illusion you have created
+      using a tech power or class feature while within 5 feet of it, you can
+      dispel the illusion (no action required) to have the creature take energy
+      damage equal to [[/r 1d10]] + half your scout level. </p>
+    chat: ''
+  requirements: Scout (Illusionist Technique) 7
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: action
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - bonus: ((@classes.scout.levels)/2)
+            custom:
+              enabled: false
+            denomination: 10
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - energy
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: charged-illusions
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!kuyt0JMu56ObIrNW'
+

@@ -1,0 +1,114 @@
+name: Disarming Slash
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.555814+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-disarming_slash.source-archetype.sourceName-shii_cho_form.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Passive.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p>When you hit a creature with a melee weapon attack, you can expend a
+      use of your Channel the Force (no action required)  to attempt to disarm
+      the target, forcing it to drop one item of your choice that it's holding.
+      The creature must make a Strength saving throw against your universal
+      force save DC. On a failed save, it drops the object you choose. If you
+      are within 5 feet of the target, and you have a free hand, you can catch
+      the item. Otherwise, the object lands at its feet.</p>
+    chat: ''
+  requirements: Guardian (Shii-Cho Form) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: guardianCTF
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: disarming-slash
+  enchant: {}
+folder: qNVqrwRi5wIrFfxe
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: udzgWcpSdxJuDnnm
+ownership:
+  default: 0
+sort: 0
+_key: '!items!udzgWcpSdxJuDnnm'
+

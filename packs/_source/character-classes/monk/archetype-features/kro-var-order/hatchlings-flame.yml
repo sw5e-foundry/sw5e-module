@@ -1,0 +1,122 @@
+name: Hatchling's Flame
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6847388+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-hatchlings_flame.source-archetype.sourceName-kro_var_order.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p>As an action, you focus your energy into a torrent of fire that streaks
+      away from you. A line of roaring flame </p>
+
+      <p>30 feet long and 5 feet wide emanates from you in a direction you
+      choose. Each creature in the line must make a Dexterity saving throw. A
+      creature takes [[/r 3d8]] fire damage on a failed save, or half as much
+      damage on a successful one.</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 6
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 3
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: hatchlings-flame
+  enchant: {}
+effects: []
+folder: aCedWASuu1FMbboa
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: oZOVf6KzjKDkVoYr
+ownership:
+  default: 0
+sort: 0
+_key: '!items!oZOVf6KzjKDkVoYr'
+

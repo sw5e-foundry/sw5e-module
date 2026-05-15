@@ -1,0 +1,121 @@
+_id: IPa9PbvfGTXcLNRW
+name: Redirect
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Reaction.webp
+effects: []
+folder: BsuP9mfiMveVjX32
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9824224+00:00'
+    importer_version: 3
+    uid: Feature.name-redirect.source-archetype.sourceName-niman_form.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Niman Form:</strong> 15th level</em></p>
+
+      <p>When you would be affected by a weapon or force power that requires a
+      Dexterity saving throw or attack roll and would affect only you, you can
+      use your reaction to redirect that power to another target within 30 feet.
+      If the weapon or power required a melee or ranged attack, make a melee or
+      ranged force attack against the new target, as appropriate. If it required
+      a Dexterity saving throw, the new target must make a Dexterity saving
+      throw against your universal force save DC.</p>
+
+      <p>Once you've used this feature, you must complete a short or long rest
+      before you can use it again.</p>
+    chat: ''
+  requirements: Guardian (Niman Form) 15
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: reaction
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: redirect
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!IPa9PbvfGTXcLNRW'
+

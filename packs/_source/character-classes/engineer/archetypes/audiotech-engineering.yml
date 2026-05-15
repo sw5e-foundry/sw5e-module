@@ -1,0 +1,168 @@
+_id: 4WitHCdI0QiCuS8A
+name: Audiotech Engineering
+type: subclass
+img: modules/sw5e-module/icons/packs/Archetypes/AudiotechEngineering.webp
+effects: []
+folder: b6EaSyJ2lQxL657w
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:15.1674586+00:00'
+    importer_version: 3
+    uid: Archetype.name-audiotech_engineering
+system:
+  description:
+    value: >-
+      <h1>Audiotech Engineering</h1><p>Those engineers who choose the Audiotech
+      Engineering discipline focus on using a specially modified instrument to
+      use music to assist their allies and disrupt their enemies.</p>
+    chat: ''
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  identifier: audiotechengineering
+  classIdentifier: engineer
+  advancement:
+    - _id: 0ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.RctYIqnHj2t14axe
+            optional: false
+          - uuid: Compendium.sw5e-module.character-classes.qBF3hSgQmoXEE1xa
+            optional: false
+          - uuid: Compendium.sw5e-module.character-classes.kmcrjj0s9p4KfNEM
+            optional: false
+        optional: false
+        spell: null
+      level: 3
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 1ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.xVKm3UMya6KyNQOx
+            optional: false
+        optional: false
+        spell: null
+      level: 6
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 2ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.nDpXaAiMpFjx71ym
+            optional: false
+        optional: false
+        spell: null
+      level: 14
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 3ig0000000000000
+      configuration:
+        items:
+          - uuid: Compendium.sw5e-module.character-classes.NKOEhauwGTSiMLrm
+            optional: false
+        optional: false
+        spell: null
+      level: 18
+      title: Features
+      type: ItemGrant
+      value: {}
+    - _id: 4t00000000000000
+      configuration:
+        choices:
+          - count: 3
+            pool:
+              - tool:music:*
+        grants:
+          - tool:artisan:audiotechsimplements
+        mode: default
+        allowReplacements: false
+      level: 3
+      type: Trait
+      value:
+        chosen: []
+    - _id: 5ic0000000000000
+      configuration:
+        allowDrops: true
+        choices:
+          '3':
+            count: 4
+            replacement: false
+          '5':
+            count: 1
+            replacement: false
+          '9':
+            count: 1
+            replacement: false
+          '11':
+            count: 1
+            replacement: false
+          '13':
+            count: 1
+            replacement: false
+          '17':
+            count: 1
+            replacement: false
+        pool:
+          - uuid: Compendium.sw5e-module.character-classes.tGKhuGQkcRHiFsLM
+          - uuid: Compendium.sw5e-module.character-classes.of7eiKTv17ASHIno
+          - uuid: Compendium.sw5e-module.character-classes.jRubDHCbVZx17Q3c
+          - uuid: Compendium.sw5e-module.character-classes.Z5L2ddCHI0608EEP
+          - uuid: Compendium.sw5e-module.character-classes.AkQ0MiEYYL18HcnA
+          - uuid: Compendium.sw5e-module.character-classes.hlFUrB5kiJEFd5i9
+          - uuid: Compendium.sw5e-module.character-classes.JwNqzMxRu0BvADKP
+          - uuid: Compendium.sw5e-module.character-classes.h0QdUNsFpl5p75y8
+          - uuid: Compendium.sw5e-module.character-classes.DraBzbjz7L98tfcM
+          - uuid: Compendium.sw5e-module.character-classes.thTvuiT7tHpkULCQ
+          - uuid: Compendium.sw5e-module.character-classes.C7Z4eeNhRnO58mGW
+          - uuid: Compendium.sw5e-module.character-classes.4jxQxDLsDfZ6dpqV
+          - uuid: Compendium.sw5e-module.character-classes.ARo5qSJjPMcxN7lJ
+          - uuid: Compendium.sw5e-module.character-classes.ZbSi6MCMPbCGFNhg
+          - uuid: Compendium.sw5e-module.character-classes.oGETUFSG9m7PYwBI
+          - uuid: Compendium.sw5e-module.character-classes.oWwEcvLXiZn29X2c
+          - uuid: Compendium.sw5e-module.character-classes.wwaITlNr2aukvh9w
+          - uuid: Compendium.sw5e-module.character-classes.N5C0VGhAfM0ogMpU
+          - uuid: Compendium.sw5e-module.character-classes.u11CnGTBy84S5iUL
+          - uuid: Compendium.sw5e-module.character-classes.5MqFKIQE53aMn7Al
+          - uuid: Compendium.sw5e-module.character-classes.AmMTZy6ZllcIGWAO
+          - uuid: Compendium.sw5e-module.character-classes.SCUOmLh31Xm10Lcg
+          - uuid: Compendium.sw5e-module.character-classes.lYRqiuSDoxdhFGTe
+          - uuid: Compendium.sw5e-module.character-classes.uE2CsaHPZsJrAS4n
+        restriction:
+          level: ''
+          subtype: audiotech engineeringInvocation
+          type: class
+          list: []
+        type: feat
+        spell: null
+      title: Audiotech Modifications
+      type: ItemChoice
+      value:
+        added: {}
+        replaced: {}
+  spellcasting:
+    superiorityProgression: none
+    progression: none
+    preparation:
+      formula: ''
+    forceProgression: none
+    techProgression: none
+    ability: ''
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!4WitHCdI0QiCuS8A'
+

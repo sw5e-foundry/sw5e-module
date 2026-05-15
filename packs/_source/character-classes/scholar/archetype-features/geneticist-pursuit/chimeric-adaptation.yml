@@ -1,0 +1,148 @@
+_id: yeqHFCjFYscQqYSr
+name: Chimeric Adaptation
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-ARCH-Reaction.webp
+effects: []
+folder: TIMXWLueC1qkKEsT
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.68174+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-chimeric_adaptation.source-archetype.sourceName-geneticist_pursuit.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Geneticist Pursuit:</strong> 17th level</em></p>
+
+      <p>Your genetic modifications have reached new heights. When you complete
+      a short or long rest, you can choose one of the following features. When
+      you undergo your mutagenic transformation, you also gain the benefits of
+      the chosen feature for the duration. You can only have one of these
+      features at a time.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.UU0zv45Y3ghTVisM]{Aspect
+      of the Terentatek}</h3>
+
+      <p>You gain proficiency in Wisdom and Charisma saving throws.
+      Additionally, you have advantage on saving throws against force powers,
+      and when a creature within 30 feet of you casts a force power, you can use
+      your reaction to move up to half your speed towards the creature. You must
+      end this movement closer to the creature than you started. If you end this
+      movement within 5 feet of the creature, you can make one melee attack
+      against the creature (no action required).</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.QXVQhL1BPcbHiSp1]{Aspect
+      of the Rancor}</h3>
+
+      <p>You gain proficiency in Strength and Constitution saving throws.
+      Additionally, you gain immunity to the frightened condition, </p>
+
+      <p>and when you deal damage with a weapon or unarmed strike, you can deal
+      an additional [[/r 1d8]] damage of the same type as the weapon's
+      damage.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.pzlusj1T1k5sJUg1]{Aspect
+      of the Varactyl}</h3>
+
+      <p>You gain proficiency in Dexterity and Intelligence saving throws.
+      Additionally, your speed increases by 10 feet, your attack rolls can't
+      suffer from disadvantage, creatures can't have advantage on attack rolls
+      against you, and each slowed level only reduces your speed by 5 feet,
+      unless it would reduce your speed to 0.</p>
+    chat: ''
+  requirements: Scholar (Geneticist Pursuit) 17
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0damage00000:
+      _id: sw5e0damage00000
+      activation:
+        type: reaction
+        override: false
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: false
+            denomination: 8
+            number: 1
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - ''
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '30'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: damage
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: chimeric-adaptation
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!yeqHFCjFYscQqYSr'
+

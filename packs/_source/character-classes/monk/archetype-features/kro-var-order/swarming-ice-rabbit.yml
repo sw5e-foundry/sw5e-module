@@ -1,0 +1,123 @@
+name: Swarming Ice Rabbit
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6847388+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-swarming_ice_rabbit.source-archetype.sourceName-kro_var_order.level-6
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p>As an action, you can cause a flurry of ice crystals to erupt from a
+      point you can see within 90 feet. Each creature in a 5-foot-radius sphere
+      centered on that point must make a Dexterity saving throw. On a failed
+      save, a creature takes [[/r 3d6]] cold damage, and gains 1 slowed level
+      until the start of your next turn. On a successful save, a creature takes
+      half as much damage and isn't slowed.</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 6
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 3
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - cold
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '90'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '5'
+          type: sphere
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: swarming-ice-rabbit
+  enchant: {}
+effects: []
+folder: aCedWASuu1FMbboa
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: hHWfdns1Nc1xZmYz
+ownership:
+  default: 0
+sort: 0
+_key: '!items!hHWfdns1Nc1xZmYz'
+

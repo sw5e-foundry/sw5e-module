@@ -1,0 +1,131 @@
+_id: BIZGnFjvoTzbcWIV
+name: Master of Ordnance
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-ARCH-Passive.webp
+effects: []
+folder: sCiPR6hY6MprWKn5
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-master_of_ordnance.source-archetype.sourceName-artillerist_technique.level-15
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Artillerist Technique:</strong> 15th level</em></p>
+
+      <p>You can now expend two uses of your Modular Munitions feature when you
+      cast a tech power to apply two empowerment effects, instead of only one.
+      Additionally, you gain three additional empowerment effects:</p>
+
+      <ul>
+
+      <li><strong>Confusion</strong>: Each creature damaged by this power must
+      make a Charisma saving throw. On a failure, on its next turn, a creature
+      must use its action to make a melee attack against a randomly determined
+      creature within its reach. If there is no creature within its reach, the
+      creature does nothing this turn.</li>
+
+      <li><strong>Knockout</strong>: Each creature damaged by this power must
+      succeed on a Strength saving throw or be knocked prone.</li>
+
+      <li><strong>Static</strong>: Each creature damaged by this power must
+      succeed on an Intelligence saving throw or become shocked until the start
+      of your next turn.</li>
+
+      </ul>
+
+      <p>Additionally, when you would spend 1 tech point to apply an empowerment
+      effect, it no longer reduces your maximum tech points.</p>
+    chat: ''
+  requirements: Scout (Artillerist Technique) 15
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - cha
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: master-of-ordnance
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!BIZGnFjvoTzbcWIV'
+

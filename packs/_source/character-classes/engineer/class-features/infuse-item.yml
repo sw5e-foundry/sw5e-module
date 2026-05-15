@@ -1,0 +1,116 @@
+_id: CBf0Ynl0NuA2z7sl
+name: Infuse Item
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-Action.webp
+effects: []
+folder: 4hvxhTk3KbQameHc
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.5650853+00:00'
+    importer_version: 3
+    uid: Feature.name-infuse_item.source-class.sourceName-engineer.level-2
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Engineer:</strong> 2nd level</em></p>
+
+      <p>You gain the ability to temporarily enhance a weapon or armor. At the
+      end of a long rest, you can touch one unenhanced object that is a suit of
+      armor, a shield, or a simple or martial weapon. Until the end of your next
+      long rest or until you die, the object becomes an enhanced item, granting
+      a +1 bonus to AC if it's armor or a shield or a +1 bonus to attack and
+      damage rolls if it's a weapon. </p>
+
+      <p>Once you've used this feature, you can't use it again until you finish
+      a long rest.</p>
+
+      <p>This bonus increases to +2 at 10th level and +3 at 15th level.</p>
+    chat: ''
+  requirements: Engineer 2
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: infuse-item
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!CBf0Ynl0NuA2z7sl'
+

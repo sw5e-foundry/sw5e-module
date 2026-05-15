@@ -1,0 +1,134 @@
+name: Unarmored Defense
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.6600307+00:00'
+    importer_version: 3
+    uid: Feature.name-extra_attack.source-class.sourceName-monk.level-5
+  midi-qol:
+    effectActivation: false
+    rollAttackPerTarget: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  journal-backlinks:
+    references: []
+  cf:
+    id: temp_lo5aprokay
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
+system:
+  description:
+    value: >-
+      <p>Also at 3rd level, while your companion is wearing no armor and not
+      wielding a shield, its AC equals 10 + its Dexterity modifier + its Wisdom
+      or Charisma modifier (your companion's choice).</p>
+    chat: ''
+  requirements: Monk 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities: {}
+  advancement: []
+  identifier: unarmored-defense
+  enchant: {}
+effects:
+  - name: Unarmored Defense
+    img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
+    origin: Compendium.sw5e-module.customization-options.Item.czAKnNaetR7YSMi0
+    _id: iOxVEdH8bw7g4lkO
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.calc
+        mode: 5
+        value: unarmoredMonk
+        priority: null
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1778539097875
+      modifiedTime: 1778539132340
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!czAKnNaetR7YSMi0.iOxVEdH8bw7g4lkO'
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778241149578
+  lastModifiedBy: dnd5ebuilder0000
+folder: vPd7vX51R0gsf5CS
+_id: czAKnNaetR7YSMi0
+ownership:
+  default: 0
+sort: 0
+_key: '!items!czAKnNaetR7YSMi0'
+

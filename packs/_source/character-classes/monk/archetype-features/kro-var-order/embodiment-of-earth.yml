@@ -1,0 +1,133 @@
+name: Embodiment of Earth
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.6847388+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-embodiment_of_earth.source-archetype.sourceName-kro_var_order.level-17
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/MNK-ARCH-Bonus.webp
+effects: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Prerequisite:</strong> Earth Reaches for Sky</em></p>
+
+      <p>As an action, you cause rock to envelop you, granting the following
+      benefits until the start of your next turn:</p>
+
+      <ul>
+
+      <li>You have resistance to kinetic and energy damage.</li>
+
+      <li>You can move across difficult terrain made of earth or stone without
+      spending extra movement. You can move through solid earth or stone as if
+      it was air without destabilizing it, but you can't end your movement
+      there. If you do so, you are immediately shunted to the nearest unoccupied
+      space that you can occupy and take force damage equal to twice the number
+      of feet you are moved.</li>
+
+      <li>You can use your action to create a small earthquake on the ground in
+      a 15-foot radius centered on you. Other creatures on that ground must
+      succeed on a Dexterity saving throw or be knocked prone.</li>
+
+      </ul>
+
+      <p>At the start of each of your turns, you can use your bonus action to
+      extend the benefits of this feature until the start of your next turn, to
+      a maximum duration of 1 minute. This effect ends immediately if you are
+      incapacitated or die.</p>
+    chat: ''
+  requirements: Monk (Kro Var Order) 17
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          size: '15'
+          type: radius
+          contiguous: false
+          units: ft
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: embodiment-of-earth
+  enchant: {}
+folder: aCedWASuu1FMbboa
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: SeYxiNcxdNewXfNo
+ownership:
+  default: 0
+sort: 0
+_key: '!items!SeYxiNcxdNewXfNo'
+

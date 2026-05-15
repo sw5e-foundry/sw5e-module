@@ -1,0 +1,116 @@
+name: Poisoner
+flags:
+  sw5e-importer:
+    timestamp: '2022-08-17T00:39:51.1258482+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-poisoner.source-archetype.sourceName-lethality_practice.level-9
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Bonus.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Lethality Practice:</strong> 9th level</em></p>
+
+      <p>You are a master of poisons. You can apply a poison as a bonus action,
+      and you have advantage on Dexterity (Sleight of Hand) checks made to
+      conceal the application of poisons. </p>
+
+      <p>Additionally, you can improve the capability of one dose of poison. To
+      use this benefit, you must have a poisoner's kit, and the poison must be
+      within reach. If the poison is applied before the end of your next short
+      or long rest, the target has disadvantage on the saving throw made to
+      resist your poison. Once you've used this feature, you must complete a
+      long rest before you can use it again.</p>
+    chat: ''
+  requirements: Operative (Lethality Practice) 9
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: poisoner
+  enchant: {}
+effects: []
+folder: eZKwZijIGC148Pe3
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: nShr3gPofS7h7FA0
+ownership:
+  default: 0
+sort: 0
+_key: '!items!nShr3gPofS7h7FA0'
+

@@ -1,0 +1,148 @@
+_id: OtPFxtcX0Jl6C0pV
+name: Placed Shots
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Passive.webp
+effects: []
+folder: mgViP4EKMZUGo7RI
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:57.9894189+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-placed_shots.source-archetype.sourceName-sharpshooter_practice.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+system:
+  description:
+    value: >-
+      <p><em><strong>Sharpshooter Practice:</strong> 3rd level</em></p>
+
+      <p>You perfect the art of placing distant shots for maximum effectiveness
+      in debilitating and controlling your enemies. When you deal Sneak Attack
+      damage to a creature, you may choose to forgo two of your Sneak Attack
+      dice to make the attack a placed shot. </p>
+
+      <p>Some of your placed shots require your target to make a saving throw to
+      resist the placed shot's effects. The saving throw DC is calculated as
+      follows: </p>
+
+      <p><em></em>_</p>
+
+      <p><strong>Placed Shot save DC</strong> = 8 + your proficiency bonus +
+      your Dexterity modifier</p>
+
+      <p><em></em>_</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.zMMq3eiVVvursHRE]{Disarming
+      Shot}</h3>
+
+      <p>You attempt to disarm a creature with your attack. The target must
+      succeed on a Strength saving throw or be forced to drop one item of your
+      choice that it's holding. The object lands at its feet.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.pyRxcxvzCkg8BqBp]{Penetrating
+      Shot}</h3>
+
+      <p>You attempt to damage another target with the same attack. Choose a
+      second target within 15 feet of and directly behind your initial target.
+      If the original attack roll would hit the second target, it takes two dice
+      worth of Sneak Attack damage.</p>
+
+      <p>The damage is of the same type dealt by the original attack.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.QbRThfP6qBcJirDe]{Suppressive
+      Shot}</h3>
+
+      <p>You attempt to pin the target to its location. The target must succeed
+      on a Wisdom saving throw or be frightened of you until the end of its next
+      turn.</p>
+    chat: ''
+  requirements: Operative (Sharpshooter Practice) 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '15'
+        override: false
+      save:
+        ability:
+          - str
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: placed-shots
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!OtPFxtcX0Jl6C0pV'
+

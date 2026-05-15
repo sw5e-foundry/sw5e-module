@@ -1,5 +1,38 @@
 import { getBestAbility } from "./../../utils.mjs";
 
+/**
+ * Resolve maneuver save activities for preparation without assuming dnd5e's ActivitiesCollection API.
+ *
+ * Legacy embedded `sw5e-module.maneuver` items may prepare with `system.activities` as a plain object
+ * that lacks `getByType` on dnd5e 5.2.5 world load. Calling `getByType("save")` or iterating its result
+ * then throws (`object is not iterable`). This helper is read-only: it does not mutate item data.
+ * Migration/normalization of stale embedded maneuvers may be handled separately.
+ *
+ * @param {unknown} activities  Prepared `this.activities` from ManeuverData / ActivitiesTemplate.
+ * @returns {object[]}  Activity-shaped documents entries suitable for superiority DC patching / favorites.
+ */
+function maneuverSaveActivitiesAsArray(activities) {
+	if (!activities) return [];
+
+	const getByType = activities.getByType;
+	if (typeof getByType === "function") {
+		let slice;
+		try {
+			slice = getByType.call(activities, "save");
+		} catch {
+			return [];
+		}
+		if (slice == null) return [];
+		if (typeof slice[Symbol.iterator] === "function") return [...slice];
+		return [];
+	}
+
+	if (typeof activities !== "object" || Array.isArray(activities)) return [];
+	return Object.values(activities).filter(
+		a => a && typeof a === "object" && !Array.isArray(a) && a.type === "save"
+	);
+}
+
 const { ItemDataModel } = globalThis.dnd5e.dataModels.abstract;
 const { ActivitiesTemplate, ItemDescriptionTemplate, ItemTypeTemplate, ItemTypeField } = globalThis.dnd5e.dataModels.item;
 const { ActivationField, DurationField, RangeField, TargetField } = globalThis.dnd5e.dataModels.shared;
@@ -198,8 +231,8 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 
 		const superiorityDc = Number(this.parent.actor?.system?.superiority?.types?.[this.type.value]?.dc);
 		if ( Number.isFinite(superiorityDc) ) {
-			for ( const activity of this.activities.getByType("save") ) {
-				activity.save.dc.value = superiorityDc;
+			for ( const activity of maneuverSaveActivitiesAsArray(this.activities) ) {
+				if ( activity.save?.dc && typeof activity.save.dc === "object" ) activity.save.dc.value = superiorityDc;
 			}
 		}
 	}
@@ -219,11 +252,12 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 
 	/** @inheritDoc */
 	async getFavoriteData() {
+		const saveActivities = maneuverSaveActivitiesAsArray(this.activities);
 		return foundry.utils.mergeObject(await super.getFavoriteData(), {
 			subtitle: [this.parent.labels.activation],
 			modifier: this.parent.labels.modifier,
 			range: this.range,
-			save: this.activities.getByType("save")[0]?.save
+			save: saveActivities[0]?.save
 		});
 	}
 

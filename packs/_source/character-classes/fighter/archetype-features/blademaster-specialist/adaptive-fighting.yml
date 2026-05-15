@@ -1,0 +1,133 @@
+_id: uebPbFIehWkIXUOM
+name: Adaptive Fighting
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/FGTR-ARCH-Action.webp
+effects: []
+folder: g5wphR2JDULADwBY
+flags:
+  sw5e-importer:
+    timestamp: '2022-05-29T01:36:47.5785442+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-adaptive_fighting.source-archetype.sourceName-blademaster_specialist.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Blademaster Specialist:</strong> 3rd level</em></p>
+
+      <p>You've learned to make adaptations to your fighting style on the fly.
+      You have three such effects: Change Up, Draw, and Stow. When you use your
+      Adaptive Fighting, you choose which effect to create.</p>
+
+      <p>You can use this features a number of times equal to your Strength or
+      Dexterity modifier (your choice, a minimum of once). You regain all
+      expended uses when you complete a short or long rest.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.AYrI7vGnNnOUMVys]{Change
+      Up}</h3>
+
+      <p>You can use your object interaction and expend a use of your Adaptive
+      Fighting to change the Fighting Style option granted to you by your
+      fighter class feature.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.VXIVX5zNmRTZB7zJ]{Draw}</h3>
+
+      <p>When you use your object interaction to draw one or more weapons, you
+      can expend a use of your Adaptive Fighting (no action required) to
+      increase your critical hit range by 1 with the weapon(s) until the start
+      of your next turn.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.FH71n755Agnlql2b]{Stow}</h3>
+
+      <p>When you use your object interaction to stow a weapon, you can expend a
+      use of your Adaptive Fighting (no action required) to take the Disengage
+      action.</p>
+    chat: ''
+  requirements: Fighter (Blademaster Specialist) 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: max(max(@abilities.str.mod, @abilities.dex.mod), 1)
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: special
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: adaptive-fighting
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!uebPbFIehWkIXUOM'
+

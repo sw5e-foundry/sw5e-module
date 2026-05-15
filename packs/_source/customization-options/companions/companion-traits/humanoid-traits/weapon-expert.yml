@@ -1,0 +1,232 @@
+name: Weapon Expert
+type: feat
+img: modules/sw5e-module/icons/packs/Companions/humanoid.webp
+effects:
+  - _id: SaRwr6rhzLikxdYQ
+    changes:
+      - key: system.traits.weaponProf.value
+        mode: 2
+        value: mrb
+        priority: 20
+      - key: system.traits.weaponProf.value
+        mode: 2
+        value: mlw
+        priority: 20
+      - key: system.traits.weaponProf.value
+        mode: 2
+        value: mvb
+        priority: 20
+      - key: system.traits.weaponProf.value
+        mode: 2
+        value: smb
+        priority: 20
+      - key: system.traits.weaponProf.value
+        mode: 2
+        value: slw
+        priority: 20
+      - key: system.traits.weaponProf.value
+        mode: 2
+        value: svb
+        priority: 20
+    disabled: false
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    origin: Item.pr7Cytg0BC3vVKOY
+    transfer: true
+    flags:
+      dae:
+        selfTarget: false
+        stackable: none
+        durationExpression: ''
+        specialDuration: []
+        transfer: true
+        disableIncapacitated: false
+        selfTargetAlways: false
+        dontApply: false
+        showIcon: false
+        macroRepeat: none
+      core:
+        statusId: ''
+      ActiveAuras:
+        isAura: false
+        aura: None
+        nameOverride: ''
+        radius: ''
+        alignment: ''
+        type: ''
+        customCheck: ''
+        ignoreSelf: false
+        height: false
+        hidden: false
+        displayTemp: false
+        hostile: false
+        onlyOnce: false
+        wallsBlock: system
+    tint: '#ffffff'
+    name: Weapon Expert
+    description: ''
+    statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      lastModifiedBy: null
+    img: modules/sw5e-module/icons/packs/Companions/humanoid.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!5bc478TovC0ChzkH.SaRwr6rhzLikxdYQ'
+folder: Z5pJIXT8OAJSLTio
+flags:
+  cf:
+    id: temp_xz6g1ixu53k
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  midiProperties:
+    confirmTargets: default
+    critOther: false
+    concentration: false
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+    idr: false
+    idi: false
+    idv: false
+    ida: false
+  midi-qol:
+    rollAttackPerTarget: default
+    effectActivation: false
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p>Your companion gains proficiency with all blasters, lightweapons, and
+      vibroweapons. If your companion is already proficient with all blasters,
+      lightweapons or vibroweapons, instead once per turn when it rolls damage
+      for a weapon attack using a weapon from a category in which it is
+      proficient with all weapons, it can reroll the weapon's damage dice and
+      use either total.</p>
+    chat: ''
+  requirements: Humanoid
+  source:
+    custom: Expanded Content
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: turn
+        type: recoverAll
+    spent: 0
+  type:
+    value: race
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    EReBe5E2wlH6u9oJ:
+      type: utility
+      _id: EReBe5E2wlH6u9oJ
+      sort: 0
+      activation:
+        type: special
+        value: null
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '1'
+            scaling: {}
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects: []
+      range:
+        override: false
+        units: self
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      name: ''
+      flags: {}
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: weapon-expert
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778241149578
+  lastModifiedBy: dnd5ebuilder0000
+_id: 5bc478TovC0ChzkH
+ownership:
+  default: 0
+sort: 0
+_key: '!items!5bc478TovC0ChzkH'
+

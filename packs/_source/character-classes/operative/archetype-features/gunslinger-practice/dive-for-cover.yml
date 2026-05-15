@@ -1,0 +1,122 @@
+name: Dive For Cover
+flags:
+  sw5e-importer:
+    timestamp: '2023-05-30T20:15:26.6261269+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-dive_for_cover.source-archetype.sourceName-gunslinger_practice.level-3
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-ARCH-Action.webp
+system:
+  description:
+    value: >-
+      <p><em><strong>Gunslinger Practice:</strong> 3rd, 5th, 9th, 13th, and 17th
+      level</em></p>
+
+      <p>You learn to quickly move into cover when under fire. Once per round,
+      when you are the target of a ranged attack, or you are subjected to an
+      effect that allows you to make a Dexterity saving throw, and there is
+      cover within 10 feet of you, you can move up to 10 feet (no action
+      required). You must end this movement in cover.</p>
+
+      <p>You can use this feature twice. You gain an additional use at 5th, 9th,
+      13th, and 17th level. You regain all expended uses when you complete a
+      long rest.</p>
+    chat: ''
+  requirements: Operative (Gunslinger Practice) 3
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '2'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: special
+        override: false
+      damage:
+        parts: []
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '10'
+        override: false
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: dive-for-cover
+  enchant: {}
+effects: []
+folder: 2tM8ClYjVrGyDFJZ
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+_id: iuuLpWflyuk4sLd6
+ownership:
+  default: 0
+sort: 0
+_key: '!items!iuuLpWflyuk4sLd6'
+

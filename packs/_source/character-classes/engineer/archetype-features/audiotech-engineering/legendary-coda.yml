@@ -1,0 +1,153 @@
+_id: NKOEhauwGTSiMLrm
+name: Legendary Coda
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-ARCH-Action.webp
+effects: []
+folder: hEjPZE8m5dQm2a4G
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:52:14.7417055+00:00'
+    importer_version: 3
+    uid: >-
+      Feature.name-legendary_coda.source-archetype.sourceName-audiotech_engineering.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Audiotech Engineering:</strong> 18th level</em></p>
+
+      <p>You've gained mastery over your modified instrument. As an action, you
+      can end your enhanced song in a triumphant blast of power with an effect
+      determined by the song you are playing.</p>
+
+      <p>Once you've used this feature, you must complete a long rest before you
+      can use it again.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.QaNZyDJsLfuBepL5]{Battle
+      Crescendo}</h3>
+
+      <p>Choose up to 10 creatures of your choice that you can see and that can
+      hear your song. Each must make a Constitution saving throw. On a failed
+      save, a target takes [[/r 14d6]] sonic damage and is stunned for [[/r
+      1d4+1]] turns. On a success, it takes half damage and isn't stunned. If a
+      creature is killed by this power, its head explodes.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.ELhbWmSqsU8maJXP]{Support
+      Crescendo}</h3>
+
+      <p>Choose up to 10 creatures of your choice that you can see and that can
+      hear your song. Once in the next minute, each creature can, as a free
+      action in response to taking damage, choose to halve that damage.
+      Additionally, if the damage would reduce them to 0 hit points, they are
+      instead reduced to 1.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.E1T0EwWHjqZ4AnOz]{Disruption
+      Crescendo}</h3>
+
+      <p>Choose up to 10 creatures of your choice that you can see and that can
+      hear your song. Each creature must succeed on a Constitution saving throw
+      or be paralyzed for [[/r 1d4+1]] turns. If a creature affected by this
+      feature is damaged in any way, the effect ends for that creature.</p>
+    chat: ''
+  requirements: Engineer (Audiotech Engineering) 18
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 6
+            number: 14
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - sonic
+        onSave: half
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: legendary-coda
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!NKOEhauwGTSiMLrm'
+

@@ -1,0 +1,256 @@
+name: Sneak Attack
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-Passive.webp
+effects: []
+flags:
+  betterRollssw5e:
+    critRange:
+      type: String
+      value: ''
+    critDamage:
+      type: String
+      value: ''
+    quickDesc:
+      type: Boolean
+      value: true
+      altValue: true
+    quickAttack:
+      type: Boolean
+      value: true
+      altValue: true
+    quickSave:
+      type: Boolean
+      value: true
+      altValue: true
+    quickDamage:
+      type: Array
+      value:
+        - true
+      altValue:
+        - true
+      context: []
+    quickProperties:
+      type: Boolean
+      value: true
+      altValue: true
+    quickCharges:
+      type: Boolean
+      value:
+        use: true
+        resource: true
+        charge: true
+      altValue:
+        use: true
+        resource: true
+        charge: true
+    quickTemplate:
+      type: Boolean
+      value: true
+      altValue: true
+    quickOther:
+      type: Boolean
+      value: true
+      altValue: true
+      context: ''
+    quickFlavor:
+      type: Boolean
+      value: true
+      altValue: true
+    quickPrompt:
+      type: Boolean
+      value: false
+      altValue: false
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.6620289+00:00'
+    importer_version: 3
+    uid: Feature.name-sneak_attack.source-class.sourceName-operative.level-1
+  midi-qol:
+    effectActivation: false
+    rollAttackPerTarget: default
+    removeAttackDamageButtons: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  journal-backlinks:
+    references: []
+  cf:
+    id: temp_dld8sar58pb
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+system:
+  description:
+    value: >-
+      <p>Beginning when your companion chooses this class at 3rd level, your
+      companion knows how to strike subtly and exploit a foe's distraction. Once
+      per turn, it can deal an extra 1d6 damage to one creature it hits with an
+      attack if it has advantage on the attack roll. The attack must use a
+      finesse or a ranged weapon.</p><p>Your companion doesn't need advantage on
+      the attack roll if another enemy of the target is within 5 feet of it,
+      that enemy isn't incapacitated, and your companion doesn't have
+      disadvantage on the attack roll.</p><p>The amount of extra damage
+      increases to 2d6 at 7th level, 3d6 at 11th level, 4d6 at 15th level, and
+      5d6 at 17th level.</p><section id="secret-N3aQBzGp3Jsd2YEp"
+      class="secret"><p>Foundry Note</p><p>Your companion's sneak attack damage
+      will automatically sale as they level up. You can select the damage type
+      in the damage roll's dialog box.</p></section>
+    chat: ''
+  requirements: Operative 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    spent: 0
+    recovery:
+      - period: turnStart
+        type: recoverAll
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: 3
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    dnd5eactivity000:
+      name: ''
+      img: ''
+      target:
+        prompt: false
+      range:
+        units: any
+      damage:
+        parts:
+          - custom:
+              enabled: true
+              formula: '@scale.operative.sneak-attack'
+            number: null
+            denomination: null
+            bonus: ''
+            types: []
+      appliedEffects: []
+    jmAp2wZRisUAqzM7:
+      type: damage
+      _id: jmAp2wZRisUAqzM7
+      sort: 0
+      activation:
+        type: ''
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects: []
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: creature
+          count: '1'
+          special: ''
+        override: false
+        prompt: false
+      uses:
+        spent: 0
+        recovery:
+          - period: turnStart
+            type: recoverAll
+        max: '1'
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      damage:
+        critical:
+          allow: true
+          bonus: ''
+        parts:
+          - custom:
+              enabled: true
+              formula: '@scale.operative.sneak-attack'
+            number: null
+            denomination: null
+            bonus: ''
+            types:
+              - acid
+              - cold
+              - energy
+              - fire
+              - force
+              - ion
+              - kinetic
+              - lightning
+              - necrotic
+              - poison
+              - psychic
+              - thunder
+      name: ''
+      img: ''
+  advancement: []
+  identifier: sneak-attack
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778539948053
+  lastModifiedBy: dnd5ebuilder0000
+folder: XBxtunYmghZ1bMVE
+_id: MnP923bTTRYovCSV
+ownership:
+  default: 0
+sort: 0
+_key: '!items!MnP923bTTRYovCSV'
+

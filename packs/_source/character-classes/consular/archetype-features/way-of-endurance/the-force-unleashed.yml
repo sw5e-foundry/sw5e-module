@@ -1,0 +1,135 @@
+_id: dLHFgesahAtfy7SH
+name: The Force Unleashed
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-ARCH-Action.webp
+effects: []
+folder: VJNVvlIKdv7sXCJz
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-the_force_unleashed.source-archetype.sourceName-way_of_endurance.level-18
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Way of Endurance:</strong> 18th level</em></p>
+
+      <p>As an action, you can choose a point within 60 feet. Each creature of
+      your choice within 30 feet of that point must make a Constitution saving
+      throw against your universal force save DC. On a failed save, a creature
+      takes [[/r 5d10]] force damage and suffers 1 level of exhaustion. On a
+      successful save, a creature takes half damage and does not suffer
+      exhaustion.</p>
+
+      <p>For each creature that fails this saving throw, a friendly creature
+      within 30 feet of them can regain hit points equal to the amount of damage
+      dealt. A friendly creature can only gain this benefit once per turn.</p>
+
+      <p>You can use this feature a number of times equal to your Wisdom or
+      Charisma modifier (your choice, a minimum of once). You regain all
+      expended uses when you finish a long rest.</p>
+    chat: ''
+  requirements: Consular (Way of Endurance) 18
+  source:
+    custom: EC
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: max(max(@abilities.wis.mod, @abilities.cha.mod), 1)
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: action
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: false
+            denomination: 10
+            number: 5
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - force
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: the-force-unleashed
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!dLHFgesahAtfy7SH'
+

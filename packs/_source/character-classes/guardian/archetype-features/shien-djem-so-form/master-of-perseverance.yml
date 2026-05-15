@@ -1,0 +1,133 @@
+_id: UvMKVj608ijSAfgd
+name: Master of Perseverance
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-ARCH-Reaction.webp
+effects: []
+folder: hoknkuwVo8RJMMzI
+flags:
+  sw5e-importer:
+    timestamp: '?'
+    importer_version: 3
+    uid: >-
+      Feature.name-master_of_perseverance.source-archetype.sourceName-shiendjem_so_form.level-20
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Shien/Djem So Form:</strong> 20th level</em></p>
+
+      <p>Your might overwhelms even the most implacable of foes. Your Strength
+      and Constitution scores increase by 2. Your maximum for these scores
+      increases by 2. Additionally, you can use your action to gain the
+      following benefits for 1 minute:</p>
+
+      <ul>
+
+      <li>You have resistance to kinetic and energy damage from unenhanced
+      weapons.</li>
+
+      <li>Once per turn, when you hit with a melee weapon attack using Strength,
+      you can use your Force-Empowered Strikes feature at 1st-level without
+      expending force points. You gain temporary hit points equal to the extra
+      damage dealt.</li>
+
+      <li>When a creature within 5 feet of you makes an attack roll against you,
+      you can use your reaction to make a single weapon attack with advantage
+      against that creature. If the attack hits, you impose disadvantage on the
+      triggering attack roll.</li>
+
+      </ul>
+
+      <p>This effect ends early if you are incapacitated or die. Once you've
+      used this feature, you can't use it again until you finish a long
+      rest.</p>
+    chat: ''
+  requirements: Guardian (Shien/Djem So Form) 20
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      activation:
+        type: reaction
+        override: false
+      description: {}
+      duration:
+        units: minute
+        value: '1'
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '5'
+        override: false
+      roll:
+        formula: ''
+        prompt: false
+        visible: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: utility
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: master-of-perseverance
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!UvMKVj608ijSAfgd'
+

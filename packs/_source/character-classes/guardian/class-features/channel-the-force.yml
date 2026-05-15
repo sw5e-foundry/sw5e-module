@@ -1,0 +1,204 @@
+_id: ck9f8sKVbhB6S4di
+name: Channel the Force
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-Bonus.webp
+effects: []
+folder: SuxX921ywvnCOjZ6
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.5700824+00:00'
+    importer_version: 3
+    uid: Feature.name-channel_the_force.source-class.sourceName-guardian.level-1
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+    migratedUses: null
+system:
+  description:
+    value: >-
+      <p><em><strong>Guardian:</strong> 1st level</em></p>
+
+      <p>You know how to channel the Force to create a unique effect. You start
+      with your choice of one from two such effects: Cause Harm or Lend Aid. At
+      3rd level, your Guardian Focus grants you an additional effect. When you
+      use your Channel the Force, you choose which effect to create.</p>
+
+      <p>Some Channel the Force effects require saving throws. When you use such
+      an effect from this class, the DC equals your universal force save DC.</p>
+
+      <p>You can use this feature twice. You gain an additional use at 5th, 9th,
+      13th, and 17th level. You regain all expended uses when you finish a short
+      or long rest.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.mtj0QHmUrLJNrgCW]{Cause
+      Harm}</h3>
+
+      <p>As an action, you can expend a use of your Channel the Force to sap the
+      life from a hostile creature you can see within 60 feet. That creature
+      must make a Constitution saving throw. On a failed save, the creature
+      takes necrotic damage equal to your guardian level + your Charisma
+      modifier (minimum of +1), or half as much on a successful one.</p>
+
+      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.W5BTzqlndyiKfRyF]{Lend
+      Aid}</h3>
+
+      <p>As a bonus action, you can expend a use of your Channel the Force and
+      touch a beast or humanoid within 5 feet of you. That creature regains hit
+      points equal to your guardian level + your Wisdom modifier (minimum of
+      +1). Alternatively, if the beast or humanoid is poisoned or diseased, you
+      neutralize the poison or disease. If more than one poison or disease
+      afflicts the target, you neutralize one poison or disease that you know is
+      present, or you neutralize one at random.</p>
+    chat: ''
+  requirements: Guardian
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: '2'
+    recovery:
+      - period: sr
+        type: recoverAll
+    spent: 0
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    sw5e0save0000000:
+      _id: sw5e0save0000000
+      activation:
+        type: bonus
+        override: false
+      damage:
+        parts:
+          - custom:
+              enabled: true
+              formula: '@classes.guardian.levels + @abilities.cha.mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - necrotic
+        onSave: half
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      save:
+        ability:
+          - con
+        dc:
+          calculation: spellcasting
+          formula: ''
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: save
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+    sw5e1heal0000000:
+      _id: sw5e1heal0000000
+      activation:
+        type: bonus
+        override: false
+      description: {}
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      healing:
+        custom:
+          enabled: true
+          formula: '@classes.guardian.levels + @abilities.wis.mod'
+        denomination: null
+        number: null
+        scaling:
+          mode: ''
+          number: 1
+        types:
+          - healing
+      img: null
+      range:
+        units: ft
+        value: '60'
+        override: false
+      target:
+        template:
+          type: ''
+          units: ft
+          contiguous: false
+        affects:
+          choice: false
+        override: false
+        prompt: true
+      type: heal
+      sort: 0
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      effects: []
+      flags: {}
+      uses:
+        spent: 0
+        recovery: []
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: channel-the-force
+  enchant: {}
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1777752135936
+  modifiedTime: 1777752135936
+  lastModifiedBy: dnd5ebuilder0000
+ownership:
+  default: 0
+sort: 0
+_key: '!items!ck9f8sKVbhB6S4di'
+

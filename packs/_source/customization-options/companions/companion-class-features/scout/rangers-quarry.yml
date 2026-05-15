@@ -1,0 +1,261 @@
+name: Ranger's Quarry
+flags:
+  sw5e-importer:
+    timestamp: '2023-03-09T01:51:58.6710244+00:00'
+    importer_version: 3
+    uid: Feature.name-extra_attack.source-class.sourceName-scout.level-5
+  midi-qol:
+    effectActivation: false
+    rollAttackPerTarget: default
+    itemCondition: ''
+    reactionCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+    removeAttackDamageButtons: default
+  midiProperties:
+    nodam: false
+    fulldam: false
+    halfdam: false
+    rollOther: false
+    critOther: false
+    concentration: false
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    magicdam: false
+    magiceffect: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+  journal-backlinks:
+    references: []
+  cf:
+    id: temp_psmhft2wo2a
+  LocknKey:
+    IDKeysFlag: ''
+    RemoveKeyonUseFlag: false
+    LPFormulaFlag: ''
+    LPFormulaOverrideFlag: false
+    LBFormulaFlag: ''
+    LBFormulaOverrideFlag: false
+    ReplacementItemFlag: ''
+  dnd5e:
+    riders:
+      activity: []
+      effect: []
+type: feat
+img: modules/sw5e-module/icons/packs/Class%20Features/SCT-Passive.webp
+system:
+  description:
+    value: >-
+      <p>Also at 3rd level, your companion learns how to effectively read and
+      track its prey. Once on each of its turns, your companion can choose a
+      creature it can see within 120 feet and mark it as its quarry (no action
+      required). For the next hour, your companion gains the following
+      benefits:</p><ul><li>Once per turn, when your companion hits the target
+      with a weapon attack, it can deal 1d4 additional damage to it of the same
+      type as the weapon's damage. This die increases to a d6 at 7th level and a
+      d8 at 15th level.</li><li>Your companion has advantage on any Wisdom
+      (Perception) or Wisdom (Survival) check it makes to find the target while
+      it's on the same planet as your companion.</li></ul><p>Your companion can
+      only have one creature marked in this way at a time. Beginning at 11th
+      level, your companion can use its reaction to mark a creature when it
+      enters its line of sight, provided it is within range of your companion's
+      Ranger's Quarry.</p><p>The duration increases to 8 hours at 11th
+      level.</p>
+    chat: ''
+  requirements: Scout 3
+  source:
+    custom: PHB
+    revision: 1
+    rules: '2014'
+  cover: null
+  crewed: false
+  uses:
+    max: ''
+    spent: 0
+    recovery: []
+  type:
+    value: class
+    subtype: ''
+  prerequisites:
+    level: null
+    items: []
+    repeatable: false
+  properties: []
+  activities:
+    t5nyaKHfOYvJQd0t:
+      type: utility
+      _id: t5nyaKHfOYvJQd0t
+      sort: 0
+      activation:
+        type: special
+        value: null
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: kzw3AENy4VtmFkkA
+          level: {}
+      range:
+        override: false
+        units: ft
+        special: ''
+        value: '120'
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: creature
+          count: '1'
+          special: ''
+        override: false
+        prompt: false
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      name: Apply Ranger's Quarry
+      flags: {}
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+    G48jfUD4hHK0GUh1:
+      type: utility
+      _id: G48jfUD4hHK0GUh1
+      sort: 0
+      activation:
+        type: special
+        value: null
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects: []
+      range:
+        override: false
+        units: self
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      roll:
+        prompt: false
+        visible: false
+        name: Quarry Damage
+        formula: '@scale.scout.rangers-quarry'
+      name: Bonus Damage Roll
+      flags: {}
+      visibility:
+        level: {}
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+  advancement: []
+  identifier: rangers-quarry
+  enchant: {}
+effects:
+  - name: Ranger's Quarry
+    img: modules/sw5e-module/icons/packs/Class%20Features/SCT-Passive.webp
+    origin: Compendium.sw5e-module.customization-options.Item.mD0D4e2CApYU82Gs
+    transfer: false
+    _id: kzw3AENy4VtmFkkA
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      seconds: 3600
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dae:
+        enableCondition: ''
+        disableCondition: ''
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: multi
+        showIcon: false
+        durationExpression: ''
+        specialDuration:
+          - zeroHP
+      dnd5e:
+        riders:
+          statuses: []
+      core:
+        overlay: false
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      lastModifiedBy: null
+    _key: '!items.effects!mD0D4e2CApYU82Gs.kzw3AENy4VtmFkkA'
+_stats:
+  duplicateSource: null
+  exportSource: null
+  coreVersion: '13.351'
+  systemId: dnd5e
+  systemVersion: 5.2.5
+  createdTime: 1778241149578
+  modifiedTime: 1778541121390
+  lastModifiedBy: dnd5ebuilder0000
+folder: 4YoOsOMP8KgTNhN8
+_id: mD0D4e2CApYU82Gs
+ownership:
+  default: 0
+sort: 50000
+_key: '!items!mD0D4e2CApYU82Gs'
+
