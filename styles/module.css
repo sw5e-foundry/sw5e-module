@@ -4469,70 +4469,118 @@ section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove {
   pointer-events: none;
 }
 
-/* Character Deployment summary (read-only, dnd5e 5.2.x actor sheets) */
-.dnd5e2.sheet.actor .sw5e-deployment-summary {
+/* Character Deployment header cards — Features tab only (dnd5e 5.2.x actor sheets V2) */
+.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-features-header {
   --sw5e-deployment-fg: color-mix(in oklab, var(--color-text-primary, var(--color-text, #e6e6e6)) 92%, transparent);
   --sw5e-deployment-muted: color-mix(in oklab, var(--color-text-secondary, #bfc9d8) 88%, transparent);
   --sw5e-deployment-bg: color-mix(in oklab, var(--dnd5e-application-background, var(--color-background, #141414)) 82%, transparent);
   --sw5e-deployment-border: color-mix(in oklab, var(--color-border-highlight, #ffffff) 14%, transparent);
-  margin: 6px 0 10px;
+  margin: 4px 0 8px;
+  padding: 0;
+  color: var(--sw5e-deployment-fg);
+  pointer-events: auto;
+}
+
+.dnd5e2.sheet.actor .sw5e-features-deployment-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-class-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 9rem;
+  max-width: 14rem;
   padding: 6px 8px;
   border-radius: 6px;
   border: 1px solid var(--sw5e-deployment-border);
   background: var(--sw5e-deployment-bg);
-  color: var(--sw5e-deployment-fg);
-  pointer-events: none;
 }
 
-.dnd5e2.sheet.actor .sw5e-deployment-summary--header-fallback {
-  margin-top: 8px;
-}
-
-.dnd5e2.sheet.actor .sw5e-deployment-summary-inner {
+.dnd5e2.sheet.actor .sw5e-deployment-card-open {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
 }
 
-.dnd5e2.sheet.actor .sw5e-deployment-summary-inner > .fas.fa-rocket {
-  margin-top: 2px;
+.dnd5e2.sheet.actor .sw5e-deployment-card-open:hover {
+  filter: brightness(1.08);
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-card-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid var(--sw5e-deployment-border);
+  flex-shrink: 0;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-card-img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid var(--sw5e-deployment-border);
   opacity: 0.85;
+  flex-shrink: 0;
 }
 
-.dnd5e2.sheet.actor .sw5e-deployment-summary-main {
-  flex: 1;
-  min-width: 0;
-}
-
-.dnd5e2.sheet.actor .sw5e-deployment-summary-kicker {
-  display: block;
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  opacity: 0.82;
-  margin-bottom: 2px;
-}
-
-.dnd5e2.sheet.actor .sw5e-deployment-summary-body {
-  font-size: 12px;
-  line-height: 1.25;
-}
-
-.dnd5e2.sheet.actor .sw5e-deployment-summary-line--multi .sw5e-deployment-summary-multi-label {
+.dnd5e2.sheet.actor .sw5e-deployment-card-name {
   font-weight: 600;
-  margin-right: 4px;
-}
-
-.dnd5e2.sheet.actor .sw5e-deployment-summary-tail {
-  align-self: center;
-}
-
-.dnd5e2.sheet.actor .sw5e-deployment-summary-ventures.subdued {
-  font-size: 11px;
-  color: var(--sw5e-deployment-muted);
+  font-size: 12px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-body.theme-light .dnd5e2.sheet.actor .sw5e-deployment-summary {
+.dnd5e2.sheet.actor .sw5e-deployment-card-rank {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding-left: 36px;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-features-warnings {
+  margin-top: 6px;
+  font-size: 11px;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-rank-select {
+  min-width: 6.5rem;
+  max-width: 11rem;
+  font-size: 11px;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-rank-hint {
+  font-size: 10px;
+  line-height: 1.2;
+  color: var(--sw5e-deployment-muted);
+}
+
+.dnd5e2.sheet.actor .sw5e-deployment-summary-rank-readonly {
+  font-size: 12px;
+}
+
+body.theme-light .dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-features-header {
   --sw5e-deployment-bg: color-mix(in oklab, #ffffff 10%, transparent);
   --sw5e-deployment-border: color-mix(in oklab, #000000 12%, transparent);
 }
