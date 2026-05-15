@@ -31,17 +31,20 @@ export function patchConfig(config, strict = true) {
 	config.skills.lor = {
 		label: "SW5E.SkillLor",
 		ability: "int",
-		fullKey: "lore"
+		fullKey: "lore",
+		icon: "icons/sundries/books/book-embossed-bound-brown.webp"
 	};
 	config.skills.pil = {
 		label: "SW5E.SkillPil",
 		ability: "int",
-		fullKey: "pilloting"
+		fullKey: "pilloting",
+		icon: "icons/magic/movement/acceleration-speed-tech-blue.webp"
 	};
 	config.skills.tec = {
 		label: "SW5E.SkillTec",
 		ability: "int",
-		fullKey: "technology"
+		fullKey: "technology",
+		icon: "icons/sundries/gaming/card-astronomy-pink.webp"
 	};
 	config.skills = Object.fromEntries(SW5E_CHARACTER_SKILL_KEYS
 		.map(key => [key, config.skills[key]])
