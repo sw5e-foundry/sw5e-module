@@ -9,46 +9,52 @@ function getHtmlRoot(html) {
 }
 
 /**
+ * dnd5e 5.2.x actor sheets use `constructor.MODES.PLAY` / `EDIT` and `app._mode`.
+ * @param {object} app
+ */
+function isActorSheetEditMode(app) {
+	const MODES = app?.constructor?.MODES;
+	if ( MODES && ("EDIT" in MODES) && ("PLAY" in MODES) ) return app._mode === MODES.EDIT;
+	return Boolean(app?.isEditable);
+}
+
+/**
  * @param {import("@league/foundry").documents.Actor} actor
  * @param {ReturnType<typeof normalizeActorDroidCustomizations>} state
+ * @param {object} [options]
+ * @param {boolean} [options.editMode]
  */
-function buildInlineDroidCustomizationsSection(actor, state) {
-	const cap = state.derived.capacity;
+function buildInlineDroidCustomizationsSection(actor, state, { editMode = false } = {}) {
 	const counts = state.derived.counts;
-	const motorUsed = cap.motorUsed;
-	const motorTotal = state.motorSlots;
 	const installedN = counts.total;
-	const partsLine = `${counts.parts} / ${cap.partsAllowed}`;
-	const protLine = `${counts.protocols} / ${cap.protocolsAllowed}`;
-	const policyBits = [];
-	if ( cap.partsPolicy === "fallback-highest" ) {
-		policyBits.push(game.i18n.localize("SW5E.DroidCustomizations.InlinePartsFallback"));
-	}
-	if ( cap.protocolsPolicy === "fallback-highest" ) {
-		policyBits.push(game.i18n.localize("SW5E.DroidCustomizations.InlineProtocolsFallback"));
-	}
-	const policyHint = policyBits.length
-		? `<p class="sw5e-droid-inline-policy subdued">${policyBits.map(t => foundry.utils.escapeHTML(t)).join(" · ")}</p>`
-		: "";
+	const title = foundry.utils.escapeHTML(game.i18n.localize("SW5E.DroidCustomizations.InlineTitle"));
+	const emptyLabel = foundry.utils.escapeHTML(game.i18n.localize("SW5E.DroidCustomizations.InlineAdd"));
+	const hasInstalled = installedN > 0;
+	const actionHtml = (editMode && !hasInstalled)
+		? `
+			<button type="button" class="unbutton sw5e-bodymods-inline-card sw5e-bodymods-inline-card--empty" data-sw5e-droid-open-manager>
+				<span class="sw5e-bodymods-inline-title roboto-upper">${emptyLabel}</span>
+			</button>
+		`
+		: `
+			<button type="button" class="unbutton sw5e-bodymods-inline-card" data-sw5e-droid-open-manager>
+				<span class="sw5e-bodymods-inline-icon" aria-hidden="true">
+					<i class="fas fa-robot"></i>
+				</span>
+				<span class="sw5e-bodymods-inline-label">
+					<span class="sw5e-bodymods-inline-title roboto-upper">${title}</span>
+				</span>
+				${editMode ? `
+					<span class="sw5e-bodymods-inline-control" aria-hidden="true">
+						<i class="fas fa-gear"></i>
+					</span>
+				` : ""}
+			</button>
+		`;
 
 	const wrap = document.createElement("div");
-	wrap.className = "sw5e-droid-customizations-inline";
-	wrap.innerHTML = `
-		<h3 class="sw5e-droid-inline-title">
-			<i class="fas fa-robot" inert aria-hidden="true"></i>
-			<span class="roboto-upper">${game.i18n.localize("SW5E.DroidCustomizations.InlineTitle")}</span>
-		</h3>
-		<p class="sw5e-droid-inline-line"><strong>${foundry.utils.escapeHTML(game.i18n.localize("SW5E.DroidCustomizations.InlineMotorLabel"))}</strong> ${motorUsed} / ${motorTotal}</p>
-		<p class="sw5e-droid-inline-line"><strong>${foundry.utils.escapeHTML(game.i18n.localize("SW5E.DroidCustomizations.InlineInstalledCount"))}</strong> ${installedN}</p>
-		<p class="sw5e-droid-inline-line"><strong>${foundry.utils.escapeHTML(game.i18n.localize("SW5E.DroidCustomizations.InlineParts"))}</strong> ${foundry.utils.escapeHTML(partsLine)}</p>
-		<p class="sw5e-droid-inline-line"><strong>${foundry.utils.escapeHTML(game.i18n.localize("SW5E.DroidCustomizations.InlineProtocols"))}</strong> ${foundry.utils.escapeHTML(protLine)}</p>
-		${policyHint}
-		<p class="sw5e-droid-inline-manage">
-			<button type="button" class="unbutton sw5e-droid-inline-manage-btn" data-sw5e-droid-open-manager>
-				${game.i18n.localize("SW5E.DroidCustomizations.InlineManage")}
-			</button>
-		</p>
-	`;
+	wrap.className = "sw5e-droid-customizations-inline sw5e-bodymods-inline";
+	wrap.innerHTML = actionHtml;
 	wrap.querySelector("[data-sw5e-droid-open-manager]")?.addEventListener("click", e => {
 		e.preventDefault();
 		DroidCustomizationsApp.openForActor(actor);
@@ -109,9 +115,10 @@ function injectDroidCustomizationsBodySection(app, html) {
 	const canSee = actor.testUserPermission(game.user, "OBSERVER", { exact: false });
 	if ( !canSee ) return;
 
+	const editMode = isActorSheetEditMode(app);
 	const state = normalizeActorDroidCustomizations(actor);
 
-	const section = buildInlineDroidCustomizationsSection(actor, state);
+	const section = buildInlineDroidCustomizationsSection(actor, state, { editMode });
 	insertDroidSectionIntoSheetBody(root, actor, section);
 }
 

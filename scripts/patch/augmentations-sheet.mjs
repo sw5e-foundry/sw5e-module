@@ -1,7 +1,5 @@
 import { AugmentationsApp } from "../augmentations-app.mjs";
 import {
-	collectOccupiedBodySlots,
-	getMaxAugmentationsForActor,
 	getInstalledAugmentationCount,
 	isActorCyberneticAugmentationsManagerAllowed,
 	isActorValidAugmentationTarget,
@@ -22,18 +20,6 @@ function isActorSheetEditMode(app) {
 	return Boolean(app?.isEditable);
 }
 
-function hasActiveEffectiveSideEffects(eff) {
-	return Boolean(eff?.ionSaveDisadvantage || eff?.ionVulnerability || eff?.countAsDroid);
-}
-
-function effectiveSideEffectSummaryLines(eff) {
-	const lines = [];
-	if ( eff?.ionSaveDisadvantage ) lines.push(game.i18n.localize("SW5E.Augmentations.InlineFxIonSaves"));
-	if ( eff?.ionVulnerability ) lines.push(game.i18n.localize("SW5E.Augmentations.InlineFxIonVuln"));
-	if ( eff?.countAsDroid ) lines.push(game.i18n.localize("SW5E.Augmentations.InlineFxDroid"));
-	return lines;
-}
-
 function hasSideEffectOverrides(state) {
 	const o = state?.overrides?.sideEffects;
 	if ( !o ) return false;
@@ -52,48 +38,49 @@ function effectiveDiffersFromDerived(state) {
 /**
  * @param {import("@league/foundry").documents.Actor} actor
  * @param {ReturnType<typeof normalizeActorAugmentations>} state
+ * @param {object} [options]
+ * @param {boolean} [options.editMode]
  */
-function buildInlineAugmentationsSection(actor, state) {
-	const count = getInstalledAugmentationCount(actor, state);
-	const max = getMaxAugmentationsForActor(actor, state);
-	const eff = state.effective.sideEffects;
-	const occupied = [...collectOccupiedBodySlots(state.installed)].sort();
-	const slotsText = occupied.length
-		? occupied.join(", ")
-		: game.i18n.localize("SW5E.Augmentations.InlineNoSlots");
+function buildInlineAugmentationsSection(actor, state, { editMode = false } = {}) {
+	const installedCount = getInstalledAugmentationCount(actor, state);
+	const title = foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.InlineTitle"));
+	const emptyLabel = foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.InlineAdd"));
+	const notes = [];
 
-	const fxLines = effectiveSideEffectSummaryLines(eff);
-	const fxBlock = hasActiveEffectiveSideEffects(eff)
-		? fxLines.map(t => `<li>${foundry.utils.escapeHTML(t)}</li>`).join("")
-		: `<li class="sw5e-aug-inline-fx-none">${foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.InlineFxNone"))}</li>`;
+	if ( !isActorValidAugmentationTarget(actor) ) {
+		notes.push(`<p class="sw5e-bodymods-inline-note sw5e-bodymods-inline-note--warn">${foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.InlineInvalidTargetHint"))}</p>`);
+	}
 
-	const overrideNote = (hasSideEffectOverrides(state) || effectiveDiffersFromDerived(state))
-		? `<p class="sw5e-aug-inline-override-hint">${foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.InlineOverridesHint"))}</p>`
-		: "";
+	if ( hasSideEffectOverrides(state) || effectiveDiffersFromDerived(state) ) {
+		notes.push(`<p class="sw5e-bodymods-inline-note sw5e-bodymods-inline-note--accent">${foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.InlineOverridesHint"))}</p>`);
+	}
 
-	const validTarget = isActorValidAugmentationTarget(actor);
-	const targetHint = !validTarget
-		? `<p class="sw5e-aug-inline-target-hint">${foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.InlineInvalidTargetHint"))}</p>`
-		: "";
+	const hasInstalled = installedCount > 0;
+	const actionHtml = hasInstalled
+		? `
+			<button type="button" class="unbutton sw5e-bodymods-inline-card" data-sw5e-aug-open-manager>
+				<span class="sw5e-bodymods-inline-icon" aria-hidden="true">
+					<i class="fas fa-microchip"></i>
+				</span>
+				<span class="sw5e-bodymods-inline-label">
+					<span class="sw5e-bodymods-inline-title roboto-upper">${title}</span>
+				</span>
+				${editMode ? `
+					<span class="sw5e-bodymods-inline-control" aria-hidden="true">
+						<i class="fas fa-gear"></i>
+					</span>
+				` : ""}
+			</button>
+		`
+		: `
+			<button type="button" class="unbutton sw5e-bodymods-inline-card sw5e-bodymods-inline-card--empty" data-sw5e-aug-open-manager>
+				<span class="sw5e-bodymods-inline-title roboto-upper">${emptyLabel}</span>
+			</button>
+		`;
 
 	const wrap = document.createElement("div");
-	wrap.className = "sw5e-augmentations-inline";
-	wrap.innerHTML = `
-		<h3 class="sw5e-aug-inline-title">
-			<i class="fas fa-microchip" inert aria-hidden="true"></i>
-			<span class="roboto-upper">${game.i18n.localize("SW5E.Augmentations.InlineTitle")}</span>
-		</h3>
-		${targetHint}
-		<p class="sw5e-aug-inline-count"><strong>${foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.InlineCount"))}</strong> ${count} / ${max}</p>
-		<p class="sw5e-aug-inline-slots subdued">${foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.InlineSlotsLabel"))} ${foundry.utils.escapeHTML(slotsText)}</p>
-		<ul class="sw5e-aug-inline-fx">${fxBlock}</ul>
-		${overrideNote}
-		<p class="sw5e-aug-inline-manage">
-			<button type="button" class="unbutton sw5e-aug-inline-manage-btn" data-sw5e-aug-open-manager>
-				${game.i18n.localize("SW5E.Augmentations.InlineManage")}
-			</button>
-		</p>
-	`;
+	wrap.className = "sw5e-augmentations-inline sw5e-bodymods-inline";
+	wrap.innerHTML = `${actionHtml}${notes.join("")}`;
 	wrap.querySelector("[data-sw5e-aug-open-manager]")?.addEventListener("click", e => {
 		e.preventDefault();
 		AugmentationsApp.openForActor(actor);
@@ -151,7 +138,7 @@ function injectAugmentationsBodySection(app, html) {
 
 	if ( !editMode && installedCount === 0 ) return;
 
-	const section = buildInlineAugmentationsSection(actor, state);
+	const section = buildInlineAugmentationsSection(actor, state, { editMode });
 	insertAugmentationsIntoSheetBody(root, actor, section);
 }
 

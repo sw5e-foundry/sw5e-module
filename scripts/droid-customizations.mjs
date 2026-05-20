@@ -18,6 +18,8 @@ export const DROID_CUSTOMIZATION_CUSTOM_LABEL = /** @type {const} */ ("Droid Cus
 /** @typedef {"int"|"wis"|"cha"} DroidProtocolsAbilityKey */
 
 export const DROID_CUSTOMIZATION_CATEGORIES = /** @type {const} */ ([ "part", "protocol" ]);
+export const DROID_PARTS_ABILITY_KEYS = /** @type {const} */ ([ "str", "dex", "con" ]);
+export const DROID_PROTOCOLS_ABILITY_KEYS = /** @type {const} */ ([ "int", "wis", "cha" ]);
 
 export const DROID_CUSTOMIZATION_RARITIES = /** @type {const} */ ([
 	"standard",
@@ -41,8 +43,8 @@ export const SW5E_DROID_SPECIES_NAMES = /** @type {const} */ ([
 
 const DROID_SPECIES_SET = new Set(SW5E_DROID_SPECIES_NAMES);
 
-const PARTS_ABILITY_KEYS = /** @type {const} */ ([ "str", "dex", "con" ]);
-const PROTOCOLS_ABILITY_KEYS = /** @type {const} */ ([ "int", "wis", "cha" ]);
+const PARTS_ABILITY_KEYS = DROID_PARTS_ABILITY_KEYS;
+const PROTOCOLS_ABILITY_KEYS = DROID_PROTOCOLS_ABILITY_KEYS;
 
 const ITEM_SYSTEM_RARITY_TO_DROID = Object.freeze({
 	"": "standard",
@@ -77,8 +79,21 @@ export const DROID_MOTOR_UPGRADE_COST_BY_TOTAL_SLOTS = Object.freeze({
 	5: 50000,
 	6: 200000
 });
+export const DROID_CUSTOMIZATION_DC_BY_RARITY = Object.freeze({
+	standard: 15,
+	premium: 19,
+	prototype: 23,
+	advanced: 27,
+	legendary: 31,
+	artifact: 35
+});
 
 const FLAG_ROOT = "flags.sw5e.droidCustomizations";
+const DROID_INSTALL_RETRY_WAIT_MS = 24 * 60 * 60 * 1000;
+const DROID_REQUIRED_TOOL_ALIASES = Object.freeze({
+	astrotech: "astrotechsimplements",
+	astrotechsimplements: "astrotechsimplements"
+});
 
 function isRecord(value) {
 	return value !== null && typeof value === "object" && !Array.isArray(value);
@@ -236,17 +251,37 @@ export function getActorAbilityMod(actor, key) {
 	return 0;
 }
 
+/**
+ * @param {import("@league/foundry").documents.Actor|null|undefined} actor
+ * @param {string|null|undefined} toolKey
+ * @returns {number}
+ */
+export function getActorToolProficiencyValue(actor, toolKey) {
+	const key = typeof toolKey === "string" ? toolKey.trim() : "";
+	if ( !key ) return 0;
+	const value = actor?.system?.tools?.[key]?.value;
+	const numeric = Number(value);
+	return Number.isFinite(numeric) ? numeric : 0;
+}
+
 // ——— Time & upgrade cost ———
 
 /**
  * @param {import("@league/foundry").documents.Actor|null|undefined} actor
  * @returns {number}
  */
-export function getCustomizationInstallTimeHours(actor) {
+export function getDroidCustomizationSizeMultiplier(actor) {
 	const size = getActorSizeKeyForDroidCustomization(actor);
-	const mult = DROID_CUSTOMIZATION_SIZE_INSTALL_MULTIPLIER[/** @type {keyof typeof DROID_CUSTOMIZATION_SIZE_INSTALL_MULTIPLIER} */ (size)]
+	return DROID_CUSTOMIZATION_SIZE_INSTALL_MULTIPLIER[/** @type {keyof typeof DROID_CUSTOMIZATION_SIZE_INSTALL_MULTIPLIER} */ (size)]
 		?? 1;
-	return BASE_DROID_CUSTOMIZATION_INSTALL_HOURS_MEDIUM * mult;
+}
+
+/**
+ * @param {import("@league/foundry").documents.Actor|null|undefined} actor
+ * @returns {number}
+ */
+export function getCustomizationInstallTimeHours(actor) {
+	return BASE_DROID_CUSTOMIZATION_INSTALL_HOURS_MEDIUM * getDroidCustomizationSizeMultiplier(actor);
 }
 
 /**
@@ -275,11 +310,10 @@ export function getMotorUpgradeTimeHours(actor, targetSlots) {
  * @returns {number|null} `null` if there is no defined price for that total.
  */
 export function getMotorUpgradeCost(actor, targetSlots) {
-	void actor;
 	const n = Math.floor(Number(targetSlots));
 	const t = /** @type {keyof typeof DROID_MOTOR_UPGRADE_COST_BY_TOTAL_SLOTS} */ (n);
 	if ( !Object.prototype.hasOwnProperty.call(DROID_MOTOR_UPGRADE_COST_BY_TOTAL_SLOTS, t) ) return null;
-	return DROID_MOTOR_UPGRADE_COST_BY_TOTAL_SLOTS[t];
+	return Math.round(DROID_MOTOR_UPGRADE_COST_BY_TOTAL_SLOTS[t] * getDroidCustomizationSizeMultiplier(actor));
 }
 
 // ——— Item metadata ———
@@ -369,6 +403,51 @@ export function getEffectiveDroidCustomizationItemMeta(item) {
 		motorSlotCost: 1,
 		effects: {}
 	});
+}
+
+function normalizeRequiredToolAlias(value) {
+	return String(value ?? "").trim().toLowerCase().replace(/[^a-z]/g, "");
+}
+
+/**
+ * @param {string|null|undefined} requiredTool
+ * @returns {string|null}
+ */
+export function resolveDroidRequiredToolActorKey(requiredTool) {
+	const key = normalizeRequiredToolAlias(requiredTool);
+	return key ? DROID_REQUIRED_TOOL_ALIASES[key] ?? null : null;
+}
+
+/**
+ * @param {object|null|undefined} data
+ * @returns {string}
+ */
+export function getDroidCustomizationRequiredTool(data) {
+	const explicit = data?.requiredTool ?? data?.snapshot?.flags?.sw5e?.[ITEM_META_FLAG]?.requiredTool;
+	if ( typeof explicit === "string" && explicit.trim() ) return explicit.trim();
+	return "astrotech";
+}
+
+/**
+ * @param {object|null|undefined} data
+ * @returns {number|null}
+ */
+export function getDroidCustomizationCheckDc(data) {
+	const explicit = data?.installDC ?? data?.snapshot?.flags?.sw5e?.[ITEM_META_FLAG]?.installDC;
+	if ( explicit != null && Number.isFinite(Number(explicit)) ) return Number(explicit);
+	const rarity = typeof data?.rarity === "string" ? data.rarity : "";
+	const mapped = DROID_CUSTOMIZATION_DC_BY_RARITY[/** @type {keyof typeof DROID_CUSTOMIZATION_DC_BY_RARITY} */ (rarity)];
+	return Number.isFinite(mapped) ? mapped : null;
+}
+
+function getRemainingRetryWaitMs(lastFailureAt, waitMs, now = Date.now()) {
+	const ts = Number(lastFailureAt);
+	if ( !Number.isFinite(ts) || ts <= 0 ) return 0;
+	return Math.max(0, (Number(waitMs) || 0) - Math.max(0, now - ts));
+}
+
+function formatRetryWaitHours(remainingMs) {
+	return Math.max(1, Math.ceil(Number(remainingMs) / (60 * 60 * 1000)));
 }
 
 // ——— Category limits (parts / protocols) ———
@@ -593,6 +672,8 @@ export function createInstalledDroidCustomizationEntry(item, partial = {}) {
 	const category = partial.category ?? meta?.category;
 	const rarity = partial.rarity ?? meta?.rarity ?? inferDroidCustomizationRarityFromItem(item);
 	const motorSlotCost = partial.motorSlotCost ?? Math.max(1, Math.floor(Number(meta?.motorSlotCost) || 1));
+	const requiredTool = partial.requiredTool ?? getDroidCustomizationRequiredTool(meta);
+	const installDC = partial.installDC ?? getDroidCustomizationCheckDc(meta);
 	const typeKey = getItemDndTypeKey(item);
 	const rawRarity = item?.system?.rarity;
 	const raritySnapshot = typeof rawRarity === "object" && rawRarity !== null
@@ -612,6 +693,8 @@ export function createInstalledDroidCustomizationEntry(item, partial = {}) {
 		rarity,
 		installedAt: partial.installedAt ?? Date.now(),
 		motorSlotCost,
+		requiredTool,
+		installDC,
 		snapshot: {
 			name: partial.snapshot?.name ?? item?.name ?? "",
 			type: partial.snapshot?.type ?? typeKey,
@@ -644,6 +727,30 @@ function buildDroidStateForPersist(actor, patch) {
 	);
 }
 
+function sanitizeDroidLimitAbility(value, allowedKeys) {
+	const key = typeof value === "string" ? value.trim().toLowerCase() : "";
+	if ( !key ) return null;
+	return allowedKeys.includes(/** @type {*} */ (key)) ? key : null;
+}
+
+/**
+ * @param {import("@league/foundry").documents.Actor} actor
+ * @param {{ partsAbility?: string|null, protocolsAbility?: string|null }} limitsPatch
+ */
+export async function updateDroidCustomizationLimitAbilities(actor, limitsPatch = {}) {
+	const state = normalizeActorDroidCustomizations(actor);
+	const nextLimits = foundry.utils.deepClone(state.limits);
+	if ( Object.prototype.hasOwnProperty.call(limitsPatch, "partsAbility") ) {
+		nextLimits.partsAbility = sanitizeDroidLimitAbility(limitsPatch.partsAbility, PARTS_ABILITY_KEYS);
+	}
+	if ( Object.prototype.hasOwnProperty.call(limitsPatch, "protocolsAbility") ) {
+		nextLimits.protocolsAbility = sanitizeDroidLimitAbility(limitsPatch.protocolsAbility, PROTOCOLS_ABILITY_KEYS);
+	}
+	const next = buildDroidStateForPersist(actor, { limits: nextLimits });
+	await persistActorDroidCustomizationsState(actor, next);
+	return next;
+}
+
 // ——— Validation ———
 
 /**
@@ -659,15 +766,19 @@ export function validateDroidCustomizationInstall(actor, item, ctx = {}) {
 	const state = normalizeActorDroidCustomizations(actor);
 	const meta = getEffectiveDroidCustomizationItemMeta(item);
 
-	const requiredTool = meta?.requiredTool != null ? String(meta.requiredTool) : "";
-	const installDC = meta?.installDC != null && Number.isFinite(Number(meta.installDC))
-		? Number(meta.installDC)
-		: null;
+	const requiredTool = getDroidCustomizationRequiredTool(meta);
+	const requiredToolActorKey = resolveDroidRequiredToolActorKey(requiredTool);
+	const installDC = getDroidCustomizationCheckDc(meta);
 	const motorCost = meta ? Math.max(1, Math.floor(Number(meta.motorSlotCost) || 1)) : 0;
+	const installTimeHours = getCustomizationInstallTimeHours(actor);
+	const requiredToolProficiency = requiredToolActorKey ? getActorToolProficiencyValue(actor, requiredToolActorKey) : null;
+	const installRetryRemainingMs = getRemainingRetryWaitMs(state.workflowState?.lastInstallFailureAt, DROID_INSTALL_RETRY_WAIT_MS);
 
 	const info = {
 		requiredTool: requiredTool || null,
-		installDC,
+		requiredToolActorKey,
+		requiredToolProficiency,
+		checkDC: installDC,
 		motorSlots: state.motorSlots,
 		usedMotorSlots: state.derived.capacity.motorUsed,
 		availableMotorSlots: state.derived.capacity.motorAvailable,
@@ -676,8 +787,10 @@ export function validateDroidCustomizationInstall(actor, item, ctx = {}) {
 		partsCount: state.derived.counts.parts,
 		protocolsCount: state.derived.counts.protocols,
 		motorSlotCost: motorCost,
+		procedureTimeHours: installTimeHours,
 		partsPolicy: state.derived.capacity.partsPolicy,
-		protocolsPolicy: state.derived.capacity.protocolsPolicy
+		protocolsPolicy: state.derived.capacity.protocolsPolicy,
+		retryWaitHours: installRetryRemainingMs ? formatRetryWaitHours(installRetryRemainingMs) : null
 	};
 
 	if ( !actor || !item ) {
@@ -702,6 +815,13 @@ export function validateDroidCustomizationInstall(actor, item, ctx = {}) {
 		blocking.push(issue("invalid-target-types", "Droid customization item does not list droid as a valid target."));
 	}
 
+	if ( requiredToolActorKey && requiredToolProficiency !== null && requiredToolProficiency <= 0 ) {
+		warnings.push(issue("required-tool-missing", "This actor is not proficient with astrotech's implements. An NPC can perform the installation if desired."));
+	}
+	else if ( requiredTool && !requiredToolActorKey ) {
+		warnings.push(issue("required-tool-unmapped", `Could not map required tool "${requiredTool}" to an actor tool proficiency key.`));
+	}
+
 	if ( state.derived.capacity.motorAvailable < motorCost ) {
 		blocking.push(issue("motor-slots-insufficient", "Not enough motor slots for this customization.", { need: motorCost, have: state.derived.capacity.motorAvailable }));
 	}
@@ -718,8 +838,8 @@ export function validateDroidCustomizationInstall(actor, item, ctx = {}) {
 		blocking.push(issue("duplicate-customization-uuid", "That customization is already installed (same item UUID).", { uuid }));
 	}
 
-	if ( installDC == null && isDroidCustomizationSourceCustom(item) && !getDroidCustomizationItemMeta(item) ) {
-		warnings.push(issue("install-dc-unknown", "No install DC on this item; set flags.sw5e.droidCustomization.installDC if needed."));
+	if ( installRetryRemainingMs > 0 ) {
+		blocking.push(issue("install-retry-wait", `A failed installation attempt was recorded recently. Wait ${formatRetryWaitHours(installRetryRemainingMs)} more hour(s) before trying again.`));
 	}
 
 	return droidValidationResult({ blocking, warnings, info, force });
@@ -737,12 +857,21 @@ export function validateDroidCustomizationRemove(actor, installedUuid, ctx = {})
 	const state = normalizeActorDroidCustomizations(actor);
 	const id = String(installedUuid ?? "");
 	const entry = state.installed.find(e => e?.uuid === id);
+	const requiredTool = entry ? getDroidCustomizationRequiredTool(entry) : "astrotech";
+	const requiredToolActorKey = resolveDroidRequiredToolActorKey(requiredTool);
+	const requiredToolProficiency = requiredToolActorKey ? getActorToolProficiencyValue(actor, requiredToolActorKey) : null;
+	const removeDC = entry ? getDroidCustomizationCheckDc(entry) : null;
 
 	const info = {
 		installedUuid: id,
 		found: Boolean(entry),
 		entryCategory: entry?.category ?? null,
-		motorSlotCost: entry ? Math.max(1, Math.floor(Number(entry.motorSlotCost) || 1)) : null
+		motorSlotCost: entry ? Math.max(1, Math.floor(Number(entry.motorSlotCost) || 1)) : null,
+		requiredTool,
+		requiredToolActorKey,
+		requiredToolProficiency,
+		checkDC: removeDC,
+		procedureTimeHours: getCustomizationRemovalTimeHours(actor)
 	};
 
 	if ( !actor ) {
@@ -754,6 +883,12 @@ export function validateDroidCustomizationRemove(actor, installedUuid, ctx = {})
 		blocking.push(issue("not-installed", "No installed customization matches that item UUID."));
 	}
 	else {
+		if ( requiredToolActorKey && requiredToolProficiency !== null && requiredToolProficiency <= 0 ) {
+			warnings.push(issue("required-tool-missing", "This actor is not proficient with astrotech's implements. An NPC can perform the removal if desired."));
+		}
+		else if ( requiredTool && !requiredToolActorKey ) {
+			warnings.push(issue("required-tool-unmapped", `Could not map required tool "${requiredTool}" to an actor tool proficiency key.`));
+		}
 		if ( !isRecord(entry.snapshot) ) {
 			warnings.push(issue("snapshot-missing", "Installed entry has no snapshot object; integrity may be degraded."));
 		}
@@ -912,6 +1047,8 @@ export const droidCustomizationsApi = {
 	DROID_CUSTOMIZATION_CUSTOM_LABEL,
 	SW5E_DROID_SPECIES_NAMES,
 	DROID_CUSTOMIZATION_CATEGORIES,
+	DROID_PARTS_ABILITY_KEYS,
+	DROID_PROTOCOLS_ABILITY_KEYS,
 	DROID_CUSTOMIZATION_RARITIES,
 	DEFAULT_DROID_CUSTOMIZATION_VALID_TARGET_TYPES,
 	ITEM_META_FLAG,
@@ -920,6 +1057,7 @@ export const droidCustomizationsApi = {
 	DROID_DEFAULT_MOTOR_SLOTS,
 	DROID_MAX_MOTOR_SLOTS,
 	DROID_MOTOR_UPGRADE_COST_BY_TOTAL_SLOTS,
+	DROID_CUSTOMIZATION_DC_BY_RARITY,
 	getItemSourceCustom,
 	getDroidCustomizationItemMeta,
 	isDroidCustomizationSourceCustom,
@@ -930,6 +1068,8 @@ export const droidCustomizationsApi = {
 	isActorValidDroidCustomizationTarget,
 	getActorSizeKeyForDroidCustomization,
 	getActorAbilityMod,
+	getActorToolProficiencyValue,
+	getDroidCustomizationSizeMultiplier,
 	getCustomizationInstallTimeHours,
 	getCustomizationRemovalTimeHours,
 	getMotorUpgradeTimeHours,
@@ -938,6 +1078,9 @@ export const droidCustomizationsApi = {
 	inferDroidCustomizationRarityFromItem,
 	normalizeDroidCustomizationItemMetaRecord,
 	getEffectiveDroidCustomizationItemMeta,
+	resolveDroidRequiredToolActorKey,
+	getDroidCustomizationRequiredTool,
+	getDroidCustomizationCheckDc,
 	getAllowedDroidPartsDetail,
 	getAllowedDroidPartsCount,
 	getAllowedDroidProtocolsDetail,
@@ -951,6 +1094,7 @@ export const droidCustomizationsApi = {
 	isActorAtDroidCustomizationCapacity,
 	isActorAtCustomizationCapacity: isActorAtDroidCustomizationCapacity,
 	createInstalledDroidCustomizationEntry,
+	updateDroidCustomizationLimitAbilities,
 	validateDroidCustomizationInstall,
 	validateDroidCustomizationRemove,
 	validateDroidMotorUpgrade,

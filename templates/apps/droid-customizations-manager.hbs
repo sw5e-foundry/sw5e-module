@@ -37,11 +37,39 @@
 				</dl>
 				<p class="hint sw5e-droid-policy-line">{{partsExplain}}</p>
 				<p class="hint sw5e-droid-policy-line">{{protocolsExplain}}</p>
-				{{#if limitsPartsAbility}}
-					<p class="notes">{{localize "SW5E.DroidCustomizations.LimitsPartsStored"}}: <strong>{{limitsPartsAbility}}</strong></p>
-				{{/if}}
-				{{#if limitsProtocolsAbility}}
-					<p class="notes">{{localize "SW5E.DroidCustomizations.LimitsProtocolsStored"}}: <strong>{{limitsProtocolsAbility}}</strong></p>
+				{{#if canEdit}}
+					<section class="sw5e-droid-customizations-limits">
+						<h3>{{localize "SW5E.DroidCustomizations.LimitsTitle"}}</h3>
+						<p class="hint">{{localize "SW5E.DroidCustomizations.LimitsHint"}}</p>
+						<div class="form-group">
+							<label for="sw5e-droid-parts-ability">{{localize "SW5E.DroidCustomizations.LimitsPartsLabel"}}</label>
+							<select id="sw5e-droid-parts-ability" name="sw5e-droid-parts-ability">
+								<option value="">{{localize "SW5E.DroidCustomizations.LimitsFallbackOption"}}</option>
+								{{#each partsAbilityOptions}}
+									<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+								{{/each}}
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="sw5e-droid-protocols-ability">{{localize "SW5E.DroidCustomizations.LimitsProtocolsLabel"}}</label>
+							<select id="sw5e-droid-protocols-ability" name="sw5e-droid-protocols-ability">
+								<option value="">{{localize "SW5E.DroidCustomizations.LimitsFallbackOption"}}</option>
+								{{#each protocolsAbilityOptions}}
+									<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+								{{/each}}
+							</select>
+						</div>
+						<button type="button" class="sw5e-aug-install-submit sw5e-droid-limits-save-submit">
+							<i class="fas fa-save" aria-hidden="true"></i> {{localize "SW5E.DroidCustomizations.LimitsSave"}}
+						</button>
+					</section>
+				{{else}}
+					{{#if limitsPartsAbilityLabel}}
+						<p class="notes">{{localize "SW5E.DroidCustomizations.LimitsPartsStored"}}: <strong>{{limitsPartsAbilityLabel}}</strong></p>
+					{{/if}}
+					{{#if limitsProtocolsAbilityLabel}}
+						<p class="notes">{{localize "SW5E.DroidCustomizations.LimitsProtocolsStored"}}: <strong>{{limitsProtocolsAbilityLabel}}</strong></p>
+					{{/if}}
 				{{/if}}
 			</section>
 
