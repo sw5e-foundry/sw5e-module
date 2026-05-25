@@ -3662,196 +3662,123 @@ form .notes {
   color: var(--color-text-dark-secondary, #4b4a44);
 }
 
-/* ——— Cybernetic augmentations: inline actor sheet summary (dark, sheet-native) ——— */
+/* ——— Cybernetic augmentations / droid customizations: inline actor sheet cards ——— */
 
-.dnd5e2.sheet.actor .sw5e-augmentations-inline {
+.dnd5e2.sheet.actor :is(.sw5e-augmentations-inline, .sw5e-droid-customizations-inline) {
   margin: 0.45rem 0 0.55rem;
-  padding: 0.4rem 0.5rem 0.48rem;
-  border: 1px solid var(--dnd5e-color-dark-4, rgb(255 255 255 / 10%));
-  border-radius: 6px;
-  background:
-    radial-gradient(circle at top left, rgb(98 121 170 / 10%), transparent 42%),
-    linear-gradient(180deg, rgb(14 18 28 / 88%), rgb(20 25 36 / 82%));
-  box-shadow:
-    inset 0 0 0 1px rgb(255 255 255 / 4%),
-    0 1px 2px rgb(0 0 0 / 18%);
-  font-size: var(--font-size-12);
-  color: color-mix(in oklab, var(--dnd5e-color-parchment, var(--dnd5e-color-tan)), transparent 6%);
 }
 
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-title {
+.dnd5e2.sheet.actor .sw5e-droid-customizations-inline {
+  margin-top: 0.55rem;
+}
+
+.dnd5e2.sheet.actor .sw5e-bodymods-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-card {
+  appearance: none;
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  margin: 0 0 0.3rem;
-  padding-bottom: 0.28rem;
-  border-bottom: 1px solid rgb(255 255 255 / 8%);
-  font-family: var(--dnd5e-font-tertiary, var(--font-primary));
-  font-size: var(--font-size-12);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 8%);
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-title i {
-  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 22%);
-  font-size: 0.92em;
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-title .roboto-upper {
-  letter-spacing: inherit;
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-count {
-  margin: 0.18rem 0 0.08rem;
-  font-size: var(--font-size-12);
-  font-variant-numeric: tabular-nums;
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-count strong {
-  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 5%);
-  font-weight: 600;
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-slots {
-  margin: 0.08rem 0 0.28rem;
-  font-size: var(--font-size-11);
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-slots.subdued,
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .subdued {
-  opacity: 1;
-  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 12%);
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-fx {
-  margin: 0.2rem 0 0.28rem;
-  padding-left: 1.1rem;
-  font-size: var(--font-size-11);
-  line-height: 1.35;
-  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 8%);
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-fx-none {
-  list-style: none;
-  margin-left: -1.1rem;
-  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 18%);
-  font-style: italic;
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-override-hint {
-  margin: 0.15rem 0 0.12rem;
-  font-size: var(--font-size-11);
-  font-style: italic;
-  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 18%);
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-target-hint {
-  margin: 0 0 0.32rem;
-  font-size: var(--font-size-11);
-  line-height: 1.35;
-  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 10%);
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-manage {
-  margin: 0.3rem 0 0;
-  padding-top: 0.28rem;
-  border-top: 1px solid rgb(255 255 255 / 7%);
-}
-
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-manage-btn {
-  appearance: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+  gap: 0.6rem;
+  width: 100%;
   margin: 0;
-  padding: 0;
-  font: inherit;
-  font-size: var(--font-size-11);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 6%);
-  text-decoration: none;
+  padding: 0.52rem 0.65rem;
+  border: 1px solid color-mix(in oklab, var(--dnd5e-color-card-border, rgb(255 255 255 / 14%)), var(--dnd5e-color-gold) 20%);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgb(122 96 58 / 10%), rgb(255 255 255 / 0%)),
+    color-mix(in oklab, var(--dnd5e-background-5, rgb(0 0 0 / 18%)) 84%, rgb(88 66 34 / 14%));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 4%),
+    0 1px 2px rgb(0 0 0 / 10%);
+  color: color-mix(in oklab, var(--dnd5e-color-parchment, var(--dnd5e-color-tan)), transparent 6%);
   cursor: pointer;
-  border: none;
-  background: transparent;
-  box-shadow: none;
+  text-align: left;
+  transition: border-color 120ms ease, background-color 120ms ease, transform 120ms ease;
 }
 
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-manage-btn:hover {
-  color: var(--dnd5e-color-gold);
-  filter: brightness(1.06);
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-card:hover {
+  border-color: color-mix(in oklab, var(--dnd5e-color-gold), var(--dnd5e-color-card-border, rgb(255 255 255 / 14%)) 45%);
+  background:
+    linear-gradient(180deg, rgb(152 118 70 / 14%), rgb(255 255 255 / 0%)),
+    color-mix(in oklab, var(--dnd5e-background-5, rgb(0 0 0 / 18%)) 72%, rgb(110 82 46 / 18%));
 }
 
-.dnd5e2.sheet.actor .sw5e-augmentations-inline .sw5e-aug-inline-manage-btn:focus-visible {
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-card:focus-visible {
   outline: 2px solid var(--dnd5e-color-gold);
   outline-offset: 2px;
 }
 
-.dnd5e2.sheet.actor .sw5e-droid-customizations-inline {
-  margin: 0.65rem 0 0.5rem;
-  padding: 0.45rem 0.5rem 0.5rem;
-  border: 1px solid rgb(255 255 255 / 10%);
-  border-radius: 6px;
-  background: rgb(0 0 0 / 12%);
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-card--empty {
+  justify-content: center;
+  padding: 0.58rem 0.8rem;
+  border-style: dashed;
+  background: transparent;
+  box-shadow: none;
 }
 
-.dnd5e2.sheet.actor .sw5e-droid-customizations-inline .sw5e-droid-inline-title {
-  display: flex;
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-card--empty:hover {
+  background: rgb(255 255 255 / 2%);
+}
+
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-icon {
+  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin: 0 0 0.35rem;
+  justify-content: center;
+  flex: 0 0 1.9rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 6px;
+  border: 1px solid rgb(214 177 109 / 16%);
+  background: linear-gradient(180deg, rgb(154 121 76 / 12%), rgb(255 255 255 / 3%));
+  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 6%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 4%);
+}
+
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-icon i {
+  font-size: 0.95rem;
+}
+
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-title {
+  display: block;
   font-family: var(--dnd5e-font-tertiary, var(--font-primary));
   font-size: var(--font-size-12);
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 8%);
+  line-height: 1.2;
+  color: inherit;
 }
 
-.dnd5e2.sheet.actor .sw5e-droid-customizations-inline .sw5e-droid-inline-title i {
-  opacity: 0.85;
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 18%);
+  font-size: 0.85rem;
 }
 
-.dnd5e2.sheet.actor .sw5e-droid-customizations-inline .sw5e-droid-inline-line {
-  margin: 0.2rem 0;
-  font-size: var(--font-size-12);
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-note {
+  margin: 0 0.08rem;
+  font-size: var(--font-size-11);
   line-height: 1.35;
 }
 
-.dnd5e2.sheet.actor .sw5e-droid-customizations-inline .sw5e-droid-inline-line strong {
-  font-weight: 600;
-  margin-right: 0.25rem;
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-note--warn {
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 12%);
 }
 
-.dnd5e2.sheet.actor .sw5e-droid-customizations-inline .subdued,
-.dnd5e2.sheet.actor .sw5e-droid-customizations-inline .sw5e-droid-inline-policy {
-  font-size: var(--font-size-11);
-  opacity: 0.88;
-}
-
-.dnd5e2.sheet.actor .sw5e-droid-customizations-inline .sw5e-droid-inline-manage {
-  margin: 0.4rem 0 0;
-}
-
-.dnd5e2.sheet.actor .sw5e-droid-customizations-inline .sw5e-droid-inline-manage-btn {
-  appearance: none;
-  padding: 0;
-  font: inherit;
-  font-size: var(--font-size-12);
-  font-weight: 600;
-  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 5%);
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
-.dnd5e2.sheet.actor .sw5e-droid-customizations-inline .sw5e-droid-inline-manage-btn:hover {
-  color: var(--dnd5e-color-gold);
+.dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-note--accent {
+  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 14%);
 }
 
 /* ——— Cybernetic augmentations manager (ApplicationV2): dark shell, sheet-like controls ——— */
@@ -4363,6 +4290,15 @@ section.sw5e-droid-customizations-manager .sw5e-droid-customizations-summary h3 
   margin-top: 0;
 }
 
+section.sw5e-droid-customizations-manager .sw5e-droid-customizations-limits {
+  margin-top: 0.45rem;
+}
+
+section.sw5e-droid-customizations-manager .notes {
+  margin: 0.2rem 0 0;
+  font-size: var(--font-size-11);
+}
+
 section.sw5e-droid-customizations-manager .sw5e-aug-kv {
   display: flex;
   flex-direction: column;
@@ -4657,4 +4593,106 @@ section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove {
 .dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-rank-select {
   /* Intentionally minimal: inherit dnd5e `.level-selector` presentation */
   max-width: none;
+}
+
+/* Droid customization install/remove procedure dialog (DialogV2) */
+.sw5e-droid-procedure-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 22rem;
+}
+
+.sw5e-droid-procedure-dialog .notes {
+  margin: 0;
+}
+
+.sw5e-droid-procedure-dialog .sw5e-droid-procedure-warnings {
+  margin: 0;
+  padding: 0.45rem 0.55rem;
+  font-size: var(--font-size-12);
+}
+
+.sw5e-droid-procedure-dialog .sw5e-droid-procedure-warnings-title {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.sw5e-droid-procedure-dialog .sw5e-droid-procedure-warnings ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.sw5e-droid-procedure-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-12);
+}
+
+.sw5e-droid-procedure-table th,
+.sw5e-droid-procedure-table td {
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+  border: 1px solid color-mix(in oklab, var(--dnd5e-color-gold), transparent 55%);
+}
+
+.sw5e-droid-procedure-table th {
+  font-weight: 600;
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 5%);
+  background: color-mix(in oklab, var(--dnd5e-color-dark), transparent 20%);
+}
+
+.sw5e-droid-procedure-table td {
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 5%);
+}
+
+.sw5e-droid-procedure-rolls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.sw5e-droid-procedure-rolls-label {
+  flex: 0 0 100%;
+  font-size: var(--font-size-11);
+  font-weight: 600;
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 10%);
+  margin: 0;
+}
+
+.sw5e-droid-procedure-roller {
+  flex: 1 1 10rem;
+  min-width: 8rem;
+  max-width: 100%;
+}
+
+.sw5e-droid-procedure-roll {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.32rem 0.65rem;
+  border-radius: 4px;
+  font: inherit;
+  font-size: var(--font-size-12);
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid color-mix(in oklab, var(--dnd5e-color-gold), transparent 35%);
+  background: color-mix(in oklab, var(--dnd5e-color-dark), transparent 15%);
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 5%);
+}
+
+.sw5e-droid-procedure-roll:hover:not(:disabled) {
+  border-color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 15%);
+  background: color-mix(in oklab, var(--dnd5e-color-gold), transparent 82%);
+}
+
+.sw5e-droid-procedure-roll:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sw5e-droid-procedure-dialog .hint {
+  margin: 0;
 }
