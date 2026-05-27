@@ -2,6 +2,11 @@
 
 ### [1.3.5] TEMP
 
+### 2026-05-25
+### Added
+- Added Icons for for sw5e specific actor skills.
+### Changed
+- Changed spell level label in en.json for consistency.
 ### 2026-05-11
 ### Added
 - Added Companions based on previous standalone module by unrealkakeman89. Special thanks to Vizaer for help in migrating the module's content.
