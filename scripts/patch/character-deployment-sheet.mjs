@@ -452,36 +452,188 @@ function injectCharacterDeploymentFeaturesHeader(app, html) {
 	}
 }
 
+const CUSTOMIZATION_OPTION_FEATURE_ORIGINS = Object.freeze({
+	classImprovement: "sw5e-class-improvement",
+	fightingStyle: "sw5e-fighting-style",
+	fightingMastery: "sw5e-fighting-mastery",
+	lightsaberForm: "sw5e-lightsaber-form",
+	multiclassImprovement: "sw5e-multiclass-improvement",
+	splashclassImprovement: "sw5e-splashclass-improvement",
+	weaponFocus: "sw5e-weapon-focus",
+	weaponSupremacy: "sw5e-weapon-supremacy"
+});
+
+const SW5E_FEATURE_SECTION_CONFIGS = Object.freeze([
+	Object.freeze({
+		origin: "sw5e-deployment",
+		id: "sw5e-deployment",
+		labelKey: "SW5E.FeatureCategory.Deployments",
+		fallback: "Deployment Features",
+		order: 2050
+	}),
+	Object.freeze({
+		origin: "sw5e-venture",
+		id: "sw5e-venture",
+		labelKey: "SW5E.FeatureCategory.Ventures",
+		fallback: "Venture Features",
+		order: 2100
+	}),
+	Object.freeze({
+		origin: "sw5e-lightsaber-form",
+		id: "sw5e-lightsaber-form",
+		labelKey: "SW5E.Feature.CustomizationOption.LightsaberFormPl",
+		fallback: "Lightsaber Forms",
+		order: 2150
+	}),
+	Object.freeze({
+		origin: "sw5e-class-improvement",
+		id: "sw5e-class-improvement",
+		labelKey: "SW5E.Feature.CustomizationOption.ClassImprovementPl",
+		fallback: "Class Improvements",
+		order: 2200
+	}),
+	Object.freeze({
+		origin: "sw5e-fighting-style",
+		id: "sw5e-fighting-style",
+		labelKey: "SW5E.Feature.CustomizationOption.FightingStylePl",
+		fallback: "Fighting Styles",
+		order: 2250
+	}),
+	Object.freeze({
+		origin: "sw5e-fighting-mastery",
+		id: "sw5e-fighting-mastery",
+		labelKey: "SW5E.Feature.CustomizationOption.FightingMasteryPl",
+		fallback: "Fighting Masteries",
+		order: 2300
+	}),
+	Object.freeze({
+		origin: "sw5e-multiclass-improvement",
+		id: "sw5e-multiclass-improvement",
+		labelKey: "SW5E.Feature.CustomizationOption.MulticlassImprovementPl",
+		fallback: "Multiclass Improvements",
+		order: 2350
+	}),
+	Object.freeze({
+		origin: "sw5e-splashclass-improvement",
+		id: "sw5e-splashclass-improvement",
+		labelKey: "SW5E.Feature.CustomizationOption.SplashclassImprovementPl",
+		fallback: "Splashclass Improvements",
+		order: 2400
+	}),
+	Object.freeze({
+		origin: "sw5e-weapon-focus",
+		id: "sw5e-weapon-focus",
+		labelKey: "SW5E.Feature.CustomizationOption.WeaponFocusPl",
+		fallback: "Weapon Focuses",
+		order: 2450
+	}),
+	Object.freeze({
+		origin: "sw5e-weapon-supremacy",
+		id: "sw5e-weapon-supremacy",
+		labelKey: "SW5E.Feature.CustomizationOption.WeaponSupremacyPl",
+		fallback: "Weapon Supremacies",
+		order: 2500
+	})
+]);
+
+const SW5E_FEATURE_SECTION_IDS = new Set(SW5E_FEATURE_SECTION_CONFIGS.map(config => config.id));
+
 /**
  * @param {import("@league/foundry").documents.Item} item
- * @returns {"sw5e-deployment"|"sw5e-venture"|null}
+ * @returns {"sw5e-deployment"|"sw5e-venture"|"sw5e-class-improvement"|"sw5e-fighting-style"|"sw5e-fighting-mastery"|"sw5e-lightsaber-form"|"sw5e-multiclass-improvement"|"sw5e-splashclass-improvement"|"sw5e-weapon-focus"|"sw5e-weapon-supremacy"|null}
  */
-function classifyFeatDeploymentOrigin(item) {
+function classifyFeatFeatureOrigin(item) {
 	if ( item?.type !== "feat" ) return null;
 	const value = item.system?.type?.value;
 	const subtype = item.system?.type?.subtype;
-	if ( value !== "deployment" ) return null;
-	return subtype === "venture" ? "sw5e-venture" : "sw5e-deployment";
+	if ( value === "deployment" ) return subtype === "venture" ? "sw5e-venture" : "sw5e-deployment";
+	if ( value !== "customizationOption" ) return null;
+	return CUSTOMIZATION_OPTION_FEATURE_ORIGINS[subtype] ?? null;
+}
+
+function normalizeFeatureGroupingKey(value) {
+	if ( typeof value !== "string" ) return "";
+	return value.trim().toLowerCase().replace(/[^a-z0-9]+/g, "");
+}
+
+function parseClassHintFromRequirements(requirements) {
+	if ( typeof requirements !== "string" ) return "";
+	const match = requirements.trim().match(/^([^\d(]+?)(?:\s*(?:\(|\d|$))/);
+	return match?.[1]?.trim?.() ?? "";
+}
+
+function resolveActorClassOriginIdentifier(actor, classHint) {
+	const normalizedHint = normalizeFeatureGroupingKey(classHint);
+	if ( !normalizedHint ) return null;
+
+	for ( const cls of Object.values(actor?.classes ?? {}) ) {
+		const identifier = typeof cls?.identifier === "string" ? cls.identifier : "";
+		const names = [
+			identifier,
+			typeof cls?.name === "string" ? cls.name : "",
+			typeof cls?.system?.identifier === "string" ? cls.system.identifier : ""
+		];
+		if ( names.some(name => normalizeFeatureGroupingKey(name) === normalizedHint) ) {
+			return identifier || cls?.system?.identifier || null;
+		}
+	}
+
+	return null;
+}
+
+function resolveLegacyClassFeatureOrigin(actor, item) {
+	if ( item?.type !== "feat" ) return null;
+	if ( item?.system?.type?.value !== "class" ) return null;
+
+	const classHint = typeof item?.system?.className === "string" && item.system.className.trim()
+		? item.system.className.trim()
+		: parseClassHintFromRequirements(item?.system?.requirements);
+
+	return resolveActorClassOriginIdentifier(actor, classHint);
+}
+
+function resolveActorSpeciesName(actor) {
+	const detailRace = actor?.system?.details?.race;
+	const raceId = typeof detailRace === "string"
+		? detailRace
+		: (typeof detailRace?.id === "string" ? detailRace.id
+			: (typeof detailRace?._id === "string" ? detailRace._id : ""));
+
+	const names = [
+		typeof detailRace?.name === "string" ? detailRace.name : "",
+		typeof actor?.items?.get === "function" && raceId ? actor.items.get(raceId)?.name ?? "" : "",
+		Array.isArray(actor?.itemTypes?.race) ? actor.itemTypes.race[0]?.name ?? "" : ""
+	];
+
+	return names.find(name => typeof name === "string" && name.trim())?.trim() ?? "";
+}
+
+function applyDynamicSpeciesTraitsLabel(actor, context) {
+	const sections = context?.sections;
+	if ( !Array.isArray(sections) ) return;
+	const speciesSection = sections.find(section => section?.id === "species");
+	if ( !speciesSection ) return;
+
+	const speciesName = resolveActorSpeciesName(actor);
+	speciesSection.label = speciesName ? `${speciesName} Traits` : "Species Traits";
 }
 
 /**
- * Insert Deployment/Venture sections before stock **Other** (dnd5e 5.2.5 Features tab).
+ * Insert SW5E custom feat sections before stock **Other** (dnd5e 5.2.5 Features tab).
  *
  * @param {import("@league/foundry").applications.api.ApplicationV2} sheet
  * @param {Record<string, unknown>} context
  */
-function injectDeploymentFeatureSections(sheet, context) {
+function injectSw5eFeatureSections(sheet, context) {
 	const feats = context.itemCategories?.features ?? [];
-	let needsDeployment = false;
-	let needsVenture = false;
+	const presentOrigins = new Set();
 	for ( const item of feats ) {
-		const origin = classifyFeatDeploymentOrigin(item);
-		if ( origin === "sw5e-deployment" ) {
-			if ( !isParentDeploymentFeat(item) ) needsDeployment = true;
-		}
-		else if ( origin === "sw5e-venture" ) needsVenture = true;
+		const origin = classifyFeatFeatureOrigin(item);
+		if ( !origin ) continue;
+		if ( origin === "sw5e-deployment" && isParentDeploymentFeat(item) ) continue;
+		presentOrigins.add(origin);
 	}
-	if ( !needsDeployment && !needsVenture ) return;
+	if ( !presentOrigins.size ) return;
 
 	const Inventory = customElements.get(sheet.options.elements.inventory);
 	if ( !Inventory?.prepareSections || !Inventory.mapColumns ) return;
@@ -489,43 +641,32 @@ function injectDeploymentFeatureSections(sheet, context) {
 	const sections = context.sections;
 	if ( !Array.isArray(sections) ) return;
 
-	context.sections = sections.filter(s => s.id !== "sw5e-deployment" && s.id !== "sw5e-venture");
+	context.sections = sections.filter(s => !SW5E_FEATURE_SECTION_IDS.has(s.id));
 
 	const otherIdx = context.sections.findIndex(s => s.id === "other");
 	if ( otherIdx < 0 ) return;
 
 	const columns = Inventory.mapColumns([{ id: "uses", order: 200 }, "recovery", "controls"]);
 
-	const raw = [];
-	if ( needsDeployment ) {
-		raw.push({
+	const raw = SW5E_FEATURE_SECTION_CONFIGS
+		.filter(config => presentOrigins.has(config.origin))
+		.map(config => ({
 			columns,
-			id: "sw5e-deployment",
-			label: localizeOrFallback("SW5E.FeatureCategory.Deployments", "Deployment Features"),
-			order: 2050,
-			groups: { origin: "sw5e-deployment" },
+			id: config.id,
+			label: localizeOrFallback(config.labelKey, config.fallback),
+			order: config.order,
+			groups: { origin: config.origin },
 			items: []
-		});
-	}
-	if ( needsVenture ) {
-		raw.push({
-			columns,
-			id: "sw5e-venture",
-			label: localizeOrFallback("SW5E.FeatureCategory.Ventures", "Venture Features"),
-			order: 2100,
-			groups: { origin: "sw5e-venture" },
-			items: []
-		});
-	}
+		}));
 
 	const prepared = Inventory.prepareSections(raw);
 	context.sections.splice(otherIdx, 0, ...prepared);
 }
 
-function registerCharacterDeploymentFeatureGroupingWrappers() {
+function registerCharacterFeatureGroupingWrappers() {
 	const lw = globalThis.libWrapper;
 	if ( !lw?.register ) {
-		console.warn("SW5E | Deployment/Venture Features grouping: libWrapper unavailable — wrappers not registered.");
+		console.warn("SW5E | SW5E Features grouping: libWrapper unavailable — wrappers not registered.");
 		return;
 	}
 	const moduleId = getModuleId();
@@ -533,26 +674,34 @@ function registerCharacterDeploymentFeatureGroupingWrappers() {
 	try {
 		lw.register(moduleId, "dnd5e.applications.actor.CharacterActorSheet.prototype._prepareItemFeature", async function(wrapped, item, ctx) {
 			await wrapped.call(this, item, ctx);
-			const origin = classifyFeatDeploymentOrigin(item);
-			if ( !origin ) return;
-			if ( origin === "sw5e-deployment" && isParentDeploymentFeat(item) ) return;
-			ctx.groups ??= {};
-			ctx.groups.origin = origin;
+			const origin = classifyFeatFeatureOrigin(item);
+			if ( origin ) {
+				if ( origin === "sw5e-deployment" && isParentDeploymentFeat(item) ) return;
+				ctx.groups ??= {};
+				ctx.groups.origin = origin;
+				return;
+			}
+
+			if ( ctx?.groups?.origin !== "other" ) return;
+			const legacyClassOrigin = resolveLegacyClassFeatureOrigin(this.actor, item);
+			if ( !legacyClassOrigin ) return;
+			ctx.groups.origin = legacyClassOrigin;
 		}, "WRAPPER");
 	}
 	catch ( err ) {
-		console.warn("SW5E | Deployment/Venture Features grouping: failed to register _prepareItemFeature wrapper", err);
+		console.warn("SW5E | SW5E Features grouping: failed to register _prepareItemFeature wrapper", err);
 	}
 
 	try {
 		lw.register(moduleId, "dnd5e.applications.actor.CharacterActorSheet.prototype._prepareFeaturesContext", async function(wrapped, context, options) {
 			const result = await wrapped.call(this, context, options);
-			injectDeploymentFeatureSections(this, context);
+			injectSw5eFeatureSections(this, context);
+			applyDynamicSpeciesTraitsLabel(this.actor, context);
 			return result;
 		}, "WRAPPER");
 	}
 	catch ( err ) {
-		console.warn("SW5E | Deployment/Venture Features grouping: failed to register _prepareFeaturesContext wrapper", err);
+		console.warn("SW5E | SW5E Features grouping: failed to register _prepareFeaturesContext wrapper", err);
 	}
 }
 
@@ -572,5 +721,5 @@ function registerExcludeParentDeploymentFromFeatureCategories() {
 export function patchCharacterDeploymentSheet() {
 	registerExcludeParentDeploymentFromFeatureCategories();
 	Hooks.on("renderActorSheetV2", injectCharacterDeploymentFeaturesHeader);
-	registerCharacterDeploymentFeatureGroupingWrappers();
+	registerCharacterFeatureGroupingWrappers();
 }
