@@ -1,17 +1,16 @@
 import { getModulePath } from "./module-support.mjs";
 import { isActorDroidCustomizationHost } from "./droid-customizations.mjs";
+import { pickAugmentationCompendiumUuid } from "./augmentations-browser.mjs";
 import {
 	AUGMENTATION_SIDE_EFFECT_KEYS,
 	addAugmentationToActor,
 	collectOccupiedBodySlots,
-	getEffectiveAugmentationItemMeta,
 	getMaxAugmentationsForActor,
 	getInstalledAugmentationCount,
 	isActorAugmentationCandidate,
 	isActorCyberneticAugmentationsManagerAllowed,
 	isActorValidAugmentationTarget,
 	isLegacyStarshipActor,
-	isValidAugmentationItemMeta,
 	normalizeActorAugmentations,
 	plainTextExcerptFromItemDescriptionHtml,
 	removeAugmentationFromActor,
@@ -46,8 +45,62 @@ const SIDE_EFFECT_LABEL_KEYS = Object.freeze({
 	countAsDroid: "SW5E.Augmentations.EffectCountAsDroid"
 });
 
+const SIDE_EFFECT_ACTIVE_LABEL_KEYS = Object.freeze({
+	ionSaveDisadvantage: "SW5E.Augmentations.InlineFxIonSaves",
+	ionVulnerability: "SW5E.Augmentations.InlineFxIonVuln",
+	countAsDroid: "SW5E.Augmentations.InlineFxDroid"
+});
+
+const SIDE_EFFECT_TOOLTIP_KEYS = Object.freeze({
+	ionSaveDisadvantage: "SW5E.Augmentations.EffectIonSavesTooltip",
+	ionVulnerability: "SW5E.Augmentations.EffectIonVulnerabilityTooltip",
+	countAsDroid: "SW5E.Augmentations.EffectCountAsDroidTooltip"
+});
+
+const AUGMENTATION_CATEGORY_LABEL_KEYS = Object.freeze({
+	enhancement: "SW5E.Augmentations.PickerCategoryEnhancement",
+	replacement: "SW5E.Augmentations.PickerCategoryReplacement"
+});
+
+const AUGMENTATION_RARITY_LABEL_KEYS = Object.freeze({
+	standard: "DND5E.ItemRarityCommon",
+	premium: "DND5E.ItemRarityUncommon",
+	prototype: "DND5E.ItemRarityRare",
+	advanced: "DND5E.ItemRarityVeryRare",
+	legendary: "DND5E.ItemRarityLegendary",
+	artifact: "DND5E.ItemRarityArtifact"
+});
+
 function sideEffectLabel(key) {
 	return localizeOrFallback(SIDE_EFFECT_LABEL_KEYS[key] ?? key, key);
+}
+
+function activeSideEffectLabel(key) {
+	return localizeOrFallback(SIDE_EFFECT_ACTIVE_LABEL_KEYS[key] ?? SIDE_EFFECT_LABEL_KEYS[key] ?? key, key);
+}
+
+function capitalize(text) {
+	return text ? text.charAt(0).toUpperCase() + text.slice(1) : "";
+}
+
+function formatAugmentationCategory(category) {
+	return localizeOrFallback(AUGMENTATION_CATEGORY_LABEL_KEYS[category] ?? "", capitalize(category ?? "—"));
+}
+
+function formatAugmentationRarity(rarity) {
+	return localizeOrFallback(AUGMENTATION_RARITY_LABEL_KEYS[rarity] ?? "", capitalize(rarity ?? "—"));
+}
+
+function sideEffectTooltip(key, { mode = "inherit", derived = false } = {}) {
+	const base = localizeOrFallback(SIDE_EFFECT_TOOLTIP_KEYS[key] ?? "", sideEffectLabel(key));
+	if ( (mode === "on") && !derived ) {
+		const override = localizeOrFallback(
+			"SW5E.Augmentations.SideEffectTooltipOverrideOn",
+			"Currently active because of a GM override."
+		);
+		return `${base} ${override}`.trim();
+	}
+	return base;
 }
 
 /**
@@ -86,88 +139,6 @@ async function openInstalledAugmentationSource(actor, uuid) {
 		return;
 	}
 	ui.notifications.warn(localizeOrFallback("SW5E.Augmentations.OpenItemNotFound", "Could not open that item. It may have been deleted, the pack is unavailable, or you lack permission."));
-}
-
-/**
- * Single-line label for the install select (name first; compact category · rarity).
- * @param {string} name
- * @param {object} meta
- */
-function formatAugmentationInstallPickerLabel(name, meta) {
-	const n = typeof name === "string" ? name.trim() : "";
-	const base = n || "—";
-	if ( !meta || typeof meta !== "object" ) return base;
-
-	const catRaw = meta.category;
-	const catLabel = catRaw === "replacement"
-		? localizeOrFallback("SW5E.Augmentations.PickerCategoryReplacement", "Replacement")
-		: catRaw === "enhancement"
-			? localizeOrFallback("SW5E.Augmentations.PickerCategoryEnhancement", "Enhancement")
-			: "";
-
-	let rarLabel = "";
-	const rar = meta.rarity;
-	if ( typeof rar === "string" && rar ) {
-		rarLabel = rar.charAt(0).toUpperCase() + rar.slice(1);
-	}
-
-	if ( catLabel && rarLabel ) return `${base} — ${catLabel} · ${rarLabel}`;
-	if ( catLabel ) return `${base} — ${catLabel}`;
-	return base;
-}
-
-async function collectAugmentationInstallChoices() {
-	const choices = [];
-	const seen = new Set();
-
-	const push = (uuid, name, meta) => {
-		if ( !uuid || seen.has(uuid) ) return;
-		seen.add(uuid);
-		choices.push({
-			uuid,
-			name,
-			pickerLabel: formatAugmentationInstallPickerLabel(name, meta)
-		});
-	};
-
-	for ( const item of game.items ) {
-		const meta = getEffectiveAugmentationItemMeta(item);
-		if ( !meta || !isValidAugmentationItemMeta(meta) ) continue;
-		push(item.uuid, item.name, meta);
-	}
-
-	for ( const pack of game.packs ) {
-		if ( pack.documentName !== "Item" ) continue;
-		try {
-			const index = await pack.getIndex({
-				fields: [
-					"flags.sw5e.augmentation",
-					"flags.sw5e-importer",
-					"name",
-					"type",
-					"system.source",
-					"system.description"
-				]
-			});
-			for ( const row of index ) {
-				const stub = {
-					flags: row.flags,
-					system: row.system !== null && typeof row.system === "object" ? row.system : {},
-					type: row.type,
-					name: row.name
-				};
-				const meta = getEffectiveAugmentationItemMeta(stub);
-				if ( !meta || !isValidAugmentationItemMeta(meta) ) continue;
-				const uuid = pack.getUuid(row._id);
-				push(uuid, row.name, meta);
-			}
-		} catch {
-			/* locked / unavailable pack */
-		}
-	}
-
-	choices.sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang));
-	return choices;
 }
 
 function formatValidationHtml(validation) {
@@ -276,7 +247,8 @@ export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) 
 	get title() {
 		const a = this.actor;
 		const name = a?.name ?? localizeOrFallback("SW5E.Augmentations.FallbackActor", "Actor");
-		return `${localizeOrFallback("SW5E.Augmentations.WindowTitle", "Cybernetic augmentations")}: ${name}`;
+		const count = a ? getInstalledAugmentationCount(a) : 0;
+		return `${localizeOrFallback("SW5E.Augmentations.WindowTitle", "Cybernetic augmentations")}: ${name} (${count})`;
 	}
 
 	#boundOnActorUpdate;
@@ -304,6 +276,11 @@ export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) 
 			return {
 				key,
 				label: sideEffectLabel(key),
+				activeLabel: activeSideEffectLabel(key),
+				tooltip: sideEffectTooltip(key, { mode, derived: d }),
+				derived: d,
+				effective: e,
+				mode,
 				derivedText: formatYesNo(d),
 				effectiveText: formatYesNo(e),
 				overrideText: overrideModeText(mode),
@@ -314,9 +291,6 @@ export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) 
 		const isGm = game.user.isGM;
 		const canEdit = Boolean(actor?.isOwner || isGm);
 		const showInstallWorkflow = eligibleKind && validTarget && canEdit;
-
-		let installChoices = [];
-		if ( showInstallWorkflow ) installChoices = await collectAugmentationInstallChoices();
 
 		const occupied = state ? [...collectOccupiedBodySlots(state.installed)].sort() : [];
 		const occupiedSlotsText = occupied.length
@@ -340,12 +314,23 @@ export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) 
 			}
 			if ( !descriptionPreview ) descriptionPreview = snapshotSnippet;
 			const previewOneLine = descriptionPreview ? descriptionPreview.replace(/\s+/g, " ").trim() : "";
+			const slotless = Boolean(entry.slotless);
+			const hasBodySlots = Array.isArray(entry.bodySlots) && entry.bodySlots.length > 0;
 			return {
 				uuid,
 				name: entry.name ?? entry.snapshot?.name ?? "—",
-				category: entry.category ?? "—",
-				rarity: entry.rarity ?? "—",
+				img: entry.snapshot?.img ?? "",
+				category: formatAugmentationCategory(entry.category),
+				rarity: formatAugmentationRarity(entry.rarity),
 				bodySlotsText: Array.isArray(entry.bodySlots) && entry.bodySlots.length ? entry.bodySlots.join(", ") : "—",
+				slotSummary: slotless
+					? localizeOrFallback("SW5E.Augmentations.ColSlotless", "Slotless")
+					: hasBodySlots
+						? entry.bodySlots.join(", ")
+						: "—",
+				slotLabel: slotless
+					? localizeOrFallback("SW5E.Augmentations.ColSlotless", "Slotless")
+					: localizeOrFallback("SW5E.Augmentations.ColSlots", "Body slots"),
 				installedAtText: entry.installedAt
 					? new Date(entry.installedAt).toLocaleDateString(game.i18n.lang)
 					: "—",
@@ -354,11 +339,16 @@ export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) 
 		}));
 
 		const overrideControls = AUGMENTATION_SIDE_EFFECT_KEYS.map(key => {
+			const row = sideEffectRows.find(effect => effect.key === key);
 			const raw = ov[key];
 			const selected = raw === true ? "on" : raw === false ? "off" : "inherit";
 			return {
 				key,
-				label: sideEffectLabel(key),
+				label: row?.label ?? sideEffectLabel(key),
+				statusText: game.i18n.format("SW5E.Augmentations.OverrideStatus", {
+					derived: row?.derivedText ?? formatYesNo(false),
+					effective: row?.effectiveText ?? formatYesNo(false)
+				}),
 				options: [
 					{ value: "inherit", label: localizeOrFallback("SW5E.Augmentations.OverrideInherit", "Use derived"), selected: selected === "inherit" },
 					{ value: "on", label: localizeOrFallback("SW5E.Augmentations.OverrideOn", "Force on"), selected: selected === "on" },
@@ -367,6 +357,15 @@ export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) 
 			};
 		});
 
+		const activeSideEffects = sideEffectRows
+			.filter(row => row.effective)
+			.map(row => ({
+				key: row.key,
+				label: row.activeLabel,
+				tooltip: row.tooltip,
+				isOverrideOnly: (row.mode === "on") && !row.derived
+			}));
+
 		return {
 			actorPresent,
 			eligibleKind,
@@ -374,9 +373,8 @@ export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) 
 			currentCount: state ? getInstalledAugmentationCount(actor, state) : 0,
 			maxCount: actor && state ? getMaxAugmentationsForActor(actor, state) : 0,
 			occupiedSlotsText,
-			sideEffectRows,
+			activeSideEffects,
 			installedRows,
-			installChoices,
 			canEdit,
 			isGm,
 			showGmOverrides: isGm && actorPresent,
@@ -407,15 +405,23 @@ export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) 
 			validationEl.hidden = false;
 		};
 
-		root.querySelector(".sw5e-aug-install-submit")?.addEventListener("click", async () => {
+		root.querySelector(".sw5e-aug-install-submit")?.addEventListener("click", async event => {
 			const actor = this.actor;
 			if ( !actor ) return;
-			const sel = root.querySelector("select[name=\"sw5e-aug-install-uuid\"]");
-			const uuid = sel?.value?.trim();
-			if ( !uuid ) {
-				ui.notifications.warn(game.i18n.localize("SW5E.Augmentations.PickItemFirst"));
+			const button = event.currentTarget;
+			if ( !(button instanceof HTMLButtonElement) ) return;
+			button.disabled = true;
+			let uuid = "";
+			try {
+				uuid = await pickAugmentationCompendiumUuid() ?? "";
+			} catch ( err ) {
+				console.warn("SW5E | Augmentations: browser open failed", err);
+				ui.notifications.error(localizeOrFallback("SW5E.Augmentations.BrowserOpenFailed", "Could not open the augmentation browser."));
 				return;
+			} finally {
+				button.disabled = false;
 			}
+			if ( !uuid ) return;
 			const item = await fromUuid(uuid);
 			if ( !item ) {
 				ui.notifications.error(game.i18n.localize("SW5E.Augmentations.ItemNotFound"));

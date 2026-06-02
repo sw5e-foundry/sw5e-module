@@ -26,8 +26,10 @@ import { AugmentationsApp } from "./augmentations-app.mjs";
 import { registerModuleSettings } from "./settings.mjs";
 import { patchVariantRules } from "./patch/variantRules.mjs";
 import { patchCharacterDeploymentSheet } from "./patch/character-deployment-sheet.mjs";
+import { patchCharacterSheetTabNavigation } from "./patch/character-sheet-tab-navigation.mjs";
 import { getCharacterDeploymentSummary } from "./character-deployments.mjs";
 import { registerCharacterFeaturesDiagnostics } from "./dev/character-features-diagnostics.mjs";
+import { characterImporterApi, registerCharacterImporterHooks } from "./character-importer.mjs";
 
 globalThis.sw5e = {
 	migrations,
@@ -42,6 +44,9 @@ globalThis.sw5e = {
 	},
 	deployments: {
 		getCharacterDeploymentSummary
+	},
+	characterImporter: {
+		...characterImporterApi
 	}
 };
 
@@ -54,6 +59,7 @@ Hooks.once('init', async function() {
 	addHooks();
 	// Pre-load templates
 	handleTemplates();
+	registerCharacterImporterHooks();
 
 	patchConfig(CONFIG.DND5E, strict);
 	registerCurrencyActorHooks();
@@ -75,6 +81,7 @@ Hooks.once('init', async function() {
 	patchDroidCustomizationsSheet();
 	patchVariantRules();
 	patchCharacterDeploymentSheet();
+	patchCharacterSheetTabNavigation();
 });
 
 Hooks.once('ready', async function() {
