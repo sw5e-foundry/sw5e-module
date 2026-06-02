@@ -1,5 +1,12 @@
 ## Changelog
 
+### [1.3.6] TEMP 
+### 2026-06-01
+### Changed
+- Removed effects from backgrounds as they are not supported in DND5e and would cause issues in v14.
+- Added proper tool proficiency advancement options on all backgrounds.
+- Added distinct background features to the items granted by all backgrounds. 
+
 ### [1.3.5] 2026-05-27
 
 ### Changed
