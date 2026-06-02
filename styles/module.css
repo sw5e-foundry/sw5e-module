@@ -4271,7 +4271,36 @@ section.sw5e-augmentations-manager .sw5e-aug-install-submit {
     0 1px 2px rgb(0 0 0 / 28%);
 }
 
+section.sw5e-augmentations-manager .sw5e-aug-install-body {
+  background:
+    linear-gradient(180deg, rgb(32 38 52 / 84%), rgb(20 24 34 / 72%));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 5%),
+    0 0 0 1px rgb(230 171 72 / 20%);
+  border-radius: 6px;
+  padding: 0.65rem;
+  margin-top: 0.35rem;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-install-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-install-actions .sw5e-aug-install-submit {
+  margin-top: 0;
+}
+
 section.sw5e-augmentations-manager .sw5e-aug-install-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  filter: saturate(0.7);
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-install-submit:disabled,
+section.sw5e-augmentations-manager .sw5e-aug-install-world-submit:disabled {
   cursor: wait;
   opacity: 0.72;
   filter: saturate(0.7);
@@ -4285,6 +4314,52 @@ section.sw5e-augmentations-manager .sw5e-aug-install-submit:hover {
 section.sw5e-augmentations-manager .sw5e-aug-install-submit:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--dnd5e-color-gold), transparent 20%);
   outline-offset: 2px;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-install-submit:focus-visible,
+section.sw5e-augmentations-manager .sw5e-aug-install-world-submit:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--dnd5e-color-gold), transparent 20%);
+  outline-offset: 2px;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-install-world-submit {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.85rem;
+  min-height: 1.85rem;
+  border-radius: 4px;
+  font: inherit;
+  font-size: var(--font-size-12);
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgb(255 255 255 / 14%);
+  background: rgb(18 23 34 / 84%);
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 6%);
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-install-world-submit:hover {
+  border-color: rgb(230 171 72 / 38%);
+  background: rgb(24 31 46 / 88%);
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-install-body.sw5e-aug-drop-target--active {
+  box-shadow:
+    inset 0 0 0 1px rgb(230 171 72 / 52%),
+    0 0 0 2px rgb(230 171 72 / 22%);
+  background:
+    linear-gradient(180deg, rgb(44 50 66 / 88%), rgb(26 30 42 / 78%));
+}
+
+section.sw5e-augmentations-inline.sw5e-aug-drop-target--active .sw5e-bodymods-inline-card {
+  border-color: rgb(230 171 72 / 62%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 10%),
+    0 0 0 2px rgb(230 171 72 / 18%);
+  background:
+    linear-gradient(180deg, rgb(72 65 45 / 62%), rgb(45 40 28 / 88%));
 }
 
 section.sw5e-augmentations-manager .sw5e-aug-active-effects {
@@ -4356,6 +4431,17 @@ section.sw5e-augmentations-manager .sw5e-aug-actions .sw5e-aug-remove:focus-visi
 
   section.sw5e-augmentations-manager .sw5e-aug-actions {
     inline-size: 100%;
+  }
+
+  section.sw5e-augmentations-manager .sw5e-aug-install-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  section.sw5e-augmentations-manager .sw5e-aug-install-actions .sw5e-aug-install-submit,
+  section.sw5e-augmentations-manager .sw5e-aug-install-actions .sw5e-aug-install-world-submit {
+    inline-size: 100%;
+    justify-content: center;
   }
 
   section.sw5e-augmentations-manager .sw5e-aug-actions .sw5e-aug-remove {

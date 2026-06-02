@@ -1,4 +1,8 @@
-import { AugmentationsApp } from "../augmentations-app.mjs";
+import {
+	AugmentationsApp,
+	installAugmentationItem,
+	resolveDroppedAugmentationItem
+} from "../augmentations-app.mjs";
 import {
 	getInstalledAugmentationCount,
 	isActorCyberneticAugmentationsManagerAllowed,
@@ -88,6 +92,41 @@ function buildInlineAugmentationsSection(actor, state, { editMode = false } = {}
 	return wrap;
 }
 
+function bindInlineAugmentationDropTarget(section, actor) {
+	let dragDepth = 0;
+	const setActive = active => section.classList.toggle("sw5e-aug-drop-target--active", active);
+
+	section.addEventListener("dragenter", event => {
+		event.preventDefault();
+		event.stopPropagation();
+		dragDepth += 1;
+		setActive(true);
+	});
+
+	section.addEventListener("dragover", event => {
+		event.preventDefault();
+		event.stopPropagation();
+		if ( event.dataTransfer ) event.dataTransfer.dropEffect = "copy";
+		setActive(true);
+	});
+
+	section.addEventListener("dragleave", event => {
+		event.preventDefault();
+		event.stopPropagation();
+		dragDepth = Math.max(0, dragDepth - 1);
+		if ( dragDepth === 0 ) setActive(false);
+	});
+
+	section.addEventListener("drop", async event => {
+		event.preventDefault();
+		event.stopPropagation();
+		dragDepth = 0;
+		setActive(false);
+		const droppedItem = await resolveDroppedAugmentationItem(event);
+		await installAugmentationItem(actor, droppedItem);
+	});
+}
+
 /**
  * Character details tab: `.right` column, after background (`.top.flexrow`), before Senses / Resistances pills.
  * NPC: `.sidebar`, before Senses / Resistances pills.
@@ -133,13 +172,17 @@ function injectAugmentationsBodySection(app, html) {
 	if ( !canSee ) return;
 
 	const editMode = isActorSheetEditMode(app);
+	const canEdit = Boolean(actor.isOwner || game.user.isGM);
+	const validTarget = isActorValidAugmentationTarget(actor);
 	const state = normalizeActorAugmentations(actor);
 	const installedCount = state.installed.length;
 
 	if ( !editMode && installedCount === 0 ) return;
 
 	const section = buildInlineAugmentationsSection(actor, state, { editMode });
-	insertAugmentationsIntoSheetBody(root, actor, section);
+	if ( insertAugmentationsIntoSheetBody(root, actor, section) && canEdit && validTarget ) {
+		bindInlineAugmentationDropTarget(section, actor);
+	}
 }
 
 export function patchAugmentationsSheet() {

@@ -74,32 +74,44 @@
 			<section class="sw5e-augmentations-install">
 				<h3>{{localize "SW5E.Augmentations.InstallTitle"}}</h3>
 				{{#if showInstallWorkflow}}
-					{{#if isGm}}
-						<div class="form-group">
-							<label class="checkbox">
-								<input type="checkbox" name="sw5e-aug-force-install" />
-								{{localize "SW5E.Augmentations.ForceInstallGm"}}
-							</label>
+					<div class="sw5e-aug-install-body" data-sw5e-aug-install-dropzone>
+						{{#if isGm}}
+							<div class="form-group">
+								<label class="checkbox">
+									<input type="checkbox" name="sw5e-aug-force-install" />
+									{{localize "SW5E.Augmentations.ForceInstallGm"}}
+								</label>
+							</div>
+						{{/if}}
+						<div class="sw5e-aug-install-actions">
+							<button type="button" class="sw5e-aug-install-submit">
+								<i class="fas fa-plus" aria-hidden="true"></i> {{localize "SW5E.Augmentations.InstallSubmit"}}
+							</button>
+							{{#if hasWorldInstallChoices}}
+								<button type="button" class="sw5e-aug-install-world-submit">
+									<i class="fas fa-box-open" aria-hidden="true"></i> {{localize "SW5E.Augmentations.WorldInstallButton"}}
+								</button>
+							{{/if}}
 						</div>
-					{{/if}}
-					<button type="button" class="sw5e-aug-install-submit">
-						<i class="fas fa-plus" aria-hidden="true"></i> {{localize "SW5E.Augmentations.InstallSubmit"}}
-					</button>
-					{{#if activeSideEffects.length}}
-						<div class="sw5e-aug-active-effects">
-							{{#each activeSideEffects}}
-								<div
-									class="sw5e-aug-active-effect{{#if isOverrideOnly}} sw5e-aug-active-effect--override{{/if}}"
-									data-tooltip="{{tooltip}}"
-									data-tooltip-direction="UP"
-									title="{{tooltip}}"
-								>
-									<i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
-									<span>{{label}}</span>
-								</div>
-							{{/each}}
-						</div>
-					{{/if}}
+						{{#if hasWorldInstallChoices}}
+							<p class="hint">{{localize "SW5E.Augmentations.WorldInstallHint"}}</p>
+						{{/if}}
+						{{#if activeSideEffects.length}}
+							<div class="sw5e-aug-active-effects">
+								{{#each activeSideEffects}}
+									<div
+										class="sw5e-aug-active-effect{{#if isOverrideOnly}} sw5e-aug-active-effect--override{{/if}}"
+										data-tooltip="{{tooltip}}"
+										data-tooltip-direction="UP"
+										title="{{tooltip}}"
+									>
+										<i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+										<span>{{label}}</span>
+									</div>
+								{{/each}}
+							</div>
+						{{/if}}
+					</div>
 				{{else}}
 					<p class="hint">{{localize "SW5E.Augmentations.InstallUnavailable"}}</p>
 				{{/if}}

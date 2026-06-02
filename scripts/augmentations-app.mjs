@@ -5,12 +5,14 @@ import {
 	AUGMENTATION_SIDE_EFFECT_KEYS,
 	addAugmentationToActor,
 	collectOccupiedBodySlots,
+	getEffectiveAugmentationItemMeta,
 	getMaxAugmentationsForActor,
 	getInstalledAugmentationCount,
 	isActorAugmentationCandidate,
 	isActorCyberneticAugmentationsManagerAllowed,
 	isActorValidAugmentationTarget,
 	isLegacyStarshipActor,
+	isValidAugmentationItemMeta,
 	normalizeActorAugmentations,
 	plainTextExcerptFromItemDescriptionHtml,
 	removeAugmentationFromActor,
@@ -91,6 +93,17 @@ function formatAugmentationRarity(rarity) {
 	return localizeOrFallback(AUGMENTATION_RARITY_LABEL_KEYS[rarity] ?? "", capitalize(rarity ?? "—"));
 }
 
+function formatAugmentationPickerLabel(name, meta) {
+	const n = typeof name === "string" ? name.trim() : "";
+	const base = n || "—";
+	if ( !meta || typeof meta !== "object" ) return base;
+	const catLabel = formatAugmentationCategory(meta.category);
+	const rarLabel = formatAugmentationRarity(meta.rarity);
+	if ( catLabel && rarLabel ) return `${base} — ${catLabel} · ${rarLabel}`;
+	if ( catLabel ) return `${base} — ${catLabel}`;
+	return base;
+}
+
 function sideEffectTooltip(key, { mode = "inherit", derived = false } = {}) {
 	const base = localizeOrFallback(SIDE_EFFECT_TOOLTIP_KEYS[key] ?? "", sideEffectLabel(key));
 	if ( (mode === "on") && !derived ) {
@@ -141,6 +154,73 @@ async function openInstalledAugmentationSource(actor, uuid) {
 	ui.notifications.warn(localizeOrFallback("SW5E.Augmentations.OpenItemNotFound", "Could not open that item. It may have been deleted, the pack is unavailable, or you lack permission."));
 }
 
+function isPersistentAugmentationSourceItem(item) {
+	if ( item?.documentName !== "Item" ) return false;
+	const uuid = typeof item?.uuid === "string" ? item.uuid.trim() : "";
+	return uuid.startsWith("Item.") || uuid.startsWith("Compendium.");
+}
+
+async function collectWorldAugmentationInstallChoices() {
+	const choices = [];
+	const seen = new Set();
+	const push = (uuid, name, meta) => {
+		if ( !uuid || seen.has(uuid) ) return;
+		seen.add(uuid);
+		choices.push({ uuid, name, pickerLabel: formatAugmentationPickerLabel(name, meta) });
+	};
+
+	for ( const item of game.items ) {
+		const meta = getEffectiveAugmentationItemMeta(item);
+		if ( !meta || !isValidAugmentationItemMeta(meta) ) continue;
+		push(item.uuid, item.name, meta);
+	}
+
+	choices.sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang));
+	return choices;
+}
+
+async function promptPickWorldAugmentation() {
+	const choices = await collectWorldAugmentationInstallChoices();
+	if ( !choices.length ) {
+		ui.notifications.warn(game.i18n.localize("SW5E.Augmentations.WorldInstallUnavailable"));
+		return "";
+	}
+
+	const optionsHtml = choices.map(choice => {
+		const value = foundry.utils.escapeHTML(choice.uuid);
+		const label = foundry.utils.escapeHTML(choice.pickerLabel);
+		return `<option value="${value}">${label}</option>`;
+	}).join("");
+
+	const result = await DialogV2.wait({
+		window: { title: game.i18n.localize("SW5E.Augmentations.WorldInstallDialogTitle") },
+		content: [
+			`<p class="hint">${foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.WorldInstallDialogHint"))}</p>`,
+			`<div class="form-group">`,
+			`<label for="sw5e-aug-world-item-choice">${foundry.utils.escapeHTML(game.i18n.localize("SW5E.Augmentations.WorldInstallLabel"))}</label>`,
+			`<select id="sw5e-aug-world-item-choice" name="choice" autofocus>${optionsHtml}</select>`,
+			`</div>`
+		].join(""),
+		buttons: [
+			{
+				action: "choose",
+				label: game.i18n.localize("SW5E.Augmentations.WorldInstallConfirm"),
+				icon: "fas fa-plus",
+				default: true,
+				callback: (_event, button) => button.form?.elements?.choice?.value?.trim?.() ?? ""
+			},
+			{
+				action: "cancel",
+				label: localizeOrFallback("Cancel", "Cancel"),
+				icon: "fas fa-times"
+			}
+		],
+		rejectClose: false
+	});
+
+	return typeof result === "string" && result !== "cancel" ? result : "";
+}
+
 function formatValidationHtml(validation) {
 	if ( !validation ) return "";
 	const lines = [];
@@ -185,6 +265,61 @@ function formatValidationHtml(validation) {
 		lines.push("</dl>");
 	}
 	return lines.join("\n");
+}
+
+export async function resolveDroppedAugmentationItem(event) {
+	const dragData = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
+	if ( !dragData || typeof dragData !== "object" ) return null;
+	try {
+		const item = await Item.implementation.fromDropData(dragData);
+		return isPersistentAugmentationSourceItem(item) ? item : null;
+	} catch {
+		return null;
+	}
+}
+
+export async function installAugmentationItem(actor, item, {
+	force = false,
+	setInstallValidation = null,
+	rerender = null
+} = {}) {
+	if ( !actor ) return { ok: false, validation: null, entry: null, reason: "missing-actor" };
+	if ( !item || item.documentName !== "Item" ) {
+		setInstallValidation?.(null);
+		ui.notifications.warn(game.i18n.localize("SW5E.Augmentations.DropInvalid"));
+		return { ok: false, validation: null, entry: null, reason: "invalid-item" };
+	}
+
+	const validation = validateAugmentationInstall(actor, item, { force });
+	setInstallValidation?.(validation);
+	if ( !validation.ok ) {
+		ui.notifications.warn(game.i18n.localize("SW5E.Augmentations.InstallBlocked"));
+		return { ok: false, validation, entry: null, reason: "blocked" };
+	}
+
+	const result = await addAugmentationToActor(actor, item, { force: force === true });
+	if ( result.ok ) {
+		ui.notifications.info(game.i18n.localize("SW5E.Augmentations.InstallDone"));
+		setInstallValidation?.(null);
+		if ( typeof rerender === "function" ) await rerender();
+		return result;
+	}
+
+	setInstallValidation?.(result.validation);
+	ui.notifications.warn(game.i18n.localize("SW5E.Augmentations.InstallFailed"));
+	return result;
+}
+
+export async function installAugmentationByUuid(actor, uuid, options = {}) {
+	const id = String(uuid ?? "").trim();
+	if ( !id ) return { ok: false, validation: null, entry: null, reason: "missing-uuid" };
+	const item = await fromUuid(id);
+	if ( !item || item.documentName !== "Item" ) {
+		options.setInstallValidation?.(null);
+		ui.notifications.error(game.i18n.localize("SW5E.Augmentations.ItemNotFound"));
+		return { ok: false, validation: null, entry: null, reason: "item-not-found" };
+	}
+	return installAugmentationItem(actor, item, options);
 }
 
 export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) {
@@ -375,6 +510,9 @@ export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) 
 			occupiedSlotsText,
 			activeSideEffects,
 			installedRows,
+			hasWorldInstallChoices: showInstallWorkflow
+				? (await collectWorldAugmentationInstallChoices()).length > 0
+				: false,
 			canEdit,
 			isGm,
 			showGmOverrides: isGm && actorPresent,
@@ -404,44 +542,91 @@ export class AugmentationsApp extends HandlebarsApplicationMixin(ApplicationV2) 
 			validationEl.innerHTML = formatValidationHtml(validation);
 			validationEl.hidden = false;
 		};
-
-		root.querySelector(".sw5e-aug-install-submit")?.addEventListener("click", async event => {
+		const installButtons = root.querySelectorAll(".sw5e-aug-install-submit, .sw5e-aug-install-world-submit");
+		const setInstallBusy = (busy) => {
+			for ( const button of installButtons ) {
+				if ( button instanceof HTMLButtonElement ) button.disabled = busy;
+			}
+		};
+		const installDropZone = root.querySelector("[data-sw5e-aug-install-dropzone]");
+		const setInstallDropActive = (active) => installDropZone?.classList.toggle("sw5e-aug-drop-target--active", active);
+		const installFromUuid = async (uuid) => {
 			const actor = this.actor;
-			if ( !actor ) return;
-			const button = event.currentTarget;
-			if ( !(button instanceof HTMLButtonElement) ) return;
-			button.disabled = true;
-			let uuid = "";
-			try {
-				uuid = await pickAugmentationCompendiumUuid() ?? "";
-			} catch ( err ) {
-				console.warn("SW5E | Augmentations: browser open failed", err);
-				ui.notifications.error(localizeOrFallback("SW5E.Augmentations.BrowserOpenFailed", "Could not open the augmentation browser."));
-				return;
-			} finally {
-				button.disabled = false;
-			}
-			if ( !uuid ) return;
-			const item = await fromUuid(uuid);
-			if ( !item ) {
-				ui.notifications.error(game.i18n.localize("SW5E.Augmentations.ItemNotFound"));
-				return;
-			}
+			if ( !actor || !uuid ) return;
 			const force = game.user.isGM && root.querySelector("input[name=\"sw5e-aug-force-install\"]")?.checked === true;
-			const validation = validateAugmentationInstall(actor, item, { force });
-			setValidation(validation);
-			if ( !validation.ok ) {
-				ui.notifications.warn(game.i18n.localize("SW5E.Augmentations.InstallBlocked"));
-				return;
+			await installAugmentationByUuid(actor, uuid, {
+				force,
+				setInstallValidation: setValidation,
+				rerender: async () => this.render(false)
+			});
+		};
+
+		root.querySelector(".sw5e-aug-install-submit")?.addEventListener("click", async () => {
+			setInstallBusy(true);
+			try {
+				let uuid = "";
+				try {
+					uuid = await pickAugmentationCompendiumUuid() ?? "";
+				} catch ( err ) {
+					console.warn("SW5E | Augmentations: browser open failed", err);
+					ui.notifications.error(localizeOrFallback("SW5E.Augmentations.BrowserOpenFailed", "Could not open the augmentation browser."));
+					return;
+				}
+				await installFromUuid(uuid);
+			} finally {
+				setInstallBusy(false);
 			}
-			const result = await addAugmentationToActor(actor, item, { force: force === true });
-			if ( result.ok ) {
-				ui.notifications.info(game.i18n.localize("SW5E.Augmentations.InstallDone"));
-				setValidation(null);
-				await this.render(false);
-			} else {
-				setValidation(result.validation);
-				ui.notifications.warn(game.i18n.localize("SW5E.Augmentations.InstallFailed"));
+		});
+
+		if ( installDropZone ) {
+			let installDragDepth = 0;
+			installDropZone.addEventListener("dragenter", event => {
+				event.preventDefault();
+				event.stopPropagation();
+				installDragDepth += 1;
+				setInstallDropActive(true);
+			});
+			installDropZone.addEventListener("dragover", event => {
+				event.preventDefault();
+				event.stopPropagation();
+				if ( event.dataTransfer ) event.dataTransfer.dropEffect = "copy";
+				setInstallDropActive(true);
+			});
+			installDropZone.addEventListener("dragleave", event => {
+				event.preventDefault();
+				event.stopPropagation();
+				installDragDepth = Math.max(0, installDragDepth - 1);
+				if ( installDragDepth === 0 ) setInstallDropActive(false);
+			});
+			installDropZone.addEventListener("drop", async event => {
+				event.preventDefault();
+				event.stopPropagation();
+				installDragDepth = 0;
+				setInstallDropActive(false);
+				const actor = this.actor;
+				if ( !actor ) return;
+				setInstallBusy(true);
+				try {
+					const droppedItem = await resolveDroppedAugmentationItem(event);
+					const force = game.user.isGM && root.querySelector("input[name=\"sw5e-aug-force-install\"]")?.checked === true;
+					await installAugmentationItem(actor, droppedItem, {
+						force,
+						setInstallValidation: setValidation,
+						rerender: async () => this.render(false)
+					});
+				} finally {
+					setInstallBusy(false);
+				}
+			});
+		}
+
+		root.querySelector(".sw5e-aug-install-world-submit")?.addEventListener("click", async () => {
+			setInstallBusy(true);
+			try {
+				const uuid = await promptPickWorldAugmentation();
+				await installFromUuid(uuid);
+			} finally {
+				setInstallBusy(false);
 			}
 		});
 
