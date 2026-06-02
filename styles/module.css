@@ -3905,6 +3905,22 @@ section.sw5e-augmentations-manager .notification.warning {
   color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 4%);
 }
 
+section.sw5e-augmentations-manager :is(
+  .sw5e-augmentations-summary,
+  .sw5e-augmentations-installed,
+  .sw5e-augmentations-install,
+  .sw5e-augmentations-gm
+) {
+  margin: 0 0 0.6rem;
+  padding: 0.55rem 0.65rem 0.65rem;
+  border: 1px solid rgb(255 255 255 / 9%);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 4%), rgb(255 255 255 / 1%)),
+    rgb(0 0 0 / 14%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 4%);
+}
+
 section.sw5e-augmentations-manager h3 {
   margin: 0.65rem 0 0.4rem;
   font-family: var(--dnd5e-font-tertiary, var(--font-primary));
@@ -3917,7 +3933,12 @@ section.sw5e-augmentations-manager h3 {
   padding-bottom: 0.32rem;
 }
 
-section.sw5e-augmentations-manager .sw5e-augmentations-summary h3 {
+section.sw5e-augmentations-manager :is(
+  .sw5e-augmentations-summary,
+  .sw5e-augmentations-installed,
+  .sw5e-augmentations-install,
+  .sw5e-augmentations-gm
+) > h3 {
   margin-top: 0;
 }
 
@@ -3957,6 +3978,68 @@ section.sw5e-augmentations-manager .sw5e-aug-kv-row dd {
   margin: 0;
   color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 4%);
   font-variant-numeric: tabular-nums;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-installed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-installed-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.42rem;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 7px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 2%), transparent),
+    rgb(8 11 18 / 54%);
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-installed-main {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-installed-art {
+  flex: 0 0 54px;
+  inline-size: 54px;
+  block-size: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid rgb(255 255 255 / 9%);
+  background: linear-gradient(180deg, rgb(98 121 170 / 24%), rgb(24 29 42 / 62%));
+  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 14%);
+  font-size: 1.15rem;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-installed-art img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-installed-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-installed-header {
+  min-width: 0;
 }
 
 section.sw5e-augmentations-manager .sw5e-aug-table {
@@ -4012,11 +4095,7 @@ section.sw5e-augmentations-manager tr.sw5e-aug-differs td {
 }
 
 section.sw5e-augmentations-manager .sw5e-augmentations-gm {
-  margin: 0.15rem 0 0.35rem;
-  padding: 0.45rem 0.5rem;
-  border: 1px solid rgb(255 255 255 / 8%);
-  border-radius: 6px;
-  background: rgb(0 0 0 / 14%);
+  margin-bottom: 0;
 }
 
 section.sw5e-augmentations-manager .sw5e-augmentations-gm .hint {
@@ -4117,6 +4196,49 @@ section.sw5e-augmentations-manager .sw5e-aug-info-dl dd {
   color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 5%);
 }
 
+section.sw5e-augmentations-manager .sw5e-aug-installed-title,
+section.sw5e-augmentations-manager button.sw5e-aug-installed-name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--font-size-16);
+  font-weight: 700;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-installed-title {
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 4%);
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-installed-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.16rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 11%);
+  background: rgb(255 255 255 / 5%);
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 6%);
+  font-size: var(--font-size-11);
+  line-height: 1.2;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-meta-pill--detail {
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 10%);
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-installed-date {
+  margin: 0;
+  font-size: var(--font-size-11);
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 12%);
+}
+
 section.sw5e-augmentations-manager .sw5e-aug-install-submit {
   appearance: none;
   display: inline-flex;
@@ -4139,6 +4261,12 @@ section.sw5e-augmentations-manager .sw5e-aug-install-submit {
     0 1px 2px rgb(0 0 0 / 28%);
 }
 
+section.sw5e-augmentations-manager .sw5e-aug-install-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  filter: saturate(0.7);
+}
+
 section.sw5e-augmentations-manager .sw5e-aug-install-submit:hover {
   filter: brightness(1.08);
   border-color: var(--dnd5e-color-gold);
@@ -4147,6 +4275,40 @@ section.sw5e-augmentations-manager .sw5e-aug-install-submit:hover {
 section.sw5e-augmentations-manager .sw5e-aug-install-submit:focus-visible {
   outline: 2px solid color-mix(in oklab, var(--dnd5e-color-gold), transparent 20%);
   outline-offset: 2px;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-active-effects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-active-effect {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid rgb(230 171 72 / 28%);
+  background: rgb(230 171 72 / 9%);
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 4%);
+  font-size: var(--font-size-12);
+  line-height: 1.35;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-active-effect i {
+  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 10%);
+  margin-top: 0.05rem;
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-active-effect--override {
+  border-color: rgb(98 121 170 / 42%);
+  background: rgb(98 121 170 / 12%);
+}
+
+section.sw5e-augmentations-manager .sw5e-aug-override-status {
+  margin: 0 0 0.22rem;
 }
 
 section.sw5e-augmentations-manager .sw5e-aug-actions .sw5e-aug-remove {
@@ -4174,6 +4336,22 @@ section.sw5e-augmentations-manager .sw5e-aug-actions .sw5e-aug-remove:hover {
 section.sw5e-augmentations-manager .sw5e-aug-actions .sw5e-aug-remove:focus-visible {
   outline: 2px solid rgb(255 150 140 / 55%);
   outline-offset: 1px;
+}
+
+@media (max-width: 560px) {
+  section.sw5e-augmentations-manager .sw5e-aug-installed-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  section.sw5e-augmentations-manager .sw5e-aug-actions {
+    inline-size: 100%;
+  }
+
+  section.sw5e-augmentations-manager .sw5e-aug-actions .sw5e-aug-remove {
+    inline-size: 100%;
+    justify-content: center;
+  }
 }
 
 /* ——— Droid customizations manager (ApplicationV2): parallel shell to augmentations ——— */
