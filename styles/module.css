@@ -3712,6 +3712,16 @@ form .notes {
   outline-offset: 2px;
 }
 
+.dnd5e2.sheet.actor .sw5e-droid-customizations-inline.sw5e-droid-drop-target--active .sw5e-bodymods-inline-card {
+  border-color: color-mix(in oklab, var(--dnd5e-color-gold), white 12%);
+  background:
+    linear-gradient(180deg, rgb(186 144 84 / 20%), rgb(255 255 255 / 0%)),
+    color-mix(in oklab, var(--dnd5e-background-5, rgb(0 0 0 / 18%)) 62%, rgb(120 92 48 / 22%));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 7%),
+    0 0 0 1px rgb(230 171 72 / 28%);
+}
+
 .dnd5e2.sheet.actor .sw5e-bodymods-inline .sw5e-bodymods-inline-card--empty {
   justify-content: center;
   padding: 0.58rem 0.8rem;
@@ -4446,6 +4456,12 @@ section.sw5e-droid-customizations-manager button.sw5e-droid-installed-name {
 
 section.sw5e-droid-customizations-manager button.sw5e-droid-installed-name:hover {
   color: var(--dnd5e-color-gold);
+  text-decoration-color: rgb(230 171 72 / 55%);
+}
+
+section.sw5e-droid-customizations-manager button.sw5e-droid-installed-name:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--dnd5e-color-gold), transparent 25%);
+  outline-offset: 2px;
 }
 
 section.sw5e-droid-customizations-manager .sw5e-droid-customizations-app .notification {
@@ -4464,12 +4480,99 @@ section.sw5e-droid-customizations-manager h3 {
   padding-bottom: 0.32rem;
 }
 
-section.sw5e-droid-customizations-manager .sw5e-droid-customizations-summary h3 {
+section.sw5e-droid-customizations-manager :is(
+  .sw5e-droid-customizations-summary,
+  .sw5e-droid-customizations-installed,
+  .sw5e-droid-customizations-motor,
+  .sw5e-droid-customizations-limits
+) {
+  margin: 0 0 0.55rem;
+  padding: 0.62rem 0.7rem 0.68rem;
+  border: 1px solid rgb(255 255 255 / 7%);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 2.5%), transparent),
+    rgb(7 10 16 / 52%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 4%);
+}
+
+section.sw5e-droid-customizations-manager :is(
+  .sw5e-droid-customizations-summary,
+  .sw5e-droid-customizations-installed,
+  .sw5e-droid-customizations-motor,
+  .sw5e-droid-customizations-limits
+) h3 {
   margin-top: 0;
 }
 
 section.sw5e-droid-customizations-manager .sw5e-droid-customizations-limits {
-  margin-top: 0.45rem;
+  margin-bottom: 0;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.32rem;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid rgb(230 171 72 / 28%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-section-header h3 {
+  margin: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-section-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-collapsible {
+  display: block;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-collapsible-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-collapsible-summary::-webkit-details-marker {
+  display: none;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-collapsible-summary h3 {
+  flex: 1 1 auto;
+  margin-bottom: 0;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-collapsible-summary i {
+  flex: 0 0 auto;
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 8%);
+  transition: transform 120ms ease, color 120ms ease;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-collapsible[open] .sw5e-droid-collapsible-summary i {
+  transform: rotate(180deg);
+  color: var(--dnd5e-color-gold);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-collapsible-summary:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--dnd5e-color-gold), transparent 25%);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-collapsible-content {
+  margin-top: 0.55rem;
 }
 
 section.sw5e-droid-customizations-manager .notes {
@@ -4500,6 +4603,163 @@ section.sw5e-droid-customizations-manager .sw5e-aug-kv-row dt {
 
 section.sw5e-droid-customizations-manager .sw5e-aug-kv-row dd {
   margin: 0;
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 4%);
+  font-variant-numeric: tabular-nums;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.42rem;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 7px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 2%), transparent),
+    rgb(8 11 18 / 54%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-main {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-art {
+  flex: 0 0 54px;
+  inline-size: 54px;
+  block-size: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid rgb(255 255 255 / 9%);
+  background: linear-gradient(180deg, rgb(98 121 170 / 24%), rgb(24 29 42 / 62%));
+  color: color-mix(in oklab, var(--dnd5e-color-gold), transparent 14%);
+  font-size: 1.15rem;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-art img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  min-width: 0;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-title,
+section.sw5e-droid-customizations-manager button.sw5e-droid-installed-name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--font-size-16);
+  font-weight: 700;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-title {
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 4%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.16rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 11%);
+  background: rgb(255 255 255 / 5%);
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 6%);
+  font-size: var(--font-size-11);
+  line-height: 1.2;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-meta-pill--detail {
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 10%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-date {
+  margin: 0;
+  font-size: var(--font-size-11);
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 12%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-install {
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgb(255 255 255 / 8%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-install h4 {
+  margin: 0 0 0.4rem;
+  font-family: var(--dnd5e-font-tertiary, var(--font-primary));
+  font-size: var(--font-size-11);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 10%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-motor-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0.55rem;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-motor-stat {
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 8%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-motor-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.45rem;
+  margin: 0.45rem 0 0.2rem;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-motor-preview-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.38rem 0.48rem;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 6px;
+  background: rgb(255 255 255 / 3%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-motor-preview-label {
+  font-size: var(--font-size-11);
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 10%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-motor-preview-value {
+  font-size: var(--font-size-13);
+  font-weight: 700;
   color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 4%);
   font-variant-numeric: tabular-nums;
 }
@@ -4547,6 +4807,14 @@ section.sw5e-droid-customizations-manager .form-group {
   margin: 0.35rem 0;
 }
 
+section.sw5e-droid-customizations-manager .form-group label {
+  display: block;
+  margin-bottom: 0.22rem;
+  font-size: var(--font-size-11);
+  font-weight: 600;
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 6%);
+}
+
 section.sw5e-droid-customizations-manager .checkbox {
   display: flex;
   align-items: flex-start;
@@ -4570,6 +4838,11 @@ section.sw5e-droid-customizations-manager select {
   color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 6%);
 }
 
+section.sw5e-droid-customizations-manager select:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--dnd5e-color-gold), transparent 25%);
+  outline-offset: 1px;
+}
+
 section.sw5e-droid-customizations-manager .hint {
   margin: 0.25rem 0 0.35rem;
   font-size: var(--font-size-11);
@@ -4589,6 +4862,11 @@ section.sw5e-droid-customizations-manager .sw5e-aug-validation {
   line-height: 1.38;
 }
 
+section.sw5e-droid-customizations-manager .sw5e-aug-validation ul {
+  margin: 0.25rem 0 0.35rem 1.1rem;
+  padding: 0;
+}
+
 section.sw5e-droid-customizations-manager .sw5e-aug-val-blocking {
   color: rgb(255 186 178);
   font-weight: 600;
@@ -4604,6 +4882,42 @@ section.sw5e-droid-customizations-manager .sw5e-aug-info-dl {
   grid-template-columns: auto 1fr;
   gap: 0.15rem 0.75rem;
   margin: 0.25rem 0;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-aug-info-dl dt {
+  font-weight: 600;
+  margin: 0;
+  color: color-mix(in oklab, var(--dnd5e-color-tan), transparent 8%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-aug-info-dl dd {
+  margin: 0;
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 5%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-install-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.42rem;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-installed-install.sw5e-droid-drop-target--active {
+  border-color: rgb(230 171 72 / 42%);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 2.5%), transparent),
+    rgb(20 24 34 / 72%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 5%),
+    0 0 0 1px rgb(230 171 72 / 20%);
+  border-radius: 6px;
+  padding: 0.65rem;
+  margin: 0.55rem -0.1rem -0.1rem;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-install-actions .sw5e-aug-install-submit {
+  margin-top: 0;
 }
 
 section.sw5e-droid-customizations-manager .sw5e-aug-install-submit {
@@ -4625,6 +4939,47 @@ section.sw5e-droid-customizations-manager .sw5e-aug-install-submit {
   color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 4%);
 }
 
+section.sw5e-droid-customizations-manager .sw5e-aug-install-submit:disabled,
+section.sw5e-droid-customizations-manager .sw5e-droid-install-world-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  filter: saturate(0.7);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-aug-install-submit:hover {
+  filter: brightness(1.08);
+  border-color: var(--dnd5e-color-gold);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-aug-install-submit:focus-visible,
+section.sw5e-droid-customizations-manager .sw5e-droid-install-world-submit:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--dnd5e-color-gold), transparent 20%);
+  outline-offset: 2px;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-install-world-submit {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.85rem;
+  min-height: 1.85rem;
+  border-radius: 4px;
+  font: inherit;
+  font-size: var(--font-size-12);
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgb(255 255 255 / 14%);
+  background: rgb(18 23 34 / 84%);
+  color: color-mix(in oklab, var(--dnd5e-color-parchment), transparent 6%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-droid-install-world-submit:hover {
+  border-color: rgb(230 171 72 / 38%);
+  background: rgb(24 31 46 / 88%);
+}
+
 section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove {
   appearance: none;
   display: inline-flex;
@@ -4640,6 +4995,43 @@ section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove {
   background: rgb(60 22 24 / 55%);
   color: rgb(255 210 205);
   white-space: nowrap;
+}
+
+section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove:hover {
+  border-color: rgb(200 90 90 / 55%);
+  background: rgb(80 28 30 / 62%);
+}
+
+section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove:focus-visible {
+  outline: 2px solid rgb(255 150 140 / 55%);
+  outline-offset: 1px;
+}
+
+@media (max-width: 560px) {
+  section.sw5e-droid-customizations-manager .sw5e-droid-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  section.sw5e-droid-customizations-manager .sw5e-droid-section-stats {
+    justify-content: flex-start;
+  }
+
+  section.sw5e-droid-customizations-manager .sw5e-droid-installed-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  section.sw5e-droid-customizations-manager .sw5e-aug-actions {
+    inline-size: 100%;
+  }
+
+  section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove,
+  section.sw5e-droid-customizations-manager .sw5e-aug-install-submit,
+  section.sw5e-droid-customizations-manager .sw5e-droid-install-world-submit {
+    inline-size: 100%;
+    justify-content: center;
+  }
 }
 
 /* Global pause overlay — SW5E-style dual rings (module-owned SVGs, see assets/ui/) */

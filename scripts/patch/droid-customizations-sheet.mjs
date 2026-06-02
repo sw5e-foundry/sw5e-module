@@ -1,4 +1,8 @@
-import { DroidCustomizationsApp } from "../droid-customizations-app.mjs";
+import {
+	DroidCustomizationsApp,
+	installDroidCustomizationItem,
+	resolveDroppedDroidCustomizationItem
+} from "../droid-customizations-app.mjs";
 import {
 	isActorDroidCustomizationsManagerAllowed,
 	normalizeActorDroidCustomizations
@@ -62,6 +66,41 @@ function buildInlineDroidCustomizationsSection(actor, state, { editMode = false 
 	return wrap;
 }
 
+function bindInlineDroidCustomizationDropTarget(section, actor) {
+	let dragDepth = 0;
+	const setActive = active => section.classList.toggle("sw5e-droid-drop-target--active", active);
+
+	section.addEventListener("dragenter", event => {
+		event.preventDefault();
+		event.stopPropagation();
+		dragDepth += 1;
+		setActive(true);
+	});
+
+	section.addEventListener("dragover", event => {
+		event.preventDefault();
+		event.stopPropagation();
+		if ( event.dataTransfer ) event.dataTransfer.dropEffect = "copy";
+		setActive(true);
+	});
+
+	section.addEventListener("dragleave", event => {
+		event.preventDefault();
+		event.stopPropagation();
+		dragDepth = Math.max(0, dragDepth - 1);
+		if ( dragDepth === 0 ) setActive(false);
+	});
+
+	section.addEventListener("drop", async event => {
+		event.preventDefault();
+		event.stopPropagation();
+		dragDepth = 0;
+		setActive(false);
+		const droppedItem = await resolveDroppedDroidCustomizationItem(event);
+		await installDroidCustomizationItem(actor, droppedItem);
+	});
+}
+
 /**
  * Same mount targets as cybernetic augmentations: details `.right` (character) or NPC `.sidebar`, before Senses / DR pills.
  */
@@ -116,10 +155,13 @@ function injectDroidCustomizationsBodySection(app, html) {
 	if ( !canSee ) return;
 
 	const editMode = isActorSheetEditMode(app);
+	const canEdit = Boolean(actor.isOwner || game.user.isGM);
 	const state = normalizeActorDroidCustomizations(actor);
 
 	const section = buildInlineDroidCustomizationsSection(actor, state, { editMode });
-	insertDroidSectionIntoSheetBody(root, actor, section);
+	if ( insertDroidSectionIntoSheetBody(root, actor, section) && canEdit ) {
+		bindInlineDroidCustomizationDropTarget(section, actor);
+	}
 }
 
 export function patchDroidCustomizationsSheet() {

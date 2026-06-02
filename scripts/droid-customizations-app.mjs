@@ -1,4 +1,5 @@
 import { getModulePath } from "./module-support.mjs";
+import { pickDroidCustomizationCompendiumUuid } from "./droid-customizations-browser.mjs";
 import {
 	addDroidCustomizationToActor,
 	DROID_PARTS_ABILITY_KEYS,
@@ -27,6 +28,34 @@ const DialogV2 = foundry.applications.api.DialogV2;
 function localizeOrFallback(key, fallback) {
 	const localized = game.i18n.localize(key);
 	return localized && localized !== key ? localized : fallback;
+}
+
+function capitalize(text) {
+	return typeof text === "string" && text
+		? text.charAt(0).toUpperCase() + text.slice(1)
+		: "";
+}
+
+const DROID_CATEGORY_LABEL_KEYS = Object.freeze({
+	part: "SW5E.DroidCustomizations.PickerCategoryPart",
+	protocol: "SW5E.DroidCustomizations.PickerCategoryProtocol"
+});
+
+const DROID_RARITY_LABEL_KEYS = Object.freeze({
+	standard: "DND5E.ItemRarityCommon",
+	premium: "DND5E.ItemRarityUncommon",
+	prototype: "DND5E.ItemRarityRare",
+	advanced: "DND5E.ItemRarityVeryRare",
+	legendary: "DND5E.ItemRarityLegendary",
+	artifact: "DND5E.ItemRarityArtifact"
+});
+
+function formatDroidCategory(category) {
+	return localizeOrFallback(DROID_CATEGORY_LABEL_KEYS[category] ?? "", capitalize(category ?? "—"));
+}
+
+function formatDroidRarity(rarity) {
+	return localizeOrFallback(DROID_RARITY_LABEL_KEYS[rarity] ?? "", capitalize(rarity ?? "—"));
 }
 
 function getAbilityLabel(key) {
@@ -400,21 +429,14 @@ function formatDroidPickerLabel(name, meta) {
 	const n = typeof name === "string" ? name.trim() : "";
 	const base = n || "—";
 	if ( !meta || typeof meta !== "object" ) return base;
-	const catRaw = meta.category;
-	const catLabel = catRaw === "protocol"
-		? localizeOrFallback("SW5E.DroidCustomizations.PickerCategoryProtocol", "Protocol")
-		: catRaw === "part"
-			? localizeOrFallback("SW5E.DroidCustomizations.PickerCategoryPart", "Part")
-			: "";
-	let rarLabel = "";
-	const rar = meta.rarity;
-	if ( typeof rar === "string" && rar ) rarLabel = rar.charAt(0).toUpperCase() + rar.slice(1);
+	const catLabel = formatDroidCategory(meta.category);
+	const rarLabel = formatDroidRarity(meta.rarity);
 	if ( catLabel && rarLabel ) return `${base} — ${catLabel} · ${rarLabel}`;
 	if ( catLabel ) return `${base} — ${catLabel}`;
 	return base;
 }
 
-async function collectDroidCustomizationInstallChoices() {
+async function collectWorldDroidCustomizationInstallChoices() {
 	const choices = [];
 	const seen = new Set();
 	const push = (uuid, name, meta) => {
@@ -429,39 +451,50 @@ async function collectDroidCustomizationInstallChoices() {
 		push(item.uuid, item.name, meta);
 	}
 
-	for ( const pack of game.packs ) {
-		if ( pack.documentName !== "Item" ) continue;
-		try {
-			await pack.getIndex({
-				fields: [
-					"flags.sw5e.droidCustomization",
-					"flags.sw5e-importer",
-					"name",
-					"type",
-					"system.source",
-					"system.description",
-					"system.rarity"
-				]
-			});
-			for ( const row of pack.index.values() ) {
-				const stub = {
-					flags: row.flags,
-					system: row.system !== null && typeof row.system === "object" ? row.system : {},
-					type: row.type,
-					name: row.name
-				};
-				const meta = getEffectiveDroidCustomizationItemMeta(stub);
-				if ( !meta || !isValidDroidCustomizationItemMeta(meta) ) continue;
-				const uuid = pack.getUuid(row._id);
-				push(uuid, row.name, meta);
-			}
-		} catch {
-			/* pack unavailable */
-		}
-	}
-
 	choices.sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang));
 	return choices;
+}
+
+async function promptPickWorldDroidCustomization() {
+	const choices = await collectWorldDroidCustomizationInstallChoices();
+	if ( !choices.length ) {
+		ui.notifications.warn(game.i18n.localize("SW5E.DroidCustomizations.WorldInstallUnavailable"));
+		return "";
+	}
+
+	const optionsHtml = choices.map(choice => {
+		const value = foundry.utils.escapeHTML(choice.uuid);
+		const label = foundry.utils.escapeHTML(choice.pickerLabel);
+		return `<option value="${value}">${label}</option>`;
+	}).join("");
+
+	const result = await DialogV2.wait({
+		window: { title: game.i18n.localize("SW5E.DroidCustomizations.WorldInstallDialogTitle") },
+		content: [
+			`<p class="hint">${foundry.utils.escapeHTML(game.i18n.localize("SW5E.DroidCustomizations.WorldInstallDialogHint"))}</p>`,
+			`<div class="form-group">`,
+			`<label for="sw5e-droid-world-item-choice">${foundry.utils.escapeHTML(game.i18n.localize("SW5E.DroidCustomizations.WorldInstallLabel"))}</label>`,
+			`<select id="sw5e-droid-world-item-choice" name="choice" autofocus>${optionsHtml}</select>`,
+			`</div>`
+		].join(""),
+		buttons: [
+			{
+				action: "choose",
+				label: game.i18n.localize("SW5E.DroidCustomizations.WorldInstallConfirm"),
+				icon: "fas fa-plus",
+				default: true,
+				callback: (_event, button) => button.form?.elements?.choice?.value?.trim?.() ?? ""
+			},
+			{
+				action: "cancel",
+				label: localizeOrFallback("Cancel", "Cancel"),
+				icon: "fas fa-times"
+			}
+		],
+		rejectClose: false
+	});
+
+	return typeof result === "string" && result !== "cancel" ? result : "";
 }
 
 function formatDroidValidationHtml(validation) {
@@ -532,24 +565,78 @@ async function openInstalledDroidSource(actor, uuid) {
 	ui.notifications.warn(localizeOrFallback("SW5E.DroidCustomizations.OpenItemNotFound", "Could not open that item."));
 }
 
-function explainPartsLimit(state) {
-	const lim = state.limits;
-	const pol = state.derived.capacity.partsPolicy;
-	const ab = lim.partsAbility;
-	if ( pol === "explicit" && typeof ab === "string" && ab ) {
-		return game.i18n.format("SW5E.DroidCustomizations.PolicyPartsExplicit", { ability: ab.toUpperCase() });
+export async function resolveDroppedDroidCustomizationItem(event) {
+	const dragData = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
+	if ( !dragData || typeof dragData !== "object" ) return null;
+	try {
+		const item = await Item.implementation.fromDropData(dragData);
+		return item?.documentName === "Item" ? item : null;
+	} catch {
+		return null;
 	}
-	return game.i18n.localize("SW5E.DroidCustomizations.PolicyPartsFallback");
 }
 
-function explainProtocolsLimit(state) {
-	const lim = state.limits;
-	const pol = state.derived.capacity.protocolsPolicy;
-	const ab = lim.protocolsAbility;
-	if ( pol === "explicit" && typeof ab === "string" && ab ) {
-		return game.i18n.format("SW5E.DroidCustomizations.PolicyProtocolsExplicit", { ability: ab.toUpperCase() });
+export async function installDroidCustomizationItem(actor, item, {
+	force = false,
+	setInstallValidation = null,
+	rerender = null
+} = {}) {
+	if ( !actor ) return { ok: false, validation: null, entry: null, reason: "missing-actor" };
+	if ( !item || item.documentName !== "Item" ) {
+		setInstallValidation?.(null);
+		ui.notifications.warn(game.i18n.localize("SW5E.DroidCustomizations.DropInvalid"));
+		return { ok: false, validation: null, entry: null, reason: "invalid-item" };
 	}
-	return game.i18n.localize("SW5E.DroidCustomizations.PolicyProtocolsFallback");
+
+	const validation = validateDroidCustomizationInstall(actor, item, { force });
+	setInstallValidation?.(validation);
+	if ( !validation.ok ) {
+		ui.notifications.warn(game.i18n.localize("SW5E.DroidCustomizations.InstallBlocked"));
+		return { ok: false, validation, entry: null, reason: "blocked" };
+	}
+
+	if ( !force ) {
+		const installInfo = validation.info ?? {};
+		const outcome = await promptDroidProcedureCheck({
+			kind: "install",
+			hostActor: actor,
+			itemName: item.name ?? "—",
+			procedureInfo: installInfo,
+			warnings: validation.warnings
+		});
+		if ( outcome !== "success" ) {
+			if ( outcome === "failure" ) {
+				await recordDroidCustomizationFailure(actor, "install");
+				ui.notifications.warn(game.i18n.localize("SW5E.DroidCustomizations.InstallCheckFailed"));
+				if ( typeof rerender === "function" ) await rerender();
+			}
+			return { ok: false, validation, entry: null, reason: outcome ?? "cancelled" };
+		}
+	}
+
+	const result = await addDroidCustomizationToActor(actor, item, { force: force === true });
+	if ( result.ok ) {
+		ui.notifications.info(game.i18n.localize("SW5E.DroidCustomizations.InstallDone"));
+		setInstallValidation?.(null);
+		if ( typeof rerender === "function" ) await rerender();
+		return result;
+	}
+
+	setInstallValidation?.(result.validation);
+	ui.notifications.warn(game.i18n.localize("SW5E.DroidCustomizations.InstallFailed"));
+	return result;
+}
+
+export async function installDroidCustomizationByUuid(actor, uuid, options = {}) {
+	const id = String(uuid ?? "").trim();
+	if ( !id ) return { ok: false, validation: null, entry: null, reason: "missing-uuid" };
+	const item = await fromUuid(id);
+	if ( !item || item.documentName !== "Item" ) {
+		options.setInstallValidation?.(null);
+		ui.notifications.error(game.i18n.localize("SW5E.DroidCustomizations.ItemNotFound"));
+		return { ok: false, validation: null, entry: null, reason: "item-not-found" };
+	}
+	return installDroidCustomizationItem(actor, item, options);
 }
 
 export class DroidCustomizationsApp extends HandlebarsApplicationMixin(ApplicationV2) {
@@ -627,31 +714,23 @@ export class DroidCustomizationsApp extends HandlebarsApplicationMixin(Applicati
 		const isGm = game.user.isGM;
 		const canEdit = Boolean(actor?.isOwner || isGm);
 		const showWorkflow = eligible && canEdit;
-
-		let installChoices = [];
-		if ( showWorkflow ) installChoices = await collectDroidCustomizationInstallChoices();
+		const hasWorldInstallChoices = showWorkflow
+			? (await collectWorldDroidCustomizationInstallChoices()).length > 0
+			: false;
 
 		const installedList = state?.installed ?? [];
 		const installedRows = installedList.map(entry => {
 			const uuid = entry.uuid ?? "";
-			const cat = entry.category ?? "";
-			const catLabel = cat === "protocol"
-				? game.i18n.localize("SW5E.DroidCustomizations.CategoryProtocol")
-				: cat === "part"
-					? game.i18n.localize("SW5E.DroidCustomizations.CategoryPart")
-					: cat || "—";
-			const rar = entry.rarity ?? "—";
-			const rarLabel = typeof rar === "string" && rar ? rar.charAt(0).toUpperCase() + rar.slice(1) : String(rar);
 			return {
 				uuid,
 				name: entry.name ?? entry.snapshot?.name ?? "—",
-				categoryLabel: catLabel,
-				rarity: rarLabel,
+				img: entry.snapshot?.img ?? "",
+				categoryLabel: formatDroidCategory(entry.category),
+				rarity: formatDroidRarity(entry.rarity),
 				motorSlotCost: Math.max(1, Math.floor(Number(entry.motorSlotCost) || 1)),
 				installedAtText: entry.installedAt
 					? new Date(entry.installedAt).toLocaleDateString(game.i18n.lang)
-					: "—",
-				sourceType: entry.sourceType ?? ""
+					: "—"
 			};
 		});
 
@@ -675,8 +754,6 @@ export class DroidCustomizationsApp extends HandlebarsApplicationMixin(Applicati
 			};
 		});
 
-		const partsExplain = state ? explainPartsLimit(state) : "";
-		const protocolsExplain = state ? explainProtocolsLimit(state) : "";
 		const limitsPartsAbility = state?.limits?.partsAbility ?? "";
 		const limitsProtocolsAbility = state?.limits?.protocolsAbility ?? "";
 
@@ -686,13 +763,10 @@ export class DroidCustomizationsApp extends HandlebarsApplicationMixin(Applicati
 			motorSlots: state?.motorSlots ?? 0,
 			motorUsed: cap?.motorUsed ?? 0,
 			motorAvailable: cap?.motorAvailable ?? 0,
-			installedTotal: counts?.total ?? 0,
 			partsCount: counts?.parts ?? 0,
 			protocolsCount: counts?.protocols ?? 0,
 			partsAllowed: cap?.partsAllowed ?? 0,
 			protocolsAllowed: cap?.protocolsAllowed ?? 0,
-			partsExplain,
-			protocolsExplain,
 			limitsPartsAbility,
 			limitsProtocolsAbility,
 			limitsPartsAbilityLabel: limitsPartsAbility ? getAbilityLabel(limitsPartsAbility) : "",
@@ -700,7 +774,7 @@ export class DroidCustomizationsApp extends HandlebarsApplicationMixin(Applicati
 			partsAbilityOptions: makeAbilityOptions(DROID_PARTS_ABILITY_KEYS, limitsPartsAbility),
 			protocolsAbilityOptions: makeAbilityOptions(DROID_PROTOCOLS_ABILITY_KEYS, limitsProtocolsAbility),
 			installedRows,
-			installChoices,
+			hasWorldInstallChoices,
 			canEdit,
 			isGm,
 			showWorkflow,
@@ -741,6 +815,14 @@ export class DroidCustomizationsApp extends HandlebarsApplicationMixin(Applicati
 			motorValidationEl.innerHTML = formatDroidValidationHtml(validation);
 			motorValidationEl.hidden = false;
 		};
+		const installButtons = root.querySelectorAll(".sw5e-droid-install-submit, .sw5e-droid-install-world-submit");
+		const setInstallBusy = (busy) => {
+			for ( const button of installButtons ) {
+				if ( button instanceof HTMLButtonElement ) button.disabled = busy;
+			}
+		};
+		const installDropZone = root.querySelector("[data-sw5e-droid-install-dropzone]");
+		const setInstallDropActive = (active) => installDropZone?.classList.toggle("sw5e-droid-drop-target--active", active);
 
 		const motorSelect = root.querySelector("select[name=\"sw5e-droid-motor-target\"]");
 		const refreshMotorPreview = () => {
@@ -777,54 +859,83 @@ export class DroidCustomizationsApp extends HandlebarsApplicationMixin(Applicati
 			await this.render(false);
 		});
 
-		root.querySelector(".sw5e-droid-install-submit")?.addEventListener("click", async () => {
+		const installFromUuid = async (uuid) => {
 			const actor = this.actor;
-			if ( !actor ) return;
-			const sel = root.querySelector("select[name=\"sw5e-droid-install-uuid\"]");
-			const uuid = sel?.value?.trim();
-			if ( !uuid ) {
-				ui.notifications.warn(game.i18n.localize("SW5E.DroidCustomizations.PickItemFirst"));
-				return;
-			}
-			const item = await fromUuid(uuid);
-			if ( !item ) {
-				ui.notifications.error(game.i18n.localize("SW5E.DroidCustomizations.ItemNotFound"));
-				return;
-			}
+			if ( !actor || !uuid ) return;
 			const force = game.user.isGM && root.querySelector("input[name=\"sw5e-droid-force-install\"]")?.checked === true;
-			const validation = validateDroidCustomizationInstall(actor, item, { force });
-			setInstallValidation(validation);
-			if ( !validation.ok ) {
-				ui.notifications.warn(game.i18n.localize("SW5E.DroidCustomizations.InstallBlocked"));
-				return;
-			}
-			if ( !force ) {
-				const installInfo = validation.info ?? {};
-				const outcome = await promptDroidProcedureCheck({
-					kind: "install",
-					hostActor: actor,
-					itemName: item.name ?? "—",
-					procedureInfo: installInfo,
-					warnings: validation.warnings
-				});
-				if ( outcome !== "success" ) {
-					if ( outcome === "failure" ) {
-						await recordDroidCustomizationFailure(actor, "install");
-						ui.notifications.warn(game.i18n.localize("SW5E.DroidCustomizations.InstallCheckFailed"));
-						await this.render(false);
-					}
+			await installDroidCustomizationByUuid(actor, uuid, {
+				force,
+				setInstallValidation,
+				rerender: async () => this.render(false)
+			});
+		};
+
+		root.querySelector(".sw5e-droid-install-submit")?.addEventListener("click", async () => {
+			setInstallBusy(true);
+			try {
+				let uuid = "";
+				try {
+					uuid = await pickDroidCustomizationCompendiumUuid() ?? "";
+				} catch ( err ) {
+					console.warn("SW5E | Droid customizations: browser open failed", err);
+					ui.notifications.error(game.i18n.localize("SW5E.DroidCustomizations.BrowserOpenFailed"));
 					return;
 				}
+				await installFromUuid(uuid);
+			} finally {
+				setInstallBusy(false);
 			}
-			const result = await addDroidCustomizationToActor(actor, item, { force: force === true });
-			if ( result.ok ) {
-				ui.notifications.info(game.i18n.localize("SW5E.DroidCustomizations.InstallDone"));
-				setInstallValidation(null);
-				await this.render(false);
-			}
-			else {
-				setInstallValidation(result.validation);
-				ui.notifications.warn(game.i18n.localize("SW5E.DroidCustomizations.InstallFailed"));
+		});
+
+		if ( installDropZone ) {
+			let installDragDepth = 0;
+			installDropZone.addEventListener("dragenter", event => {
+				event.preventDefault();
+				event.stopPropagation();
+				installDragDepth += 1;
+				setInstallDropActive(true);
+			});
+			installDropZone.addEventListener("dragover", event => {
+				event.preventDefault();
+				event.stopPropagation();
+				if ( event.dataTransfer ) event.dataTransfer.dropEffect = "copy";
+				setInstallDropActive(true);
+			});
+			installDropZone.addEventListener("dragleave", event => {
+				event.preventDefault();
+				event.stopPropagation();
+				installDragDepth = Math.max(0, installDragDepth - 1);
+				if ( installDragDepth === 0 ) setInstallDropActive(false);
+			});
+			installDropZone.addEventListener("drop", async event => {
+				event.preventDefault();
+				event.stopPropagation();
+				installDragDepth = 0;
+				setInstallDropActive(false);
+				const actor = this.actor;
+				if ( !actor ) return;
+				setInstallBusy(true);
+				try {
+					const droppedItem = await resolveDroppedDroidCustomizationItem(event);
+					const force = game.user.isGM && root.querySelector("input[name=\"sw5e-droid-force-install\"]")?.checked === true;
+					await installDroidCustomizationItem(actor, droppedItem, {
+						force,
+						setInstallValidation,
+						rerender: async () => this.render(false)
+					});
+				} finally {
+					setInstallBusy(false);
+				}
+			});
+		}
+
+		root.querySelector(".sw5e-droid-install-world-submit")?.addEventListener("click", async () => {
+			setInstallBusy(true);
+			try {
+				const uuid = await promptPickWorldDroidCustomization();
+				await installFromUuid(uuid);
+			} finally {
+				setInstallBusy(false);
 			}
 		});
 

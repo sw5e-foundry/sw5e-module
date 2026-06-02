@@ -2,8 +2,14 @@
 
 ### [1.3.6] 2026-06-01
 
+### Changed
+- Cybernetic Augmentations now use a more V2-style manager popup with compact installed rows, a browser-backed `Install` flow, and side effects shown below the install controls only once they become active.
+- Droid Customizations now use a matching refreshed manager popup with compact installed rows, embedded install controls inside the installed section, collapsible `Motor Upgrade` and `Capacity Settings` cards, and popup/inline drag-drop install support that reuses the normal installation check workflow.
+
 ### Fixed
 - Character-sheet ability score inputs in EDIT mode now keep keyboard focus moving with `Tab` and `Shift+Tab` instead of dropping back to the canvas/map.
+- The Cybernetic Augmentations compendium browser no longer crashes when eligible item packs contain legacy scalar `system.source` data.
+- The Cybernetic Augmentations browser now localizes its install hint correctly and no longer shows duplicate generic rarity/filter controls alongside the augmentation-specific filters.
 
 ### [1.3.5] 2026-05-27
 
