@@ -1,6 +1,11 @@
 ## Changelog
 
+
 ### [1.3.6] 2026-06-01
+### Changed
+- Removed effects from backgrounds as they are not supported in DND5e and would cause issues in v14.
+- Added proper tool proficiency advancement options on all backgrounds.
+- Added distinct background features to the items granted by all backgrounds. 
 
 ### Changed
 - Cybernetic Augmentations now use a more V2-style manager popup with compact installed rows, a browser-backed `Install` flow, and side effects shown below the install controls only once they become active.
@@ -10,6 +15,7 @@
 - Character-sheet ability score inputs in EDIT mode now keep keyboard focus moving with `Tab` and `Shift+Tab` instead of dropping back to the canvas/map.
 - The Cybernetic Augmentations compendium browser no longer crashes when eligible item packs contain legacy scalar `system.source` data.
 - The Cybernetic Augmentations browser now localizes its install hint correctly and no longer shows duplicate generic rarity/filter controls alongside the augmentation-specific filters.
+
 
 ### [1.3.5] 2026-05-27
 
