@@ -1,4 +1,8 @@
-import { createBlankLegacyStarshipActorData } from "../starship-data.mjs";
+import {
+	applyStarshipPrototypeTokenDimensions,
+	createBlankLegacyStarshipActorData,
+	getStarshipPrototypeTokenDimensions
+} from "../starship-data.mjs";
 
 const STARSHIP_CREATE_VALUE = "__sw5e_starship__";
 const STARSHIP_CREATE_FLAG = "flags.sw5e.createStarship";
@@ -212,12 +216,56 @@ function isPendingStarshipCreate(document, data = {}) {
 		?? false;
 }
 
+function isSw5eStarshipActorData(data) {
+	return data?.type === "vehicle" && data?.flags?.sw5e?.legacyStarshipActor?.type === "starship";
+}
+
+function getStarshipActorSizeKey(data) {
+	return data?.system?.traits?.size
+		?? data?.flags?.sw5e?.legacyStarshipActor?.system?.traits?.size
+		?? "med";
+}
+
+function syncStarshipPrototypeTokenSource(document, data = {}) {
+	if ( !document?.updateSource ) return false;
+	const mergedData = foundry.utils.mergeObject(document.toObject(), data ?? {}, {
+		inplace: false,
+		insertKeys: true,
+		insertValues: true,
+		overwrite: true
+	});
+	if ( !isSw5eStarshipActorData(mergedData) ) return false;
+	const { width, height } = getStarshipPrototypeTokenDimensions(getStarshipActorSizeKey(mergedData));
+	if ( mergedData?.prototypeToken?.width === width && mergedData?.prototypeToken?.height === height ) return false;
+	document.updateSource({
+		prototypeToken: {
+			width,
+			height
+		}
+	});
+	return true;
+}
+
 function applyBlankStarshipSeed(document) {
 	const source = createBlankLegacyStarshipActorData(document.toObject());
+	applyStarshipPrototypeTokenDimensions(source, source.system?.traits?.size);
 	document.updateSource(source);
 
 	if ( document._source?.flags?.sw5e ) delete document._source.flags.sw5e.createStarship;
 	if ( document.flags?.sw5e ) delete document.flags.sw5e.createStarship;
+}
+
+async function repairCreatedStarshipPrototypeToken(actor) {
+	if ( !actor || actor.pack || !actor.isOwner ) return false;
+	const actorData = actor.toObject();
+	if ( !isSw5eStarshipActorData(actorData) ) return false;
+	const { width, height } = getStarshipPrototypeTokenDimensions(getStarshipActorSizeKey(actorData));
+	if ( actor.prototypeToken?.width === width && actor.prototypeToken?.height === height ) return false;
+	await actor.update({
+		"prototypeToken.width": width,
+		"prototypeToken.height": height
+	});
+	return true;
 }
 
 function syncStarshipMarkerFromForm(form) {
@@ -278,7 +326,13 @@ function injectStarshipCreateOption(app, html) {
 export function patchStarshipCreate() {
 	Hooks.on("renderApplicationV2", injectStarshipCreateOption);
 	Hooks.on("preCreateActor", (document, data) => {
-		if ( !isPendingStarshipCreate(document, data) ) return;
-		applyBlankStarshipSeed(document);
+		if ( isPendingStarshipCreate(document, data) ) applyBlankStarshipSeed(document);
+		syncStarshipPrototypeTokenSource(document, data);
+	});
+	Hooks.on("createActor", (actor, _options, userId) => {
+		if ( game.user?.id !== userId ) return;
+		void repairCreatedStarshipPrototypeToken(actor).catch(err => {
+			console.warn(`${DEBUG_PREFIX} Failed to repair created starship token dimensions`, err);
+		});
 	});
 }

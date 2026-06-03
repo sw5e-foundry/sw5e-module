@@ -13,12 +13,34 @@ import {
 	normalizeLegacyMasterItemSource
 } from "./dnd5e-source-normalization.mjs";
 import {
+	getStarshipPrototypeTokenDimensions,
 	normalizeLegacyStarshipActorSource,
 	normalizeLegacyStarshipItemSource
 } from "./starship-data.mjs";
 import { normalizeAdvancementGrants } from "./proficiency-utils.mjs";
 
 const MIGRATABLE_COMPENDIUM_DOCUMENTS = ["Actor", "Item", "Scene", "JournalEntry", "RollTable"];
+
+function isSw5eStarshipActorData(actor) {
+	return actor?.type === "vehicle" && actor?.flags?.sw5e?.legacyStarshipActor?.type === "starship";
+}
+
+function migrateSw5eStarshipPrototypeToken(actorData, updateData = null, { persistToSource = false } = {}) {
+	if ( !isSw5eStarshipActorData(actorData) ) return updateData;
+	const sizeKey = actorData?.system?.traits?.size
+		?? actorData?.flags?.sw5e?.legacyStarshipActor?.system?.traits?.size
+		?? "med";
+	const { width, height } = getStarshipPrototypeTokenDimensions(sizeKey);
+	if ( persistToSource ) {
+		actorData.prototypeToken ??= {};
+		actorData.prototypeToken.width = width;
+		actorData.prototypeToken.height = height;
+		return updateData;
+	}
+	if ( actorData?.prototypeToken?.width !== width ) updateData["prototypeToken.width"] = width;
+	if ( actorData?.prototypeToken?.height !== height ) updateData["prototypeToken.height"] = height;
+	return updateData;
+}
 
 /**
  * Checks if the world needs migrating.
@@ -586,9 +608,11 @@ export const migrateActorData = function(actor, migrationData, flags={}, { actor
 	// Migrate Owned Items
 	if ( !workingActor.items ) {
 		if ( requiresFullSourceMigration ) {
+			migrateSw5eStarshipPrototypeToken(workingActor, null, { persistToSource: true });
 			flags.persistSourceMigration = true;
 			return workingActor;
 		}
+		migrateSw5eStarshipPrototypeToken(workingActor, updateData);
 		return updateData;
 	}
 
@@ -608,10 +632,12 @@ export const migrateActorData = function(actor, migrationData, flags={}, { actor
 		return arr;
 	}, []);
 	if ( requiresFullSourceMigration ) {
+		migrateSw5eStarshipPrototypeToken(workingActor, null, { persistToSource: true });
 		flags.persistSourceMigration = true;
 		return workingActor;
 	}
 
+	migrateSw5eStarshipPrototypeToken(workingActor, updateData);
 	if ( items.length > 0 ) updateData.items = items;
 
 	return updateData;

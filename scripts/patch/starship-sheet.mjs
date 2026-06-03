@@ -1,6 +1,15 @@
 import { getModulePath, getModuleId, getModuleSettingValue } from "../module-support.mjs";
 import { getCurrencyRegistry, normalizeSwPriceDenomination } from "../currencies.mjs";
-import { getDerivedStarshipRuntime, getLegacyStarshipActorSystem, getStarshipSkillEntries, getStarshipSkillDisplayEntries, rollStarshipSkill, rollStarshipAbility, deriveStarshipPools } from "../starship-data.mjs";
+import {
+	deriveStarshipPools,
+	getDerivedStarshipRuntime,
+	getLegacyStarshipActorSystem,
+	getStarshipPrototypeTokenDimensions,
+	getStarshipSkillDisplayEntries,
+	getStarshipSkillEntries,
+	rollStarshipAbility,
+	rollStarshipSkill
+} from "../starship-data.mjs";
 import { buildVehicleStarshipCrewContext, buildVehicleAvailableActors, deployStarshipCrew, undeployStarshipCrew, toggleStarshipActiveCrew } from "../starship-character.mjs";
 import { getStarshipSheetContext } from "../starship-sheet-context.mjs";
 
@@ -1804,9 +1813,22 @@ function sanitizeStarshipTraitsSizeForUpdate(actor, changed) {
 	foundry.utils.setProperty(changed, "system.traits.size", next);
 }
 
+function syncStarshipPrototypeTokenDimensionsForUpdate(actor, changed) {
+	if ( !changed || typeof changed !== "object" ) return;
+	if ( !foundry.utils.hasProperty(changed, "system.traits.size") ) return;
+	const sizeKey = foundry.utils.getProperty(changed, "system.traits.size");
+	if ( !sizeKey || sizeKey === actor?.system?.traits?.size ) return;
+	const { width, height } = getStarshipPrototypeTokenDimensions(sizeKey);
+	// dnd5e may already have stamped stock token dimensions onto the pending payload before this hook runs.
+	// On starship size changes, always reassert the SW5E-specific token map so gargantuan resolves to 16x16, etc.
+	foundry.utils.setProperty(changed, "prototypeToken.width", width);
+	foundry.utils.setProperty(changed, "prototypeToken.height", height);
+}
+
 function onPreUpdateActorStarshipTraitsSize(document, changed, _options, _userId) {
 	if ( !isSw5eStarshipActor(document) ) return;
 	sanitizeStarshipTraitsSizeForUpdate(document, changed);
+	syncStarshipPrototypeTokenDimensionsForUpdate(document, changed);
 }
 
 /**

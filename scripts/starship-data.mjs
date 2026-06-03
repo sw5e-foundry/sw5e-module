@@ -16,6 +16,18 @@ const LEGACY_STARSHIP_PACKS = new Set([
 const STARSHIP_CHARACTER_FLAG = "starshipCharacter";
 const STARSHIP_POWER_ZONES = ["central", "engines", "shields", "weapons"];
 const STARSHIP_TRAVEL_PACES = new Set(["slow", "normal", "fast"]);
+const STARSHIP_TOKEN_GRID_SPACES = Object.freeze({
+	tiny: 1,
+	sm: 1,
+	small: 1,
+	med: 2,
+	medium: 2,
+	lg: 4,
+	large: 4,
+	huge: 8,
+	grg: 16,
+	gargantuan: 16
+});
 
 function cloneData(data) {
 	if ( data === undefined ) return undefined;
@@ -101,6 +113,26 @@ function stripHtml(value) {
 function normalizeTravelPace(value, fallback = "normal") {
 	const normalized = String(value ?? "").trim().toLowerCase();
 	return STARSHIP_TRAVEL_PACES.has(normalized) ? normalized : fallback;
+}
+
+function normalizeStarshipTokenSizeKey(value) {
+	const normalized = String(value ?? "").trim().toLowerCase();
+	return normalized && (normalized in STARSHIP_TOKEN_GRID_SPACES) ? normalized : "med";
+}
+
+export function getStarshipPrototypeTokenDimensions(sizeKey) {
+	const normalized = normalizeStarshipTokenSizeKey(sizeKey);
+	const gridSpaces = STARSHIP_TOKEN_GRID_SPACES[normalized] ?? STARSHIP_TOKEN_GRID_SPACES.med;
+	return { width: gridSpaces, height: gridSpaces };
+}
+
+export function applyStarshipPrototypeTokenDimensions(target, sizeKey = target?.system?.traits?.size) {
+	if ( !target || (typeof target !== "object") ) return target;
+	const { width, height } = getStarshipPrototypeTokenDimensions(sizeKey);
+	target.prototypeToken ??= {};
+	target.prototypeToken.width = width;
+	target.prototypeToken.height = height;
+	return target;
 }
 
 function getItemDescriptionText(item) {
