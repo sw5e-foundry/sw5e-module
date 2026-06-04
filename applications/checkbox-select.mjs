@@ -14,7 +14,7 @@ export default class CheckboxSelectDialog extends Dialog {
   static get defaultOptions() {
     return mergeObject( super.defaultOptions, {
       template: "modules/sw5e/templates/checkbox-select.hbs",
-      classes: ["dnd5e", "dialog"]
+      classes: ["dnd5e", "dialog", "sw5e-theme-root", "sw5e-checkbox-select-dialog"]
     } );
   }
 

@@ -1,4 +1,5 @@
 import { getModulePath } from "./module-support.mjs";
+import { applySw5eThemeScope } from "./theme.mjs";
 import { pickDroidCustomizationCompendiumUuid } from "./droid-customizations-browser.mjs";
 import {
 	addDroidCustomizationToActor,
@@ -792,6 +793,7 @@ export class DroidCustomizationsApp extends HandlebarsApplicationMixin(Applicati
 		super._onRender(context, options);
 		const root = this.element instanceof HTMLElement ? this.element : this.element?.[0] ?? null;
 		if ( !root ) return;
+		applySw5eThemeScope(root, { scope: "module-app" });
 
 		const installValidationEl = root.querySelector("[data-sw5e-droid-validation-install]");
 		const motorValidationEl = root.querySelector("[data-sw5e-droid-validation-motor]");

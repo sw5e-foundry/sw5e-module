@@ -1,4 +1,5 @@
 import { getModulePath } from "./module-support.mjs";
+import { applySw5eThemeScope } from "./theme.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -116,6 +117,7 @@ export class StarshipSkillRollConfigApp extends HandlebarsApplicationMixin(Appli
 		super._onRender(context, options);
 		const root = this.element instanceof HTMLElement ? this.element : this.element?.[0] ?? null;
 		if ( !root || root.dataset.sw5eBound === "true" ) return;
+		applySw5eThemeScope(root, { scope: "module-app" });
 		root.dataset.sw5eBound = "true";
 
 		const form = root.querySelector("form.sw5e-starship-skill-roll-form");

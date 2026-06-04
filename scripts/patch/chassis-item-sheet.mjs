@@ -358,7 +358,7 @@ async function openInstallModificationDialog(app, browserCtx = {}) {
 		modal: false,
 		window: { title: game.i18n.localize("SW5E.Chassis.InstallBrowserTitle") },
 		position: { width: 560 },
-		classes: ["sw5e-chassis-install-browser-app"],
+		classes: ["sw5e-chassis-install-browser-app", "sw5e-theme-root"],
 		content: html,
 		render: (_event, dialog) => {
 			const root = dialog?.form ?? dialog?.element?.querySelector("form") ?? dialog?.element;

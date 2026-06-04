@@ -1,20 +1,22 @@
 {
   "scripts": {
-    "build": "npm run lint && npm run build:db",
+    "build": "npm run lint && npm run build:styles && npm run build:db",
     "lint": "node ./utils/lint-types.mjs",
+    "build:styles": "node ./utils/build-styles.mjs",
     "build:clean": "node ./utils/packs.mjs package clean",
     "build:db": "node ./utils/packs.mjs package pack",
     "build:json": "node ./utils/packs.mjs package unpack",
     "build:source": "node ./utils/packs.mjs package unpack",
-    "compile": "npm run build:db",
+    "compile": "npm run build:styles && npm run build:db",
     "extract": "npm run build:source",
-    "postinstall": "npm run build:db"
+    "postinstall": "npm run build:styles && npm run build:db"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^1.0.0-rc.4",
     "classic-level": "^1.4.1",
     "fancy-log": "^2.0.0",
     "js-yaml": "^4.1.0",
+    "less": "^4.6.4",
     "yargs": "^17.7.2"
   }
 }

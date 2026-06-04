@@ -30,6 +30,7 @@ import { patchCharacterSheetTabNavigation } from "./patch/character-sheet-tab-na
 import { getCharacterDeploymentSummary } from "./character-deployments.mjs";
 import { registerCharacterFeaturesDiagnostics } from "./dev/character-features-diagnostics.mjs";
 import { characterImporterApi, registerCharacterImporterHooks } from "./character-importer.mjs";
+import { registerSw5eThemeHooks } from "./theme.mjs";
 
 globalThis.sw5e = {
 	migrations,
@@ -55,6 +56,7 @@ const strict = true;
 Hooks.once('init', async function() {
 	// Register Module Settings
 	registerModuleSettings();
+	registerSw5eThemeHooks();
 	// Register lib-wrapper hooks
 	addHooks();
 	// Pre-load templates

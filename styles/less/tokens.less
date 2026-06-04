@@ -1,0 +1,92 @@
+@lightPageEdge: #afc6d6;
+@lightPageCenter: #d6d6d6;
+@lightHeader: #c40f0f;
+@lightPrimary: #c92222;
+@lightSecondary: #434343;
+@lightLine: #0d99cc;
+@lightText: #1d2730;
+@lightMuted: #4b5760;
+@lightSurface: rgba(255, 255, 255, 0.84);
+@lightSurfaceStrong: rgba(255, 255, 255, 0.92);
+@lightInput: rgba(255, 255, 255, 0.92);
+@lightInputBorder: rgba(13, 153, 204, 0.4);
+
+@darkPageEdge: #585858;
+@darkPageCenter: #2c2c2c;
+@darkHeader: #ff0000;
+@darkPrimary: #c92222;
+@darkSecondary: #20a1d0;
+@darkLine: #0d99cc;
+@darkText: #f1f4f6;
+@darkMuted: rgba(241, 244, 246, 0.76);
+@darkSurface: rgba(24, 24, 24, 0.82);
+@darkSurfaceStrong: rgba(16, 16, 16, 0.92);
+@darkInput: rgba(42, 42, 42, 0.92);
+@darkInputBorder: rgba(13, 153, 204, 0.55);
+
+body[data-sw5e-theme="sw5e-light"] {
+  --sw5e-theme-page-edge: @lightPageEdge;
+  --sw5e-theme-page-center: @lightPageCenter;
+  --sw5e-theme-heading: @lightHeader;
+  --sw5e-theme-primary-button: @lightPrimary;
+  --sw5e-theme-secondary-button: @lightSecondary;
+  --sw5e-theme-line: @lightLine;
+  --sw5e-primary-button: var(--sw5e-theme-primary-button);
+  --sw5e-secondary-button: var(--sw5e-theme-secondary-button);
+  --sw5e-line-color: var(--sw5e-theme-line);
+  --sw5e-theme-text: @lightText;
+  --sw5e-theme-muted-text: @lightMuted;
+  --sw5e-theme-surface: @lightSurface;
+  --sw5e-theme-surface-strong: @lightSurfaceStrong;
+  --sw5e-theme-input: @lightInput;
+  --sw5e-theme-input-border: @lightInputBorder;
+  --sw5e-theme-color-scheme: light;
+  --sw5e-theme-window-background:
+    linear-gradient(90deg, fade(@lightPageEdge, 98%) 0%, fade(@lightPageCenter, 92%) 50%, fade(@lightPageEdge, 98%) 100%),
+    url("/modules/sw5e-module/assets/ui/parchments/sw5e-light-parchment.png");
+  --sw5e-theme-surface-background:
+    linear-gradient(180deg, fade(#ffffff, 40%) 0%, fade(#ffffff, 18%) 100%),
+    url("/modules/sw5e-module/assets/ui/parchments/sw5e-light-parchment.png");
+  --sw5e-theme-panel-background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 249, 0.82) 100%);
+  --sw5e-theme-button-text: #ffffff;
+  --sw5e-theme-shadow: 0 8px 20px rgba(39, 67, 87, 0.18);
+}
+
+body[data-sw5e-theme="sw5e-dark"] {
+  --sw5e-theme-page-edge: @darkPageEdge;
+  --sw5e-theme-page-center: @darkPageCenter;
+  --sw5e-theme-heading: @darkHeader;
+  --sw5e-theme-primary-button: @darkPrimary;
+  --sw5e-theme-secondary-button: @darkSecondary;
+  --sw5e-theme-line: @darkLine;
+  --sw5e-primary-button: var(--sw5e-theme-primary-button);
+  --sw5e-secondary-button: var(--sw5e-theme-secondary-button);
+  --sw5e-line-color: var(--sw5e-theme-line);
+  --sw5e-theme-text: @darkText;
+  --sw5e-theme-muted-text: @darkMuted;
+  --sw5e-theme-surface: @darkSurface;
+  --sw5e-theme-surface-strong: @darkSurfaceStrong;
+  --sw5e-theme-input: @darkInput;
+  --sw5e-theme-input-border: @darkInputBorder;
+  --sw5e-theme-color-scheme: dark;
+  --sw5e-theme-window-background:
+    linear-gradient(90deg, fade(@darkPageEdge, 98%) 0%, fade(@darkPageCenter, 94%) 50%, fade(@darkPageEdge, 98%) 100%),
+    url("/modules/sw5e-module/assets/ui/parchments/sw5e-dark-parchment.png");
+  --sw5e-theme-surface-background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(0, 0, 0, 0.08) 100%),
+    url("/modules/sw5e-module/assets/ui/parchments/sw5e-dark-parchment.png");
+  --sw5e-theme-panel-background:
+    linear-gradient(180deg, rgba(56, 56, 56, 0.78) 0%, rgba(28, 28, 28, 0.92) 100%);
+  --sw5e-theme-button-text: #ffffff;
+  --sw5e-theme-shadow: 0 12px 24px rgba(0, 0, 0, 0.32);
+  --sw5e-dark-muted-control-border: color-mix(in srgb, var(--sw5e-secondary-button) 35%, transparent);
+  --sw5e-dark-active-control-border: var(--sw5e-line-color);
+  --sw5e-dark-icon-frame-border: rgba(13, 153, 204, 0.45);
+  --sw5e-dark-meter-shell-border: var(--sw5e-dark-muted-control-border);
+  --sw5e-dark-control-ring: color-mix(in srgb, var(--sw5e-dark-active-control-border) 34%, transparent);
+}
+
+body[data-sw5e-theme="dnd5e"] {
+  --sw5e-theme-color-scheme: light dark;
+}

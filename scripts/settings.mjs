@@ -8,6 +8,12 @@ import {
 } from "./currencies.mjs";
 import { CHASSIS_SETTING_KEYS, CHASSIS_RULES_MODES } from "./chassis.mjs";
 import { LEGACY_SETTINGS_NAMESPACE, SETTINGS_NAMESPACE } from "./module-support.mjs";
+import {
+	onSw5eThemeChange,
+	SW5E_DEFAULT_THEME,
+	SW5E_THEMES,
+	SW5E_THEME_SETTING
+} from "./theme.mjs";
 
 /** Client-side diagnostic logs for Features-tab Deployment pill injection (default off). */
 export const DEPLOYMENT_CARD_DEBUG_SETTING = "deploymentCardDebug";
@@ -57,6 +63,22 @@ export function registerModuleSettings() {
 	const chassisRulesChoices = Object.fromEntries(
 		CHASSIS_RULES_MODES.map(id => [id, game.i18n.localize(`SW5E.ChassisRulesModeChoice.${id}`)])
 	);
+	const themeChoices = {
+		[SW5E_THEMES.SW5E_LIGHT]: game.i18n.localize("SW5E.Settings.ThemeMode.Choice.sw5e-light"),
+		[SW5E_THEMES.SW5E_DARK]: game.i18n.localize("SW5E.Settings.ThemeMode.Choice.sw5e-dark"),
+		[SW5E_THEMES.DND5E]: game.i18n.localize("SW5E.Settings.ThemeMode.Choice.dnd5e")
+	};
+
+	game.settings.register(SETTINGS_NAMESPACE, SW5E_THEME_SETTING, {
+		name: "SW5E.Settings.ThemeMode.Name",
+		hint: "SW5E.Settings.ThemeMode.Hint",
+		scope: "world",
+		config: true,
+		type: String,
+		choices: themeChoices,
+		default: SW5E_DEFAULT_THEME,
+		onChange: theme => onSw5eThemeChange(theme)
+	});
 
 	game.settings.register(SETTINGS_NAMESPACE, CHASSIS_SETTING_KEYS.rulesMode, {
 		name: "SW5E.ChassisRulesMode",
