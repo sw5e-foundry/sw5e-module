@@ -51,6 +51,66 @@ body[data-sw5e-theme="sw5e-light"] {
     linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 249, 0.82) 100%);
   --sw5e-theme-button-text: #ffffff;
   --sw5e-theme-shadow: 0 8px 20px rgba(39, 67, 87, 0.18);
+  --sw5e-light-muted-control-border: color-mix(in srgb, var(--sw5e-line-color) 34%, rgba(67, 67, 67, 0.18));
+  --sw5e-light-active-control-border: var(--sw5e-line-color);
+  --sw5e-light-icon-frame-border: color-mix(in srgb, var(--sw5e-line-color) 54%, rgba(255, 255, 255, 0.46));
+  --sw5e-light-meter-shell-border: var(--sw5e-light-muted-control-border);
+  --sw5e-light-card-header-background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(236, 243, 248, 0.92) 100%);
+  --sw5e-light-section-header-background: linear-gradient(180deg, rgba(250, 251, 252, 0.98) 0%, rgba(228, 236, 241, 0.94) 100%);
+  --sw5e-light-hover-tint: color-mix(in srgb, var(--sw5e-line-color) 14%, rgba(255, 255, 255, 0.58));
+  --sw5e-light-sidebar-ornament-outline: color-mix(in srgb, var(--sw5e-line-color) 54%, rgba(255, 255, 255, 0.34));
+  --sw5e-light-sidebar-ornament-outline-strong: color-mix(in srgb, var(--sw5e-line-color) 76%, rgba(67, 67, 67, 0.16));
+  --sw5e-light-sidebar-ornament-fill: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(233, 241, 246, 0.94) 100%);
+  --sw5e-light-sidebar-ornament-shadow: drop-shadow(0 2px 5px rgba(73, 96, 112, 0.08));
+  --sw5e-light-sidebar-ornament-shadow-lozenge: drop-shadow(0 1px 3px rgba(73, 96, 112, 0.06));
+  --sw5e-light-sidebar-ornament-inner-line: rgba(255, 255, 255, 0.72);
+  --sw5e-light-minor-accent: color-mix(in srgb, var(--sw5e-theme-heading) 48%, rgb(92, 104, 114));
+  --sw5e-light-ability-score-tab-filter: brightness(1.7) saturate(0.32) contrast(0.9);
+  --sw5e-light-ability-score-fill: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(224, 236, 244, 0.9) 100%);
+  --sw5e-light-ability-score-border: color-mix(in srgb, var(--sw5e-line-color) 38%, rgba(67, 67, 67, 0.12));
+  --sw5e-light-empty-text: color-mix(in srgb, var(--sw5e-theme-text) 58%, rgba(181, 198, 209, 0.92));
+  --sw5e-light-row-divider: color-mix(in srgb, var(--sw5e-line-color) 18%, rgba(67, 67, 67, 0.08));
+  --sw5e-light-card-shadow-soft: 0 4px 12px rgba(73, 96, 112, 0.11);
+  --sw5e-light-panel-fill-strong: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(230, 240, 246, 0.9) 100%);
+  --sw5e-light-proficiency-inactive: color-mix(in srgb, var(--sw5e-line-color) 32%, rgba(150, 164, 174, 0.52));
+  --sw5e-light-title-outline-shadow:
+    -1px -1px 0 rgba(18, 40, 54, 0.42),
+    1px -1px 0 rgba(18, 40, 54, 0.42),
+    -1px 1px 0 rgba(18, 40, 54, 0.42),
+    1px 1px 0 rgba(18, 40, 54, 0.42),
+    0 0 2px rgba(18, 40, 54, 0.72),
+    0 1px 3px rgba(18, 40, 54, 0.48);
+  --sw5e-light-tab-inactive-fill: linear-gradient(180deg, rgba(255, 255, 255, 0.74) 0%, rgba(233, 241, 246, 0.58) 100%);
+  --sw5e-light-tab-active-fill: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, color-mix(in srgb, var(--sw5e-line-color) 12%, rgba(233, 241, 246, 0.9)) 100%);
+  --sw5e-light-tab-glow-soft: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 18%, transparent), 0 2px 8px color-mix(in srgb, var(--sw5e-line-color) 14%, transparent);
+  --sw5e-light-tab-glow-strong: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 34%, transparent), 0 0 12px color-mix(in srgb, var(--sw5e-light-active-control-border) 26%, transparent);
+  --sw5e-light-chat-message-background: linear-gradient(180deg, rgba(248, 251, 253, 0.98) 0%, rgba(224, 236, 244, 0.94) 100%);
+  --sw5e-light-chat-datapad-panel: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(236, 243, 248, 0.92) 100%);
+  --sw5e-light-chat-datapad-border: var(--sw5e-light-muted-control-border);
+  --sw5e-light-chat-datapad-shadow: var(--sw5e-light-card-shadow-soft);
+  --sw5e-light-chat-dice-panel: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(233, 241, 246, 0.86) 100%);
+
+  /* Foundry core UI — semantic tokens (no parchment images) */
+  --sw5e-foundry-sidebar-background: linear-gradient(180deg, rgba(248, 251, 253, 0.98) 0%, rgba(224, 236, 244, 0.94) 100%);
+  --sw5e-foundry-app-background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(230, 240, 246, 0.9) 100%);
+  --sw5e-foundry-content-background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 249, 0.82) 100%);
+  --sw5e-foundry-dialog-background: var(--sw5e-foundry-app-background);
+  --sw5e-foundry-input-background: var(--sw5e-theme-input);
+  --sw5e-foundry-border: var(--sw5e-light-muted-control-border);
+  --sw5e-foundry-text: var(--sw5e-theme-text);
+  --sw5e-foundry-text-muted: var(--sw5e-theme-muted-text);
+  --sw5e-foundry-canvas-1: #e4ecf1;
+  --sw5e-foundry-canvas-2: #eef4f8;
+  --sw5e-foundry-canvas-3: #f7fafc;
+
+  /* Foundry core UI — variable remap (Phase F1) */
+  --sidebar-background: var(--sw5e-foundry-sidebar-background);
+  --background: var(--sw5e-foundry-app-background);
+  --color-text-primary: var(--sw5e-foundry-text);
+  --color-text-secondary: var(--sw5e-foundry-text-muted);
+  --color-canvas-1: var(--sw5e-foundry-canvas-1);
+  --color-canvas-2: var(--sw5e-foundry-canvas-2);
+  --color-canvas-3: var(--sw5e-foundry-canvas-3);
 }
 
 body[data-sw5e-theme="sw5e-dark"] {
@@ -85,6 +145,33 @@ body[data-sw5e-theme="sw5e-dark"] {
   --sw5e-dark-icon-frame-border: rgba(13, 153, 204, 0.45);
   --sw5e-dark-meter-shell-border: var(--sw5e-dark-muted-control-border);
   --sw5e-dark-control-ring: color-mix(in srgb, var(--sw5e-dark-active-control-border) 34%, transparent);
+  --sw5e-dark-chat-message-background: linear-gradient(180deg, rgba(38, 44, 50, 0.96) 0%, rgba(24, 28, 32, 0.98) 100%);
+  --sw5e-dark-chat-datapad-panel: linear-gradient(180deg, rgba(56, 56, 56, 0.92) 0%, rgba(28, 28, 28, 0.96) 100%);
+  --sw5e-dark-chat-datapad-border: var(--sw5e-dark-muted-control-border);
+  --sw5e-dark-chat-datapad-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  --sw5e-dark-chat-dice-panel: linear-gradient(180deg, rgba(48, 54, 60, 0.92) 0%, rgba(32, 36, 40, 0.96) 100%);
+
+  /* Foundry core UI — semantic tokens (no parchment images) */
+  --sw5e-foundry-sidebar-background: linear-gradient(180deg, rgba(38, 44, 50, 0.96) 0%, rgba(24, 28, 32, 0.98) 100%);
+  --sw5e-foundry-app-background: linear-gradient(180deg, rgba(56, 56, 56, 0.92) 0%, rgba(28, 28, 28, 0.96) 100%);
+  --sw5e-foundry-content-background: linear-gradient(180deg, rgba(56, 56, 56, 0.78) 0%, rgba(28, 28, 28, 0.92) 100%);
+  --sw5e-foundry-dialog-background: var(--sw5e-foundry-app-background);
+  --sw5e-foundry-input-background: var(--sw5e-theme-input);
+  --sw5e-foundry-border: var(--sw5e-dark-muted-control-border);
+  --sw5e-foundry-text: var(--sw5e-theme-text);
+  --sw5e-foundry-text-muted: var(--sw5e-theme-muted-text);
+  --sw5e-foundry-canvas-1: #2c2c2c;
+  --sw5e-foundry-canvas-2: #343a40;
+  --sw5e-foundry-canvas-3: #3c444c;
+
+  /* Foundry core UI — variable remap (Phase F1) */
+  --sidebar-background: var(--sw5e-foundry-sidebar-background);
+  --background: var(--sw5e-foundry-app-background);
+  --color-text-primary: var(--sw5e-foundry-text);
+  --color-text-secondary: var(--sw5e-foundry-text-muted);
+  --color-canvas-1: var(--sw5e-foundry-canvas-1);
+  --color-canvas-2: var(--sw5e-foundry-canvas-2);
+  --color-canvas-3: var(--sw5e-foundry-canvas-3);
 }
 
 body[data-sw5e-theme="dnd5e"] {

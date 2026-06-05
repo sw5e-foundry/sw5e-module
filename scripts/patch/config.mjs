@@ -1,4 +1,4 @@
-import { applySw5eCurrencyConfig } from "../currencies.mjs";
+import { applySw5eGalacticCreditsDefault } from "../currencies.mjs";
 import { getModulePath, normalizeCompendiumUuid } from "../module-support.mjs";
 
 function normalizeCompendiumRecord(record = {}) {
@@ -1733,8 +1733,8 @@ export function patchConfig(config, strict = true) {
 			"mgc"
 		])
 	};
-	// Currencies
-	applySw5eCurrencyConfig(config, strict);
+	// Currencies — Galactic Credits default only; third-party modules may customize further.
+	applySw5eGalacticCreditsDefault(config);
 	// Damage
 	// config.damageTypes.force.reference = ""; // TODO
 	// config.damageTypes.thunder.reference = ""; // TODO

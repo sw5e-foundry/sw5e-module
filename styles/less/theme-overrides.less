@@ -17,6 +17,23 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root {
   --dnd5e-color-tan: var(--sw5e-theme-text);
 }
 
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root {
+  --proficiency-cycle-enabled-color: var(--sw5e-theme-heading);
+  --proficiency-cycle-disabled-color: var(--sw5e-light-proficiency-inactive);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root proficiency-cycle[value="0"] {
+  --proficiency-cycle-disabled-color: var(--sw5e-light-proficiency-inactive);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root proficiency-cycle:is([value="0.5"], [value="1"], [value="2"]) {
+  --proficiency-cycle-disabled-color: var(--sw5e-theme-heading);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root proficiency-cycle:not([disabled]):is(:hover, :focus-within) {
+  --proficiency-cycle-enabled-color: color-mix(in srgb, var(--sw5e-theme-heading) 88%, white);
+}
+
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root {
   --control-button-text-color: var(--sw5e-secondary-button);
   --hint-icon-color: var(--sw5e-secondary-button);
@@ -31,8 +48,6 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root {
 
 body[data-sw5e-theme="sw5e-light"] .window-app[data-sw5e-theme-root] .window-content,
 body[data-sw5e-theme="sw5e-dark"] .window-app[data-sw5e-theme-root] .window-content,
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.chat-message,
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.chat-message,
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.application,
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.application {
   background-color: var(--sw5e-theme-page-center) !important;
@@ -50,8 +65,6 @@ body[data-sw5e-theme="sw5e-dark"] .window-app[data-sw5e-theme-root] .window-head
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root .sheet-body,
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root .sheet-body,
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.chat-message.dnd5e2,
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.chat-message.dnd5e2,
 body[data-sw5e-theme="sw5e-light"] section.sw5e-augmentations-manager,
 body[data-sw5e-theme="sw5e-dark"] section.sw5e-augmentations-manager,
 body[data-sw5e-theme="sw5e-light"] section.sw5e-droid-customizations-manager,
@@ -103,8 +116,8 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(.card, fieldset.card, fie
   color: var(--sw5e-theme-text);
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(hr, .separator, .window-header, .window-content, .sheet-header, .sw5e-currency-settings-grid > fieldset, .sw5e-starship-v2-warning, .sw5e-starship-v2-card, .sw5e-starship-v2-header),
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(hr, .separator, .window-header, .window-content, .sheet-header, .sw5e-currency-settings-grid > fieldset, .sw5e-starship-v2-warning, .sw5e-starship-v2-card, .sw5e-starship-v2-header) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(hr, .separator, .window-header, .window-content, .sheet-header, .sw5e-starship-v2-warning, .sw5e-starship-v2-card, .sw5e-starship-v2-header),
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(hr, .separator, .window-header, .window-content, .sheet-header, .sw5e-starship-v2-warning, .sw5e-starship-v2-card, .sw5e-starship-v2-header) {
   border-color: var(--sw5e-theme-line) !important;
 }
 
@@ -170,6 +183,17 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.editable 
   background: rgba(255, 255, 255, 0.98) !important;
 }
 
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sheet-header > .left > .document-name {
+  color: rgba(248, 252, 255, 0.98) !important;
+  letter-spacing: 0.015em;
+  text-shadow: var(--sw5e-light-title-outline-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sheet-header > .left > .class {
+  color: var(--sw5e-light-minor-accent) !important;
+  text-shadow: none !important;
+}
+
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.editable .sheet-header > .left > input.document-name.uninput[name="name"]:is(:hover, :focus, :focus-visible) {
   background: rgba(22, 22, 22, 0.9) !important;
 }
@@ -190,6 +214,125 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(button.default, .dialog-b
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(button:hover, .dialog-button:hover, .create-document:hover, [data-advantage-mode]:hover, [type="submit"]:hover),
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(button:hover, .dialog-button:hover, .create-document:hover, [data-advantage-mode]:hover, [type="submit"]:hover) {
   filter: brightness(1.06);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--sw5e-secondary-button) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.35rem;
+  height: 1.35rem;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  box-shadow: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control :is(i, svg, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  position: relative;
+  z-index: 1;
+  color: inherit !important;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control:is(:hover, :focus, :focus-visible) {
+  color: color-mix(in srgb, var(--sw5e-light-active-control-border) 64%, var(--sw5e-secondary-button)) !important;
+  background: transparent !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control:is(:hover, :focus, :focus-visible) :is(i, svg, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  opacity: 1 !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control:is(:hover, :focus, :focus-visible)::before {
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 34%, rgba(67, 67, 67, 0.14));
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 18%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.52);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control:is(.active, [aria-pressed="true"], [aria-selected="true"]) {
+  color: var(--sw5e-line-color) !important;
+  background: transparent !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control.item-action:is(
+  [data-action="equip"],
+  [data-action="attune"],
+  [data-action="attunement"],
+  [data-action="activate"],
+  [data-action="toggleActive"]
+) {
+  position: relative;
+  width: 1.5rem !important;
+  min-width: 1.5rem !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control.item-action:is(
+  [data-action="equip"],
+  [data-action="attune"],
+  [data-action="attunement"],
+  [data-action="activate"],
+  [data-action="toggleActive"]
+):not(.active, [aria-pressed="true"], [aria-selected="true"])::before {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control.item-action:is(
+  [data-action="equip"],
+  [data-action="attune"],
+  [data-action="attunement"],
+  [data-action="activate"],
+  [data-action="toggleActive"]
+):is(.active, [aria-pressed="true"], [aria-selected="true"])::before {
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent);
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.88));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 28%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.62);
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(
@@ -399,6 +542,36 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor .items-sec
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-dark-active-control-border) 32%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
+  .gold-icon,
+  .item-image.gold-icon,
+  .sw5e-deployment-icon-placeholder
+) {
+  border-color: var(--sw5e-light-icon-frame-border) !important;
+  background-color: rgba(255, 255, 255, 0.86) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.58), 0 0 0 1px rgba(96, 122, 138, 0.08) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
+  .item:hover,
+  .item:focus-within,
+  .class:hover,
+  .class:focus-within,
+  .favorites li:hover,
+  .favorites li:focus-within,
+  .item-tooltip:hover,
+  .item-tooltip:focus-within,
+  .sw5e-deployment-pill:hover,
+  .sw5e-deployment-pill:focus-within
+) :is(
+  .gold-icon,
+  .item-image.gold-icon,
+  .sw5e-deployment-icon-placeholder
+) {
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 56%, rgba(255, 255, 255, 0.26)) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.62), 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 22%, transparent) !important;
+}
+
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
   .gold-icon,
   .item-image.gold-icon,
@@ -442,6 +615,23 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor section.ta
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 34%, transparent) !important;
 }
 
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill .sw5e-deployment-card-open {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill .sw5e-deployment-card-open:is(:hover, :focus, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 8%, rgba(255, 255, 255, 0.72)) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill .sw5e-deployment-card-open .title {
+  color: var(--sw5e-theme-text) !important;
+  font-family: inherit !important;
+}
+
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill .sw5e-deployment-card-open {
   background: transparent !important;
   border: 0 !important;
@@ -463,6 +653,68 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor section.ta
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor section.tab[data-tab="features"] .sw5e-deployment-pill .level {
   color: var(--sw5e-theme-heading) !important;
   text-align: right;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip {
+  background-image: none !important;
+  background: var(--sw5e-light-panel-fill-strong) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  box-shadow: var(--sw5e-light-card-shadow-soft) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip :is(.content, .header, .description, p, li, span, div) {
+  color: inherit !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip .header {
+  border-bottom: 1px solid var(--sw5e-light-row-divider);
+  margin-bottom: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip .header .title {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-body) !important;
+  font-weight: 700;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip :is(.header .subtitle, .bottom, .price, .charges, .weight) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip .description :is(h1, h2, h3, h4) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-body) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip :is(strong, .spell-block strong) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip a {
+  color: var(--sw5e-theme-line) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip img {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(233, 241, 246, 0.82) 100%) !important;
+  border: 1px solid var(--sw5e-light-icon-frame-border) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.56) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip .pills .pill {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(241, 246, 249, 0.74) 100%) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip .pills .pill :is(.label, span) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip .control-hint {
+  color: var(--sw5e-theme-muted-text) !important;
+  border-top: 1px solid var(--sw5e-light-row-divider);
 }
 
 body[data-sw5e-theme="sw5e-dark"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip.item-tooltip {
@@ -555,6 +807,286 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(
 ) :is(i, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light) {
   color: inherit !important;
   --icon-fill: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2:is(.sheet.actor, .sheet.item)
+) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="toggleControls"],
+  .header-control[data-action="copyUuid"],
+  .header-control[data-action="close"]
+):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]) {
+  --button-background-color: rgba(255, 255, 255, 0.74);
+  --button-hover-background-color: rgba(255, 255, 255, 0.74);
+  --button-text-color: var(--sw5e-secondary-button);
+  background: rgba(255, 255, 255, 0.74) !important;
+  background-color: rgba(255, 255, 255, 0.74) !important;
+  color: var(--sw5e-secondary-button) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42) !important;
+  padding: 0 !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2:is(.sheet.actor, .sheet.item)
+) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="toggleControls"],
+  .header-control[data-action="copyUuid"],
+  .header-control[data-action="close"]
+):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]):is(:hover, :focus, :focus-visible) {
+  --button-background-color: var(--sw5e-light-hover-tint);
+  --button-hover-background-color: var(--sw5e-light-hover-tint);
+  --button-text-color: var(--sw5e-line-color);
+  background: var(--sw5e-light-hover-tint) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 54%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 24%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2:is(.sheet.actor, .sheet.item)
+) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="toggleControls"],
+  .header-control[data-action="copyUuid"],
+  .header-control[data-action="close"]
+):is(.active, .selected, [aria-pressed="true"], [aria-selected="true"]) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.88));
+  --button-hover-background-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.88));
+  --button-text-color: var(--sw5e-line-color);
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.88)) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 66%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 28%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.54) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2:is(.sheet.actor, .sheet.item)
+) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="toggleControls"],
+  .header-control[data-action="copyUuid"],
+  .header-control[data-action="close"]
+) :is(i, svg, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  color: inherit !important;
+  fill: currentColor;
+  stroke: currentColor;
+  --icon-fill: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2:is(.sheet.actor, .sheet.item)
+) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="toggleControls"],
+  .header-control[data-action="copyUuid"],
+  .header-control[data-action="close"]
+):is(.icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  font-family: var(--font-awesome) !important;
+  font-style: normal;
+  line-height: 1;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2:is(.sheet.actor, .sheet.item)
+) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="toggleControls"],
+  .header-control[data-action="copyUuid"],
+  .header-control[data-action="close"]
+):is(.icon, .fas, .fa-solid, .fa-regular, .fa-light)::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  line-height: 1;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header {
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header::before,
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header::after {
+  border-color: var(--sw5e-light-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header slide-toggle.mode-slider {
+  --slide-toggle-track-color-checked: color-mix(in srgb, var(--sw5e-light-active-control-border) 18%, rgba(255, 255, 255, 0.88));
+  --slide-toggle-track-color-unchecked: transparent;
+  --slide-toggle-thumb-color: rgba(255, 255, 255, 0.96);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--sw5e-secondary-button) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header slide-toggle.mode-slider .slide-toggle-track {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header slide-toggle.mode-slider .slide-toggle-thumb::before {
+  color: var(--sw5e-secondary-button) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header slide-toggle.mode-slider[checked] .slide-toggle-thumb::before {
+  color: var(--sw5e-line-color) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header slide-toggle.mode-slider:is(:hover, :focus, :focus-visible) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--sw5e-line-color) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header slide-toggle.mode-slider:is(:hover, :focus, :focus-visible) .slide-toggle-track {
+  background: var(--sw5e-light-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 42%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 16%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header slide-toggle.mode-slider:is(:hover, :focus, :focus-visible) .slide-toggle-thumb::before {
+  color: var(--sw5e-line-color) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(
+  :is(.application, .window-app).sw5e-theme-root,
+  :is(.application, .window-app)[data-sw5e-theme-root],
+  :is(.application, .window-app).dnd5e2.sheet.actor.character
+) .window-header slide-toggle.mode-slider[checked]:is(:hover, :focus, :focus-visible) .slide-toggle-track {
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.9)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item {
+  background: var(--sw5e-light-tab-inactive-fill) !important;
+  color: color-mix(in srgb, var(--sw5e-line-color) 76%, var(--sw5e-secondary-button)) !important;
+  --icon-fill: color-mix(in srgb, var(--sw5e-line-color) 76%, var(--sw5e-secondary-button));
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 54%, rgba(255, 255, 255, 0.34)) !important;
+  box-shadow: var(--sw5e-light-tab-glow-soft) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item::after {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 62%, rgba(255, 255, 255, 0.22)) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item :is(i, dnd5e-icon) {
+  color: inherit !important;
+  --icon-fill: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item:is(:hover, :focus, :focus-visible):not(.active) {
+  background: var(--sw5e-light-hover-tint) !important;
+  color: var(--sw5e-line-color) !important;
+  --icon-fill: var(--sw5e-line-color);
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 66%, transparent) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 28%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-light-active-control-border) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item:is(:hover, :focus, :focus-visible):not(.active)::after {
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 72%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item.active {
+  background: var(--sw5e-light-tab-active-fill) !important;
+  color: var(--sw5e-line-color) !important;
+  --icon-fill: var(--sw5e-line-color);
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 74%, transparent) !important;
+  box-shadow: var(--sw5e-light-tab-glow-strong), inset 0 1px 0 rgba(255, 255, 255, 0.56) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item.active::after {
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 84%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item.active:is(:hover, :focus, :focus-visible) {
+  border-color: var(--sw5e-light-active-control-border) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 42%, transparent),
+    0 0 14px color-mix(in srgb, var(--sw5e-light-active-control-border) 32%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.62) !important;
 }
 
 body[data-sw5e-theme="sw5e-dark"] :is(
@@ -733,6 +1265,368 @@ body[data-sw5e-theme="sw5e-dark"] :is(
   box-shadow: 0 0 0 1px var(--sw5e-dark-control-ring) !important;
 }
 
+/* Chat input toolbar — roll mode / export / flush (Foundry #chat-controls; not chat message cards) */
+body[data-sw5e-theme="sw5e-light"] #chat form.chat-form :is(
+  #chat-controls button.ui-control.icon,
+  > button.ui-control.icon
+):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]) {
+  --button-background-color: transparent;
+  --button-hover-background-color: transparent;
+  --button-text-color: var(--sw5e-secondary-button);
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--sw5e-secondary-button) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #chat form.chat-form :is(
+  #chat-controls button.ui-control.icon,
+  > button.ui-control.icon
+):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]):is(:hover, :focus, :focus-visible) {
+  --button-background-color: var(--sw5e-light-hover-tint);
+  --button-hover-background-color: var(--sw5e-light-hover-tint);
+  --button-text-color: var(--sw5e-line-color);
+  background: var(--sw5e-light-hover-tint) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 54%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 24%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #chat form.chat-form :is(
+  #chat-controls button.ui-control.icon,
+  > button.ui-control.icon
+):is(.active, .selected, [aria-pressed="true"], [aria-selected="true"]) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.88));
+  --button-hover-background-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.88));
+  --button-text-color: var(--sw5e-line-color);
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.88)) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 66%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 28%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.54) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #chat form.chat-form :is(
+  #chat-controls button.ui-control.icon,
+  > button.ui-control.icon
+):is(.icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  font-family: var(--font-awesome) !important;
+  font-style: normal;
+  line-height: 1;
+}
+
+body[data-sw5e-theme="sw5e-light"] #chat form.chat-form :is(
+  #chat-controls button.ui-control.icon,
+  > button.ui-control.icon
+):is(.icon, .fas, .fa-solid, .fa-regular, .fa-light)::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  line-height: 1;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #chat form.chat-form :is(
+  #chat-controls button.ui-control.icon,
+  > button.ui-control.icon
+):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]) {
+  --button-background-color: transparent;
+  --button-hover-background-color: transparent;
+  --button-text-color: var(--sw5e-secondary-button);
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--sw5e-secondary-button) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-secondary-button) 72%, transparent) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #chat form.chat-form :is(
+  #chat-controls button.ui-control.icon,
+  > button.ui-control.icon
+):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]):is(:hover, :focus, :focus-visible) {
+  --button-background-color: rgba(32, 161, 208, 0.12);
+  --button-hover-background-color: rgba(32, 161, 208, 0.12);
+  --button-text-color: var(--sw5e-line-color);
+  background: color-mix(in srgb, var(--sw5e-secondary-button) 14%, transparent) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 60%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 52%, transparent) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #chat form.chat-form :is(
+  #chat-controls button.ui-control.icon,
+  > button.ui-control.icon
+):is(.active, .selected, [aria-pressed="true"], [aria-selected="true"]) {
+  --button-background-color: rgba(13, 153, 204, 0.16);
+  --button-hover-background-color: rgba(13, 153, 204, 0.16);
+  --button-text-color: var(--sw5e-line-color);
+  background: color-mix(in srgb, var(--sw5e-line-color) 16%, transparent) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 70%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 66%, transparent) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #chat form.chat-form :is(
+  #chat-controls button.ui-control.icon,
+  > button.ui-control.icon
+):is(.icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  font-family: var(--font-awesome) !important;
+  font-style: normal;
+  line-height: 1;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #chat form.chat-form :is(
+  #chat-controls button.ui-control.icon,
+  > button.ui-control.icon
+):is(.icon, .fas, .fa-solid, .fa-regular, .fa-light)::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  line-height: 1;
+}
+
+/* SW5E chat datapad surfaces — message shell + inner chat-card panels (not DND5e Native) */
+body[data-sw5e-theme="sw5e-light"] :is(
+  .sw5e-theme-root:is(.chat-message, .message),
+  .window-app[data-sw5e-theme-root="chat-log"] :is(.chat-message, .message)
+) {
+  background: var(--sw5e-light-chat-message-background) !important;
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid var(--sw5e-light-chat-datapad-border) !important;
+  box-shadow: var(--sw5e-light-chat-datapad-shadow);
+  color: var(--sw5e-theme-text);
+  --chat-message-background: var(--sw5e-light-chat-message-background);
+  --item-summary-background: var(--sw5e-light-chat-datapad-panel);
+  --sw5e-light-parchment-surface: var(--sw5e-light-chat-datapad-panel);
+}
+
+body[data-sw5e-theme="sw5e-dark"] :is(
+  .sw5e-theme-root:is(.chat-message, .message),
+  .window-app[data-sw5e-theme-root="chat-log"] :is(.chat-message, .message)
+) {
+  background: var(--sw5e-dark-chat-message-background) !important;
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid var(--sw5e-dark-chat-datapad-border) !important;
+  box-shadow: var(--sw5e-dark-chat-datapad-shadow);
+  color: var(--sw5e-theme-text);
+  --chat-message-background: var(--sw5e-dark-chat-message-background);
+  --item-summary-background: var(--sw5e-dark-chat-datapad-panel);
+}
+
+/* dnd5e chat.less — :is(#chat-log, .chat-log) .message::before uses texture-gray1.webp */
+body[data-sw5e-theme="sw5e-light"] :is(
+  #chat,
+  #chat-log,
+  .chat-log,
+  .chat-sidebar,
+  .chat-popout
+) .sw5e-theme-root:is(.chat-message, .message)::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] :is(
+  #chat,
+  #chat-log,
+  .chat-log,
+  .chat-sidebar,
+  .chat-popout
+) .sw5e-theme-root:is(.chat-message, .message)::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card {
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card .card-header.description {
+  background: var(--sw5e-light-chat-datapad-panel) !important;
+  background-color: transparent !important;
+  background-image: var(--sw5e-light-chat-datapad-panel) !important;
+  border: 1px solid var(--sw5e-light-chat-datapad-border) !important;
+  border-radius: 4px;
+  box-shadow: var(--sw5e-light-chat-datapad-shadow);
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .chat-message .message-content .chat-card :is(.card-header.description, .description) {
+  background-image: var(--sw5e-light-chat-datapad-panel) !important;
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card .summary {
+  background: transparent !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card .card-header.description .name-stacked.border {
+  border-color: var(--sw5e-light-chat-datapad-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card .card-header.description .title {
+  color: var(--sw5e-theme-text) !important;
+  font-weight: 600;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card .card-header.description .subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card :is(
+  .gold-icon,
+  .item-image.gold-icon
+) {
+  border-color: var(--sw5e-light-icon-frame-border) !important;
+  background-color: rgba(255, 255, 255, 0.86) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.58), 0 0 0 1px rgba(96, 122, 138, 0.08) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card .card-header.description .summary :is(i, dnd5e-icon) {
+  color: var(--sw5e-secondary-button) !important;
+  --icon-fill: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card .card-header.description :is(
+  .card-content,
+  .details,
+  .wrapper,
+  .wrapper p,
+  .wrapper em,
+  .wrapper strong
+) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card .card-footer .pill {
+  border-color: var(--sw5e-light-chat-datapad-border) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .chat-card .card-footer .pill .label {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content :is(.dice-formula, .dice-total) {
+  background: var(--sw5e-light-chat-dice-panel) !important;
+  border-color: var(--sw5e-light-chat-datapad-border) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.54) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content .dice-total {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content damage-application .card-tray {
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-light"] .message-content damage-application .card-tray label {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card {
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card .card-header.description {
+  background: var(--sw5e-dark-chat-datapad-panel) !important;
+  background-color: transparent !important;
+  background-image: var(--sw5e-dark-chat-datapad-panel) !important;
+  border: 1px solid var(--sw5e-dark-chat-datapad-border) !important;
+  border-radius: 4px;
+  box-shadow: var(--sw5e-dark-chat-datapad-shadow);
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .chat-message .message-content .chat-card :is(.card-header.description, .description) {
+  background-image: var(--sw5e-dark-chat-datapad-panel) !important;
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card .summary {
+  background: transparent !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card .card-header.description .name-stacked.border {
+  border-color: var(--sw5e-dark-chat-datapad-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card .card-header.description .title {
+  color: var(--sw5e-theme-text) !important;
+  font-weight: 600;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card .card-header.description .subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card :is(
+  .gold-icon,
+  .item-image.gold-icon
+) {
+  border-color: var(--sw5e-dark-icon-frame-border) !important;
+  background-color: rgba(10, 14, 18, 0.55) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.12) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card .card-header.description .summary :is(i, dnd5e-icon) {
+  color: var(--sw5e-secondary-button) !important;
+  --icon-fill: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card .card-header.description :is(
+  .card-content,
+  .details,
+  .wrapper,
+  .wrapper p,
+  .wrapper em,
+  .wrapper strong
+) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card .card-footer .pill {
+  border-color: var(--sw5e-dark-chat-datapad-border) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .chat-card .card-footer .pill .label {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content :is(.dice-formula, .dice-total) {
+  background: var(--sw5e-dark-chat-dice-panel) !important;
+  border-color: var(--sw5e-dark-chat-datapad-border) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content .dice-total {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content damage-application .card-tray {
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .message-content damage-application .card-tray label {
+  color: var(--sw5e-theme-heading) !important;
+}
+
 body[data-sw5e-theme="sw5e-dark"] :is(.application, .window-app).dnd5e2.vertical-tabs:is(.sheet.actor, .sheet.item) nav.tabs.tabs-right > .item {
   background: transparent !important;
   color: var(--sw5e-secondary-button) !important;
@@ -807,6 +1701,12 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character 
   background-image: var(--sw5e-theme-surface-background) !important;
 }
 
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character {
+  --sw5e-light-sidebar-label: var(--sw5e-light-minor-accent);
+  --sw5e-light-sidebar-label-muted: var(--sw5e-light-empty-text);
+  --dnd5e-ability-tab: url("/systems/dnd5e/ui/ability-score-tab.svg");
+}
+
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character {
   --sw5e-dark-sidebar-ornament-outline: color-mix(in srgb, var(--sw5e-line-color) 72%, rgba(255, 255, 255, 0.08));
   --sw5e-dark-sidebar-ornament-outline-strong: color-mix(in srgb, var(--sw5e-secondary-button) 82%, rgba(255, 255, 255, 0.12));
@@ -817,6 +1717,407 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character 
   --sw5e-dark-sidebar-label-muted: #9fb4c3;
   --sw5e-dark-sidebar-label-disabled: #7f929e;
   --sw5e-dark-sidebar-label-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card :is(
+  .meter.sectioned,
+  .meter.hit-dice,
+  .meter.sw5e-power-points,
+  .meter.force-points
+) {
+  border-color: var(--sw5e-light-meter-shell-border) !important;
+  box-shadow: inset 0 0 14px rgba(137, 158, 171, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.52) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card :is(
+  .meter.sectioned,
+  .meter.hit-dice,
+  .meter.sw5e-power-points,
+  .meter.force-points
+):is(:hover, :focus-within) {
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card :is(
+  .meter.sectioned input,
+  .meter.hit-dice input,
+  .meter.sw5e-power-points input,
+  .meter.force-points input
+):is(:hover, :focus, :focus-visible) {
+  box-shadow: 0 0 0 1px var(--sw5e-light-active-control-border), 0 0 8px color-mix(in srgb, var(--sw5e-light-active-control-border) 24%, transparent) !important;
+  outline: none;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter.sectioned > .tmp {
+  border-inline-start-color: var(--sw5e-light-meter-shell-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  filter: var(--sw5e-light-sidebar-ornament-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait > :is(img, video) {
+  position: relative;
+  z-index: 1;
+  border-bottom-color: var(--sw5e-light-sidebar-ornament-outline) !important;
+  background: linear-gradient(180deg, rgba(245, 249, 252, 0.98) 0%, rgba(216, 229, 237, 0.94) 100%) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.46), inset 0 -18px 28px rgba(164, 181, 193, 0.18);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait::after {
+  border-color: var(--sw5e-light-sidebar-ornament-outline) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.68), 0 5px 12px rgba(74, 96, 111, 0.1);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait > img[src*="systems/dnd5e/icons/svg/actors/character.svg"] {
+  filter: brightness(0.58) contrast(1.24) saturate(0.72);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait > label.slide-toggle {
+  color: var(--sw5e-secondary-button) !important;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.84) 72%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait > label.slide-toggle:has(input:not([disabled])):hover {
+  text-shadow: 0 0 6px color-mix(in srgb, var(--sw5e-line-color) 30%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait > label.slide-toggle :is(i, .fas, .fa-solid, .fa-regular, .fa-light) {
+  color: inherit !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .label {
+  color: var(--sw5e-light-sidebar-label) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar :is(
+  .card .stats .lozenges .lozenge .label,
+  .card .meter-group > .label,
+  .favorites > ul .drop
+) {
+  font-family: var(--sw5e-font-body) !important;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar :is(
+  .card .stats .lozenges .lozenge .label,
+  .card .meter-group > .label
+) {
+  color: var(--sw5e-light-sidebar-label) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .meter-group > .label {
+  font-size: 10px !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  .sheet-body .sidebar .card .stats .top .ac-badge,
+  .sheet-header > .right .level-badge
+) {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  background-image: none !important;
+  background: none !important;
+  color: var(--sw5e-theme-text) !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.48);
+  filter: var(--sw5e-light-sidebar-ornament-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .ac-badge > * {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .ac-badge::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .ac-badge::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  clip-path: polygon(50% 0, 84% 12%, 94% 46%, 78% 86%, 50% 100%, 22% 86%, 6% 46%, 16% 12%);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .ac-badge::before {
+  inset: 0;
+  z-index: -2;
+  background: var(--sw5e-light-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .ac-badge::after {
+  inset: 3px;
+  background: var(--sw5e-light-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-light-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge::before {
+  z-index: -2;
+  background: var(--sw5e-light-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge::after {
+  inset: 4px;
+  background: var(--sw5e-light-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-light-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  background-image: none !important;
+  background: none !important;
+  filter: var(--sw5e-light-sidebar-ornament-shadow-lozenge) !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  padding-block: 1px;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  clip-path: polygon(50% 0, 94% 22%, 100% 50%, 94% 78%, 50% 100%, 6% 78%, 0 50%, 6% 22%);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before {
+  z-index: -2;
+  background: var(--sw5e-light-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after {
+  inset: 2px 1px;
+  background: var(--sw5e-light-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-light-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge > * {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .value {
+  color: var(--sw5e-theme-text) !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.32) !important;
+  display: flex !important;
+  flex: 0 0 auto !important;
+  align-items: center;
+  justify-content: center;
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .value span {
+  display: block !important;
+  line-height: 1 !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .label {
+  color: var(--sw5e-light-sidebar-label) !important;
+  text-shadow: none !important;
+  align-self: center;
+  display: inline-block;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: calc(100% - 4px);
+  margin: 0 0 2px !important;
+  padding: 0 2px;
+  font-family: var(--dnd5e-font-roboto-condensed), var(--sw5e-font-body) !important;
+  font-size: 8.75px !important;
+  font-weight: 700;
+  letter-spacing: -0.015em !important;
+  line-height: 1 !important;
+  text-align: center;
+  white-space: nowrap;
+  background: none !important;
+  border-radius: 0;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge.rollable:is(:hover, :focus-within)::before {
+  background: color-mix(in srgb, var(--sw5e-line-color) 88%, rgba(255, 255, 255, 0.16));
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge.rollable:is(:hover, :focus-within)::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, color-mix(in srgb, var(--sw5e-line-color) 10%, rgba(233, 241, 246, 0.94)) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.82);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge.rollable:hover .value::before {
+  color: inherit !important;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > ul .drop {
+  color: var(--sw5e-light-empty-text) !important;
+  text-shadow: none !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 26%, rgba(67, 67, 67, 0.08)) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, rgba(236, 243, 248, 0.2) 100%);
+  opacity: 0.82 !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .tab-body .right :is(.pill-lg, .sw5e-bodymods-inline-card, .sw5e-deployment-pill) {
+  background: var(--sw5e-light-panel-fill-strong) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, rgba(67, 67, 67, 0.14)) !important;
+  box-shadow: var(--sw5e-light-card-shadow-soft) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .tab-body .right :is(.pill-lg.empty, .pill-lg.empty.roboto-upper) {
+  color: var(--sw5e-light-empty-text) !important;
+  opacity: 0.9 !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .tab-body .right :is(.pill-lg .name .title, .sw5e-bodymods-inline-title, .pills .pill .label) {
+  color: var(--sw5e-theme-text) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .tab-body .right :is(.pill-lg .name .subtitle, .pill-lg .item-detail.effect-source, .pill-lg .item-tooltip, .pills .pill) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .tab-body .right .sw5e-bodymods-inline-card {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .tab-body .right .sw5e-bodymods-inline-card .sw5e-bodymods-inline-icon {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(233, 241, 246, 0.82) 100%) !important;
+  border: 1px solid var(--sw5e-light-icon-frame-border) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.56) !important;
+  color: var(--sw5e-line-color) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .tab-body .right .pills .pill {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(241, 246, 249, 0.74) 100%) !important;
+  border-color: var(--sw5e-light-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box:is(.skills, .saves, .tools) > ul > li {
+  border-bottom: 1px solid var(--sw5e-light-row-divider);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box.skills > ul > li .ability,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box.saves > ul > li .name.abbr {
+  color: var(--sw5e-light-minor-accent) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box.skills > ul > li :is(.name.skill-name, .bonus),
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box.saves > ul > li :is(.name.full, .bonus) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box.skills > ul > li .passive {
+  color: var(--sw5e-light-empty-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  filigree-box > h3 .roboto-upper,
+  .favorites > h3 .roboto-upper,
+  .favorites > h3,
+  .pills-group > h3 .roboto-upper,
+  section.items-list > .items-section.card > .items-header.header .roboto-upper
+) {
+  color: var(--sw5e-theme-heading) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .ability-scores .ability-score {
+  filter: drop-shadow(0 2px 4px rgba(73, 96, 112, 0.1)) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .ability-scores .ability-score::before {
+  filter: var(--sw5e-light-ability-score-tab-filter) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .ability-scores .ability-score .label {
+  color: var(--sw5e-light-minor-accent) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .ability-scores .ability-score .mod {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .ability-scores .ability-score .score {
+  background: var(--sw5e-light-ability-score-fill) !important;
+  border: 1px solid var(--sw5e-light-ability-score-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.56) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character .ability-scores .ability-score .score > input:is(:hover, :focus) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 52%, transparent) !important;
+  box-shadow: 0 0 4px color-mix(in srgb, var(--sw5e-line-color) 18%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  .tab-body .right,
+  .sheet-body
+) .pill-lg.texture {
+  --pill-underlay-opacity: 0;
+  --pill-background-blend-mode: normal;
+  background: var(--sw5e-light-panel-fill-strong) !important;
+  background-blend-mode: normal !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 42%, rgba(67, 67, 67, 0.14)) !important;
+  box-shadow: var(--sw5e-light-card-shadow-soft) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  .tab-body .right,
+  .sheet-body
+) .pill-lg.texture:is(.type, .race, .background) {
+  background: var(--sw5e-light-panel-fill-strong) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  .tab-body .right,
+  .sheet-body
+) .pill-lg.texture::before {
+  opacity: 0 !important;
+  background: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  .tab-body .right,
+  .sheet-body
+) .pill-lg.texture .name .title {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  .tab-body .right,
+  .sheet-body
+) .pill-lg.texture :is(.name .subtitle, .actor-size) {
+  color: var(--sw5e-theme-muted-text) !important;
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card :is(
@@ -892,15 +2193,16 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .label {
   align-self: center;
   display: inline-block;
+  flex: 0 0 auto !important;
   width: auto !important;
   max-width: calc(100% - 6px);
-  margin: 0 0 1px;
+  margin: 0 0 2px !important;
   padding: 0;
   font-family: var(--dnd5e-font-roboto-condensed), var(--sw5e-font-body) !important;
-  font-size: 10px !important;
+  font-size: 9px !important;
   font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1.05;
+  letter-spacing: -0.015em !important;
+  line-height: 1 !important;
   text-align: center;
   white-space: nowrap;
   background: none !important;
@@ -1003,6 +2305,9 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character 
   isolation: isolate;
   background: none !important;
   filter: var(--sw5e-dark-sidebar-ornament-shadow) !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  padding-block: 1px;
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before,
@@ -1032,7 +2337,20 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character 
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .value {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  align-items: center;
+  justify-content: center;
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
   text-shadow: 0 0 6px color-mix(in srgb, var(--sw5e-line-color) 18%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge .value span {
+  display: block !important;
+  line-height: 1 !important;
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge.rollable:hover .value::before {
@@ -1112,6 +2430,115 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root .sw5e-starship-v2-warning--in
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(.sw5e-bodymods-inline-title, .sw5e-starship-item-name.title, .sw5e-starship-group-lede strong, .item-name, .card-header h3, .message-sender),
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(.sw5e-bodymods-inline-title, .sw5e-starship-item-name.title, .sw5e-starship-group-lede strong, .item-name, .card-header h3, .message-sender) {
   color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
+  section.items-list > .items-section.card > .items-header.header,
+  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  .advancement.tab > .items-section.card > .items-header.header,
+  .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
+) {
+  background: var(--sw5e-light-section-header-background) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-left: 3px solid var(--sw5e-theme-heading) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), inset 0 0 0 1px rgba(175, 198, 214, 0.18) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
+  section.items-list > .items-section.card > .items-header.header,
+  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  .advancement.tab > .items-section.card > .items-header.header,
+  .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
+) > * {
+  font-family: var(--sw5e-font-body) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
+  section.items-list > .items-section.card > .items-header.header,
+  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  .advancement.tab > .items-section.card > .items-header.header,
+  .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
+) > :is(h3, .item-name) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.2 !important;
+  text-align: left;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
+  section.items-list > .items-section.card > .items-header.header,
+  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  .advancement.tab > .items-section.card > .items-header.header,
+  .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
+) > :not(:is(h3, .item-name)) {
+  color: var(--sw5e-theme-muted-text) !important;
+  font-family: var(--sw5e-font-body) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Powers tab — Forcecasting / power summary banner (Light only) */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-summary.sw5e-powers-banner {
+  --sw5e-powers-banner-surface: var(--sw5e-light-panel-fill-strong);
+  --sw5e-powers-banner-border: var(--sw5e-light-muted-control-border);
+  --sw5e-powers-banner-text: var(--sw5e-theme-text);
+  --sw5e-powers-banner-muted: var(--sw5e-theme-muted-text);
+
+  background: var(--sw5e-powers-banner-surface) !important;
+  border-color: var(--sw5e-light-muted-control-border) !important;
+  box-shadow: var(--sw5e-light-card-shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-banner-kicker {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-banner-head-right .sw5e-powers-known-badge {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(233, 241, 246, 0.92) 100%) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 46%, rgba(67, 67, 67, 0.12)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-known-label {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-known-pair {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-known-pair.sw5e-powers-known--over {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-banner-flow,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-banner-block + .sw5e-powers-banner-block {
+  border-top-color: var(--sw5e-light-row-divider) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-banner-seg {
+  background: color-mix(in srgb, var(--sw5e-powers-seg-accent, transparent) 8%, rgba(255, 255, 255, 0.84)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-powers-seg-accent, transparent) 36%, var(--sw5e-light-muted-control-border)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-banner-seg-label {
+  color: color-mix(in oklab, var(--sw5e-powers-seg-accent, var(--sw5e-theme-text)) 78%, var(--sw5e-theme-text)) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-banner-abbr {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-banner-sep {
+  color: var(--sw5e-theme-muted-text) !important;
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(

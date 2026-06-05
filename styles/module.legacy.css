@@ -129,25 +129,18 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root:is(.dnd5e2, .dnd5e2-journal)
 }
 
 body[data-sw5e-theme="sw5e-light"] .chat-message.sw5e-theme-root.dnd5e2 {
-  --sw5e-light-parchment-color: color-mix(in oklab, #dceaf0 76%, #ffffff);
-  --sw5e-light-parchment-surface: linear-gradient(
-      180deg,
-      color-mix(in oklab, #ffffff 45%, transparent) 0%,
-      color-mix(in oklab, #ffffff 22%, transparent) 40%,
-      color-mix(in oklab, #ffffff 12%, transparent) 100%
-    ),
-    url("/modules/sw5e-module/assets/ui/parchment.webp");
-  --chat-message-background: var(--sw5e-light-parchment-surface);
-  --separated-list-item-background-color: var(--sw5e-light-parchment-color);
-  --item-summary-background: var(--sw5e-light-parchment-color);
-  --filigree-background-color: var(--sw5e-light-parchment-color);
-  --table-background-color: var(--sw5e-light-parchment-color);
-  --multi-select-tag-background: var(--sw5e-light-parchment-color);
-  background-color: var(--color-canvas-1, #f4f0e8);
-  background-image: var(--sw5e-light-parchment-surface);
-  background-size: 100% 100%, cover;
-  background-position: 0 0, center center;
-  background-repeat: no-repeat, no-repeat;
+  --chat-message-background: var(--sw5e-light-chat-message-background);
+  --sw5e-light-parchment-surface: var(--sw5e-light-chat-datapad-panel);
+  --item-summary-background: var(--sw5e-light-chat-datapad-panel);
+  --separated-list-item-background-color: transparent;
+  --filigree-background-color: transparent;
+  --table-background-color: transparent;
+  --multi-select-tag-background: transparent;
+  background-color: var(--sw5e-theme-page-center, var(--color-canvas-1));
+  background-image: var(--sw5e-light-chat-message-background);
+  background-size: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character {
@@ -178,8 +171,7 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.character
 }
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 :is(.card, fieldset.card > legend, item-list-controls search, .filter-element search, .pill-lg, .form-group.card, .currency-style button:not(.split-control), .starting-equipment li[data-entry-id][data-depth="1"], .starting-equipment li[data-entry-id][data-depth="2"], .sw5e-chassis-panel, .sw5e-starship-group.items-section.card),
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.green):not(.maroon):not(.transparent):not(.pill-sm),
-body[data-sw5e-theme="sw5e-light"] .chat-message.sw5e-theme-root.dnd5e2 .chat-card :is(.description, .card-tray, .effects-tray, .targets-tray) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.green):not(.maroon):not(.transparent):not(.pill-sm) {
   background-color: var(--color-canvas-1, #f4f0e8);
   background-image: var(--sw5e-light-parchment-surface);
   background-size: 100% 100%, cover;
@@ -558,43 +550,6 @@ body[data-sw5e-theme="sw5e-light"] .chat-message.sw5e-theme-root.dnd5e2 .chat-ca
   display: flex;
   justify-content: flex-end;
   margin-top: 0.75rem;
-}
-
-.currency-settings-app .sw5e-currency-settings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 0.75rem;
-}
-
-.currency-settings-app {
-  height: 100%;
-}
-
-.currency-settings-app .sw5e-currency-settings-form {
-  height: 100%;
-  min-height: 0;
-  gap: 0.75rem;
-}
-
-.currency-settings-app .sw5e-currency-settings-body {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: auto;
-  padding-right: 0.25rem;
-}
-
-.currency-settings-app .sw5e-currency-card {
-  min-width: 0;
-}
-
-.currency-settings-app .sw5e-currency-card.reference-only {
-  border-style: dashed;
-}
-
-.currency-settings-app .form-footer {
-  display: flex;
-  flex: 0 0 auto;
-  justify-content: flex-end;
 }
 
 .power-point-config .form-fields > button[data-action="reset-calculated"] {
@@ -5112,7 +5067,7 @@ section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove:foc
   }
 }
 
-/* Global pause overlay — SW5E-style dual rings (module-owned SVGs, see assets/ui/) */
+/* Global pause overlay — SW5E-style dual rings (SW5E Light/Dark only; see assets/ui/) */
 @keyframes sw5e-pause-spin {
   from {
     transform: rotate(0deg);
@@ -5122,16 +5077,20 @@ section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove:foc
   }
 }
 
-#pause {
+body[data-sw5e-theme="sw5e-light"] #pause,
+body[data-sw5e-theme="sw5e-dark"] #pause {
   background: none;
   height: 128px;
 }
 
-#pause img {
+/* Hide only the confirmed native dnd5e ampersand pause icon; preserve third-party #pause images. */
+body[data-sw5e-theme="sw5e-light"] #pause.dnd5e2 img[src*="systems/dnd5e/ui/official/ampersand.svg"],
+body[data-sw5e-theme="sw5e-dark"] #pause.dnd5e2 img[src*="systems/dnd5e/ui/official/ampersand.svg"] {
   display: none !important;
 }
 
-#pause::before {
+body[data-sw5e-theme="sw5e-light"] #pause::before,
+body[data-sw5e-theme="sw5e-dark"] #pause::before {
   content: "";
   position: absolute;
   top: 0;
@@ -5144,7 +5103,8 @@ section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove:foc
   pointer-events: none;
 }
 
-#pause::after {
+body[data-sw5e-theme="sw5e-light"] #pause::after,
+body[data-sw5e-theme="sw5e-dark"] #pause::after {
   content: "";
   position: absolute;
   top: 0;

@@ -1,5 +1,5 @@
 import { getModulePath, getModuleId, getModuleSettingValue } from "../module-support.mjs";
-import { getCurrencyRegistry, normalizeSwPriceDenomination } from "../currencies.mjs";
+import { normalizeSwPriceDenomination } from "../currencies.mjs";
 import {
 	deriveStarshipPools,
 	getDerivedStarshipRuntime,
@@ -2342,9 +2342,9 @@ function getItemPriceLabel(item) {
 	const value = Number(rawValue);
 	if ( !Number.isFinite(value) ) return "";
 
-	const registry = getCurrencyRegistry();
 	const denomKey = normalizeSwPriceDenomination(typeof price === "object" ? price.denomination : undefined, { fallbackToBase: false });
-	const abbrKey = registry?.[denomKey]?.abbreviation;
+	const currencyConfig = CONFIG.DND5E.currencies?.[denomKey];
+	const abbrKey = currencyConfig?.abbreviation;
 	const abbr = abbrKey ? game.i18n.localize(abbrKey) : (typeof denomKey === "string" ? denomKey.toUpperCase() : "");
 	return [formatSheetNumber(value), abbr].filter(Boolean).join(" ").trim();
 }

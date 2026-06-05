@@ -1,11 +1,3 @@
-import { CurrencySettingsApp } from "./currency-settings-app.mjs";
-import {
-	CURRENCY_CUSTOM_RATES_SETTING,
-	CURRENCY_ENABLED_MAP_SETTING,
-	CURRENCY_SETTINGS_MENU,
-	getDefaultCustomCurrencyRates,
-	getDefaultEnabledCurrencyMap
-} from "./currencies.mjs";
 import { CHASSIS_SETTING_KEYS, CHASSIS_RULES_MODES } from "./chassis.mjs";
 import { LEGACY_SETTINGS_NAMESPACE, SETTINGS_NAMESPACE } from "./module-support.mjs";
 import {
@@ -37,27 +29,6 @@ export function registerModuleSettings() {
 		name: "Module Migration Version",
 		type: String,
 		default: ""
-	});
-
-	game.settings.registerMenu(SETTINGS_NAMESPACE, CURRENCY_SETTINGS_MENU, {
-		name: "SW5E.CurrencySettingsMenu",
-		label: "SW5E.CurrencySettingsMenuLabel",
-		hint: "SW5E.CurrencySettingsMenuHint",
-		icon: "fas fa-coins",
-		type: CurrencySettingsApp,
-		restricted: true
-	});
-
-	for ( const namespace of hiddenNamespaces ) registerHiddenWorldSetting(namespace, CURRENCY_ENABLED_MAP_SETTING, {
-		name: "SW5E.CurrencySettingsEnabled",
-		type: Object,
-		default: getDefaultEnabledCurrencyMap()
-	});
-
-	for ( const namespace of hiddenNamespaces ) registerHiddenWorldSetting(namespace, CURRENCY_CUSTOM_RATES_SETTING, {
-		name: "SW5E.CurrencySettingsExchangeRate",
-		type: Object,
-		default: getDefaultCustomCurrencyRates()
 	});
 
 	const chassisRulesChoices = Object.fromEntries(
