@@ -2,7 +2,49 @@ _id: Rkeqzwdy1u70ReDg
 name: Force Shield
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-Reaction.webp
-effects: []
+effects:
+  - name: Force Shield
+    img: modules/sw5e-module/icons/packs/Class%20Features/CSLR-Reaction.webp
+    origin: Compendium.sw5e-module.character-classes.Item.Rkeqzwdy1u70ReDg
+    _id: CrFllTGI1kOlGYbG
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.bonus
+        mode: 2
+        value: '{@abilities.wis.mod, @abilities.cha.mod}kh'
+        priority: null
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: 1
+      turns: null
+      startRound: null
+      startTurn: null
+    description: >-
+      <p>Until the start of your next turn, you have a bonus to AC equal to your
+      Wisdom or Charisma modifier (your choice, minimum of +1).</p>
+    tint: '#ffffff'
+    transfer: false
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780430547035
+      modifiedTime: 1780430674505
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!Rkeqzwdy1u70ReDg.CrFllTGI1kOlGYbG'
 folder: ANdrdlER39j2NHtV
 flags:
   sw5e-importer:
@@ -10,24 +52,23 @@ flags:
     importer_version: 3
     uid: Feature.name-force_shield.source-class.sourceName-consular.level-2
   dnd5e:
-    riders:
-      activity: []
-      effect: []
     migratedUses: null
 system:
   description:
     value: >-
-      <p><em><strong>Consular:</strong> 2nd level</em></p>
-
-      <p>You learn how to defend yourself purely through your strength with the
-      Force. When you are hit by an attack, you can use your reaction to shroud
-      yourself in Force energy. Until the start of your next turn, you have a
-      bonus to AC equal to your Wisdom or Charisma modifier (your choice,
-      minimum of +1). This includes the triggering attack.</p>
-
-      <p>You can use this feature twice. You gain an additional use at 5th, 9th,
-      13th, and 17th level. You regain all expended uses when you finish a long
-      rest.</p>
+      <p><em><strong>Consular:</strong> 2nd level</em></p><p>You learn how to
+      defend yourself purely through your strength with the Force. When you are
+      hit by an attack, you can use your reaction to shroud yourself in Force
+      energy. Until the start of your next turn, you have a bonus to AC equal to
+      your Wisdom or Charisma modifier (your choice, minimum of +1). This
+      includes the triggering attack.</p><p>You can use this feature twice. You
+      gain an additional use at 5th, 9th, 13th, and 17th level. You regain all
+      expended uses when you finish a long rest.</p><section
+      id="secret-9xs4ioxhxteoL0vn" class="secret"><p><strong>Foundry
+      Note</strong></p><p>This feature includes an Active Effect which automates
+      the bonus to AC. The bonus assumes you will use your highest modifier
+      between Wisdom and Charisma. The limited uses will increase automatically
+      at levels 5, 9, 13 and 17.</p></section>
     chat: ''
   requirements: Consular 2
   source:
@@ -37,7 +78,7 @@ system:
   cover: null
   crewed: false
   uses:
-    max: '2'
+    max: '@scale.consular.force-shield'
     recovery:
       - period: lr
         type: recoverAll
@@ -56,19 +97,25 @@ system:
       activation:
         type: reaction
         override: false
-      description: {}
+        condition: When you are hit by an attack
+      description:
+        chatFlavor: ''
       duration:
-        units: inst
+        units: round
         concentration: false
         override: false
-      img: null
+        value: '1'
+      img: ''
       range:
-        units: ft
+        units: self
         override: false
+        value: ''
+        special: ''
       roll:
         formula: ''
         prompt: false
         visible: false
+        name: ''
       target:
         template:
           type: ''
@@ -76,6 +123,7 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: self
         override: false
         prompt: true
       type: utility
@@ -84,17 +132,29 @@ system:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
-      effects: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      effects:
+        - _id: CrFllTGI1kOlGYbG
+          level:
+            min: null
+            max: null
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: ''
   advancement: []
   identifier: force-shield
   enchant: {}
@@ -105,7 +165,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780431199921
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

@@ -2,7 +2,50 @@ _id: Dxysqok8UKhgvVai
 name: Improved Force-Empowered Strikes
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-Passive.webp
-effects: []
+effects:
+  - name: Improved Force-Empowered Strikes
+    img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-Passive.webp
+    origin: Compendium.sw5e-module.character-classes.Item.Dxysqok8UKhgvVai
+    _id: RyulO2Zga5WkWptx
+    type: base
+    system: {}
+    changes:
+      - key: system.bonuses.mwak.damage
+        mode: 2
+        value: 1d8
+        priority: null
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: >-
+      <p>Whenever you hit a creature with a melee weapon attack, the creature
+      takes an extra [[/r 1d8]] damage. The damage is the same type as the
+      weapon's damage.</p>
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780499819846
+      modifiedTime: 1780499859222
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!Dxysqok8UKhgvVai.RyulO2Zga5WkWptx'
 folder: SuxX921ywvnCOjZ6
 flags:
   sw5e-importer:
@@ -10,19 +53,17 @@ flags:
     importer_version: 3
     uid: >-
       Feature.name-improved_force_empowered_strikes.source-class.sourceName-guardian.level-11
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
-      <p><em><strong>Guardian:</strong> 11th level</em></p>
-
-      <p>You are so in tune with the Force that all your melee weapon strikes
-      carry the power of the Force with them. Whenever you hit a creature with a
-      melee weapon attack, the creature takes an extra [[/r 1d8]] damage. The
-      damage is the same type as the weapon's damage.</p>
+      <p><em><strong>Guardian:</strong> 11th level</em></p><p>You are so in tune
+      with the Force that all your melee weapon strikes carry the power of the
+      Force with them. Whenever you hit a creature with a melee weapon attack,
+      the creature takes an extra [[/r 1d8]] damage. The damage is the same type
+      as the weapon's damage.</p><section class="secret"
+      id="secret-B5Yt6gYh5zTvspAK"><p><strong>Foundry Note</strong></p><p>This
+      feature includes an Active Effect which automates the additional
+      damage.</p></section>
     chat: ''
   requirements: Guardian 11
   source:
@@ -43,60 +84,7 @@ system:
     items: []
     repeatable: false
   properties: []
-  activities:
-    sw5e0damage00000:
-      _id: sw5e0damage00000
-      activation:
-        type: action
-        override: false
-      damage:
-        critical:
-          allow: true
-        parts:
-          - custom:
-              enabled: false
-            denomination: 8
-            number: 1
-            scaling:
-              mode: ''
-              number: 1
-            types:
-              - ''
-      description: {}
-      duration:
-        units: inst
-        concentration: false
-        override: false
-      img: null
-      range:
-        units: ft
-        override: false
-      target:
-        template:
-          type: ''
-          units: ft
-          contiguous: false
-        affects:
-          choice: false
-        override: false
-        prompt: true
-      type: damage
-      sort: 0
-      consumption:
-        scaling:
-          allowed: false
-        spellSlot: true
-        targets: []
-      effects: []
-      flags: {}
-      uses:
-        spent: 0
-        recovery: []
-      visibility:
-        level: {}
-        requireAttunement: false
-        requireIdentification: false
-        requireMagic: false
+  activities: {}
   advancement: []
   identifier: improved-force-empowered-strikes
   enchant: {}
@@ -107,7 +95,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780499983602
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

@@ -16,14 +16,17 @@ effects:
     name: Reliable Talent
     _id: nJYgAqb75QbLWCrK
     changes:
-      - key: system.sw5e.flags.reliableTalent
+      - key: flags.dnd5e.reliableTalent
         mode: 5
-        value: '1'
+        value: 'true'
         priority: null
     description: ''
     transfer: true
     statuses: []
-    flags: {}
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
     tint: '#ffffff'
     _stats:
       compendiumSource: null
@@ -32,7 +35,8 @@ effects:
       coreVersion: '13.351'
       systemId: dnd5e
       systemVersion: 5.2.5
-      lastModifiedBy: null
+      lastModifiedBy: dnd5ebuilder0000
+      modifiedTime: 1780581247671
     img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-Passive.webp
     type: base
     system: {}
@@ -47,11 +51,13 @@ flags:
 system:
   description:
     value: >-
-      <p><em><strong>Operative:</strong> 11th level</em></p>
-
-      <p>You have refined your chosen skills until they approach perfection.
-      Ability checks you make that let you add your proficiency bonus gain a
-      minimum roll threshold, discussed in chapter 7.</p>
+      <p><em><strong>Operative:</strong> 11th level</em></p><p>You have refined
+      your chosen skills until they approach perfection. Ability checks you make
+      that let you add your proficiency bonus gain a minimum roll threshold,
+      discussed in chapter 7.</p><section id="secret-yImno2DoxWw6MVUd"
+      class="secret"><p><strong>Foundry Note</strong></p><p>This feature
+      includes and Active Effect which automates the minimum roll of 10 on your
+      skill and tool proficiencies.</p></section>
     chat: ''
   requirements: Operative 11
   source:
@@ -83,7 +89,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780581289834
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

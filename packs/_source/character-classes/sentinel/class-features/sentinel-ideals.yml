@@ -10,9 +10,6 @@ flags:
     importer_version: 3
     uid: Feature.name-sentinel_ideals.source-class.sourceName-sentinel.level-2
   dnd5e:
-    riders:
-      activity: []
-      effect: []
     migratedUses: null
 system:
   description:
@@ -53,19 +50,24 @@ system:
       activation:
         type: special
         override: false
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
         units: ft
         override: false
+        value: ''
+        special: ''
       roll:
         formula: ''
         prompt: false
         visible: false
+        name: ''
       target:
         template:
           type: ''
@@ -73,6 +75,7 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: ''
         override: false
         prompt: true
       type: utility
@@ -81,18 +84,69 @@ system:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
+        targets:
+          - type: itemUses
+            value: '1'
       effects: []
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
-  advancement: []
+        identifier: ''
+      name: ''
+  advancement:
+    - _id: sw5e22ic00000000
+      configuration:
+        allowDrops: true
+        choices:
+          '2':
+            count: 2
+            replacement: false
+          '6':
+            count: 1
+            replacement: false
+          '11':
+            count: 1
+            replacement: false
+        pool:
+          - uuid: Compendium.sw5e-module.character-classes.b1mbsxLmndcYYCA4
+          - uuid: Compendium.sw5e-module.character-classes.TfkT3drFNihZrSPn
+          - uuid: Compendium.sw5e-module.character-classes.gTrwVuDzaHJBzHRN
+          - uuid: Compendium.sw5e-module.character-classes.dcrEgLp1fY1jVtsM
+          - uuid: Compendium.sw5e-module.character-classes.DCQWKpZ0ja1k9Th0
+          - uuid: Compendium.sw5e-module.character-classes.Yy7DjdtFw1wieKDn
+          - uuid: Compendium.sw5e-module.character-classes.MfeT5I7A4RiOX5L1
+          - uuid: Compendium.sw5e-module.character-classes.coJqwLxZNTnq7Y2P
+          - uuid: Compendium.sw5e-module.character-classes.vTMlHVJo5gkbNIUS
+        restriction:
+          level: ''
+          subtype: sentinelInvocation
+          type: class
+          list: []
+        type: feat
+        spell: null
+      title: Sentinel Ideals
+      type: ItemChoice
+      value:
+        added: {}
+        replaced: {}
+      hint: >-
+        You adopt ideals that exemplify your bond with the Force. You adopt two
+        ideals of your choice, as detailed at the end of the class description,
+        and you adopt more at higher levels, as shown in the Ideals Known column
+        of the sentinel table.
+
+        You can manifest your ideals a combined total of twice, and you can
+        manifest them more times at higher levels as shown in the Ideal
+        Manifests column of the sentinel table.
   identifier: sentinel-ideals
   enchant: {}
 _stats:
@@ -102,7 +156,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780603912484
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

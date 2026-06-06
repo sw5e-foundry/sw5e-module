@@ -2,7 +2,172 @@ _id: CBf0Ynl0NuA2z7sl
 name: Infuse Item
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-Action.webp
-effects: []
+effects:
+  - type: enchantment
+    name: Infuse Item +1
+    img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-Action.webp
+    disabled: false
+    _id: P5jMD4q4L7rYa12v
+    system: {}
+    changes:
+      - key: system.magicalBonus
+        mode: 2
+        value: '1'
+        priority: null
+      - key: system.armor.magicalBonus
+        mode: 2
+        value: '1'
+        priority: null
+      - key: system.properties
+        mode: 2
+        value: mgc
+        priority: null
+      - key: name
+        mode: 5
+        value: Infused {} +1
+        priority: null
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: >-
+      <p>Until the end of your next long rest or until you die, the object
+      becomes an enhanced item, granting a +1 bonus to AC if it's armor or a
+      shield or a +1 bonus to attack and damage rolls if it's a weapon.</p>
+    origin: null
+    tint: '#ffffff'
+    transfer: false
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780434512088
+      modifiedTime: 1780441492588
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!CBf0Ynl0NuA2z7sl.P5jMD4q4L7rYa12v'
+  - type: enchantment
+    name: Infuse Item +2
+    img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-Action.webp
+    disabled: false
+    _id: RKs3w3b7CBVkn0CL
+    system: {}
+    changes:
+      - key: system.magicalBonus
+        mode: 2
+        value: '2'
+        priority: null
+      - key: system.armor.magicalBonus
+        mode: 2
+        value: '2'
+        priority: null
+      - key: system.properties
+        mode: 2
+        value: mgc
+        priority: null
+      - key: name
+        mode: 5
+        value: Infused {} +2
+        priority: null
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: >-
+      <p>Until the end of your next long rest or until you die, the object
+      becomes an enhanced item, granting a +2 bonus to AC if it's armor or a
+      shield or a +2 bonus to attack and damage rolls if it's a weapon.</p>
+    origin: null
+    tint: '#ffffff'
+    transfer: false
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780441451120
+      modifiedTime: 1780443418611
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!CBf0Ynl0NuA2z7sl.RKs3w3b7CBVkn0CL'
+  - type: enchantment
+    name: Infuse Item +3
+    img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-Action.webp
+    disabled: false
+    _id: jaRYjvXT085SvTWk
+    system: {}
+    changes:
+      - key: system.magicalBonus
+        mode: 2
+        value: '3'
+        priority: null
+      - key: system.armor.magicalBonus
+        mode: 2
+        value: '3'
+        priority: null
+      - key: system.properties
+        mode: 2
+        value: mgc
+        priority: null
+      - key: name
+        mode: 5
+        value: Infused {} +3
+        priority: null
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: >-
+      <p>Until the end of your next long rest or until you die, the object
+      becomes an enhanced item, granting a +3 bonus to AC if it's armor or a
+      shield or a +3 bonus to attack and damage rolls if it's a weapon.</p>
+    origin: null
+    tint: '#ffffff'
+    transfer: false
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780441495154
+      modifiedTime: 1780443571630
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!CBf0Ynl0NuA2z7sl.jaRYjvXT085SvTWk'
 folder: 4hvxhTk3KbQameHc
 flags:
   sw5e-importer:
@@ -10,9 +175,6 @@ flags:
     importer_version: 3
     uid: Feature.name-infuse_item.source-class.sourceName-engineer.level-2
   dnd5e:
-    riders:
-      activity: []
-      effect: []
     migratedUses: null
 system:
   description:
@@ -53,50 +215,91 @@ system:
     repeatable: false
   properties: []
   activities:
-    sw5e0utility0000:
-      _id: sw5e0utility0000
+    1zCAW6uKSgNhNziW:
+      type: enchant
+      _id: 1zCAW6uKSgNhNziW
+      sort: 0
       activation:
         type: special
         override: false
-      description: {}
-      duration:
-        units: inst
-        concentration: false
-        override: false
-      img: null
-      range:
-        units: ft
-        override: false
-      roll:
-        formula: ''
-        prompt: false
-        visible: false
-      target:
-        template:
-          type: ''
-          units: ft
-          contiguous: false
-        affects:
-          choice: false
-        override: false
-        prompt: true
-      type: utility
-      sort: 0
+        condition: ''
       consumption:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
-      effects: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: P5jMD4q4L7rYa12v
+          level:
+            min: 2
+            max: 9
+          riders:
+            activity: []
+            effect: []
+            item: []
+        - _id: RKs3w3b7CBVkn0CL
+          level:
+            min: 10
+            max: 14
+          riders:
+            activity: []
+            effect: []
+            item: []
+        - _id: jaRYjvXT085SvTWk
+          level:
+            min: 15
+            max: null
+          riders:
+            activity: []
+            effect: []
+            item: []
       flags: {}
+      range:
+        units: touch
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: object
+          count: '1'
+          special: ''
+        override: false
+        prompt: true
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      enchant:
+        self: false
+      restrictions:
+        allowMagical: false
+        categories: []
+        properties: []
+        type: ''
+      name: Infuse Item
+      img: ''
   advancement: []
   identifier: infuse-item
   enchant: {}
@@ -107,7 +310,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780442221688
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

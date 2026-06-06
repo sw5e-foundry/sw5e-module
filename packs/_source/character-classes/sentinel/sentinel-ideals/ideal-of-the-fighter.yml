@@ -5,23 +5,21 @@ flags:
     importer_version: 3
     uid: >-
       Feature.name-ideal_of_the_fighter.source-classinvocation.sourceName-sentinel
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-Bonus.webp
 system:
   description:
     value: >-
       <p>You adopt a particular style of fighting as your specialty. Choose one
-      of the fighting style options, detailed in Chapter 6. </p>
-
-      <p>Additionally, as a bonus action, you can manifest this ideal in a brief
-      surge of energy. For the next minute, you know the fighting mastery that
-      corresponds with the fighting style you chose with this feature. If you
-      already know that fighting mastery, you instead learn another of your
-      choice for the duration.</p>
+      of the fighting style options, detailed in Chapter 6.</p><p>Additionally,
+      as a bonus action, you can manifest this ideal in a brief surge of energy.
+      For the next minute, you know the fighting mastery that corresponds with
+      the fighting style you chose with this feature. If you already know that
+      fighting mastery, you instead learn another of your choice for the
+      duration.</p><section id="secret-dRygaPtujMiGFQCB"
+      class="secret"><p><strong>Foundry Note<br /></strong>This feature includes
+      an Active Effect for tracking the duration of the
+      manifestation.</p></section>
     chat: ''
   requirements: Sentinel
   source:
@@ -34,31 +32,111 @@ system:
   uses:
     spent: 0
     recovery: []
+    max: ''
   activities:
     sw5e0utility0000:
       _id: sw5e0utility0000
       activation:
         type: bonus
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: minute
         value: '1'
-      img: null
+      img: ''
       range:
-        units: ft
+        units: self
+        value: ''
+        special: ''
       roll:
         formula: ''
+        name: ''
       target:
         template:
           type: ''
           units: ''
+        affects:
+          type: self
       type: utility
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: Compendium.sw5e-module.character-classes.Item.2BtuxZqgiBUJwgJj
+      name: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        identifier: ''
+      uses:
+        max: ''
+      effects:
+        - _id: ixD0nZ3BIeZI5Awv
   identifier: ideal-of-the-fighter
   enchant: {}
   prerequisites:
     level: null
   properties: []
-effects: []
+  advancement:
+    - type: ItemChoice
+      _id: 7NloMK6DQkECIsrq
+      configuration:
+        allowDrops: true
+        choices:
+          '0':
+            count: 1
+            replacement: false
+        pool: []
+        restriction:
+          list: []
+          type: customizationOption
+          subtype: fightingStyle
+        spell: null
+        type: feat
+      value:
+        added: {}
+        replaced: {}
+      title: Choose Fighting Style
+      hint: ''
+effects:
+  - name: Manifested Ideal of the Fighter
+    img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-Bonus.webp
+    origin: Compendium.sw5e-module.character-classes.Item.dcrEgLp1fY1jVtsM
+    transfer: false
+    _id: ixD0nZ3BIeZI5Awv
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: 60
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780604249781
+      modifiedTime: 1780604268540
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!dcrEgLp1fY1jVtsM.ixD0nZ3BIeZI5Awv'
 _id: dcrEgLp1fY1jVtsM
 folder: 6SIhNLadhlLXwDO4
 sort: 0
@@ -66,11 +144,12 @@ ownership:
   default: 0
 _stats:
   duplicateSource: null
-  coreVersion: '12.331'
+  coreVersion: '13.351'
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1730433983637
-  modifiedTime: 1739121094709
+  modifiedTime: 1780604342421
   lastModifiedBy: dnd5ebuilder0000
+  exportSource: null
 _key: '!items!dcrEgLp1fY1jVtsM'
 

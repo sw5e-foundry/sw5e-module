@@ -10,46 +10,37 @@ flags:
     importer_version: 3
     uid: Feature.name-channel_the_force.source-class.sourceName-guardian.level-1
   dnd5e:
-    riders:
-      activity: []
-      effect: []
     migratedUses: null
 system:
   description:
     value: >-
-      <p><em><strong>Guardian:</strong> 1st level</em></p>
-
-      <p>You know how to channel the Force to create a unique effect. You start
-      with your choice of one from two such effects: Cause Harm or Lend Aid. At
-      3rd level, your Guardian Focus grants you an additional effect. When you
-      use your Channel the Force, you choose which effect to create.</p>
-
-      <p>Some Channel the Force effects require saving throws. When you use such
-      an effect from this class, the DC equals your universal force save DC.</p>
-
-      <p>You can use this feature twice. You gain an additional use at 5th, 9th,
-      13th, and 17th level. You regain all expended uses when you finish a short
-      or long rest.</p>
-
-      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.mtj0QHmUrLJNrgCW]{Cause
-      Harm}</h3>
-
-      <p>As an action, you can expend a use of your Channel the Force to sap the
-      life from a hostile creature you can see within 60 feet. That creature
-      must make a Constitution saving throw. On a failed save, the creature
-      takes necrotic damage equal to your guardian level + your Charisma
-      modifier (minimum of +1), or half as much on a successful one.</p>
-
-      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.W5BTzqlndyiKfRyF]{Lend
-      Aid}</h3>
-
-      <p>As a bonus action, you can expend a use of your Channel the Force and
-      touch a beast or humanoid within 5 feet of you. That creature regains hit
-      points equal to your guardian level + your Wisdom modifier (minimum of
-      +1). Alternatively, if the beast or humanoid is poisoned or diseased, you
-      neutralize the poison or disease. If more than one poison or disease
-      afflicts the target, you neutralize one poison or disease that you know is
-      present, or you neutralize one at random.</p>
+      <p><em><strong>Guardian:</strong> 1st level</em></p><p>You know how to
+      channel the Force to create a unique effect. You start with your choice of
+      one from two such effects: Cause Harm or Lend Aid. At 3rd level, your
+      Guardian Focus grants you an additional effect. When you use your Channel
+      the Force, you choose which effect to create.</p><p>Some Channel the Force
+      effects require saving throws. When you use such an effect from this
+      class, the DC equals your universal force save DC.</p><p>You can use this
+      feature twice. You gain an additional use at 5th, 9th, 13th, and 17th
+      level. You regain all expended uses when you finish a short or long
+      rest.</p><h3>@UUID[Compendium.sw5e-module.character-classes.Item.mtj0QHmUrLJNrgCW]{Cause
+      Harm}</h3><p>As an action, you can expend a use of your Channel the Force
+      to sap the life from a hostile creature you can see within 60 feet. That
+      creature must make a Constitution saving throw. On a failed save, the
+      creature takes necrotic damage equal to your guardian level + your
+      Charisma modifier (minimum of +1), or half as much on a successful
+      one.</p><h3>@UUID[Compendium.sw5e-module.character-classes.Item.W5BTzqlndyiKfRyF]{Lend
+      Aid}</h3><p>As a bonus action, you can expend a use of your Channel the
+      Force and touch a beast or humanoid within 5 feet of you. That creature
+      regains hit points equal to your guardian level + your Wisdom modifier
+      (minimum of +1). Alternatively, if the beast or humanoid is poisoned or
+      diseased, you neutralize the poison or disease. If more than one poison or
+      disease afflicts the target, you neutralize one poison or disease that you
+      know is present, or you neutralize one at random.</p><section
+      class="secret" id="secret-fvmS6qozdLMtRAna"><p><strong>Foundry
+      Note</strong></p><p>The <strong>Remove Poison</strong> activity is for
+      usage tracking and does not automatically remove the Poisoned or Diseased
+      conditions.</p></section>
     chat: ''
   requirements: Guardian
   source:
@@ -59,7 +50,7 @@ system:
   cover: null
   crewed: false
   uses:
-    max: '2'
+    max: '@scale.guardian.channel-the-force'
     recovery:
       - period: sr
         type: recoverAll
@@ -76,37 +67,38 @@ system:
     sw5e0save0000000:
       _id: sw5e0save0000000
       activation:
-        type: bonus
+        type: action
         override: false
+        condition: ''
       damage:
         parts:
           - custom:
               enabled: true
-              formula: '@classes.guardian.levels + @abilities.cha.mod'
-            denomination: null
+              formula: '@classes.guardian.levels + max(@abilities.cha.mod,1)'
             number: null
-            scaling:
-              mode: ''
-              number: 1
+            denomination: null
+            bonus: ''
             types:
               - necrotic
         onSave: half
-      description: {}
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
         units: ft
         value: '60'
         override: false
+        special: ''
       save:
         ability:
           - con
         dc:
-          calculation: spellcasting
-          formula: ''
+          calculation: ''
+          formula: 8 + max(@abilities.wis.mod, @abilities.cha.mod) + @prof
       target:
         template:
           type: ''
@@ -114,6 +106,9 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: creature
+          count: '1'
+          special: ''
         override: false
         prompt: true
       type: save
@@ -122,23 +117,33 @@ system:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
       effects: []
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: Cause Harm
     sw5e1heal0000000:
       _id: sw5e1heal0000000
       activation:
         type: bonus
         override: false
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
@@ -146,7 +151,7 @@ system:
       healing:
         custom:
           enabled: true
-          formula: '@classes.guardian.levels + @abilities.wis.mod'
+          formula: '@classes.guardian.levels + max(@abilities.wis.mod)'
         denomination: null
         number: null
         scaling:
@@ -154,11 +159,12 @@ system:
           number: 1
         types:
           - healing
-      img: null
+      img: ''
       range:
-        units: ft
+        units: touch
         value: '60'
         override: false
+        special: ''
       target:
         template:
           type: ''
@@ -166,6 +172,9 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: creature
+          count: '1'
+          special: ''
         override: false
         prompt: true
       type: heal
@@ -174,17 +183,84 @@ system:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
       effects: []
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: Lend Aid (Heal)
+    yXePej6amZSQTsdn:
+      type: utility
+      _id: yXePej6amZSQTsdn
+      sort: 0
+      activation:
+        type: bonus
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects: []
+      flags: {}
+      range:
+        units: touch
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: creature
+          count: '1'
+          special: ''
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      name: Lend Aid (Remove Poison)
+      img: ''
   advancement: []
   identifier: channel-the-force
   enchant: {}
@@ -195,7 +271,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780499344361
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

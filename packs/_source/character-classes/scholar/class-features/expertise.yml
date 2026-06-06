@@ -9,14 +9,14 @@ img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-Passive.webp
 system:
   description:
     value: >-
-      <p><em><strong>Scholar:</strong> 3rd and 10th level</em></p>
-
-      <p>Choose two of your skill proficiencies, or one of skill proficiencies
-      and one of your tool proficiencies, or two of your tool proficiencies. You
-      gain expertise in those skills or tools.</p>
-
-      <p>At 10th level, you can choose another two proficiencies (in skills or
-      tools) to gain this benefit.</p>
+      <p><em><strong>Scholar:</strong> 3rd and 10th level</em></p><p>Choose two
+      of your skill proficiencies, or one of skill proficiencies and one of your
+      tool proficiencies, or two of your tool proficiencies. You gain expertise
+      in those skills or tools.</p><p>At 10th level, you can choose another two
+      proficiencies (in skills or tools) to gain this benefit.</p><section
+      class="secret" id="secret-E9AWPoNugbEia5ob"><p><strong>Foundry
+      Note</strong></p><p>You will be prompted for your expertise choices as you
+      level up.</p></section>
     chat: ''
   requirements: Scholar 3
   source:
@@ -38,7 +38,37 @@ system:
     repeatable: false
   properties: []
   activities: {}
-  advancement: []
+  advancement:
+    - type: Trait
+      title: Expertise
+      _id: uiuvuQmMQ4PZbIyO
+      configuration:
+        allowReplacements: false
+        choices:
+          - count: 2
+            pool:
+              - skills:*
+              - tool:*
+        grants: []
+        mode: expertise
+      level: 3
+      hint: ''
+      value: {}
+    - type: Trait
+      title: Expertise
+      _id: kBDBH6md9oAOX0ig
+      configuration:
+        allowReplacements: false
+        choices:
+          - count: 2
+            pool:
+              - skills:*
+              - tool:*
+        grants: []
+        mode: expertise
+      level: 10
+      hint: ''
+      value: {}
   identifier: expertise
   enchant: {}
 effects: []
@@ -50,7 +80,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780588338943
   lastModifiedBy: dnd5ebuilder0000
 _id: XQPJBvLrsacGI1tT
 ownership:

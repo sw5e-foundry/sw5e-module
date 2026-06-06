@@ -2,17 +2,122 @@ _id: fJvRFUztczOJ4mPs
 name: Cunning Action
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-Bonus.webp
-effects: []
+effects:
+  - name: Hiding
+    img: icons/magic/perception/silhouette-stealth-shadow.webp
+    origin: Compendium.sw5e-module.character-classes.Item.fJvRFUztczOJ4mPs
+    transfer: false
+    _id: JGyRf49P5JvBZW9V
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses:
+      - hiding
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780580205629
+      modifiedTime: 1780580398899
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!fJvRFUztczOJ4mPs.JGyRf49P5JvBZW9V'
+  - name: Dashing
+    img: icons/skills/movement/feet-winged-boots-glowing-yellow.webp
+    origin: Compendium.sw5e-module.character-classes.Item.fJvRFUztczOJ4mPs
+    transfer: false
+    _id: vGlSPg5t3hTXTwXq
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: 1
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780580418105
+      modifiedTime: 1780580646056
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!fJvRFUztczOJ4mPs.vGlSPg5t3hTXTwXq'
+  - name: Disengaging
+    img: icons/skills/movement/figure-running-gray.webp
+    origin: Compendium.sw5e-module.character-classes.Item.fJvRFUztczOJ4mPs
+    transfer: false
+    _id: w4rzadgGl4z4R6Cr
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: 1
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780580489430
+      modifiedTime: 1780580656862
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!fJvRFUztczOJ4mPs.w4rzadgGl4z4R6Cr'
 folder: bzDwsoXa1cjWOAs7
 flags:
   sw5e-importer:
     timestamp: '2023-03-09T01:51:58.6620289+00:00'
     importer_version: 3
     uid: Feature.name-cunning_action.source-class.sourceName-operative.level-2
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
@@ -46,19 +151,24 @@ system:
       activation:
         type: bonus
         override: false
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
-        units: ft
+        units: self
         override: false
+        value: ''
+        special: ''
       roll:
         formula: ''
         prompt: false
         visible: false
+        name: ''
       target:
         template:
           type: ''
@@ -66,6 +176,7 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: self
         override: false
         prompt: true
       type: utility
@@ -75,16 +186,133 @@ system:
           allowed: false
         spellSlot: true
         targets: []
-      effects: []
+      effects:
+        - _id: JGyRf49P5JvBZW9V
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: Hide
+    cmPq3sNubfd3DdxF:
+      type: utility
+      name: Dash
+      _id: cmPq3sNubfd3DdxF
+      sort: 0
+      activation:
+        type: bonus
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: vGlSPg5t3hTXTwXq
+          level: {}
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      img: ''
+    y7hEougUo8hM5JQO:
+      type: utility
+      name: Disengage
+      _id: y7hEougUo8hM5JQO
+      sort: 0
+      activation:
+        type: bonus
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: w4rzadgGl4z4R6Cr
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      img: ''
   advancement: []
   identifier: cunning-action
   enchant: {}
@@ -95,7 +323,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780580489497
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

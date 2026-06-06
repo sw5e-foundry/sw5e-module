@@ -2,26 +2,102 @@ _id: eYYdXnO1zUk4XpFW
 name: Stunning Strike
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
-effects: []
+effects:
+  - name: Stunned
+    img: icons/skills/melee/unarmed-punch-fist-blue.webp
+    origin: Compendium.sw5e-module.character-classes.Item.eYYdXnO1zUk4XpFW
+    transfer: false
+    _id: u3wpV9TEdM6QG5d3
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: 1
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses:
+      - stunned
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780578628684
+      modifiedTime: 1780578716295
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!eYYdXnO1zUk4XpFW.u3wpV9TEdM6QG5d3'
+  - name: Slowed
+    img: icons/magic/control/debuff-energy-snare-purple-pink.webp
+    origin: Compendium.sw5e-module.character-classes.Item.eYYdXnO1zUk4XpFW
+    transfer: false
+    _id: pjfS0fvLkRRnfExG
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.movement.walk
+        mode: 1
+        value: '.5'
+        priority: null
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: 1
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780578718426
+      modifiedTime: 1780578839513
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!eYYdXnO1zUk4XpFW.pjfS0fvLkRRnfExG'
 folder: EuaUbhYGJmRG0ki8
 flags:
   sw5e-importer:
     timestamp: '2023-03-09T01:51:58.6610303+00:00'
     importer_version: 3
     uid: Feature.name-stunning_strike.source-class.sourceName-monk.level-5
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
-      <p><em><strong>Monk:</strong> 5th level</em></p>
-
-      <p>You can interfere with an opponent's body. When you hit another
-      creature with a melee weapon attack, you can spend 1 focus point to
-      attempt a stunning strike. The target must succeed on a Constitution
-      saving throw or be stunned until the end of your next turn.</p>
+      <p><em><strong>Monk:</strong> 5th level</em></p><p>You can interfere with
+      an opponent's body. When you hit another creature with a melee weapon
+      attack, you can spend 1 focus point to attempt a stunning strike. The
+      target must succeed on a Constitution saving throw or be stunned until the
+      end of your next turn.</p><section class="secret"
+      id="secret-aClv1BrKCMAJGcxS"><p><strong>Foundry Note</strong></p><p>This
+      feature includes the Saving Throw and a Stunned Active Effect which
+      applies the Stunned status if they fail and a Slowed Active Effect for
+      tracking that their Speed is halved.</p></section>
     chat: ''
   requirements: Monk 5
   source:
@@ -46,27 +122,31 @@ system:
     sw5e0save0000000:
       _id: sw5e0save0000000
       activation:
-        type: action
+        type: ''
         override: false
+        condition: When you hit another creature with a melee weapon attack
       damage:
         parts: []
         onSave: half
-      description: {}
+      description:
+        chatFlavor: ''
       duration:
-        units: turn
+        units: inst
         value: '1'
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
-        units: ft
+        units: touch
         override: false
+        value: ''
+        special: ''
       save:
         ability:
           - con
         dc:
-          calculation: spellcasting
-          formula: ''
+          calculation: ''
+          formula: 8 + @prof + max(@abilities.wis.mod,@abilities.cha.mod)
       target:
         template:
           type: ''
@@ -74,25 +154,40 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: creature
+          count: '1'
+          special: ''
         override: false
-        prompt: true
+        prompt: false
       type: save
       sort: 0
       consumption:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
-      effects: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: Compendium.sw5e-module.character-classes.Item.bdi8Z3rZZGkQVSEc
+      effects:
+        - _id: u3wpV9TEdM6QG5d3
+          level: {}
+          onSave: false
+        - _id: pjfS0fvLkRRnfExG
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: ''
   advancement: []
   identifier: stunning-strike
   enchant: {}
@@ -103,7 +198,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780578910858
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

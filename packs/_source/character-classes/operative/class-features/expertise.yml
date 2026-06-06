@@ -9,14 +9,14 @@ img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-Passive.webp
 system:
   description:
     value: >-
-      <p><em><strong>Operative:</strong> 1st and 6th level</em></p>
-
-      <p>Choose two of your skill proficiencies, or one of skill proficiencies
-      and one of your tool proficiencies, or two of your tool proficiencies. You
-      gain expertise in those skills or tools.</p>
-
-      <p>At 6th level, you can choose two more of your proficiencies (in skills
-      or tools) to gain this benefit.</p>
+      <p><em><strong>Operative:</strong> 1st and 6th level</em></p><p>Choose two
+      of your skill proficiencies, or one of skill proficiencies and one of your
+      tool proficiencies, or two of your tool proficiencies. You gain expertise
+      in those skills or tools.</p><p>At 6th level, you can choose two more of
+      your proficiencies (in skills or tools) to gain this benefit.</p><section
+      class="secret" id="secret-2bmyMAq6oUpt2EwG"><p><strong>Foundry
+      Note</strong></p><p>You will be prompted for your expertise choices as you
+      level up.</p></section>
     chat: ''
   requirements: Operative
   source:
@@ -38,7 +38,37 @@ system:
     repeatable: false
   properties: []
   activities: {}
-  advancement: []
+  advancement:
+    - type: Trait
+      _id: R6rTLesT2U21SXLP
+      configuration:
+        allowReplacements: false
+        choices:
+          - count: 2
+            pool:
+              - skills:*
+              - tool:*
+        grants: []
+        mode: expertise
+      level: 1
+      title: Expertise
+      hint: You gain Expertise in two skill or tool proficiencies of your choice.
+      value: {}
+    - type: Trait
+      configuration:
+        allowReplacements: false
+        choices:
+          - count: 2
+            pool:
+              - tool:*
+              - skills:*
+        grants: []
+        mode: expertise
+      level: 6
+      title: Expertise
+      hint: You gain Expertise in two skill or tool proficiencies of your choice.
+      _id: pjyODomYFXFLLw82
+      value: {}
   identifier: expertise
   enchant: {}
 effects: []
@@ -50,7 +80,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780599900082
   lastModifiedBy: dnd5ebuilder0000
 _id: z2LMg7qOrKp3qmCe
 ownership:

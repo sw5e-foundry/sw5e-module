@@ -12,7 +12,7 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    disabled: true
+    disabled: false
     name: Empty Body
     _id: JEcECuosMRNxkmWH
     changes:
@@ -54,10 +54,6 @@ effects:
         priority: null
       - key: system.traits.dr.value
         mode: 2
-        value: poison
-        priority: null
-      - key: system.traits.dr.value
-        mode: 2
         value: psychic
         priority: null
       - key: system.traits.dr.value
@@ -65,9 +61,13 @@ effects:
         value: thunder
         priority: null
     description: ''
-    transfer: true
-    statuses: []
-    flags: {}
+    transfer: false
+    statuses:
+      - invisible
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
     tint: '#ffffff'
     _stats:
       compendiumSource: null
@@ -76,7 +76,8 @@ effects:
       coreVersion: '13.351'
       systemId: dnd5e
       systemVersion: 5.2.5
-      lastModifiedBy: null
+      lastModifiedBy: dnd5ebuilder0000
+      modifiedTime: 1780579482403
     img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Action.webp
     type: base
     system: {}
@@ -88,10 +89,6 @@ flags:
     timestamp: '2023-03-09T01:51:58.6620289+00:00'
     importer_version: 3
     uid: Feature.name-empty_body.source-class.sourceName-monk.level-18
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
@@ -126,20 +123,25 @@ system:
       activation:
         type: action
         override: false
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: minute
         value: '1'
         concentration: false
         override: false
-      img: null
+      img: systems/dnd5e/icons/svg/statuses/invisible.svg
       range:
-        units: ft
+        units: self
         override: false
+        value: ''
+        special: ''
       roll:
         formula: ''
         prompt: false
         visible: false
+        name: ''
       target:
         template:
           type: ''
@@ -147,25 +149,36 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: self
+          special: ''
         override: false
-        prompt: true
+        prompt: false
       type: utility
       sort: 0
       consumption:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
-      effects: []
+        targets:
+          - type: itemUses
+            value: '4'
+            target: Compendium.sw5e-module.character-classes.Item.bdi8Z3rZZGkQVSEc
+      effects:
+        - _id: JEcECuosMRNxkmWH
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: Empty Body
   advancement: []
   identifier: empty-body
   enchant: {}
@@ -176,7 +189,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780579513989
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

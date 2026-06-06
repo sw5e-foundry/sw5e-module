@@ -9,11 +9,10 @@ img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-Passive.webp
 system:
   description:
     value: >-
-      <p><em><strong>Berserker:</strong> 1st level</em></p>
-
-      <p>While you are not wearing any armor, your Armor Class equals 10 + your
-      Dexterity modifier + your Constitution modifier. You can use a shield and
-      still gain this benefit.</p>
+      <p><em><strong>Berserker:</strong> 1st level</em></p><p>While you are not
+      wearing any armor, your Armor Class equals 10 + your Dexterity modifier +
+      your Constitution modifier. You can use a shield and still gain this
+      benefit.</p>
     chat: ''
   requirements: Berserker
   source:
@@ -38,7 +37,50 @@ system:
   advancement: []
   identifier: unarmored-defense
   enchant: {}
-effects: []
+effects:
+  - name: Unarmored Defense
+    img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-Passive.webp
+    origin: Compendium.sw5e-module.character-classes.Item.QJSwQtintcLy1YUO
+    _id: yCDN4QtEvXn6kHCK
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.calc
+        mode: 5
+        value: unarmoredBarb
+        priority: null
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: >-
+      <p>While you are not wearing any armor, your Armor Class equals 10 + your
+      Dexterity modifier + your Constitution modifier. You can use a shield and
+      still gain this benefit.</p>
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780411868688
+      modifiedTime: 1780414421380
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!QJSwQtintcLy1YUO.yCDN4QtEvXn6kHCK'
 folder: BaN92qsqR1A7h4Os
 _stats:
   duplicateSource: null
@@ -47,7 +89,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780414418032
   lastModifiedBy: dnd5ebuilder0000
 _id: QJSwQtintcLy1YUO
 ownership:

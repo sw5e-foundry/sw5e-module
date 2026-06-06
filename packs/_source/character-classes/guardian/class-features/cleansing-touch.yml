@@ -9,10 +9,6 @@ flags:
     timestamp: '2023-03-09T01:51:58.5740802+00:00'
     importer_version: 3
     uid: Feature.name-cleansing_touch.source-class.sourceName-guardian.level-14
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
@@ -47,19 +43,24 @@ system:
       activation:
         type: action
         override: false
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
-        units: ft
+        units: touch
         override: false
+        value: ''
+        special: ''
       roll:
         formula: ''
         prompt: false
         visible: false
+        name: ''
       target:
         template:
           type: ''
@@ -67,6 +68,9 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: creature
+          count: '1'
+          special: ''
         override: false
         prompt: true
       type: utility
@@ -75,17 +79,25 @@ system:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: Compendium.sw5e-module.character-classes.Item.ck9f8sKVbhB6S4di
       effects: []
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: ''
   advancement: []
   identifier: cleansing-touch
   enchant: {}
@@ -96,7 +108,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780501123830
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

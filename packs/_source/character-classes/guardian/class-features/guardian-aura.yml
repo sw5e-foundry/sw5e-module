@@ -40,7 +40,46 @@ system:
     repeatable: false
   properties: []
   activities: {}
-  advancement: []
+  advancement:
+    - _id: sw5e22ic00000000
+      configuration:
+        allowDrops: true
+        choices:
+          '3':
+            count: 1
+            replacement: false
+          '10':
+            count: 1
+            replacement: false
+          '18':
+            count: 1
+            replacement: false
+        pool:
+          - uuid: Compendium.sw5e-module.character-classes.CYxQ9FGhaivegbEO
+          - uuid: Compendium.sw5e-module.character-classes.1lN9mFM3BudYI1HH
+          - uuid: Compendium.sw5e-module.character-classes.YYpw7KqqyAfb00zQ
+          - uuid: Compendium.sw5e-module.character-classes.47ZTWZ8C7lHNFw5A
+          - uuid: Compendium.sw5e-module.character-classes.jAuscmQHeQcJG8W6
+          - uuid: Compendium.sw5e-module.character-classes.b9Rdij1v4qbiT9qQ
+          - uuid: Compendium.sw5e-module.character-classes.Y7qLWJvDLKpah4CY
+        restriction:
+          level: ''
+          subtype: guardianInvocation
+          type: class
+          list: []
+        type: feat
+        spell: null
+      title: Guardian Auras
+      type: ItemChoice
+      value:
+        added: {}
+        replaced: {}
+      hint: >-
+        You gain an aura of your choice, as detailed at the end of the class
+        description, and you gain more at higher levels, as shown in the Auras
+        Known column of the guardian table. Your aura has a radius of 5 feet,
+        which increases at higher levels, as shown in the Aura Radius column of
+        the guardian table.
   identifier: guardian-aura
   enchant: {}
 _stats:
@@ -50,7 +89,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780599169685
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

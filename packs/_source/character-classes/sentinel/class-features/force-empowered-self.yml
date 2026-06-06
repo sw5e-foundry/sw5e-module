@@ -9,41 +9,33 @@ flags:
     timestamp: '2023-03-09T01:51:58.6730225+00:00'
     importer_version: 3
     uid: Feature.name-force_empowered_self.source-class.sourceName-sentinel.level-2
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
-      <p><em><strong>Sentinel:</strong> 2nd level</em></p>
-
-      <p>Your training allows you to harness the mystical energy of the Force
-      throughout your body. You learn three effects: Deflection, Double Strike,
-      and Slow Time. Each effect costs 1 force point and uses a [[/r d4]], which
-      changes as you gain sentinel levels, as shown in the Kinetic Combat column
-      of the sentinel table. You can only use each effect once per round.</p>
-
-      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.DkeBmqxtDGB5IS25]{Deflection}</h3>
-
-      <p>When you are the target of an attack, you can roll a Kinetic Combat die
-      and add it to your AC (no action required). You can do so before or after
-      the attack is made, but you must choose to do so before the GM determines
-      if the attack hits.</p>
-
-      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.xdVUUvvy1WQNS8HB]{Double
-      Strike}</h3>
-
-      <p>When you hit a creature with a weapon attack, you can roll a Kinetic
-      Combat die and deal additional damage of the same type equal to the amount
-      rolled.</p>
-
-      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.A87ImRq8O2Ftebxa]{Slow
-      Time}</h3>
-
-      <p>When you move on your turn, you can roll a Kinetic Combat die to
-      increase your speed by 5 x the amount rolled until the end of your
-      turn.</p>
+      <p><em><strong>Sentinel:</strong> 2nd level</em></p><p>Your training
+      allows you to harness the mystical energy of the Force throughout your
+      body. You learn three effects: Deflection, Double Strike, and Slow Time.
+      Each effect costs 1 force point and uses a [[/r d4]], which changes as you
+      gain sentinel levels, as shown in the Kinetic Combat column of the
+      sentinel table. You can only use each effect once per
+      round.</p><h3>@UUID[Compendium.sw5e-module.character-classes.Item.DkeBmqxtDGB5IS25]{Deflection}</h3><p>When
+      you are the target of an attack, you can roll a Kinetic Combat die and add
+      it to your AC (no action required). You can do so before or after the
+      attack is made, but you must choose to do so before the GM determines if
+      the attack
+      hits.</p><h3>@UUID[Compendium.sw5e-module.character-classes.Item.xdVUUvvy1WQNS8HB]{Double
+      Strike}</h3><p>When you hit a creature with a weapon attack, you can roll
+      a Kinetic Combat die and deal additional damage of the same type equal to
+      the amount
+      rolled.</p><h3>@UUID[Compendium.sw5e-module.character-classes.Item.A87ImRq8O2Ftebxa]{Slow
+      Time}</h3><p>When you move on your turn, you can roll a Kinetic Combat die
+      to increase your speed by 5 x the amount rolled until the end of your
+      turn.</p><section id="secret-nLIuRlKyvY6hSiN4"
+      class="secret"><p><strong>Foundry Note<br /></strong>This feature includes
+      activities that deduct force points automatically. For Deflection and Slow
+      Time they include an arbitrary roll for their bonuses but do not actually
+      increase AC or Speed. Double Strike's damage type can be selected in the
+      damage roll's dialog box.</p></section>
     chat: ''
   requirements: Sentinel 2
   source:
@@ -68,31 +60,45 @@ system:
     sw5e0damage00000:
       _id: sw5e0damage00000
       activation:
-        type: action
+        type: special
         override: false
+        condition: When you hit a creature with a weapon attack.
       damage:
         critical:
           allow: true
+          bonus: ''
         parts:
           - custom:
               enabled: true
               formula: '@scale.sentinel.kinetic-combat.die'
-            denomination: null
             number: null
-            scaling:
-              mode: ''
-              number: 1
+            denomination: null
+            bonus: ''
             types:
-              - ''
-      description: {}
+              - acid
+              - cold
+              - energy
+              - fire
+              - force
+              - ion
+              - kinetic
+              - lightning
+              - necrotic
+              - poison
+              - psychic
+              - thunder
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
-        units: ft
+        units: any
         override: false
+        value: ''
+        special: ''
       target:
         template:
           type: ''
@@ -100,25 +106,154 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: creature
+          count: '1'
+          special: ''
         override: false
-        prompt: true
+        prompt: false
       type: damage
-      sort: 0
+      sort: 200000
       consumption:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: powercasting.force.points.value
       effects: []
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: Double Strike
+    rSCY3IieBKzDKfk8:
+      type: utility
+      name: Deflection
+      _id: rSCY3IieBKzDKfk8
+      sort: -100000
+      activation:
+        type: special
+        override: false
+        condition: >-
+          When you are the target of an attack but before the GM determines if
+          the attack hits.
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: attribute
+            value: '1'
+            target: powercasting.force.points.value
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects: []
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: Roll Bonus AC
+        formula: '@scale.sentinel.kinetic-combat'
+      img: ''
+    ulcAjDllDSeByEDo:
+      type: utility
+      name: Slow Time
+      _id: ulcAjDllDSeByEDo
+      sort: 300000
+      activation:
+        type: special
+        override: false
+        condition: When you move on your turn.
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: attribute
+            value: '1'
+            target: powercasting.force.points.value
+      description:
+        chatFlavor: ''
+      duration:
+        units: turn
+        concentration: false
+        override: false
+        value: '1'
+      effects: []
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+          special: ''
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: Roll Speed Increase
+        formula: 5*@scale.sentinel.kinetic-combat
+      img: ''
   advancement: []
   identifier: force-empowered-self
   enchant: {}
@@ -129,7 +264,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780605788838
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

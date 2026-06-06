@@ -2,54 +2,7 @@ _id: f1XeMafaqejD02MW
 name: Tech Mastery
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-Passive.webp
-effects:
-  - origin: Compendium.sw5e-module.character-classes.Item.f1XeMafaqejD02MW
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    disabled: false
-    name: Tech Mastery
-    _id: M19oSc9G4Qx56F6h
-    changes:
-      - key: system.abilities.int.max
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.int.value
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.con.max
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.con.value
-        mode: 2
-        value: '2'
-        priority: null
-    description: ''
-    transfer: true
-    statuses: []
-    flags: {}
-    tint: '#ffffff'
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-      coreVersion: '13.351'
-      systemId: dnd5e
-      systemVersion: 5.2.5
-      lastModifiedBy: null
-    img: modules/sw5e-module/icons/packs/Class%20Features/ENGR-Passive.webp
-    type: base
-    system: {}
-    sort: 0
-    _key: '!items.effects!f1XeMafaqejD02MW.M19oSc9G4Qx56F6h'
+effects: []
 folder: 4hvxhTk3KbQameHc
 flags:
   sw5e-importer:
@@ -59,13 +12,10 @@ flags:
 system:
   description:
     value: >-
-      <p><em><strong>Engineer:</strong> 20th level</em></p>
-
-      <p>Your mastery of technology is unrivaled. Your Constitution and
-      Intelligence scores increase by 2. Your maximum for those scores increases
-      by 2.</p>
-
-      <p>Additionally, when you roll initiative and have no uses of Potent
+      <p><em><strong>Engineer:</strong> 20th level</em></p><p>Your mastery of
+      technology is unrivaled. Your Constitution and Intelligence scores
+      increase by 2. Your maximum for those scores increases by
+      2.</p><p>Additionally, when you roll initiative and have no uses of Potent
       Aptitude left, you regain one use.</p>
     chat: ''
   requirements: Engineer 20
@@ -88,7 +38,35 @@ system:
     repeatable: false
   properties: []
   activities: {}
-  advancement: []
+  advancement:
+    - type: AbilityScoreImprovement
+      _id: 55TQgz8rOK1PdqhY
+      configuration:
+        cap: 2
+        fixed:
+          str: 0
+          dex: 0
+          con: 2
+          int: 2
+          wis: 0
+          cha: 0
+        locked:
+          - str
+          - dex
+          - con
+          - int
+          - wis
+          - cha
+        points: 0
+        recommendation: null
+        max: 22
+      value:
+        type: asi
+      level: 20
+      title: ''
+      hint: >-
+        Your Constitution and Intelligence scores increase by 2. Your maximum
+        for those scores increases by 2.
   identifier: tech-mastery
   enchant: {}
 _stats:
@@ -98,7 +76,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780599074960
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0
