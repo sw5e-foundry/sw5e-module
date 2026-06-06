@@ -23,86 +23,48 @@
 					<dd>{{occupiedSlotsText}}</dd>
 				</div>
 			</dl>
-
-			<h4 class="sw5e-aug-subheading">{{localize "SW5E.Augmentations.SideEffectsTitle"}}</h4>
-			<table class="sw5e-aug-table">
-				<thead>
-					<tr>
-						<th scope="col">{{localize "SW5E.Augmentations.ColEffect"}}</th>
-						<th scope="col">{{localize "SW5E.Augmentations.ColDerived"}}</th>
-						<th scope="col">{{localize "SW5E.Augmentations.ColEffective"}}</th>
-						<th scope="col">{{localize "SW5E.Augmentations.ColOverride"}}</th>
-					</tr>
-				</thead>
-				<tbody>
-					{{#each sideEffectRows}}
-						<tr class="{{#if differs}}sw5e-aug-differs{{/if}}">
-							<td>{{label}}</td>
-							<td>{{derivedText}}</td>
-							<td>{{effectiveText}}</td>
-							<td>{{overrideText}}</td>
-						</tr>
-					{{/each}}
-				</tbody>
-			</table>
 		</section>
-
-		{{#if showGmOverrides}}
-			<section class="sw5e-augmentations-gm">
-				<h3>{{localize "SW5E.Augmentations.GmOverridesTitle"}}</h3>
-				<p class="hint">{{localize "SW5E.Augmentations.GmOverridesHint"}}</p>
-				{{#each overrideControls}}
-					<div class="form-group">
-						<label for="sw5e-aug-ov-{{key}}">{{label}}</label>
-						<select id="sw5e-aug-ov-{{key}}" name="sw5e-aug-override" data-sw5e-aug-override-key="{{key}}">
-							{{#each options}}
-								<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
-							{{/each}}
-						</select>
-					</div>
-				{{/each}}
-			</section>
-		{{/if}}
 
 		<section class="sw5e-augmentations-installed">
 			<h3>{{localize "SW5E.Augmentations.InstalledTitle"}}</h3>
 			{{#if installedRows.length}}
-				<table class="sw5e-aug-table">
-					<thead>
-						<tr>
-							<th>{{localize "SW5E.Augmentations.ColName"}}</th>
-							<th>{{localize "SW5E.Augmentations.ColCategory"}}</th>
-							<th>{{localize "SW5E.Augmentations.ColRarity"}}</th>
-							<th>{{localize "SW5E.Augmentations.ColSlots"}}</th>
-							<th>{{localize "SW5E.Augmentations.ColInstalled"}}</th>
-							{{#if canEdit}}<th></th>{{/if}}
-						</tr>
-					</thead>
-					<tbody>
-						{{#each installedRows}}
-							<tr>
-								<td>
-									{{#if uuid}}
-										<button type="button" class="unbutton sw5e-aug-installed-name" data-sw5e-aug-open-item="{{uuid}}" aria-label="{{localize "SW5E.Augmentations.OpenItemSheetAria"}}" {{#if descriptionPreview}}title="{{descriptionPreview}}"{{/if}}>{{name}}</button>
+				<div class="sw5e-aug-installed-list">
+					{{#each installedRows}}
+						<article class="sw5e-aug-installed-card">
+							<div class="sw5e-aug-installed-main">
+								<div class="sw5e-aug-installed-art" aria-hidden="true">
+									{{#if img}}
+										<img src="{{img}}" alt="" loading="lazy" />
 									{{else}}
-										{{name}}
+										<i class="fas fa-microchip"></i>
 									{{/if}}
-								</td>
-								<td>{{category}}</td>
-								<td>{{rarity}}</td>
-								<td>{{bodySlotsText}}</td>
-								<td>{{installedAtText}}</td>
-								{{#if ../canEdit}}
-									<td class="sw5e-aug-actions">
-										<button type="button" class="sw5e-aug-remove" data-sw5e-aug-remove="{{uuid}}" data-sw5e-aug-remove-name="{{name}}">
-											<i class="fas fa-trash" aria-hidden="true"></i> {{localize "SW5E.Augmentations.Remove"}}
-										</button>
-									</td>
-								{{/if}}
-							</tr>
-						{{/each}}
-					</tbody>
-				</table>
+								</div>
+								<div class="sw5e-aug-installed-copy">
+									<div class="sw5e-aug-installed-header">
+										{{#if uuid}}
+											<button type="button" class="unbutton sw5e-aug-installed-name" data-sw5e-aug-open-item="{{uuid}}" aria-label="{{localize "SW5E.Augmentations.OpenItemSheetAria"}}" {{#if descriptionPreview}}title="{{descriptionPreview}}"{{/if}}>{{name}}</button>
+										{{else}}
+											<span class="sw5e-aug-installed-title">{{name}}</span>
+										{{/if}}
+									</div>
+									<div class="sw5e-aug-installed-meta">
+										<span class="sw5e-aug-meta-pill">{{category}}</span>
+										<span class="sw5e-aug-meta-pill">{{rarity}}</span>
+										<span class="sw5e-aug-meta-pill sw5e-aug-meta-pill--detail">{{slotLabel}}: {{slotSummary}}</span>
+									</div>
+									<p class="sw5e-aug-installed-date">{{localize "SW5E.Augmentations.ColInstalled"}}: {{installedAtText}}</p>
+								</div>
+							</div>
+							{{#if ../canEdit}}
+								<div class="sw5e-aug-actions">
+									<button type="button" class="sw5e-aug-remove" data-sw5e-aug-remove="{{uuid}}" data-sw5e-aug-remove-name="{{name}}">
+										<i class="fas fa-trash" aria-hidden="true"></i> {{localize "SW5E.Augmentations.Remove"}}
+									</button>
+								</div>
+							{{/if}}
+						</article>
+					{{/each}}
+				</div>
 			{{else}}
 				<p class="hint">{{localize "SW5E.Augmentations.NoneInstalled"}}</p>
 			{{/if}}
@@ -112,15 +74,6 @@
 			<section class="sw5e-augmentations-install">
 				<h3>{{localize "SW5E.Augmentations.InstallTitle"}}</h3>
 				{{#if showInstallWorkflow}}
-					<div class="form-group">
-						<label for="sw5e-aug-install-select">{{localize "SW5E.Augmentations.InstallSelectLabel"}}</label>
-						<select id="sw5e-aug-install-select" name="sw5e-aug-install-uuid">
-							<option value="">{{localize "SW5E.Augmentations.InstallSelectPlaceholder"}}</option>
-							{{#each installChoices}}
-								<option value="{{uuid}}">{{pickerLabel}}</option>
-							{{/each}}
-						</select>
-					</div>
 					{{#if isGm}}
 						<div class="form-group">
 							<label class="checkbox">
@@ -132,6 +85,21 @@
 					<button type="button" class="sw5e-aug-install-submit">
 						<i class="fas fa-plus" aria-hidden="true"></i> {{localize "SW5E.Augmentations.InstallSubmit"}}
 					</button>
+					{{#if activeSideEffects.length}}
+						<div class="sw5e-aug-active-effects">
+							{{#each activeSideEffects}}
+								<div
+									class="sw5e-aug-active-effect{{#if isOverrideOnly}} sw5e-aug-active-effect--override{{/if}}"
+									data-tooltip="{{tooltip}}"
+									data-tooltip-direction="UP"
+									title="{{tooltip}}"
+								>
+									<i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+									<span>{{label}}</span>
+								</div>
+							{{/each}}
+						</div>
+					{{/if}}
 				{{else}}
 					<p class="hint">{{localize "SW5E.Augmentations.InstallUnavailable"}}</p>
 				{{/if}}
@@ -139,6 +107,24 @@
 			</section>
 		{{else}}
 			<p class="hint">{{localize "SW5E.Augmentations.ReadOnlyHint"}}</p>
+		{{/if}}
+
+		{{#if showGmOverrides}}
+			<section class="sw5e-augmentations-gm">
+				<h3>{{localize "SW5E.Augmentations.GmOverridesTitle"}}</h3>
+				<p class="hint">{{localize "SW5E.Augmentations.GmOverridesHint"}}</p>
+				{{#each overrideControls}}
+					<div class="form-group">
+						<label for="sw5e-aug-ov-{{key}}">{{label}}</label>
+						<p class="hint sw5e-aug-override-status">{{statusText}}</p>
+						<select id="sw5e-aug-ov-{{key}}" name="sw5e-aug-override" data-sw5e-aug-override-key="{{key}}">
+							{{#each options}}
+								<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+							{{/each}}
+						</select>
+					</div>
+				{{/each}}
+			</section>
 		{{/if}}
 	{{/unless}}
 </div>
