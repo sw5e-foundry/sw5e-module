@@ -2,42 +2,70 @@ _id: julwa4Ma5myCpsZa
 name: Critical Analysis
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-Bonus.webp
-effects: []
+effects:
+  - name: Analyzed
+    img: icons/magic/perception/orb-crystal-ball-scrying-blue.webp
+    origin: Compendium.sw5e-module.character-classes.Item.julwa4Ma5myCpsZa
+    transfer: false
+    _id: jZ02iYDYSfiv0qVe
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: 10
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780585750668
+      modifiedTime: 1780585869151
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!julwa4Ma5myCpsZa.jZ02iYDYSfiv0qVe'
 folder: lMll0HiBGZ8eIa0n
 flags:
   sw5e-importer:
     timestamp: '2023-03-09T01:51:58.6650276+00:00'
     importer_version: 3
     uid: Feature.name-critical_analysis.source-class.sourceName-scholar.level-1
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
-      <p><em><strong>Scholar:</strong> 1st level</em></p>
-
-      <p>You are able to analyze a creature, develop a plan on how to best
-      overcome any potential obstacle, and execute that plan with ruthless
-      efficiency. As a bonus action on your turn, you can analyze a creature you
-      can see within 60 feet of you. For the next minute, or until you analyze
-      another target, you gain the following benefits:</p>
-
-      <ul>
-
-      <li>When you analyze a hostile creature, your attack and damage rolls made
-      with weapons with the finesse property or blaster weapons against that
-      target may use your Critical Analysis ability modifier, which is
-      Intelligence, instead of Strength or Dexterity. You must use the same
-      modifier for both rolls.</li>
-
-      <li>When you analyze a friendly creature, the target can end your Critical
-      Analysis on them (no action required) to add your Critical Analysis
-      ability modifier, which is Intelligence, to one attack roll, ability
-      check, or saving throw. Once a friendly creature has benefited from this
-      ability, they can not do so again until they complete a short or long
-      rest.</li></ul>
+      <p><em><strong>Scholar:</strong> 1st level</em></p><p>You are able to
+      analyze a creature, develop a plan on how to best overcome any potential
+      obstacle, and execute that plan with ruthless efficiency. As a bonus
+      action on your turn, you can analyze a creature you can see within 60 feet
+      of you. For the next minute, or until you analyze another target, you gain
+      the following benefits:</p><ul><li>When you analyze a hostile creature,
+      your attack and damage rolls made with weapons with the finesse property
+      or blaster weapons against that target may use your Critical Analysis
+      ability modifier, which is Intelligence, instead of Strength or Dexterity.
+      You must use the same modifier for both rolls.</li><li>When you analyze a
+      friendly creature, the target can end your Critical Analysis on them (no
+      action required) to add your Critical Analysis ability modifier, which is
+      Intelligence, to one attack roll, ability check, or saving throw. Once a
+      friendly creature has benefited from this ability, they can not do so
+      again until they complete a short or long rest.</li></ul><section
+      id="secret-poxBqfp4DFXCAzZc" class="secret"><p><strong>Foundry
+      Note</strong></p><p>This feature includes an Active Effect for tracking
+      the Analyzed target.</p></section>
     chat: ''
   requirements: Scholar
   source:
@@ -64,21 +92,25 @@ system:
       activation:
         type: bonus
         override: false
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: minute
         value: '1'
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
         units: ft
         value: '60'
         override: false
+        special: ''
       roll:
         formula: ''
         prompt: false
         visible: false
+        name: ''
       target:
         template:
           type: ''
@@ -86,6 +118,9 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: creature
+          count: '1'
+          special: ''
         override: false
         prompt: true
       type: utility
@@ -95,16 +130,25 @@ system:
           allowed: false
         spellSlot: true
         targets: []
-      effects: []
+      effects:
+        - _id: jZ02iYDYSfiv0qVe
+          level:
+            min: null
+            max: null
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: Analyze Target
   advancement: []
   identifier: critical-analysis
   enchant: {}
@@ -115,7 +159,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780586023678
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

@@ -4,10 +4,6 @@ flags:
     timestamp: '2023-03-09T01:51:57.6296276+00:00'
     importer_version: 3
     uid: Feature.name-ideal_of_the_agile.source-classinvocation.sourceName-sentinel
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-Bonus.webp
 system:
@@ -39,26 +35,92 @@ system:
       _id: sw5e0utility0000
       activation:
         type: bonus
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: minute
         value: '1'
-      img: null
+      img: ''
       range:
         units: ft
+        value: ''
+        special: ''
       roll:
         formula: ''
+        name: ''
       target:
         template:
           type: ''
           units: ''
+        affects:
+          type: ''
       type: utility
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: Compendium.sw5e-module.character-classes.Item.2BtuxZqgiBUJwgJj
+      name: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        identifier: ''
+      uses:
+        max: ''
   identifier: ideal-of-the-agile
   enchant: {}
   prerequisites:
     level: null
   properties: []
-effects: []
+effects:
+  - name: Ideal of the Agile
+    img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-Bonus.webp
+    origin: Compendium.sw5e-module.character-classes.Item.b1mbsxLmndcYYCA4
+    _id: Dg9FGBQKW83eVw9O
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.movement.climb
+        mode: 4
+        value: '@attributes.movement.walk'
+        priority: null
+      - key: system.attributes.movement.swim
+        mode: 4
+        value: '@attributes.movement.walk'
+        priority: null
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: >-
+      <p>You have a swimming speed and a climbing speed equal to your walking
+      speed.</p>
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780603998716
+      modifiedTime: 1780604128800
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!b1mbsxLmndcYYCA4.Dg9FGBQKW83eVw9O'
 _id: b1mbsxLmndcYYCA4
 folder: 6SIhNLadhlLXwDO4
 sort: 0
@@ -66,11 +128,12 @@ ownership:
   default: 0
 _stats:
   duplicateSource: null
-  coreVersion: '12.331'
+  coreVersion: '13.351'
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1730433983637
-  modifiedTime: 1739121094709
+  modifiedTime: 1780603786024
   lastModifiedBy: dnd5ebuilder0000
+  exportSource: null
 _key: '!items!b1mbsxLmndcYYCA4'
 

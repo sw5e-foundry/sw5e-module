@@ -2,54 +2,7 @@ _id: z517Qm5VFOUCEYyk
 name: Perfect Self
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
-effects:
-  - origin: Compendium.sw5e-module.character-classes.Item.z517Qm5VFOUCEYyk
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    disabled: false
-    name: Perfect Self
-    _id: lvrzOEJia8PaIrn3
-    changes:
-      - key: system.abilities.dex.max
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.dex.value
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.wis.max
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.wis.value
-        mode: 2
-        value: '2'
-        priority: null
-    description: ''
-    transfer: true
-    statuses: []
-    flags: {}
-    tint: '#ffffff'
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-      coreVersion: '13.351'
-      systemId: dnd5e
-      systemVersion: 5.2.5
-      lastModifiedBy: null
-    img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
-    type: base
-    system: {}
-    sort: 0
-    _key: '!items.effects!z517Qm5VFOUCEYyk.lvrzOEJia8PaIrn3'
+effects: []
 folder: EuaUbhYGJmRG0ki8
 flags:
   sw5e-importer:
@@ -86,7 +39,31 @@ system:
     repeatable: false
   properties: []
   activities: {}
-  advancement: []
+  advancement:
+    - type: AbilityScoreImprovement
+      _id: K4Skcv6SrNXbUfcf
+      configuration:
+        cap: 2
+        fixed:
+          str: 0
+          dex: 2
+          con: 0
+          int: 0
+          wis: 0
+          cha: 0
+        locked:
+          - str
+          - dex
+          - con
+          - int
+        points: 2
+        recommendation: null
+        max: 22
+      value:
+        type: asi
+      level: 20
+      title: ''
+      hint: ''
   identifier: perfect-self
   enchant: {}
 _stats:
@@ -96,7 +73,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780581865665
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

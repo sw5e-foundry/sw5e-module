@@ -2,46 +2,7 @@ _id: j0CGv1G7GU5WtLhh
 name: Knowledge Unbound
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-Passive.webp
-effects:
-  - origin: Compendium.sw5e-module.character-classes.Item.j0CGv1G7GU5WtLhh
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    disabled: false
-    name: Knowledge Unbound
-    _id: jTlhT8ipNmEwqbje
-    changes:
-      - key: system.abilities.int.max
-        mode: 2
-        value: '4'
-        priority: null
-      - key: system.abilities.int.value
-        mode: 2
-        value: '4'
-        priority: null
-    description: ''
-    transfer: true
-    statuses: []
-    flags: {}
-    tint: '#ffffff'
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-      coreVersion: '13.351'
-      systemId: dnd5e
-      systemVersion: 5.2.5
-      lastModifiedBy: null
-    img: modules/sw5e-module/icons/packs/Class%20Features/SCLR-Passive.webp
-    type: base
-    system: {}
-    sort: 0
-    _key: '!items.effects!j0CGv1G7GU5WtLhh.jTlhT8ipNmEwqbje'
+effects: []
 folder: lMll0HiBGZ8eIa0n
 flags:
   sw5e-importer:
@@ -78,7 +39,32 @@ system:
     repeatable: false
   properties: []
   activities: {}
-  advancement: []
+  advancement:
+    - type: AbilityScoreImprovement
+      _id: q7fQwVryKG0Ssxa1
+      configuration:
+        cap: 4
+        fixed:
+          str: 0
+          dex: 0
+          con: 0
+          int: 4
+          wis: 0
+          cha: 0
+        locked:
+          - str
+          - dex
+          - con
+          - wis
+          - cha
+        points: 0
+        recommendation: null
+        max: 24
+      value:
+        type: asi
+      level: 20
+      title: ''
+      hint: ''
   identifier: knowledge-unbound
   enchant: {}
 _stats:
@@ -88,7 +74,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780588712345
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

@@ -10,20 +10,20 @@ flags:
     importer_version: 3
     uid: >-
       Feature.name-force_empowered_strikes.source-class.sourceName-guardian.level-2
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
-      <p><em><strong>Guardian:</strong> 2nd level</em></p>
-
-      <p>When you hit a creature with a melee weapon attack, you can expend
-      force points to deal additional damage to the target, which is the same
-      type as the weapon's damage. The additional damage is [[/r 1d8]] for each
-      point spent in this way. You can't deal more additional damage than the
-      amount shown in the Focused Strikes column of the guardian table. </p>
+      <p><em><strong>Guardian:</strong> 2nd level</em></p><p>When you hit a
+      creature with a melee weapon attack, you can expend force points to deal
+      additional damage to the target, which is the same type as the weapon's
+      damage. The additional damage is [[/r 1d8]] for each point spent in this
+      way. You can't deal more additional damage than the amount shown in the
+      Focused Strikes column of the guardian table.</p><section class="secret"
+      id="secret-Tko1M83XFLWrB42I"><p><strong>Foundry Note</strong></p><p>Your
+      maximum additional points spent will scale automatically as you level. You
+      can select the damage type in the damage roll's dialog box. Damage types
+      other than Energy and Kinetic can be added from the activity's effect
+      tab.</p></section>
     chat: ''
   requirements: Guardian 2
   source:
@@ -48,30 +48,39 @@ system:
     sw5e0damage00000:
       _id: sw5e0damage00000
       activation:
-        type: action
+        type: special
         override: false
+        condition: ''
       damage:
         critical:
           allow: true
+          bonus: ''
         parts:
           - custom:
-              enabled: false
-            denomination: 8
+              enabled: true
+              formula: (@scaling)d@scale.guardian.focused-strikes.faces
             number: 1
+            denomination: 8
+            bonus: ''
+            types:
+              - energy
+              - kinetic
             scaling:
               mode: ''
               number: 1
-            types:
-              - ''
-      description: {}
+              formula: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
-        units: ft
+        units: spec
         override: false
+        value: ''
+        special: ''
       target:
         template:
           type: ''
@@ -79,25 +88,40 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: creature
+          count: '1'
+          special: ''
         override: false
         prompt: true
       type: damage
       sort: 0
       consumption:
         scaling:
-          allowed: false
+          allowed: true
+          max: '@scale.guardian.focused-strikes.number'
         spellSlot: true
-        targets: []
+        targets:
+          - type: attribute
+            value: '1'
+            target: powercasting.force.points.value
+            scaling:
+              mode: amount
+              formula: ''
       effects: []
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: ''
   advancement: []
   identifier: force-empowered-strikes
   enchant: {}
@@ -108,7 +132,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780496869353
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

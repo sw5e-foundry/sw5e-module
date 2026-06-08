@@ -4,10 +4,6 @@ flags:
     timestamp: '2023-03-09T01:51:58.6730225+00:00'
     importer_version: 3
     uid: Feature.name-deflection.source-class.sourceName-sentinel.level-2
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-Passive.webp
 effects: []
@@ -39,56 +35,65 @@ system:
     repeatable: false
   properties: []
   activities:
-    sw5e0utility0000:
-      _id: sw5e0utility0000
+    Rzre4KsLKaZoWR1L:
+      type: utility
+      name: Deflection
+      sort: -100000
       activation:
-        type: action
+        type: special
         override: false
+        condition: >-
+          When you are the target of an attack but before the GM determines if
+          the attack hits.
       consumption:
         scaling:
           allowed: false
-        spellSlot: false
+        spellSlot: true
         targets:
-          - scaling:
-              formula: ''
-              mode: ''
-            target: powercasting.force.points.value
-            type: attribute
+          - type: attribute
             value: '1'
-      description: {}
+            target: powercasting.force.points.value
+            scaling: {}
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
-      range:
-        units: ft
-        override: false
-      roll:
-        formula: '@scale.sentinel.kinetic-combat.die'
-        prompt: false
-        visible: false
-      target:
-        template:
-          type: ''
-          units: ft
-          contiguous: false
-        affects:
-          choice: false
-        override: false
-        prompt: true
-      type: utility
-      sort: 0
       effects: []
       flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        formula: '@scale.sentinel.kinetic-combat'
+        name: Roll Bonus AC
+      _id: Rzre4KsLKaZoWR1L
   advancement: []
   identifier: deflection
   enchant: {}
@@ -100,7 +105,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780660602675
   lastModifiedBy: dnd5ebuilder0000
 _id: DkeBmqxtDGB5IS25
 ownership:

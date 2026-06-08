@@ -12,22 +12,20 @@ effects:
       turns: null
       startRound: null
       startTurn: null
-    disabled: true
-    name: Reckless Attack
+    disabled: false
+    name: Reckless
     _id: zzOesxeGFHtn9AdN
-    changes:
-      - key: flags.sw5e.advantage.attack.str
-        mode: 5
-        value: '1'
-        priority: null
-      - key: flags.sw5e.grants.advantage.attack.all
-        mode: 5
-        value: '1'
-        priority: null
-    description: ''
-    transfer: true
+    changes: []
+    description: >-
+      <p>You have advantage on melee weapon attack rolls using Strength during
+      this turn, but attack rolls against you have advantage until your next
+      turn.</p>
+    transfer: false
     statuses: []
-    flags: {}
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
     tint: '#ffffff'
     _stats:
       compendiumSource: null
@@ -36,7 +34,8 @@ effects:
       coreVersion: '13.351'
       systemId: dnd5e
       systemVersion: 5.2.5
-      lastModifiedBy: null
+      lastModifiedBy: dnd5ebuilder0000
+      modifiedTime: 1780415749685
     img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-Passive.webp
     type: base
     system: {}
@@ -51,13 +50,16 @@ flags:
 system:
   description:
     value: >-
-      <p><em><strong>Berserker:</strong> 2nd level</em></p>
-
-      <p>You can throw aside all concern for defense to attack with fierce
-      desperation. When you make your first attack on your turn, you can decide
-      to attack recklessly. Doing so gives you advantage on melee weapon attack
-      rolls using Strength during this turn, but attack rolls against you have
-      advantage until your next turn.</p>
+      <p><em><strong>Berserker:</strong> 2nd level</em></p><p>You can throw
+      aside all concern for defense to attack with fierce desperation. When you
+      make your first attack on your turn, you can decide to attack recklessly.
+      Doing so gives you advantage on melee weapon attack rolls using Strength
+      during this turn, but attack rolls against you have advantage until your
+      next turn.</p><section class="secret"
+      id="secret-yeGUeGfFqhFsNelu"><p><strong>Foundry Note</strong></p><p>This
+      feature includes an Active Effect for tracking whether you are reckless or
+      not but it does not automate Advantage on your attacks or attacks against
+      you.</p></section>
     chat: ''
   requirements: Berserker 2
   source:
@@ -78,7 +80,63 @@ system:
     items: []
     repeatable: false
   properties: []
-  activities: {}
+  activities:
+    vXJ47kv6sYQxbQCh:
+      type: utility
+      _id: vXJ47kv6sYQxbQCh
+      sort: 0
+      activation:
+        type: ''
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: zzOesxeGFHtn9AdN
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+          special: ''
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      name: ''
+      img: ''
   advancement: []
   identifier: reckless-attack
   enchant: {}
@@ -89,7 +147,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780415776322
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

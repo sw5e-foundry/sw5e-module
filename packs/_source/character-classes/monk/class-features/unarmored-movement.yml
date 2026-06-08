@@ -9,14 +9,18 @@ img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
 system:
   description:
     value: >-
-      <p><em><strong>Monk:</strong> 3rd and 9th level</em></p>
-
-      <p>Your speed increases by 10 feet while you are not wearing armor or
-      wielding a shield. This bonus increases when you reach certain monk
-      levels, as shown in the Unarmored Movement column of the monk table.</p>
-
-      <p>At 9th level, you gain the ability to move along vertical surfaces and
-      across liquids on your turn without falling during the move.</p>
+      <p><em><strong>Monk:</strong> 3rd and 9th level</em></p><p>Your speed
+      increases by 10 feet while you are not wearing armor or wielding a shield.
+      This bonus increases when you reach certain monk levels, as shown in the
+      Unarmored Movement column of the monk table.</p><p>At 9th level, you gain
+      the ability to move along vertical surfaces and across liquids on your
+      turn without falling during the move.</p><p><strong>Current Increase:
+      </strong>@scale.monk.unarmored-movement</p><section
+      id="secret-czERiiExe1l8khjW" class="secret"><p><strong>Foundry
+      Note</strong></p><p>This feature includes an Active Effect which
+      automatically increases your movement speed as outlined by the feature. It
+      must be disabled manually from the Effects tab if a shield or armor is
+      equipped.</p></section>
     chat: ''
   requirements: Monk 3
   source:
@@ -63,8 +67,13 @@ effects:
     flags:
       core:
         statusId: ''
-    name: Walk Speed
-    description: ''
+      dnd5e:
+        riders:
+          statuses: []
+    name: Unarmored Movement
+    description: >-
+      <p>Your speed increases by @scale.monk.unarmored-movement feet while you
+      are not wearing armor or wielding a shield</p>
     statuses: []
     _stats:
       compendiumSource: null
@@ -73,7 +82,8 @@ effects:
       coreVersion: '13.351'
       systemId: dnd5e
       systemVersion: 5.2.5
-      lastModifiedBy: null
+      lastModifiedBy: dnd5ebuilder0000
+      modifiedTime: 1780515764248
     img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
     type: base
     system: {}
@@ -87,7 +97,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780515915284
   lastModifiedBy: dnd5ebuilder0000
 _id: j3MilBSO0RDAKpK1
 ownership:

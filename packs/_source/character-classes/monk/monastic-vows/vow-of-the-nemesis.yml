@@ -2,7 +2,43 @@ _id: Ov2baOEChu6p4ll2
 name: Vow of the Nemesis
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Bonus.webp
-effects: []
+effects:
+  - name: Nemesis
+    img: icons/magic/perception/eye-ringed-glow-angry-large-red.webp
+    origin: Compendium.sw5e-module.character-classes.Item.Ov2baOEChu6p4ll2
+    transfer: false
+    _id: FEBCGdBT5mkIMvbM
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: 60
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780686704992
+      modifiedTime: 1780686916243
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!Ov2baOEChu6p4ll2.FEBCGdBT5mkIMvbM'
 folder: 6gWO0zJ6QJDJmB8S
 sort: 0
 flags:
@@ -11,10 +47,6 @@ flags:
     importer_version: 3
     uid: >-
       Feature.name-vow_of_the_nemesis.source-classinvocation.sourceName-monk.level-13
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
@@ -106,37 +138,62 @@ system:
       _id: sw5e0save0000000
       activation:
         type: bonus
+        condition: ''
       damage:
         parts: []
-      description: {}
+        onSave: none
+      description:
+        chatFlavor: ''
       duration:
         units: hour
-        value: '24'
-      img: null
+        value: '60'
+        concentration: false
+      img: ''
       range:
         units: ft
         value: '30'
+        special: ''
       save:
         ability:
           - wis
         dc:
-          calculation: spellcasting
-          formula: ''
+          calculation: ''
+          formula: 8 + @prof + max(@abilities.wis.mod,@abilities.cha.mod)
       target:
         template:
           size: '1'
-          type: creature
+          type: ''
           units: ''
+          count: ''
+        affects:
+          type: creature
+          count: '1'
+          special: ''
       type: save
+      name: Choose Nemesis
+      visibility:
+        level:
+          min: null
+          max: null
+        identifier: ''
+      uses:
+        max: ''
+      effects:
+        - _id: FEBCGdBT5mkIMvbM
+          onSave: false
+          level:
+            min: null
+            max: null
 ownership:
   default: 0
 _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
-  coreVersion: '12.331'
+  coreVersion: '13.351'
   createdTime: 1674493981086
-  modifiedTime: 1739121094709
+  modifiedTime: 1780686926759
   lastModifiedBy: dnd5ebuilder0000
   duplicateSource: null
+  exportSource: null
 _key: '!items!Ov2baOEChu6p4ll2'
 

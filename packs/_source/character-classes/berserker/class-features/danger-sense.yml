@@ -16,14 +16,20 @@ effects:
     name: Danger Sense
     _id: 0tABhrpbhVs3j44V
     changes:
-      - key: flags.sw5e.dangerSense
-        mode: 5
+      - key: system.abilities.dex.save.roll.mode
+        mode: 2
         value: '1'
         priority: null
-    description: ''
+    description: >-
+      <p>You have advantage on Dexterity saving throws against effects that you
+      can see, such as traps and powers. To gain this benefit, you can't be
+      blinded, deafened, or incapacitated.</p>
     transfer: true
     statuses: []
-    flags: {}
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
     tint: '#ffffff'
     _stats:
       compendiumSource: null
@@ -32,7 +38,8 @@ effects:
       coreVersion: '13.351'
       systemId: dnd5e
       systemVersion: 5.2.5
-      lastModifiedBy: null
+      lastModifiedBy: dnd5ebuilder0000
+      modifiedTime: 1780414402630
     img: modules/sw5e-module/icons/packs/Class%20Features/BSKR-Passive.webp
     type: base
     system: {}
@@ -47,13 +54,16 @@ flags:
 system:
   description:
     value: >-
-      <p><em><strong>Berserker:</strong> 3rd level</em></p>
-
-      <p>You gain an uncanny sense of when things nearby aren't as they should
-      be, giving you an edge when you dodge away from danger. You have advantage
-      on Dexterity saving throws against effects that you can see, such as traps
-      and powers. To gain this benefit, you can't be blinded, deafened, or
-      incapacitated.</p>
+      <p><em><strong>Berserker:</strong> 3rd level</em></p><p>You gain an
+      uncanny sense of when things nearby aren't as they should be, giving you
+      an edge when you dodge away from danger. You have advantage on Dexterity
+      saving throws against effects that you can see, such as traps and powers.
+      To gain this benefit, you can't be blinded, deafened, or
+      incapacitated.</p><section class="secret"
+      id="secret-wPMwJgh0QIu2IWeF"><p><strong>Foundry Note</strong></p><p>This
+      feature automates the Advantage on Dexterity saving throws but is not
+      automatically disabled when blinded, deafened, or incapacitated. It can be
+      temporarily deactivated in the Effects tab.</p></section>
     chat: ''
   requirements: Berserker 3
   source:
@@ -85,7 +95,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780414384308
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

@@ -246,52 +246,6 @@ system:
       title: Features
       type: ItemGrant
       value: {}
-    - _id: sw5e15ic00000000
-      configuration:
-        allowDrops: true
-        choices:
-          '2':
-            count: 2
-            replacement: false
-          '9':
-            count: 1
-            replacement: false
-          '17':
-            count: 1
-            replacement: false
-        pool:
-          - uuid: Compendium.sw5e-module.character-classes.l6r2xjQ4ftBkaDCU
-          - uuid: Compendium.sw5e-module.character-classes.nNaCGENXLdNxWsc7
-          - uuid: Compendium.sw5e-module.character-classes.Br3t5Qr0d4pICbRt
-          - uuid: Compendium.sw5e-module.character-classes.xTNeUGySNOMf1vsn
-          - uuid: Compendium.sw5e-module.character-classes.MtblQq9G89qcuT9X
-          - uuid: Compendium.sw5e-module.character-classes.Sf8QOGRJD88Cmz4c
-          - uuid: Compendium.sw5e-module.character-classes.gT1aqimUikc5i39u
-          - uuid: Compendium.sw5e-module.character-classes.m503Y6EEX9mPDaUq
-          - uuid: Compendium.sw5e-module.character-classes.MdzZoiQTUaU2ZwJz
-          - uuid: Compendium.sw5e-module.character-classes.q6bdreMoj6s1U24H
-          - uuid: Compendium.sw5e-module.character-classes.qzLGJzsu87gPBBQG
-        restriction:
-          level: ''
-          subtype: consularInvocation
-          type: class
-          list: []
-        type: feat
-        spell: null
-      title: Force-Empowered Castings
-      type: ItemChoice
-      value:
-        added: {}
-        replaced: {}
-      hint: >-
-        You gain the ability to twist your powers to suit your needs. When you
-        cast a force power, you can expend additional force points to modify the
-        power. You gain two Force-Empowered Casting options, located at the end
-        of the class description, and you learn more at higher levels, as shown
-        in the Force-Empowered Casting Options of the cnosular table.
-
-        You can use only one Force-Empowered Casting option on a power when you
-        cast it, unless otherwise noted.
     - _id: sw5e16ic00000000
       configuration: {}
       title: Consular Traditions
@@ -303,7 +257,28 @@ system:
         Different consulars select different traditions, called Ways, to follow
         as they hone their powers. Your tradition grants you features at 3rd,
         6th, 10th, 14th, and 18th level.
-      level: 0
+      level: 3
+    - type: ScaleValue
+      title: Force Shield
+      _id: lH6L3BCROTnRJ5zz
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '2':
+            value: 2
+          '5':
+            value: 3
+          '9':
+            value: 4
+          '13':
+            value: 5
+          '17':
+            value: 6
+      value: {}
+      hint: ''
   startingEquipment: []
   spellcasting:
     forceProgression: full
@@ -318,8 +293,10 @@ system:
     spent: 0
     additional: ''
   primaryAbility:
-    value: []
-    all: true
+    value:
+      - wis
+      - cha
+    all: false
   properties: []
   wealth: ''
 _stats:
@@ -329,7 +306,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780599089200
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

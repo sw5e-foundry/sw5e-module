@@ -88,7 +88,31 @@ system:
     repeatable: false
   properties: []
   activities: {}
-  advancement: []
+  advancement:
+    - type: AbilityScoreImprovement
+      _id: GZzo05pG5nHoecnU
+      configuration:
+        cap: 2
+        fixed:
+          str: 0
+          dex: 2
+          con: 0
+          int: 0
+          wis: 0
+          cha: 0
+        locked:
+          - str
+          - dex
+          - con
+          - int
+        points: 2
+        recommendation: null
+        max: 22
+      value:
+        type: asi
+      level: 20
+      title: ''
+      hint: ''
   identifier: center-of-the-force
   enchant: {}
 _stats:
@@ -98,7 +122,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780660897861
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

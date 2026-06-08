@@ -9,14 +9,11 @@ img: modules/sw5e-module/icons/packs/Class%20Features/SCT-Passive.webp
 system:
   description:
     value: >-
-      <p><em><strong>Scout:</strong> 6th and 14th level</em></p>
-
-      <p>Choose two of your skill proficiencies, or one of skill proficiencies
-      and one of your tool proficiencies, or two of your tool proficiencies. You
-      gain expertise in those skills or tools.</p>
-
-      <p>At 14th level, you can choose another two proficiencies (in skills or
-      tools) to gain this benefit.</p>
+      <p><em><strong>Scout:</strong> 6th and 14th level</em></p><p>Choose two of
+      your skill proficiencies, or one of skill proficiencies and one of your
+      tool proficiencies, or two of your tool proficiencies. You gain expertise
+      in those skills or tools.</p><p>At 14th level, you can choose another two
+      proficiencies (in skills or tools) to gain this benefit.</p>
     chat: ''
   requirements: Scout 6
   source:
@@ -38,7 +35,37 @@ system:
     repeatable: false
   properties: []
   activities: {}
-  advancement: []
+  advancement:
+    - type: Trait
+      title: Expertise
+      _id: rPS2OnA4ar6sKTO0
+      configuration:
+        allowReplacements: false
+        choices:
+          - count: 2
+            pool:
+              - tool:*
+              - skills:*
+        grants: []
+        mode: expertise
+      level: 6
+      hint: You gain Expertise in two skill or tool proficiencies of your choice.
+      value: {}
+    - type: Trait
+      title: Expertise
+      _id: VxpstkSwLDBkls5f
+      configuration:
+        allowReplacements: false
+        choices:
+          - count: 2
+            pool:
+              - skills:*
+              - tool:*
+        grants: []
+        mode: expertise
+      level: 14
+      hint: You gain Expertise in two skill or tool proficiencies of your choice.
+      value: {}
   identifier: expertise
   enchant: {}
 effects: []
@@ -50,7 +77,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780602159791
   lastModifiedBy: dnd5ebuilder0000
 _id: h6D6ptItOrdsbbjw
 ownership:

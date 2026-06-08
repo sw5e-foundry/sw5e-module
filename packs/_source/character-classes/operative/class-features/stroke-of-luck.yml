@@ -2,54 +2,7 @@ _id: b5o43ocdxaR9Ed7f
 name: Stroke of Luck
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-Action.webp
-effects:
-  - origin: Compendium.sw5e-module.character-classes.Item.b5o43ocdxaR9Ed7f
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    disabled: false
-    name: Stroke of Luck
-    _id: vx0UtN3OrUPcHtiS
-    changes:
-      - key: system.abilities.dex.max
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.dex.value
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.int.max
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.int.value
-        mode: 2
-        value: '2'
-        priority: null
-    description: ''
-    transfer: true
-    statuses: []
-    flags: {}
-    tint: '#ffffff'
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-      coreVersion: '13.351'
-      systemId: dnd5e
-      systemVersion: 5.2.5
-      lastModifiedBy: null
-    img: modules/sw5e-module/icons/packs/Class%20Features/OPRT-Passive.webp
-    type: base
-    system: {}
-    sort: 0
-    _key: '!items.effects!b5o43ocdxaR9Ed7f.vx0UtN3OrUPcHtiS'
+effects: []
 folder: bzDwsoXa1cjWOAs7
 flags:
   sw5e-importer:
@@ -57,9 +10,6 @@ flags:
     importer_version: 3
     uid: Feature.name-stroke_of_luck.source-class.sourceName-operative.level-20
   dnd5e:
-    riders:
-      activity: []
-      effect: []
     migratedUses: null
 system:
   description:
@@ -102,19 +52,24 @@ system:
       activation:
         type: special
         override: false
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
         units: ft
         override: false
+        value: ''
+        special: ''
       roll:
         formula: ''
         prompt: false
         visible: false
+        name: ''
       target:
         template:
           type: ''
@@ -122,6 +77,7 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: ''
         override: false
         prompt: true
       type: utility
@@ -130,18 +86,46 @@ system:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
       effects: []
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
-  advancement: []
+        identifier: ''
+      name: Stroke of Luck
+  advancement:
+    - type: AbilityScoreImprovement
+      _id: P1XHD92ooGmU32A3
+      configuration:
+        cap: 2
+        fixed:
+          str: 0
+          dex: 2
+          con: 0
+          int: 2
+          wis: 0
+          cha: 0
+        locked: []
+        points: 0
+        recommendation: null
+        max: 22
+      value:
+        type: asi
+      level: 20
+      title: ''
+      hint: ''
   identifier: stroke-of-luck
   enchant: {}
 _stats:
@@ -151,7 +135,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780581897111
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

@@ -10,7 +10,11 @@ system:
   description:
     value: >-
       <p>Your maximum focus increases by an amount equal to half your Wisdom or
-      Charisma modifier (your choice, minimum of +1).</p>
+      Charisma modifier (your choice, minimum of +1).</p><section class="secret"
+      id="secret-hkRgaIpA72tx89a6"><p><strong>Foundry Note<br /></strong>This
+      feature includes an Active Effect to increase maximum focus. The bonus
+      provided can be manually increase as needed. It can be adjusted from the
+      Effects tab.</p></section>
     chat: ''
   requirements: Monk
   source:
@@ -23,13 +27,54 @@ system:
   uses:
     spent: 0
     recovery: []
+    max: ''
   activities: {}
   identifier: vow-of-serenity
   enchant: {}
   prerequisites:
     level: null
   properties: []
-effects: []
+effects:
+  - name: Vow of Serenity
+    img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
+    origin: Compendium.sw5e-module.character-classes.Item.ATzUsvExqInQJzmU
+    _id: Xp4CA3JwkYil5Afz
+    type: base
+    system: {}
+    changes:
+      - key: system.scale.monk.focus-points.value
+        mode: 2
+        value: '1'
+        priority: null
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780687480410
+      modifiedTime: 1780689161197
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!ATzUsvExqInQJzmU.Xp4CA3JwkYil5Afz'
 _id: ATzUsvExqInQJzmU
 folder: 6gWO0zJ6QJDJmB8S
 sort: 0
@@ -37,11 +82,12 @@ ownership:
   default: 0
 _stats:
   duplicateSource: null
-  coreVersion: '12.331'
+  coreVersion: '13.351'
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1730433983637
-  modifiedTime: 1730433983637
+  modifiedTime: 1780689171889
   lastModifiedBy: dnd5ebuilder0000
+  exportSource: null
 _key: '!items!ATzUsvExqInQJzmU'
 

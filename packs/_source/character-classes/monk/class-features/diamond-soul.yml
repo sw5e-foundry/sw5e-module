@@ -16,34 +16,17 @@ effects:
     name: Diamond Soul
     _id: YEEXbVEGBNFLAW77
     changes:
-      - key: system.abilities.str.proficient
-        mode: 4
-        value: '1'
-        priority: null
-      - key: system.abilities.dex.proficient
-        mode: 4
-        value: '1'
-        priority: null
-      - key: system.abilities.con.proficient
-        mode: 4
-        value: '1'
-        priority: null
-      - key: system.abilities.int.proficient
-        mode: 4
-        value: '1'
-        priority: null
-      - key: system.abilities.wis.proficient
-        mode: 4
-        value: '1'
-        priority: null
-      - key: system.abilities.cha.proficient
-        mode: 4
-        value: '1'
+      - key: flags.dnd5e.diamondSoul
+        mode: 5
+        value: 'true'
         priority: null
     description: ''
     transfer: true
     statuses: []
-    flags: {}
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
     tint: '#ffffff'
     _stats:
       compendiumSource: null
@@ -52,7 +35,8 @@ effects:
       coreVersion: '13.351'
       systemId: dnd5e
       systemVersion: 5.2.5
-      lastModifiedBy: null
+      lastModifiedBy: dnd5ebuilder0000
+      modifiedTime: 1780579192338
     img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
     type: base
     system: {}
@@ -92,7 +76,64 @@ system:
     items: []
     repeatable: false
   properties: []
-  activities: {}
+  activities:
+    xWJvoHcNFM9lEYbt:
+      type: utility
+      name: Spend Focus Point to Reroll
+      _id: xWJvoHcNFM9lEYbt
+      sort: 0
+      activation:
+        type: ''
+        override: false
+        condition: When you fail a saving throw
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '1'
+            target: Compendium.sw5e-module.character-classes.Item.bdi8Z3rZZGkQVSEc
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects: []
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      img: ''
   advancement: []
   identifier: diamond-soul
   enchant: {}
@@ -103,7 +144,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780579278665
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

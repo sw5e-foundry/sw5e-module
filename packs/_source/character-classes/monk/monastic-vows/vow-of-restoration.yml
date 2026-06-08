@@ -4,10 +4,6 @@ flags:
     timestamp: '2023-03-09T01:51:57.6286281+00:00'
     importer_version: 3
     uid: Feature.name-vow_of_restoration.source-classinvocation.sourceName-monk
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
 system:
@@ -16,7 +12,11 @@ system:
       <p>When you would make an unarmed strike, you can spend 1 focus point to
       instead touch a willing creature within your reach. Roll your Martial Arts
       die. The target gains hit points equal to the amount rolled + your Wisdom
-      or Charisma modifier (your choice, minimum of +1).</p>
+      or Charisma modifier (your choice, minimum of +1).</p><section
+      id="secret-Qt8Y0eUoJIxDS5MV" class="secret"><p><strong>Foundry
+      Note</strong></p><p>This feature includes an Activity to consume focus
+      points and roll for healing. This feature assumes you will use whichever
+      modifier is higher between Wisdom and Charisma.</p></section>
     chat: ''
   requirements: Monk
   source:
@@ -29,18 +29,23 @@ system:
   uses:
     spent: 0
     recovery: []
+    max: ''
   activities:
     sw5e0heal0000000:
       _id: sw5e0heal0000000
       activation:
-        type: action
-      description: {}
+        type: special
+        condition: When you would make an unarmed strike.
+      description:
+        chatFlavor: ''
       duration:
         units: inst
       healing:
         custom:
           enabled: true
-          formula: '@mod'
+          formula: >-
+            @scale.monk.martial-arts.die + max(@abilities.wis.mod,
+            @abilities.cha.mod)
         denomination: null
         number: null
         scaling:
@@ -48,14 +53,33 @@ system:
           number: 1
         types:
           - healing
-      img: null
+      img: ''
       range:
-        units: ft
+        units: touch
+        value: ''
+        special: ''
       target:
         template:
           type: ''
           units: ''
+        affects:
+          type: creature
+          count: '1'
+          special: ''
       type: heal
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: Compendium.sw5e-module.character-classes.Item.bdi8Z3rZZGkQVSEc
+      name: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        identifier: ''
+      uses:
+        max: ''
   identifier: vow-of-restoration
   enchant: {}
   prerequisites:
@@ -69,11 +93,12 @@ ownership:
   default: 0
 _stats:
   duplicateSource: null
-  coreVersion: '12.331'
+  coreVersion: '13.351'
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1730433983637
-  modifiedTime: 1739121094709
+  modifiedTime: 1780689562664
   lastModifiedBy: dnd5ebuilder0000
+  exportSource: null
 _key: '!items!z23EVSK1dN2RBsPh'
 

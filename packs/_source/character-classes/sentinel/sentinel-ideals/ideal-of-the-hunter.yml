@@ -5,10 +5,6 @@ flags:
     importer_version: 3
     uid: >-
       Feature.name-ideal_of_the_hunter.source-classinvocation.sourceName-sentinel
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/SNTL-Bonus.webp
 system:
@@ -32,25 +28,46 @@ system:
   uses:
     spent: 0
     recovery: []
+    max: ''
   activities:
     sw5e0utility0000:
       _id: sw5e0utility0000
       activation:
         type: bonus
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: minute
         value: '1'
-      img: null
+      img: ''
       range:
         units: ft
+        value: ''
+        special: ''
       roll:
         formula: ''
+        name: ''
       target:
         template:
           type: ''
           units: ''
+        affects:
+          type: ''
       type: utility
+      consumption:
+        targets:
+          - type: itemUses
+            value: '1'
+            target: Compendium.sw5e-module.character-classes.Item.2BtuxZqgiBUJwgJj
+      name: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        identifier: ''
+      uses:
+        max: ''
   identifier: ideal-of-the-hunter
   enchant: {}
   prerequisites:
@@ -64,11 +81,12 @@ ownership:
   default: 0
 _stats:
   duplicateSource: null
-  coreVersion: '12.331'
+  coreVersion: '13.351'
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1730433983637
-  modifiedTime: 1739121094709
+  modifiedTime: 1780604427672
   lastModifiedBy: dnd5ebuilder0000
+  exportSource: null
 _key: '!items!DCQWKpZ0ja1k9Th0'
 

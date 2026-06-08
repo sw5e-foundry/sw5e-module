@@ -10,9 +10,6 @@ flags:
     importer_version: 3
     uid: Feature.name-force_recovery.source-class.sourceName-consular.level-1
   dnd5e:
-    riders:
-      activity: []
-      effect: []
     migratedUses: null
 system:
   description:
@@ -52,19 +49,24 @@ system:
       activation:
         type: special
         override: false
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
-        units: ft
+        units: self
         override: false
+        value: ''
+        special: ''
       roll:
-        formula: ''
+        formula: '{@classes.fighter.levels/2}+{@abilities.wis.mod, @abilities.cha.mod}kh'
         prompt: false
         visible: false
+        name: ''
       target:
         template:
           type: ''
@@ -72,6 +74,8 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: self
+          special: ''
         override: false
         prompt: true
       type: utility
@@ -80,17 +84,25 @@ system:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
       effects: []
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: ''
   advancement: []
   identifier: force-recovery
   enchant: {}
@@ -101,7 +113,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780430228002
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

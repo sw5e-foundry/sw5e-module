@@ -4,41 +4,31 @@ flags:
     timestamp: '2023-03-09T01:51:58.6680254+00:00'
     importer_version: 3
     uid: Feature.name-rangers_quarry.source-class.sourceName-scout.level-1
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/SCT-Reaction.webp
 system:
   description:
     value: >-
-      <p><em><strong>Scout:</strong> 1st, 5th, 9th, and 17th level</em></p>
-
-      <p>You learn how to effectively read and track your prey. Once on each of
-      your turns, you can choose a creature you can see within 120 feet and mark
-      it as your quarry (no action required). For the next hour, you gain the
-      following benefits:</p>
-
-      <ul>
-
-      <li>Once per turn, when you hit the target with a weapon attack, you can
-      deal [[/r 1d4]] additional damage to it of the same type as the weapon's
-      damage. This die changes as you gain scout levels, as shown in the
-      Ranger's Quarry column of the scout table.</li>
-
-      <li>You have advantage on any Wisdom (Perception) or Wisdom (Survival)
-      check you make to find it while it's on the same planet as you.</li>
-
-      </ul>
-
-      <p>You can only have one creature marked in this way at a time. Beginning
-      at 5th level, you can use your reaction to mark a creature when it enters
-      your line of sight, provided it is within range of your Ranger's
-      Quarry.</p>
-
-      <p>The duration increases to 8 hours at 9th level and 24 hours at 17th
-      level.</p>
+      <p><em><strong>Scout:</strong> 1st, 5th, 9th, and 17th
+      level</em></p><p>You learn how to effectively read and track your prey.
+      Once on each of your turns, you can choose a creature you can see within
+      120 feet and mark it as your quarry (no action required). For the next
+      hour, you gain the following benefits:</p><ul><li>Once per turn, when you
+      hit the target with a weapon attack, you can deal [[/r 1d4]] additional
+      damage to it of the same type as the weapon's damage. This die changes as
+      you gain scout levels, as shown in the Ranger's Quarry column of the scout
+      table.</li><li>You have advantage on any Wisdom (Perception) or Wisdom
+      (Survival) check you make to find it while it's on the same planet as
+      you.</li></ul><p>You can only have one creature marked in this way at a
+      time. Beginning at 5th level, you can use your reaction to mark a creature
+      when it enters your line of sight, provided it is within range of your
+      Ranger's Quarry.</p><p>The duration increases to 8 hours at 9th level and
+      24 hours at 17th level.</p><section id="secret-AP9oQvEhuLPXEEk2"
+      class="secret"><p><strong>Foundry Note</strong></p><p>This feature
+      includes activities to mark Quarry targets as well as apply bonus damage.
+      You can select the damage type in the damage roll's dialog box. The
+      duration of the Active Effect must be manually adjusted as you
+      level.</p></section>
     chat: ''
   requirements: Scout
   source:
@@ -63,40 +53,58 @@ system:
     sw5e0damage00000:
       _id: sw5e0damage00000
       activation:
-        type: reaction
+        type: special
         override: false
+        condition: Once per turn when you hit the marked creature with a weapon attack.
       damage:
         critical:
           allow: true
+          bonus: ''
         parts:
           - custom:
-              enabled: false
-            denomination: 4
+              enabled: true
+              formula: '@scale.scout.rangers-quarry'
             number: 1
-            scaling:
-              mode: ''
-              number: 1
+            denomination: 4
+            bonus: ''
             types:
-              - ''
-      description: {}
+              - acid
+              - cold
+              - energy
+              - fire
+              - force
+              - ion
+              - kinetic
+              - lightning
+              - necrotic
+              - poison
+              - psychic
+              - thunder
+      description:
+        chatFlavor: ''
       duration:
-        units: hour
+        units: inst
         value: '1'
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
-        units: ft
+        units: any
         value: '120'
         override: false
+        special: ''
       target:
         template:
           size: '1'
-          type: creature
+          type: ''
           units: ft
           contiguous: false
+          count: ''
         affects:
           choice: false
+          type: creature
+          count: '1'
+          special: ''
         override: false
         prompt: true
       type: damage
@@ -111,15 +119,193 @@ system:
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
-  advancement: []
+        identifier: ''
+      name: Bonus Quarry Damage
+    SshIU5vMBUdiVoCD:
+      type: utility
+      _id: SshIU5vMBUdiVoCD
+      sort: 0
+      activation:
+        type: ''
+        override: false
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      description:
+        chatFlavor: ''
+      duration:
+        units: hour
+        concentration: false
+        override: false
+        value: '@scale.rangers-quarry.quarry-duration'
+      effects:
+        - _id: 0BpzErYRXD30IXvM
+      flags: {}
+      range:
+        units: ft
+        override: false
+        special: ''
+        value: '120'
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: creature
+          count: '1'
+          special: ''
+        override: false
+        prompt: false
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      name: Mark Quarry
+      img: ''
+    hHv5YAL3JjHzHEeG:
+      type: utility
+      name: Move Mark
+      _id: hHv5YAL3JjHzHEeG
+      sort: 0
+      activation:
+        type: reaction
+        override: false
+        condition: >-
+          When it enters your line of sight, provided it is within range of your
+          Ranger's Quarry.
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets: []
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: 0BpzErYRXD30IXvM
+          level:
+            min: null
+            max: null
+      flags: {}
+      range:
+        units: ft
+        override: false
+        special: ''
+        value: '120'
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: 5
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      img: ''
+  advancement:
+    - type: ScaleValue
+      title: Quarry Duration
+      _id: in1EZr2a80QKw19y
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '1':
+            value: 1
+          '9':
+            value: 8
+          '17':
+            value: 24
+      value: {}
+      hint: ''
   identifier: rangers-quarry
   enchant: {}
-effects: []
+effects:
+  - name: Ranger's Quarry
+    img: icons/skills/targeting/crosshair-scope-sniper-green.webp
+    origin: Compendium.sw5e-module.character-classes.Item.LJx9u00u8Ee2nkVe
+    transfer: false
+    _id: 0BpzErYRXD30IXvM
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: 3600
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780600274837
+      modifiedTime: 1780601122164
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!LJx9u00u8Ee2nkVe.0BpzErYRXD30IXvM'
 folder: WYjA4idQca6yXa2o
 _stats:
   duplicateSource: null
@@ -128,7 +314,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780601263399
   lastModifiedBy: dnd5ebuilder0000
 _id: LJx9u00u8Ee2nkVe
 ownership:

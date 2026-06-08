@@ -2,7 +2,161 @@ _id: bdi8Z3rZZGkQVSEc
 name: Focus
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Bonus.webp
-effects: []
+effects:
+  - name: Patient Defence
+    img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Bonus.webp
+    origin: Compendium.sw5e-module.character-classes.Item.bdi8Z3rZZGkQVSEc
+    transfer: false
+    _id: 8sL8O2g7dQDKQzQa
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: 1
+      turns: null
+      startRound: null
+      startTurn: null
+    description: <p>You have Disengaged and also Dodged.</p>
+    tint: '#ffffff'
+    statuses:
+      - dodging
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780518670751
+      modifiedTime: 1780518867234
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!bdi8Z3rZZGkQVSEc.8sL8O2g7dQDKQzQa'
+  - name: Extra Reaction
+    img: systems/dnd5e/icons/svg/facilities/change.svg
+    origin: Compendium.sw5e-module.character-classes.Item.bdi8Z3rZZGkQVSEc
+    transfer: false
+    _id: 1w7GPkosDpcDXTQU
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: 1
+      turns: null
+      startRound: null
+      startTurn: null
+    description: >-
+      <p>You have an additional reaction until the start of your next turn. You
+      can only take one reaction per turn.</p>
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780519003020
+      modifiedTime: 1780519138324
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!bdi8Z3rZZGkQVSEc.1w7GPkosDpcDXTQU'
+  - name: Jump Distance Doubled
+    img: icons/skills/movement/arrow-upward-yellow.webp
+    origin: Compendium.sw5e-module.character-classes.Item.bdi8Z3rZZGkQVSEc
+    transfer: false
+    _id: TUBGN4ZWmEcRgOTU
+    type: base
+    system: {}
+    changes: []
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: 1
+      turns: null
+      startRound: null
+      startTurn: null
+    description: <p>Your jump distance is doubled for the turn</p>
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780519279646
+      modifiedTime: 1780519389715
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!bdi8Z3rZZGkQVSEc.TUBGN4ZWmEcRgOTU'
+  - name: Step of the Wind
+    img: icons/skills/movement/feet-winged-boots-glowing-yellow.webp
+    origin: Compendium.sw5e-module.character-classes.Item.bdi8Z3rZZGkQVSEc
+    transfer: false
+    _id: BXJwLLQWEcdhzJCP
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.movement.fly
+        mode: 4
+        value: '@attributes.movement.speed'
+        priority: null
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: 1
+      turns: null
+      startRound: null
+      startTurn: null
+    description: >-
+      <p>You have a flying speed equal to your walking speed until the end of
+      your turn, though you fall if you end your speed in the air and nothing
+      else is holding you aloft.</p>
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780519433606
+      modifiedTime: 1780519660308
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!bdi8Z3rZZGkQVSEc.BXJwLLQWEcdhzJCP'
 folder: EuaUbhYGJmRG0ki8
 flags:
   sw5e-importer:
@@ -10,71 +164,57 @@ flags:
     importer_version: 3
     uid: Feature.name-focus.source-class.sourceName-monk.level-2
   dnd5e:
-    riders:
-      activity: []
-      effect: []
     migratedUses: null
 system:
   description:
     value: >-
-      <p><em><strong>Monk:</strong> 2nd and 11th level</em></p>
-
-      <p>Your training allows you to harness the mystic energy of focus. Your
-      access to this energy is represented by a number of focus points. Your
-      monk level determines the number of points you have, as shown in the Focus
-      Points column of the monk table.</p>
-
-      <p>You can spend these points to fuel various focus features. You start
-      knowing three such features: Flurry of Blows, Patient Defense, and Step of
-      the Wind. You learn more focus features as you gain levels in this
-      class.</p>
-
-      <p>When you spend a focus point, it is unavailable until you finish a
-      short or long rest, at the end of which you draw all of your expended
-      focus back into yourself. You must spend at least 30 minutes of the rest
-      meditating to regain your focus points.</p>
-
-      <p>You use your choice of Wisdom or Charisma for your focus ability. You
-      use the chosen ability modifier whenever a feature refers to your focus
-      ability. Additionally, you use the chosen ability modifier when making an
-      attack with a focus feature or setting the saving throw DC for one.</p>
-
-      <p><em></em>_</p>
-
-      <p><strong>Focus save DC</strong> = 8 + your proficiency bonus + your
-      Wisdom or Charisma modifier (your choice)</p>
-
-      <p><em></em>_</p>
-
-      <p><strong>Focus attack modifier</strong> = your proficiency bonus + your
-      Wisdom or Charisma modifier (your choice)</p>
-
-      <p><em></em>_</p>
-
-      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.S7Eyxu0liaaotA1M]{Flurry
-      of Blows}</h3>
-
-      <p>When you make your Martial Arts bonus action attack, you can spend 1
-      focus point to make an additional unarmed strike (no action required). At
-      11th level, you can instead spend 2 focus points to make two additional
-      unarmed strikes.</p>
-
-      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.ZkKSsPaCGZrjgocn]{Patient
-      Defense}</h3>
-
-      <p>When you use your bonus action to Disengage, you can spend 1 focus
-      point to also Dodge (no action required). At 11th level, you can instead
-      spend 2 focus points to Dodge and gain an additional reaction until the
-      start of your next turn. You can only take one reaction per turn.</p>
-
-      <h3>@UUID[Compendium.sw5e-module.character-classes.Item.fnkBlUCThMSEt5KA]{Step
-      of the Wind}</h3>
-
-      <p>When you use your bonus action to Dash, you can spend 1 focus point to
-      double your jump distance for the turn. At 11th level, you can instead
-      spend 2 focus points to gain a flying speed equal to your walking speed
-      until the end of your turn, though you fall if you end your speed in the
-      air and nothing else is holding you aloft.</p>
+      <p><em><strong>Monk:</strong> 2nd and 11th level</em></p><p>Your training
+      allows you to harness the mystic energy of focus. Your access to this
+      energy is represented by a number of focus points. Your monk level
+      determines the number of points you have, as shown in the Focus Points
+      column of the monk table.</p><p>You can spend these points to fuel various
+      focus features. You start knowing three such features: Flurry of Blows,
+      Patient Defense, and Step of the Wind. You learn more focus features as
+      you gain levels in this class.</p><p>When you spend a focus point, it is
+      unavailable until you finish a short or long rest, at the end of which you
+      draw all of your expended focus back into yourself. You must spend at
+      least 30 minutes of the rest meditating to regain your focus
+      points.</p><p>You use your choice of Wisdom or Charisma for your focus
+      ability. You use the chosen ability modifier whenever a feature refers to
+      your focus ability. Additionally, you use the chosen ability modifier when
+      making an attack with a focus feature or setting the saving throw DC for
+      one.</p><p><strong>Focus save DC</strong> = 8 + your proficiency bonus +
+      your Wisdom or Charisma modifier (your choice)</p><p><strong>Focus attack
+      modifier</strong> = your proficiency bonus + your Wisdom or Charisma
+      modifier (your
+      choice)</p><h3>@UUID[Compendium.sw5e-module.character-classes.Item.S7Eyxu0liaaotA1M]{Flurry
+      of Blows}</h3><p>When you make your Martial Arts bonus action attack, you
+      can spend 1 focus point to make an additional unarmed strike (no action
+      required). At 11th level, you can instead spend 2 focus points to make two
+      additional unarmed
+      strikes.</p><h3>@UUID[Compendium.sw5e-module.character-classes.Item.ZkKSsPaCGZrjgocn]{Patient
+      Defense}</h3><p>When you use your bonus action to Disengage, you can spend
+      1 focus point to also Dodge (no action required). At 11th level, you can
+      instead spend 2 focus points to Dodge and gain an additional reaction
+      until the start of your next turn. You can only take one reaction per
+      turn.</p><h3>@UUID[Compendium.sw5e-module.character-classes.Item.fnkBlUCThMSEt5KA]{Step
+      of the Wind}</h3><p>When you use your bonus action to Dash, you can spend
+      1 focus point to double your jump distance for the turn. At 11th level,
+      you can instead spend 2 focus points to gain a flying speed equal to your
+      walking speed until the end of your turn, though you fall if you end your
+      speed in the air and nothing else is holding you aloft.</p><section
+      class="secret" id="secret-q2w8ZlVLNYgH8RJc"><p><strong>Foundry
+      Note</strong></p><p>The <strong>Flurry of Blows</strong> activity is a
+      Bonus Action which expends a Focus Point and includes the Attack Roll and
+      Damage for an Unarmored Strike using your Martial Arts Die which
+      automatically scales as you level up.</p><p>The <strong>Patient
+      Defense</strong> Bonus Action activity expends a Focus Point and includes
+      an Active Effect that adds the Dodging status. Level 11 version also
+      grants Active Effect to track bonus reaction.</p><p>The <strong>Step of
+      the Wind</strong> Bonus Action activity expends 1 Focus Point and includes
+      an Active Effect for tracking that you're jump distance is doubled. Level
+      11 version grants Active Effect which sets flying speed
+      appropriately.</p></section>
     chat: ''
   requirements: Monk 2
   source:
@@ -98,50 +238,327 @@ system:
     repeatable: false
   properties: []
   activities:
-    sw5e0utility0000:
-      _id: sw5e0utility0000
+    mfV2ISrw3j9IaWJ6:
+      type: attack
+      name: Flurry of Blows
+      _id: mfV2ISrw3j9IaWJ6
+      sort: 0
       activation:
-        type: bonus
+        type: action
         override: false
-      description: {}
+        condition: ''
+      consumption:
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      effects: []
+      flags: {}
       range:
-        units: ft
+        units: touch
         override: false
-      roll:
-        formula: ''
-        prompt: false
-        visible: false
+        special: ''
+        value: '5'
       target:
         template:
-          type: ''
-          units: ft
           contiguous: false
+          units: ft
+          type: ''
         affects:
           choice: false
+          type: creature
+          count: '1'
+          special: ''
         override: false
         prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      attack:
+        critical:
+          threshold: null
+        flat: false
+        type:
+          value: melee
+          classification: unarmed
+        ability: dex
+        bonus: ''
+      damage:
+        critical:
+          bonus: ''
+        includeBase: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@scale.monk.martial-arts.die + @mod'
+            number: null
+            denomination: null
+            bonus: ''
+            types:
+              - kinetic
+      img: ''
+    1vr44Z3EQxojrGW8:
       type: utility
+      name: Patient Defense (One Focus Point)
+      _id: 1vr44Z3EQxojrGW8
       sort: 0
+      activation:
+        type: bonus
+        override: false
+        condition: When you use your bonus action to Disengage
       consumption:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
-      effects: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      description:
+        chatFlavor: >-
+          When you use your bonus action to Disengage, you can spend 1 focus
+          point to also Dodge (no action required).
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: 8sL8O2g7dQDKQzQa
       flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+        override: false
+        prompt: false
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      img: systems/dnd5e/icons/svg/trait-damage-resistances.svg
+    mZ3cpzdPG151kqR8:
+      type: utility
+      name: Patient Defense (Two Focus Points)
+      sort: 0
+      activation:
+        type: bonus
+        override: false
+        condition: When you use your bonus action to Disengage
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '2'
+            target: ''
+      description:
+        chatFlavor: >-
+          When you use your bonus action to Disengage, you can spend 1 focus
+          point to also Dodge (no action required). You also gain an additional
+          reaction until the start of your next turn.
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: 8sL8O2g7dQDKQzQa
+          level:
+            min: null
+            max: null
+        - _id: 1w7GPkosDpcDXTQU
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+          special: ''
+        override: false
+        prompt: false
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: 11
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        formula: ''
+        name: ''
+      img: systems/dnd5e/icons/svg/trait-damage-resistances.svg
+      _id: mZ3cpzdPG151kqR8
+    MDgj0UNAdOvGCX5E:
+      type: utility
+      name: Step of the Wind (One Focus Point)
+      _id: MDgj0UNAdOvGCX5E
+      sort: 0
+      activation:
+        type: bonus
+        override: false
+        condition: When you use your bonus action to Dash
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: TUBGN4ZWmEcRgOTU
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: null
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        name: ''
+        formula: ''
+      img: systems/dnd5e/icons/svg/trait-saves.svg
+    N4Gjtd2HsFawG4JL:
+      type: utility
+      name: Step of the Wind (Two Focus Points)
+      sort: 0
+      activation:
+        type: bonus
+        override: false
+        condition: When you use your bonus action to Dash
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '2'
+            target: ''
+      description:
+        chatFlavor: ''
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: BXJwLLQWEcdhzJCP
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+          special: ''
+        override: false
+        prompt: true
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: 11
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        formula: ''
+        name: ''
+      img: systems/dnd5e/icons/svg/trait-saves.svg
+      _id: N4Gjtd2HsFawG4JL
   advancement: []
   identifier: focus
   enchant: {}
@@ -152,7 +569,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780519852305
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

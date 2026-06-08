@@ -2,54 +2,7 @@ _id: KAVTEkNRyWghicEE
 name: Foe Slayer
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/SCT-Passive.webp
-effects:
-  - origin: Compendium.sw5e-module.character-classes.Item.KAVTEkNRyWghicEE
-    duration:
-      startTime: null
-      seconds: null
-      combat: null
-      rounds: null
-      turns: null
-      startRound: null
-      startTurn: null
-    disabled: false
-    name: Foe Slayer
-    _id: zCwH3nJSjb6783hH
-    changes:
-      - key: system.abilities.str.max
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.str.value
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.int.max
-        mode: 2
-        value: '2'
-        priority: null
-      - key: system.abilities.int.value
-        mode: 2
-        value: '2'
-        priority: null
-    description: ''
-    transfer: true
-    statuses: []
-    flags: {}
-    tint: '#ffffff'
-    _stats:
-      compendiumSource: null
-      duplicateSource: null
-      exportSource: null
-      coreVersion: '13.351'
-      systemId: dnd5e
-      systemVersion: 5.2.5
-      lastModifiedBy: null
-    img: modules/sw5e-module/icons/packs/Class%20Features/SCT-Passive.webp
-    type: base
-    system: {}
-    sort: 0
-    _key: '!items.effects!KAVTEkNRyWghicEE.zCwH3nJSjb6783hH'
+effects: []
 folder: WYjA4idQca6yXa2o
 flags:
   sw5e-importer:
@@ -88,7 +41,33 @@ system:
     repeatable: false
   properties: []
   activities: {}
-  advancement: []
+  advancement:
+    - type: AbilityScoreImprovement
+      _id: 7XbRi7dT2oj1VmAq
+      configuration:
+        cap: 2
+        fixed:
+          str: 0
+          dex: 0
+          con: 0
+          int: 2
+          wis: 0
+          cha: 0
+        locked:
+          - con
+          - int
+          - wis
+          - cha
+        points: 2
+        recommendation: null
+        max: 22
+      value:
+        type: asi
+      level: 20
+      title: ''
+      hint: >-
+        our Strength or Dexterity score increases by 2, and your Intelligence
+        score increases by 2. Your maximum for those scores increases by 2.
   identifier: foe-slayer
   enchant: {}
 _stats:
@@ -98,7 +77,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780602576241
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

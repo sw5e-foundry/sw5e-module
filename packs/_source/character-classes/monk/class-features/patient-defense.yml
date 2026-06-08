@@ -4,10 +4,6 @@ flags:
     timestamp: '2021-10-12T11:17:35.8872913+00:00'
     importer_version: 3
     uid: Feature.name-patient_defense.source-class.sourceName-monk.level-2
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Bonus.webp
 system:
@@ -38,50 +34,136 @@ system:
     repeatable: false
   properties: []
   activities:
-    sw5e0utility0000:
-      _id: sw5e0utility0000
+    ahzAXMEPYP7ZVE41:
+      type: utility
+      name: Patient Defense (One Focus Point)
+      sort: 0
       activation:
         type: bonus
         override: false
-      description: {}
-      duration:
-        units: inst
-        concentration: false
-        override: false
-      img: null
-      range:
-        units: ft
-        override: false
-      roll:
-        formula: ''
-        prompt: false
-        visible: false
-      target:
-        template:
-          type: ''
-          units: ft
-          contiguous: false
-        affects:
-          choice: false
-        override: false
-        prompt: true
-      type: utility
-      sort: 0
+        condition: When you use your bonus action to Disengage
       consumption:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
-      effects: []
+        targets:
+          - type: itemUses
+            value: '1'
+            target: ''
+            scaling: {}
+      description:
+        chatFlavor: >-
+          When you use your bonus action to Disengage, you can spend 1 focus
+          point to also Dodge (no action required).
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: 8sL8O2g7dQDKQzQa
+          level: {}
       flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+        override: false
+        prompt: false
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        formula: ''
+        name: ''
+      img: systems/dnd5e/icons/svg/trait-damage-resistances.svg
+      _id: ahzAXMEPYP7ZVE41
+    KugIsl5iG2faZXHI:
+      type: utility
+      name: Patient Defense (Two Focus Points)
+      sort: 0
+      activation:
+        type: bonus
+        override: false
+        condition: When you use your bonus action to Disengage
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: itemUses
+            value: '2'
+            target: ''
+            scaling: {}
+      description:
+        chatFlavor: >-
+          When you use your bonus action to Disengage, you can spend 1 focus
+          point to also Dodge (no action required). You also gain an additional
+          reaction until the start of your next turn.
+      duration:
+        units: inst
+        concentration: false
+        override: false
+      effects:
+        - _id: 8sL8O2g7dQDKQzQa
+          level:
+            min: null
+            max: null
+        - _id: 1w7GPkosDpcDXTQU
+          level: {}
+      flags: {}
+      range:
+        units: self
+        override: false
+        special: ''
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: self
+          special: ''
+        override: false
+        prompt: false
+      uses:
+        spent: 0
+        recovery: []
+        max: ''
+      visibility:
+        level:
+          min: 11
+          max: null
+        requireAttunement: false
+        requireIdentification: false
+        requireMagic: false
+        identifier: ''
+      roll:
+        prompt: false
+        visible: false
+        formula: ''
+        name: ''
+      img: systems/dnd5e/icons/svg/trait-damage-resistances.svg
+      _id: KugIsl5iG2faZXHI
   advancement: []
   identifier: patient-defense
   enchant: {}
@@ -94,7 +176,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780577877720
   lastModifiedBy: dnd5ebuilder0000
 _id: ZkKSsPaCGZrjgocn
 ownership:

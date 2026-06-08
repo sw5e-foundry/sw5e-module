@@ -4,10 +4,6 @@ flags:
     timestamp: '2023-03-09T01:51:58.5700824+00:00'
     importer_version: 3
     uid: Feature.name-cause_harm.source-class.sourceName-guardian.level-1
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/GRDN-Action.webp
 effects: []
@@ -45,29 +41,30 @@ system:
       activation:
         type: action
         override: false
+        condition: ''
       damage:
         parts:
           - custom:
               enabled: true
               formula: '@classes.guardian.levels + @abilities.cha.mod'
-            denomination: null
             number: null
-            scaling:
-              mode: ''
-              number: 1
+            denomination: null
+            bonus: ''
             types:
               - necrotic
         onSave: half
-      description: {}
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
         units: ft
         value: '60'
         override: false
+        special: ''
       save:
         ability:
           - con
@@ -81,6 +78,7 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: ''
         override: false
         prompt: true
       type: save
@@ -89,17 +87,24 @@ system:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
+        targets:
+          - type: itemUses
+            value: '1'
       effects: []
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: ''
   advancement: []
   identifier: cause-harm
   enchant: {}
@@ -111,7 +116,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780496979755
   lastModifiedBy: dnd5ebuilder0000
 _id: mtj0QHmUrLJNrgCW
 ownership:

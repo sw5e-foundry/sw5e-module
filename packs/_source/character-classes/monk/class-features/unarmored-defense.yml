@@ -2,7 +2,51 @@ _id: oZApI8GlhbASPGO8
 name: Unarmored Defense
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
-effects: []
+effects:
+  - name: Unarmored Defense
+    img: modules/sw5e-module/icons/packs/Class%20Features/MNK-Passive.webp
+    origin: Compendium.sw5e-module.character-classes.Item.oZApI8GlhbASPGO8
+    _id: QzpRZ1fU8uzcuGpC
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.ac.calc
+        mode: 5
+        value: custom
+        priority: null
+      - key: system.attributes.ac.formula
+        mode: 5
+        value: 10 + max(@abilities.wis.mod,@abilities.cha.mod)
+        priority: null
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    transfer: true
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780513245295
+      modifiedTime: 1780513372480
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!oZApI8GlhbASPGO8.QzpRZ1fU8uzcuGpC'
 folder: EuaUbhYGJmRG0ki8
 flags:
   sw5e-importer:
@@ -12,11 +56,14 @@ flags:
 system:
   description:
     value: >-
-      <p><em><strong>Monk:</strong> 1st level</em></p>
-
-      <p>While you are wearing no armor and not wielding a shield, your AC
-      equals 10 + your Dexterity modifier + your Wisdom or Charisma modifier
-      (your choice).</p>
+      <p><em><strong>Monk:</strong> 1st level</em></p><p>While you are wearing
+      no armor and not wielding a shield, your AC equals 10 + your Dexterity
+      modifier + your Wisdom or Charisma modifier (your choice).</p><section
+      class="secret" id="secret-iEmEZ6taINwlND34"><p><strong>Foundry
+      Note</strong></p><p>This feature includes an Active Effect which updates
+      your Armor Class. The Active Effect assumes you will use the higher
+      modifier between Wisdom and Charisma. It must be disabled manually from
+      the Effects tab if a shield or armor is equipped.</p></section>
     chat: ''
   requirements: Monk
   source:
@@ -48,7 +95,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780516922993
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

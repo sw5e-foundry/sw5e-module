@@ -254,11 +254,21 @@ system:
     - _id: sw5e14t000000000
       classRestriction: secondary
       configuration:
-        choices: []
+        choices:
+          - count: 1
+            pool:
+              - skills:acr
+              - skills:ani
+              - skills:ins
+              - skills:itm
+              - skills:prc
+              - skills:per
+              - skills:pil
+              - skills:ste
+              - skills:tec
         grants:
           - armor:lgt
           - weapon:slw
-          - weapon:svb
         mode: default
         allowReplacements: false
       level: 1
@@ -266,6 +276,7 @@ system:
       type: Trait
       value:
         chosen: []
+      hint: ''
     - _id: sw5e15ig00000000
       configuration:
         items:
@@ -347,50 +358,6 @@ system:
       title: Features
       type: ItemGrant
       value: {}
-    - _id: sw5e22ic00000000
-      configuration:
-        allowDrops: true
-        choices:
-          '2':
-            count: 2
-            replacement: false
-          '6':
-            count: 1
-            replacement: false
-          '11':
-            count: 1
-            replacement: false
-        pool:
-          - uuid: Compendium.sw5e-module.character-classes.b1mbsxLmndcYYCA4
-          - uuid: Compendium.sw5e-module.character-classes.TfkT3drFNihZrSPn
-          - uuid: Compendium.sw5e-module.character-classes.gTrwVuDzaHJBzHRN
-          - uuid: Compendium.sw5e-module.character-classes.dcrEgLp1fY1jVtsM
-          - uuid: Compendium.sw5e-module.character-classes.DCQWKpZ0ja1k9Th0
-          - uuid: Compendium.sw5e-module.character-classes.Yy7DjdtFw1wieKDn
-          - uuid: Compendium.sw5e-module.character-classes.MfeT5I7A4RiOX5L1
-          - uuid: Compendium.sw5e-module.character-classes.coJqwLxZNTnq7Y2P
-          - uuid: Compendium.sw5e-module.character-classes.vTMlHVJo5gkbNIUS
-        restriction:
-          level: ''
-          subtype: sentinelInvocation
-          type: class
-          list: []
-        type: feat
-        spell: null
-      title: Sentinel Ideals
-      type: ItemChoice
-      value:
-        added: {}
-        replaced: {}
-      hint: >-
-        You adopt ideals that exemplify your bond with the Force. You adopt two
-        ideals of your choice, as detailed at the end of the class description,
-        and you adopt more at higher levels, as shown in the Ideals Known column
-        of the sentinel table.
-
-        You can manifest your ideals a combined total of twice, and you can
-        manifest them more times at higher levels as shown in the Ideal
-        Manifests column of the sentinel table.
     - _id: sw5e23ic00000000
       configuration: {}
       title: Sentinel Callings
@@ -402,7 +369,7 @@ system:
         Different sentinels select different callings, called Paths, to follow
         as they hone their powers. Your calling grants you features at 3rd, 7th,
         13th, and 18th level.
-      level: 0
+      level: 3
   startingEquipment: []
   spellcasting:
     forceProgression: 3/4
@@ -417,8 +384,11 @@ system:
     spent: 0
     additional: ''
   primaryAbility:
-    value: []
-    all: true
+    value:
+      - dex
+      - wis
+      - cha
+    all: false
   properties: []
   wealth: ''
 _stats:
@@ -428,7 +398,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780692191547
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

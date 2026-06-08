@@ -280,7 +280,18 @@ system:
     - _id: sw5e14t000000000
       classRestriction: secondary
       configuration:
-        choices: []
+        choices:
+          - count: 1
+            pool:
+              - skills:dec
+              - skills:ins
+              - skills:itm
+              - skills:inv
+              - skills:lor
+              - skills:med
+              - skills:nat
+              - skills:per
+              - skills:sur
         grants:
           - armor:lgt
         mode: default
@@ -290,6 +301,7 @@ system:
       type: Trait
       value:
         chosen: []
+      hint: ''
     - _id: sw5e15ig00000000
       configuration:
         items:
@@ -373,77 +385,6 @@ system:
       title: Features
       type: ItemGrant
       value: {}
-    - _id: sw5e22ic00000000
-      configuration:
-        allowDrops: true
-        choices:
-          '2':
-            count: 2
-            replacement: false
-          '3':
-            count: 2
-            replacement: false
-          '5':
-            count: 1
-            replacement: false
-          '9':
-            count: 1
-            replacement: false
-          '11':
-            count: 1
-            replacement: false
-          '13':
-            count: 1
-            replacement: false
-          '17':
-            count: 1
-            replacement: false
-        pool:
-          - uuid: Compendium.sw5e-module.character-classes.SpT3wy8DCNvOguih
-          - uuid: Compendium.sw5e-module.character-classes.HVEhmRaHaSmiDv8X
-          - uuid: Compendium.sw5e-module.character-classes.MxpZirJVkhOn1x5f
-          - uuid: Compendium.sw5e-module.character-classes.1Nrf9OQm5XIBdwk0
-          - uuid: Compendium.sw5e-module.character-classes.eqHf2Ftxnk0C9CNY
-          - uuid: Compendium.sw5e-module.character-classes.FpBil7rCO3B7GAfQ
-          - uuid: Compendium.sw5e-module.character-classes.gWppw1b30Ja7oFUa
-          - uuid: Compendium.sw5e-module.character-classes.YXXaPvtOUI0B03RW
-          - uuid: Compendium.sw5e-module.character-classes.MWwfKBTSfLgWSm98
-          - uuid: Compendium.sw5e-module.character-classes.mzHeorjeUUikzpRB
-          - uuid: Compendium.sw5e-module.character-classes.vXcJENxiP0OzaJ2c
-          - uuid: Compendium.sw5e-module.character-classes.jFfobDzdgZVcONfo
-          - uuid: Compendium.sw5e-module.character-classes.weN3hZQjfrbtKurj
-          - uuid: Compendium.sw5e-module.character-classes.hU4VPWXoaNHNwuuA
-          - uuid: Compendium.sw5e-module.character-classes.KkOytUUxt7qfGC8y
-          - uuid: Compendium.sw5e-module.character-classes.iQijVjIASMU1gv1e
-          - uuid: Compendium.sw5e-module.character-classes.xSwoOnoA77rXl4NA
-          - uuid: Compendium.sw5e-module.character-classes.sacmDENmckpaXVdY
-          - uuid: Compendium.sw5e-module.character-classes.538xLvSTw4mG5Eo5
-          - uuid: Compendium.sw5e-module.character-classes.esnLUEIDjwn9zBpF
-          - uuid: Compendium.sw5e-module.character-classes.6h8iknt0hteOGWsS
-          - uuid: Compendium.sw5e-module.character-classes.fpiYcUt717TBAzPC
-          - uuid: Compendium.sw5e-module.character-classes.pp9rihkrjmfcRQE4
-        restriction:
-          level: ''
-          subtype: scholarInvocation
-          type: class
-          list: []
-        type: feat
-        spell: null
-      title: Discoveries
-      type: ItemChoice
-      value:
-        added: {}
-        replaced: {}
-      hint: >-
-        As you adventure, your studies have helped you discover new practices
-        you can apply to your skills. You master two discoveries of your choice.
-        Your discovery options are detailed at the end of the class description.
-        When you gain certain scholar levels, you gain additional discoveries of
-        your choice, as shown in the Discoveries column of the scholar table.
-
-        Additionally, when you gain a level in this class, you can choose one of
-        the discoveries you know and replace it with another discovery that you
-        could learn at that level.
     - _id: sw5e23ic00000000
       configuration: {}
       title: Academic Pursuits
@@ -455,7 +396,22 @@ system:
         Your pursuit is a representation of which fields you have studied or how
         you practically apply your knowledge. Your pursuit grants you features
         at 3rd, 6th, 9th, and 17th level.
-      level: 0
+      level: 3
+    - type: ScaleValue
+      title: Calm and Collected
+      _id: 3MrueNSI9vz36MQs
+      configuration:
+        identifier: ''
+        type: number
+        distance:
+          units: ''
+        scale:
+          '14':
+            value: 5
+          '17':
+            value: 6
+      value: {}
+      hint: ''
   startingEquipment: []
   spellcasting:
     superiorityProgression: full
@@ -470,7 +426,8 @@ system:
     spent: 0
     additional: ''
   primaryAbility:
-    value: []
+    value:
+      - int
     all: true
   properties: []
   wealth: ''
@@ -481,7 +438,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780602516473
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

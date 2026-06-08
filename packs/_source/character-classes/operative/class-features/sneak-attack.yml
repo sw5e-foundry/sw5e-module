@@ -9,27 +9,22 @@ flags:
     timestamp: '2023-03-09T01:51:58.6620289+00:00'
     importer_version: 3
     uid: Feature.name-sneak_attack.source-class.sourceName-operative.level-1
-  dnd5e:
-    riders:
-      activity: []
-      effect: []
 system:
   description:
     value: >-
-      <p><em><strong>Operative:</strong> 1st level</em></p>
-
-      <p>You know how to strike subtly and exploit a foe's distraction. Once per
-      turn, you can deal an extra [[/r 1d6]] damage to one creature you hit with
-      a weapon attack if you have advantage on the attack roll. This damage is
-      the same as the weapon's damage, and the attack must use a finesse or a
-      ranged weapon. </p>
-
-      <p>You don't need advantage on the attack roll if another enemy of the
-      target is within 5 feet of it, that enemy isn't incapacitated, and you
-      don't have disadvantage on the attack roll.</p>
-
-      <p>The amount of the extra damage increases as you gain levels in this
-      class, as shown in the Sneak Attack column of the operative table.</p>
+      <p><em><strong>Operative:</strong> 1st level</em></p><p>You know how to
+      strike subtly and exploit a foe's distraction. Once per turn, you can deal
+      an extra [[/r 1d6]] damage to one creature you hit with a weapon attack if
+      you have advantage on the attack roll. This damage is the same as the
+      weapon's damage, and the attack must use a finesse or a ranged
+      weapon.</p><p>You don't need advantage on the attack roll if another enemy
+      of the target is within 5 feet of it, that enemy isn't incapacitated, and
+      you don't have disadvantage on the attack roll.</p><p>The amount of the
+      extra damage increases as you gain levels in this class, as shown in the
+      Sneak Attack column of the operative table.</p><section class="secret"
+      id="secret-wiLG0cD3knupmX2L"><p><strong>Foundry Note</strong></p><p>Your
+      sneak attack damage will automatically scale as you level up. You can
+      select the damage type in the damage roll's dialog box.</p></section>
     chat: ''
   requirements: Operative
   source:
@@ -54,31 +49,45 @@ system:
     sw5e0damage00000:
       _id: sw5e0damage00000
       activation:
-        type: action
+        type: ''
         override: false
+        condition: ''
       damage:
         critical:
           allow: true
+          bonus: ''
         parts:
           - custom:
-              enabled: false
-            denomination: 6
+              enabled: true
+              formula: '@scale.operative.sneak-attack'
             number: 1
-            scaling:
-              mode: ''
-              number: 1
+            denomination: 6
+            bonus: ''
             types:
-              - ''
-      description: {}
+              - acid
+              - cold
+              - energy
+              - fire
+              - force
+              - ion
+              - kinetic
+              - lightning
+              - necrotic
+              - poison
+              - psychic
+              - thunder
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
-        units: ft
+        units: self
         value: '5'
         override: false
+        special: ''
       target:
         template:
           type: ''
@@ -86,6 +95,9 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: creature
+          count: '1'
+          special: ''
         override: false
         prompt: true
       type: damage
@@ -100,11 +112,16 @@ system:
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: ''
   advancement: []
   identifier: sneak-attack
   enchant: {}
@@ -115,7 +132,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780580127027
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

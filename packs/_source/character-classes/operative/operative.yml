@@ -12,64 +12,48 @@ flags:
 system:
   description:
     value: >-
-      <img style="float:right;margin:5px;border:0px"
-      src="modules/sw5e-module/icons/packs/Classes/operative_01.webp" />
-
-      <p>A Bothan spy takes a moment to adjust her infrared goggles. Nimbly
+      <img style="margin:5px;border:0px;float:right"
+      src="modules/sw5e-module/icons/packs/Classes/operative_01.webp" /><p>A
+      Bothan spy takes a moment to adjust her infrared goggles. Nimbly
       sidestepping the laser grid in the room, she slips to the computer at the
       far end. Counting down the seconds in her head, she slices the mainframe.
       Twenty seconds. Ten seconds. A handful of soldiers bursts into the room,
-      but she is already gone â€" with the data in hand. </p>
-
-      <p>With a wary eye on the door, a scruffy-looking Duros plays pazaak in a
-      seedy cantina. When two city guards appear at the exit, he smiles and
-      reaches under the table. Before they can move in, the smuggler flips the
-      table and opens fire. The crowd scatters in panic, giving him just enough
-      cover to escape. </p>
-
-      <p>A gorgeous young human dances before an intoxicated senator in his
-      parlor. She winks enticingly through her golden blonde hair as she sways
-      closer. Leaning in for a kiss, the senator is instead surprised by the
-      barrel of a hold-out blaster pistol shoved into his mouth. He has no time
-      to shout before the assassin pulls the trigger. </p>
-
-      <p>Operatives, whether good, bad, or neutral, are those who focus on a
-      specific practice and utilize it to get the upper hand. They can come from
-      any world or region in the galaxy, with origins from the lowliest
-      scoundrel to the once social elite.</p>
-
-      <h2>Evading Danger</h2>
-
-      <p>Operatives have a knack for getting out of trouble. They have an
-      instinct for self-preservation that keeps them alive, but it's usually
-      tempered with a need to experience the thrills that their profession has
-      to offer, and many adventurous operatives are also saddled with a sense of
-      honor that sometimes makes them go against their natural inclinations. No
-      matter what their immediate concerns may be, survival is the name of the
-      game.</p>
-
-      <h2>Outside the Law</h2>
-
-      <p>Operatives don't often start out seeking to defy authority and break
-      the law. Some are thrust into the profession as a means of rebellion.
-      Others wind up on the wrong side of the law due to bad luck, poor
-      decisions, or circumstances beyond their control. The skills they pick up
-      along the way make them great members of any mission team.</p>
-
-      <p>While creating your operative character, consider how you first started
-      on your path. Maybe you were raised on the street and fell into the
-      criminal element as a means of survival. You could be a simple trader who
-      decided to strike against the Sith Empire when it encroached on your
-      business. What would you say is your greatest skill set? What is your
+      but she is already gone â€" with the data in hand.</p><p>With a wary eye
+      on the door, a scruffy-looking Duros plays pazaak in a seedy cantina. When
+      two city guards appear at the exit, he smiles and reaches under the table.
+      Before they can move in, the smuggler flips the table and opens fire. The
+      crowd scatters in panic, giving him just enough cover to escape.</p><p>A
+      gorgeous young human dances before an intoxicated senator in his parlor.
+      She winks enticingly through her golden blonde hair as she sways closer.
+      Leaning in for a kiss, the senator is instead surprised by the barrel of a
+      hold-out blaster pistol shoved into his mouth. He has no time to shout
+      before the assassin pulls the trigger.</p><p>Operatives, whether good,
+      bad, or neutral, are those who focus on a specific practice and utilize it
+      to get the upper hand. They can come from any world or region in the
+      galaxy, with origins from the lowliest scoundrel to the once social
+      elite.</p><h2>Evading Danger</h2><p>Operatives have a knack for getting
+      out of trouble. They have an instinct for self-preservation that keeps
+      them alive, but it's usually tempered with a need to experience the
+      thrills that their profession has to offer, and many adventurous
+      operatives are also saddled with a sense of honor that sometimes makes
+      them go against their natural inclinations. No matter what their immediate
+      concerns may be, survival is the name of the game.</p><h2>Outside the
+      Law</h2><p>Operatives don't often start out seeking to defy authority and
+      break the law. Some are thrust into the profession as a means of
+      rebellion. Others wind up on the wrong side of the law due to bad luck,
+      poor decisions, or circumstances beyond their control. The skills they
+      pick up along the way make them great members of any mission
+      team.</p><p>While creating your operative character, consider how you
+      first started on your path. Maybe you were raised on the street and fell
+      into the criminal element as a means of survival. You could be a simple
+      trader who decided to strike against the Sith Empire when it encroached on
+      your business. What would you say is your greatest skill set? What is your
       core, the truest essence about yourself that keeps you focused? Why would
       society treat you as a criminal, yet your allies hold you as a loyal
-      companion?</p>
-
-      <h3>Quick Build</h3>
-
-      <p>You can make an operative quickly by following these suggestions.
-      First, make Dexterity your highest ability score, followed by Intelligence
-      or Charisma. Second, choose the gambler background.</p>
+      companion?</p><h3>Quick Build</h3><p>You can make an operative quickly by
+      following these suggestions. First, make Dexterity your highest ability
+      score, followed by Intelligence or Charisma. Second, choose the gambler
+      background.</p>
     chat: ''
   source:
     custom: PHB
@@ -287,7 +271,13 @@ system:
     - _id: sw5e14t000000000
       classRestriction: secondary
       configuration:
-        choices: []
+        choices:
+          - count: 1
+            pool:
+              - skills:*
+          - count: 1
+            pool:
+              - tool:specialist:*
         grants:
           - armor:lgt
         mode: default
@@ -297,6 +287,7 @@ system:
       type: Trait
       value:
         chosen: []
+      hint: ''
     - _id: sw5e15ig00000000
       configuration:
         items:
@@ -429,50 +420,6 @@ system:
       type: Trait
       value:
         chosen: []
-    - _id: sw5e26ic00000000
-      configuration:
-        allowDrops: true
-        choices:
-          '2':
-            count: 2
-            replacement: false
-          '7':
-            count: 1
-            replacement: false
-          '13':
-            count: 1
-            replacement: false
-          '17':
-            count: 1
-            replacement: false
-        pool:
-          - uuid: Compendium.sw5e-module.character-classes.aatwbIApGRRR4ROo
-          - uuid: Compendium.sw5e-module.character-classes.VTsAQcw34erUIE9l
-          - uuid: Compendium.sw5e-module.character-classes.Ud0cemqhnzsk4qzb
-          - uuid: Compendium.sw5e-module.character-classes.KnLRuw0IWdys86WP
-          - uuid: Compendium.sw5e-module.character-classes.2yJyiAFW3TzghKze
-          - uuid: Compendium.sw5e-module.character-classes.jEyF6opIbwISpBQX
-          - uuid: Compendium.sw5e-module.character-classes.RRBJdyjYK2bYu7Bz
-          - uuid: Compendium.sw5e-module.character-classes.1bR6XGgpQQSnXjAi
-          - uuid: Compendium.sw5e-module.character-classes.QFJNR3bcmqnqV1ds
-          - uuid: Compendium.sw5e-module.character-classes.7szP1zi6kYlBt4Ut
-          - uuid: Compendium.sw5e-module.character-classes.yM4b4WI5W4ko6cyS
-        restriction:
-          level: ''
-          subtype: operativeInvocation
-          type: class
-          list: []
-        type: feat
-        spell: null
-      title: Operative Exploits
-      type: ItemChoice
-      value:
-        added: {}
-        replaced: {}
-      hint: >-
-        You've adopted two exploits, as detailed at the end of the class
-        description. You adopt an additional exploit at 7th, 13th, and 17th
-        level.
     - _id: sw5e27ic00000000
       configuration: {}
       title: Operative Practices
@@ -485,22 +432,26 @@ system:
         their precise and deadly approach to combat, and their increasingly
         quick reflexes, though their practices differ. Your practice grants you
         features at 3rd, 9th, 13th, and 17th level.
-      level: 0
+      level: 3
   startingEquipment: []
   spellcasting:
     superiorityProgression: none
     progression: none
-    preparation: {}
+    preparation:
+      formula: ''
     forceProgression: none
     techProgression: none
+    ability: ''
   hd:
     denomination: d8
     spent: 0
     additional: ''
   primaryAbility:
-    value: []
+    value:
+      - dex
     all: true
   properties: []
+  wealth: ''
 _stats:
   duplicateSource: null
   exportSource: null
@@ -508,7 +459,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780605792075
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

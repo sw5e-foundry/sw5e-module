@@ -17,15 +17,15 @@ flags:
 system:
   description:
     value: >-
-      <p><em><strong>Fighter:</strong> 2nd level</em></p>
-
-      <p>You can push yourself beyond your normal limits for a moment. On your
-      turn, you can take one additional action on top of your regular
-      action.</p>
-
-      <p>Once you've used this feature, you must finish a short or long rest
-      before you can use it again. Starting at 17th level, you can use it twice
-      before a rest, but only once on the same turn.</p>
+      <p><em><strong>Fighter:</strong> 2nd level</em></p><p>You can push
+      yourself beyond your normal limits for a moment. On your turn, you can
+      take one additional action on top of your regular action.</p><p>Once
+      you've used this feature, you must finish a short or long rest before you
+      can use it again. Starting at 17th level, you can use it twice before a
+      rest, but only once on the same turn.</p><section class="secret"
+      id="secret-z694H38bt2a1ndSG"><p><strong>Foundry Note</strong></p><p>This
+      feature includes a limited use that increases automatically at level
+      17.</p></section>
     chat: ''
   requirements: Fighter 2
   source:
@@ -35,7 +35,7 @@ system:
   cover: null
   crewed: false
   uses:
-    max: '2'
+    max: '@scale.fighter.action-surge'
     recovery:
       - period: sr
         type: recoverAll
@@ -103,7 +103,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780410415863
   lastModifiedBy: dnd5ebuilder0000
 ownership:
   default: 0

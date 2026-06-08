@@ -5,9 +5,6 @@ flags:
     importer_version: 3
     uid: Feature.name-superiority_dice.source-class.sourceName-fighter.level-2
   dnd5e:
-    riders:
-      activity: []
-      effect: []
     migratedUses: null
 type: feat
 img: modules/sw5e-module/icons/packs/Class%20Features/FGTR-Action.webp
@@ -32,10 +29,8 @@ system:
   cover: null
   crewed: false
   uses:
-    max: '2'
-    recovery:
-      - period: sr
-        type: recoverAll
+    max: ''
+    recovery: []
     spent: 0
   type:
     value: class
@@ -51,19 +46,24 @@ system:
       activation:
         type: special
         override: false
-      description: {}
+        condition: ''
+      description:
+        chatFlavor: ''
       duration:
         units: inst
         concentration: false
         override: false
-      img: null
+      img: ''
       range:
         units: ft
         override: false
+        value: ''
+        special: ''
       roll:
-        formula: 1d4
+        formula: '@scale.fighter.superiority-dice-size.die'
         prompt: false
         visible: false
+        name: ''
       target:
         template:
           type: ''
@@ -71,6 +71,7 @@ system:
           contiguous: false
         affects:
           choice: false
+          type: ''
         override: false
         prompt: true
       type: utility
@@ -79,17 +80,25 @@ system:
         scaling:
           allowed: false
         spellSlot: true
-        targets: []
+        targets:
+          - type: attribute
+            value: '1'
+            target: superiority.dice.value
       effects: []
       flags: {}
       uses:
         spent: 0
         recovery: []
+        max: ''
       visibility:
-        level: {}
+        level:
+          min: null
+          max: null
         requireAttunement: false
         requireIdentification: false
         requireMagic: false
+        identifier: ''
+      name: ''
   advancement: []
   identifier: superiority-dice
   enchant: {}
@@ -101,7 +110,7 @@ _stats:
   systemId: dnd5e
   systemVersion: 5.2.5
   createdTime: 1777752135936
-  modifiedTime: 1777752135936
+  modifiedTime: 1780585565187
   lastModifiedBy: dnd5ebuilder0000
 _id: ZWJ20cvnIV3y2smR
 ownership:
