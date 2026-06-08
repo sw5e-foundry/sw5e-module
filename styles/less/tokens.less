@@ -90,8 +90,16 @@ body[data-sw5e-theme="sw5e-light"] {
   --sw5e-light-chat-datapad-shadow: var(--sw5e-light-card-shadow-soft);
   --sw5e-light-chat-dice-panel: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(233, 241, 246, 0.86) 100%);
 
-  /* Foundry core UI — semantic tokens (no parchment images) */
-  --sw5e-foundry-sidebar-background: linear-gradient(180deg, rgba(248, 251, 253, 0.98) 0%, rgba(224, 236, 244, 0.94) 100%);
+  /* Foundry core UI — semantic tokens */
+  --sw5e-foundry-sidebar-background:
+    linear-gradient(
+      90deg,
+      @lightPageEdge 0%,
+      rgb(196, 211, 222) 25%,
+      @lightPageCenter 50%,
+      rgb(196, 211, 222) 75%,
+      @lightPageEdge 100%
+    );
   --sw5e-foundry-app-background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(230, 240, 246, 0.9) 100%);
   --sw5e-foundry-content-background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 249, 0.82) 100%);
   --sw5e-foundry-dialog-background: var(--sw5e-foundry-app-background);
@@ -102,6 +110,29 @@ body[data-sw5e-theme="sw5e-light"] {
   --sw5e-foundry-canvas-1: #e4ecf1;
   --sw5e-foundry-canvas-2: #eef4f8;
   --sw5e-foundry-canvas-3: #f7fafc;
+  --sw5e-foundry-app-window-background:
+    linear-gradient(180deg, rgba(248, 251, 253, 0) 0%, rgba(226, 237, 244, 0) 100%),
+    url("/modules/sw5e-module/assets/ui/parchments/sw5e-light-parchment.png");
+  --sw5e-foundry-window-content-background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%);
+  --sw5e-foundry-window-canvas-1: rgba(255, 255, 255, 0.84);
+  --sw5e-foundry-window-canvas-2: rgba(248, 251, 253, 0.88);
+  --sw5e-foundry-window-canvas-3: rgba(241, 246, 249, 0.9);
+  --sw5e-foundry-window-titlebar-background: rgba(226, 237, 244, 0.78);
+  --sw5e-foundry-window-titlebar-border: color-mix(in srgb, var(--sw5e-line-color) 34%, rgba(67, 67, 67, 0.18));
+  --sw5e-foundry-window-titlebar-text: var(--sw5e-theme-text);
+  --sw5e-foundry-window-close-color: var(--sw5e-theme-secondary-button);
+  --sw5e-foundry-window-close-hover-background: color-mix(in srgb, var(--sw5e-theme-heading) 12%, rgba(255, 255, 255, 0.72));
+  --sw5e-foundry-window-close-hover-color: var(--sw5e-theme-heading);
+  --sw5e-foundry-control-background: rgba(255, 255, 255, 0.72);
+  --sw5e-foundry-control-background-hover: var(--sw5e-light-hover-tint);
+  --sw5e-foundry-control-background-active: color-mix(in srgb, var(--sw5e-line-color) 16%, rgba(255, 255, 255, 0.88));
+  --sw5e-foundry-control-text: var(--sw5e-theme-secondary-button);
+  --sw5e-foundry-control-icon: var(--sw5e-line-color);
+  --sw5e-foundry-control-icon-active: var(--sw5e-line-color);
+  --sw5e-foundry-control-border: var(--sw5e-foundry-border);
+  --sw5e-foundry-control-border-active: color-mix(in srgb, var(--sw5e-line-color) 54%, transparent);
+  --sw5e-foundry-control-shadow: 0 1px 3px rgba(73, 96, 112, 0.1);
+  --sw5e-foundry-control-focus-ring: color-mix(in srgb, var(--sw5e-line-color) 34%, transparent);
 
   /* Foundry core UI — variable remap (Phase F1) */
   --sidebar-background: var(--sw5e-foundry-sidebar-background);
@@ -163,6 +194,16 @@ body[data-sw5e-theme="sw5e-dark"] {
   --sw5e-foundry-canvas-1: #2c2c2c;
   --sw5e-foundry-canvas-2: #343a40;
   --sw5e-foundry-canvas-3: #3c444c;
+  --sw5e-foundry-control-background: var(--sw5e-theme-surface);
+  --sw5e-foundry-control-background-hover: color-mix(in srgb, var(--sw5e-secondary-button) 18%, rgba(42, 42, 42, 0.82));
+  --sw5e-foundry-control-background-active: color-mix(in srgb, var(--sw5e-line-color) 22%, rgba(42, 42, 42, 0.88));
+  --sw5e-foundry-control-text: var(--sw5e-theme-text);
+  --sw5e-foundry-control-icon: var(--sw5e-secondary-button);
+  --sw5e-foundry-control-icon-active: var(--sw5e-line-color);
+  --sw5e-foundry-control-border: var(--sw5e-foundry-border);
+  --sw5e-foundry-control-border-active: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent);
+  --sw5e-foundry-control-shadow: 0 2px 6px rgba(0, 0, 0, 0.24);
+  --sw5e-foundry-control-focus-ring: var(--sw5e-dark-control-ring);
 
   /* Foundry core UI — variable remap (Phase F1) */
   --sidebar-background: var(--sw5e-foundry-sidebar-background);

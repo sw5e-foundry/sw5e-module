@@ -3,6 +3,662 @@ body[data-sw5e-theme="sw5e-dark"] {
   color-scheme: var(--sw5e-theme-color-scheme);
 }
 
+/* Foundry core UI — mirror variables onto closer owners (Phase F1b) */
+body[data-sw5e-theme="sw5e-light"] :is(#interface, #sidebar, .sidebar-tab),
+body[data-sw5e-theme="sw5e-dark"] :is(#interface, #sidebar, .sidebar-tab) {
+  --sidebar-background: var(--sw5e-foundry-sidebar-background);
+  --background: var(--sw5e-foundry-app-background);
+  --color-text-primary: var(--sw5e-foundry-text);
+  --color-text-secondary: var(--sw5e-foundry-text-muted);
+  --color-canvas-1: var(--sw5e-foundry-canvas-1);
+  --color-canvas-2: var(--sw5e-foundry-canvas-2);
+  --color-canvas-3: var(--sw5e-foundry-canvas-3);
+}
+
+/* Foundry core UI — interface control variables (Phase F2a) */
+body[data-sw5e-theme="sw5e-light"] #interface.themed,
+body[data-sw5e-theme="sw5e-dark"] #interface.themed,
+body[data-sw5e-theme="sw5e-light"] #interface.themed :is(.ui-control, .inline-control),
+body[data-sw5e-theme="sw5e-dark"] #interface.themed :is(.ui-control, .inline-control) {
+  --button-background-color: var(--sw5e-foundry-control-background);
+  --button-text-color: var(--sw5e-foundry-control-text);
+  --control-icon-color: var(--sw5e-foundry-control-icon);
+  --button-hover-background-color: var(--sw5e-foundry-control-background-hover);
+  --button-hover-text-color: var(--sw5e-foundry-control-text);
+  --button-active-background-color: var(--sw5e-foundry-control-background-active);
+  --button-active-text-color: var(--sw5e-foundry-control-text);
+  --button-border-color: var(--sw5e-foundry-control-border);
+  --control-hover-icon-color: var(--sw5e-foundry-control-icon-active);
+  --control-active-icon-color: var(--sw5e-foundry-control-icon-active);
+  --control-border-color: var(--sw5e-foundry-control-border);
+}
+
+/* Foundry core UI — sidebar tab strip buttons (Phase F2b) */
+body[data-sw5e-theme="sw5e-light"] #sidebar-tabs .ui-control {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border: 1px solid rgba(13, 153, 204, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #sidebar-tabs .ui-control:is(:hover, :focus, :focus-visible) {
+  background: rgba(13, 153, 204, 0.12) !important;
+  border-color: rgba(13, 153, 204, 0.65) !important;
+  box-shadow:
+    0 0 0 1px rgba(13, 153, 204, 0.2),
+    0 0 10px rgba(13, 153, 204, 0.18) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #sidebar-tabs .ui-control.active {
+  background: rgba(13, 153, 204, 0.18) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 35%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #sidebar-tabs .ui-control {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #sidebar-tabs .ui-control:is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  border-color: rgba(32, 161, 208, 0.65) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-secondary-button) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #sidebar-tabs .ui-control.active {
+  background: rgba(32, 161, 208, 0.2) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 40%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 26%, transparent) !important;
+}
+
+/* Foundry core UI — scene controls + navigation (Phase F2c) */
+body[data-sw5e-theme="sw5e-light"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control,
+body[data-sw5e-theme="sw5e-light"] #interface.themed #scene-navigation-expand {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border: 1px solid rgba(13, 153, 204, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control:is(:hover, :focus, :focus-visible),
+body[data-sw5e-theme="sw5e-light"] #interface.themed #scene-navigation-expand:is(:hover, :focus, :focus-visible) {
+  background: rgba(13, 153, 204, 0.12) !important;
+  border-color: rgba(13, 153, 204, 0.65) !important;
+  box-shadow:
+    0 0 0 1px rgba(13, 153, 204, 0.2),
+    0 0 10px rgba(13, 153, 204, 0.18) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control.active,
+body[data-sw5e-theme="sw5e-light"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control.scene.active {
+  background: rgba(13, 153, 204, 0.18) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 35%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control:is(.disabled, :disabled),
+body[data-sw5e-theme="sw5e-light"] #interface.themed #scene-navigation-expand:is(.disabled, :disabled) {
+  opacity: 0.45 !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control,
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #scene-navigation-expand {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control:is(:hover, :focus, :focus-visible),
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #scene-navigation-expand:is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  border-color: rgba(32, 161, 208, 0.65) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-secondary-button) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control.active,
+body[data-sw5e-theme="sw5e-dark"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control.scene.active {
+  background: rgba(32, 161, 208, 0.2) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 40%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 26%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control:is(.disabled, :disabled),
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #scene-navigation-expand:is(.disabled, :disabled) {
+  opacity: 0.45 !important;
+  box-shadow: none !important;
+}
+
+/* Foundry core UI — hotbar + page controls (Phase F2d) */
+body[data-sw5e-theme="sw5e-light"] #interface.themed #hotbar .slot {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border: 1px solid rgba(13, 153, 204, 0.35) !important;
+  color: #434343 !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #hotbar .slot:is(:hover, :focus, :focus-visible) {
+  background: rgba(13, 153, 204, 0.12) !important;
+  border-color: rgba(13, 153, 204, 0.65) !important;
+  box-shadow:
+    0 0 0 1px rgba(13, 153, 204, 0.2),
+    0 0 10px rgba(13, 153, 204, 0.18) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #hotbar .slot:is(:active, .drop-target, .drag-over) {
+  background: rgba(13, 153, 204, 0.18) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 35%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #hotbar .slot .key {
+  background: rgba(13, 153, 204, 0.22) !important;
+  color: #434343 !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #hotbar .ui-control {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border: 1px solid rgba(13, 153, 204, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #hotbar .ui-control:is(:hover, :focus, :focus-visible) {
+  background: rgba(13, 153, 204, 0.12) !important;
+  border-color: rgba(13, 153, 204, 0.65) !important;
+  box-shadow:
+    0 0 0 1px rgba(13, 153, 204, 0.2),
+    0 0 10px rgba(13, 153, 204, 0.18) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #hotbar-page-controls .hotbar-page-control {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border: 1px solid rgba(13, 153, 204, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #hotbar-page-controls .hotbar-page-control:is(:hover, :focus, :focus-visible) {
+  background: rgba(13, 153, 204, 0.12) !important;
+  border-color: rgba(13, 153, 204, 0.65) !important;
+  box-shadow:
+    0 0 0 1px rgba(13, 153, 204, 0.2),
+    0 0 10px rgba(13, 153, 204, 0.18) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #hotbar-page-controls .hotbar-page-control:active {
+  background: rgba(13, 153, 204, 0.18) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 35%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #hotbar-page-controls .hotbar-page-number {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border: 1px solid rgba(13, 153, 204, 0.35) !important;
+  color: #434343 !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #hotbar .slot {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-foundry-control-text) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #hotbar .slot:is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  border-color: rgba(32, 161, 208, 0.65) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-secondary-button) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #hotbar .slot:is(:active, .drop-target, .drag-over) {
+  background: rgba(32, 161, 208, 0.2) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 40%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 26%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #hotbar .slot .key {
+  background: rgba(32, 161, 208, 0.28) !important;
+  color: var(--sw5e-foundry-control-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #hotbar .ui-control {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #hotbar .ui-control:is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  border-color: rgba(32, 161, 208, 0.65) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-secondary-button) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #hotbar-page-controls .hotbar-page-control {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #hotbar-page-controls .hotbar-page-control:is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  border-color: rgba(32, 161, 208, 0.65) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-secondary-button) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #hotbar-page-controls .hotbar-page-control:active {
+  background: rgba(32, 161, 208, 0.2) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 40%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 26%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #hotbar-page-controls .hotbar-page-number {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-foundry-control-text) !important;
+  box-shadow: none !important;
+}
+
+/* Foundry core UI — sidebar directory header controls (Phase F2e) */
+body[data-sw5e-theme="sw5e-light"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .inline-control,
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control,
+  .combat-control-lg
+) {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border: 1px solid rgba(13, 153, 204, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control-lg
+) {
+  color: #434343 !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control-lg
+) i {
+  color: var(--sw5e-foundry-control-icon) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .inline-control,
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control,
+  .combat-control-lg
+):is(:hover, :focus, :focus-visible) {
+  background: rgba(13, 153, 204, 0.12) !important;
+  border-color: rgba(13, 153, 204, 0.65) !important;
+  box-shadow:
+    0 0 0 1px rgba(13, 153, 204, 0.2),
+    0 0 10px rgba(13, 153, 204, 0.18) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .inline-control,
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control,
+  .combat-control-lg
+):is(:active, .active) {
+  background: rgba(13, 153, 204, 0.18) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 35%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .inline-control,
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control,
+  .combat-control-lg
+):is(.disabled, :disabled) {
+  opacity: 0.45 !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .inline-control,
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control,
+  .combat-control-lg
+) {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control-lg
+) {
+  color: var(--sw5e-foundry-control-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control-lg
+) i {
+  color: var(--sw5e-foundry-control-icon) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .inline-control,
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control,
+  .combat-control-lg
+):is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  border-color: rgba(32, 161, 208, 0.65) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-secondary-button) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .inline-control,
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control,
+  .combat-control-lg
+):is(:active, .active) {
+  background: rgba(32, 161, 208, 0.2) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 40%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 26%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #sidebar .sidebar-tab :is(.directory-header, .combat-tracker-header, .combat-controls) :is(
+  .inline-control,
+  .create-entry,
+  .create-folder,
+  .open-compendium-browser,
+  .combat-control,
+  .combat-control-lg
+):is(.disabled, :disabled) {
+  opacity: 0.45 !important;
+  box-shadow: none !important;
+}
+
+/* Foundry core UI — players list + pause overlay chrome (Phase F2f) */
+body[data-sw5e-theme="sw5e-light"] #interface.themed #players {
+  color: var(--sw5e-foundry-text-muted) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #players .player {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border: 1px solid rgba(13, 153, 204, 0.35) !important;
+  border-left: 3px solid var(--player-border, var(--sw5e-line-color)) !important;
+  color: #434343 !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #players .player.active {
+  border-color: rgba(13, 153, 204, 0.65) !important;
+  border-left-color: var(--player-border, var(--sw5e-line-color)) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-line-color) 16%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #players .player-name {
+  color: #434343 !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #players .player.active .player-name {
+  color: color-mix(in srgb, var(--player-color, var(--sw5e-line-color)) 55%, #434343) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #players #performance-stats label {
+  color: var(--sw5e-foundry-text-muted) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #players #players-expand {
+  background: rgba(255, 255, 255, 0.68) !important;
+  border: 1px solid rgba(13, 153, 204, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #interface.themed #players #players-expand:is(:hover, :focus, :focus-visible) {
+  background: rgba(13, 153, 204, 0.12) !important;
+  border-color: rgba(13, 153, 204, 0.65) !important;
+  box-shadow:
+    0 0 0 1px rgba(13, 153, 204, 0.2),
+    0 0 10px rgba(13, 153, 204, 0.18) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #players {
+  color: var(--sw5e-foundry-text-muted) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #players .player {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  border-left: 3px solid var(--player-border, var(--sw5e-line-color)) !important;
+  color: var(--sw5e-foundry-control-text) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #players .player.active {
+  border-color: rgba(32, 161, 208, 0.65) !important;
+  border-left-color: var(--player-border, var(--sw5e-line-color)) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-line-color) 18%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #players .player-name {
+  color: var(--sw5e-foundry-control-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #players .player.active .player-name {
+  color: color-mix(in srgb, var(--player-color, var(--sw5e-line-color)) 45%, var(--sw5e-foundry-control-text)) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #players #performance-stats label {
+  color: var(--sw5e-foundry-text-muted) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #players #players-expand {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #interface.themed #players #players-expand:is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  border-color: rgba(32, 161, 208, 0.65) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-secondary-button) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #pause {
+  color: var(--sw5e-foundry-text-muted) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] #pause figcaption {
+  color: var(--sw5e-theme-heading) !important;
+  text-shadow:
+    0 1px 2px rgba(255, 255, 255, 0.85),
+    0 0 12px color-mix(in srgb, var(--sw5e-line-color) 30%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #pause {
+  color: var(--sw5e-foundry-text-muted) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] #pause figcaption {
+  color: var(--sw5e-theme-heading) !important;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.75),
+    0 0 14px color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+
+/* Foundry core UI — mirror variables onto application/window shells (Phase F1c) */
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app),
+body[data-sw5e-theme="sw5e-dark"] :is(.application, .window-app) {
+  --color-text-primary: var(--sw5e-foundry-text);
+  --color-text-secondary: var(--sw5e-foundry-text-muted);
+  --color-canvas-1: var(--sw5e-foundry-canvas-1);
+  --color-canvas-2: var(--sw5e-foundry-canvas-2);
+  --color-canvas-3: var(--sw5e-foundry-canvas-3);
+  --color-border: var(--sw5e-foundry-border);
+  --color-fieldset-border: var(--sw5e-foundry-border);
+  --color-header-background: var(--sw5e-foundry-content-background);
+  --color-form-label: var(--sw5e-foundry-text);
+  --color-form-label-hover: var(--sw5e-foundry-text);
+  --color-form-hint: var(--sw5e-foundry-text-muted);
+  --color-form-hint-hover: var(--sw5e-foundry-text-muted);
+  --color-select-option-bg: var(--sw5e-foundry-input-background);
+}
+
+body[data-sw5e-theme="sw5e-dark"] :is(.application, .window-app) {
+  --background: var(--sw5e-foundry-app-background);
+}
+
+/* SW5E Light — fitted SW5E parchment on Foundry app shells (not themed sheets/apps) */
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app):not(.sw5e-theme-root) {
+  --background: var(--sw5e-foundry-app-window-background);
+  --color-canvas-1: var(--sw5e-foundry-window-canvas-1);
+  --color-canvas-2: var(--sw5e-foundry-window-canvas-2);
+  --color-canvas-3: var(--sw5e-foundry-window-canvas-3);
+  --color-header-background: var(--sw5e-foundry-window-titlebar-background);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* SW5E Light — Foundry app titlebar / close button (core shells only) */
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app):not(.sw5e-theme-root) .window-header {
+  background: var(--sw5e-foundry-window-titlebar-background);
+  border-bottom: 1px solid var(--sw5e-foundry-window-titlebar-border);
+  color: var(--sw5e-foundry-window-titlebar-text);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app):not(.sw5e-theme-root) .window-header .window-title {
+  color: var(--sw5e-foundry-window-titlebar-text);
+  font-family: var(--sw5e-font-heading);
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app):not(.sw5e-theme-root) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="close"]
+) {
+  --button-background-color: rgba(255, 255, 255, 0.58);
+  --button-hover-background-color: var(--sw5e-foundry-window-close-hover-background);
+  --button-text-color: var(--sw5e-foundry-window-close-color);
+  background: rgba(255, 255, 255, 0.58) !important;
+  color: var(--sw5e-foundry-window-close-color) !important;
+  border: 1px solid var(--sw5e-foundry-window-titlebar-border) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app):not(.sw5e-theme-root) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="close"]
+):is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-foundry-window-close-hover-background) !important;
+  color: var(--sw5e-foundry-window-close-hover-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-heading) 42%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-theme-heading) 22%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app):not(.sw5e-theme-root) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="close"]
+) :is(i, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  color: inherit !important;
+  --icon-fill: currentColor;
+}
+
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root,
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root {
   color: var(--sw5e-theme-text);
@@ -1038,7 +1694,7 @@ body[data-sw5e-theme="sw5e-light"] :is(
   border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item {
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs:is(.sheet.actor, .sheet.item) nav.tabs.tabs-right > .item {
   background: var(--sw5e-light-tab-inactive-fill) !important;
   color: color-mix(in srgb, var(--sw5e-line-color) 76%, var(--sw5e-secondary-button)) !important;
   --icon-fill: color-mix(in srgb, var(--sw5e-line-color) 76%, var(--sw5e-secondary-button));
@@ -1046,16 +1702,16 @@ body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertica
   box-shadow: var(--sw5e-light-tab-glow-soft) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item::after {
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs:is(.sheet.actor, .sheet.item) nav.tabs.tabs-right > .item::after {
   border-color: color-mix(in srgb, var(--sw5e-line-color) 62%, rgba(255, 255, 255, 0.22)) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item :is(i, dnd5e-icon) {
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs:is(.sheet.actor, .sheet.item) nav.tabs.tabs-right > .item :is(i, dnd5e-icon) {
   color: inherit !important;
   --icon-fill: currentColor;
 }
 
-body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item:is(:hover, :focus, :focus-visible):not(.active) {
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs:is(.sheet.actor, .sheet.item) nav.tabs.tabs-right > .item:is(:hover, :focus, :focus-visible):not(.active) {
   background: var(--sw5e-light-hover-tint) !important;
   color: var(--sw5e-line-color) !important;
   --icon-fill: var(--sw5e-line-color);
@@ -1065,11 +1721,11 @@ body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertica
     0 0 10px color-mix(in srgb, var(--sw5e-light-active-control-border) 22%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item:is(:hover, :focus, :focus-visible):not(.active)::after {
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs:is(.sheet.actor, .sheet.item) nav.tabs.tabs-right > .item:is(:hover, :focus, :focus-visible):not(.active)::after {
   border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 72%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item.active {
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs:is(.sheet.actor, .sheet.item) nav.tabs.tabs-right > .item.active {
   background: var(--sw5e-light-tab-active-fill) !important;
   color: var(--sw5e-line-color) !important;
   --icon-fill: var(--sw5e-line-color);
@@ -1077,16 +1733,52 @@ body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertica
   box-shadow: var(--sw5e-light-tab-glow-strong), inset 0 1px 0 rgba(255, 255, 255, 0.56) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item.active::after {
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs:is(.sheet.actor, .sheet.item) nav.tabs.tabs-right > .item.active::after {
   border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 84%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor nav.tabs.tabs-right > .item.active:is(:hover, :focus, :focus-visible) {
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertical-tabs:is(.sheet.actor, .sheet.item) nav.tabs.tabs-right > .item.active:is(:hover, :focus, :focus-visible) {
   border-color: var(--sw5e-light-active-control-border) !important;
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 42%, transparent),
     0 0 14px color-mix(in srgb, var(--sw5e-light-active-control-border) 32%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.62) !important;
+}
+
+/* SW5E Light — item sheet horizontal tabs (dnd5e ItemSheet5e uses sheet-tabs, not vertical-tabs) */
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab] {
+  color: color-mix(in srgb, var(--sw5e-line-color) 76%, var(--sw5e-secondary-button)) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab]:is(:hover, :focus, :focus-visible):not(.active) {
+  color: var(--sw5e-line-color) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab].active {
+  color: var(--sw5e-line-color) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab].active :is(label, span) {
+  border-bottom: 3px solid var(--sw5e-light-active-control-border) !important;
+}
+
+/* SW5E Dark — item sheet horizontal tabs (dnd5e ItemSheet5e uses sheet-tabs, not vertical-tabs) */
+body[data-sw5e-theme="sw5e-dark"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab] {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab]:is(:hover, :focus, :focus-visible):not(.active) {
+  color: var(--sw5e-secondary-button) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab].active {
+  color: var(--sw5e-line-color) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab].active :is(label, span) {
+  border-bottom: 3px solid var(--sw5e-line-color) !important;
 }
 
 body[data-sw5e-theme="sw5e-dark"] :is(
@@ -2396,6 +3088,305 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item:not(.minim
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item:not(.minimized)::before {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.03)), url("/modules/sw5e-module/styles/dual_color_saber3.jpeg") no-repeat top center / cover !important;
   opacity: 0.45;
+}
+
+/* Item-sheet tab divider: replace native dnd5e ampersand watermark with SW5E logo (item sheets only). */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand {
+  background-image: url("/modules/sw5e-module/assets/ui/SW5e-logo2.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  height: 24px;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand::before {
+  background: linear-gradient(to left, var(--sw5e-theme-heading), transparent) !important;
+  inset-inline-end: calc(50% + 26px) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand::after,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand::after {
+  background: linear-gradient(to right, var(--sw5e-theme-heading), transparent) !important;
+  inset-inline-start: calc(50% + 26px) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand {
+  opacity: 0.92;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand {
+  opacity: 0.88;
+}
+
+/* SW5E Light — item sheet icon controls (gear cogs, header controls) */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(
+  .config-button,
+  .control-button,
+  .trait-selector,
+  .item-control,
+  .sheet-header-control,
+  button.unbutton.control-button,
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]) {
+  background: transparent !important;
+  color: var(--sw5e-secondary-button) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(
+  .config-button,
+  .control-button,
+  .trait-selector,
+  .item-control,
+  .sheet-header-control,
+  button.unbutton.control-button,
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+) :is(i, .gold-icon, .sw5e-deployment-icon-placeholder, dnd5e-icon) {
+  color: inherit !important;
+  --icon-fill: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(
+  .config-button,
+  .control-button,
+  .trait-selector,
+  .item-control,
+  .sheet-header-control,
+  button.unbutton.control-button,
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+):is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-light-hover-tint) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 42%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 24%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(
+  .config-button,
+  .control-button,
+  .trait-selector,
+  .item-control,
+  .sheet-header-control,
+  button.unbutton.control-button,
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+):is(.active, .selected, [aria-pressed="true"], [aria-selected="true"]) {
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.88)) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 28%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.62) !important;
+}
+
+/* SW5E Light — item sheet metadata strip (Creature Type / Movement / Senses) */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .info-block {
+  gap: 12px;
+  padding: 4px 6px 10px;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 249, 0.82) 100%) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div .label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--sw5e-theme-muted-text) !important;
+  letter-spacing: 0.04em;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div .value,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div.info-sm div.value {
+  color: var(--sw5e-theme-text) !important;
+  font-weight: 500;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div.info-grid .value .key {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div.info-grid .value .value {
+  color: var(--sw5e-theme-text) !important;
+}
+
+/* SW5E Light — item sheet ProseMirror editor toolbar */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor {
+  --menu-background: color-mix(in srgb, var(--sw5e-light-hover-tint) 55%, rgba(255, 255, 255, 0.42));
+  --color-hover-bg: var(--sw5e-light-hover-tint);
+  --button-text-color: var(--sw5e-secondary-button);
+  --color-form-label-hover: var(--sw5e-line-color);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor menu.editor-menu {
+  --menu-background: color-mix(in srgb, var(--sw5e-light-hover-tint) 55%, rgba(255, 255, 255, 0.42));
+  --color-hover-bg: var(--sw5e-light-hover-tint);
+  --button-text-color: var(--sw5e-secondary-button);
+  --color-form-label-hover: var(--sw5e-line-color);
+  background: color-mix(in srgb, var(--sw5e-light-hover-tint) 55%, rgba(255, 255, 255, 0.42)) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 6px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor menu.editor-menu button {
+  background: transparent !important;
+  color: var(--sw5e-secondary-button) !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor menu.editor-menu button :is(i, span) {
+  color: inherit !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor menu.editor-menu button:is(:hover, :focus, :focus-visible, .active) {
+  background: var(--sw5e-light-hover-tint) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 42%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 22%, transparent) !important;
+}
+
+/* SW5E Light — dnd5e species config dialogs (Creature Type / Movement / Senses) */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.config-sheet {
+  --radio-list-hover: var(--sw5e-light-hover-tint);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.creature-type.config-sheet .final-value,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.config-sheet .final-value {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.creature-type.config-sheet .type-row label:hover {
+  background: var(--sw5e-light-hover-tint) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.creature-type.config-sheet .type-row input[type="radio"],
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.config-sheet input[type="radio"] {
+  accent-color: var(--sw5e-line-color);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.config-sheet .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+/* SW5E Light — dnd5e advancement configuration applications (item/actor advancement tab editors) */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet {
+  --radio-list-hover: var(--sw5e-light-hover-tint);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet .window-content {
+  background-color: var(--sw5e-theme-page-center) !important;
+  background-image: var(--sw5e-theme-window-background) !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet :is(.card .header, .card.table .header, fieldset.card > .header) {
+  background: var(--sw5e-light-section-header-background) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-left: 3px solid var(--sw5e-theme-heading) !important;
+  border-radius: 3px 3px 0 0 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), inset 0 0 0 1px rgba(175, 198, 214, 0.18) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet :is(.card .header, .card.table .header, fieldset.card > .header) > * {
+  color: var(--sw5e-theme-muted-text) !important;
+  font-family: var(--sw5e-font-body) !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet fieldset.card > legend {
+  color: var(--sw5e-theme-heading) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 249, 0.82) 100%) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet fieldset.card > legend::before {
+  box-shadow: none !important;
+  outline: none !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet .card.table.items .items-list > li:nth-child(odd) {
+  background: color-mix(in srgb, var(--sw5e-light-hover-tint) 42%, rgba(255, 255, 255, 0.55)) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet .card.table.items .items-list > li:nth-child(even) {
+  background: rgba(255, 255, 255, 0.38) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet .card.table.items .items-list > li {
+  border-bottom: 1px solid color-mix(in srgb, var(--sw5e-light-muted-control-border) 55%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet .drop-area {
+  border-color: var(--sw5e-light-muted-control-border) !important;
+  background: color-mix(in srgb, var(--sw5e-light-hover-tint) 45%, rgba(255, 255, 255, 0.35)) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet .hint.warning {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet .form-group > label,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet .form-group.stacked > label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.sheet :is(input[type="checkbox"], input[type="radio"]) {
+  accent-color: var(--sw5e-line-color);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.ability-score-improvement .ability-scores li > label:first-child {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.ability-score-improvement .ability-scores li > button.control-button:is(.plus, .minus) {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
+  color: var(--sw5e-secondary-button) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.ability-score-improvement .ability-scores li > button.control-button:is(.plus, .minus):is(:hover, :focus, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.9)) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.ability-score-improvement .ability-scores li > .locked {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.trait.trait-selector .traits li:not(:last-of-type) {
+  border-bottom-color: var(--sw5e-light-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.trait.trait-selector .traits .category > label {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.advancement.trait.trait-selector .trait-list label:hover {
+  background: var(--sw5e-light-hover-tint) !important;
 }
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root .sw5e-starship-v2-shell,
