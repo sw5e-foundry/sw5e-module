@@ -1,15 +1,30 @@
-import { getModuleSettingValue } from "./module-support.mjs";
+import {
+	getModuleSettingValue,
+	hasStoredWorldSetting,
+	LEGACY_SETTINGS_NAMESPACE,
+	SETTINGS_NAMESPACE
+} from "./module-support.mjs";
 
 export const SW5E_THEME_SETTING = "themeMode";
 
 export const SW5E_THEMES = Object.freeze({
 	SW5E_LIGHT: "sw5e-light",
 	SW5E_DARK: "sw5e-dark",
-	DND5E: "dnd5e"
+	OFF: "off"
 });
+
+/** Legacy stored value; normalized to {@link SW5E_THEMES.OFF} at runtime. */
+const LEGACY_THEME_DND5E = "dnd5e";
 
 export const SW5E_THEME_CHOICES = Object.freeze(Object.values(SW5E_THEMES));
 export const SW5E_DEFAULT_THEME = SW5E_THEMES.SW5E_LIGHT;
+
+const THEME_CLASS_PREFIX = "sw5e-theme--";
+const LEGACY_THEME_CLASSES = Object.freeze([
+	"sw5e-theme--sw5e",
+	"sw5e-theme--native-dnd5e",
+	`${THEME_CLASS_PREFIX}${LEGACY_THEME_DND5E}`
+]);
 
 function getHtmlRoot(html) {
 	return html instanceof HTMLElement ? html : html?.[0] ?? null;
@@ -27,16 +42,16 @@ function getThemeRoot(target) {
 
 function removeThemeClasses(element) {
 	if ( !(element instanceof HTMLElement) ) return;
-	for ( const theme of SW5E_THEME_CHOICES ) element.classList.remove(`sw5e-theme--${theme}`);
-	element.classList.remove("sw5e-theme--sw5e", "sw5e-theme--native-dnd5e");
+	for ( const theme of SW5E_THEME_CHOICES ) element.classList.remove(`${THEME_CLASS_PREFIX}${theme}`);
+	for ( const className of LEGACY_THEME_CLASSES ) element.classList.remove(className);
 }
 
 function applyThemeClasses(element, theme) {
 	if ( !(element instanceof HTMLElement) ) return;
 	removeThemeClasses(element);
-	element.classList.add(`sw5e-theme--${theme}`);
-	element.classList.toggle("sw5e-theme--sw5e", theme !== SW5E_THEMES.DND5E);
-	element.classList.toggle("sw5e-theme--native-dnd5e", theme === SW5E_THEMES.DND5E);
+	if ( isSw5eThemeOff(theme) ) return;
+	element.classList.add(`${THEME_CLASS_PREFIX}${theme}`);
+	element.classList.add("sw5e-theme--sw5e");
 }
 
 function collectScopedElements(root) {
@@ -51,6 +66,7 @@ function collectScopedElements(root) {
 
 export function normalizeSw5eTheme(value) {
 	const theme = typeof value === "string" ? value.trim().toLowerCase() : "";
+	if ( theme === LEGACY_THEME_DND5E ) return SW5E_THEMES.OFF;
 	return SW5E_THEME_CHOICES.includes(theme) ? theme : SW5E_DEFAULT_THEME;
 }
 
@@ -58,8 +74,26 @@ export function getSw5eTheme() {
 	return normalizeSw5eTheme(getModuleSettingValue(SW5E_THEME_SETTING, SW5E_DEFAULT_THEME));
 }
 
-export function isNativeDnd5eTheme(theme = getSw5eTheme()) {
-	return normalizeSw5eTheme(theme) === SW5E_THEMES.DND5E;
+export function isSw5eThemeOff(theme = getSw5eTheme()) {
+	return normalizeSw5eTheme(theme) === SW5E_THEMES.OFF;
+}
+
+function clearSw5eThemeScope(target) {
+	const root = getThemeRoot(target);
+	if ( !(root instanceof HTMLElement) ) return null;
+	for ( const element of collectScopedElements(root) ) {
+		element.classList.remove("sw5e-theme-root");
+		delete element.dataset.sw5eThemeRoot;
+		delete element.dataset.sw5eTheme;
+		removeThemeClasses(element);
+	}
+	return root;
+}
+
+function clearAllSw5eThemeScopes() {
+	for ( const element of document.querySelectorAll(".sw5e-theme-root, [data-sw5e-theme-root]") ) {
+		if ( element instanceof HTMLElement ) clearSw5eThemeScope(element);
+	}
 }
 
 export function applySw5eThemeDocument(theme = getSw5eTheme()) {
@@ -68,6 +102,11 @@ export function applySw5eThemeDocument(theme = getSw5eTheme()) {
 	const body = document.body;
 	for ( const element of [html, body] ) {
 		if ( !(element instanceof HTMLElement) ) continue;
+		if ( isSw5eThemeOff(resolvedTheme) ) {
+			delete element.dataset.sw5eTheme;
+			removeThemeClasses(element);
+			continue;
+		}
 		element.dataset.sw5eTheme = resolvedTheme;
 		applyThemeClasses(element, resolvedTheme);
 	}
@@ -78,6 +117,10 @@ export function applySw5eThemeScope(target, { scope = "module" } = {}) {
 	const root = getThemeRoot(target);
 	if ( !(root instanceof HTMLElement) ) return null;
 	const theme = applySw5eThemeDocument();
+	if ( isSw5eThemeOff(theme) ) {
+		clearSw5eThemeScope(root);
+		return root;
+	}
 	for ( const element of collectScopedElements(root) ) {
 		element.classList.add("sw5e-theme-root");
 		element.dataset.sw5eThemeRoot = scope;
@@ -98,8 +141,27 @@ export function rerenderThemeableApplications() {
 }
 
 export function onSw5eThemeChange(theme) {
-	applySw5eThemeDocument(theme);
+	const resolvedTheme = normalizeSw5eTheme(theme);
+	applySw5eThemeDocument(resolvedTheme);
+	if ( isSw5eThemeOff(resolvedTheme) ) clearAllSw5eThemeScopes();
 	rerenderThemeableApplications();
+}
+
+function migrateLegacyThemeSetting() {
+	const game = globalThis.game;
+	if ( !game?.settings ) return;
+	const namespaces = Array.from(new Set([SETTINGS_NAMESPACE, LEGACY_SETTINGS_NAMESPACE]));
+	for ( const namespace of namespaces ) {
+		if ( !hasStoredWorldSetting(namespace, SW5E_THEME_SETTING) ) continue;
+		try {
+			const value = game.settings.get(namespace, SW5E_THEME_SETTING);
+			if ( value === LEGACY_THEME_DND5E ) {
+				void game.settings.set(namespace, SW5E_THEME_SETTING, SW5E_THEMES.OFF);
+			}
+		} catch ( err ) {
+			console.warn("SW5E | Theme setting migration failed", err);
+		}
+	}
 }
 
 function applyThemeScopeFromHook(_app, html, scope) {
@@ -150,7 +212,10 @@ function applyDnd5eThemedApplicationFromHook(app, html) {
 }
 
 export function registerSw5eThemeHooks() {
-	Hooks.once("ready", () => applySw5eThemeDocument());
+	Hooks.once("ready", () => {
+		migrateLegacyThemeSetting();
+		applySw5eThemeDocument();
+	});
 	Hooks.on("canvasReady", () => applySw5eThemeDocument());
 	Hooks.on("renderActorSheetV2", (app, html) => applyThemeScopeFromHook(app, html, "sheet"));
 	Hooks.on("renderItemSheet5e", (app, html) => applyThemeScopeFromHook(app, html, "sheet"));

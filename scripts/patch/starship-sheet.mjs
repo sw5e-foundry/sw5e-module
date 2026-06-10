@@ -2183,7 +2183,7 @@ function makeSidebarSummary(actor) {
 		{
 			label: localizeOrFallback("SW5E.StarshipTier", "Tier"),
 			value: (() => { const t = legacySystem.details?.tier ?? pools.tier; return Number.isFinite(Number(t)) ? `${t}` : "-"; })(),
-			note: normalizeSourceLabel(legacySystem.details?.source),
+			note: null,
 			sidebarTier: true,
 			sidebarSize: false,
 			sidebarHull: false,
@@ -2205,7 +2205,7 @@ function makeSidebarSummary(actor) {
 		{
 			label: localizeOrFallback("SW5E.HullPoints", "Hull Points"),
 			value: formatPool(hp.value, hp.max),
-			note: localizeOrFallback("SW5E.StarshipHullSummaryNote", "Main hull integrity"),
+			note: null,
 			sidebarTier: false,
 			sidebarSize: false,
 			sidebarHull: true,
@@ -2228,7 +2228,7 @@ function makeSidebarSummary(actor) {
 		{
 			label: localizeOrFallback("SW5E.ShieldPoints", "Shield Points"),
 			value: formatPool(hp.temp, hp.tempmax),
-			note: localizeOrFallback("SW5E.StarshipShieldSummaryNote", "Absorbs damage before hull"),
+			note: null,
 			sidebarTier: false,
 			sidebarSize: false,
 			sidebarHull: false,
@@ -3090,7 +3090,6 @@ if (app._sw5eStarshipActiveTab === undefined) {
 		),
 		overviewSkillsAriaLabel: localizeOrFallback("SW5E.StarshipSheet.OverviewSkillsAria", "Starship skills"),
 		overviewSkillsKicker: localizeOrFallback("SW5E.StarshipSheet.OverviewSkillsKicker", "Skills"),
-		overviewSkillsTitle: localizeOrFallback("SW5E.StarshipSheet.OverviewSkillsTitle", "Starship skills"),
 		overviewSkillsLede: localizeOrFallback(
 			"SW5E.StarshipSheet.OverviewSkillsLede",
 			"Roll a skill from the row. In edit mode, use the cog to adjust proficiency, ability, and check bonus (starship skills use a compact editor compatible with vehicle actors)."
