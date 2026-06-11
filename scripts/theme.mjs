@@ -169,6 +169,7 @@ function applyThemeScopeFromHook(_app, html, scope) {
 }
 
 const DND5E_SPECIES_CONFIG_SHEETS = new Set([
+	"AbilityConfig",
 	"CreatureTypeConfig",
 	"MovementSensesConfig"
 ]);
@@ -181,6 +182,7 @@ export function isDnd5eSpeciesConfigSheet(app, element) {
 	if ( !(element instanceof HTMLElement) ) return false;
 	if ( !element.classList.contains("dnd5e2") || !element.classList.contains("config-sheet") ) return false;
 	if ( element.classList.contains("sw5e-starship-skill-roll-config") ) return false;
+	if ( element.classList.contains("sw5e-starship-movement-config-app") ) return false;
 	if ( element.classList.contains("power-point-config") ) return false;
 	if ( element.classList.contains("creature-type") ) return true;
 	return DND5E_SPECIES_CONFIG_SHEETS.has(app?.constructor?.name);
@@ -200,6 +202,19 @@ export function isDnd5eAdvancementConfigApp(app, element) {
 	return Boolean(app?.advancement);
 }
 
+/**
+ * dnd5e D20 roll configuration dialogs (ability checks, saving throws, etc.).
+ * ApplicationV2 apps with `.dnd5e2.application.roll-configuration`.
+ */
+export function isDnd5eRollConfigurationApp(app, element) {
+	if ( !(element instanceof HTMLElement) ) return false;
+	if ( !element.classList.contains("dnd5e2") ) return false;
+	if ( !element.classList.contains("application") ) return false;
+	if ( !element.classList.contains("roll-configuration") ) return false;
+	if ( element.classList.contains("sw5e-starship-skill-roll-config") ) return false;
+	return true;
+}
+
 function applyDnd5eThemedApplicationFromHook(app, html) {
 	const root = getHtmlRoot(html) ?? getAppRoot(app);
 	if ( isDnd5eSpeciesConfigSheet(app, root) ) {
@@ -208,6 +223,10 @@ function applyDnd5eThemedApplicationFromHook(app, html) {
 	}
 	if ( isDnd5eAdvancementConfigApp(app, root) ) {
 		applySw5eThemeScope(html, { scope: "advancement-config" });
+		return;
+	}
+	if ( isDnd5eRollConfigurationApp(app, root) ) {
+		applySw5eThemeScope(html, { scope: "roll-configuration" });
 	}
 }
 

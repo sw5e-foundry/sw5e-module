@@ -110,7 +110,7 @@ function stripHtml(value) {
 	return String(value ?? "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
 }
 
-function normalizeTravelPace(value, fallback = "normal") {
+export function normalizeTravelPace(value, fallback = "normal") {
 	const normalized = String(value ?? "").trim().toLowerCase();
 	return STARSHIP_TRAVEL_PACES.has(normalized) ? normalized : fallback;
 }
@@ -681,13 +681,30 @@ function getMovementBaseValue(value) {
 	return toFiniteNumber(value, null);
 }
 
+export function getStarshipMovementOverrides(legacySystem = {}) {
+	const raw = legacySystem?.attributes?.movementOverrides ?? {};
+	return {
+		space: toFiniteNumber(raw.space, null),
+		turn: toFiniteNumber(raw.turn, null)
+	};
+}
+
+export function getStarshipTravelPaceOptions() {
+	return [
+		{ value: "slow", labelKey: "DND5E.TravelPaceSlow", fallback: "Slow" },
+		{ value: "normal", labelKey: "DND5E.TravelPaceNormal", fallback: "Normal" },
+		{ value: "fast", labelKey: "DND5E.TravelPaceFast", fallback: "Fast" }
+	];
+}
+
 export function deriveStarshipMovementData({
 	legacySystem = {},
 	items = [],
 	liveAbilities = {},
 	liveMovement = {},
 	sizeSystem = null,
-	routingState = null
+	routingState = null,
+	ignoreOverrides = false
 } = {}) {
 	const resolvedSizeSystem = sizeSystem ?? getLegacySizeSystem(getLegacyStarshipSize(items));
 	const movementProfile = getMovementProfile(items, resolvedSizeSystem);
@@ -719,6 +736,12 @@ export function deriveStarshipMovementData({
 		space = Math.max(50, Math.floor((toFiniteNumber(space, fallbackSpace) ?? fallbackSpace) * routing.enginesMultiplier));
 	}
 
+	if ( !ignoreOverrides ) {
+		const overrides = getStarshipMovementOverrides(legacySystem);
+		if ( overrides.space !== null ) space = overrides.space;
+		if ( overrides.turn !== null ) turn = overrides.turn;
+	}
+
 	if ( Number.isFinite(space) && Number.isFinite(turn) && (turn > space) ) turn = space;
 	return {
 		space: toFiniteNumber(space, fallbackSpace) ?? fallbackSpace,
@@ -729,6 +752,19 @@ export function deriveStarshipMovementData({
 		profileSource: movementProfile.source,
 		enginesMultiplier: routing.enginesMultiplier
 	};
+}
+
+/** Derived movement without optional manual overrides (for dialog hints / reset). */
+export function getStarshipBaseDerivedMovement(actor) {
+	const legacySystem = getLegacyStarshipActorSystem(actor);
+	const items = actor?.items?.contents ?? actor?._source?.items ?? [];
+	return deriveStarshipMovementData({
+		legacySystem,
+		items,
+		liveAbilities: actor?.system?.abilities ?? {},
+		liveMovement: actor?.system?.attributes?.movement ?? {},
+		ignoreOverrides: true
+	});
 }
 
 export function applyDerivedStarshipMovement(legacySystem = {}, movement = {}) {
@@ -1301,6 +1337,42 @@ async function executeStarshipAbilityRoll(actor, abilityId, mode, event) {
 		flavor: `${entry.label} (${rollLabel})`
 	});
 	return roll;
+}
+
+/**
+ * Roll a Starship ability check (no check/save chooser).
+ * @param {Actor} actor
+ * @param {string} abilityId
+ * @param {Event} [event]
+ */
+export async function rollStarshipAbilityCheck(actor, abilityId, event) {
+	if ( !abilityId ) return null;
+	if ( typeof actor?.rollAbilityCheck === "function" ) {
+		try {
+			return await actor.rollAbilityCheck({ ability: abilityId, event });
+		} catch (err) {
+			console.warn("SW5E MODULE | Starship ability check via rollAbilityCheck failed; using fallback.", err);
+		}
+	}
+	return executeStarshipAbilityRoll(actor, abilityId, "check", event);
+}
+
+/**
+ * Roll a Starship ability saving throw using prepared vehicle save data when possible.
+ * @param {Actor} actor
+ * @param {string} abilityId
+ * @param {Event} [event]
+ */
+export async function rollStarshipAbilitySave(actor, abilityId, event) {
+	if ( !abilityId ) return null;
+	if ( typeof actor?.rollSavingThrow === "function" ) {
+		try {
+			return await actor.rollSavingThrow({ ability: abilityId, event });
+		} catch (err) {
+			console.warn("SW5E MODULE | Starship save roll via rollSavingThrow failed; using fallback.", err);
+		}
+	}
+	return executeStarshipAbilityRoll(actor, abilityId, "save", event);
 }
 
 export async function rollStarshipAbility(actor, abilityId, event) {

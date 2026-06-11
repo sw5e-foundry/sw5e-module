@@ -8,10 +8,13 @@ import {
 	getStarshipSkillDisplayEntries,
 	getStarshipSkillEntries,
 	rollStarshipAbility,
+	rollStarshipAbilityCheck,
+	rollStarshipAbilitySave,
 	rollStarshipSkill
 } from "../starship-data.mjs";
 import { buildVehicleStarshipCrewContext, buildVehicleAvailableActors, deployStarshipCrew, undeployStarshipCrew, toggleStarshipActiveCrew } from "../starship-character.mjs";
 import { getStarshipSheetContext } from "../starship-sheet-context.mjs";
+import { openStarshipMovementConfig } from "../starship-movement-config.mjs";
 
 /**
  * dnd5e pack asset — used only for on-sheet display when art is missing or fails to load (not persisted to actors).
@@ -45,7 +48,7 @@ const STOCK_STARSHIP_TAB_ORDER = [STOCK_CARGO_TAB_ID, "effects", "description"];
 const CUSTOM_STARSHIP_TAB_IDS = new Set([STARSHIP_TAB_ID]);
 
 const SOTG_SUB_TAB_IDS = new Set([
-	"overview", "v2", "crew", "features", "weapons", "equipment", "modifications", "systems"
+	"overview", "v2", "features", "weapons", "equipment", "modifications", "systems"
 ]);
 
 /** Set `true` to enable verbose submit/mode diagnostics for starship vehicle sheets. */
@@ -55,7 +58,7 @@ const STARSHIP_ABILITY_KEYS = ["str", "dex", "con", "int", "wis", "cha"];
 
 function getSotgSubTab(app) {
 	const v = app?._sw5eSotgSubTab;
-	if ( v === "skills" ) return "overview";
+	if ( v === "skills" || v === "crew" ) return "overview";
 	if ( SOTG_SUB_TAB_IDS.has(v) ) return v;
 	return "overview";
 }
@@ -66,7 +69,7 @@ function setSotgSubTab(app, tabId) {
 }
 
 /**
- * SotG inner tabs (Overview / Crew / Features / Equipment / Modifications / Systems): show one panel, update nav, persist on the sheet app. Starship skills render on Overview.
+ * SotG inner tabs (Core / Features / Equipment / Modifications / Systems): show one panel, update nav, persist on the sheet app. Starship skills and crew render on Core.
  */
 /**
  * Align SotG item-list chrome with dnd5e sheet mode: PLAY = compact rows; EDIT = full row actions.
@@ -125,7 +128,8 @@ function syncSotgSheetPhaseClasses(app, starshipPanel) {
 
 function activateSotgSubTab(wrapper, app, tabId) {
 	if ( !wrapper ) return;
-	let id = SOTG_SUB_TAB_IDS.has(tabId) ? tabId : "overview";
+	let id = tabId === "crew" ? "overview" : tabId;
+	id = SOTG_SUB_TAB_IDS.has(id) ? id : "overview";
 	if ( !wrapper.querySelector(`[data-sw5e-sotg-panel="${id}"]`) ) id = "overview";
 	wrapper.querySelectorAll("[data-sw5e-sotg-tab]").forEach(btn => {
 		const sel = btn.getAttribute("data-sw5e-sotg-tab") === id;
@@ -425,7 +429,10 @@ function neutralizeDuplicateNativeAbilityControls(root, app, actor) {
 		const matches = Array.from(form.querySelectorAll(`[name="${path}"]`));
 		if ( matches.length <= 1 ) continue;
 
-		let canonical = form.querySelector(`[data-sw5e-overview-authoritative-ability="${key}"][name="${path}"]`);
+		let canonical = form.querySelector(`[data-sw5e-overview-edit-ability="${key}"][name="${path}"]`);
+		if ( !canonical || !matches.includes(canonical) ) {
+			canonical = form.querySelector(`[data-sw5e-overview-authoritative-ability="${key}"][name="${path}"]`);
+		}
 		if ( !canonical || !matches.includes(canonical) ) canonical = matches[0];
 
 		for ( const el of matches ) {
@@ -489,6 +496,61 @@ function suppressStockVehicleHpMeterForStarship(root, actor, app = null) {
 	for ( const group of shell.querySelectorAll(".pills-group") ) markIfStockHpContainer(group);
 }
 
+const STARSHIP_SUPPRESSED_STOCK_MOVEMENT_LABELS = new Set(["Speed", "Travel Speed", "Travel Pace"]);
+
+function suppressStockVehicleMovementSidebarForStarship(root, actor, app = null) {
+	if ( !isSw5eStarshipActor(actor) ) return;
+	const shell = getStarshipSidebarShell(root, app);
+	if ( !(shell instanceof HTMLElement) ) return;
+
+	for ( const label of STARSHIP_SUPPRESSED_STOCK_MOVEMENT_LABELS ) {
+		const group = findStarshipSidebarPillsGroup(shell, label);
+		if ( !(group instanceof HTMLElement) ) continue;
+		group.classList.add("sw5e-starship-suppress-stock-movement");
+		group.setAttribute("hidden", "");
+		group.setAttribute("aria-hidden", "true");
+		for ( const control of group.querySelectorAll(
+			"[data-action=\"showConfiguration\"][data-config=\"movement\"], [data-config=\"movement\"], [name^=\"system.attributes.movement.\"], [name^=\"system.attributes.travel.\"]"
+		) ) {
+			if ( !(control instanceof HTMLElement) ) continue;
+			if ( "name" in control ) control.removeAttribute("name");
+			if ( "disabled" in control ) control.disabled = true;
+			control.setAttribute("hidden", "");
+			control.setAttribute("aria-hidden", "true");
+			control.tabIndex = -1;
+		}
+	}
+}
+
+function ensureStarshipMovementConfigBlocked(root, app, actor) {
+	if ( !isSw5eStarshipActor(actor) ) return;
+	const shell = getStarshipSidebarShell(root, app);
+	if ( !(shell instanceof HTMLElement) ) return;
+	if ( shell.dataset.sw5eMovementConfigBound === "1" ) return;
+	shell.dataset.sw5eMovementConfigBound = "1";
+	shell.addEventListener("click", event => {
+		const target = event.target.closest("[data-action=\"showConfiguration\"][data-config=\"movement\"]");
+		if ( !target ) return;
+		event.preventDefault();
+		event.stopPropagation();
+		event.stopImmediatePropagation();
+		void openStarshipMovementConfig(actor, app, { isEditMode: isStarshipSheetEditMode(app) });
+	}, true);
+}
+
+function bindStarshipSidebarMovementConfig(movementBlock, actor, app) {
+	if ( !(movementBlock instanceof HTMLElement) ) return;
+	const button = movementBlock.querySelector("[data-sw5e-starship-movement-config]");
+	if ( !(button instanceof HTMLButtonElement) ) return;
+	if ( button.dataset.sw5eMovementConfigBound === "1" ) return;
+	button.dataset.sw5eMovementConfigBound = "1";
+	button.addEventListener("click", event => {
+		event.preventDefault();
+		event.stopPropagation();
+		void openStarshipMovementConfig(actor, app, { isEditMode: isStarshipSheetEditMode(app) });
+	});
+}
+
 /** Stock sheet may insert duplicates after paint — retry through the next frames + short delays. */
 function scheduleStarshipDuplicateSizeNeutralize(root, app, actor) {
 	if ( !isSw5eStarshipActor(actor) ) return;
@@ -498,6 +560,9 @@ function scheduleStarshipDuplicateSizeNeutralize(root, app, actor) {
 		neutralizeDuplicateNativeAbilityControls(root, app, actor);
 		neutralizeStockVehicleAbilityControls(root, actor, app);
 		suppressStockVehicleHpMeterForStarship(root, actor, app);
+		suppressStockVehicleMovementSidebarForStarship(root, actor, app);
+		ensureStarshipMovementConfigBlocked(root, app, actor);
+		void renderStarshipSidebarMovement(root, actor, app);
 	};
 	run();
 	queueMicrotask(run);
@@ -854,7 +919,7 @@ function ensureStarshipTrustedSystemPathDelegate(root, app) {
 		if ( !(el instanceof HTMLInputElement || el instanceof HTMLSelectElement) ) return;
 
 		const inSidebar = el.closest(".sw5e-starship-sidebar-summary");
-		const inSystems = el.closest(".sw5e-starship-systems-core");
+		const inSystemPathScope = el.closest(".sw5e-starship-system-path-scope, .sw5e-starship-systems-core");
 		const act = app?.actor;
 		if ( !act ) return;
 
@@ -895,7 +960,7 @@ function ensureStarshipTrustedSystemPathDelegate(root, app) {
 			return;
 		}
 
-		if ( inSystems && el.name && STARSHIP_SYSTEMS_CORE_DIRECT_PATHS.has(el.name) ) {
+		if ( inSystemPathScope && el.name && STARSHIP_SYSTEMS_CORE_DIRECT_PATHS.has(el.name) ) {
 			const path = el.name;
 			let value;
 			if ( path === "system.attributes.power.routing" ) {
@@ -918,7 +983,7 @@ function ensureStarshipTrustedSystemPathDelegate(root, app) {
 			return;
 		}
 
-		if ( !inSystems || !el.name?.startsWith("system.") ) return;
+		if ( !inSystemPathScope || !el.name?.startsWith("system.") ) return;
 
 		const form = getSheetForm(root, app);
 		if ( form?.contains(el) ) return;
@@ -1563,6 +1628,26 @@ async function openStarshipSkillInlineConfigDialog(actor, skillId) {
 /**
  * Starship skill cog: use core dialogs only when they match this actor's schema and skill key; otherwise inline config.
  */
+/**
+ * Starship ability cog: stock dnd5e AbilityConfig when the actor schema supports it.
+ */
+async function openStarshipAbilityConfiguration(actor, abilityKey) {
+	if ( !abilityKey ) return;
+	const AbilityConfig = globalThis.dnd5e?.applications?.actor?.AbilityConfig;
+	if ( AbilityConfig ) {
+		try {
+			const inst = new AbilityConfig({ document: actor, key: abilityKey });
+			if ( await renderDnd5eConfigApp(inst) ) return;
+		} catch {
+			/* prepare/render failure */
+		}
+	}
+	ui.notifications?.warn(localizeOrFallback(
+		"SW5E.StarshipSheet.AbilityConfigOpenFailed",
+		"Could not open ability configuration for this starship."
+	));
+}
+
 async function openStarshipSkillConfiguration(actor, skillId) {
 	const apps = globalThis.dnd5e?.applications?.actor ?? globalThis.game?.dnd5e?.applications?.actor;
 
@@ -1970,6 +2055,22 @@ function localizeTravelPace(pace) {
 	return localizeOrFallback("DND5E.TravelPaceNormal", "Normal");
 }
 
+function formatStarshipSidebarTravelSpeed(actor) {
+	const travel = actor?.system?.attributes?.travel ?? {};
+	const speed = Number(travel.speeds?.air);
+	if ( !Number.isFinite(speed) ) return "—";
+	const units = travel.units === "kph" ? "km/h" : "mph";
+	return `${Math.round(speed)} ${units}`;
+}
+
+function formatStarshipSidebarTravelPace(actor) {
+	const travel = actor?.system?.attributes?.travel ?? {};
+	const pace = Number(travel.paces?.air);
+	if ( !Number.isFinite(pace) ) return "—";
+	const units = travel.units === "kph" ? "km/d" : "mi/d";
+	return `${pace.toLocaleString()} ${units}`;
+}
+
 function formatTravel(actor) {
 	const runtime = getDerivedStarshipRuntime(actor);
 	return {
@@ -2126,7 +2227,7 @@ function buildSystemsCoreContext(actor) {
 		fuelCost: Number.isFinite(Number(fuel.cost)) ? Number(fuel.cost) : 0,
 		configSectionLede: localizeOrFallback(
 			"SW5E.StarshipSheet.SystemsConfigSectionLede",
-			"Tier, size, hull, shields, and dice pools are edited from the sidebar. Fuel fields below require sheet Edit mode."
+			"Tier, size, hull, shields, and dice pools are edited from the sidebar. Power routing and fuel are on the Core tab."
 		),
 		sectionOperationsKicker: localizeOrFallback("SW5E.StarshipSheet.SystemsSectionOperationsKicker", "Operations"),
 		powerRoutingHint: localizeOrFallback(
@@ -2137,7 +2238,7 @@ function buildSystemsCoreContext(actor) {
 		systemsLivePlayBadge: localizeOrFallback("SW5E.StarshipSheet.SystemsLivePlayBadge", "Usable in Play mode"),
 		systemsSupportingSetupHint: localizeOrFallback(
 			"SW5E.StarshipSheet.SystemsSupportingSetupHint",
-			"Fuel and related fields are maintenance/setup — switch the sheet to Edit mode to change them."
+			"Fuel fields are maintenance/setup — switch the sheet to Edit mode to change them."
 		),
 		labels: {
 			turningSpeed: localizeOrFallback("SW5E.TurnSpeed", "Turning speed"),
@@ -2251,7 +2352,7 @@ function makeSidebarSummary(actor) {
 		{
 			label: localizeOrFallback("SW5E.Fuel", "Fuel"),
 			value: Number.isFinite(Number(fuel)) ? `${fuel}` : "-",
-			note: `${localizeOrFallback("DND5E.TravelPace", "Travel Pace")}: ${localizeTravelPace(runtime.travel?.pace)}`,
+			note: null,
 			sidebarTier: false,
 			sidebarSize: false,
 			sidebarHull: false,
@@ -2366,7 +2467,7 @@ function categorizeStarshipItems(actor) {
 	const groups = {
 		size: { label: localizeOrFallback("TYPES.Item.starshipsizePl", "Starship Size"), items: [], defaultTab: STOCK_CARGO_TAB_ID, manageLabel: "Cargo", scrollTo: "inventory", sotgPanel: "systems", showEconomy: false },
 		actions: { label: localizeOrFallback("SW5E.Feature.StarshipAction.Label", "Starship Actions"), items: [], defaultTab: null, manageLabel: "SotG", scrollTo: "features", sotgPanel: "features", showEconomy: true },
-		roles: { label: localizeOrFallback("SW5E.Feature.Deployment.Label", "Crew Roles"), items: [], defaultTab: STOCK_CARGO_TAB_ID, manageLabel: "Cargo", scrollTo: "inventory", sotgPanel: "crew", showEconomy: false },
+		roles: { label: localizeOrFallback("SW5E.Feature.Deployment.Label", "Crew Roles"), items: [], defaultTab: STOCK_CARGO_TAB_ID, manageLabel: "Cargo", scrollTo: "inventory", sotgPanel: "overview", showEconomy: false },
 		features: { label: localizeOrFallback("SW5E.Feature.Starship.Label", "Starship Features"), items: [], defaultTab: STOCK_CARGO_TAB_ID, manageLabel: "Cargo", scrollTo: "inventory", sotgPanel: "systems", showEconomy: false },
 		equipment: { label: localizeOrFallback("SW5E.Equipment", "Equipment"), items: [], defaultTab: null, manageLabel: "SotG", scrollTo: "equipment", sotgPanel: "equipment", showEconomy: true },
 		modifications: { label: localizeOrFallback("TYPES.Item.starshipmodPl", "Modifications"), items: [], defaultTab: null, manageLabel: "SotG", scrollTo: "modifications", sotgPanel: "modifications", showEconomy: true },
@@ -2421,7 +2522,7 @@ function partitionStarshipGroups(actor) {
 		modificationsGroups: build(["modifications"]),
 		/** Size classification item(s) + passive Starship Features feats — tab "Systems" */
 		systemsGroups: build(["size", "features"]),
-		/** Deployments / crew roles — Crew tab */
+		/** Deployments / crew roles — Core crew panel */
 		crewRoleGroups: build(["roles"])
 	};
 }
@@ -2467,22 +2568,44 @@ function buildOverviewAbilitiesContext(actor, editable = false) {
 		const value = Number.isFinite(liveValue) ? liveValue : sourceValue;
 		const currentMod = Number(live?.mod);
 		const mod = Number.isFinite(currentMod) ? currentMod : Math.floor((value - 10) / 2);
-		const saveValue = Number(live?.save);
+		const savePrepared = live?.save;
+		let saveValue = Number(savePrepared?.value ?? savePrepared);
+		if ( !Number.isFinite(saveValue) ) saveValue = mod;
 		const proficient = Number.isFinite(Number(live?.proficient)) ? Number(live.proficient) : 0;
 		const abbrKey = typeof cfg.abbreviation === "string" ? cfg.abbreviation : "";
-		const abbr = abbrKey ? game.i18n.localize(abbrKey) : key.toUpperCase();
+		const abbrLocalized = abbrKey ? game.i18n.localize(abbrKey) : "";
+		const abbrResolved = abbrKey.includes(".")
+			? (abbrLocalized && abbrLocalized !== abbrKey ? abbrLocalized : key.toUpperCase())
+			: (abbrKey || key.toUpperCase());
 		const labelKey = typeof cfg.label === "string" ? cfg.label : "";
-		const label = labelKey ? game.i18n.localize(labelKey) : key.toUpperCase();
+		const labelLocalized = labelKey ? game.i18n.localize(labelKey) : "";
+		const labelResolved = labelKey.includes(".")
+			? (labelLocalized && labelLocalized !== labelKey ? labelLocalized : key.toUpperCase())
+			: (labelKey || key.toUpperCase());
+		const configureLabel = game.i18n.format("DND5E.AbilityConfigure", { ability: labelResolved });
+		const saveRollTitle = game.i18n.format("DND5E.SavePromptTitle", { ability: labelResolved });
+		const saveRollTooltip = saveRollTitle && saveRollTitle !== "DND5E.SavePromptTitle"
+			? `Roll ${saveRollTitle}`
+			: `Roll ${labelResolved} Saving Throw`;
 		return {
 			key,
-			abbr: abbr && abbr !== abbrKey ? abbr : key.toUpperCase(),
-			label: label && label !== labelKey ? label : key.toUpperCase(),
+			abbr: abbrResolved,
+			abbrLower: abbrResolved.toLowerCase(),
+			label: labelResolved,
 			value,
 			mod,
-			save: Number.isFinite(saveValue) ? saveValue : mod,
+			modSign: mod > 0 ? "+" : mod < 0 ? "-" : "",
+			modAbs: Math.abs(mod),
+			save: saveValue,
 			sourceValue,
 			proficient,
 			icon: getStarshipProficiencyIcon(proficient),
+			abilityIcon: typeof cfg.icon === "string" ? cfg.icon : `systems/dnd5e/icons/svg/abilities/${key}.svg`,
+			configureLabel: configureLabel && configureLabel !== "DND5E.AbilityConfigure"
+				? configureLabel
+				: `Configure ${labelResolved}`,
+			saveRollTooltip,
+			proficientName: `system.abilities.${key}.proficient`,
 			hover: (CONFIG?.SW5E?.proficiencyLevels ?? CONFIG?.DND5E?.proficiencyLevels ?? {})?.[proficient]?.label ?? "",
 			inputName: `system.abilities.${key}.value`,
 			editable
@@ -2490,6 +2613,74 @@ function buildOverviewAbilitiesContext(actor, editable = false) {
 	};
 
 	return keys.map(buildEntry);
+}
+
+function getStarshipSidebarShell(root, app = null) {
+	return (app?.element instanceof HTMLElement ? app.element : null) ?? root;
+}
+
+function findStarshipSidebarPillsGroup(shell, labelText) {
+	if ( !(shell instanceof HTMLElement) ) return null;
+	const groups = shell.querySelectorAll(
+		".sheet-sidebar .pills-group, [data-application-part='sidebar'] .pills-group, .sidebar .pills-group"
+	);
+	for ( const group of groups ) {
+		const label = group.querySelector("h3 .roboto-upper");
+		if ( label?.textContent?.trim() === labelText ) return group;
+	}
+	return null;
+}
+
+function buildStarshipSidebarMovementContext(actor, app = null) {
+	const runtime = getDerivedStarshipRuntime(actor);
+	const movement = runtime.movement ?? {};
+	const units = movement.units ?? actor.system?.attributes?.movement?.units ?? "ft";
+	const space = Number(movement.space);
+	const turn = Number(movement.turn);
+	return {
+		movementAriaLabel: localizeOrFallback("SW5E.Movement", "Movement"),
+		spaceSpeedLabel: localizeOrFallback("SW5E.SpeedSpace", "Space speed"),
+		spaceSpeedDisplay: Number.isFinite(space) ? `${Math.round(space)} ${units}` : "—",
+		turningSpeedLabel: localizeOrFallback("SW5E.TurnSpeed", "Turning speed"),
+		turningSpeedDisplay: Number.isFinite(turn) ? `${Math.round(turn)} ${units}` : "—",
+		travelSpeedLabel: localizeOrFallback("DND5E.TravelSpeed", "Travel Speed"),
+		travelSpeedDisplay: formatStarshipSidebarTravelSpeed(actor),
+		travelPaceLabel: localizeOrFallback("DND5E.TravelPace", "Travel Pace"),
+		travelPaceDisplay: formatStarshipSidebarTravelPace(actor),
+		showMovementConfig: isStarshipSheetEditMode(app) && app?.isEditable !== false && actor?.isOwner,
+		movementConfigLabel: localizeOrFallback("SW5E.StarshipSheet.MovementConfigLabel", "Configure Starship Movement")
+	};
+}
+
+async function renderStarshipSidebarMovement(root, actor, app = null) {
+	const shell = getStarshipSidebarShell(root, app);
+	if ( !(shell instanceof HTMLElement) ) return;
+
+	suppressStockVehicleMovementSidebarForStarship(root, actor, app);
+	ensureStarshipMovementConfigBlocked(root, app, actor);
+
+	shell.querySelectorAll(".sw5e-starship-sidebar-movement").forEach(node => node.remove());
+
+	const speedGroup = findStarshipSidebarPillsGroup(shell, "Speed");
+	const sizeGroup = findStarshipSidebarPillsGroup(shell, "Size");
+	const insertParent = speedGroup?.parentElement ?? sizeGroup?.parentElement;
+	if ( !insertParent ) return;
+
+	const ctx = buildStarshipSidebarMovementContext(actor, app);
+	const rendered = await foundry.applications.handlebars.renderTemplate(
+		getModulePath("templates/starship-sidebar-movement.hbs"),
+		ctx
+	);
+	const mount = document.createElement("div");
+	mount.innerHTML = rendered.trim();
+	const movementBlock = mount.firstElementChild;
+	if ( !(movementBlock instanceof HTMLElement) ) return;
+
+	if ( sizeGroup?.parentElement === insertParent ) insertParent.insertBefore(movementBlock, sizeGroup);
+	else if ( speedGroup?.parentElement === insertParent ) insertParent.insertBefore(movementBlock, speedGroup);
+	else insertParent.prepend(movementBlock);
+
+	bindStarshipSidebarMovementConfig(movementBlock, actor, app);
 }
 
 function getStarshipSidebarMountPoint(root) {
@@ -2923,6 +3114,7 @@ async function renderStarshipLayer(app, html, data) {
 
 	await ensureWarningsDialog(root, app, actor);
 	await renderStarshipSidebarSummary(root, actor, app);
+	await renderStarshipSidebarMovement(root, actor, app);
 	// Same task as sidebar mount: set scroll before the browser paints the new summary at 0 (async gap below would flash).
 	applyStarshipSheetScrollPositions(app, {
 		sidebarScrollTop: Number(scrollSnap.sidebarScrollTop) || 0,
@@ -3073,7 +3265,7 @@ if (app._sw5eStarshipActiveTab === undefined) {
 		),
 		systemsPlaceholderLede: localizeOrFallback(
 			"SW5E.StarshipSheet.SystemsPlaceholderLede",
-			"Use Operations for power routing during play. Supporting fields cover fuel and derived speeds. Classification groups list size and passive starship features—use sheet Edit mode to manage items; hull, shields, tier, and size stay in the sidebar."
+			"Derived speeds and classification features live here. Power routing and fuel are on the Core tab. Hull, shields, tier, and size stay in the sidebar."
 		),
 		crewRoleGroups: withIntegrated(crewRoleGroups),
 		crewRolesKicker: localizeOrFallback("SW5E.Feature.Deployment.Label", "Deployments"),
@@ -3102,6 +3294,7 @@ if (app._sw5eStarshipActiveTab === undefined) {
 			"Core ship abilities shown in a compact score-card layout. In edit mode, adjust the base score directly here."
 		),
 		overviewAbilities: buildOverviewAbilitiesContext(actor, actorEditable),
+		overviewAbilitySaveLabel: localizeOrFallback("SW5E.StarshipSheet.AbilitySaveLabel", "Save"),
 		overviewPassiveHint: localizeOrFallback("DND5E.PassiveScore", "Passive score"),
 		overviewSkillConfigureTitle: localizeOrFallback("SW5E.SkillConfigure", "Configure skill"),
 		sotgSheetEditMode: sheetEditMode,
@@ -3167,12 +3360,46 @@ if (app._sw5eStarshipActiveTab === undefined) {
 
 	const handleTabClick = async event => {
 		const target = getEventTargetElement(event);
+		const sheetActor = app.actor ?? actor;
+		const abilityStrip = target?.closest(".sw5e-starship-ability-strip");
+
+		if ( abilityStrip ) {
+			const abilityCog = target?.closest("[data-action=\"showConfiguration\"][data-config=\"ability\"]");
+			if ( abilityCog ) {
+				event.preventDefault();
+				event.stopPropagation();
+				const abilityKey = abilityCog.closest(".ability-score")?.dataset?.ability;
+				await openStarshipAbilityConfiguration(sheetActor, abilityKey);
+				return;
+			}
+
+			if ( target?.closest("proficiency-cycle") ) return;
+
+			const abilitySave = target?.closest(".save-tab.saving-throw.rollable[data-action=\"roll\"][data-type=\"ability\"]");
+			if ( abilitySave ) {
+				event.preventDefault();
+				event.stopPropagation();
+				const abilityKey = abilitySave.closest(".ability-score")?.dataset?.ability;
+				await rollStarshipAbilitySave(sheetActor, abilityKey, event);
+				return;
+			}
+
+			const abilityRoll = target?.closest(".label.ability-check[data-action=\"roll\"][data-type=\"ability\"]");
+			if ( abilityRoll ) {
+				event.preventDefault();
+				event.stopPropagation();
+				const abilityKey = abilityRoll.closest(".ability-score")?.dataset?.ability
+					?? abilityRoll.dataset.ability;
+				await rollStarshipAbilityCheck(sheetActor, abilityKey, event);
+				return;
+			}
+		}
+
 		const actionNode = target?.closest("[data-sw5e-action]");
 		if ( !actionNode ) return;
 
 		event.preventDefault();
 		event.stopPropagation();
-		const sheetActor = app.actor ?? actor;
 		const action = actionNode.dataset.sw5eAction
 			?? actionNode.getAttribute("data-sw5e-action");
 		const itemId = actionNode.dataset.itemId ?? actionNode.getAttribute("data-item-id");
@@ -3208,7 +3435,12 @@ if (app._sw5eStarshipActiveTab === undefined) {
 		}
 
 		if ( action === "roll-ability" ) {
-			await rollStarshipAbility(sheetActor, actionNode.dataset.ability, event);
+			await rollStarshipAbilityCheck(sheetActor, actionNode.dataset.ability, event);
+			return;
+		}
+
+		if ( action === "roll-save" ) {
+			await rollStarshipAbilitySave(sheetActor, actionNode.dataset.ability, event);
 			return;
 		}
 
@@ -3261,10 +3493,22 @@ if (app._sw5eStarshipActiveTab === undefined) {
 	}
 }
 
+function closeStarshipMovementConfigDialog(app) {
+	const actor = app?.actor ?? app?.document;
+	if ( !isSw5eStarshipActor(actor) ) return;
+	window.setTimeout(() => {
+		if ( typeof app?.close === "function" ) app.close({ force: true });
+	}, 0);
+}
+
 export function patchStarshipSheet() {
 	registerStarshipVehicleSheetShowAbilitiesDefault();
 	suppressNativeStarshipStationsAbilityAndFeatures();
 	Hooks.on("renderActorSheetV2", renderStarshipLayer);
+	Hooks.on("renderApplicationV2", (app, _html) => {
+		if ( app?.constructor?.name !== "MovementSensesConfig" ) return;
+		closeStarshipMovementConfigDialog(app);
+	});
 	Hooks.on("preUpdateActor", (doc, changed, opts, uid) => {
 		logStarshipPreUpdateTraitsIncoming(doc, changed);
 		logStarshipPreUpdateAbilities(doc, changed, "incoming");
