@@ -1,5 +1,14 @@
 ## Changelog
 
+### [1.3.7] TEMP
+### 2026-06-12
+### Added
+- SVG icon files for types of powercasting and maneuvers. Credit to Vizaer for producing the initial versions of these images.
+- Assigned icons to powercasting schools and maneuver types. Maneuvers do not currently show these images.
+### Changed
+- Adjusted CSS to ensure spinning pause icon remains behind pause text.
+### Fixed
+- Fixed maneuver type dropdown on maneuver sheet.
 
 ### [1.3.6] 2026-06-01
 ### Changed
