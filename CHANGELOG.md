@@ -5,8 +5,10 @@
 ### Added
 - SVG icon files for types of powercasting and maneuvers. Credit to Vizaer for producing the initial versions of these images.
 - Assigned icons to powercasting schools and maneuver types. Maneuvers do not currently show these images.
+- Added 11 languages missing languages from website species
 ### Changed
 - Adjusted CSS to ensure spinning pause icon remains behind pause text.
+- Grouped common and rare languages based on sites common language designation
 ### Fixed
 - Fixed maneuver type dropdown on maneuver sheet.
 
