@@ -1825,16 +1825,19 @@ export function patchConfig(config, strict = true) {
 			schools: {
 				lgt: {
 					label: "SW5E.Powercasting.Force.School.Lgt.Label",
+					icon: "modules/sw5e-module/icons/svg/schools/lightside.svg",
 					attr: ["wis"],
 					fullKey: "light"
 				},
 				uni: {
 					label: "SW5E.Powercasting.Force.School.Uni.Label",
+					icon: "modules/sw5e-module/icons/svg/schools/universal.svg",
 					attr: ["wis", "cha"],
 					fullKey: "universal"
 				},
 				drk: {
 					label: "SW5E.Powercasting.Force.School.Drk.Label",
+					icon: "modules/sw5e-module/icons/svg/schools/darkside.svg",
 					attr: ["cha"],
 					fullKey: "dark"
 				}
@@ -1886,6 +1889,7 @@ export function patchConfig(config, strict = true) {
 			schools: {
 				tec: {
 					label: "SW5E.Powercasting.Tech.School.Tec.Label",
+					icon: "modules/sw5e-module/icons/svg/schools/tech.svg",
 					attr: ["int"],
 					fullKey: "tech"
 				}
@@ -1933,14 +1937,17 @@ export function patchConfig(config, strict = true) {
 		types: {
 			physical: {
 				label: "SW5E.Superiority.Type.Physical.Label",
+				icon: "modules/sw5e-module/icons/svg/schools/physical.svg",
 				attr: ["str", "dex", "con"]
 			},
 			mental: {
 				label: "SW5E.Superiority.Type.Mental.Label",
+				icon: "modules/sw5e-module/icons/svg/schools/mental.svg",
 				attr: ["int", "wis", "cha"]
 			},
 			general: {
 				label: "SW5E.Superiority.Type.General.Label",
+				icon: "modules/sw5e-module/icons/svg/schools/general.svg",
 				attr: ["str", "dex", "con", "int", "wis", "cha"]
 			}
 		}
