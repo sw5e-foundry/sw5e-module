@@ -5466,6 +5466,7 @@ body[data-sw5e-theme="sw5e-dark"] #pause::after {
   background: url("/modules/sw5e-module/assets/ui/pause-outer.svg") no-repeat 50% 50%;
   animation: sw5e-pause-spin 5s linear infinite reverse;
   pointer-events: none;
+  z-index: -1; /* Added this line to render behind the text */
 }
 
 /* Character Deployment — Features tab: mirror dnd5e 5.2.x `section.classes` pill row + `.level-selector` */

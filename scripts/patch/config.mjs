@@ -1825,16 +1825,19 @@ export function patchConfig(config, strict = true) {
 			schools: {
 				lgt: {
 					label: "SW5E.Powercasting.Force.School.Lgt.Label",
+					icon: "modules/sw5e-module/icons/svg/schools/lightside.svg",
 					attr: ["wis"],
 					fullKey: "light"
 				},
 				uni: {
 					label: "SW5E.Powercasting.Force.School.Uni.Label",
+					icon: "modules/sw5e-module/icons/svg/schools/universal.svg",
 					attr: ["wis", "cha"],
 					fullKey: "universal"
 				},
 				drk: {
 					label: "SW5E.Powercasting.Force.School.Drk.Label",
+					icon: "modules/sw5e-module/icons/svg/schools/darkside.svg",
 					attr: ["cha"],
 					fullKey: "dark"
 				}
@@ -1886,6 +1889,7 @@ export function patchConfig(config, strict = true) {
 			schools: {
 				tec: {
 					label: "SW5E.Powercasting.Tech.School.Tec.Label",
+					icon: "modules/sw5e-module/icons/svg/schools/tech.svg",
 					attr: ["int"],
 					fullKey: "tech"
 				}
@@ -1933,14 +1937,17 @@ export function patchConfig(config, strict = true) {
 		types: {
 			physical: {
 				label: "SW5E.Superiority.Type.Physical.Label",
+				icon: "modules/sw5e-module/icons/svg/schools/physical.svg",
 				attr: ["str", "dex", "con"]
 			},
 			mental: {
 				label: "SW5E.Superiority.Type.Mental.Label",
+				icon: "modules/sw5e-module/icons/svg/schools/mental.svg",
 				attr: ["int", "wis", "cha"]
 			},
 			general: {
 				label: "SW5E.Superiority.Type.General.Label",
+				icon: "modules/sw5e-module/icons/svg/schools/general.svg",
 				attr: ["str", "dex", "con", "int", "wis", "cha"]
 			}
 		}
@@ -2061,6 +2068,35 @@ export function patchConfig(config, strict = true) {
 	};
 	config.languages.standard.children = {
 		...config.languages.standard.children,
+		binary: "SW5E.LanguagesBinary",
+		bith: "SW5E.LanguagesBith",
+		bothese: "SW5E.LanguagesBothese",
+		catharese: "SW5E.LanguagesCatharese",
+		cerean: "SW5E.LanguagesCerean",
+		cheunh: "SW5E.LanguagesCheunh",
+		devaronese: "SW5E.LanguagesDevaronese",
+		dosh: "SW5E.LanguagesDosh",
+		durese: "SW5E.LanguagesDurese",
+		ewokese: "SW5E.LanguagesEwokese",
+		gamorrese: "SW5E.LanguagesGamorrese",
+		gungan: "SW5E.LanguagesGungan",
+		huttese: "SW5E.LanguagesHuttese",
+		ithorese: "SW5E.LanguagesIthorese",
+		jawaese: "SW5E.LanguagesJawaese",
+		keldor: "SW5E.LanguagesKelDor",
+		moncal: "SW5E.LanguagesMonCal",
+		nautila: "SW5E.LanguagesNautila",
+		rodese: "SW5E.LanguagesRodese",
+		shyriiwook: "SW5E.LanguagesShyriiwook",
+		sith: "SW5E.LanguagesSith",
+		sriluurian: "SW5E.LanguagesSriluurian",
+		togruti: "SW5E.LanguagesTogruti",
+		tusken: "SW5E.LanguagesTusken",
+		"twi'leki": "SW5E.LanguagesTwileki",
+		zabraki: "SW5E.LanguagesZabraki"
+	};
+	config.languages.exotic.children = {
+		...config.languages.exotic.children,
 		abyssin: "SW5E.LanguagesAbyssin",
 		aleena: "SW5E.LanguagesAleena",
 		antarian: "SW5E.LanguagesAntarian",
@@ -2072,15 +2108,9 @@ export function patchConfig(config, strict = true) {
 		balosur: "SW5E.LanguagesBalosur",
 		barabel: "SW5E.LanguagesBarabel",
 		besalisk: "SW5E.LanguagesBesalisk",
-		binary: "SW5E.LanguagesBinary",
-		bith: "SW5E.LanguagesBith",
 		bocce: "SW5E.LanguagesBocce",
-		bothese: "SW5E.LanguagesBothese",
-		catharese: "SW5E.LanguagesCatharese",
-		cerean: "SW5E.LanguagesCerean",
 		"chadra-fan": "SW5E.LanguagesChadra-Fan",
 		chagri: "SW5E.LanguagesChagri",
-		cheunh: "SW5E.LanguagesCheunh",
 		chevin: "SW5E.LanguagesChevin",
 		chironan: "SW5E.LanguagesChironan",
 		clawdite: "SW5E.LanguagesClawdite",
@@ -2088,32 +2118,27 @@ export function patchConfig(config, strict = true) {
 		colicoid: "SW5E.LanguagesColicoid",
 		dashadi: "SW5E.LanguagesDashadi",
 		defel: "SW5E.LanguagesDefel",
-		devaronese: "SW5E.LanguagesDevaronese",
-		dosh: "SW5E.LanguagesDosh",
+		dowuta: "SW5E.LanguagesDowuta",
 		draethos: "SW5E.LanguagesDraethos",
-		durese: "SW5E.LanguagesDurese",
 		dug: "SW5E.LanguagesDug",
-		ewokese: "SW5E.LanguagesEwokese",
 		falleen: "SW5E.LanguagesFalleen",
 		felucianese: "SW5E.LanguagesFelucianese",
-		gamorrese: "SW5E.LanguagesGamorrese",
 		gand: "SW5E.LanguagesGand",
+		gank: "SW5E.LanguagesGank",
 		geonosian: "SW5E.LanguagesGeonosian",
 		givin: "SW5E.LanguagesGivin",
+		gormak: "SW5E.LanguagesGormak",
 		gran: "SW5E.LanguagesGran",
-		gungan: "SW5E.LanguagesGungan",
 		hapan: "SW5E.LanguagesHapan",
 		harchese: "SW5E.LanguagesHarchese",
 		herglese: "SW5E.LanguagesHerglese",
 		honoghran: "SW5E.LanguagesHonoghran",
-		huttese: "SW5E.LanguagesHuttese",
+		houkese: "SW5E.LanguagesHoukese",
 		iktotchese: "SW5E.LanguagesIktotchese",
-		ithorese: "SW5E.LanguagesIthorese",
-		jawaese: "SW5E.LanguagesJawaese",
 		kaleesh: "SW5E.LanguagesKaleesh",
+		kall: "SW5E.LanguagesKall",
 		kaminoan: "SW5E.LanguagesKaminoan",
 		karkaran: "SW5E.LanguagesKarkaran",
-		keldor: "SW5E.LanguagesKelDor",
 		kharan: "SW5E.LanguagesKharan",
 		killik: "SW5E.LanguagesKillik",
 		klatooinian: "SW5E.LanguagesKlatooinian",
@@ -2124,13 +2149,14 @@ export function patchConfig(config, strict = true) {
 		lasat: "SW5E.LanguagesLasat",
 		lowickese: "SW5E.LanguagesLowickese",
 		lurmese: "SW5E.LanguagesLurmese",
+		mandaba: "SW5E.LanguagesMandaba",
 		mandoa: "SW5E.LanguagesMandoa",
+		mikkian: "SW5E.LanguagesMikkian",
 		miralukese: "SW5E.LanguagesMiralukese",
 		mirialan: "SW5E.LanguagesMirialan",
-		moncal: "SW5E.LanguagesMonCal",
 		mustafarian: "SW5E.LanguagesMustafarian",
 		muun: "SW5E.LanguagesMuun",
-		nautila: "SW5E.LanguagesNautila",
+		nikto: "SW5E.LanguagesNikto",
 		ortolan: "SW5E.LanguagesOrtolan",
 		pakpak: "SW5E.LanguagesPakPak",
 		pyke: "SW5E.LanguagesPyke",
@@ -2138,25 +2164,20 @@ export function patchConfig(config, strict = true) {
 		rakata: "SW5E.LanguagesRakata",
 		rattataki: "SW5E.LanguagesRattataki",
 		rishii: "SW5E.LanguagesRishii",
-		rodese: "SW5E.LanguagesRodese",
 		ryn: "SW5E.LanguagesRyn",
 		selkatha: "SW5E.LanguagesSelkatha",
 		semblan: "SW5E.LanguagesSemblan",
 		shistavanen: "SW5E.LanguagesShistavanen",
-		shyriiwook: "SW5E.LanguagesShyriiwook",
-		sith: "SW5E.LanguagesSith",
 		squibbian: "SW5E.LanguagesSquibbian",
-		sriluurian: "SW5E.LanguagesSriluurian",
 		"ssi-ruuvi": "SW5E.LanguagesSsi-ruuvi",
 		sullustese: "SW5E.LanguagesSullustese",
 		talzzi: "SW5E.LanguagesTalzzi",
 		tarasinese: "SW5E.LanguagesTarasinese",
 		thisspiasian: "SW5E.LanguagesThisspiasian",
+		"tiss'shar": "SW5E.LanguagesTissshar",
+		tognath: "SW5E.LanguagesTognath",
 		togorese: "SW5E.LanguagesTogorese",
-		togruti: "SW5E.LanguagesTogruti",
 		toydarian: "SW5E.LanguagesToydarian",
-		tusken: "SW5E.LanguagesTusken",
-		"twi'leki": "SW5E.LanguagesTwileki",
 		ugnaught: "SW5E.LanguagesUgnaught",
 		umbaran: "SW5E.LanguagesUmbaran",
 		utapese: "SW5E.LanguagesUtapese",
@@ -2164,7 +2185,7 @@ export function patchConfig(config, strict = true) {
 		vong: "SW5E.LanguagesVong",
 		voss: "SW5E.LanguagesVoss",
 		yevethan: "SW5E.LanguagesYevethan",
-		zabraki: "SW5E.LanguagesZabraki",
+		zilkin: "SW5E.LanguagesZilkin",
 		zygerrian: "SW5E.LanguagesZygerrian"
 	};
 	// Traits
