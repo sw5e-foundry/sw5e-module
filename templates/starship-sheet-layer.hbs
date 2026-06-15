@@ -299,9 +299,6 @@
   <div class="sw5e-starship-main-body">
     <nav class="sw5e-starship-sotg-nav" role="tablist" aria-label="Starship Systems">
       <button type="button" class="sw5e-starship-sotg-tab active" role="tab" data-sw5e-sotg-tab="overview" aria-selected="true" id="sw5e-sotg-tab-overview">Core</button>
-      {{#if starshipSheetV2Enabled}}
-      <button type="button" class="sw5e-starship-sotg-tab" role="tab" data-sw5e-sotg-tab="v2" aria-selected="false" id="sw5e-sotg-tab-v2">{{starshipSheetV2TabTitle}}</button>
-      {{/if}}
       <button type="button" class="sw5e-starship-sotg-tab" role="tab" data-sw5e-sotg-tab="features" aria-selected="false" id="sw5e-sotg-tab-features">Actions</button>
       <button type="button" class="sw5e-starship-sotg-tab" role="tab" data-sw5e-sotg-tab="weapons" aria-selected="false" id="sw5e-sotg-tab-weapons">Weapons</button>
       <button type="button" class="sw5e-starship-sotg-tab" role="tab" data-sw5e-sotg-tab="equipment" aria-selected="false" id="sw5e-sotg-tab-equipment">Equipment</button>
@@ -445,12 +442,6 @@
         </section>
         {{/if}}
       </section>
-
-      {{#if starshipSheetV2Enabled}}
-      <section class="sw5e-starship-sotg-panel" data-sw5e-sotg-panel="v2" role="tabpanel" aria-labelledby="sw5e-sotg-tab-v2" id="sw5e-sotg-panel-v2" hidden>
-        {{{starshipSheetV2Shell}}}
-      </section>
-      {{/if}}
 
       {{#each sotgItemTabs}}
       <section class="sw5e-starship-sotg-panel" data-sw5e-sotg-panel="{{panel}}" role="tabpanel" aria-labelledby="{{ariaLabelledBy}}" id="sw5e-sotg-panel-{{panel}}" hidden>

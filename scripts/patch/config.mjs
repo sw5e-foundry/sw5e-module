@@ -123,6 +123,12 @@ export function patchConfig(config, strict = true) {
 		}
 	};
 	preLocalize("starshipSkills", { key: "label", sort: true });
+	config.movementTypes ??= {};
+	config.movementTypes.space = {
+		label: "SW5E.MovementSpace",
+		travel: "air"
+	};
+	preLocalize("movementTypes", { key: "label", sort: true });
 	// Weapon proficiencies
 	if (strict) config.weaponProficiencies = {};
 	config.weaponProficiencies = {

@@ -114,15 +114,6 @@ export function registerModuleSettings() {
 		requiresReload: true
   	});
 
-	game.settings.register(SETTINGS_NAMESPACE, "experimentalStarshipSheetV2", {
-		name: "SW5E.Settings.StarshipSheetV2.Name",
-		hint: "SW5E.Settings.StarshipSheetV2.Hint",
-		scope: "world",
-		config: true,
-		type: Boolean,
-		default: false
-	});
-
 	game.settings.register(SETTINGS_NAMESPACE, DEPLOYMENT_CARD_DEBUG_SETTING, {
 		name: "SW5E.Settings.DeploymentCardDebug.Name",
 		hint: "SW5E.Settings.DeploymentCardDebug.Hint",

@@ -12,6 +12,7 @@ import { patchProficiencyInit, patchProficiencyReady } from "./patch/proficiency
 import { patchProperties } from "./patch/properties.mjs";
 import { patchStarshipCreate } from "./patch/starship-create.mjs";
 import { patchStarshipPrepare } from "./patch/starship-prepare.mjs";
+import { registerStarshipMovementReadyHooks } from "./patch/starship-movement.mjs";
 import { patchStarshipSheet } from "./patch/starship-sheet.mjs";
 import { patchAugmentationsSheet } from "./patch/augmentations-sheet.mjs";
 import { patchDroidCustomizationsSheet } from "./patch/droid-customizations-sheet.mjs";
@@ -75,6 +76,7 @@ Hooks.once('init', async function() {
 	patchChassisItemSheet();
 	patchStarshipCreate();
 	patchStarshipPrepare();
+	registerStarshipMovementReadyHooks();
 	patchStarshipSheet();
 	patchAugmentationsSheet();
 	patchDroidCustomizationsSheet();

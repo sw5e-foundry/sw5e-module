@@ -62,11 +62,15 @@ export function patchStarshipPrepare() {
 					applyDerivedStarshipTravel(legacySnapshot, runtime.travel ?? {});
 				}
 				if ( this.attributes?.movement && (typeof this.attributes.movement === "object") ) {
-					this.attributes.movement.fly = movement.space;
+					this.attributes.movement.space = movement.space;
+					this.attributes.movement.walk = 0;
+					this.attributes.movement.fly = 0;
 					if ( movement.units ) this.attributes.movement.units = movement.units;
 				}
 				if ( actorSource.system?.attributes?.movement && (typeof actorSource.system.attributes.movement === "object") ) {
-					actorSource.system.attributes.movement.fly = movement.space;
+					actorSource.system.attributes.movement.space = movement.space;
+					actorSource.system.attributes.movement.walk = 0;
+					actorSource.system.attributes.movement.fly = 0;
 					if ( movement.units ) actorSource.system.attributes.movement.units = movement.units;
 				}
 				// Ensure vehicle type is always "space" — existing world actors may have "air" stored

@@ -467,7 +467,9 @@ function buildVehicleSystem(legacySystem = {}, items = [], existingSystem = {}) 
 			cargo: resolvedCargoCap
 		},
 		movement: {
-			fly: derivedMovement.space,
+			space: derivedMovement.space,
+			walk: 0,
+			fly: 0,
 			units: derivedMovement.units ?? runtimeSystem.attributes?.movement?.units ?? "ft",
 			hover: runtimeSystem.attributes?.movement?.hover ?? true
 		}

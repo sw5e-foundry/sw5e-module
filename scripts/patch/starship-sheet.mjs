@@ -13,7 +13,6 @@ import {
 	rollStarshipSkill
 } from "../starship-data.mjs";
 import { buildVehicleStarshipCrewContext, buildVehicleAvailableActors, deployStarshipCrew, undeployStarshipCrew, toggleStarshipActiveCrew } from "../starship-character.mjs";
-import { getStarshipSheetContext } from "../starship-sheet-context.mjs";
 import { openStarshipMovementConfig } from "../starship-movement-config.mjs";
 
 /**
@@ -39,7 +38,6 @@ const STARSHIP_PACKS = new Set([
 ]);
 
 const STARSHIP_TAB_ID = "sw5e-starship";
-const STARSHIP_SHEET_V2_SETTING_KEY = "experimentalStarshipSheetV2";
 /** @deprecated Primary tab; feature content now lives in SotG sub-tab `features`. Kept for one-time migration from saved UI state. */
 const STARSHIP_FEATURES_TAB_ID = "sw5e-starship-features";
 const STOCK_CARGO_TAB_ID = "inventory";
@@ -48,7 +46,7 @@ const STOCK_STARSHIP_TAB_ORDER = [STOCK_CARGO_TAB_ID, "effects", "description"];
 const CUSTOM_STARSHIP_TAB_IDS = new Set([STARSHIP_TAB_ID]);
 
 const SOTG_SUB_TAB_IDS = new Set([
-	"overview", "v2", "features", "weapons", "equipment", "modifications", "systems"
+	"overview", "features", "weapons", "equipment", "modifications", "systems"
 ]);
 
 /** Set `true` to enable verbose submit/mode diagnostics for starship vehicle sheets. */
@@ -58,7 +56,7 @@ const STARSHIP_ABILITY_KEYS = ["str", "dex", "con", "int", "wis", "cha"];
 
 function getSotgSubTab(app) {
 	const v = app?._sw5eSotgSubTab;
-	if ( v === "skills" || v === "crew" ) return "overview";
+	if ( v === "skills" || v === "crew" || v === "v2" ) return "overview";
 	if ( SOTG_SUB_TAB_IDS.has(v) ) return v;
 	return "overview";
 }
@@ -128,7 +126,7 @@ function syncSotgSheetPhaseClasses(app, starshipPanel) {
 
 function activateSotgSubTab(wrapper, app, tabId) {
 	if ( !wrapper ) return;
-	let id = tabId === "crew" ? "overview" : tabId;
+	let id = tabId === "crew" || tabId === "v2" ? "overview" : tabId;
 	id = SOTG_SUB_TAB_IDS.has(id) ? id : "overview";
 	if ( !wrapper.querySelector(`[data-sw5e-sotg-panel="${id}"]`) ) id = "overview";
 	wrapper.querySelectorAll("[data-sw5e-sotg-tab]").forEach(btn => {
@@ -1230,16 +1228,6 @@ function localizeOrFallback(key, fallback) {
 	return localized === key ? fallback : localized;
 }
 
-function isExperimentalStarshipSheetV2Enabled() {
-	return Boolean(getModuleSettingValue(STARSHIP_SHEET_V2_SETTING_KEY, false));
-}
-
-function formatStarshipV2Value(value, fallback = null) {
-	const empty = fallback ?? localizeOrFallback("SW5E.StarshipSheet.V2NoData", "—");
-	if ( value === undefined || value === null || value === "" ) return empty;
-	return String(value);
-}
-
 function formatSignedSkillMod(value) {
 	const n = Number(value);
 	if ( !Number.isFinite(n) ) return "+0";
@@ -1367,144 +1355,6 @@ function formatStarshipSkillTierOptionLabel(value) {
 			return localized === "SW5E.Starship.SkillTier.Custom" ? `Custom (${value})` : localized;
 		}
 	}
-}
-
-function buildStarshipSheetV2ShellContext(starshipContext, options = {}) {
-	if ( !starshipContext?.isStarship ) return null;
-	const editable = options.editable === true;
-	const noData = localizeOrFallback("SW5E.StarshipSheet.V2NoData", "—");
-	const hull = starshipContext.resources?.hull ?? {};
-	const shields = starshipContext.resources?.shields ?? {};
-	const movement = starshipContext.movement?.tactical ?? {};
-	const fuel = starshipContext.resources?.fuel ?? {};
-	const power = starshipContext.resources?.power ?? {};
-	const mods = starshipContext.resources?.mods ?? {};
-	const warningCount = Array.isArray(starshipContext.warnings) ? starshipContext.warnings.length : 0;
-	const crewWarningCodes = new Set(["missing-pilot-actor", "missing-active-actor", "active-not-on-roster"]);
-	const crewWarnings = (starshipContext.warnings ?? []).filter(w => crewWarningCodes.has(w.code));
-
-	const hullSummary = hull && (hull.current !== undefined || hull.max !== undefined)
-		? `${formatStarshipV2Value(hull.current, "0")} / ${formatStarshipV2Value(hull.max, "0")}${hull.die ? ` (${hull.die})` : ""}`
-		: `${formatStarshipV2Value(starshipContext.resources?.hp?.value, "0")} / ${formatStarshipV2Value(starshipContext.resources?.hp?.max, "0")}`;
-	const shieldSummary = shields && (shields.current !== undefined || shields.max !== undefined)
-		? `${formatStarshipV2Value(shields.current, "0")} / ${formatStarshipV2Value(shields.max, "0")}${shields.die ? ` (${shields.die})` : ""}`
-		: `${formatStarshipV2Value(starshipContext.resources?.hp?.temp, "0")} / ${formatStarshipV2Value(starshipContext.resources?.hp?.tempmax, "0")}`;
-	const fuelSummary = [fuel?.value, fuel?.max].some(v => v !== undefined && v !== null && v !== "")
-		? `${formatStarshipV2Value(fuel?.value, "0")} / ${formatStarshipV2Value(fuel?.max, noData)}`
-		: noData;
-	const powerSummary = power?.pools
-		? `${formatStarshipV2Value(power.pools.die, noData)}${power.pools.cscap !== undefined ? ` (CS ${power.pools.cscap}, SS ${power.pools.sscap})` : ""}`
-		: noData;
-	const routingSummary = power?.routing?.selected ?? power?.legacy?.routing ?? noData;
-	const movementSummary = [
-		movement?.fly !== undefined && movement?.fly !== null ? `${movement.fly} ${movement.units ?? "ft"}` : null,
-		movement?.turn !== undefined && movement?.turn !== null ? `Turn ${movement.turn}` : null
-	].filter(Boolean).join(" / ") || noData;
-	const roleSummary = starshipContext.identity?.role || starshipContext.identity?.detailsType || noData;
-	const warningSummary = warningCount
-		? game.i18n.format("SW5E.StarshipSheet.V2WarningsCount", { count: warningCount })
-		: localizeOrFallback("SW5E.StarshipSheet.V2NoWarnings", "No current context warnings.");
-
-	return {
-		kicker: localizeOrFallback("SW5E.StarshipSheet.V2Kicker", "Experimental"),
-		title: localizeOrFallback("SW5E.StarshipSheet.V2Title", "Starship Sheet v2"),
-		lede: localizeOrFallback(
-			"SW5E.StarshipSheet.V2Lede",
-			"Preview shell: roll starship skills from rows; use the cog in sheet Edit mode to configure tier, ability, and bonus (same dialog as Core)."
-		),
-		readOnlyBadge: localizeOrFallback("SW5E.StarshipSheet.V2ShellScopeBadge", "Skills: roll · configure"),
-		editable,
-		identity: {
-			name: formatStarshipV2Value(starshipContext.identity?.name, noData),
-			image: starshipContext.identity?.img || "",
-			tier: formatStarshipV2Value(starshipContext.identity?.tier, noData),
-			size: formatStarshipV2Value(starshipContext.identity?.size, noData),
-			role: formatStarshipV2Value(roleSummary, noData)
-		},
-		warningCount,
-		warningSummary,
-		overviewTitle: localizeOrFallback("SW5E.StarshipSheet.V2OverviewTitle", "Overview"),
-		overviewRows: [
-			{ label: "Tier", value: formatStarshipV2Value(starshipContext.identity?.tier, noData) },
-			{ label: "Size", value: formatStarshipV2Value(starshipContext.identity?.size, noData) },
-			{ label: "Role", value: formatStarshipV2Value(roleSummary, noData) },
-			{ label: "AC", value: formatStarshipV2Value(starshipContext.resources?.ac?.flat, noData) },
-			{ label: "Hull", value: hullSummary },
-			{ label: "Shields", value: shieldSummary },
-			{ label: "Movement", value: movementSummary },
-			{ label: localizeOrFallback("SW5E.StarshipSheet.V2WarningsTitle", "Warnings"), value: warningSummary }
-		],
-		crewTitle: localizeOrFallback("SW5E.StarshipSheet.V2CrewTitle", "Crew"),
-		crewRows: [
-			{ label: "Pilot", value: formatStarshipV2Value(starshipContext.crew?.pilot?.name, noData) },
-			{ label: "Active crew", value: formatStarshipV2Value(starshipContext.crew?.active?.name, noData) },
-			{ label: "Crew count", value: formatStarshipV2Value(starshipContext.crew?.counts?.crew, "0") },
-			{ label: "Passenger count", value: formatStarshipV2Value(starshipContext.crew?.counts?.passengers, "0") },
-			{ label: "Roster count", value: formatStarshipV2Value(starshipContext.crew?.counts?.roster, "0") }
-		],
-		crewWarnings,
-		skillConfigureTitle: localizeOrFallback("SW5E.SkillConfigure", "Configure skill"),
-		skillsTitle: localizeOrFallback("SW5E.StarshipSheet.V2SkillsTitle", "Skills"),
-		skills: (starshipContext.skills?.entries ?? []).map(entry => {
-			const label = formatStarshipV2Value(entry.label, noData);
-			const abilityAbbr = resolveStarshipSkillAbilityAbbreviation(entry);
-			const tierLabel = formatStarshipSkillTierOptionLabel(entry.proficiencyMode);
-			const modDisplay = formatSignedSkillMod(entry.displayMod);
-			const passiveStr = formatStarshipV2Value(entry.passive, noData);
-			const passiveForTip = passiveStr === noData ? "" : passiveStr;
-			const rowTooltip = buildStarshipSkillRowHoverTooltip({
-				label,
-				abilityAbbr,
-				modDisplay,
-				passiveDisplay: passiveForTip,
-				tierLabel,
-				crewLine: entry.crewPbLine ?? ""
-			});
-			return {
-				id: entry.id,
-				label,
-				abilityAbbr,
-				icon: getStarshipProficiencyIcon(entry.proficiencyMode),
-				proficiencyClass: getStarshipSkillProficiencyClass(entry.proficiencyMode),
-				modifier: modDisplay,
-				passive: passiveStr,
-				tierZero: Boolean(entry.tierZero),
-				rowTooltip
-			};
-		}),
-		systemsTitle: localizeOrFallback("SW5E.StarshipSheet.V2SystemsTitle", "Systems & resources"),
-		systemRows: [
-			{ label: "Hull", value: hullSummary },
-			{ label: "Shields", value: shieldSummary },
-			{ label: "Fuel", value: fuelSummary },
-			{ label: "Power", value: powerSummary },
-			{ label: "Routing", value: formatStarshipV2Value(routingSummary, noData) },
-			{ label: "System damage", value: formatStarshipV2Value(starshipContext.resources?.systemDamage, noData) },
-			{
-				label: "Mod budget",
-				value: mods && (mods.slotsUsed !== undefined || mods.slotMax !== undefined)
-					? `${formatStarshipV2Value(mods.slotsUsed, "0")} / ${formatStarshipV2Value(mods.slotMax, noData)}`
-					: noData
-			}
-		],
-		warningsTitle: localizeOrFallback("SW5E.StarshipSheet.V2WarningsTitle", "Warnings"),
-		warnings: (starshipContext.warnings ?? []).map(warning => ({
-			code: warning.code ?? "",
-			severity: warning.severity ?? "info",
-			message: formatStarshipV2Value(warning.message, noData)
-		})),
-		noWarningsText: localizeOrFallback("SW5E.StarshipSheet.V2NoWarnings", "No current context warnings.")
-	};
-}
-
-async function renderStarshipSheetV2Shell(actor, options = {}) {
-	const context = getStarshipSheetContext(actor, { user: game.user });
-	const shellContext = buildStarshipSheetV2ShellContext(context, options);
-	if ( !shellContext ) return "";
-	return foundry.applications.handlebars.renderTemplate(
-		getModulePath("templates/starship-sheet-v2-shell.hbs"),
-		shellContext
-	);
 }
 
 /**
@@ -2039,11 +1889,11 @@ function formatMovement(actor, legacySystem) {
 		};
 	}
 
-	const fly = Number.isFinite(Number(actor.system?.attributes?.movement?.fly))
-		? Number(actor.system.attributes.movement.fly)
+	const spaceSpeed = Number.isFinite(Number(actor.system?.attributes?.movement?.space))
+		? Number(actor.system.attributes.movement.space)
 		: null;
 	return {
-		primary: fly != null ? `${fly} ${units}` : "-",
+		primary: spaceSpeed != null ? `${spaceSpeed} ${units}` : "-",
 		secondary: ""
 	};
 }
@@ -3094,9 +2944,8 @@ async function openAddCrewDialog(actor) {
 async function renderStarshipLayer(app, html, data) {
 	const actor = data.actor ?? app.actor;
 	if ( !isSw5eStarshipActor(actor) ) return;
-	const starshipSheetV2Enabled = isExperimentalStarshipSheetV2Enabled();
 
-	if ( !starshipSheetV2Enabled ) await ensureStarshipDefaultShowVehicleAbilities(actor);
+	await ensureStarshipDefaultShowVehicleAbilities(actor);
 
 	const root = getHtmlRoot(html);
 	if ( !root ) return;
@@ -3234,9 +3083,6 @@ if (app._sw5eStarshipActiveTab === undefined) {
 
 	const sheetEditMode = isStarshipSheetEditMode(app);
 	const actorEditable = app.isEditable !== false;
-	const starshipSheetV2Shell = starshipSheetV2Enabled
-		? await renderStarshipSheetV2Shell(actor, { editable: actorEditable })
-		: "";
 	const rendered = await foundry.applications.handlebars.renderTemplate(getModulePath("templates/starship-sheet-layer.hbs"), {
 		actorName: actor.name,
 		actorImage: resolveStarshipSheetImageUrl(actor.img),
@@ -3246,9 +3092,6 @@ if (app._sw5eStarshipActiveTab === undefined) {
 		summaryStrip: makeStarshipSummaryStrip(actor),
 		legacyNotes: getLegacyNotes(actor),
 		skills,
-		starshipSheetV2Enabled,
-		starshipSheetV2Shell,
-		starshipSheetV2TabTitle: localizeOrFallback("SW5E.StarshipSheet.V2TabTitle", "V2 Preview"),
 		crew: buildVehicleStarshipCrewContext(actor),
 		sotgItemTabs,
 		editable: actorEditable,
