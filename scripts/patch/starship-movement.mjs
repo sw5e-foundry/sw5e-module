@@ -4,8 +4,11 @@ export function isSw5eStarshipActor(actor) {
 	return actor?.type === "vehicle" && actor?.flags?.sw5e?.legacyStarshipActor?.type === "starship";
 }
 
+/** Starship-only movement keys registered globally; populated on starship actors only. */
+export const STARSHIP_MOVEMENT_TYPE_KEYS = Object.freeze(["space", "turn"]);
+
 /**
- * Register SW5E starship `space` on dnd5e movement config.
+ * Register SW5E starship movement types on dnd5e movement config.
  * {@link CONFIG.Token.movement.actions} is sealed during dnd5e `init`; inject `space` in a `deepFreeze` wrapper.
  */
 export function ensureStarshipSpaceMovementConfig() {
@@ -13,6 +16,12 @@ export function ensureStarshipSpaceMovementConfig() {
 	if ( !CONFIG.DND5E.movementTypes.space ) {
 		CONFIG.DND5E.movementTypes.space = {
 			label: "SW5E.MovementSpace",
+			travel: "air"
+		};
+	}
+	if ( !CONFIG.DND5E.movementTypes.turn ) {
+		CONFIG.DND5E.movementTypes.turn = {
+			label: "SW5E.MovementTurn",
 			travel: "air"
 		};
 	}
@@ -60,21 +69,30 @@ function registerStarshipSpaceMovementInitWrapper() {
 }
 
 /**
- * Vehicle actors need a persisted `attributes.movement.space` field for token ruler speed + cost.
+ * Vehicle actors need persisted `attributes.movement.space` / `.turn` for config + token ruler speed.
  */
 export function addStarshipSpaceMovementSchemaField() {
 	try {
 		const movement = dnd5e?.dataModels?.actor?.VehicleData?.schema?.fields?.attributes?.fields?.movement;
-		if ( !movement?.fields || movement.fields.space ) return;
+		if ( !movement?.fields ) return;
 
 		const FormulaField = dnd5e.dataModels.fields.FormulaField;
-		movement.fields.space = new FormulaField({
-			deterministic: true,
-			label: "SW5E.MovementSpace",
-			speed: true
-		});
+		if ( !movement.fields.space ) {
+			movement.fields.space = new FormulaField({
+				deterministic: true,
+				label: "SW5E.MovementSpace",
+				speed: true
+			});
+		}
+		if ( !movement.fields.turn ) {
+			movement.fields.turn = new FormulaField({
+				deterministic: true,
+				label: "SW5E.MovementTurn",
+				speed: true
+			});
+		}
 	} catch ( err ) {
-		console.warn("SW5E MODULE | Could not add space movement field to VehicleData schema.", err);
+		console.warn("SW5E MODULE | Could not add starship movement fields to VehicleData schema.", err);
 	}
 }
 

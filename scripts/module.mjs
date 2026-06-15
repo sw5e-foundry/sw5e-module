@@ -13,6 +13,7 @@ import { patchProperties } from "./patch/properties.mjs";
 import { patchStarshipCreate } from "./patch/starship-create.mjs";
 import { patchStarshipPrepare } from "./patch/starship-prepare.mjs";
 import { registerStarshipMovementReadyHooks } from "./patch/starship-movement.mjs";
+import { patchStarshipMovementSensesConfig } from "./starship-movement-config.mjs";
 import { patchStarshipSheet } from "./patch/starship-sheet.mjs";
 import { patchAugmentationsSheet } from "./patch/augmentations-sheet.mjs";
 import { patchDroidCustomizationsSheet } from "./patch/droid-customizations-sheet.mjs";
@@ -77,6 +78,7 @@ Hooks.once('init', async function() {
 	patchStarshipCreate();
 	patchStarshipPrepare();
 	registerStarshipMovementReadyHooks();
+	patchStarshipMovementSensesConfig();
 	patchStarshipSheet();
 	patchAugmentationsSheet();
 	patchDroidCustomizationsSheet();

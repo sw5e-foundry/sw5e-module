@@ -738,16 +738,6 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   margin-left: auto;
 }
 
-.application.sw5e-starship-movement-config-app .form-fields .units {
-  align-self: center;
-  font-size: 0.82rem;
-  opacity: 0.85;
-}
-
-.application.sw5e-starship-movement-config-app [data-action="reset-derived"] {
-  justify-self: start;
-}
-
 /* Sidebar "Starship Systems" block: same data as stock, visually lighter so it does not compete with SotG summary */
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-summary {
   display: grid;
@@ -4934,7 +4924,6 @@ body[data-sw5e-theme="sw5e-dark"] #pause::after {
   background: url("/modules/sw5e-module/assets/ui/pause-outer.svg") no-repeat 50% 50%;
   animation: sw5e-pause-spin 5s linear infinite reverse;
   pointer-events: none;
-  z-index: -1; /* Added this line to render behind the text */
 }
 
 /* Character Deployment — Features tab: mirror dnd5e 5.2.x `section.classes` pill row + `.level-selector` */

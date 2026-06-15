@@ -130,10 +130,42 @@ export function applySw5eThemeScope(target, { scope = "module" } = {}) {
 	return root;
 }
 
+function collectRenderableApplications() {
+	const apps = new Set();
+	for ( const app of Object.values(ui.windows ?? {}) ) if ( app ) apps.add(app);
+	const instances = foundry.applications?.instances;
+	if ( instances ) {
+		for ( const app of instances.values() ) if ( app?.render ) apps.add(app);
+	}
+	return apps;
+}
+
+/**
+ * Re-apply the active SW5E theme to open scoped surfaces without a full rerender.
+ * Needed because AppV2 sheets may not live in `ui.windows`.
+ */
+function resyncExistingThemeScopes(theme = getSw5eTheme()) {
+	const resolvedTheme = normalizeSw5eTheme(theme);
+	if ( isSw5eThemeOff(resolvedTheme) ) {
+		clearAllSw5eThemeScopes();
+		return;
+	}
+	const seen = new Set();
+	for ( const root of document.querySelectorAll(".sw5e-theme-root, [data-sw5e-theme-root]") ) {
+		if ( !(root instanceof HTMLElement) ) continue;
+		for ( const element of collectScopedElements(root) ) {
+			if ( seen.has(element) ) continue;
+			seen.add(element);
+			element.dataset.sw5eTheme = resolvedTheme;
+			applyThemeClasses(element, resolvedTheme);
+		}
+	}
+}
+
 export function rerenderThemeableApplications() {
-	for ( const app of Object.values(ui.windows ?? {}) ) {
+	for ( const app of collectRenderableApplications() ) {
 		try {
-			app?.render?.(true);
+			app.render(true);
 		} catch ( err ) {
 			console.warn("SW5E | Theme rerender failed", err);
 		}
@@ -144,6 +176,7 @@ export function onSw5eThemeChange(theme) {
 	const resolvedTheme = normalizeSw5eTheme(theme);
 	applySw5eThemeDocument(resolvedTheme);
 	if ( isSw5eThemeOff(resolvedTheme) ) clearAllSw5eThemeScopes();
+	else resyncExistingThemeScopes(resolvedTheme);
 	rerenderThemeableApplications();
 }
 
@@ -182,7 +215,6 @@ export function isDnd5eSpeciesConfigSheet(app, element) {
 	if ( !(element instanceof HTMLElement) ) return false;
 	if ( !element.classList.contains("dnd5e2") || !element.classList.contains("config-sheet") ) return false;
 	if ( element.classList.contains("sw5e-starship-skill-roll-config") ) return false;
-	if ( element.classList.contains("sw5e-starship-movement-config-app") ) return false;
 	if ( element.classList.contains("power-point-config") ) return false;
 	if ( element.classList.contains("creature-type") ) return true;
 	return DND5E_SPECIES_CONFIG_SHEETS.has(app?.constructor?.name);
@@ -215,6 +247,27 @@ export function isDnd5eRollConfigurationApp(app, element) {
 	return true;
 }
 
+/**
+ * dnd5e actor configuration dialogs (HP, AC, skills, etc.) opened from actor sheets.
+ * Tight filter: Actor document + dnd5e actor ApplicationV2 config class + config-sheet chrome.
+ */
+export function isDnd5eActorConfigSheet(app, element) {
+	if ( !(element instanceof HTMLElement) ) return false;
+	if ( !element.classList.contains("dnd5e2") || !element.classList.contains("config-sheet") ) return false;
+	if ( element.classList.contains("sw5e-starship-skill-roll-config") ) return false;
+	if ( element.classList.contains("power-point-config") ) return false;
+	if ( isDnd5eSpeciesConfigSheet(app, element) ) return false;
+	if ( isDnd5eRollConfigurationApp(app, element) ) return false;
+	if ( isDnd5eAdvancementConfigApp(app, element) ) return false;
+
+	const document = app?.document;
+	if ( document?.documentName !== "Actor" ) return false;
+
+	const ctorName = app?.constructor?.name ?? "";
+	if ( !ctorName || !ctorName.endsWith("Config") ) return false;
+	return Boolean(dnd5e.applications?.actor?.[ctorName]);
+}
+
 function applyDnd5eThemedApplicationFromHook(app, html) {
 	const root = getHtmlRoot(html) ?? getAppRoot(app);
 	if ( isDnd5eSpeciesConfigSheet(app, root) ) {
@@ -227,6 +280,10 @@ function applyDnd5eThemedApplicationFromHook(app, html) {
 	}
 	if ( isDnd5eRollConfigurationApp(app, root) ) {
 		applySw5eThemeScope(html, { scope: "roll-configuration" });
+		return;
+	}
+	if ( isDnd5eActorConfigSheet(app, root) ) {
+		applySw5eThemeScope(html, { scope: "config-sheet" });
 	}
 }
 

@@ -115,6 +115,63 @@ function applySystemsSubtabControlState(app, starshipPanel) {
 	}
 }
 
+function getStarshipAbilitySaveRollTooltip(label) {
+	const saveRollTitle = game.i18n.format("DND5E.SavePromptTitle", { ability: label });
+	return saveRollTitle && saveRollTitle !== "DND5E.SavePromptTitle"
+		? `Roll ${saveRollTitle}`
+		: `Roll ${label} Saving Throw`;
+}
+
+function getStarshipAbilityProficiencyHover(proficient) {
+	return (CONFIG?.SW5E?.proficiencyLevels ?? CONFIG?.DND5E?.proficiencyLevels ?? {})?.[proficient]?.label ?? "";
+}
+
+/**
+ * Keep Core ability save tabs aligned with sheet PLAY/EDIT mode without a full SotG template re-render.
+ * Play: NPC-style rollable save tab (CL4e). Edit: non-rollable tab with editable proficiency-cycle.
+ */
+function syncStarshipAbilitySaveTabRollState(app, starshipPanel) {
+	if ( !(starshipPanel instanceof HTMLElement) ) return;
+	const isEditMode = isStarshipSheetEditMode(app);
+
+	for ( const tile of starshipPanel.querySelectorAll(".sw5e-starship-ability-strip .ability-score[data-ability]") ) {
+		const key = tile.dataset.ability;
+		const saveTab = tile.querySelector(".save-tab.saving-throw");
+		if ( !key || !(saveTab instanceof HTMLElement) ) continue;
+
+		const label = tile.getAttribute("title") || key.toUpperCase();
+		const proficiencyCycle = saveTab.querySelector("proficiency-cycle");
+		const proficient = Number(proficiencyCycle?.getAttribute("value") ?? proficiencyCycle?.value ?? 0);
+
+		if ( isEditMode ) {
+			saveTab.classList.remove("rollable");
+			saveTab.removeAttribute("data-action");
+			saveTab.removeAttribute("data-type");
+			saveTab.removeAttribute("data-sw5e-action");
+			saveTab.removeAttribute("data-ability");
+			const hover = getStarshipAbilityProficiencyHover(proficient);
+			if ( hover ) {
+				saveTab.dataset.tooltip = hover;
+				saveTab.setAttribute("aria-label", hover);
+			} else {
+				saveTab.removeAttribute("data-tooltip");
+				saveTab.removeAttribute("aria-label");
+			}
+			proficiencyCycle?.removeAttribute("disabled");
+		} else {
+			const saveRollTooltip = getStarshipAbilitySaveRollTooltip(label);
+			saveTab.classList.add("rollable");
+			saveTab.dataset.action = "roll";
+			saveTab.dataset.type = "ability";
+			saveTab.dataset.sw5eAction = "roll-save";
+			saveTab.dataset.ability = key;
+			saveTab.dataset.tooltip = saveRollTooltip;
+			saveTab.setAttribute("aria-label", saveRollTooltip);
+			proficiencyCycle?.setAttribute("disabled", "");
+		}
+	}
+}
+
 function syncSotgSheetPhaseClasses(app, starshipPanel) {
 	if ( !starshipPanel ) return;
 	const isEditMode = isStarshipSheetEditMode(app);
@@ -122,6 +179,36 @@ function syncSotgSheetPhaseClasses(app, starshipPanel) {
 	starshipPanel.classList.toggle("sw5e-starship-sotg--mode-play", !isEditMode);
 	starshipPanel.classList.toggle("sw5e-starship-sotg--readonly", app.isEditable === false);
 	applySystemsSubtabControlState(app, starshipPanel);
+	syncStarshipAbilitySaveTabRollState(app, starshipPanel);
+}
+
+function scheduleStarshipAbilitySaveTabSync(root, app) {
+	if ( !(root instanceof HTMLElement) ) return;
+	const run = () => {
+		const panel = root.querySelector(".sw5e-starship-panel");
+		if ( panel ) syncStarshipAbilitySaveTabRollState(app, panel);
+	};
+	queueMicrotask(run);
+	requestAnimationFrame(run);
+}
+
+function ensureStarshipAbilitySaveTabModeSync(root, app) {
+	if ( !(root instanceof HTMLElement) || root.dataset.sw5eAbilitySaveTabModeBound === "1" ) return;
+	root.dataset.sw5eAbilitySaveTabModeBound = "1";
+
+	const onModeChange = () => {
+		const panel = root.querySelector(".sw5e-starship-panel");
+		if ( panel ) syncSotgSheetPhaseClasses(app, panel);
+	};
+
+	root.addEventListener("change", event => {
+		if ( event.target?.matches?.("slide-toggle.mode-slider, .mode-slider") ) onModeChange();
+	});
+	root.addEventListener("click", event => {
+		if ( event.target?.closest?.("slide-toggle.mode-slider, .mode-slider") ) {
+			queueMicrotask(() => requestAnimationFrame(onModeChange));
+		}
+	});
 }
 
 function activateSotgSubTab(wrapper, app, tabId) {
@@ -2957,6 +3044,7 @@ async function renderStarshipLayer(app, html, data) {
 	root.classList.add("sw5e-starship-sheet");
 	if ( SW5E_STARSHIP_SHEET_DIAG_ENABLED ) root.dataset.sw5eStarshipDiagSheet = "1";
 
+	ensureStarshipAbilitySaveTabModeSync(root, app);
 	ensureStarshipTrustedSystemPathDelegate(root, app);
 	ensureStarshipOverviewAbilityMirrors(root, app, actor);
 	ensureStarshipSheetSubmitDiagnostic(root, app, actor);
@@ -3155,6 +3243,7 @@ if (app._sw5eStarshipActiveTab === undefined) {
 		existingWrapper.innerHTML = rendered;
 		syncSotgSheetPhaseClasses(app, existingWrapper.querySelector(".sw5e-starship-panel"));
 		ensureStarshipSotgItemRowInteractions(existingWrapper, app);
+		scheduleStarshipAbilitySaveTabSync(root, app);
 		// dnd5e may re-render the nav in edit mode, removing our custom tab buttons.
 		// Re-insert them if they're gone, and re-hide the stock features tab if needed.
 		if ( !nav.querySelector(`[data-tab="${STARSHIP_TAB_ID}"]`) ) {
@@ -3169,8 +3258,9 @@ if (app._sw5eStarshipActiveTab === undefined) {
 		}
 		restoreStarshipSheetViewState(app, starshipViewState, root);
 		if ( integrated ) attachIntegratedStockPrimaryTabBridge(app, root, nav);
-		scheduleStarshipDuplicateSizeNeutralize(root, app, actor);
-		queueMicrotask(() => runStarshipSheetDiagnostics(root, app, actor, "render:updateSotgLayer"));
+	scheduleStarshipDuplicateSizeNeutralize(root, app, actor);
+	scheduleStarshipAbilitySaveTabSync(root, app);
+	queueMicrotask(() => runStarshipSheetDiagnostics(root, app, actor, "render:updateSotgLayer"));
 		return;
 	}
 
@@ -3330,28 +3420,17 @@ if (app._sw5eStarshipActiveTab === undefined) {
 	restoreStarshipSheetViewState(app, starshipViewState, root);
 	if ( integrated ) attachIntegratedStockPrimaryTabBridge(app, root, nav);
 	scheduleStarshipDuplicateSizeNeutralize(root, app, actor);
+	scheduleStarshipAbilitySaveTabSync(root, app);
 	queueMicrotask(() => runStarshipSheetDiagnostics(root, app, actor, "render:firstMountSotgLayer"));
 	} finally {
 		bindStarshipSheetImageFallbacks(root);
 	}
 }
 
-function closeStarshipMovementConfigDialog(app) {
-	const actor = app?.actor ?? app?.document;
-	if ( !isSw5eStarshipActor(actor) ) return;
-	window.setTimeout(() => {
-		if ( typeof app?.close === "function" ) app.close({ force: true });
-	}, 0);
-}
-
 export function patchStarshipSheet() {
 	registerStarshipVehicleSheetShowAbilitiesDefault();
 	suppressNativeStarshipStationsAbilityAndFeatures();
 	Hooks.on("renderActorSheetV2", renderStarshipLayer);
-	Hooks.on("renderApplicationV2", (app, _html) => {
-		if ( app?.constructor?.name !== "MovementSensesConfig" ) return;
-		closeStarshipMovementConfigDialog(app);
-	});
 	Hooks.on("preUpdateActor", (doc, changed, opts, uid) => {
 		logStarshipPreUpdateTraitsIncoming(doc, changed);
 		logStarshipPreUpdateAbilities(doc, changed, "incoming");

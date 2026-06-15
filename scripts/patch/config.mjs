@@ -128,6 +128,10 @@ export function patchConfig(config, strict = true) {
 		label: "SW5E.MovementSpace",
 		travel: "air"
 	};
+	config.movementTypes.turn = {
+		label: "SW5E.MovementTurn",
+		travel: "air"
+	};
 	preLocalize("movementTypes", { key: "label", sort: true });
 	// Weapon proficiencies
 	if (strict) config.weaponProficiencies = {};
