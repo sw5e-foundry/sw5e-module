@@ -8,24 +8,10 @@ export function isSw5eStarshipActor(actor) {
 export const STARSHIP_MOVEMENT_TYPE_KEYS = Object.freeze(["space", "turn"]);
 
 /**
- * Register SW5E starship movement types on dnd5e movement config.
- * {@link CONFIG.Token.movement.actions} is sealed during dnd5e `init`; inject `space` in a `deepFreeze` wrapper.
+ * Inject starship space movement into token actions before CONFIG.Token.movement.actions is frozen.
+ * Movement type labels live in {@link applySw5eStarshipMovementTypes} (config.mjs) for dnd5e pre-localization.
  */
-export function ensureStarshipSpaceMovementConfig() {
-	CONFIG.DND5E.movementTypes ??= {};
-	if ( !CONFIG.DND5E.movementTypes.space ) {
-		CONFIG.DND5E.movementTypes.space = {
-			label: "SW5E.MovementSpace",
-			travel: "air"
-		};
-	}
-	if ( !CONFIG.DND5E.movementTypes.turn ) {
-		CONFIG.DND5E.movementTypes.turn = {
-			label: "SW5E.MovementTurn",
-			travel: "air"
-		};
-	}
-
+export function ensureStarshipTokenMovementActionConfig() {
 	const actions = CONFIG.Token?.movement?.actions;
 	const fly = actions?.fly;
 	if ( actions && fly && !actions.space ) {
@@ -52,20 +38,40 @@ function wireStarshipSpaceMovementActionHandlers() {
 	actionConfig.getCostFunction = (...args) => TokenDocument5e.getMovementActionCostFunction(type, ...args);
 }
 
+let starshipSpaceMovementWrapperRegistered = false;
+
 function registerStarshipSpaceMovementInitWrapper() {
+	if ( starshipSpaceMovementWrapperRegistered ) return;
+	starshipSpaceMovementWrapperRegistered = true;
+
 	try {
 		libWrapper.register(
 			getModuleId(),
 			"foundry.utils.deepFreeze",
 			function(wrapped, obj) {
-				if ( obj === CONFIG.Token?.movement?.actions ) ensureStarshipSpaceMovementConfig();
+				if ( obj === CONFIG.Token?.movement?.actions ) ensureStarshipTokenMovementActionConfig();
 				return wrapped(obj);
 			},
 			"WRAPPER"
 		);
 	} catch ( err ) {
+		starshipSpaceMovementWrapperRegistered = false;
 		console.warn("SW5E MODULE | Could not wrap foundry.utils.deepFreeze for starship space movement.", err);
 	}
+}
+
+/**
+ * Register the deepFreeze wrapper after libWrapper is ready (never at module import time).
+ */
+export function initializeStarshipMovementWrappers() {
+	if ( !globalThis.libWrapper ) {
+		console.warn("SW5E MODULE | libWrapper not available; starship movement wrapper not registered.");
+		return;
+	}
+
+	const register = () => registerStarshipSpaceMovementInitWrapper();
+	if ( libWrapper.ready ) register();
+	else Hooks.once("libWrapper.Ready", register);
 }
 
 /**
@@ -109,8 +115,9 @@ async function ensureStarshipTokenMovementAction(actor) {
 }
 
 export function registerStarshipMovementReadyHooks() {
+	initializeStarshipMovementWrappers();
 	addStarshipSpaceMovementSchemaField();
-	ensureStarshipSpaceMovementConfig();
+	ensureStarshipTokenMovementActionConfig();
 	wireStarshipSpaceMovementActionHandlers();
 
 	Hooks.on("preCreateToken", (doc, data) => {
@@ -132,5 +139,3 @@ export function registerStarshipMovementReadyHooks() {
 		}
 	});
 }
-
-registerStarshipSpaceMovementInitWrapper();

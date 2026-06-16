@@ -785,6 +785,55 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(input, select, textarea) 
   color-scheme: var(--sw5e-theme-color-scheme);
 }
 
+/* Global select/dropdown normalization — all SW5E-themed surfaces.
+   Beats unscoped legacy dashboard rules (starship routing, augmentations manager, etc.)
+   and Foundry Applications color-scheme when SW5E Light/Dark is active. */
+body[data-sw5e-theme="sw5e-light"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select {
+  background: var(--sw5e-theme-input) !important;
+  background-color: var(--sw5e-theme-input) !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+  color-scheme: light !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select option {
+  background: #f7fafc;
+  color: #1d2730;
+}
+
+body[data-sw5e-theme="sw5e-light"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select:is(:hover, :focus, :focus-visible):not(:disabled) {
+  background: rgba(255, 255, 255, 0.96) !important;
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 16%, transparent) !important;
+  outline: none;
+}
+
+body[data-sw5e-theme="sw5e-dark"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select {
+  background: var(--sw5e-theme-input) !important;
+  background-color: var(--sw5e-theme-input) !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color-scheme: dark !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select option {
+  background: #1a1f24;
+  color: #e8eef2;
+}
+
+body[data-sw5e-theme="sw5e-dark"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select:is(:hover, :focus, :focus-visible):not(:disabled) {
+  background: rgba(31, 37, 42, 0.92) !important;
+  background-color: rgba(31, 37, 42, 0.92) !important;
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 18%, transparent) !important;
+  outline: none;
+}
+
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sheet-header > .left > .document-name,
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor .sheet-header > .left > .document-name {
   max-width: 100%;

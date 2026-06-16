@@ -2,7 +2,55 @@ _id: eOHOZx4jxe5Bvz7a
 name: Rendcasting Channel (Training)
 type: loot
 img: modules/sw5e-module/icons/packs/Modifications/FocusgeneratorMod.webp
-effects: []
+effects:
+  - name: Rendcasting Channel (Training) - Save Target DC
+    origin: Compendium.sw5e-module.enhanceditems.Item.eOHOZx4jxe5Bvz7a
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    transfer: false
+    disabled: false
+    _id: 9a9e60303aa674db
+    changes:
+      - key: system.bonuses.force.save.dex.dc
+        mode: 2
+        value: '1'
+        priority: 20
+      - key: system.bonuses.force.save.int.dc
+        mode: 2
+        value: '1'
+        priority: 20
+      - key: system.bonuses.force.save.wis.dc
+        mode: 2
+        value: '-1'
+        priority: 20
+      - key: system.bonuses.force.save.cha.dc
+        mode: 2
+        value: '-1'
+        priority: 20
+    description: ''
+    statuses: []
+    flags: {}
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: dnd5ebuilder0000
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e-module/icons/packs/Modifications/FocusgeneratorMod.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!eOHOZx4jxe5Bvz7a.9a9e60303aa674db'
 folder: 2opSaVXOBytTPCiA
 sort: 0
 flags:

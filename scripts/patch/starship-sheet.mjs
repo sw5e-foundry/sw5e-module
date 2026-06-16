@@ -13,6 +13,7 @@ import {
 	rollStarshipSkill
 } from "../starship-data.mjs";
 import { buildVehicleStarshipCrewContext, buildVehicleAvailableActors, deployStarshipCrew, undeployStarshipCrew, toggleStarshipActiveCrew } from "../starship-character.mjs";
+import { getExpandedProficiencyHoverLabel } from "./proficiency.mjs";
 import { openStarshipMovementConfig } from "../starship-movement-config.mjs";
 
 /**
@@ -123,7 +124,7 @@ function getStarshipAbilitySaveRollTooltip(label) {
 }
 
 function getStarshipAbilityProficiencyHover(proficient) {
-	return (CONFIG?.SW5E?.proficiencyLevels ?? CONFIG?.DND5E?.proficiencyLevels ?? {})?.[proficient]?.label ?? "";
+	return getExpandedProficiencyHoverLabel(proficient);
 }
 
 /**
@@ -2543,7 +2544,7 @@ function buildOverviewAbilitiesContext(actor, editable = false) {
 				: `Configure ${labelResolved}`,
 			saveRollTooltip,
 			proficientName: `system.abilities.${key}.proficient`,
-			hover: (CONFIG?.SW5E?.proficiencyLevels ?? CONFIG?.DND5E?.proficiencyLevels ?? {})?.[proficient]?.label ?? "",
+			hover: getExpandedProficiencyHoverLabel(proficient),
 			inputName: `system.abilities.${key}.value`,
 			editable
 		};

@@ -9,6 +9,7 @@ import { getModulePath } from "./module-support.mjs";
 async function preloadHandlebarsTemplates() {
 	const partials = [
 		// Item Sheet Partials
+		getModulePath("templates/items/details/details-equipment.hbs"),
 		getModulePath("templates/items/details/details-maneuver.hbs"),
 		getModulePath("templates/items/chassis-panel.hbs"),
 		getModulePath("templates/items/chassis-install-browser.hbs"),
@@ -19,7 +20,9 @@ async function preloadHandlebarsTemplates() {
 	const paths = {};
 	for (const path of partials) {
 		paths[path.replace(".hbs", ".html")] = path;
-		paths[`sw5e.${path.split("/").pop().replace(".hbs", "")}`] = path;
+		const baseName = path.split("/").pop().replace(".hbs", "");
+		paths[`sw5e.${baseName}`] = path;
+		if ( baseName.startsWith("details-") ) paths[`dnd5e.${baseName}`] = path;
 	}
 
 	return foundry.applications.handlebars.loadTemplates(paths);

@@ -1,6 +1,11 @@
 import * as dataModels from "./../data/_module.mjs";
 import { ItemSheetSW5E } from "./../applications/item-sheet.mjs";
 import { getModule, getModuleId, getModuleTypeCandidates } from "../module-support.mjs";
+import {
+	makeCastBonusFields,
+	makeLegacyPowerAttackFields,
+	makeLegacyPowerBonusFields
+} from "./power-bonuses.mjs";
 
 const { BooleanField, NumberField, SchemaField, SetField, StringField } = foundry.data.fields;
 
@@ -159,6 +164,17 @@ function addLegacyNpcDetailFields(result) {
 	}
 }
 
+function addPowerBonusFields(result) {
+	const bonusFields = result.bonuses?.fields;
+	if ( !bonusFields ) return;
+
+	bonusFields.mpak = makeLegacyPowerAttackFields({ label: "SW5E.BonusMPAttack" });
+	bonusFields.rpak = makeLegacyPowerAttackFields({ label: "SW5E.BonusRPAttack" });
+	bonusFields.power = makeLegacyPowerBonusFields();
+	bonusFields.force = makeCastBonusFields("force");
+	bonusFields.tech = makeCastBonusFields("tech");
+}
+
 function changeProficiency(result, type) {
 	if (type === "creature") {
 		result.skills.model.fields.value.max = 5;
@@ -177,6 +193,7 @@ export function patchDataModels() {
 	libWrapper.register(getModuleId(), 'dnd5e.dataModels.actor.CreatureTemplate.defineSchema', function (wrapped, ...args) {
 		const result = wrapped(...args);
 		addLegacyNpcDetailFields(result);
+		addPowerBonusFields(result);
 		addPowercasting(result);
 		addSuperiority(result);
 		changeProficiency(result, "creature");

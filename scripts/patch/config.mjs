@@ -1,5 +1,6 @@
 import { applySw5eGalacticCreditsDefault } from "../currencies.mjs";
 import { getModulePath, normalizeCompendiumUuid } from "../module-support.mjs";
+import { EXPANDED_PROFICIENCY_TIERS } from "./proficiency.mjs";
 
 function normalizeCompendiumRecord(record = {}) {
 	return Object.fromEntries(Object.entries(record).map(([key, uuid]) => [key, normalizeCompendiumUuid(uuid)]));
@@ -9,6 +10,29 @@ const SW5E_CHARACTER_SKILL_KEYS = [
 	"acr", "ani", "ath", "dec", "ins", "itm", "inv", "lor", "med",
 	"nat", "pil", "prc", "prf", "per", "slt", "ste", "sur", "tec"
 ];
+
+/**
+ * Register starship movement types on CONFIG.DND5E using the stock dnd5e movementTypes object shape.
+ * @param {object} [config]
+ */
+export function applySw5eStarshipMovementTypes(config = CONFIG.DND5E) {
+	config.movementTypes ??= {};
+	config.movementTypes.space = {
+		label: "SW5E.MovementSpace",
+		travel: "air"
+	};
+	config.movementTypes.turn = {
+		label: "SW5E.MovementTurn",
+		travel: "air"
+	};
+}
+
+/** Ensure dnd5e pre-localization knows how to localize movementTypes.label for space/turn. */
+export function registerSw5eMovementTypePreLocalization() {
+	const preLocalize = game?.dnd5e?.utils?.preLocalize;
+	if ( !preLocalize ) return;
+	preLocalize("movementTypes", { key: "label", sort: true });
+}
 
 export function patchConfig(config, strict = true) {
 	const preLocalize = game.dnd5e.utils.preLocalize;
@@ -123,16 +147,8 @@ export function patchConfig(config, strict = true) {
 		}
 	};
 	preLocalize("starshipSkills", { key: "label", sort: true });
-	config.movementTypes ??= {};
-	config.movementTypes.space = {
-		label: "SW5E.MovementSpace",
-		travel: "air"
-	};
-	config.movementTypes.turn = {
-		label: "SW5E.MovementTurn",
-		travel: "air"
-	};
-	preLocalize("movementTypes", { key: "label", sort: true });
+	applySw5eStarshipMovementTypes(config);
+	registerSw5eMovementTypePreLocalization();
 	// Weapon proficiencies
 	if (strict) config.weaponProficiencies = {};
 	config.weaponProficiencies = {
@@ -2000,13 +2016,45 @@ export function patchConfig(config, strict = true) {
 	config.sourcePacks.CLASSES = "sw5e.classes";
 	config.sourcePacks.ITEMS = "sw5e.items";
 	config.sourcePacks.RACES = "sw5e.species";
-	// Proficiency
+	// Proficiency — dnd5e-facing display keys must remain localization strings (see dnd5e preLocalize("proficiencyLevels")).
 	config.proficiencyLevels = {
 		...config.proficiencyLevels,
 		3: "SW5E.Mastery",
 		4: "SW5E.HighMastery",
-		5: "SW5E.GrandMastery",
+		5: "SW5E.GrandMastery"
 	};
+	CONFIG.SW5E ??= {};
+	CONFIG.SW5E.proficiencyTiers = foundry.utils.deepClone(EXPANDED_PROFICIENCY_TIERS);
+	CONFIG.SW5E.powerBonusEffectKeys = [
+		"system.bonuses.force.attack",
+		"system.bonuses.force.dc",
+		"system.bonuses.force.light.attack",
+		"system.bonuses.force.light.dc",
+		"system.bonuses.force.dark.attack",
+		"system.bonuses.force.dark.dc",
+		"system.bonuses.tech.attack",
+		"system.bonuses.tech.dc",
+		"system.bonuses.mpak.attack",
+		"system.bonuses.rpak.attack",
+		"system.bonuses.power.dc",
+		"system.bonuses.power.forceLightDC",
+		"system.bonuses.power.forceDarkDC",
+		"system.bonuses.power.forceUnivDC",
+		"system.bonuses.power.techDC",
+		...["str", "dex", "con", "int", "wis", "cha"].flatMap(ab => [
+			`system.bonuses.force.${ab}.dc`,
+			`system.bonuses.tech.${ab}.dc`,
+			`system.bonuses.force.light.${ab}.dc`,
+			`system.bonuses.force.dark.${ab}.dc`,
+			`system.bonuses.force.save.${ab}.dc`,
+			`system.bonuses.tech.save.${ab}.dc`
+		])
+	];
+	for ( const [tier, value] of Object.entries(config.proficiencyLevels) ) {
+		if ( [3, 4, 5, "3", "4", "5"].includes(tier) && typeof value !== "string" ) {
+			console.warn("SW5E | proficiencyLevels value must be a localization key string", tier, value);
+		}
+	}
 	// Cover
 	config.cover[.25] = "SW5E.CoverOneQuarter";
 	// Conditions

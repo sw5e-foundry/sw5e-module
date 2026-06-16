@@ -30,7 +30,9 @@
 
   <footer class="sheet-footer flexrow">
     <button type="button" data-advantage-mode="{{advantageMode}}" {{#if isDefaultAdvantage}}autofocus{{/if}}>{{advantageLabel}}</button>
+    {{#unless forcedAdvantage}}
     <button type="button" data-advantage-mode="{{normalMode}}" {{#if isDefaultNormal}}autofocus{{/if}}>{{normalLabel}}</button>
     <button type="button" data-advantage-mode="{{disadvantageMode}}" {{#if isDefaultDisadvantage}}autofocus{{/if}}>{{disadvantageLabel}}</button>
+    {{/unless}}
   </footer>
 </form>

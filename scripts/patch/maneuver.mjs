@@ -133,6 +133,9 @@ function prepareSuperiority() {
 		}
 
 		// Apply progression data
+		const { simplifyBonus } = dnd5e.utils;
+		const rollData = _this.getRollData();
+
 		for (const [superType, obj] of Object.entries(charProgression)) {
 			const superConfig = CONFIG.DND5E.superiority;
 			const progConfig = superConfig.progression[obj.maxClassProg] ?? {};
@@ -144,14 +147,29 @@ function prepareSuperiority() {
 			const target = _this.system.superiority;
 			const sourceKnown = sourceSuperiority.known ?? {};
 			const sourceDice = sourceSuperiority.dice ?? {};
+			const preparedDice = target.dice ?? {};
+			const activeEffectAdjustedMax = sourceDice.max == null ? Number(preparedDice.max) : NaN;
 			const effectiveKnownMax = sourceKnown.max ?? obj.maneuversKnownMax;
-			const effectiveDiceMax = sourceDice.max ?? obj.diceCount;
+			let effectiveDiceMax = sourceDice.max ?? obj.diceCount;
 			const effectiveDie = sourceSuperiority.die ?? obj.diceSize;
 			const effectiveLevel = sourceSuperiority.level ?? obj.casterLevel;
 			const sourceCurrentValue = Number.isFinite(Number(sourceDice.value)) ? Number(sourceDice.value) : null;
 			const previousMax = Number.isFinite(Number(superiorityFlags.diceMax)) ? Number(superiorityFlags.diceMax) : null;
 			const missingProgressData = [sourceDice.max, sourceSuperiority.die, sourceSuperiority.level].every(value => value == null);
 			let effectiveCurrentValue = sourceCurrentValue;
+
+			if ( sourceDice.max == null && effectiveDiceMax > 0 ) {
+				const bonuses = preparedDice.bonuses ?? sourceDice.bonuses ?? {};
+				const levelBonus = simplifyBonus(bonuses.level ?? 0, rollData) * effectiveLevel;
+				const overallBonus = simplifyBonus(bonuses.overall ?? 0, rollData);
+				const formulaMax = Math.max(0, effectiveDiceMax + levelBonus + overallBonus);
+				if ( Number.isFinite(activeEffectAdjustedMax) && activeEffectAdjustedMax !== obj.diceCount ) {
+					const aeDelta = activeEffectAdjustedMax - obj.diceCount;
+					effectiveDiceMax = Math.max(0, formulaMax + aeDelta);
+				} else {
+					effectiveDiceMax = formulaMax;
+				}
+			}
 
 			if ( effectiveDiceMax <= 0 ) effectiveCurrentValue = 0;
 			else if ( sourceCurrentValue == null ) effectiveCurrentValue = effectiveDiceMax;
@@ -177,9 +195,6 @@ function prepareSuperiority() {
 			if ( sourceCurrentValue !== effectiveCurrentValue ) updateData["system.superiority.dice.value"] = effectiveCurrentValue;
 			queueSuperioritySync(_this, updateData);
 		}
-
-		const { simplifyBonus } = dnd5e.utils;
-		const rollData = _this.getRollData();
 
 		const { attributes, superiority } = _this.system;
 		const base = 8 + (attributes.prof ?? 0);

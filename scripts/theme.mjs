@@ -10,6 +10,7 @@ export const SW5E_THEME_SETTING = "themeMode";
 export const SW5E_THEMES = Object.freeze({
 	SW5E_LIGHT: "sw5e-light",
 	SW5E_DARK: "sw5e-dark",
+	SW5E_UNDERWORLD: "sw5e-underworld",
 	OFF: "off"
 });
 
@@ -268,8 +269,38 @@ export function isDnd5eActorConfigSheet(app, element) {
 	return Boolean(dnd5e.applications?.actor?.[ctorName]);
 }
 
+/**
+ * SW5E Cybernetic Augmentations manager (ApplicationV2).
+ */
+export function isSw5eAugmentationsApp(app, element) {
+	if ( app?.constructor?.name === "AugmentationsApp" ) return true;
+	return element instanceof HTMLElement && element.classList.contains("sw5e-augmentations-manager");
+}
+
+/**
+ * dnd5e journal entry/page sheets (AppV2). Legacy renderJournalSheet hooks do not fire on v13.
+ */
+export function isDnd5eJournalApp(app, element) {
+	if ( !(element instanceof HTMLElement) ) return false;
+	if ( !element.classList.contains("dnd5e2-journal") ) return false;
+
+	const ctorName = app?.constructor?.name ?? "";
+	if ( ctorName === "JournalEntrySheet5e" || ctorName === "JournalPageSheet5e" ) return true;
+
+	const docName = app?.document?.documentName;
+	return docName === "JournalEntry" || docName === "JournalEntryPage";
+}
+
 function applyDnd5eThemedApplicationFromHook(app, html) {
 	const root = getHtmlRoot(html) ?? getAppRoot(app);
+	if ( isSw5eAugmentationsApp(app, root) ) {
+		applySw5eThemeScope(html, { scope: "cybernetics" });
+		return;
+	}
+	if ( isDnd5eJournalApp(app, root) ) {
+		applySw5eThemeScope(html, { scope: "journal" });
+		return;
+	}
 	if ( isDnd5eSpeciesConfigSheet(app, root) ) {
 		applySw5eThemeScope(html, { scope: "config-sheet" });
 		return;
@@ -300,4 +331,5 @@ export function registerSw5eThemeHooks() {
 	Hooks.on("renderChatMessageHTML", (message, html) => applyThemeScopeFromHook(message, html, "chat"));
 	Hooks.on("renderJournalSheet", (app, html) => applyThemeScopeFromHook(app, html, "journal"));
 	Hooks.on("renderJournalPageSheet", (app, html) => applyThemeScopeFromHook(app, html, "journal"));
+	Hooks.on("renderActiveEffectConfig", (app, html) => applyThemeScopeFromHook(app, html, "active-effect-config"));
 }

@@ -5,6 +5,7 @@ import {
   SETTINGS_NAMESPACE,
 } from "../module-support.mjs";
 import { openPowerPointConfig } from "../power-point-config.mjs";
+import { getPowerDcBonus, patchPowerBonuses } from "./power-bonuses.mjs";
 
 const PRECALCULATED_SPELLCASTING_KEY = "sw5e-preCalculatedSpellcastingClasses";
 
@@ -580,14 +581,13 @@ function preparePowercasting() {
 
 		// Powercasting DC for Actors and NPCs
 		const ability = {};
-		const bonusAll = simplifyBonus(_this.system.bonuses?.power?.dc?.all, rollData);
 		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
 			for (const [school, schoolConfig] of Object.entries(typeConfig.schools)) {
 				const schoolData = powercasting[castType].schools[school];
-				const bonus = simplifyBonus(_this.system.bonuses?.power?.dc?.[school], rollData) + bonusAll;
 				ability[school] = getBestAbility(_this, schoolConfig.attr, 0);
 				if (ability[school].mod > (ability[castType]?.mod ?? -Infinity)) ability[castType] = ability[school];
 				schoolData.attr = ability[school]?.id ?? "";
+				const bonus = getPowerDcBonus(_this, castType, school, ability[school]?.id, rollData);
 				schoolData.dc = base + ability[school].mod + bonus;
 			}
 		}
@@ -1250,6 +1250,7 @@ export function patchPowercasting() {
 	patchPowerbooks();
 	patchAbilityUseDialog();
 	preparePowercasting();
+	patchPowerBonuses();
 	recoverPowerPoints();
 	showPowercastingStats();
 	makePowerPointsConsumable();

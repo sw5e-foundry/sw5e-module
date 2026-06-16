@@ -2,7 +2,55 @@ _id: HY7OIdiI0FfL6YKx
 name: Withercasting Processor (Training)
 type: loot
 img: modules/sw5e-module/icons/packs/Modifications/WristpadMod.webp
-effects: []
+effects:
+  - name: Withercasting Processor (Training) - Save Target DC
+    origin: Compendium.sw5e-module.enhanceditems.Item.HY7OIdiI0FfL6YKx
+    duration:
+      startTime: null
+      seconds: null
+      combat: null
+      rounds: null
+      turns: null
+      startRound: null
+      startTurn: null
+    transfer: false
+    disabled: false
+    _id: ae94b665dfd113a6
+    changes:
+      - key: system.bonuses.tech.save.wis.dc
+        mode: 2
+        value: '1'
+        priority: 20
+      - key: system.bonuses.tech.save.cha.dc
+        mode: 2
+        value: '1'
+        priority: 20
+      - key: system.bonuses.tech.save.str.dc
+        mode: 2
+        value: '-1'
+        priority: 20
+      - key: system.bonuses.tech.save.con.dc
+        mode: 2
+        value: '-1'
+        priority: 20
+    description: ''
+    statuses: []
+    flags: {}
+    tint: '#ffffff'
+    _stats:
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: dnd5ebuilder0000
+      compendiumSource: null
+      duplicateSource: null
+    img: modules/sw5e-module/icons/packs/Modifications/WristpadMod.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!HY7OIdiI0FfL6YKx.ae94b665dfd113a6'
 folder: 2opSaVXOBytTPCiA
 sort: 0
 flags:

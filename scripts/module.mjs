@@ -10,6 +10,7 @@ import { patchPowercasting } from "./patch/powercasting.mjs";
 import { patchForceRecovery } from "./patch/force-recovery.mjs";
 import { patchProficiencyInit, patchProficiencyReady } from "./patch/proficiency.mjs";
 import { patchProperties } from "./patch/properties.mjs";
+import { patchEquippableAttunement } from "./patch/equippable-attunement.mjs";
 import { patchStarshipCreate } from "./patch/starship-create.mjs";
 import { patchStarshipPrepare } from "./patch/starship-prepare.mjs";
 import { registerStarshipMovementReadyHooks } from "./patch/starship-movement.mjs";
@@ -20,6 +21,14 @@ import { patchDroidCustomizationsSheet } from "./patch/droid-customizations-shee
 import * as migrations from "./migration.mjs";
 import { handleTemplates } from "./templates.mjs";
 import { chassisApi } from "./chassis.mjs";
+import {
+	getInstalledChassisModEffectChanges,
+	getInstalledModBonus,
+	isChassisHostItemActive,
+	INSTALLED_MOD_SUPPORTED_BONUS_KEYS,
+	prefetchInstalledModEffectsForActor,
+	prefetchInstalledModEffectsForHost
+} from "./installed-mod-effects.mjs";
 import { augmentationsApi } from "./augmentations.mjs";
 import { droidCustomizationsApi } from "./droid-customizations.mjs";
 import { DroidCustomizationsApp } from "./droid-customizations-app.mjs";
@@ -36,6 +45,14 @@ import { registerSw5eThemeHooks } from "./theme.mjs";
 globalThis.sw5e = {
 	migrations,
 	chassis: chassisApi,
+	installedModEffects: {
+		getInstalledChassisModEffectChanges,
+		getInstalledModBonus,
+		isChassisHostItemActive,
+		prefetchInstalledModEffectsForActor,
+		prefetchInstalledModEffectsForHost,
+		INSTALLED_MOD_SUPPORTED_BONUS_KEYS
+	},
 	augmentations: {
 		...augmentationsApi,
 		openManager: actor => AugmentationsApp.openForActor(actor)
@@ -74,6 +91,7 @@ Hooks.once('init', async function() {
 	patchForceRecovery();
 	patchProficiencyInit();
 	patchProperties();
+	patchEquippableAttunement();
 	patchChassisItemSheet();
 	patchStarshipCreate();
 	patchStarshipPrepare();

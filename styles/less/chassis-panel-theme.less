@@ -1,0 +1,106 @@
+/* Item sheet — Modification Chassis compact panel (theme polish) */
+
+/*
+ * Global chip styling in theme-overrides.less / underworld-overrides.less:
+ *   body[data-sw5e-theme] .sw5e-theme-root :is(button, …) { background: var(--sw5e-theme-secondary-button) !important; }
+ * Neutralize that for installed mod name links inside the chassis panel only.
+ */
+body[data-sw5e-theme] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-panel button.unbutton.sw5e-chassis-installed-name,
+body[data-sw5e-theme] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-panel button.unbutton.sw5e-chassis-installed-name:is(:hover, :focus, :focus-visible) {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 1.1rem 0 0 !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  height: auto !important;
+  line-height: 1.15 !important;
+  text-align: left !important;
+  white-space: normal !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  font-size: var(--font-size-12) !important;
+  word-break: break-word !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  cursor: pointer !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-panel button.unbutton.sw5e-chassis-installed-name {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-panel button.unbutton.sw5e-chassis-installed-name:is(:hover, :focus-visible) {
+  color: color-mix(in srgb, var(--sw5e-line-color) 72%, #1a4f6e) !important;
+  text-decoration: underline !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-panel button.unbutton.sw5e-chassis-installed-name {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-panel button.unbutton.sw5e-chassis-installed-name:is(:hover, :focus-visible) {
+  color: color-mix(in srgb, var(--sw5e-line-color) 88%, #7ec8e8) !important;
+  text-decoration: underline !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-panel button.unbutton.sw5e-chassis-installed-name {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-panel button.unbutton.sw5e-chassis-installed-name:is(:hover, :focus-visible) {
+  color: color-mix(in srgb, var(--sw5e-line-color) 55%, #d4a8ff) !important;
+  text-decoration: underline !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-slot-card--installed {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, #8aa4b8) !important;
+  background: color-mix(in srgb, var(--sw5e-theme-input) 88%, #d8e6ef) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-slot-card--empty {
+  border-color: color-mix(in srgb, var(--sw5e-light-muted-control-border) 82%, transparent) !important;
+  background: color-mix(in srgb, var(--sw5e-theme-input) 72%, rgba(233, 241, 246, 0.9)) !important;
+  color: var(--sw5e-theme-muted-text);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-slot-card.sw5e-chassis-drop-target--active {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 70%, #4a8fb8) !important;
+  background: color-mix(in srgb, var(--sw5e-line-color) 12%, #eef5f9) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-slot-card--installed {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 62%, #3d5f78) !important;
+  background: rgba(12, 22, 32, 0.55) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-slot-card--empty {
+  border-color: rgba(120, 150, 175, 0.22) !important;
+  background: rgba(8, 14, 22, 0.42) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-slot-card--installed {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, #6b7a4a) !important;
+  background: color-mix(in srgb, #1a1812 88%, #2a261c) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-slot-card--empty {
+  border-color: rgba(140, 132, 98, 0.28) !important;
+  background: rgba(18, 16, 12, 0.5) !important;
+  color: color-mix(in srgb, var(--sw5e-theme-muted-text) 88%, #c9b98a);
+}
+
+body[data-sw5e-theme] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-collapse-toggle,
+body[data-sw5e-theme] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-footer-btn {
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-collapse-toggle,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item .sw5e-chassis-footer-btn:not(.sw5e-chassis-footer-btn--danger) {
+  background: var(--sw5e-theme-input) !important;
+  border-color: var(--sw5e-theme-input-border) !important;
+}

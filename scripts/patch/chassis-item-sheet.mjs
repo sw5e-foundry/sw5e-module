@@ -5,8 +5,11 @@ import {
 	CHASSIS_RULES_MODES,
 	CHASSIS_SETTING_KEYS,
 	chassisRarityToItemSystemRarity,
+	chassisModInferenceAllowed,
 	collectChassisBrowserInformationalHintKeys,
 	createInstalledModEntry,
+	diagnoseChassisInstallCandidatesEmpty,
+	filterChassisPlacementsForPreference,
 	findChassisInstallPlacements,
 	getChassis,
 	getChassisInstallCandidates,
@@ -22,6 +25,7 @@ import {
 	validateChassisRarityUpgrade,
 	validateChassisRemove
 } from "../chassis.mjs";
+import { prefetchInstalledModEffectsForHost, prefetchInstalledModEffectsForActor } from "../installed-mod-effects.mjs";
 import { getModulePath, getModuleSettingValue } from "../module-support.mjs";
 import { withPreservedItemSheetScroll } from "./properties.mjs";
 
@@ -96,17 +100,12 @@ function formatSlotKind(kind) {
 		: game.i18n.localize("SW5E.Chassis.SlotKindBase");
 }
 
-function formatInstalledTime(ts) {
-	if ( !ts ) return game.i18n.localize("SW5E.Chassis.NoTimestamp");
-	try {
-		return new Date(ts).toLocaleString(game.i18n?.lang ?? undefined);
-	} catch {
-		return String(ts);
-	}
-}
-
 function userMayRulesOverride() {
 	return game.user?.isGM === true;
+}
+
+function isRecord(value) {
+	return value !== null && typeof value === "object" && !Array.isArray(value);
 }
 
 /**
@@ -135,6 +134,87 @@ async function loadItemForChassisInstall(uuid) {
 	} catch ( err ) {
 		console.warn("SW5E | Chassis: modification item failed to load", s, err);
 		return null;
+	}
+}
+
+/**
+ * Open the installed modification item sheet (world or compendium).
+ * @param {string} itemUuid `installedMods[].uuid` — source modification item UUID
+ */
+async function openInstalledChassisModSheet(itemUuid) {
+	const modItem = await loadItemForChassisInstall(itemUuid);
+	if ( modItem?.sheet ) {
+		await modItem.sheet.render(true);
+		return;
+	}
+	ui.notifications.warn(game.i18n.localize("SW5E.Chassis.OpenInstalledModMissing"));
+}
+
+/**
+ * @param {DragEvent} event
+ * @returns {Promise<import("@league/foundry").documents.Item|null>}
+ */
+async function resolveDroppedChassisModificationItem(event) {
+	const dragData = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
+	if ( dragData && typeof dragData === "object" ) {
+		try {
+			const item = await Item.implementation.fromDropData(dragData);
+			if ( item instanceof Item ) return item;
+		} catch ( err ) {
+			console.warn("SW5E | Chassis: drop data resolution failed", err);
+		}
+	}
+	const text = event.dataTransfer?.getData("text/plain")?.trim();
+	if ( text ) return loadItemForChassisInstall(text);
+	return null;
+}
+
+/**
+ * Shared install workflow after picker, UUID fallback, or drag/drop.
+ * @param {import("@league/foundry").applications.api.DocumentSheetV2} app
+ * @param {import("@league/foundry").documents.Item} modItem
+ * @param {{ preferredSlot?: { slotKind: "base"|"augment", slotIndex: number }, slotSemantic?: string|null }} browserCtx
+ * @param {object|null} [fromRow] candidate row from {@link getChassisInstallCandidates}
+ */
+async function beginChassisInstallFromModItem(app, modItem, browserCtx = {}, fromRow = null) {
+	const host = app.item;
+	const chassis = normalizeChassis(host, getChassis(host));
+
+	if ( !isRecord(modItem?.flags?.sw5e?.chassisMod) && !chassisModInferenceAllowed(modItem) ) {
+		ui.notifications.error(game.i18n.localize("SW5E.Chassis.DropNotModification"));
+		return;
+	}
+
+	let placements = fromRow?.placements;
+	if ( !placements?.length ) {
+		const meta = resolveChassisModMetaForInstall(modItem, {
+			allowModificationsPackInference: chassisModInferenceAllowed(modItem)
+		});
+		if ( !meta ) {
+			ui.notifications.error(game.i18n.localize("SW5E.Chassis.InstallItemInvalidData"));
+			return;
+		}
+		const cost = meta.slotCost ?? 1;
+		placements = findChassisInstallPlacements(chassis, cost);
+		placements = filterChassisPlacementsForPreference(browserCtx.preferredSlot, cost, placements);
+	}
+	if ( !placements?.length ) {
+		ui.notifications.error(game.i18n.localize("SW5E.Chassis.InstallNoPlacement"));
+		return;
+	}
+
+	/** @type {{ slotSemantic?: string, effectiveChassisModMeta?: object, effectiveChassisModFromBrowser?: boolean, effectiveChassisModTargetUuid?: string }} */
+	const installCtx = { slotSemantic: browserCtx.slotSemantic ?? undefined };
+	if ( fromRow?.meta ) {
+		installCtx.effectiveChassisModMeta = foundry.utils.deepClone(fromRow.meta);
+		installCtx.effectiveChassisModFromBrowser = true;
+		installCtx.effectiveChassisModTargetUuid = fromRow.uuid;
+	}
+
+	if ( placements.length === 1 ) {
+		void runInstallValidationDialog(app, host, modItem, placements[0], installCtx);
+	} else {
+		void openPlacementPickDialog(app, host, modItem, placements, installCtx);
 	}
 }
 
@@ -178,7 +258,9 @@ function commitInstallMod(app, host, modItem, placement, force, installCtx = {})
 	});
 	const installedMods = [...(chassis.installedMods ?? []), entry];
 	const next = normalizeChassis(host, { ...chassis, installedMods });
-	void withPreservedItemSheetScroll(app, () => host.update({ "flags.sw5e.chassis": next })).catch(err => console.error(err));
+	void withPreservedItemSheetScroll(app, () => host.update({ "flags.sw5e.chassis": next }))
+		.then(() => prefetchInstalledModEffectsForHost(host, { persist: true }))
+		.catch(err => console.error(err));
 	ui.notifications.info(game.i18n.format("SW5E.Chassis.InstallDone", { name: modItem.name }));
 }
 
@@ -200,21 +282,15 @@ function formatInstallBrowserMetaLine(_host, row) {
 	const meta = row.meta;
 	const raritySource = row.systemRarity !== undefined ? row.systemRarity : row.item?.system?.rarity;
 	/** @type {string[]} */
-	const parts = [];
-	if ( meta?.sourceType === "legacy-modifications-pack" ) {
-		parts.push(game.i18n.localize("SW5E.Chassis.ModSourceLegacy"));
-	} else if ( meta?.sourceType === "native" ) {
-		parts.push(game.i18n.localize("SW5E.Chassis.ModSourceNative"));
-	}
-	parts.push(
+	const parts = [
 		formatModRarityLine(meta?.modRarity, raritySource),
 		row.sourceLabel,
 		game.i18n.format("SW5E.Chassis.InstallBrowserCostLine", { n: row.slotCost }),
 		formatModSlotKindsDisplay(meta)
-	);
+	];
 	const tool = meta?.requiresTool;
 	const dc = meta?.installDC;
-	if ( tool || dc != null ) {
+	if ( tool || (dc != null && Number.isFinite(Number(dc))) ) {
 		parts.push(game.i18n.format("SW5E.Chassis.InstallBrowserToolLine", {
 			tool: tool ? String(tool) : "—",
 			dc: dc != null ? String(dc) : "—"
@@ -236,41 +312,25 @@ function chassisInstallBrowserMetaCtx(installCtx, modItem) {
 	};
 }
 
-/** @param {object} row candidate from {@link getChassisInstallCandidates} */
-function formatInstallBrowserInfoHintLine(row) {
-	const keys = collectChassisBrowserInformationalHintKeys(row.meta);
-	if ( !keys.length ) return "";
-	return keys.map(k => game.i18n.localize(k)).filter(Boolean).join(" · ");
-}
-
-/** @param {object} row candidate from {@link getChassisInstallCandidates} */
-function formatInstallBrowserWarningLine(row) {
-	if ( row?.tier !== "warn" ) return "";
+/** User-facing compatibility note for warn/blocked rows (not debug/inference hints). */
+function formatInstallBrowserIssueLine(row) {
+	if ( !row || row.tier === "valid" ) return "";
+	if ( row.tier === "blocked" ) {
+		const msgs = (row.validation?.blocking ?? []).map(b => String(b?.message ?? "")).filter(Boolean);
+		return msgs.length
+			? msgs.join(" · ")
+			: game.i18n.localize("SW5E.Chassis.BrowserBlockedUnknown");
+	}
 	const sig = row.tierSignificantWarnings ?? [];
 	if ( !sig.length ) return game.i18n.localize("SW5E.Chassis.BrowserWarnUnknown");
 	return sig.map(w => String(w?.message ?? "")).filter(Boolean).join(" · ");
 }
 
-/**
- * @param {object} chassis normalized
- * @param {object} browserCtx
- */
-function formatInstallBrowserContextLine(chassis, browserCtx) {
-	const bits = [];
-	bits.push(game.i18n.format("SW5E.Chassis.InstallBrowserHostLine", {
-		type: labelChassisType(chassis.type),
-		rarity: labelChassisRarity(chassis.rarity)
-	}));
-	if ( browserCtx.preferredSlot ) {
-		bits.push(game.i18n.format("SW5E.Chassis.InstallBrowserSlotLine", {
-			kind: formatSlotKind(browserCtx.preferredSlot.slotKind),
-			index: browserCtx.preferredSlot.slotIndex
-		}));
-	}
-	if ( browserCtx.slotSemantic ) {
-		bits.push(game.i18n.format("SW5E.Chassis.InstallBrowserRoleLine", { role: browserCtx.slotSemantic }));
-	}
-	return bits.join(" · ");
+/** Debug-only diagnostics; kept for optional advanced UI / console use. */
+function formatInstallBrowserDebugHints(row) {
+	const keys = collectChassisBrowserInformationalHintKeys(row.meta);
+	if ( !keys.length ) return "";
+	return keys.map(k => game.i18n.localize(k)).filter(Boolean).join(" · ");
 }
 
 /**
@@ -323,13 +383,99 @@ function bindInstallBrowserSearch(root) {
 
 /**
  * @param {import("@league/foundry").applications.api.DocumentSheetV2} app
+ * @param {HTMLElement|null|undefined} root
+ * @param {{ preferredSlot?: { slotKind: "base"|"augment", slotIndex: number }, slotSemantic?: string|null }} browserCtx
+ * @param {Map<string, object>} rowByUuid
+ */
+function bindChassisInstallBrowserDropZone(app, root, browserCtx, rowByUuid) {
+	const zone = root?.querySelector("[data-chassis-install-dropzone]");
+	if ( !zone ) return;
+	const setActive = active => zone.classList.toggle("sw5e-chassis-drop-target--active", active);
+	zone.addEventListener("dragenter", event => {
+		event.preventDefault();
+		setActive(true);
+	});
+	zone.addEventListener("dragover", event => {
+		event.preventDefault();
+		setActive(true);
+		if ( event.dataTransfer ) event.dataTransfer.dropEffect = "copy";
+	});
+	zone.addEventListener("dragleave", event => {
+		if ( zone.contains(/** @type {Node} */ (event.relatedTarget)) ) return;
+		setActive(false);
+	});
+	zone.addEventListener("drop", async event => {
+		event.preventDefault();
+		setActive(false);
+		const modItem = await resolveDroppedChassisModificationItem(event);
+		if ( !modItem ) {
+			ui.notifications.warn(game.i18n.localize("SW5E.Chassis.DropInvalid"));
+			return;
+		}
+		const fromRow = rowByUuid.get(String(modItem.uuid)) ?? null;
+		await beginChassisInstallFromModItem(app, modItem, browserCtx, fromRow);
+	});
+}
+
+/**
+ * @param {import("@league/foundry").applications.api.DocumentSheetV2} app
+ * @param {HTMLElement} host
+ */
+function bindChassisSlotDropTargets(app, host) {
+	if ( !app.isEditable ) return;
+	for ( const cell of host.querySelectorAll(".sw5e-chassis-slot-card--empty[data-chassis-dropzone]") ) {
+		const setActive = active => cell.classList.toggle("sw5e-chassis-drop-target--active", active);
+		cell.addEventListener("dragenter", event => {
+			event.preventDefault();
+			setActive(true);
+		});
+		cell.addEventListener("dragover", event => {
+			event.preventDefault();
+			setActive(true);
+			if ( event.dataTransfer ) event.dataTransfer.dropEffect = "copy";
+		});
+		cell.addEventListener("dragleave", event => {
+			if ( cell.contains(/** @type {Node} */ (event.relatedTarget)) ) return;
+			setActive(false);
+		});
+		cell.addEventListener("drop", async event => {
+			event.preventDefault();
+			setActive(false);
+			const modItem = await resolveDroppedChassisModificationItem(event);
+			if ( !modItem ) {
+				ui.notifications.warn(game.i18n.localize("SW5E.Chassis.DropInvalid"));
+				return;
+			}
+			const slotKind = cell.getAttribute("data-chassis-slot-kind");
+			const slotIndexRaw = cell.getAttribute("data-chassis-slot-index");
+			const slotRole = cell.getAttribute("data-chassis-slot-role");
+			/** @type {{ preferredSlot?: { slotKind: "base"|"augment", slotIndex: number }, slotSemantic?: string|null }} */
+			const browserCtx = {};
+			if ( slotKind != null && slotIndexRaw != null && slotIndexRaw !== "" ) {
+				browserCtx.preferredSlot = {
+					slotKind: slotKind === "augment" ? "augment" : "base",
+					slotIndex: Number(slotIndexRaw)
+				};
+			}
+			if ( slotRole ) browserCtx.slotSemantic = slotRole;
+			const rows = await getChassisInstallCandidates(app.item, browserCtx);
+			const fromRow = rows.find(r => String(r.uuid) === String(modItem.uuid)) ?? null;
+			await beginChassisInstallFromModItem(app, modItem, browserCtx, fromRow);
+		});
+	}
+}
+
+/**
+ * @param {import("@league/foundry").applications.api.DocumentSheetV2} app
  * @param {{ preferredSlot?: { slotKind: "base"|"augment", slotIndex: number }, slotSemantic?: string|null }} [browserCtx]
  */
 async function openInstallModificationDialog(app, browserCtx = {}) {
 	const host = app.item;
-	const chassis = normalizeChassis(host, getChassis(host));
 	const rows = await getChassisInstallCandidates(host, browserCtx);
-	const contextLine = formatInstallBrowserContextLine(chassis, browserCtx);
+	const emptyReasonKey = rows.length
+		? null
+		: await diagnoseChassisInstallCandidatesEmpty(host, browserCtx);
+	const emptyReason = emptyReasonKey ? game.i18n.localize(emptyReasonKey) : "";
 
 	const candidates = rows.map(r => ({
 		uuid: r.uuid,
@@ -340,8 +486,8 @@ async function openInstallModificationDialog(app, browserCtx = {}) {
 		tierLabel: game.i18n.localize(`SW5E.Chassis.InstallBrowserTier.${r.tier}`),
 		selectable: r.tier === "valid" || r.tier === "warn",
 		metaLine: formatInstallBrowserMetaLine(host, r),
-		infoHintLine: formatInstallBrowserInfoHintLine(r),
-		warningLine: formatInstallBrowserWarningLine(r),
+		issueLine: formatInstallBrowserIssueLine(r),
+		debugHintLine: formatInstallBrowserDebugHints(r),
 		_row: r
 	}));
 
@@ -350,7 +496,9 @@ async function openInstallModificationDialog(app, browserCtx = {}) {
 
 	const html = await foundry.applications.handlebars.renderTemplate(INSTALL_BROWSER_TEMPLATE, {
 		candidates,
-		contextLine
+		emptyReason,
+		hasDropZone: true,
+		showDebugHints: game.user?.isGM === true && CONFIG?.debug === true
 	});
 
 	await DialogV2.wait({
@@ -363,6 +511,7 @@ async function openInstallModificationDialog(app, browserCtx = {}) {
 		render: (_event, dialog) => {
 			const root = dialog?.form ?? dialog?.element?.querySelector("form") ?? dialog?.element;
 			bindInstallBrowserSearch(root);
+			bindChassisInstallBrowserDropZone(app, root, browserCtx, rowByUuid);
 		},
 		buttons: [
 			{
@@ -396,30 +545,7 @@ async function openInstallModificationDialog(app, browserCtx = {}) {
 						ui.notifications.error(game.i18n.localize("SW5E.Chassis.InstallBrowserRowMissing"));
 						return false;
 					}
-					let placements = fromRow?.placements;
-					if ( !placements?.length ) {
-						const meta = resolveChassisModMetaForInstall(modItem, {
-							allowModificationsPackInference: modificationsPackInferenceEligible(modItem)
-						});
-						const cost = meta?.slotCost ?? 1;
-						placements = findChassisInstallPlacements(chassis, cost);
-					}
-					if ( !placements?.length ) {
-						ui.notifications.error(game.i18n.localize("SW5E.Chassis.InstallNoPlacement"));
-						return false;
-					}
-					/** @type {{ slotSemantic?: string, effectiveChassisModMeta?: object, effectiveChassisModFromBrowser?: boolean, effectiveChassisModTargetUuid?: string }} */
-					const installCtx = { slotSemantic: browserCtx.slotSemantic ?? undefined };
-					if ( fromRow?.meta ) {
-						installCtx.effectiveChassisModMeta = foundry.utils.deepClone(fromRow.meta);
-						installCtx.effectiveChassisModFromBrowser = true;
-						installCtx.effectiveChassisModTargetUuid = fromRow.uuid;
-					}
-					if ( placements.length === 1 ) {
-						void runInstallValidationDialog(app, host, modItem, placements[0], installCtx);
-					} else {
-						void openPlacementPickDialog(app, host, modItem, placements, installCtx);
-					}
+					await beginChassisInstallFromModItem(app, modItem, browserCtx, fromRow);
 					return true;
 				}
 			}
@@ -775,15 +901,9 @@ async function openChassisRarityUpgradeDialog(app) {
 async function buildChassisPanelContext(app) {
 	const item = app.item;
 	const rulesSelectId = foundry.utils.randomID();
-	let worldMode = getModuleSettingValue(CHASSIS_SETTING_KEYS.rulesMode, "guided");
-	if ( !CHASSIS_RULES_MODES.includes(worldMode) ) worldMode = "guided";
-
 	const rawChassis = getChassis(item);
 	const normalized = rawChassis ? normalizeChassis(item, rawChassis) : null;
 	const chassisEnabled = Boolean(normalized?.enabled);
-	const effectiveMode = chassisEnabled ? getEffectiveChassisRulesMode(item) : worldMode;
-	const worldRulesModeLabel = labelRulesMode(worldMode);
-	const effectiveRulesModeLabel = labelRulesMode(effectiveMode);
 
 	const override = normalized?.rulesMode;
 	const rulesModeOptions = [
@@ -819,66 +939,8 @@ async function buildChassisPanelContext(app) {
 	const slotRowsBase = slotRows.filter(r => r.kind === "base");
 	const slotRowsAugment = slotRows.filter(r => r.kind === "augment");
 
-	const installedRows = (normalized?.installedMods ?? []).map(m => {
-		const snapR = m?.snapshot?.rarity;
-		const name = m?.snapshot?.name || m?.uuid || "—";
-		const rawKind = (m?.slotKind ?? "base") === "augment" ? "augment" : "base";
-		const idx0 = Number(m?.slotIndex) || 0;
-		const displayIndex = idx0 + 1;
-		const slotPositionLabel = rawKind === "augment"
-			? game.i18n.format("SW5E.Chassis.SlotTagAugment", { n: displayIndex })
-			: game.i18n.format("SW5E.Chassis.SlotTagBase", { n: displayIndex });
-		return {
-			name,
-			uuid: m?.uuid ?? "",
-			rarityDisplay: formatDndItemRarity(snapR),
-			slotKindLabel: formatSlotKind(m?.slotKind ?? "base"),
-			slotIndex: m?.slotIndex ?? 0,
-			slotPositionLabel,
-			slotCost: m?.slotCost ?? 1,
-			installedTime: formatInstalledTime(m?.installedAt)
-		};
-	});
-
-	let slotsSummaryText = "";
-	let slotsUsedTotal = "";
-	let attunementText = "";
-	let chassisTypeLabel = "";
-	let chassisRarityLabel = "";
-	let rulesModeLine = "";
-	let rulesModePrimaryText = "";
-	let rulesModeSecondaryText = "";
-	let hasRulesOverride = false;
 	let canUpgradeChassis = false;
-	if ( normalized ) {
-		const b = normalized.slots;
-		slotsSummaryText = game.i18n.format("SW5E.Chassis.SlotsSummaryFormat", {
-			base: b.baseMax,
-			augment: b.augmentMax,
-			total: b.totalMax,
-			used: b.used
-		});
-		slotsUsedTotal = game.i18n.format("SW5E.Chassis.SlotsUsedTotal", { used: b.used, total: b.totalMax });
-		const att = normalized.attunement ?? {};
-		attunementText = game.i18n.format("SW5E.Chassis.AttunementFormat", {
-			req: att.required ? game.i18n.localize("SW5E.Chassis.BoolYes") : game.i18n.localize("SW5E.Chassis.BoolNo"),
-			enh: att.enhanced ? game.i18n.localize("SW5E.Chassis.BoolYes") : game.i18n.localize("SW5E.Chassis.BoolNo")
-		});
-		chassisTypeLabel = labelChassisType(normalized.type);
-		chassisRarityLabel = labelChassisRarity(normalized.rarity);
-		canUpgradeChassis = Boolean(getNextChassisRarity(normalized.rarity));
-		const ro = normalized.rulesMode;
-		hasRulesOverride = ro != null && ro !== "";
-		rulesModeLine = hasRulesOverride
-			? game.i18n.format("SW5E.Chassis.RulesLineOverride", { mode: labelRulesMode(ro) })
-			: game.i18n.format("SW5E.Chassis.RulesLineWorld", { world: worldRulesModeLabel });
-		if ( chassisEnabled ) {
-			rulesModePrimaryText = game.i18n.format("SW5E.Chassis.RulesModePrimary", { mode: effectiveRulesModeLabel });
-			rulesModeSecondaryText = hasRulesOverride
-				? game.i18n.format("SW5E.Chassis.RulesModeSecondaryOverride", { world: worldRulesModeLabel })
-				: game.i18n.localize("SW5E.Chassis.RulesModeSecondaryFollowingWorld");
-		}
-	}
+	if ( normalized ) canUpgradeChassis = Boolean(getNextChassisRarity(normalized.rarity));
 
 	/** Read-only sheet cue when installed mods exceed normalized slot budget (homebrew/import/override). */
 	let chassisSlotOverflow = false;
@@ -888,32 +950,17 @@ async function buildChassisPanelContext(app) {
 		chassisSlotOverflow = Number.isFinite(usedN) && Number.isFinite(totalN) && usedN > totalN;
 	}
 
-	const installedLogSummaryText = installedRows.length
-		? game.i18n.format("SW5E.Chassis.InstalledLogSummary", { count: installedRows.length })
-		: "";
+	const panelCollapsed = normalized?.ui?.collapsed === true;
 
 	return {
 		isEditable: app.isEditable,
+		panelCollapsed,
 		chassisEnabled,
 		chassisSlotOverflow,
-		chassisTypeLabel,
-		chassisRarityLabel,
-		effectiveRulesModeLabel,
-		worldRulesModeLabel,
-		rulesModeLine,
-		rulesModePrimaryText,
-		rulesModeSecondaryText,
-		hasRulesOverride,
-		slotsSummaryText,
-		slotsUsedTotal,
-		attunementText,
 		rulesModeOptions,
 		rulesSelectId,
-		slotRows,
 		slotRowsBase,
 		slotRowsAugment,
-		installedRows,
-		installedLogSummaryText,
 		canUpgradeChassis
 	};
 }
@@ -1032,6 +1079,42 @@ function bindChassisPanel(app, host) {
 			case "remove-workflow":
 				void openRemoveModificationDialog(app);
 				break;
+			case "remove-installed": {
+				ev.stopPropagation();
+				const installedUuid = btn.getAttribute("data-chassis-installed-uuid");
+				if ( !installedUuid ) return;
+				void runRemoveValidationAndCommit(app, item, installedUuid, "salvaged");
+				break;
+			}
+			case "open-installed-mod": {
+				ev.stopPropagation();
+				const modUuid = btn.getAttribute("data-chassis-installed-uuid");
+				if ( !modUuid ) {
+					ui.notifications.warn(game.i18n.localize("SW5E.Chassis.OpenInstalledModMissing"));
+					return;
+				}
+				void openInstalledChassisModSheet(modUuid);
+				break;
+			}
+			case "toggle-collapse": {
+				const panel = host.querySelector(".sw5e-chassis-panel");
+				if ( !panel ) return;
+				const willCollapse = !panel.classList.contains("is-collapsed");
+				panel.classList.toggle("is-collapsed", willCollapse);
+				const toggle = /** @type {HTMLButtonElement|null} */ (btn);
+				if ( toggle ) {
+					const tipKey = willCollapse ? "SW5E.Chassis.CollapseExpand" : "SW5E.Chassis.CollapseCollapse";
+					const tip = game.i18n.localize(tipKey);
+					toggle.setAttribute("aria-expanded", String(!willCollapse));
+					toggle.title = tip;
+					toggle.setAttribute("aria-label", tip);
+					toggle.dataset.tooltip = tip;
+				}
+				const cur = getChassis(item);
+				const ui = { ...(isRecord(cur?.ui) ? cur.ui : {}), collapsed: willCollapse };
+				runUpdate(() => item.update(mergeChassisUpdate(item, { ui })));
+				break;
+			}
 			case "upgrade-workflow":
 				void openChassisRarityUpgradeDialog(app);
 				break;
@@ -1039,6 +1122,8 @@ function bindChassisPanel(app, host) {
 				break;
 		}
 	});
+
+	bindChassisSlotDropTargets(app, host);
 }
 
 /**
@@ -1066,11 +1151,15 @@ async function injectChassisPanel(app, html) {
 	tabDetails.insertBefore(host, tabDetails.firstChild);
 
 	bindChassisPanel(app, host);
+	void prefetchInstalledModEffectsForHost(item, { persist: true });
 }
 
 export function patchChassisItemSheet() {
 	Hooks.on("renderItemSheet5e", (app, html) => {
 		void injectChassisPanel(app, html);
+	});
+	Hooks.on("renderActorSheet5e", (app) => {
+		if ( app.actor ) void prefetchInstalledModEffectsForActor(app.actor);
 	});
 	Hooks.on("updateItem", (item, change) => {
 		syncChassisFlagsRarityFromItem(item, change);

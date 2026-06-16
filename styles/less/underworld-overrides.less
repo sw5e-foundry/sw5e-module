@@ -1,0 +1,2821 @@
+/* Underworld Alloy — U2 global app/dialog foundation (no parchment, no gold/tan fantasy borders) */
+
+body[data-sw5e-theme="sw5e-underworld"] {
+  color-scheme: var(--sw5e-theme-color-scheme);
+}
+
+/* Foundry core UI — mirror variables onto closer owners */
+body[data-sw5e-theme="sw5e-underworld"] :is(#interface, #sidebar, .sidebar-tab) {
+  --sidebar-background: var(--sw5e-foundry-sidebar-background);
+  --background: var(--sw5e-foundry-app-background);
+  --color-text-primary: var(--sw5e-foundry-text);
+  --color-text-secondary: var(--sw5e-foundry-text-muted);
+  --color-canvas-1: var(--sw5e-foundry-canvas-1);
+  --color-canvas-2: var(--sw5e-foundry-canvas-2);
+  --color-canvas-3: var(--sw5e-foundry-canvas-3);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed,
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed :is(.ui-control, .inline-control) {
+  --button-background-color: var(--sw5e-foundry-control-background);
+  --button-text-color: var(--sw5e-foundry-control-text);
+  --control-icon-color: var(--sw5e-foundry-control-icon);
+  --button-hover-background-color: var(--sw5e-foundry-control-background-hover);
+  --button-hover-text-color: var(--sw5e-foundry-control-text);
+  --button-active-background-color: var(--sw5e-foundry-control-background-active);
+  --button-active-text-color: var(--sw5e-foundry-control-text);
+  --button-border-color: var(--sw5e-foundry-control-border);
+  --control-hover-icon-color: var(--sw5e-foundry-control-icon-active);
+  --control-active-icon-color: var(--sw5e-foundry-control-icon-active);
+  --control-border-color: var(--sw5e-foundry-control-border);
+}
+
+/* Foundry shell — sidebar tab strip */
+body[data-sw5e-theme="sw5e-underworld"] #sidebar-tabs .ui-control {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 35%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #sidebar-tabs .ui-control:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, transparent),
+    0 0 10px var(--sw5e-underworld-glow-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #sidebar-tabs .ui-control.active {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 18%, var(--sw5e-underworld-panel)) !important;
+  border-color: var(--sw5e-underworld-neon-cyan) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 38%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 12px var(--sw5e-underworld-glow-blue) !important;
+}
+
+/* Foundry shell — scene controls + navigation */
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control,
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #scene-navigation-expand {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 35%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control:is(:hover, :focus, :focus-visible),
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #scene-navigation-expand:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, transparent),
+    0 0 10px var(--sw5e-underworld-glow-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control.active,
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control.scene.active {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 18%, var(--sw5e-underworld-panel)) !important;
+  border-color: var(--sw5e-underworld-neon-cyan) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 38%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 12px var(--sw5e-underworld-glow-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed :is(#scene-controls-tools, #scene-controls-layers, #scene-navigation) .ui-control:is(.disabled, :disabled),
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #scene-navigation-expand:is(.disabled, :disabled) {
+  opacity: 0.45 !important;
+  box-shadow: none !important;
+}
+
+/* Foundry shell — hotbar */
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #hotbar .slot {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 35%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-foundry-control-text) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #hotbar .slot:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, transparent),
+    0 0 10px var(--sw5e-underworld-glow-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #hotbar .slot:is(:active, .drop-target, .drag-over) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 18%, var(--sw5e-underworld-panel)) !important;
+  border-color: var(--sw5e-underworld-neon-cyan) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 38%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 0 12px var(--sw5e-underworld-glow-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #hotbar .slot .key {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 24%, var(--sw5e-underworld-graphite)) !important;
+  color: var(--sw5e-foundry-control-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #hotbar .ui-control,
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #hotbar-page-controls .hotbar-page-control {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 35%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-foundry-control-icon) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #hotbar .ui-control:is(:hover, :focus, :focus-visible),
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #hotbar-page-controls .hotbar-page-control:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, transparent),
+    0 0 10px var(--sw5e-underworld-glow-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #hotbar-page-controls .hotbar-page-control:active {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 18%, var(--sw5e-underworld-panel)) !important;
+  border-color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #interface.themed #hotbar-page-controls .hotbar-page-number {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 35%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-foundry-control-text) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #pause {
+  color: var(--sw5e-foundry-text-muted) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] #pause figcaption {
+  color: var(--sw5e-theme-heading) !important;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.75),
+    0 0 14px var(--sw5e-underworld-glow-purple) !important;
+}
+
+/* Foundry application/window shells */
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app) {
+  --color-text-primary: var(--sw5e-foundry-text);
+  --color-text-secondary: var(--sw5e-foundry-text-muted);
+  --color-canvas-1: var(--sw5e-foundry-canvas-1);
+  --color-canvas-2: var(--sw5e-foundry-canvas-2);
+  --color-canvas-3: var(--sw5e-foundry-canvas-3);
+  --color-border: var(--sw5e-foundry-border);
+  --color-fieldset-border: var(--sw5e-foundry-border);
+  --color-header-background: var(--sw5e-foundry-content-background);
+  --color-form-label: var(--sw5e-foundry-text);
+  --color-form-label-hover: var(--sw5e-foundry-text);
+  --color-form-hint: var(--sw5e-foundry-text-muted);
+  --color-form-hint-hover: var(--sw5e-foundry-text-muted);
+  --color-select-option-bg: var(--sw5e-foundry-input-background);
+  --background: var(--sw5e-foundry-app-background);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app):not(.sw5e-theme-root) {
+  --background: var(--sw5e-foundry-app-window-background);
+  --color-canvas-1: var(--sw5e-foundry-window-canvas-1);
+  --color-canvas-2: var(--sw5e-foundry-window-canvas-2);
+  --color-canvas-3: var(--sw5e-foundry-window-canvas-3);
+  --color-header-background: var(--sw5e-foundry-window-titlebar-background);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app):not(.sw5e-theme-root) .window-header {
+  background: var(--sw5e-foundry-window-titlebar-background);
+  border-bottom: 1px solid var(--sw5e-foundry-window-titlebar-border);
+  color: var(--sw5e-foundry-window-titlebar-text);
+  box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--sw5e-underworld-neon-purple) 12%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app):not(.sw5e-theme-root) .window-header .window-title {
+  color: var(--sw5e-foundry-window-titlebar-text);
+  font-family: var(--sw5e-font-heading);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app):not(.sw5e-theme-root) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="close"]
+) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-underworld-panel) 82%, black);
+  --button-hover-background-color: var(--sw5e-foundry-window-close-hover-background);
+  --button-text-color: var(--sw5e-foundry-window-close-color);
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 82%, black) !important;
+  color: var(--sw5e-foundry-window-close-color) !important;
+  border: 1px solid var(--sw5e-foundry-window-titlebar-border) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app):not(.sw5e-theme-root) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="close"]
+):is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-foundry-window-close-hover-background) !important;
+  color: var(--sw5e-foundry-window-close-hover-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 42%, transparent) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-purple) 24%, transparent),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app):not(.sw5e-theme-root) .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="close"]
+) :is(i, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  color: inherit !important;
+  --icon-fill: currentColor;
+}
+
+/* SW5E-themed application roots */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root {
+  color: var(--sw5e-theme-text);
+  font-family: var(--sw5e-font-body);
+  --color-text-dark: var(--sw5e-theme-text);
+  --color-text-dark-secondary: var(--sw5e-theme-muted-text);
+  --color-text-primary: var(--sw5e-theme-text);
+  --color-text-secondary: var(--sw5e-theme-muted-text);
+  --color-form-label: var(--sw5e-theme-text);
+  --color-form-hint: var(--sw5e-theme-muted-text);
+  --dnd5e-color-parchment: var(--sw5e-theme-text);
+  --dnd5e-color-tan: var(--sw5e-theme-text);
+  --control-button-text-color: var(--sw5e-underworld-neon-cyan);
+  --hint-icon-color: var(--sw5e-underworld-neon-cyan);
+  --item-control-header-color: var(--sw5e-underworld-neon-cyan);
+  --item-control-active-color: var(--sw5e-underworld-neon-blue);
+  --item-state-toggle-active: var(--sw5e-underworld-neon-blue);
+  --filter-control-active-color: var(--sw5e-underworld-neon-blue);
+  --proficiency-cycle-enabled-color: var(--sw5e-underworld-neon-cyan);
+  --proficiency-cycle-disabled-color: var(--sw5e-underworld-proficiency-inactive);
+  --slide-toggle-track-color-checked: var(--sw5e-underworld-neon-blue);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .window-app[data-sw5e-theme-root] .window-content,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application {
+  background-color: var(--sw5e-theme-page-center) !important;
+  background-image: var(--sw5e-theme-window-background) !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .window-app[data-sw5e-theme-root] .window-header {
+  border-bottom: 1px solid color-mix(in srgb, var(--sw5e-theme-line) 42%, var(--sw5e-underworld-border));
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root .sheet-body,
+body[data-sw5e-theme="sw5e-underworld"] section.sw5e-augmentations-manager,
+body[data-sw5e-theme="sw5e-underworld"] section.sw5e-droid-customizations-manager {
+  background-color: var(--sw5e-theme-page-center) !important;
+  background-image: var(--sw5e-theme-surface-background) !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(.window-title, h1, h2, h3, h4:not(.dice-total), h5, h6, legend, .roboto-upper, .roboto-condensed-upper, .sw5e-starship-kicker, .sw5e-bodymods-inline-title, .sw5e-deployment-features-header .title) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(p, li, label, span, dd, dt, td, th, input, select, textarea, button) {
+  font-family: var(--sw5e-font-body);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(.hint, .notes) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(a, strong, em, small, summary, .message-sender, .message-content, .message-metadata, .flavor-text, .card-header, .card-header *, .content-link, .inline-roll, .roll-link, .roll-total, .dice-total, .dice-formula, .dice-flavor, .item-name, .item-name *, .title, .name-stacked, .tag, .metadata) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(a.content-link, a.inline-roll, .roll-link) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, var(--sw5e-underworld-border)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(.card, fieldset.card, fieldset, .pill-lg, .form-group.card, .sw5e-chassis-panel, .sw5e-starship-group.items-section.card, .sw5e-currency-card, .sw5e-bodymods-inline-card, .sw5e-deployment-pill) {
+  background: var(--sw5e-theme-panel-background) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-theme-shadow);
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(hr, .separator, .window-header, .window-content, .sheet-header) {
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+/* Inputs / selects */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(input, select, textarea) {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(input, select, textarea):is(:hover, :focus, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 0 2px var(--sw5e-underworld-control-ring) !important;
+  outline: none;
+}
+
+/* Global select/dropdown normalization — beats legacy dashboard surfaces and mixed Foundry color-scheme. */
+body[data-sw5e-theme="sw5e-underworld"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select {
+  background: var(--sw5e-underworld-input-bg) !important;
+  background-color: var(--sw5e-underworld-input-bg) !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color-scheme: dark !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select option {
+  background: var(--sw5e-underworld-input-bg);
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select:is(:hover, :focus, :focus-visible):not(:disabled) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 0 2px var(--sw5e-underworld-control-ring) !important;
+  outline: none;
+}
+
+/* Button foundation */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(button, .dialog-button, .create-document, [data-advantage-mode], [type="submit"], .sw5e-bodymods-inline-card, .sw5e-deployment-card-open) {
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-leather-deep) 72%, var(--sw5e-underworld-border)) !important;
+  border-radius: 6px;
+  color: var(--sw5e-theme-text) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  background-image: none !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(button.default, .dialog-button.default, [type="submit"], .sw5e-bodymods-inline-card, .sw5e-deployment-card-open) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(button:hover, .dialog-button:hover, .create-document:hover, [data-advantage-mode]:hover, [type="submit"]:hover) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 14%, var(--sw5e-underworld-panel)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 10px var(--sw5e-underworld-glow-blue) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(button.danger, button.destructive, .dialog-button.danger, [data-action="delete"]) {
+  background: color-mix(in srgb, var(--sw5e-underworld-danger) 16%, var(--sw5e-underworld-panel)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-danger) 42%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(button.danger, button.destructive, .dialog-button.danger, [data-action="delete"]):is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-underworld-danger) 24%, var(--sw5e-underworld-panel)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-danger) 58%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--sw5e-underworld-danger) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(
+  .config-button,
+  .control-button,
+  .trait-selector,
+  .item-control,
+  .sheet-header-control,
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]) {
+  background: transparent !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(
+  .config-button,
+  .control-button,
+  .trait-selector,
+  .item-control,
+  .sheet-header-control,
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+) :is(i, .gold-icon, .sw5e-deployment-icon-placeholder, .fas, .fa-solid, .fa-regular, .fa-light)::before {
+  color: inherit !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(
+  .config-button,
+  .control-button,
+  .trait-selector,
+  .item-control,
+  .sheet-header-control,
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+):is(:hover, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 36%, transparent) !important;
+  box-shadow: 0 0 0 1px var(--sw5e-underworld-control-ring) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(
+  .config-button,
+  .control-button,
+  .trait-selector,
+  .item-control,
+  .sheet-header-control,
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+):is(.active, .selected, [aria-pressed="true"], [aria-selected="true"]) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 16%, var(--sw5e-underworld-panel)) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(button, .dialog-button, .control-button) :is(.fas, .fa-solid, .fa-regular, .fa-light, .fa) {
+  font-family: var(--font-awesome) !important;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Config-sheet foundation */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.config-sheet,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.config-sheet {
+  --radio-list-hover: var(--sw5e-underworld-hover-tint);
+  color-scheme: dark;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.creature-type.config-sheet .final-value,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.config-sheet .final-value {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.creature-type.config-sheet .type-row label:hover,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.config-sheet .form-group:hover {
+  background: var(--sw5e-underworld-hover-tint) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.creature-type.config-sheet .type-row input[type="radio"],
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.config-sheet input[type="radio"],
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.config-sheet input[type="checkbox"] {
+  accent-color: var(--sw5e-underworld-neon-cyan);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.config-sheet .form-group label,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.config-sheet .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.config-sheet fieldset,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.config-sheet fieldset {
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.config-sheet .sheet-footer :is(button, [type="submit"]),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.config-sheet .sheet-footer :is(button, [type="submit"]) {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.config-sheet .sheet-footer :is(button, [type="submit"]):is(:hover, :focus-visible),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.config-sheet .sheet-footer :is(button, [type="submit"]):is(:hover, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2:is(.advancement.sheet, .config-sheet) :is(file-picker, document-tags) > button {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2:is(.advancement.sheet, .config-sheet) :is(file-picker, document-tags) > button:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2:is(.advancement.sheet, .config-sheet) :is(file-picker, document-tags) > button:is(.icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  font-family: var(--font-awesome) !important;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Roll configuration foundation */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration {
+  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  background-image: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration .window-header {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration .window-subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration .rolls .formulas {
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--sw5e-underworld-leather-deep) 28%, var(--sw5e-underworld-graphite)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration .rolls .formulas .formula {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration .rolls .formulas .label {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration .rolls .dice .label {
+  color: var(--sw5e-theme-heading) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration fieldset {
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 82%, black) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration :is(input, select) {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration :is(input, select):is(:hover, :focus, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 0 2px var(--sw5e-underworld-control-ring) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration nav.dialog-buttons > :is(button, [type="submit"]) {
+  background-color: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration nav.dialog-buttons > :is(button, [type="submit"]):is(:hover, :focus-visible) {
+  background-color: var(--sw5e-underworld-hover-tint) !important;
+  background-image: none !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: 0 0 10px var(--sw5e-underworld-glow-blue) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.application.roll-configuration nav.dialog-buttons > :is(button, [type="submit"])[autofocus] {
+  background-color: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
+  background-image: none !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+/* Body-level dnd5e tooltips */
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) {
+  background-image: none !important;
+  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong) 0%, var(--sw5e-underworld-panel) 100%) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 color-mix(in srgb, var(--sw5e-underworld-neon-purple) 14%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) :is(.content, .header, .description, p, li, span, div) {
+  color: inherit !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) .header {
+  border-bottom: 1px solid var(--sw5e-underworld-row-divider);
+  margin-bottom: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) .header :is(.title, h2) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  font-weight: 700;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) :is(.header .subtitle, .bottom, .price, .charges, .weight) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) .description :is(h1, h2, h3, h4) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) :is(strong, .spell-block strong) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) a {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) .pills .pill {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) .pills .pill,
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) .pills .pill :is(.label, span) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) .control-hint {
+  color: var(--sw5e-theme-muted-text) !important;
+  border-top: 1px solid var(--sw5e-underworld-row-divider);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).dnd5e-tooltip:is(.item-tooltip, .rule-tooltip) img {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-purple) 34%, var(--sw5e-underworld-border)) !important;
+  box-shadow: none !important;
+}
+
+/* Scrollbars on SW5E-themed surfaces */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(.window-content, .sheet-body, .window-content.scrollable) {
+  scrollbar-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, transparent) color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black);
+  scrollbar-width: thin;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(.window-content, .sheet-body, .window-content.scrollable)::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(.window-content, .sheet-body, .window-content.scrollable)::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black);
+  border-radius: 999px;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(.window-content, .sheet-body, .window-content.scrollable)::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, transparent);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(.window-content, .sheet-body, .window-content.scrollable)::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 75%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root :is(.window-content, .sheet-body, .window-content.scrollable)::-webkit-scrollbar-corner {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black);
+}
+
+/* Underworld Alloy — U3 PC/NPC actor sheet surfaces */
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) {
+  --sw5e-underworld-sidebar-label: color-mix(in srgb, var(--sw5e-underworld-sand) 68%, var(--sw5e-underworld-neon-cyan) 32%);
+  --sw5e-underworld-sidebar-label-muted: var(--sw5e-theme-muted-text);
+  --sw5e-underworld-sidebar-ornament-outline: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 34%, var(--sw5e-underworld-border));
+  --sw5e-underworld-sidebar-ornament-outline-strong: color-mix(in srgb, var(--sw5e-underworld-neon-purple) 24%, var(--sw5e-underworld-leather-deep));
+  --sw5e-underworld-sidebar-ornament-fill: linear-gradient(180deg, var(--sw5e-underworld-panel-strong) 0%, var(--sw5e-underworld-panel) 100%);
+  --sw5e-underworld-sidebar-ornament-shadow: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.32));
+  --sw5e-underworld-sidebar-ornament-shadow-lozenge: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.28));
+  --sw5e-underworld-sidebar-ornament-inner-line: rgba(255, 255, 255, 0.06);
+  --sw5e-underworld-ability-score-fill: linear-gradient(180deg, color-mix(in srgb, var(--sw5e-underworld-panel-strong) 92%, black) 0%, color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) 100%);
+  --sw5e-underworld-ability-score-border: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 28%, var(--sw5e-underworld-border));
+  --sw5e-underworld-ability-score-tab-filter: brightness(0.52) saturate(0.38) hue-rotate(168deg) contrast(0.92);
+  --filigree-border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 34%, var(--sw5e-underworld-leather));
+  --filigree-background-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --filigree-drop-shadow: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body {
+  background-image: var(--sw5e-theme-surface-background) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc):not(.minimized) .window-content::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc):not(.minimized)::before {
+  background: none !important;
+  opacity: 0 !important;
+}
+
+/* Header */
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  .application,
+  .window-app
+).dnd5e2.sheet.actor:is(.character, .npc) .window-header {
+  color: var(--sw5e-theme-text);
+  border-bottom-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  .application,
+  .window-app
+).dnd5e2.sheet.actor:is(.character, .npc) .window-header::before,
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  .application,
+  .window-app
+).dnd5e2.sheet.actor:is(.character, .npc) .window-header::after {
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .sheet-header > .left > .document-name {
+  color: var(--sw5e-underworld-sand) !important;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.75),
+    0 0 12px var(--sw5e-underworld-glow-purple) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .sheet-header > .left > .class {
+  color: var(--sw5e-theme-muted-text) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right > div:last-child .xp-bar {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, var(--sw5e-underworld-border)) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-graphite) 72%, black);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  .application,
+  .window-app
+).dnd5e2.sheet.actor:is(.character, .npc) .window-header slide-toggle.mode-slider {
+  --slide-toggle-track-color-checked: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 22%, var(--sw5e-underworld-panel));
+  --slide-toggle-track-color-unchecked: transparent;
+  --slide-toggle-thumb-color: var(--sw5e-underworld-sand);
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  .application,
+  .window-app
+).dnd5e2.sheet.actor:is(.character, .npc) .window-header slide-toggle.mode-slider:is(:hover, :focus, :focus-visible) {
+  color: var(--sw5e-underworld-neon-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  .application,
+  .window-app
+).dnd5e2.sheet.actor:is(.character, .npc) .window-header slide-toggle.mode-slider:is(:hover, :focus, :focus-visible) .slide-toggle-track {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent) !important;
+  box-shadow: 0 0 0 1px var(--sw5e-underworld-control-ring) !important;
+}
+
+/* Vertical tabs */
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item {
+  background: var(--sw5e-underworld-tab-inactive-fill) !important;
+  color: var(--sw5e-theme-text) !important;
+  --icon-fill: var(--sw5e-underworld-neon-cyan);
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-underworld-tab-glow-soft) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item::after {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 28%, var(--sw5e-underworld-border)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item :is(i, dnd5e-icon) {
+  color: inherit !important;
+  --icon-fill: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item:is(:hover, :focus, :focus-visible):not(.active) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  --icon-fill: var(--sw5e-underworld-neon-cyan);
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+  box-shadow:
+    0 0 0 1px var(--sw5e-underworld-control-ring),
+    0 0 10px var(--sw5e-underworld-glow-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item.active {
+  background: var(--sw5e-underworld-tab-active-fill) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  --icon-fill: var(--sw5e-underworld-neon-cyan);
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  box-shadow: var(--sw5e-underworld-tab-glow-strong), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item.active::after {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 42%, transparent) !important;
+}
+
+/* Ability scores */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .ability-scores .ability-score {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.28)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .ability-scores .ability-score::before {
+  filter: var(--sw5e-underworld-ability-score-tab-filter) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .ability-scores .ability-score .label {
+  color: var(--sw5e-underworld-sidebar-label) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .ability-scores .ability-score .mod {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .ability-scores .ability-score .score {
+  background: var(--sw5e-underworld-ability-score-fill) !important;
+  border: 1px solid var(--sw5e-underworld-ability-score-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .ability-scores .ability-score .score > input {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .ability-scores .ability-score .score > input:is(:hover, :focus) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 4px var(--sw5e-underworld-glow-blue) !important;
+}
+
+/* Character sidebar */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card :is(
+  .meter.sectioned,
+  .meter.hit-dice,
+  .meter.sw5e-power-points,
+  .meter.force-points
+) {
+  border-color: var(--sw5e-underworld-meter-shell-border) !important;
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card :is(
+  .meter.sectioned,
+  .meter.hit-dice,
+  .meter.sw5e-power-points,
+  .meter.force-points
+):is(:hover, :focus-within) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait {
+  filter: var(--sw5e-underworld-sidebar-ornament-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait > :is(img, video) {
+  border-bottom-color: var(--sw5e-underworld-sidebar-ornament-outline) !important;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sw5e-underworld-panel-strong) 92%, black) 0%, color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black) 100%) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), inset 0 -18px 28px rgba(0, 0, 0, 0.22);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait::after {
+  border-color: var(--sw5e-underworld-sidebar-ornament-outline) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 5px 12px rgba(0, 0, 0, 0.28);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .portrait > label.slide-toggle {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black) 72%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar :is(
+  .card .stats .lozenges .lozenge .label,
+  .card .meter-group > .label,
+  .favorites > h3
+) {
+  color: var(--sw5e-underworld-sidebar-label) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  .sheet-body .sidebar .card .stats .top .ac-badge,
+  .sheet-header > .right .level-badge
+) {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  background: none !important;
+  color: var(--sw5e-theme-text) !important;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
+  filter: var(--sw5e-underworld-sidebar-ornament-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .ac-badge::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .ac-badge::after,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .ac-badge::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge::before {
+  inset: 0;
+  z-index: -2;
+  background: var(--sw5e-underworld-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .ac-badge::before {
+  clip-path: polygon(50% 0, 84% 12%, 94% 46%, 78% 86%, 50% 100%, 22% 86%, 6% 46%, 16% 12%);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .top .ac-badge::after {
+  inset: 3px;
+  clip-path: polygon(50% 0, 84% 12%, 94% 46%, 78% 86%, 50% 100%, 22% 86%, 6% 46%, 16% 12%);
+  background: var(--sw5e-underworld-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-underworld-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge::after {
+  border-radius: 50%;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-header > .right .level-badge::after {
+  inset: 4px;
+  background: var(--sw5e-underworld-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-underworld-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  background: none !important;
+  filter: var(--sw5e-underworld-sidebar-ornament-shadow-lozenge) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  clip-path: polygon(50% 0, 94% 22%, 100% 50%, 94% 78%, 50% 100%, 6% 78%, 0 50%, 6% 22%);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::before {
+  z-index: -2;
+  background: var(--sw5e-underworld-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .card .stats .lozenges .lozenge::after {
+  inset: 2px 1px;
+  background: var(--sw5e-underworld-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-underworld-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .sheet-body .sidebar .favorites > ul .drop {
+  color: var(--sw5e-underworld-empty-text) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 72%, black) !important;
+  opacity: 0.82 !important;
+}
+
+/* Filigree panels — skills / saves / tools */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box:is(.skills, .saves, .tools) > ul > li {
+  border-bottom: 1px solid var(--sw5e-underworld-row-divider);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box.skills > ul > li .ability,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box.saves > ul > li .name.abbr {
+  color: var(--sw5e-underworld-sidebar-label) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box.skills > ul > li :is(.name.skill-name, .bonus),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box.saves > ul > li :is(.name.full, .bonus) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box.skills > ul > li .passive {
+  color: var(--sw5e-underworld-empty-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character filigree-box > ul > li:is(:hover, :focus-within) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  filigree-box > h3 .roboto-upper,
+  .favorites > h3 .roboto-upper,
+  .favorites > h3,
+  .pills-group > h3 .roboto-upper,
+  section.items-list > .items-section.card > .items-header.header .roboto-upper
+) {
+  color: var(--sw5e-theme-heading) !important;
+  text-shadow: none !important;
+}
+
+/* Inventory / effects list headers */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) section.items-list > .items-section.card > .items-header.header {
+  background: var(--sw5e-underworld-section-header-background) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-left: 3px solid var(--sw5e-underworld-neon-magenta) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(0, 0, 0, 0.18) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) section.items-list > .items-section.card > .items-header.header > :is(h3, .item-name) {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) section.items-list > .items-section.card > .items-header.header > :not(:is(h3, .item-name)) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) section.items-list .items-section.card .item:is(:hover, :focus-within) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+}
+
+/* Item icons and controls */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) :is(
+  .gold-icon,
+  .item-image.gold-icon,
+  .sw5e-deployment-icon-placeholder
+) {
+  border-color: var(--sw5e-underworld-icon-frame-border) !important;
+  background-color: color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.18) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .items-section .item .item-controls :is(
+  button,
+  a
+).item-control {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .items-section .item .item-controls :is(
+  button,
+  a
+).item-control:is(:hover, :focus, :focus-visible) {
+  color: var(--sw5e-underworld-neon-blue) !important;
+  background: var(--sw5e-underworld-hover-tint) !important;
+  box-shadow: 0 0 0 1px var(--sw5e-underworld-control-ring) !important;
+}
+
+/* Pills / chips on character details */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .tab-body .right :is(.pill-lg, .sw5e-bodymods-inline-card, .sw5e-deployment-pill) {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-underworld-card-shadow-soft) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character .tab-body .right .pills .pill {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  .tab-body .right,
+  .sheet-body
+) .pill-lg.texture {
+  --pill-underlay-opacity: 0;
+  --pill-background-blend-mode: normal;
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  background-blend-mode: normal !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-underworld-card-shadow-soft) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.character :is(
+  .tab-body .right,
+  .sheet-body
+) .pill-lg.texture::before {
+  opacity: 0 !important;
+  background: none !important;
+}
+
+/* SW5E powers banner on PC actor sheets */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .sw5e-powers-summary.sw5e-powers-banner {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-underworld-card-shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.character, .npc) .sw5e-powers-banner-kicker {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+/* Underworld Alloy — U4 item sheet surfaces */
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item {
+  --filigree-border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 34%, var(--sw5e-underworld-leather));
+  --filigree-background-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --filigree-drop-shadow: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.item.sw5e-theme-root {
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item:not(.minimized) .window-content::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item:not(.minimized)::before {
+  background: none !important;
+  opacity: 0 !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand {
+  background-image: url("/modules/sw5e-module/assets/ui/SW5e-logo2.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  height: 24px;
+  opacity: 0.88;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand::before {
+  background: linear-gradient(to left, var(--sw5e-theme-heading), transparent) !important;
+  inset-inline-end: calc(50% + 26px) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item hr.ampersand::after {
+  background: linear-gradient(to right, var(--sw5e-theme-heading), transparent) !important;
+  inset-inline-start: calc(50% + 26px) !important;
+}
+
+/* Item window header */
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.item .window-header {
+  color: var(--sw5e-theme-text);
+  border-bottom-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.item .window-header::before,
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.item .window-header::after {
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  .application,
+  .window-app
+).dnd5e2.sheet.item .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="toggleControls"],
+  .header-control[data-action="copyUuid"],
+  .header-control[data-action="close"]
+):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]) {
+  --button-background-color: transparent;
+  --button-hover-background-color: transparent;
+  --button-text-color: var(--sw5e-underworld-neon-cyan);
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  .application,
+  .window-app
+).dnd5e2.sheet.item .window-header :is(
+  .header-button,
+  .pseudo-header-button,
+  .header-control,
+  .header-button.close,
+  .header-button[data-action="close"],
+  .header-control[data-action="toggleControls"],
+  .header-control[data-action="copyUuid"],
+  .header-control[data-action="close"]
+):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]):is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, transparent) !important;
+  box-shadow: 0 0 0 1px var(--sw5e-underworld-control-ring) !important;
+}
+
+/* Item sheet header */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .sheet-header > .left > .item-image,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .sheet-header > .left > :is(.profile-img, img.profile) {
+  border: 1px solid var(--sw5e-underworld-icon-frame-border) !important;
+  background-color: color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 18%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .sheet-header .document-name {
+  color: var(--sw5e-underworld-sand) !important;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.75),
+    0 0 12px var(--sw5e-underworld-glow-purple) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .sheet-header .subtitles,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .sheet-header .common-fields {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .sheet-header .common-fields .value {
+  color: var(--sw5e-theme-text) !important;
+}
+
+/* Horizontal tabs */
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab] {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab]:is(:hover, :focus, :focus-visible):not(.active) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  text-shadow: 0 0 8px var(--sw5e-underworld-glow-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab].active {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.item .sheet-tabs.tabs [data-tab].active :is(label, span) {
+  border-bottom: 3px solid var(--sw5e-underworld-neon-cyan) !important;
+  box-shadow: 0 2px 8px var(--sw5e-underworld-glow-blue) !important;
+}
+
+/* Details tab */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="details"] :is(fieldset, .sw5e-chassis-panel) {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="details"] legend {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="details"] .form-group > label,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="details"] label.checkbox {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="details"] :is(.hint, .notes, .sw5e-chassis-hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="details"] :is(input, select, textarea):not([type="checkbox"]):not([type="radio"]) {
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="details"] :is(input, select, textarea):not([type="checkbox"]):not([type="radio"]):is(:focus, :focus-visible):not(:disabled):not([readonly]) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 0 1px var(--sw5e-underworld-control-ring) !important;
+  outline: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="details"] :is(input, select, textarea):not([type="checkbox"]):not([type="radio"]):is(:disabled, [readonly]) {
+  background: color-mix(in srgb, var(--sw5e-theme-input) 62%, rgba(16, 16, 16, 0.92)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-input-border) 42%, transparent) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+  opacity: 1;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="details"] :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-empty-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
+  accent-color: var(--sw5e-underworld-neon-cyan);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="details"] .form-group .sep.unit {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+/* Info-block chips */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .info-block {
+  gap: 12px;
+  padding: 4px 6px 10px;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div .label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--sw5e-theme-muted-text) !important;
+  letter-spacing: 0.04em;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div .value,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div.info-sm div.value {
+  color: var(--sw5e-theme-text) !important;
+  font-weight: 500;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div.info-grid .value .key {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .info-block > div.info-grid .value .value {
+  color: var(--sw5e-theme-text) !important;
+}
+
+/* Description / ProseMirror */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .item-descriptions > .card.description.collapsible {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .item-descriptions > .card.description.collapsible > .header {
+  color: var(--sw5e-theme-heading) !important;
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor {
+  --menu-background: color-mix(in srgb, var(--sw5e-underworld-hover-tint) 55%, var(--sw5e-underworld-panel));
+  --color-hover-bg: var(--sw5e-underworld-hover-tint);
+  --button-text-color: var(--sw5e-underworld-neon-cyan);
+  --color-form-label-hover: var(--sw5e-underworld-neon-blue);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor menu.editor-menu {
+  --menu-background: color-mix(in srgb, var(--sw5e-underworld-hover-tint) 55%, var(--sw5e-underworld-panel));
+  --color-hover-bg: var(--sw5e-underworld-hover-tint);
+  --button-text-color: var(--sw5e-underworld-neon-cyan);
+  --color-form-label-hover: var(--sw5e-underworld-neon-blue);
+  background: color-mix(in srgb, var(--sw5e-underworld-hover-tint) 55%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 6px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor menu.editor-menu button {
+  background: transparent !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor menu.editor-menu button :is(i, span) {
+  color: inherit !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor menu.editor-menu button:is(:hover, :focus, :focus-visible, .active) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent) !important;
+  box-shadow: 0 0 0 1px var(--sw5e-underworld-control-ring) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor .editor-content,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item prose-mirror.editor .ProseMirror {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+/* Property / metadata pills */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .pills .pill.transparent,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .pills .pill {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 28%, var(--sw5e-underworld-border)) !important;
+  border-style: solid !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .pills .pill.transparent :is(.label, span, i, dnd5e-icon),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .pills .pill :is(.label, span, i, dnd5e-icon) {
+  color: var(--sw5e-theme-text) !important;
+  --icon-fill: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .pills .pill.transparent:is(:hover, :focus, :focus-visible),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .pills .pill:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+/* File-picker browse buttons */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item :is(file-picker, document-tags) > button {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item :is(file-picker, document-tags) > button:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item :is(file-picker, document-tags) > button:is(.icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  font-family: var(--font-awesome) !important;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* List section headers — Advancement / Activities / Effects */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section.items-list > .items-section.card > .items-header.header {
+  background: var(--sw5e-underworld-section-header-background) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-left: 3px solid var(--sw5e-underworld-neon-magenta) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(0, 0, 0, 0.18) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section.items-list > .items-section.card > .items-header.header > :is(h3, .item-name) {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section.items-list > .items-section.card > .items-header.header > :not(:is(h3, .item-name)) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+/* Advancement / Activities / Effects list cards */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .items-section.card {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text);
+  overflow: hidden;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-list > li.item {
+  border-bottom: 1px solid var(--sw5e-underworld-row-divider) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-list > li.item:nth-child(odd) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 6%, var(--sw5e-underworld-panel)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-list > li.item:nth-child(even) {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-list > li.item:is(:hover, :focus-within) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) :is(.gold-icon, .item-image.gold-icon) {
+  border-color: var(--sw5e-underworld-icon-frame-border) !important;
+  background-color: color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.18) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-list > li.item:is(:hover, :focus-within) :is(.gold-icon, .item-image.gold-icon) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-name .title,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-name.activity-name {
+  color: var(--sw5e-theme-text) !important;
+  font-family: var(--sw5e-font-body) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-name .summary {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-name .summary .tag {
+  color: var(--sw5e-theme-muted-text) !important;
+  text-decoration-color: color-mix(in srgb, var(--sw5e-theme-muted-text) 55%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-name .summary :is(.content-link, .content-link > i) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) :is(.advancement-value, .item-detail.advancement-value) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-detail.advancement-value.empty::after {
+  color: var(--sw5e-underworld-empty-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .items-header :is(.info-control, .item-control) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-controls :is(.control-button, .item-control, button.unbutton) {
+  background: transparent !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .item-controls :is(.control-button, .item-control, button.unbutton):is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent) !important;
+  box-shadow: 0 0 0 1px var(--sw5e-underworld-control-ring) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .items-header .item-controls :is(button, a).item-control:not(.unbutton),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) button.gold-button {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) .items-header .item-controls :is(button, a).item-control:not(.unbutton):is(:hover, :focus, :focus-visible),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section:is(
+  [data-application-part="advancement"],
+  [data-application-part="activities"],
+  [data-application-part="effects"]
+) button.gold-button:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+}
+
+/* Item row controls — avoid global solid button slabs on full-width row buttons */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .item-row :is(button, a).item-control,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .item-row button.unbutton.control-button {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .item-row :is(button, a).item-control:is(:hover, :focus, :focus-visible),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item .item-row button.unbutton.control-button:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  box-shadow: 0 0 0 1px var(--sw5e-underworld-control-ring) !important;
+}
+
+/* Effects tab search controls */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="effects"] item-list-controls search {
+  background: transparent !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="effects"] item-list-controls search input {
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="effects"] item-list-controls search .filter-control {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="effects"] item-list-controls search .filter-control:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  box-shadow: 0 0 0 1px var(--sw5e-underworld-control-ring) !important;
+}
+
+/* Underworld Alloy — U5 Starship sheet surfaces */
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet {
+  --sw5e-underworld-sidebar-label: color-mix(in srgb, var(--sw5e-underworld-sand) 68%, var(--sw5e-underworld-neon-cyan) 32%);
+  --sw5e-underworld-ability-score-fill: linear-gradient(180deg, color-mix(in srgb, var(--sw5e-underworld-panel-strong) 92%, black) 0%, color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) 100%);
+  --sw5e-underworld-ability-score-border: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 28%, var(--sw5e-underworld-border));
+  --sw5e-underworld-ability-score-tab-filter: brightness(0.52) saturate(0.38) hue-rotate(168deg) contrast(0.92);
+  --filigree-border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 34%, var(--sw5e-underworld-leather));
+  --filigree-background-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --filigree-drop-shadow: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet.sw5e-theme-root {
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet:not(.minimized) .window-content::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet:not(.minimized)::before {
+  background: none !important;
+  opacity: 0 !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet hr.ampersand {
+  background-image: url("/modules/sw5e-module/assets/ui/SW5e-logo2.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+  border: none !important;
+  height: 24px;
+  opacity: 0.88;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet hr.ampersand::before {
+  background: linear-gradient(to left, var(--sw5e-theme-heading), transparent) !important;
+  inset-inline-end: calc(50% + 26px) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet hr.ampersand::after {
+  background: linear-gradient(to right, var(--sw5e-theme-heading), transparent) !important;
+  inset-inline-start: calc(50% + 26px) !important;
+}
+
+/* Window header */
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .window-header {
+  color: var(--sw5e-theme-text);
+  border-bottom-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .window-header::before,
+body[data-sw5e-theme="sw5e-underworld"] :is(.application, .window-app).dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .window-header::after {
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+/* Top primary tabs */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  nav.sheet-tabs.tabs,
+  .sheet-navigation[data-group="primary"],
+  .sw5e-starship-fallback-nav
+) > [data-tab] {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--sw5e-theme-muted-text) !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  nav.sheet-tabs.tabs,
+  .sheet-navigation[data-group="primary"],
+  .sw5e-starship-fallback-nav
+) > [data-tab] :is(label, span) {
+  border-bottom: 3px solid transparent !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  nav.sheet-tabs.tabs,
+  .sheet-navigation[data-group="primary"],
+  .sw5e-starship-fallback-nav
+) > [data-tab]:is(:hover, :focus, :focus-visible):not(.active) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  text-shadow: 0 0 8px var(--sw5e-underworld-glow-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  nav.sheet-tabs.tabs,
+  .sheet-navigation[data-group="primary"],
+  .sw5e-starship-fallback-nav
+) > [data-tab].active {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  nav.sheet-tabs.tabs,
+  .sheet-navigation[data-group="primary"],
+  .sw5e-starship-fallback-nav
+) > [data-tab].active :is(label, span) {
+  border-bottom: 3px solid var(--sw5e-underworld-neon-cyan) !important;
+  box-shadow: 0 2px 8px var(--sw5e-underworld-glow-blue) !important;
+}
+
+/* Inner SotG tab pills */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-sotg-nav .sw5e-starship-sotg-tab {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  box-shadow: none !important;
+  color: var(--sw5e-theme-muted-text) !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-sotg-nav .sw5e-starship-sotg-tab:is(:hover, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  outline: none;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-sotg-nav .sw5e-starship-sotg-tab.active {
+  background: var(--sw5e-underworld-tab-active-fill) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  box-shadow: var(--sw5e-underworld-tab-glow-strong) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-sotg-nav .sw5e-starship-sotg-tab.active:is(:hover, :focus-visible) {
+  color: var(--sw5e-underworld-neon-blue) !important;
+}
+
+/* SotG panel shell */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-panel {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-underworld-card-shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text);
+}
+
+/* Left sidebar */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black) 0%, color-mix(in srgb, var(--sw5e-underworld-panel) 92%, black) 100%) !important;
+  border-inline-end: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .portrait > :is(img, video) {
+  border: 1px solid var(--sw5e-underworld-icon-frame-border) !important;
+  border-radius: var(--sw5e-starship-radius-md);
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 18%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .portrait > img:is([src*="mystery-man"], [src*="actors/vehicle"], [src*="icons/svg"]) {
+  filter: brightness(0.58) contrast(1.08) saturate(0.55) hue-rotate(168deg);
+  opacity: 0.82;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .name .document-name {
+  color: var(--sw5e-underworld-sand) !important;
+  font-weight: 600;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .name hr {
+  border-top-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .name em {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .pills-group > h3.icon .roboto-upper {
+  color: var(--sw5e-underworld-sidebar-label) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .pills-group:has(> ul.pills) > h3.icon .roboto-upper {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .pills-group > h3.icon :is(i, dnd5e-icon) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .pills .pill {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .pills .pill.green {
+  background: color-mix(in srgb, var(--sw5e-underworld-success) 12%, var(--sw5e-underworld-panel)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-success) 28%, var(--sw5e-underworld-border)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .sw5e-starship-sidebar-movement-row > h3.icon .roboto-upper {
+  color: var(--sw5e-underworld-sidebar-label) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .sw5e-starship-sidebar-movement-row .config-button {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-sidebar-summary {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-sidebar-summary-kicker {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(.sw5e-starship-sidebar-summary-label, .sw5e-starship-sidebar-summary-note) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-sidebar-summary-value {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-sidebar-summary-entry {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+/* Ability strip + save tabs (override legacy gold) */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .ability-scores .ability-score {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.28)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .ability-scores .ability-score::before {
+  filter: var(--sw5e-underworld-ability-score-tab-filter) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .ability-scores .ability-score .label {
+  color: var(--sw5e-underworld-sidebar-label) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .ability-scores .ability-score .mod {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .ability-scores .ability-score .score {
+  background: var(--sw5e-underworld-ability-score-fill) !important;
+  border: 1px solid var(--sw5e-underworld-ability-score-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .ability-scores .ability-score .score > input {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .ability-scores .ability-score .score > input:is(:hover, :focus) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 4px var(--sw5e-underworld-glow-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-ability-strip .ability-score .save-tab {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 0 0 3px 3px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-ability-strip .ability-score .save-tab > i {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-ability-strip .ability-score .save-tab.rollable:hover .save {
+  color: var(--sw5e-underworld-neon-blue) !important;
+  text-shadow: 0 0 8px var(--sw5e-underworld-glow-blue) !important;
+}
+
+/* Core skills card */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-underworld-card-shadow-soft) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-kicker {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills-title {
+  color: var(--sw5e-theme-text) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-skill-list--pc {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-skill-row--pc {
+  border-bottom: 1px solid var(--sw5e-underworld-row-divider) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-skill-row--pc:nth-child(even) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 6%, var(--sw5e-underworld-panel)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-skill-row--pc:last-child {
+  border-bottom: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-skill-roll-area {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-skill-roll-area:is(:hover, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  outline: 2px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent) !important;
+  outline-offset: -2px;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-skill-prof {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-skill-ability-abbr {
+  color: var(--sw5e-underworld-sidebar-label) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-skill-passive {
+  color: var(--sw5e-underworld-empty-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-overview-skills .sw5e-starship-skill-config--edit-only {
+  border-left-color: var(--sw5e-underworld-row-divider) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+/* Core crew panel */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-underworld-card-shadow-soft) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel .sw5e-starship-crew-heading .sw5e-starship-kicker {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel .sw5e-starship-crew-status,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel .sw5e-starship-crew-roster {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel .sw5e-starship-crew-row {
+  border-bottom: 1px solid var(--sw5e-underworld-row-divider) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel .sw5e-starship-crew-row:nth-child(even) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 6%, var(--sw5e-underworld-panel)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel .sw5e-starship-crew-row:hover {
+  background: var(--sw5e-underworld-hover-tint) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel .sw5e-crew-badge {
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel .sw5e-crew-badge-pilot {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 10%, var(--sw5e-underworld-panel)) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel .sw5e-crew-badge-active {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-success) 36%, transparent) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-success) 10%, var(--sw5e-underworld-panel)) !important;
+  color: var(--sw5e-underworld-success) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel :is(.sw5e-starship-item-button, .sw5e-starship-crew-add, .sw5e-starship-crew-icon-button) {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel :is(.sw5e-starship-item-button, .sw5e-starship-crew-add, .sw5e-starship-crew-icon-button):is(:hover, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-panel .sw5e-starship-crew-row-actions .sw5e-starship-crew-icon-button.sw5e-starship-item-button-danger {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-danger) 38%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-underworld-danger) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-roles {
+  border-top-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+/* Core Power Routing + Fuel */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-overview-operations :is(
+  .sw5e-starship-core-routing-panel,
+  .sw5e-starship-core-fuel-panel
+) {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-underworld-card-shadow-soft) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-overview-operations .sw5e-starship-systems-field--routing-primary {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-overview-operations .sw5e-starship-systems-field--routing-primary::before {
+  background: linear-gradient(180deg, var(--sw5e-underworld-neon-cyan), color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent)) !important;
+  opacity: 1 !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-overview-operations :is(
+  .sw5e-starship-systems-routing-title,
+  .sw5e-starship-systems-field-heading
+) {
+  color: var(--sw5e-theme-text) !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-overview-operations :is(
+  .sw5e-starship-systems-routing-hint,
+  .sw5e-starship-systems-supporting-sheet-mode-hint,
+  .sw5e-starship-systems-label
+) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-overview-operations .sw5e-starship-systems-field--fuel.sw5e-starship-systems-field--locked {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 72%, black) !important;
+  border: 1px dashed color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 24%, transparent) !important;
+}
+
+/* SotG list section shells + shared rows */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  [data-sw5e-sotg-panel="features"],
+  [data-sw5e-sotg-panel="weapons"],
+  [data-sw5e-sotg-panel="equipment"],
+  [data-sw5e-sotg-panel="modifications"],
+  [data-sw5e-sotg-panel="systems"],
+  [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-roles
+) .sw5e-starship-group.items-section.card {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-underworld-card-shadow-soft) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  [data-sw5e-sotg-panel="features"],
+  [data-sw5e-sotg-panel="weapons"],
+  [data-sw5e-sotg-panel="equipment"],
+  [data-sw5e-sotg-panel="modifications"],
+  [data-sw5e-sotg-panel="systems"]
+) .sw5e-starship-kicker {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  [data-sw5e-sotg-panel="features"],
+  [data-sw5e-sotg-panel="weapons"],
+  [data-sw5e-sotg-panel="equipment"],
+  [data-sw5e-sotg-panel="modifications"],
+  [data-sw5e-sotg-panel="systems"],
+  [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-roles
+) .sw5e-starship-group-link {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  [data-sw5e-sotg-panel="features"],
+  [data-sw5e-sotg-panel="weapons"],
+  [data-sw5e-sotg-panel="equipment"],
+  [data-sw5e-sotg-panel="modifications"],
+  [data-sw5e-sotg-panel="systems"],
+  [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-roles
+) .sw5e-starship-group-link:is(:hover, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-item-list--sotg {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  overflow: hidden;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-item-row--sotg {
+  border-bottom: 1px solid var(--sw5e-underworld-row-divider) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-item-row--sotg:nth-child(even) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 6%, var(--sw5e-underworld-panel)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-item-row--sotg:hover {
+  background: var(--sw5e-underworld-hover-tint) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-item-row--sotg .sw5e-starship-item-name-cell.item-name {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-item-row--sotg .sw5e-starship-item-name-cell.item-name:is(:hover, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-item-row--sotg .item-image.sw5e-starship-item-image,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-item-row--sotg span.sw5e-starship-item-icon-fallback.item-image {
+  border: 1px solid var(--sw5e-underworld-icon-frame-border) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-item-row--sotg .item-controls.sw5e-starship-item-actions :is(button, a).item-control {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-item-row--sotg .item-controls.sw5e-starship-item-actions :is(button, a).item-control:is(:hover, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+}
+
+/* Systems subtab core panels */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="systems"] .sw5e-starship-systems-core {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-underworld-card-shadow-soft) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="systems"] .sw5e-starship-systems-field--routing-primary {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="systems"] .sw5e-starship-systems-field--routing-primary::before {
+  background: linear-gradient(180deg, var(--sw5e-underworld-neon-cyan), color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="systems"] .sw5e-starship-systems-grid--supporting {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="systems"] .sw5e-starship-systems-pill {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="systems"] :is(
+  .sw5e-starship-systems-routing-select,
+  .sw5e-starship-systems-select,
+  .sw5e-starship-systems-input
+) {
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="systems"] :is(
+  .sw5e-starship-systems-routing-select,
+  .sw5e-starship-systems-select,
+  .sw5e-starship-systems-input
+):is(:hover, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 0 2px var(--sw5e-underworld-control-ring) !important;
+  outline: none;
+}
+
+/* Starship sheet selects */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet select {
+  background: var(--sw5e-underworld-input-bg) !important;
+  background-color: var(--sw5e-underworld-input-bg) !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color-scheme: dark !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet select option {
+  background: var(--sw5e-underworld-input-bg);
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet select:is(:hover, :focus, :focus-visible):not(:disabled) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 0 2px var(--sw5e-underworld-control-ring) !important;
+  outline: none;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-core-routing-panel #sw5e-core-routing {
+  background: var(--sw5e-underworld-input-bg) !important;
+  background-color: var(--sw5e-underworld-input-bg) !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color-scheme: dark !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-core-routing-panel #sw5e-core-routing option {
+  background: var(--sw5e-underworld-input-bg);
+  color: var(--sw5e-theme-text);
+}
+
+/* Starship scrollbars */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  .window-content,
+  .sheet-body,
+  aside.sheet-sidebar,
+  [data-application-part="sidebar"],
+  .sw5e-starship-tab,
+  .sw5e-starship-panel,
+  .sw5e-starship-main-body,
+  [data-sw5e-sotg-panel]
+) {
+  scrollbar-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, transparent) color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black);
+  scrollbar-width: thin;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  .window-content,
+  .sheet-body,
+  aside.sheet-sidebar,
+  [data-application-part="sidebar"],
+  .sw5e-starship-tab,
+  .sw5e-starship-panel,
+  .sw5e-starship-main-body,
+  [data-sw5e-sotg-panel]
+)::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  .window-content,
+  .sheet-body,
+  aside.sheet-sidebar,
+  [data-application-part="sidebar"],
+  .sw5e-starship-tab,
+  .sw5e-starship-panel,
+  .sw5e-starship-main-body,
+  [data-sw5e-sotg-panel]
+)::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black);
+  border-radius: 999px;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  .window-content,
+  .sheet-body,
+  aside.sheet-sidebar,
+  [data-application-part="sidebar"],
+  .sw5e-starship-tab,
+  .sw5e-starship-panel,
+  .sw5e-starship-main-body,
+  [data-sw5e-sotg-panel]
+)::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, transparent);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  .window-content,
+  .sheet-body,
+  aside.sheet-sidebar,
+  [data-application-part="sidebar"],
+  .sw5e-starship-tab,
+  .sw5e-starship-panel,
+  .sw5e-starship-main-body,
+  [data-sw5e-sotg-panel]
+)::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 68%, transparent);
+  background-clip: padding-box;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(
+  .window-content,
+  .sheet-body,
+  aside.sheet-sidebar,
+  [data-application-part="sidebar"],
+  .sw5e-starship-tab,
+  .sw5e-starship-panel,
+  .sw5e-starship-main-body,
+  [data-sw5e-sotg-panel]
+)::-webkit-scrollbar-corner {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 82%, black);
+}
+
+/* =============================================================================
+ * U6 — Underworld Alloy chat, roll cards, journal/datapad polish
+ * Scope: chat/journal only — not actor/item/starship sheets
+ * ============================================================================= */
+
+/* dnd5e chat message parchment variable remap */
+body[data-sw5e-theme="sw5e-underworld"] .chat-message.sw5e-theme-root.dnd5e2 {
+  --chat-message-background: var(--sw5e-underworld-chat-message-background);
+  --item-summary-background: var(--sw5e-underworld-chat-datapad-panel);
+  --separated-list-item-background-color: transparent;
+  --filigree-background-color: transparent;
+  --table-background-color: transparent;
+  --multi-select-tag-background: transparent;
+  background-color: var(--sw5e-theme-page-center) !important;
+  background-image: var(--sw5e-underworld-chat-message-background) !important;
+  background-size: auto !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Chat message datapad shell */
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  .sw5e-theme-root:is(.chat-message, .message),
+  .window-app[data-sw5e-theme-root="chat-log"] :is(.chat-message, .message)
+) {
+  background: var(--sw5e-underworld-chat-message-background) !important;
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+  border: 1px solid var(--sw5e-underworld-chat-datapad-border) !important;
+  box-shadow: var(--sw5e-underworld-chat-datapad-shadow);
+  color: var(--sw5e-theme-text);
+  --chat-message-background: var(--sw5e-underworld-chat-message-background);
+  --item-summary-background: var(--sw5e-underworld-chat-datapad-panel);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  .sw5e-theme-root:is(.chat-message, .message),
+  .window-app[data-sw5e-theme-root="chat-log"] :is(.chat-message, .message)
+):hover {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 34%, var(--sw5e-underworld-chat-datapad-border)) !important;
+  box-shadow:
+    var(--sw5e-underworld-chat-datapad-shadow),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 12%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .window-app[data-sw5e-theme-root="chat-log"] .chat-message {
+  color: var(--sw5e-theme-text);
+}
+
+/* dnd5e chat.less texture-gray1.webp disable */
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  #chat,
+  #chat-log,
+  .chat-log,
+  .chat-sidebar,
+  .chat-popout
+) .sw5e-theme-root:is(.chat-message, .message)::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+/* Message header — muted leather/olive band */
+body[data-sw5e-theme="sw5e-underworld"] :is(
+  #chat,
+  #chat-log,
+  .chat-log,
+  .chat-sidebar,
+  .chat-popout
+) .sw5e-theme-root:is(.chat-message, .message) .message-header {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--sw5e-underworld-leather-deep) 30%, var(--sw5e-underworld-panel-strong)) 0%,
+    color-mix(in srgb, var(--sw5e-underworld-olive) 16%, var(--sw5e-underworld-panel)) 100%
+  ) !important;
+  border-bottom: 1px solid var(--sw5e-underworld-chat-datapad-border) !important;
+  color: var(--sw5e-underworld-sand);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-header .message-sender,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-header .message-sender .title {
+  color: var(--sw5e-underworld-sand) !important;
+  font-weight: 600;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-header .message-sender .subtitle,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-header .message-metadata,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-header .message-timestamp {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-header :is(.message-delete, .chat-control) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-header :is(.message-delete, .chat-control):is(:hover, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 36%, transparent) !important;
+  box-shadow: 0 0 0 1px var(--sw5e-underworld-control-ring) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-content {
+  color: var(--sw5e-theme-text);
+}
+
+/* Chat roll / item / power cards (narrow — not sheet layout cards) */
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card {
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-header.description {
+  background: var(--sw5e-underworld-chat-datapad-panel) !important;
+  background-color: transparent !important;
+  background-image: var(--sw5e-underworld-chat-datapad-panel) !important;
+  border: 1px solid var(--sw5e-underworld-chat-datapad-border) !important;
+  border-radius: 4px;
+  box-shadow: var(--sw5e-underworld-chat-datapad-shadow);
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .chat-message .message-content .chat-card :is(.card-header.description, .description) {
+  background-image: var(--sw5e-underworld-chat-datapad-panel) !important;
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .summary {
+  background: transparent !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-header.description .name-stacked.border {
+  border-color: var(--sw5e-underworld-chat-datapad-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-header.description .title {
+  color: var(--sw5e-underworld-sand) !important;
+  font-weight: 600;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-header.description .subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card :is(
+  .gold-icon,
+  .item-image.gold-icon
+) {
+  border-color: var(--sw5e-underworld-icon-frame-border) !important;
+  background-color: color-mix(in srgb, var(--sw5e-underworld-panel-strong) 78%, black) !important;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-purple) 12%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 10%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-header.description .summary :is(i, dnd5e-icon) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  --icon-fill: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-header.description :is(
+  .card-content,
+  .details,
+  .wrapper,
+  .wrapper p,
+  .wrapper em,
+  .wrapper strong
+) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-footer .pill {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 20%, var(--sw5e-underworld-graphite)) !important;
+  border-color: var(--sw5e-underworld-chat-datapad-border) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-footer .pill .label {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-buttons {
+  gap: 0.35rem;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-buttons button {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-leather-deep) 72%, var(--sw5e-underworld-border)) !important;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-buttons button[data-action="rollAttack"] {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content .chat-card .card-buttons button:is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 14%, var(--sw5e-underworld-panel)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 10px var(--sw5e-underworld-glow-blue) !important;
+}
+
+/* Dice formula / total inset panels */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-content :is(.dice-formula, .dice-total, .dice-roll, h4.dice-total) {
+  background: var(--sw5e-underworld-chat-dice-panel) !important;
+  border-color: var(--sw5e-underworld-chat-datapad-border) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-graphite) 72%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-content :is(.dice-total, h4.dice-total) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-chat-datapad-border)) !important;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-purple) 16%, transparent),
+    0 0 8px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 12%, transparent) !important;
+  font-weight: 700;
+  font-family: var(--sw5e-font-body) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-content :is(.dice-formula, .dice-flavor) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root:is(.chat-message, .message) .message-content :is(.inline-roll, .roll-link, a.content-link) {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 18%, var(--sw5e-underworld-graphite)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 36%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content :is(.pill, .tag):not(.transparent) {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 22%, var(--sw5e-underworld-graphite)) !important;
+  border: 1px solid var(--sw5e-underworld-chat-datapad-border) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+/* Damage application tray */
+body[data-sw5e-theme="sw5e-underworld"] .message-content damage-application .card-tray {
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content damage-application .card-tray label {
+  color: var(--sw5e-underworld-sand) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content damage-application .card-tray .unbutton {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content damage-application .card-tray .unbutton[aria-pressed="true"] {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content damage-application .card-tray :is(.apply-damage, button.apply-damage) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .message-content damage-application .card-tray :is(.apply-damage, button.apply-damage):is(:hover, :focus-visible) {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 10px var(--sw5e-underworld-glow-blue) !important;
+}
+
+/* Chat log scrollbars */
+body[data-sw5e-theme="sw5e-underworld"] :is(#chat, #chat-log, .chat-log, .chat-popout)::-webkit-scrollbar {
+  width: 10px;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#chat, #chat-log, .chat-log, .chat-popout)::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#chat, #chat-log, .chat-log, .chat-popout)::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sw5e-underworld-leather) 55%, var(--sw5e-underworld-panel));
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 6px;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#chat, #chat-log, .chat-log, .chat-popout)::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 68%, transparent);
+  background-clip: padding-box;
+}
+
+/* Journal datapad — minimal polish when theme hook applies */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2-journal.application {
+  --dnd5e-application-background: var(--sw5e-underworld-chat-datapad-panel);
+  --item-summary-background: var(--sw5e-underworld-panel);
+  --table-background-color: color-mix(in srgb, var(--sw5e-underworld-panel-strong) 82%, black);
+  --filigree-background-color: var(--sw5e-underworld-panel);
+  --separated-list-item-background-color: var(--sw5e-underworld-panel);
+  --multi-select-tag-background: var(--sw5e-underworld-panel);
+  background: var(--sw5e-theme-window-background) !important;
+  background-image: var(--sw5e-underworld-chat-datapad-panel) !important;
+  background-size: auto !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2-journal.application .window-content,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2-journal.application .journal-sheet .journal-entry-content,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2-journal.application .journal-page-content {
+  background: var(--sw5e-underworld-chat-datapad-panel) !important;
+  background-image: var(--sw5e-underworld-chat-datapad-panel) !important;
+  border-color: var(--sw5e-underworld-chat-datapad-border) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2-journal.application :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--sw5e-underworld-sand) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2-journal.application :is(table, blockquote, .advice, .info, .notification) {
+  border-color: var(--sw5e-underworld-chat-datapad-border) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel-strong) 72%, black) !important;
+  color: var(--sw5e-theme-text);
+}

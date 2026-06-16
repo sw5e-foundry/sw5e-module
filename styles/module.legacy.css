@@ -2588,11 +2588,137 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   font-size: var(--font-size-11);
 }
 
+.sheet.item .sw5e-chassis-panel-header,
+.dnd5e2.sheet.item .sw5e-chassis-panel-header,
 .sheet.item .sw5e-chassis-header,
 .dnd5e2.sheet.item .sw5e-chassis-header {
-  margin: 0 0 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0 0 0.35rem;
   padding-bottom: 0.3rem;
   border-bottom: 1px solid var(--dnd5e-color-dark-4, rgba(255, 255, 255, 0.08));
+}
+
+.sheet.item .sw5e-chassis-panel.is-collapsed .sw5e-chassis-panel-header,
+.dnd5e2.sheet.item .sw5e-chassis-panel.is-collapsed .sw5e-chassis-panel-header {
+  margin-bottom: 0;
+  border-bottom-color: transparent;
+  padding-bottom: 0;
+}
+
+.sheet.item .sw5e-chassis-panel-body,
+.dnd5e2.sheet.item .sw5e-chassis-panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.sheet.item .sw5e-chassis-panel.is-collapsed .sw5e-chassis-panel-body,
+.dnd5e2.sheet.item .sw5e-chassis-panel.is-collapsed .sw5e-chassis-panel-body {
+  display: none;
+}
+
+.sheet.item .sw5e-chassis-collapse-toggle,
+.dnd5e2.sheet.item .sw5e-chassis-collapse-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.65rem;
+  height: 1.65rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--dnd5e-color-dark-4, rgba(255, 255, 255, 0.1));
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.12);
+  color: inherit;
+  cursor: pointer;
+}
+
+.sheet.item .sw5e-chassis-collapse-toggle:hover,
+.dnd5e2.sheet.item .sw5e-chassis-collapse-toggle:hover {
+  filter: brightness(1.08);
+}
+
+.sheet.item .sw5e-chassis-collapse-toggle .fa-chevron-down,
+.dnd5e2.sheet.item .sw5e-chassis-collapse-toggle .fa-chevron-down {
+  transition: transform 0.15s ease;
+}
+
+.sheet.item .sw5e-chassis-panel.is-collapsed .sw5e-chassis-collapse-toggle .fa-chevron-down,
+.dnd5e2.sheet.item .sw5e-chassis-panel.is-collapsed .sw5e-chassis-collapse-toggle .fa-chevron-down {
+  transform: rotate(-90deg);
+}
+
+.sheet.item .sw5e-chassis-override-block,
+.dnd5e2.sheet.item .sw5e-chassis-override-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sheet.item .sw5e-chassis-slots-block,
+.dnd5e2.sheet.item .sw5e-chassis-slots-block {
+  margin: 0;
+}
+
+.sheet.item .sw5e-chassis-footer-actions,
+.dnd5e2.sheet.item .sw5e-chassis-footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--dnd5e-color-dark-4, rgba(255, 255, 255, 0.08));
+}
+
+.sheet.item .sw5e-chassis-footer-btn,
+.dnd5e2.sheet.item .sw5e-chassis-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  padding: 0;
+  border-radius: 3px;
+  border: 1px solid var(--dnd5e-color-dark-3, rgba(0, 0, 0, 0.4));
+  background: var(--dnd5e-color-dark-6, rgba(0, 0, 0, 0.35));
+  color: inherit;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.sheet.item .sw5e-chassis-footer-btn:hover:not(:disabled),
+.dnd5e2.sheet.item .sw5e-chassis-footer-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.sheet.item .sw5e-chassis-footer-btn:disabled,
+.dnd5e2.sheet.item .sw5e-chassis-footer-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sheet.item .sw5e-chassis-footer-btn--upgrade,
+.dnd5e2.sheet.item .sw5e-chassis-footer-btn--upgrade {
+  border-color: var(--dnd5e-color-gold, rgba(180, 160, 100, 0.65));
+  background: linear-gradient(180deg, rgba(90, 78, 50, 0.55) 0%, rgba(40, 36, 24, 0.75) 100%);
+}
+
+.sheet.item .sw5e-chassis-footer-btn--disable,
+.dnd5e2.sheet.item .sw5e-chassis-footer-btn--disable {
+  border-color: rgba(160, 130, 70, 0.45);
+  background: rgba(60, 48, 24, 0.35);
+}
+
+.sheet.item .sw5e-chassis-footer-btn--danger,
+.dnd5e2.sheet.item .sw5e-chassis-footer-btn--danger {
+  border-color: rgba(140, 50, 50, 0.55);
+  background: rgba(80, 28, 28, 0.35);
 }
 
 .sheet.item .sw5e-chassis-title,
@@ -2861,14 +2987,13 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   line-height: 1.3;
 }
 
-/* Slot layout — visual center */
+/* Slot layout — compact grid */
 .sheet.item .sw5e-chassis-slots-core,
 .dnd5e2.sheet.item .sw5e-chassis-slots-core {
-  margin: 0.45rem 0 0.5rem;
-  padding: 0.4rem 0.45rem 0.45rem;
-  border-radius: 3px;
-  border: 1px solid var(--dnd5e-color-dark-4, rgba(255, 255, 255, 0.07));
-  background: rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .sheet.item .sw5e-chassis-section-title,
@@ -2907,34 +3032,172 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(7.25rem, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.35rem;
 }
 
+@media (max-width: 28rem) {
+  .sheet.item .sw5e-chassis-slot-grid,
+  .dnd5e2.sheet.item .sw5e-chassis-slot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.sheet.item .sw5e-chassis-slot-card,
+.dnd5e2.sheet.item .sw5e-chassis-slot-card,
 .sheet.item .sw5e-chassis-slot-cell,
 .dnd5e2.sheet.item .sw5e-chassis-slot-cell {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  min-height: 3.25rem;
-  padding: 0.3rem 0.35rem;
+  gap: 0.15rem;
+  min-height: 4.5rem;
+  padding: 0.32rem 0.38rem 0.42rem;
   border-radius: 3px;
   border: 1px solid var(--dnd5e-color-dark-4, rgba(255, 255, 255, 0.07));
   background: rgba(0, 0, 0, 0.12);
   transition: border-color 0.12s ease, background 0.12s ease;
 }
 
+.sheet.item .sw5e-chassis-slot-card--empty,
+.dnd5e2.sheet.item .sw5e-chassis-slot-card--empty,
 .sheet.item .sw5e-chassis-slot-cell.is-empty,
 .dnd5e2.sheet.item .sw5e-chassis-slot-cell.is-empty {
   border-style: dashed;
   opacity: 0.72;
 }
 
+.sheet.item .sw5e-chassis-slot-card.sw5e-chassis-drop-target--active,
+.dnd5e2.sheet.item .sw5e-chassis-slot-card.sw5e-chassis-drop-target--active,
+.sheet.item .sw5e-chassis-slot-cell.sw5e-chassis-drop-target--active,
+.dnd5e2.sheet.item .sw5e-chassis-slot-cell.sw5e-chassis-drop-target--active {
+  border-color: rgb(98 121 170 / 72%);
+  background: rgb(98 121 170 / 14%);
+  opacity: 1;
+  box-shadow: inset 0 0 0 1px rgb(98 121 170 / 28%), 0 0 0 2px rgb(98 121 170 / 16%);
+}
+
+.sheet.item .chassis-browser-dropzone,
+.dnd5e2.sheet.item .chassis-browser-dropzone,
+.sw5e-chassis-install-browser-app .chassis-browser-dropzone {
+  margin: 0 0 0.55rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px dashed rgb(255 255 255 / 18%);
+  border-radius: 6px;
+  background: rgb(0 0 0 / 12%);
+}
+
+.sheet.item .chassis-browser-dropzone.sw5e-chassis-drop-target--active,
+.dnd5e2.sheet.item .chassis-browser-dropzone.sw5e-chassis-drop-target--active,
+.sw5e-chassis-install-browser-app .chassis-browser-dropzone.sw5e-chassis-drop-target--active {
+  border-color: rgb(98 121 170 / 62%);
+  background: rgb(98 121 170 / 12%);
+  box-shadow: inset 0 0 0 1px rgb(98 121 170 / 24%);
+}
+
+.sheet.item .sw5e-chassis-slot-card--installed,
+.dnd5e2.sheet.item .sw5e-chassis-slot-card--installed,
 .sheet.item .sw5e-chassis-slot-cell.is-occupied,
 .dnd5e2.sheet.item .sw5e-chassis-slot-cell.is-occupied {
   border-color: var(--dnd5e-color-gold, rgba(180, 160, 100, 0.45));
   background: rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 0 0 1px rgba(180, 160, 100, 0.12);
+  opacity: 1;
+}
+
+.sheet.item .sw5e-chassis-slot-name,
+.dnd5e2.sheet.item .sw5e-chassis-slot-name,
+.sheet.item .sw5e-chassis-installed-name,
+.dnd5e2.sheet.item .sw5e-chassis-installed-name,
+.sheet.item .sw5e-chassis-slot-mod,
+.dnd5e2.sheet.item .sw5e-chassis-slot-mod {
+  font-size: var(--font-size-12);
+  font-weight: 600;
+  line-height: 1.2;
+  word-break: break-word;
+  padding-right: 1.1rem;
+}
+
+.sheet.item .sw5e-chassis-installed-name,
+.dnd5e2.sheet.item .sw5e-chassis-installed-name {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0 1.1rem 0 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  white-space: normal;
+  text-transform: none;
+  line-height: 1.15;
+  cursor: pointer;
+  text-decoration: none;
+  filter: none;
+}
+
+.sheet.item .sw5e-chassis-installed-name:hover,
+.dnd5e2.sheet.item .sw5e-chassis-installed-name:hover,
+.sheet.item .sw5e-chassis-installed-name:focus-visible,
+.dnd5e2.sheet.item .sw5e-chassis-installed-name:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+.sheet.item .sw5e-chassis-slot-remove,
+.dnd5e2.sheet.item .sw5e-chassis-slot-remove {
+  position: absolute;
+  right: 0.2rem;
+  bottom: 0.18rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  color: inherit;
+  opacity: 0.72;
+  cursor: pointer;
+}
+
+.sheet.item .sw5e-chassis-slot-remove:hover,
+.dnd5e2.sheet.item .sw5e-chassis-slot-remove:hover {
+  opacity: 1;
+  background: rgba(120, 40, 40, 0.22);
+}
+
+.sheet.item .sw5e-chassis-slot-install,
+.dnd5e2.sheet.item .sw5e-chassis-slot-install,
+.sheet.item .sw5e-chassis-btn--slot-install,
+.dnd5e2.sheet.item .sw5e-chassis-btn--slot-install {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-top: auto;
+  padding: 0.12rem 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: var(--font-size-10);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  opacity: 0.88;
+}
+
+.sheet.item .sw5e-chassis-slot-install:hover,
+.dnd5e2.sheet.item .sw5e-chassis-slot-install:hover,
+.sheet.item .sw5e-chassis-btn--slot-install:hover,
+.dnd5e2.sheet.item .sw5e-chassis-btn--slot-install:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .sheet.item .sw5e-chassis-slot-label,

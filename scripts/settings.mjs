@@ -37,6 +37,7 @@ export function registerModuleSettings() {
 	const themeChoices = {
 		[SW5E_THEMES.SW5E_LIGHT]: game.i18n.localize("SW5E.Settings.ThemeMode.Choice.sw5e-light"),
 		[SW5E_THEMES.SW5E_DARK]: game.i18n.localize("SW5E.Settings.ThemeMode.Choice.sw5e-dark"),
+		[SW5E_THEMES.SW5E_UNDERWORLD]: game.i18n.localize("SW5E.Settings.ThemeMode.Choice.sw5e-underworld"),
 		[SW5E_THEMES.OFF]: game.i18n.localize("SW5E.Settings.ThemeMode.Choice.off")
 	};
 

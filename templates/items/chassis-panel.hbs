@@ -1,114 +1,100 @@
-<section class="sw5e-chassis-panel" aria-label="{{localize "SW5E.Chassis.SectionTitle"}}">
-	<header class="sw5e-chassis-header">
+<section class="sw5e-chassis-panel{{#if panelCollapsed}} is-collapsed{{/if}}" aria-label="{{localize "SW5E.Chassis.SectionTitle"}}">
+	<header class="sw5e-chassis-panel-header">
 		<h3 class="sw5e-chassis-title">{{localize "SW5E.Chassis.SectionTitle"}}</h3>
+		{{#if chassisEnabled}}
+			<button
+				type="button"
+				class="sw5e-chassis-collapse-toggle"
+				data-chassis-action="toggle-collapse"
+				aria-expanded="{{#if panelCollapsed}}false{{else}}true{{/if}}"
+				title="{{#if panelCollapsed}}{{localize "SW5E.Chassis.CollapseExpand"}}{{else}}{{localize "SW5E.Chassis.CollapseCollapse"}}{{/if}}"
+				aria-label="{{#if panelCollapsed}}{{localize "SW5E.Chassis.CollapseExpand"}}{{else}}{{localize "SW5E.Chassis.CollapseCollapse"}}{{/if}}"
+				data-tooltip="{{#if panelCollapsed}}{{localize "SW5E.Chassis.CollapseExpand"}}{{else}}{{localize "SW5E.Chassis.CollapseCollapse"}}{{/if}}"
+			>
+				<i class="fas fa-chevron-down" aria-hidden="true"></i>
+			</button>
+		{{/if}}
 	</header>
 
 	{{#unless chassisEnabled}}
-		<p class="sw5e-chassis-hint">{{localize "SW5E.Chassis.EnableHint"}}</p>
-		{{#if isEditable}}
-			<button type="button" class="sw5e-chassis-btn sw5e-chassis-btn--primary" data-chassis-action="enable">
-				<i class="fas fa-microchip" aria-hidden="true"></i> {{localize "SW5E.Chassis.Enable"}}
-			</button>
-		{{/if}}
+		<div class="sw5e-chassis-panel-body">
+			<p class="sw5e-chassis-hint">{{localize "SW5E.Chassis.EnableHint"}}</p>
+			{{#if isEditable}}
+				<button type="button" class="sw5e-chassis-btn sw5e-chassis-btn--primary" data-chassis-action="enable">
+					<i class="fas fa-microchip" aria-hidden="true"></i> {{localize "SW5E.Chassis.Enable"}}
+				</button>
+			{{/if}}
+		</div>
 	{{else}}
+		<div class="sw5e-chassis-panel-body">
+			{{#if chassisSlotOverflow}}
+				<div class="sw5e-chassis-slot-overflow" role="status">
+					<strong class="sw5e-chassis-slot-overflow-title">{{localize "SW5E.Chassis.SlotOverflowTitle"}}</strong>
+					<p class="sw5e-chassis-slot-overflow-body">{{localize "SW5E.Chassis.SlotOverflowWarning"}}</p>
+				</div>
+			{{/if}}
 
-		{{#if chassisSlotOverflow}}
-			<div class="sw5e-chassis-slot-overflow" role="status">
-				<strong class="sw5e-chassis-slot-overflow-title">{{localize "SW5E.Chassis.SlotOverflowTitle"}}</strong>
-				<p class="sw5e-chassis-slot-overflow-body">{{localize "SW5E.Chassis.SlotOverflowWarning"}}</p>
-			</div>
-		{{/if}}
+			{{#if isEditable}}
+				<section class="sw5e-chassis-override-block">
+					<label class="sw5e-chassis-rules-field-label" for="sw5e-chassis-rules-{{rulesSelectId}}">{{localize "SW5E.Chassis.RulesModeFieldLabel"}}</label>
+					<select id="sw5e-chassis-rules-{{rulesSelectId}}" class="sw5e-chassis-select" data-chassis-field="rulesMode" aria-describedby="sw5e-chassis-rules-hint-{{rulesSelectId}}">
+						{{#each rulesModeOptions}}
+							<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+						{{/each}}
+					</select>
+					<p id="sw5e-chassis-rules-hint-{{rulesSelectId}}" class="sw5e-chassis-field-hint subdued">{{localize "SW5E.Chassis.RulesModeFieldHint"}}</p>
+				</section>
+			{{/if}}
 
-		<dl class="sw5e-chassis-summary">
-			<div class="sw5e-chassis-kv">
-				<dt>{{localize "SW5E.Chassis.LabelSlots"}}</dt>
-				<dd><span class="sw5e-chassis-slots-stat">{{slotsUsedTotal}}</span></dd>
-			</div>
-			<div class="sw5e-chassis-kv">
-				<dt>{{localize "SW5E.Chassis.LabelType"}}</dt>
-				<dd>{{chassisTypeLabel}}</dd>
-			</div>
-			<div class="sw5e-chassis-kv">
-				<dt>{{localize "SW5E.Chassis.LabelRarity"}}</dt>
-				<dd>{{chassisRarityLabel}}</dd>
-			</div>
-			<div class="sw5e-chassis-kv sw5e-chassis-kv--wide">
-				<dt>{{localize "SW5E.Chassis.LabelRules"}}</dt>
-				<dd class="sw5e-chassis-rules-value {{#if hasRulesOverride}}is-override{{/if}}">
-					<div class="sw5e-chassis-rules-primary">{{rulesModePrimaryText}}</div>
-					{{#if rulesModeSecondaryText}}
-						<div class="sw5e-chassis-rules-secondary subdued">{{rulesModeSecondaryText}}</div>
-					{{/if}}
-				</dd>
-			</div>
-			<div class="sw5e-chassis-kv sw5e-chassis-kv--wide">
-				<dt>{{localize "SW5E.Chassis.LabelAttunement"}}</dt>
-				<dd class="sw5e-chassis-subdued">{{attunementText}}</dd>
-			</div>
-		</dl>
-		<p class="sw5e-chassis-slots-detail subdued">{{slotsSummaryText}}</p>
-		<p class="sw5e-chassis-section-intro subdued">{{localize "SW5E.Chassis.SlotsBudgetHelp"}}</p>
+			<section class="sw5e-chassis-slots-block">
+				<h4 class="sw5e-chassis-section-title">{{localize "SW5E.Chassis.SlotLayout"}}</h4>
 
-		{{#if isEditable}}
-			<div class="sw5e-chassis-rules-field">
-				<label class="sw5e-chassis-rules-field-label" for="sw5e-chassis-rules-{{rulesSelectId}}">{{localize "SW5E.Chassis.RulesModeFieldLabel"}}</label>
-				<select id="sw5e-chassis-rules-{{rulesSelectId}}" class="sw5e-chassis-select" data-chassis-field="rulesMode" aria-describedby="sw5e-chassis-rules-hint-{{rulesSelectId}}">
-					{{#each rulesModeOptions}}
-						<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
-					{{/each}}
-				</select>
-				<p id="sw5e-chassis-rules-hint-{{rulesSelectId}}" class="sw5e-chassis-field-hint subdued">{{localize "SW5E.Chassis.RulesModeFieldHint"}}</p>
-			</div>
-		{{/if}}
-
-		<div class="sw5e-chassis-slots-core">
-			<h4 class="sw5e-chassis-section-title">{{localize "SW5E.Chassis.SlotLayout"}}</h4>
-			<p class="sw5e-chassis-section-intro subdued">{{localize "SW5E.Chassis.SlotMapHelp"}}</p>
-
-			<div class="sw5e-chassis-slot-group">
-				<div class="sw5e-chassis-slot-group-head">{{localize "SW5E.Chassis.SlotGroupBase"}}</div>
-				<ul class="sw5e-chassis-slot-grid">
-					{{#each slotRowsBase}}
-						<li class="sw5e-chassis-slot-cell {{#if entries.length}}is-occupied{{else}}is-empty{{/if}}">
-							<span class="sw5e-chassis-slot-label">{{slotLabelDisplay}}</span>
-							{{#if entries.length}}
-								<div class="sw5e-chassis-slot-body">
-									{{#each entries}}
-										<span class="sw5e-chassis-slot-mod">{{snapshot.name}}</span>
-										<span class="sw5e-chassis-slot-cost subdued">{{localize "SW5E.Chassis.SlotCostShort"}} {{slotCost}}</span>
-									{{/each}}
-								</div>
-							{{else}}
-								<span class="sw5e-chassis-slot-empty subdued">{{localize "SW5E.Chassis.SlotEmpty"}}</span>
-								{{#if ../isEditable}}
-									<button type="button" class="sw5e-chassis-btn sw5e-chassis-btn--slot-install" data-chassis-action="install-workflow" data-chassis-slot-kind="{{kind}}" data-chassis-slot-index="{{index}}" {{#if slotSemantic}}data-chassis-slot-role="{{slotSemantic}}"{{/if}}>
-										<i class="fas fa-plus" aria-hidden="true"></i> {{localize "SW5E.Chassis.InstallHere"}}
-									</button>
-								{{/if}}
-							{{/if}}
-						</li>
-					{{/each}}
-				</ul>
-			</div>
-
-			{{#if slotRowsAugment.length}}
 				<div class="sw5e-chassis-slot-group">
-					<div class="sw5e-chassis-slot-group-head">{{localize "SW5E.Chassis.SlotGroupAugment"}}</div>
+					<h5 class="sw5e-chassis-slot-group-head">{{localize "SW5E.Chassis.SlotGroupBase"}}</h5>
 					<ul class="sw5e-chassis-slot-grid">
-						{{#each slotRowsAugment}}
-							<li class="sw5e-chassis-slot-cell {{#if entries.length}}is-occupied{{else}}is-empty{{/if}}">
+						{{#each slotRowsBase}}
+							<li
+								class="sw5e-chassis-slot-card {{#if entries.length}}sw5e-chassis-slot-card--installed{{else}}sw5e-chassis-slot-card--empty{{/if}}"
+								{{#unless entries.length}}{{#if ../isEditable}}data-chassis-dropzone data-chassis-slot-kind="{{kind}}" data-chassis-slot-index="{{index}}" {{#if slotSemantic}}data-chassis-slot-role="{{slotSemantic}}"{{/if}}{{/if}}{{/unless}}
+							>
 								<span class="sw5e-chassis-slot-label">{{slotLabelDisplay}}</span>
 								{{#if entries.length}}
-									<div class="sw5e-chassis-slot-body">
-										{{#each entries}}
-											<span class="sw5e-chassis-slot-mod">{{snapshot.name}}</span>
-											<span class="sw5e-chassis-slot-cost subdued">{{localize "SW5E.Chassis.SlotCostShort"}} {{slotCost}}</span>
-										{{/each}}
-									</div>
+									{{#each entries}}
+										<button
+											type="button"
+											class="unbutton sw5e-chassis-installed-name"
+											data-chassis-action="open-installed-mod"
+											data-chassis-installed-uuid="{{uuid}}"
+											title="{{localize "SW5E.Chassis.OpenInstalledMod"}}"
+											aria-label="{{localize "SW5E.Chassis.OpenInstalledModAria" modName=snapshot.name}}"
+											data-tooltip="{{localize "SW5E.Chassis.OpenInstalledMod"}}"
+										>{{snapshot.name}}</button>
+										<span class="sw5e-chassis-slot-cost">{{localize "SW5E.Chassis.SlotCostShort"}} {{slotCost}}</span>
+										{{#if @root.isEditable}}
+											<button
+												type="button"
+												class="sw5e-chassis-slot-remove"
+												data-chassis-action="remove-installed"
+												data-chassis-installed-uuid="{{uuid}}"
+												title="{{localize "SW5E.Chassis.SlotRemove"}}"
+												aria-label="{{localize "SW5E.Chassis.SlotRemove"}}"
+												data-tooltip="{{localize "SW5E.Chassis.SlotRemove"}}"
+											>
+												<i class="fas fa-trash" aria-hidden="true"></i>
+											</button>
+										{{/if}}
+									{{/each}}
 								{{else}}
-									<span class="sw5e-chassis-slot-empty subdued">{{localize "SW5E.Chassis.SlotEmpty"}}</span>
+									<span class="sw5e-chassis-slot-empty">{{localize "SW5E.Chassis.SlotEmpty"}}</span>
 									{{#if ../isEditable}}
-										<button type="button" class="sw5e-chassis-btn sw5e-chassis-btn--slot-install" data-chassis-action="install-workflow" data-chassis-slot-kind="{{kind}}" data-chassis-slot-index="{{index}}" {{#if slotSemantic}}data-chassis-slot-role="{{slotSemantic}}"{{/if}}>
+										<button
+											type="button"
+											class="sw5e-chassis-slot-install"
+											data-chassis-action="install-workflow"
+											data-chassis-slot-kind="{{kind}}"
+											data-chassis-slot-index="{{index}}"
+											{{#if slotSemantic}}data-chassis-slot-role="{{slotSemantic}}"{{/if}}
+										>
 											<i class="fas fa-plus" aria-hidden="true"></i> {{localize "SW5E.Chassis.InstallHere"}}
 										</button>
 									{{/if}}
@@ -117,67 +103,100 @@
 						{{/each}}
 					</ul>
 				</div>
-			{{/if}}
-		</div>
 
-		<div class="sw5e-chassis-installed">
-			{{#if installedRows.length}}
-				<details class="sw5e-chassis-installed-details">
-					<summary class="sw5e-chassis-installed-summary">{{installedLogSummaryText}}</summary>
-					<div class="sw5e-chassis-installed-details-body">
-						<p class="sw5e-chassis-section-intro subdued">{{localize "SW5E.Chassis.InstalledListHelp"}}</p>
-						<ul class="sw5e-chassis-mod-list">
-							{{#each installedRows}}
-								<li class="sw5e-chassis-mod-card">
-									<div class="sw5e-chassis-mod-title">{{name}}</div>
-									<div class="sw5e-chassis-mod-tags">
-										<span class="sw5e-chassis-tag">{{rarityDisplay}}</span>
-										<span class="sw5e-chassis-tag">{{slotPositionLabel}}</span>
-										<span class="sw5e-chassis-tag">{{localize "SW5E.Chassis.SlotCostShort"}} {{slotCost}}</span>
-									</div>
-									<div class="sw5e-chassis-mod-foot subdued">{{installedTime}}</div>
+				{{#if slotRowsAugment.length}}
+					<div class="sw5e-chassis-slot-group">
+						<h5 class="sw5e-chassis-slot-group-head">{{localize "SW5E.Chassis.SlotGroupAugment"}}</h5>
+						<ul class="sw5e-chassis-slot-grid">
+							{{#each slotRowsAugment}}
+								<li
+									class="sw5e-chassis-slot-card {{#if entries.length}}sw5e-chassis-slot-card--installed{{else}}sw5e-chassis-slot-card--empty{{/if}}"
+									{{#unless entries.length}}{{#if ../isEditable}}data-chassis-dropzone data-chassis-slot-kind="{{kind}}" data-chassis-slot-index="{{index}}" {{#if slotSemantic}}data-chassis-slot-role="{{slotSemantic}}"{{/if}}{{/if}}{{/unless}}
+								>
+									<span class="sw5e-chassis-slot-label">{{slotLabelDisplay}}</span>
+									{{#if entries.length}}
+										{{#each entries}}
+											<button
+												type="button"
+												class="unbutton sw5e-chassis-installed-name"
+												data-chassis-action="open-installed-mod"
+												data-chassis-installed-uuid="{{uuid}}"
+												title="{{localize "SW5E.Chassis.OpenInstalledMod"}}"
+												aria-label="{{localize "SW5E.Chassis.OpenInstalledModAria" modName=snapshot.name}}"
+												data-tooltip="{{localize "SW5E.Chassis.OpenInstalledMod"}}"
+											>{{snapshot.name}}</button>
+											<span class="sw5e-chassis-slot-cost">{{localize "SW5E.Chassis.SlotCostShort"}} {{slotCost}}</span>
+											{{#if @root.isEditable}}
+												<button
+													type="button"
+													class="sw5e-chassis-slot-remove"
+													data-chassis-action="remove-installed"
+													data-chassis-installed-uuid="{{uuid}}"
+													title="{{localize "SW5E.Chassis.SlotRemove"}}"
+													aria-label="{{localize "SW5E.Chassis.SlotRemove"}}"
+													data-tooltip="{{localize "SW5E.Chassis.SlotRemove"}}"
+												>
+													<i class="fas fa-trash" aria-hidden="true"></i>
+												</button>
+											{{/if}}
+										{{/each}}
+									{{else}}
+										<span class="sw5e-chassis-slot-empty">{{localize "SW5E.Chassis.SlotEmpty"}}</span>
+										{{#if ../isEditable}}
+											<button
+												type="button"
+												class="sw5e-chassis-slot-install"
+												data-chassis-action="install-workflow"
+												data-chassis-slot-kind="{{kind}}"
+												data-chassis-slot-index="{{index}}"
+												{{#if slotSemantic}}data-chassis-slot-role="{{slotSemantic}}"{{/if}}
+											>
+												<i class="fas fa-plus" aria-hidden="true"></i> {{localize "SW5E.Chassis.InstallHere"}}
+											</button>
+										{{/if}}
+									{{/if}}
 								</li>
 							{{/each}}
 						</ul>
 					</div>
-				</details>
-			{{else}}
-				<p class="sw5e-chassis-empty subdued">{{localize "SW5E.Chassis.NoMods"}}</p>
+				{{/if}}
+			</section>
+
+			{{#if isEditable}}
+				<footer class="sw5e-chassis-footer-actions">
+					<button
+						type="button"
+						class="sw5e-chassis-footer-btn sw5e-chassis-footer-btn--upgrade"
+						data-chassis-action="upgrade-workflow"
+						title="{{localize "SW5E.Chassis.ActionUpgrade"}}"
+						aria-label="{{localize "SW5E.Chassis.ActionUpgrade"}}"
+						data-tooltip="{{localize "SW5E.Chassis.ActionUpgrade"}}"
+						{{#unless canUpgradeChassis}}disabled{{/unless}}
+					>
+						<i class="fas fa-arrow-up" aria-hidden="true"></i>
+					</button>
+					<button
+						type="button"
+						class="sw5e-chassis-footer-btn sw5e-chassis-footer-btn--disable"
+						data-chassis-action="disable"
+						title="{{localize "SW5E.Chassis.Disable"}}"
+						aria-label="{{localize "SW5E.Chassis.Disable"}}"
+						data-tooltip="{{localize "SW5E.Chassis.Disable"}}"
+					>
+						<i class="fas fa-power-off" aria-hidden="true"></i>
+					</button>
+					<button
+						type="button"
+						class="sw5e-chassis-footer-btn sw5e-chassis-footer-btn--danger"
+						data-chassis-action="remove-data"
+						title="{{localize "SW5E.Chassis.TooltipDeleteChassis"}}"
+						aria-label="{{localize "SW5E.Chassis.TooltipDeleteChassis"}}"
+						data-tooltip="{{localize "SW5E.Chassis.TooltipDeleteChassis"}}"
+					>
+						<i class="fas fa-trash" aria-hidden="true"></i>
+					</button>
+				</footer>
 			{{/if}}
 		</div>
-
-		{{#if isEditable}}
-			<footer class="sw5e-chassis-actions">
-				<div class="sw5e-chassis-actions-group sw5e-chassis-actions-group--normal">
-					<div class="sw5e-chassis-actions-heading">{{localize "SW5E.Chassis.ActionsNormalHeading"}}</div>
-					<div class="sw5e-chassis-actions-row sw5e-chassis-actions-row--primary">
-						<button type="button" class="sw5e-chassis-btn sw5e-chassis-btn--primary" data-chassis-action="install-workflow">
-							<i class="fas fa-plus" aria-hidden="true"></i> {{localize "SW5E.Chassis.ActionInstall"}}
-						</button>
-					</div>
-					<div class="sw5e-chassis-actions-row sw5e-chassis-actions-row--secondary">
-						<button type="button" class="sw5e-chassis-btn" data-chassis-action="remove-workflow">
-							<i class="fas fa-minus" aria-hidden="true"></i> {{localize "SW5E.Chassis.ActionRemove"}}
-						</button>
-						<button type="button" class="sw5e-chassis-btn" data-chassis-action="upgrade-workflow" {{#unless canUpgradeChassis}}disabled{{/unless}}>
-							<i class="fas fa-arrow-up" aria-hidden="true"></i> {{localize "SW5E.Chassis.ActionUpgrade"}}
-						</button>
-					</div>
-				</div>
-				<div class="sw5e-chassis-actions-divider" role="presentation"></div>
-				<div class="sw5e-chassis-actions-group sw5e-chassis-actions-group--danger">
-					<div class="sw5e-chassis-actions-heading sw5e-chassis-actions-heading--danger">{{localize "SW5E.Chassis.ActionsDangerHeading"}}</div>
-					<p class="sw5e-chassis-actions-hint subdued">{{localize "SW5E.Chassis.ActionsDangerHint"}}</p>
-					<div class="sw5e-chassis-actions-row sw5e-chassis-actions-row--utility">
-						<button type="button" class="sw5e-chassis-btn sw5e-chassis-btn--quiet" data-chassis-action="disable">
-							<i class="fas fa-power-off" aria-hidden="true"></i> {{localize "SW5E.Chassis.Disable"}}
-						</button>
-						<button type="button" class="sw5e-chassis-btn sw5e-chassis-btn--danger" data-chassis-action="remove-data">
-							<i class="fas fa-trash" aria-hidden="true"></i> {{localize "SW5E.Chassis.RemoveData"}}
-						</button>
-					</div>
-				</div>
-			</footer>
-		{{/if}}
 	{{/unless}}
 </section>

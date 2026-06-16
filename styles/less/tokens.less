@@ -214,3 +214,130 @@ body[data-sw5e-theme="sw5e-dark"] {
   --color-canvas-2: var(--sw5e-foundry-canvas-2);
   --color-canvas-3: var(--sw5e-foundry-canvas-3);
 }
+
+body[data-sw5e-theme="sw5e-underworld"] {
+  /* Underworld Alloy palette — earth/armor surfaces + neon accents (no parchment) */
+  --sw5e-underworld-bg-deep: #1a1f1c;
+  --sw5e-underworld-bg: #232a26;
+  --sw5e-underworld-panel: #2c3530;
+  --sw5e-underworld-panel-strong: #354038;
+  --sw5e-underworld-olive: #4a5c3f;
+  --sw5e-underworld-forest: #3d4f36;
+  --sw5e-underworld-leather: #5c4a38;
+  --sw5e-underworld-leather-deep: #45372b;
+  --sw5e-underworld-sand: #c4b08a;
+  --sw5e-underworld-graphite: #1e2428;
+  --sw5e-underworld-neon-purple: #a855f7;
+  --sw5e-underworld-neon-magenta: #e879f9;
+  --sw5e-underworld-neon-blue: #38bdf8;
+  --sw5e-underworld-neon-cyan: #22d3ee;
+  --sw5e-underworld-border: color-mix(in srgb, var(--sw5e-underworld-leather-deep) 62%, var(--sw5e-underworld-olive) 38%);
+  --sw5e-underworld-input-bg: #1a211e;
+  --sw5e-underworld-danger: #f472b6;
+  --sw5e-underworld-warning: #fbbf24;
+  --sw5e-underworld-success: #4ade80;
+  --sw5e-underworld-glow-purple: color-mix(in srgb, var(--sw5e-underworld-neon-purple) 24%, transparent);
+  --sw5e-underworld-glow-blue: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 18%, transparent);
+
+  /* Semantic theme tokens */
+  --sw5e-theme-page-edge: var(--sw5e-underworld-bg-deep);
+  --sw5e-theme-page-center: var(--sw5e-underworld-bg);
+  --sw5e-theme-heading: var(--sw5e-underworld-neon-magenta);
+  --sw5e-theme-primary-button: var(--sw5e-underworld-neon-blue);
+  --sw5e-theme-secondary-button: var(--sw5e-underworld-olive);
+  --sw5e-theme-line: var(--sw5e-underworld-neon-blue);
+  --sw5e-primary-button: var(--sw5e-theme-primary-button);
+  --sw5e-secondary-button: var(--sw5e-theme-secondary-button);
+  --sw5e-line-color: var(--sw5e-theme-line);
+  --sw5e-theme-text: #e8ebe4;
+  --sw5e-theme-muted-text: #9aa89e;
+  --sw5e-theme-surface: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, rgba(0, 0, 0, 0.24));
+  --sw5e-theme-surface-strong: color-mix(in srgb, var(--sw5e-underworld-panel-strong) 92%, rgba(0, 0, 0, 0.18));
+  --sw5e-theme-input: var(--sw5e-underworld-input-bg);
+  --sw5e-theme-input-border: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 28%, var(--sw5e-underworld-border));
+  --sw5e-theme-color-scheme: dark;
+  --sw5e-theme-window-background:
+    linear-gradient(
+      90deg,
+      var(--sw5e-underworld-bg-deep) 0%,
+      var(--sw5e-underworld-bg) 50%,
+      var(--sw5e-underworld-bg-deep) 100%
+    );
+  --sw5e-theme-surface-background:
+    linear-gradient(180deg, color-mix(in srgb, var(--sw5e-underworld-panel-strong) 72%, black) 0%, var(--sw5e-underworld-panel) 100%);
+  --sw5e-theme-panel-background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--sw5e-underworld-panel-strong) 86%, black),
+      var(--sw5e-underworld-panel)
+    );
+  --sw5e-theme-button-text: #0f1412;
+  --sw5e-theme-shadow: 0 10px 24px rgba(0, 0, 0, 0.36);
+
+  /* Underworld polish tokens (parallel to --sw5e-dark-* / --sw5e-light-*) */
+  --sw5e-underworld-muted-control-border: var(--sw5e-underworld-border);
+  --sw5e-underworld-active-control-border: var(--sw5e-underworld-neon-cyan);
+  --sw5e-underworld-icon-frame-border: color-mix(in srgb, var(--sw5e-underworld-neon-purple) 34%, var(--sw5e-underworld-border));
+  --sw5e-underworld-meter-shell-border: var(--sw5e-underworld-muted-control-border);
+  --sw5e-underworld-control-ring: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent);
+  --sw5e-underworld-card-header-background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong) 0%, var(--sw5e-underworld-panel) 100%);
+  --sw5e-underworld-section-header-background: linear-gradient(180deg, var(--sw5e-underworld-graphite) 0%, var(--sw5e-underworld-panel) 100%);
+  --sw5e-underworld-hover-tint: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 10%, var(--sw5e-underworld-panel) 90%);
+  --sw5e-underworld-empty-text: color-mix(in srgb, var(--sw5e-theme-muted-text) 88%, var(--sw5e-underworld-sand) 12%);
+  --sw5e-underworld-row-divider: color-mix(in srgb, var(--sw5e-underworld-leather-deep) 70%, transparent);
+  --sw5e-underworld-card-shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.28);
+  --sw5e-underworld-panel-fill-strong: linear-gradient(180deg, var(--sw5e-underworld-panel-strong) 0%, var(--sw5e-underworld-panel) 100%);
+  --sw5e-underworld-proficiency-inactive: color-mix(in srgb, var(--sw5e-theme-muted-text) 72%, var(--sw5e-underworld-graphite) 28%);
+  --sw5e-underworld-tab-inactive-fill: linear-gradient(180deg, var(--sw5e-underworld-graphite) 0%, var(--sw5e-underworld-panel) 100%);
+  --sw5e-underworld-tab-active-fill: linear-gradient(180deg, var(--sw5e-underworld-panel-strong) 0%, color-mix(in srgb, var(--sw5e-underworld-neon-blue) 12%, var(--sw5e-underworld-panel)) 100%);
+  --sw5e-underworld-tab-glow-soft: 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-blue) 18%, transparent), 0 2px 8px var(--sw5e-underworld-glow-blue);
+  --sw5e-underworld-tab-glow-strong: 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 28%, transparent), 0 0 12px var(--sw5e-underworld-glow-purple);
+  --sw5e-underworld-chat-message-background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong) 0%, var(--sw5e-underworld-panel) 100%);
+  --sw5e-underworld-chat-datapad-panel: linear-gradient(180deg, var(--sw5e-underworld-panel-strong) 0%, var(--sw5e-underworld-graphite) 100%);
+  --sw5e-underworld-chat-datapad-border: var(--sw5e-underworld-muted-control-border);
+  --sw5e-underworld-chat-datapad-shadow: var(--sw5e-underworld-card-shadow-soft);
+  --sw5e-underworld-chat-dice-panel: linear-gradient(180deg, var(--sw5e-underworld-graphite) 0%, var(--sw5e-underworld-bg-deep) 100%);
+
+  /* Foundry core UI — semantic tokens (no parchment images) */
+  --sw5e-foundry-sidebar-background: linear-gradient(180deg, var(--sw5e-underworld-graphite) 0%, var(--sw5e-underworld-bg-deep) 100%);
+  --sw5e-foundry-app-background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong) 0%, var(--sw5e-underworld-bg) 100%);
+  --sw5e-foundry-content-background: linear-gradient(180deg, var(--sw5e-underworld-panel) 0%, var(--sw5e-underworld-bg) 100%);
+  --sw5e-foundry-dialog-background: var(--sw5e-foundry-app-background);
+  --sw5e-foundry-input-background: var(--sw5e-theme-input);
+  --sw5e-foundry-border: var(--sw5e-underworld-muted-control-border);
+  --sw5e-foundry-text: var(--sw5e-theme-text);
+  --sw5e-foundry-text-muted: var(--sw5e-theme-muted-text);
+  --sw5e-foundry-canvas-1: #252c28;
+  --sw5e-foundry-canvas-2: #2c3530;
+  --sw5e-foundry-canvas-3: #354038;
+  --sw5e-foundry-app-window-background: linear-gradient(180deg, var(--sw5e-underworld-panel) 0%, var(--sw5e-underworld-bg) 100%);
+  --sw5e-foundry-window-content-background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong) 0%, var(--sw5e-underworld-panel) 100%);
+  --sw5e-foundry-window-canvas-1: color-mix(in srgb, var(--sw5e-underworld-panel-strong) 92%, black);
+  --sw5e-foundry-window-canvas-2: var(--sw5e-underworld-panel);
+  --sw5e-foundry-window-canvas-3: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, var(--sw5e-underworld-olive) 12%);
+  --sw5e-foundry-window-titlebar-background: color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, var(--sw5e-underworld-olive) 12%);
+  --sw5e-foundry-window-titlebar-border: var(--sw5e-underworld-muted-control-border);
+  --sw5e-foundry-window-titlebar-text: var(--sw5e-theme-text);
+  --sw5e-foundry-window-close-color: var(--sw5e-underworld-sand);
+  --sw5e-foundry-window-close-hover-background: color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 16%, var(--sw5e-underworld-panel));
+  --sw5e-foundry-window-close-hover-color: var(--sw5e-underworld-neon-magenta);
+  --sw5e-foundry-control-background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black);
+  --sw5e-foundry-control-background-hover: var(--sw5e-underworld-hover-tint);
+  --sw5e-foundry-control-background-active: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 18%, var(--sw5e-underworld-panel));
+  --sw5e-foundry-control-text: var(--sw5e-theme-text);
+  --sw5e-foundry-control-icon: var(--sw5e-underworld-neon-cyan);
+  --sw5e-foundry-control-icon-active: var(--sw5e-underworld-neon-blue);
+  --sw5e-foundry-control-border: var(--sw5e-foundry-border);
+  --sw5e-foundry-control-border-active: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, transparent);
+  --sw5e-foundry-control-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+  --sw5e-foundry-control-focus-ring: var(--sw5e-underworld-control-ring);
+
+  /* Foundry core UI — variable remap (Phase F1) */
+  --sidebar-background: var(--sw5e-foundry-sidebar-background);
+  --background: var(--sw5e-foundry-app-background);
+  --color-text-primary: var(--sw5e-foundry-text);
+  --color-text-secondary: var(--sw5e-foundry-text-muted);
+  --color-canvas-1: var(--sw5e-foundry-canvas-1);
+  --color-canvas-2: var(--sw5e-foundry-canvas-2);
+  --color-canvas-3: var(--sw5e-foundry-canvas-3);
+}

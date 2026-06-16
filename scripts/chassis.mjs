@@ -6,14 +6,20 @@
 import { getModuleId, getModuleSettingValue } from "./module-support.mjs";
 import { isCyberneticAugmentationSourceCustom } from "./augmentations.mjs";
 import { isDroidCustomizationItem } from "./droid-customizations.mjs";
+import { cloneEffectsSnapshot } from "./chassis-effect-snapshot.mjs";
 
 /**
- * Item compendium pack names (within this module) used as the authoritative modification source for the install browser and related helpers.
- * Only the Modifications compendium is included; Enhanced Items is not a chassis-mod install source.
+ * Item compendium pack names (within this module) used as modification sources for the install browser.
+ * `enhanceditems` holds Item Modifications under folder `ENHANCEDITEMS_ITEM_MODIFICATIONS_FOLDER_ID`.
+ * `modifications` is a legacy pack name (included when registered).
  */
 export const CHASSIS_MOD_SOURCE_PACK_NAMES = /** @type {const} */ ([
+	"enhanceditems",
 	"modifications"
 ]);
+
+/** Stable folder id for Enhanced Items → Item Modifications (packs/_source/enhanceditems/item-modifications/_folder.yml). */
+export const ENHANCEDITEMS_ITEM_MODIFICATIONS_FOLDER_ID = "2opSaVXOBytTPCiA";
 
 /**
  * Requested compendium index fields for the install browser so chassis metadata is available without {@link CompendiumCollection#getDocuments}.
@@ -479,16 +485,68 @@ export function getChassisModMeta(modItem) {
 /** @typedef {"native"|"inferred-strong"|"inferred-basic"} ChassisModInferenceConfidence */
 
 /**
- * True when the item document is tied to the Modifications compendium (UUID or pack metadata).
- * Used only to allow pack-scoped inference after lazy load — never for arbitrary world items.
+ * True when the item document is tied to a chassis-mod compendium source that may use inference after lazy load.
  * @param {object|null|undefined} modItem
  */
 export function modificationsPackInferenceEligible(modItem) {
+	if ( isRecord(modItem?.flags?.sw5e?.chassisMod) ) return false;
 	const u = String(modItem?.uuid ?? "");
 	if ( /Compendium\.[^.]+\.modifications\./i.test(u) ) return true;
+	if ( /Compendium\.[^.]+\.enhanceditems\./i.test(u) ) return isEnhancedItemsModificationItemLike(modItem);
 	const pack = modItem?.pack;
 	const pkg = typeof pack === "string" ? pack : pack?.metadata?.id ?? pack?.metadata?.name ?? "";
-	return /(^|\.)modifications$/i.test(pkg);
+	if ( /(^|\.)modifications$/i.test(pkg) ) return true;
+	if ( /(^|\.)enhanceditems$/i.test(pkg) ) return isEnhancedItemsModificationItemLike(modItem);
+	return false;
+}
+
+/**
+ * Enhanced Items compendium rows that represent item modifications (not wristpads, chassis hosts, etc.).
+ * @param {object|null|undefined} itemLike
+ */
+export function isEnhancedItemsModificationItemLike(itemLike) {
+	if ( !itemLike || typeof itemLike !== "object" ) return false;
+	if ( isRecord(itemLike.flags?.sw5e?.chassisMod) ) return true;
+	const folderRef = itemLike.folder ?? itemLike._source?.folder;
+	const folderId = typeof folderRef === "string" ? folderRef : folderRef?.id ?? folderRef?._id ?? null;
+	if ( folderId === ENHANCEDITEMS_ITEM_MODIFICATIONS_FOLDER_ID ) return true;
+	if ( String(itemLike.system?.source?.custom ?? "").toLowerCase() === "modification" ) return true;
+	const uid = itemLike.flags?.["sw5e-importer"]?.uid;
+	if ( typeof uid === "string" && /^EnhancedItem\./i.test(uid) && /\.subtype-/i.test(uid) ) return true;
+	const desc = String(itemLike.system?.description?.value ?? "");
+	if ( /<h4>\s*item\s*modification/i.test(desc) ) return true;
+	return false;
+}
+
+/**
+ * Compendium index row eligible for the chassis install browser.
+ * @param {object} entry
+ * @param {import("@league/foundry").CompendiumCollection} pack
+ */
+export function isChassisModCompendiumIndexEntry(entry, pack) {
+	if ( !entry || typeof entry !== "object" ) return false;
+	if ( isRecord(entry.flags?.sw5e?.chassisMod) ) return true;
+	const packName = pack?.metadata?.name ?? "";
+	if ( packName === "modifications" ) return true;
+	if ( packName === "enhanceditems" ) {
+		if ( entry.folder === ENHANCEDITEMS_ITEM_MODIFICATIONS_FOLDER_ID ) return true;
+		if ( String(entry.system?.source?.custom ?? "").toLowerCase() === "modification" ) return true;
+		const uid = entry.flags?.["sw5e-importer"]?.uid;
+		if ( typeof uid === "string" && /^EnhancedItem\./i.test(uid) && /\.subtype-/i.test(uid) ) return true;
+		const desc = String(entry.system?.description?.value ?? "");
+		if ( /<h4>\s*item\s*modification/i.test(desc) ) return true;
+		return false;
+	}
+	return false;
+}
+
+/**
+ * Whether chassis metadata may be inferred for this item (compendium or world modification-shaped items).
+ * @param {object|null|undefined} modItemLike
+ */
+export function chassisModInferenceAllowed(modItemLike) {
+	if ( isRecord(modItemLike?.flags?.sw5e?.chassisMod) ) return false;
+	return modificationsPackInferenceEligible(modItemLike) || isEnhancedItemsModificationItemLike(modItemLike);
 }
 
 /**
@@ -717,13 +775,14 @@ export function resolveChassisModMetaForInstall(modItemLike, options = {}) {
 }
 
 /**
- * World items may appear in the install browser only when they declare explicit mod metadata.
+ * World items may appear in the install browser when they declare explicit mod metadata or match modification heuristics.
  * @param {import("@league/foundry").documents.Item} item
  * @param {import("@league/foundry").documents.Item} hostItem
  */
 function isWorldChassisModBrowserCandidate(item, hostItem) {
 	if ( item?.uuid === hostItem?.uuid ) return false;
-	return isRecord(item?.flags?.sw5e?.chassisMod);
+	if ( isRecord(item?.flags?.sw5e?.chassisMod) ) return true;
+	return isEnhancedItemsModificationItemLike(item);
 }
 
 // ——— Validation result shape ———
@@ -997,6 +1056,7 @@ export async function getChassisInstallCandidates(hostItem, browserCtx = {}) {
 			: Array.from(worldItems);
 		for ( const doc of docs ) {
 			if ( !isWorldChassisModBrowserCandidate(doc, hostItem) ) continue;
+			const allowInference = !isRecord(doc.flags?.sw5e?.chassisMod) && isEnhancedItemsModificationItemLike(doc);
 			pushChassisInstallCandidateRow(rows, hostItem, browserCtx, {
 				chassis,
 				mode,
@@ -1009,7 +1069,7 @@ export async function getChassisInstallCandidates(hostItem, browserCtx = {}) {
 				img: doc.img,
 				sourceLabel: worldLabel,
 				systemRarity: undefined,
-				allowModificationsPackInference: false
+				allowModificationsPackInference: allowInference
 			});
 		}
 	}
@@ -1024,6 +1084,7 @@ export async function getChassisInstallCandidates(hostItem, browserCtx = {}) {
 			continue;
 		}
 		for ( const entry of pack.index.values() ) {
+			if ( !isChassisModCompendiumIndexEntry(entry, pack) ) continue;
 			const uuid = typeof entry.uuid === "string" && entry.uuid
 				? entry.uuid
 				: (packKey && entry._id ? `Compendium.${packKey}.${entry._id}` : "");
@@ -1058,6 +1119,53 @@ export async function getChassisInstallCandidates(hostItem, browserCtx = {}) {
 
 	return rows;
 }
+
+/**
+ * Explain why {@link getChassisInstallCandidates} returned no rows (for install browser empty state).
+ * @param {import("@league/foundry").documents.Item} hostItem
+ * @param {ChassisInstallBrowserContext} [browserCtx]
+ * @returns {Promise<string>} i18n key for a specific empty reason
+ */
+export async function diagnoseChassisInstallCandidatesEmpty(hostItem, browserCtx = {}) {
+	const packs = getChassisModificationCompendiumPacks();
+	if ( !packs.length ) return "SW5E.Chassis.InstallBrowserEmptyNoPacks";
+
+	let indexedModEntries = 0;
+	for ( const pack of packs ) {
+		try {
+			await pack.getIndex({ fields: [...CHASSIS_MOD_COMPENDIUM_INDEX_FIELDS] });
+		} catch {
+			return "SW5E.Chassis.InstallBrowserEmptyIndexFailed";
+		}
+		for ( const entry of pack.index.values() ) {
+			if ( isChassisModCompendiumIndexEntry(entry, pack) ) indexedModEntries++;
+		}
+	}
+
+	let worldModCount = 0;
+	const worldItems = globalThis.game?.items;
+	if ( worldItems ) {
+		const docs = typeof worldItems.contents?.values === "function"
+			? Array.from(worldItems.contents.values())
+			: Array.from(worldItems);
+		for ( const doc of docs ) {
+			if ( isWorldChassisModBrowserCandidate(doc, hostItem) ) worldModCount++;
+		}
+	}
+
+	if ( indexedModEntries === 0 && worldModCount === 0 ) return "SW5E.Chassis.InstallBrowserEmptyNoMetadata";
+
+	const chassis = normalizeChassis(hostItem, getChassis(hostItem));
+	if ( chassis.slots.used >= chassis.slots.totalMax ) return "SW5E.Chassis.InstallBrowserEmptyNoSlots";
+
+	const rows = await getChassisInstallCandidates(hostItem, browserCtx);
+	if ( !rows.length ) return "SW5E.Chassis.InstallBrowserEmptyNoCompatible";
+
+	return "SW5E.Chassis.InstallBrowserEmpty";
+}
+
+/** @deprecated Alias for {@link getChassisInstallCandidates}. */
+export const getChassisModificationCandidates = getChassisInstallCandidates;
 
 function intervalsOverlap(a0, a1, b0, b1) {
 	return a0 < b1 && b0 < a1;
@@ -1159,11 +1267,11 @@ export function validateChassisInstall(hostItem, modItem, ctx = {}) {
 	if ( useBrowserMeta ) {
 		meta = clone(ctx.effectiveChassisModMeta);
 	} else {
-		const allowInfer = ctx.fromModificationsPackIndex === true || modificationsPackInferenceEligible(modItem);
+		const allowInfer = ctx.fromModificationsPackIndex === true || chassisModInferenceAllowed(modItem);
 		meta = resolveChassisModMetaForInstall(modItem, { allowModificationsPackInference: allowInfer });
 	}
-	/** Same broad-list policy as {@link pushChassisInstallCandidateRow} for Modifications compendium only. */
-	let relaxModPackCompat = ctx.fromModificationsPackIndex === true || modificationsPackInferenceEligible(modItem);
+	/** Same broad-list policy as {@link pushChassisInstallCandidateRow} for inferred compendium/world rows. */
+	let relaxModPackCompat = ctx.fromModificationsPackIndex === true || chassisModInferenceAllowed(modItem);
 	if ( useBrowserMeta && meta?.sourceType === "legacy-modifications-pack" ) relaxModPackCompat = true;
 	const rawActor = ctx.actor ?? hostItem.actor ?? hostItem.parent;
 	const actor = rawActor instanceof Actor ? rawActor : null;
@@ -1393,6 +1501,7 @@ export function createInstalledModEntry(modItem, partial = {}) {
 	const snapshotChassisMod = isRecord(modItem?.flags?.sw5e?.chassisMod)
 		? clone(modItem.flags.sw5e.chassisMod)
 		: (meta ? chassisModMetaForSnapshot(meta) : null);
+	const snapshotEffects = cloneEffectsSnapshot(modItem?.effects);
 	const adaptation = meta?.sourceType === "legacy-modifications-pack"
 		? { sourceType: meta.sourceType, confidence: meta.inferenceConfidence }
 		: undefined;
@@ -1407,6 +1516,7 @@ export function createInstalledModEntry(modItem, partial = {}) {
 			type: modItem?.type ?? "",
 			img: modItem?.img ?? "",
 			rarity: modItem?.system?.rarity ?? "",
+			...(snapshotEffects ? { effects: snapshotEffects } : {}),
 			flags: snapshotChassisMod ? { sw5e: { chassisMod: snapshotChassisMod } } : undefined,
 			...(adaptation ? { adaptation } : {})
 		},
@@ -1450,6 +1560,7 @@ export const chassisApi = {
 	chassisInstallTierSignificantWarnings,
 	collectChassisBrowserWarningHintKeys,
 	CHASSIS_MOD_SOURCE_PACK_NAMES,
+	ENHANCEDITEMS_ITEM_MODIFICATIONS_FOLDER_ID,
 	getChassisModificationCompendiumPacks,
 	collectChassisModificationItemDocuments,
 	getChassisSlotSemantic,
@@ -1457,6 +1568,11 @@ export const chassisApi = {
 	chassisModSlotSemanticCompatible,
 	filterChassisPlacementsForPreference,
 	getChassisInstallCandidates,
+	getChassisModificationCandidates,
+	diagnoseChassisInstallCandidatesEmpty,
+	chassisModInferenceAllowed,
+	isChassisModCompendiumIndexEntry,
+	isEnhancedItemsModificationItemLike,
 	parseChassisModEffects,
 	validateChassisInstall,
 	validateChassisRemove,

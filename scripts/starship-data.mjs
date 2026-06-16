@@ -1,4 +1,13 @@
 import { getBaseCurrencyKey, normalizeSwPriceDenomination } from "./currencies.mjs";
+import {
+	appendProficiencyTierFlavor,
+	createProficiencyTierChatFlag,
+	getExpandedProficiencyHoverLabel,
+	getExpandedProficiencyMultiplier,
+	getProficiencyAdvantageMode,
+	isMasteryProficiencyTier,
+	isRerollProficiencyTier
+} from "./patch/proficiency.mjs";
 
 const LEGACY_STARSHIP_PACKS = new Set([
 	"starshipactions",
@@ -924,10 +933,6 @@ export function deriveStarshipPools(actor) {
 	};
 }
 
-function getProficiencyLevels() {
-	return CONFIG?.DND5E?.proficiencyLevels ?? CONFIG?.SW5E?.proficiencyLevels ?? {};
-}
-
 function getStarshipSkillsConfig() {
 	return CONFIG?.DND5E?.starshipSkills ?? CONFIG?.SW5E?.starshipSkills ?? {};
 }
@@ -936,18 +941,12 @@ function getSkillBonus(skill = {}) {
 	return toFiniteNumber(skill?.bonuses?.check, 0) ?? 0;
 }
 
-/**
- * dnd5e 5.2 `CONFIG.DND5E.proficiencyLevels` is localized label strings (0, 0.5, 1, 2) with no `.mult`.
- * SW5E adds Wretched Hives starship tiers 3–5 the same way. Starship skills store the tier number in
- * `skill.value`; that number is the proficiency multiplier applied to the ship’s proficiency bonus.
- */
 function getStarshipSkillProficiencyMultiplier(proficiencyMode) {
-	const levels = getProficiencyLevels();
-	const entry = levels?.[proficiencyMode];
-	if ( isRecord(entry) && Number.isFinite(Number(entry.mult)) ) return Number(entry.mult);
-	const n = toFiniteNumber(proficiencyMode, NaN);
-	if ( !Number.isFinite(n) || n < 0 || n > 5 ) return 0;
-	return n;
+	return getExpandedProficiencyMultiplier(proficiencyMode);
+}
+
+function proficiencyLevelHoverLabel(mode) {
+	return getExpandedProficiencyHoverLabel(mode);
 }
 
 function resolveStarshipSkillAbility(skill, config) {
@@ -957,21 +956,6 @@ function resolveStarshipSkillAbility(skill, config) {
 	const fromConfig = typeof config?.ability === "string" ? config.ability.trim() : "";
 	if ( fromConfig && abilityKeys.includes(fromConfig) ) return fromConfig;
 	return abilityKeys.includes("int") ? "int" : (abilityKeys[0] ?? "int");
-}
-
-function proficiencyLevelHoverLabel(mode) {
-	const levels = getProficiencyLevels();
-	const entry = levels?.[mode];
-	if ( typeof entry === "string" ) {
-		const loc = globalThis.game?.i18n?.localize?.(entry);
-		return loc && loc !== entry ? loc : entry;
-	}
-	if ( isRecord(entry) && entry.label ) {
-		const lab = entry.label;
-		const loc = globalThis.game?.i18n?.localize?.(lab);
-		return loc && loc !== lab ? loc : String(lab ?? "");
-	}
-	return "";
 }
 
 function getStarshipActorProficiencyBonus(actor, legacySystem) {
@@ -1523,21 +1507,26 @@ export async function rollStarshipSkill(actor, skillId, event, rollingUser) {
 	const fastForward = isStarshipFastForward(event);
 	const defaultRollMode = game.settings.get("core", "rollMode");
 	const abilities = buildStarshipRollAbilities(actor);
+	const masteryTier = entry.proficiencyMode;
+	const forcedAdvantage = isMasteryProficiencyTier(masteryTier);
 	const dialogSelection = fastForward
 		? {
 			ability: entry.ability,
 			bonus: "",
 			rollMode: defaultRollMode,
-			advantageMode: getStarshipAdvantageMode(event)
+			advantageMode: forcedAdvantage ? getProficiencyAdvantageMode() : getStarshipAdvantageMode(event)
 		}
 		: await (await import("./starship-skill-roll-config.mjs")).promptStarshipSkillRoll({
 			actor,
 			entry: dialogEntry,
 			abilities,
 			defaultRollMode,
-			initialMode: getStarshipAdvantageMode(event)
+			initialMode: forcedAdvantage ? getProficiencyAdvantageMode() : getStarshipAdvantageMode(event),
+			forcedAdvantage
 		});
 	if ( !dialogSelection ) return null;
+
+	if ( forcedAdvantage ) dialogSelection.advantageMode = getProficiencyAdvantageMode();
 
 	const selectedAbility = dialogSelection.ability in abilities ? dialogSelection.ability : entry.ability;
 	const chosenAbility = abilities[selectedAbility] ?? { mod: entry.parts.abilityMod, bonuses: { check: "" } };
@@ -1588,11 +1577,23 @@ export async function rollStarshipSkill(actor, skillId, event, rollingUser) {
 		})
 		: "";
 	const chatFlavor = flavorSuffix ? `${baseFlavor} — ${flavorSuffix}` : baseFlavor;
-
-	await roll.toMessage({
+	const tierMetadata = forcedAdvantage
+		? createProficiencyTierChatFlag(masteryTier, {
+			type: "skill",
+			rollLabel: entry.label,
+			subjectUuid: actor.uuid
+		})
+		: null;
+	const messageFlavor = tierMetadata ? appendProficiencyTierFlavor(chatFlavor, tierMetadata) : chatFlavor;
+	const messageData = {
 		speaker: ChatMessage.getSpeaker({ actor }),
-		flavor: chatFlavor
-	});
+		flavor: messageFlavor
+	};
+	if ( tierMetadata && isRerollProficiencyTier(masteryTier) ) {
+		messageData.flags = { sw5e: { proficiencyTier: tierMetadata } };
+	}
+
+	await roll.toMessage(messageData);
 	return roll;
 }
 

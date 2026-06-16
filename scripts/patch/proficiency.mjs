@@ -1,20 +1,25 @@
 import { getModuleId, HOOKS_NAMESPACE } from "../module-support.mjs";
 
 const PROFICIENCY_FLAG_PATH = "proficiencyTier";
-const REROLL_BUTTON_SELECTOR = "[data-sw5e-proficiency-reroll]";
 const TIER_VALUES = Object.freeze([0, 0.5, 1, 2, 3, 4, 5]);
 const WEAPON_TIER_VALUES = Object.freeze([0, 0.5, 1]);
 const MASTERY_TIERS = Object.freeze(new Set([3, 4, 5]));
 const REROLL_TIERS = Object.freeze(new Set([4, 5]));
-const TIER_LABEL_KEYS = Object.freeze({
-	0: "DND5E.NotProficient",
-	0.5: "DND5E.HalfProficient",
-	1: "DND5E.Proficient",
-	2: "DND5E.Expertise",
-	3: "SW5E.Mastery",
-	4: "SW5E.HighMastery",
-	5: "SW5E.GrandMastery"
+
+/** SW5E-owned proficiency tier metadata (not dnd5e-facing display config). */
+export const EXPANDED_PROFICIENCY_TIERS = Object.freeze({
+	0: { label: "DND5E.NotProficient", mult: 0, mastery: false, rerolls: 0 },
+	0.5: { label: "DND5E.HalfProficient", mult: 0.5, mastery: false, rerolls: 0 },
+	1: { label: "DND5E.Proficient", mult: 1, mastery: false, rerolls: 0 },
+	2: { label: "DND5E.Expertise", mult: 2, mastery: false, rerolls: 0 },
+	3: { label: "SW5E.Mastery", mult: 2, mastery: true, rerolls: 0 },
+	4: { label: "SW5E.HighMastery", mult: 2, mastery: true, rerolls: 1 },
+	5: { label: "SW5E.GrandMastery", mult: 2, mastery: true, rerolls: 2 }
 });
+
+const TIER_LABEL_KEYS = Object.freeze(
+	Object.fromEntries(Object.entries(EXPANDED_PROFICIENCY_TIERS).map(([tier, entry]) => [tier, entry.label]))
+);
 
 function localize(key, fallback, data) {
 	const i18n = game?.i18n;
@@ -28,8 +33,41 @@ function localize(key, fallback, data) {
 }
 
 function getTierLabel(tier) {
-	const key = TIER_LABEL_KEYS[tier];
+	const key = getExpandedProficiencyLabelKey(tier);
 	return key ? localize(key, String(tier)) : String(tier);
+}
+
+/** @param {number} tier */
+export function getExpandedProficiencyMultiplier(tier) {
+	const numeric = toFiniteNumber(tier, NaN);
+	if ( !Number.isFinite(numeric) ) return 0;
+	const entry = EXPANDED_PROFICIENCY_TIERS[numeric];
+	if ( entry ) return entry.mult;
+	if ( numeric >= 3 ) return 2;
+	return numeric;
+}
+
+/** @param {number} tier */
+export function getExpandedProficiencyLabelKey(tier) {
+	const numeric = toFiniteNumber(tier, 0);
+	return EXPANDED_PROFICIENCY_TIERS[numeric]?.label ?? TIER_LABEL_KEYS[numeric] ?? String(tier);
+}
+
+/** @param {number} tier */
+export function getExpandedProficiencyRerollCount(tier) {
+	return EXPANDED_PROFICIENCY_TIERS[toFiniteNumber(tier, 0)]?.rerolls ?? 0;
+}
+
+/** @param {number} tier */
+export function isExpandedProficiencyMasteryTier(tier) {
+	return EXPANDED_PROFICIENCY_TIERS[toFiniteNumber(tier, 0)]?.mastery === true;
+}
+
+/** Localized hover/tooltip label for a proficiency tier value. */
+export function getExpandedProficiencyHoverLabel(tier) {
+	const display = CONFIG?.DND5E?.proficiencyLevels?.[tier];
+	if ( typeof display === "string" ) return display;
+	return localize(getExpandedProficiencyLabelKey(tier), String(tier));
 }
 
 function getProficiencyOptions(values = TIER_VALUES) {
@@ -101,11 +139,42 @@ function buildTierMetadata(config, type, tier) {
 		type,
 		subjectUuid: config?.subject?.uuid ?? null,
 		rollLabel: getRollLabel(config, type),
+		rollIndex: 0,
 		rerolls: {
 			allowed: tier === 4 ? 1 : tier === 5 ? "each" : 0,
-			used: {}
+			used: {},
+			dismissed: false
 		}
 	};
+}
+
+/** @param {number} tier */
+export function isMasteryProficiencyTier(tier) {
+	return isExpandedProficiencyMasteryTier(tier);
+}
+
+/** @param {number} tier */
+export function isRerollProficiencyTier(tier) {
+	return REROLL_TIERS.has(toFiniteNumber(tier));
+}
+
+export function getProficiencyAdvantageMode() {
+	return CONFIG?.Dice?.D20Roll?.ADV_MODE?.ADVANTAGE ?? 1;
+}
+
+/**
+ * Build chat flag metadata for mastery-tier rolls outside the dnd5e preRoll pipeline.
+ * @param {number} tier
+ * @param {{ type?: string, rollLabel?: string, subjectUuid?: string|null }} [options]
+ */
+export function createProficiencyTierChatFlag(tier, { type = "skill", rollLabel = "", subjectUuid = null } = {}) {
+	return buildTierMetadata({ subject: { uuid: subjectUuid } }, type, toFiniteNumber(tier));
+}
+
+export function appendProficiencyTierFlavor(flavor, metadata) {
+	const tierText = localize("SW5E.ProficiencyTier.Flavor", "Proficiency Tier: {tier}", { tier: metadata.label });
+	if ( flavor?.includes(metadata.label) ) return flavor;
+	return flavor ? `${flavor} (${tierText})` : tierText;
 }
 
 function appendTierFlavor(message, metadata) {
@@ -192,6 +261,7 @@ function isAdvantagedRoll(roll) {
 function canRenderRerolls(message, tierFlag, roll, totalData) {
 	const isAuthor = message?.isAuthor ?? message?.user?.id === game?.user?.id;
 	if (!isAuthor && !game?.user?.isGM) return false;
+	if (tierFlag?.rerolls?.dismissed) return false;
 	if (!REROLL_TIERS.has(tierFlag?.tier)) return false;
 	if (!isAdvantagedRoll(roll)) return false;
 	if ((totalData?.entries?.length ?? 0) < 2) return false;
@@ -204,45 +274,57 @@ function getAvailableDieEntries(tierFlag, totalData) {
 	return totalData.entries.filter(entry => !used[getUsedKey(entry.index)]);
 }
 
-function createTierSummary(tierFlag, roll, totalData) {
-	const section = document.createElement("section");
-	section.className = "sw5e-proficiency-tier-card";
+function getDiceRollElements(root) {
+	const tooltipRolls = root.querySelector(".dice-tooltip .dice-rolls");
+	if ( tooltipRolls ) return [...tooltipRolls.querySelectorAll("li")];
+	return [...root.querySelectorAll(".dice-rolls li.roll.die, .dice-rolls li.die")];
+}
 
-	const title = document.createElement("p");
-	title.className = "notes";
-	title.textContent = localize(
-		"SW5E.ProficiencyTier.ChatSummary",
-		"{tier}: advantage applied.",
-		{ tier: tierFlag.label }
-	);
-	section.append(title);
+function updateAdvantageDieStates(diceEls, entries, values) {
+	if ( entries.length < 2 || values.length < 2 ) return;
+	const maxValue = Math.max(...values);
+	for ( let i = 0; i < entries.length; i++ ) {
+		const entry = entries[i];
+		const el = diceEls[entry.index];
+		if ( !el ) continue;
+		const value = values[i];
+		const isKept = value >= maxValue;
+		el.classList.toggle("discarded", !isKept);
+		el.classList.toggle("min", !isKept);
+		el.classList.toggle("max", isKept);
+	}
+}
 
-	const used = Object.values(totalData.used ?? {});
-	if (used.length) {
-		const list = document.createElement("ul");
-		list.className = "sw5e-proficiency-tier-results";
-		for (const entry of used.sort((a, b) => a.dieIndex - b.dieIndex)) {
-			const item = document.createElement("li");
-			item.textContent = localize(
-				"SW5E.ProficiencyTier.RerollResult",
-				"d20 #{die}: {oldValue} -> {newValue}",
-				{ die: entry.dieIndex + 1, oldValue: entry.oldValue, newValue: entry.newValue }
-			);
-			list.append(item);
-		}
-		section.append(list);
+function updateDisplayedDiceValues(root, entries, used, { highlightIndices = [] } = {}) {
+	const diceEls = getDiceRollElements(root);
+	const values = entries.map(entry => used[getUsedKey(entry.index)]?.newValue ?? entry.value);
 
-		const final = document.createElement("p");
-		final.className = "notes";
-		final.textContent = localize(
-			"SW5E.ProficiencyTier.FinalTotal",
-			"Current final total: {total}",
-			{ total: totalData.finalTotal }
-		);
-		section.append(final);
+	for ( const entry of entries ) {
+		const el = diceEls[entry.index];
+		if ( !el ) continue;
+		const effective = used[getUsedKey(entry.index)]?.newValue ?? entry.value;
+		el.textContent = String(effective);
+		el.classList.toggle("sw5e-mastery-reroll-die-highlight", highlightIndices.includes(entry.index));
 	}
 
-	return section;
+	updateAdvantageDieStates(diceEls, entries, values);
+}
+
+function updateDisplayedRollTotal(root, total, { highlight = false } = {}) {
+	if ( !Number.isFinite(total) ) return;
+	const diceTotal = root.querySelector(".dice-total");
+	if ( !diceTotal ) return;
+	diceTotal.textContent = String(total);
+	diceTotal.classList.toggle("sw5e-mastery-reroll-total-highlight", highlight);
+}
+
+function applyInlineRerollDisplay(root, totalData) {
+	const used = totalData?.used ?? {};
+	if ( !Object.keys(used).length ) return;
+
+	const highlightIndices = Object.values(used).map(entry => entry.dieIndex);
+	updateDisplayedDiceValues(root, totalData.entries, used, { highlightIndices });
+	updateDisplayedRollTotal(root, totalData.finalTotal, { highlight: true });
 }
 
 function createRerollControls(message, tierFlag, roll, totalData) {
@@ -250,31 +332,54 @@ function createRerollControls(message, tierFlag, roll, totalData) {
 	if (!available.length) return null;
 
 	const controls = document.createElement("div");
-	controls.className = "card-buttons sw5e-proficiency-tier-controls";
+	controls.className = "sw5e-mastery-reroll-actions";
 
 	for (const entry of available) {
 		const button = document.createElement("button");
 		button.type = "button";
 		button.dataset.sw5eProficiencyReroll = String(entry.index);
-		button.textContent = localize(
+		const label = localize(
 			"SW5E.ProficiencyTier.RerollDie",
-			"Reroll d20 #{die}",
+			"Reroll Die {die}",
 			{ die: entry.index + 1 }
 		);
-		button.addEventListener("click", event => onRerollClick(event, message, tierFlag, roll));
-		controls.append(button);
-	}
-
-	if (tierFlag.tier === 5 && available.length > 1) {
-		const button = document.createElement("button");
-		button.type = "button";
-		button.dataset.sw5eProficiencyReroll = "all";
-		button.textContent = localize("SW5E.ProficiencyTier.RerollAll", "Reroll all remaining d20s");
+		button.textContent = label;
+		button.title = label;
+		button.setAttribute("aria-label", label);
 		button.addEventListener("click", event => onRerollClick(event, message, tierFlag, roll));
 		controls.append(button);
 	}
 
 	return controls;
+}
+
+const MASTERY_REROLL_FORMULA = "1d20";
+
+/**
+ * Roll a replacement d20 for mastery rerolls. Reads the evaluated die result, never die.faces.
+ * @returns {Promise<number|null>} 1–20, or null when evaluation fails.
+ */
+async function rollMasteryReplacementD20() {
+	const RollClass = CONFIG.Dice?.D20Roll ?? Roll;
+	const replacement = new RollClass(MASTERY_REROLL_FORMULA);
+	await replacement.evaluate();
+
+	const die = replacement.dice?.[0];
+	const activeResult = die?.results?.find(result => result.active !== false) ?? die?.results?.at(-1);
+	const fromDie = Number(activeResult?.result);
+	const newValue = Number.isFinite(fromDie) ? fromDie : Number(replacement.total);
+
+	if ( !Number.isFinite(newValue) || newValue < 1 || newValue > 20 ) {
+		console.warn("SW5E | Invalid mastery reroll result", {
+			newValue,
+			formula: MASTERY_REROLL_FORMULA,
+			dieFaces: die?.faces,
+			replacementTotal: replacement.total
+		});
+		return null;
+	}
+
+	return newValue;
 }
 
 async function onRerollClick(event, message, tierFlag, roll) {
@@ -288,9 +393,7 @@ async function onRerollClick(event, message, tierFlag, roll) {
 
 		const available = getAvailableDieEntries(tierFlag, totalData);
 		const target = button.dataset.sw5eProficiencyReroll;
-		const entries = target === "all"
-			? available
-			: available.filter(entry => entry.index === Number(target));
+		const entries = available.filter(entry => entry.index === Number(target));
 		if (!entries.length) return;
 
 		const nextFlag = foundry.utils.deepClone(tierFlag);
@@ -298,11 +401,16 @@ async function onRerollClick(event, message, tierFlag, roll) {
 		nextFlag.rerolls.used ??= {};
 
 		for (const entry of entries) {
-			const replacement = await new Roll("1d20").evaluate();
+			const newValue = await rollMasteryReplacementD20();
+			if ( newValue === null ) {
+				button.disabled = false;
+				return;
+			}
+
 			nextFlag.rerolls.used[getUsedKey(entry.index)] = {
 				dieIndex: entry.index,
 				oldValue: totalData.used[getUsedKey(entry.index)]?.newValue ?? entry.value,
-				newValue: replacement.total,
+				newValue,
 				userId: game.user?.id ?? null,
 				timestamp: Date.now()
 			};
@@ -313,8 +421,13 @@ async function onRerollClick(event, message, tierFlag, roll) {
 		nextFlag.rerolls.activeValue = recalculated?.activeValue ?? null;
 
 		await message.update({ [`flags.sw5e.${PROFICIENCY_FLAG_PATH}`]: nextFlag });
-	} finally {
+
+		const freshMessage = game.messages.get(message.id) ?? message;
+		const root = document.querySelector(`[data-message-id="${message.id}"]`);
+		if ( root ) renderProficiencyTierControls(freshMessage, root);
+	} catch ( err ) {
 		button.disabled = false;
+		throw err;
 	}
 }
 
@@ -323,14 +436,18 @@ function renderProficiencyTierControls(message, html) {
 	if (!tierFlag?.tier || !REROLL_TIERS.has(tierFlag.tier)) return;
 
 	const root = getHtmlRoot(html);
-	if (!root || root.querySelector(REROLL_BUTTON_SELECTOR)) return;
+	if (!root) return;
 
 	const roll = getRolls(message)[tierFlag.rollIndex ?? 0];
 	const totalData = calculateTierTotal(roll, tierFlag);
 	if (!roll || !totalData) return;
 
 	const content = root.querySelector(".message-content") ?? root;
-	content.append(createTierSummary(tierFlag, roll, totalData));
+	content.querySelector(".sw5e-proficiency-tier-card")?.remove();
+	content.querySelector(".sw5e-proficiency-tier-controls")?.remove();
+	content.querySelector(".sw5e-mastery-reroll-actions")?.remove();
+
+	applyInlineRerollDisplay(root, totalData);
 
 	if (!canRenderRerolls(message, tierFlag, roll, totalData)) return;
 	const controls = createRerollControls(message, tierFlag, roll, totalData);
@@ -516,9 +633,6 @@ function adjustCharacterSheetProficiencyClasses() {
 
 function registerProficiencyRollHooks() {
 	Hooks.on("dnd5e.preRollSkill", (config, dialog, message) => applyProficiencyTier(config, dialog, message, "skill"));
-	Hooks.on("dnd5e.preRollTool", (config, dialog, message) => applyProficiencyTier(config, dialog, message, "tool"));
-	Hooks.on("dnd5e.preRollToolCheck", (config, dialog, message) => applyProficiencyTier(config, dialog, message, "tool"));
-	Hooks.on("dnd5e.preRollSavingThrow", (config, dialog, message) => applyProficiencyTier(config, dialog, message, "save"));
 	Hooks.on("renderChatMessageHTML", renderProficiencyTierControls);
 }
 

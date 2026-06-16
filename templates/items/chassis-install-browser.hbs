@@ -1,6 +1,8 @@
 <div class="chassis-install-browser">
-	{{#if contextLine}}
-		<p class="chassis-browser-context subdued">{{contextLine}}</p>
+	{{#if hasDropZone}}
+		<div class="chassis-browser-dropzone" data-chassis-install-dropzone>
+			<p class="notes">{{localize "SW5E.Chassis.InstallBrowserDropHint"}}</p>
+		</div>
 	{{/if}}
 	<div class="form-group">
 		<input type="search" class="chassis-browser-search" name="chassisBrowserQ" placeholder="{{localize "SW5E.Chassis.InstallBrowserSearch"}}" autocomplete="off"/>
@@ -15,11 +17,13 @@
 						<span class="chassis-browser-main">
 							<span class="chassis-browser-name">{{name}}</span>
 							<span class="chassis-browser-meta subdued">{{metaLine}}</span>
-							{{#if infoHintLine}}
-								<span class="chassis-browser-info-hint subdued" title="{{infoHintLine}}">{{infoHintLine}}</span>
+							{{#if issueLine}}
+								<span class="chassis-browser-issue-hint subdued" title="{{issueLine}}">{{issueLine}}</span>
 							{{/if}}
-							{{#if warningLine}}
-								<span class="chassis-browser-warn-hint subdued" title="{{warningLine}}">{{warningLine}}</span>
+							{{#if ../showDebugHints}}
+								{{#if debugHintLine}}
+									<span class="chassis-browser-debug-hint subdued" title="{{debugHintLine}}">{{debugHintLine}}</span>
+								{{/if}}
 							{{/if}}
 						</span>
 						<span class="chassis-browser-badge chassis-browser-badge--{{tier}}">{{tierLabel}}</span>
@@ -28,7 +32,7 @@
 			{{/each}}
 		</ul>
 	{{else}}
-		<p class="chassis-browser-empty notes">{{localize "SW5E.Chassis.InstallBrowserEmpty"}}</p>
+		<p class="chassis-browser-empty notes">{{#if emptyReason}}{{emptyReason}}{{else}}{{localize "SW5E.Chassis.InstallBrowserEmpty"}}{{/if}}</p>
 	{{/if}}
 	<details class="chassis-browser-advanced">
 		<summary>{{localize "SW5E.Chassis.InstallBrowserAdvanced"}}</summary>

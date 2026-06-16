@@ -1,7 +1,43 @@
 ## Changelog
 
-### [1.3.7] TEMP
-### 2026-06-12
+### [1.3.8] 2026-06-05
+
+### Added
+- **Underworld Alloy theme:** new theme mode with tokens, Foundry theme scoping, global dialog/app foundation styling, and themed PC/NPC actor sheets, item sheets, Starship sheets, chat/roll cards, and journal/datapad surfaces.
+- **Starship Core layout:** redesigned Core tab with Crew Management, Power Routing, and Fuel controls moved from the old Crew tab; improved crew action buttons and tooltips.
+- **Starship movement:** registered Space Speed and Turning Speed movement modes; integrated Starships with the stock dnd5e Movement dialog; added stock-compatible **Use Derived** movement reset; fixed Starship token movement to use Space movement.
+- **Starship abilities:** ability config cog behavior, skill/ability save-tab roll behavior, and NPC/character-style ability cards on the Starship sheet.
+- **Chassis / item modifications:** compact collapsible Modification Chassis panel with slot cards, footer icon actions, and tooltips; clickable installed modification names that open the source item sheet; chassis install picker sourced from Enhanced Items → Item Modifications; drag/drop installation from compendiums and world items; installed mod effect aggregation with synthetic roll-time contribution from active hosts.
+- **Active Effects / automation:** force and tech power attack bonuses; force and tech save DC bonuses including ability-specific and save-target DC keys; melee/ranged power attack bonuses via `mpak`/`rpak`; `CONFIG.SW5E.powerBonusEffectKeys` registry; Superiority Dice max changes via `system.superiority.dice.max` with formula bonus support.
+- **Expanded proficiency / mastery:** Mastery, High Mastery, and Grand Mastery skill-tier automation (advantage, double proficiency, chat-card rerolls) with improved inline reroll UX.
+- **Item source Active Effects:** Focus Generator and Wristpad item YAML; save-target DC effects on Fadecasting, Rendcasting, and Withercasting modifications; `mpak`/`rpak` effects on Channeling, Crystalizing, and related modifications.
+- **Theming:** SW5E Light and SW5E Dark polish across item sheets, advancement/config apps, roll configuration, tooltips, dropdowns/selects, and Foundry core UI surfaces; Cybernetic Augmentations dialog theming for SW5E Light, SW5E Dark, and Underworld Alloy.
+- **Developer / internal:** migration and validation utilities for power-bonus and modification item effects; tests/utilities for `mpak`/`rpak` and installed-mod aggregation.
+
+### Changed
+- **Starship sheet:** removed the legacy Crew tab (crew now on Core); removed the experimental Starship Sheet V2 preview shell; improved Starship sheet Light/Dark theme sync and select/dropdown normalization.
+- **Chassis install picker:** removed developer/debug metadata from normal browser rows; simplified compatibility badges and issue messaging.
+- **Equipment attunement:** restored Attunement controls on SW5E equipment item sheets for attunable items without the dnd5e magic property by deriving magic during preparation.
+- **Proficiency config:** kept dnd5e-facing `proficiencyLevels` string-shaped and moved SW5E tier metadata to `CONFIG.SW5E.proficiencyTiers`.
+- **Currency:** simplified currency handling and removed the custom currency settings UI.
+- **Journal AppV2:** improved theme scoping for Underworld Alloy and related surfaces.
+
+### Fixed
+- **Starship:** non-starship vehicles no longer show Space/Turn movement fields; save-tab roll markup and overlap issues on the Starship sheet.
+- **Startup / compatibility:** early libWrapper registration for Starship movement; dnd5e pre-localization error for Space/Turn movement type registration; Mastery proficiency config localization startup/render errors.
+- **Cybernetics dialog:** selector compilation issue that blocked SW5E Light theming; readability of installed augmentation cards, install area, buttons, scrollbars, and metadata.
+- **Chassis UI:** installed modification name styling no longer inherits global button slab styling.
+- **Power bonuses:** save DC preparation now consumes supported bonus keys.
+- **Mastery rerolls:** reroll values no longer incorrectly always return 20.
+- **Superiority Dice:** preparation now preserves Active Effect changes to maximum dice and applies formula bonuses.
+- **Active Effects:** dropdown/select normalization across SW5E Light, SW5E Dark, and Underworld Alloy.
+
+### Migration
+- Bumped `needsMigrationVersion` to `0.38` so updated worlds recognize this release.
+- No destructive actor/item migration is required for this bump.
+- New or updated compendium source Active Effects require a compendium rebuild/import to appear in packed data.
+
+### [1.3.7] 2026-06-04
 ### Added
 - SVG icon files for types of powercasting and maneuvers. Credit to Vizaer for producing the initial versions of these images.
 - Assigned icons to powercasting schools and maneuver types. Maneuvers do not currently show these images.

@@ -1,0 +1,25 @@
+/* Mastery tier skill reroll controls — inline chat card UX */
+.sw5e-mastery-reroll-actions {
+	display: flex;
+	flex-direction: row;
+	gap: 6px;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 0.35rem;
+}
+
+.sw5e-mastery-reroll-actions button {
+	flex: 1 1 auto;
+	min-width: max-content;
+}
+
+.chat-message .dice-rolls li.die.sw5e-mastery-reroll-die-highlight {
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-shadow-highlight, #4fc3f7) 55%, transparent);
+	border-radius: 3px;
+	transition: box-shadow 0.2s ease;
+}
+
+.chat-message .dice-total.sw5e-mastery-reroll-total-highlight {
+	transition: color 0.2s ease, text-shadow 0.2s ease;
+	text-shadow: 0 0 8px color-mix(in srgb, var(--color-shadow-highlight, #4fc3f7) 35%, transparent);
+}
