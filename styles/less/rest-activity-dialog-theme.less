@@ -1,0 +1,314 @@
+/* dnd5e rest + activity usage + starship repair dialogs — SW5E Light / Dark / Underworld.
+   Scoped via data-sw5e-theme-root="rest-dialog" | "activity-dialog" | "starship-repair" from scripts/theme.mjs */
+
+@dlg-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="rest-dialog"].dnd5e2.application, body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-dialog"].dnd5e2.application, body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="starship-repair"].dnd5e2.application';
+@dlg-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="rest-dialog"].dnd5e2.application, body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-dialog"].dnd5e2.application, body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="starship-repair"].dnd5e2.application';
+@dlg-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="rest-dialog"].dnd5e2.application, body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-dialog"].dnd5e2.application, body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="starship-repair"].dnd5e2.application';
+
+@dlg-footer-buttons: ~'nav.dialog-buttons > :is(button, [type="submit"]), footer.form-footer > :is(button, [type="submit"], [type="button"]), button[data-action="use"], button.dice-button';
+
+/* ——— SW5E Light ——— */
+@{dlg-light} {
+  background: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  background-image: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 38%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+
+@{dlg-light} .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
+}
+
+@{dlg-light} :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{dlg-light} .window-subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{dlg-light} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-light} form.standard-form {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-light} :is(fieldset, fieldset.card) {
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 72%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-light} :is(fieldset, fieldset.card) > legend {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{dlg-light} .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-light} :is(p.hint, .notes, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{dlg-light} :is(input, select, textarea) {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+
+@{dlg-light} :is(input, select, textarea):is(:hover, :focus, :focus-visible) {
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+@{dlg-light} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  color-scheme: light;
+}
+
+@{dlg-light} @{dlg-footer-buttons} {
+  background-color: rgba(248, 251, 253, 0.92) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+@{dlg-light} @{dlg-footer-buttons}:is(:hover, :focus, :focus-visible) {
+  background: rgba(13, 153, 204, 0.14) !important;
+  border-color: var(--sw5e-line-color) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+@{dlg-light} @{dlg-footer-buttons}:is(.default, [autofocus]) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 14%, rgba(255, 255, 255, 0.82)) !important;
+  border-color: var(--sw5e-line-color) !important;
+  color: var(--sw5e-line-color) !important;
+}
+
+/* ——— SW5E Dark ——— */
+@{dlg-dark} {
+  background: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  background-image: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{dlg-dark} .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+
+@{dlg-dark} :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{dlg-dark} .window-subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{dlg-dark} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-dark} form.standard-form {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-dark} :is(fieldset, fieldset.card) {
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  background: rgba(24, 24, 24, 0.42) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-dark} :is(fieldset, fieldset.card) > legend {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{dlg-dark} .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-dark} :is(p.hint, .notes, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{dlg-dark} :is(input, select, textarea) {
+  background: rgba(18, 22, 28, 0.88) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{dlg-dark} :is(input, select, textarea):is(:hover, :focus, :focus-visible) {
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+}
+
+@{dlg-dark} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  color-scheme: dark;
+}
+
+@{dlg-dark} @{dlg-footer-buttons} {
+  background: rgba(24, 24, 24, 0.56) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+@{dlg-dark} @{dlg-footer-buttons}:is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.18) !important;
+  border-color: var(--sw5e-line-color) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+@{dlg-dark} @{dlg-footer-buttons}:is(.default, [autofocus]) {
+  background: color-mix(in srgb, var(--sw5e-secondary-button) 18%, rgba(0, 0, 0, 0.34)) !important;
+  border-color: var(--sw5e-line-color) !important;
+  color: var(--sw5e-secondary-button) !important;
+}
+
+/* ——— Underworld Alloy ——— */
+@{dlg-underworld} {
+  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  background-image: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{dlg-underworld} .window-header {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+@{dlg-underworld} :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{dlg-underworld} .window-subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{dlg-underworld} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-underworld} form.standard-form {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-underworld} :is(fieldset, fieldset.card) {
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 82%, black) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-underworld} :is(fieldset, fieldset.card) > legend {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{dlg-underworld} .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{dlg-underworld} :is(p.hint, .notes, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{dlg-underworld} :is(input, select, textarea) {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{dlg-underworld} :is(input, select, textarea):is(:hover, :focus, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 0 2px var(--sw5e-underworld-control-ring) !important;
+}
+
+@{dlg-underworld} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  color-scheme: dark;
+}
+
+@{dlg-underworld} @{dlg-footer-buttons} {
+  background-color: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+@{dlg-underworld} @{dlg-footer-buttons}:is(:hover, :focus, :focus-visible) {
+  background-color: var(--sw5e-underworld-hover-tint) !important;
+  background-image: none !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: 0 0 10px var(--sw5e-underworld-glow-blue) !important;
+  filter: none !important;
+}
+
+@{dlg-underworld} @{dlg-footer-buttons}:is(.default, [autofocus]) {
+  background-color: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
+  background-image: none !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+/* ——— Starship repair dialogs ——— */
+@repair-dlg: ~'body[data-sw5e-theme] .sw5e-theme-root[data-sw5e-theme-root="starship-repair"].dnd5e2.application';
+
+@{repair-dlg} .window-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+@{repair-dlg} .form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+@{repair-dlg} .sw5e-starship-repair-preview-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: var(--font-size-12, 0.75rem);
+  line-height: 1.4;
+}
+
+@{repair-dlg} .sw5e-starship-repair-die-display {
+  display: inline-flex;
+  align-items: center;
+  min-width: 2.5rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}

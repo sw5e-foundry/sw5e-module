@@ -5,12 +5,28 @@ import {
   SETTINGS_NAMESPACE,
 } from "../module-support.mjs";
 import { openPowerPointConfig } from "../power-point-config.mjs";
-import { getPowerDcBonus, patchPowerBonuses } from "./power-bonuses.mjs";
+import { openPowerCastingAbilityConfig } from "../power-casting-ability-config.mjs";
+import {
+	getBestPointsAbilityForCastType,
+	getEffectivePowercastingAbility,
+	resolveSchoolPowerDc
+} from "../powercasting-overrides.mjs";
+import { patchPowerBonuses } from "./power-bonuses.mjs";
 
 const PRECALCULATED_SPELLCASTING_KEY = "sw5e-preCalculatedSpellcastingClasses";
 
 function getHtmlRoot(html) {
 	return html instanceof HTMLElement ? html : html?.[0] ?? html;
+}
+
+/**
+ * dnd5e ActorSheetV2 PLAY vs EDIT — `app.isEditable` stays true in Play when the user can edit the actor.
+ * @param {object} app
+ */
+function isActorSheetEditMode(app) {
+	const MODES = app?.constructor?.MODES;
+	if ( MODES && ("EDIT" in MODES) && ("PLAY" in MODES) ) return app._mode === MODES.EDIT;
+	return Boolean(app?.isEditable);
 }
 
 function formatSuperiorityPool(superiority) {
@@ -38,17 +54,19 @@ function getPreparedPowercastingCards(actor) {
 		force: [
 			{
 				name: "Forcecasting (Light)",
-				attr: powercasting.force?.schools?.lgt?.attr ?? "wis",
+				attr: getEffectivePowercastingAbility(actor, { castType: "force", school: "lgt", purpose: "attack" }).id || "wis",
 				save: powercasting.force?.schools?.lgt?.dc ?? null
 			},
 			{
 				name: "Forcecasting (Dark)",
-				attr: powercasting.force?.schools?.drk?.attr ?? "cha",
+				attr: getEffectivePowercastingAbility(actor, { castType: "force", school: "drk", purpose: "attack" }).id || "cha",
 				save: powercasting.force?.schools?.drk?.dc ?? null
 			},
 			{
 				name: "Forcecasting (Neutral)",
-				attr: powercasting.force?.schools?.uni?.attr ?? getBestAbility(actor, ["wis", "cha"], 0)?.id ?? "wis",
+				attr: getEffectivePowercastingAbility(actor, { castType: "force", school: "uni", purpose: "attack" }).id
+					|| getBestAbility(actor, ["wis", "cha"], 0)?.id
+					|| "wis",
 				save: powercasting.force?.schools?.uni?.dc ?? null
 			}
 		].map(card => ({
@@ -80,9 +98,11 @@ function getPreparedPowercastingCards(actor) {
 		})),
 		tech: {
 			name: "Techcasting",
-			attr: powercasting.tech?.schools?.tec?.attr ?? "int",
+			attr: getEffectivePowercastingAbility(actor, { castType: "tech", school: "tec", purpose: "attack" }).id || "int",
 			save: powercasting.tech?.schools?.tec?.dc ?? null,
-			attack: makeAbilityAttack(powercasting.tech?.schools?.tec?.attr ?? "int")
+			attack: makeAbilityAttack(
+				getEffectivePowercastingAbility(actor, { castType: "tech", school: "tec", purpose: "attack" }).id || "int"
+			)
 		}
 	};
 }
@@ -580,15 +600,12 @@ function preparePowercasting() {
 		}
 
 		// Powercasting DC for Actors and NPCs
-		const ability = {};
 		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
 			for (const [school, schoolConfig] of Object.entries(typeConfig.schools)) {
 				const schoolData = powercasting[castType].schools[school];
-				ability[school] = getBestAbility(_this, schoolConfig.attr, 0);
-				if (ability[school].mod > (ability[castType]?.mod ?? -Infinity)) ability[castType] = ability[school];
-				schoolData.attr = ability[school]?.id ?? "";
-				const bonus = getPowerDcBonus(_this, castType, school, ability[school]?.id, rollData);
-				schoolData.dc = base + ability[school].mod + bonus;
+				const ability = getEffectivePowercastingAbility(_this, { castType, school, purpose: "attack" });
+				schoolData.attr = ability?.id ?? "";
+				schoolData.dc = resolveSchoolPowerDc(_this, castType, school, base, rollData);
 			}
 		}
 
@@ -600,7 +617,8 @@ function preparePowercasting() {
 			if (!castSource || castSource.points?.max !== null) continue;
 			if (cast.level === 0) continue;
 
-			if (ability[castType]?.mod) cast.points.max += ability[castType].mod;
+			const pointsAbility = getBestPointsAbilityForCastType(_this, castType);
+			if (pointsAbility?.mod) cast.points.max += pointsAbility.mod;
 
 			const levelBonus = simplifyBonus(cast.points.bonuses.level ?? 0, rollData) * lvl;
 			const overallBonus = simplifyBonus(cast.points.bonuses.overall ?? 0, rollData);
@@ -735,8 +753,9 @@ function buildPowersKnownSummaryRow(actor, castType, labelKey) {
 /**
  * @param {HTMLElement} root
  * @param {import("@league/foundry").documents.Actor} actor
+ * @param {{ isEditable?: boolean }} [options]
  */
-function injectPowersTabPowercastingSummary(root, actor) {
+function injectPowersTabPowercastingSummary(root, actor, { isEditable = false } = {}) {
 	const powercastingCardsSection = root.querySelector(`section.tab[data-tab="spells"] section.top`);
 	if ( !powercastingCardsSection || !actor ) return;
 
@@ -772,6 +791,10 @@ function injectPowersTabPowercastingSummary(root, actor) {
 	if ( hasForcecasting ) {
 		const title = game.i18n.localize("SW5E.Powercasting.Force.Label");
 		const forceKnown = buildPowersKnownSummaryRow(actor, "force", "SW5E.Powercasting.PowersTabSummary.PowersKnownForce");
+		const configureLabel = game.i18n.localize("SW5E.Powercasting.AbilityConfig.Title");
+		const configCog = isEditable
+			? `<button type="button" class="sw5e-powercasting-ability-config unbutton control-button" data-action="configure-powercasting-abilities" data-tooltip title="${foundry.utils.escapeHTML(configureLabel)}" aria-label="${foundry.utils.escapeHTML(configureLabel)}"><i class="fas fa-cog" inert></i></button>`
+			: "";
 		const segs = preparedCards.force.map((card, i) => {
 			const lab = game.i18n.localize(FORCE_SUMMARY_SCHOOL_LABEL_KEYS[i] ?? FORCE_SUMMARY_SCHOOL_LABEL_KEYS[0]);
 			const theme = FORCE_SUMMARY_SEGMENT_THEME[i] ?? FORCE_SUMMARY_SEGMENT_THEME[0];
@@ -779,7 +802,7 @@ function injectPowersTabPowercastingSummary(root, actor) {
 		});
 		blocks.push(`<div class="sw5e-powers-banner-block" data-sw5e-summary="force">`
 			+ `<div class="sw5e-powers-banner-head">`
-			+ `<div class="sw5e-powers-banner-head-left"><div class="sw5e-powers-banner-kicker">${foundry.utils.escapeHTML(title)}</div></div>`
+			+ `<div class="sw5e-powers-banner-head-left"><div class="sw5e-powers-banner-kicker">${foundry.utils.escapeHTML(title)}${configCog}</div></div>`
 			+ `<div class="sw5e-powers-banner-head-right">${forceKnown}</div>`
 			+ `</div>`
 			+ `<div class="sw5e-powers-banner-flow">${joinPowersBannerSegments(segs)}</div></div>`);
@@ -818,6 +841,11 @@ function injectPowersTabPowercastingSummary(root, actor) {
 	const wrap = document.createElement("div");
 	wrap.className = "sw5e-powers-summary sw5e-powers-banner";
 	wrap.innerHTML = blocks.join("");
+	wrap.querySelector('[data-action="configure-powercasting-abilities"]')?.addEventListener("click", event => {
+		event.preventDefault();
+		event.stopPropagation();
+		openPowerCastingAbilityConfig(actor);
+	});
 	powercastingCardsSection.prepend(wrap);
 }
 
@@ -826,7 +854,8 @@ function showPowercastingStats() {
 		const root = getHtmlRoot(html);
 		const actor = context?.actor ?? app.actor;
 		if ( !root || !actor ) return;
-		injectPowersTabPowercastingSummary(root, actor);
+		const isEditable = isActorSheetEditMode(app);
+		injectPowersTabPowercastingSummary(root, actor, { isEditable });
 	});
 
 	Hooks.on("renderActorSheetV2", function (app, html, data) {
@@ -834,7 +863,8 @@ function showPowercastingStats() {
 		const actor = data?.actor ?? app.actor;
 		if ( !root || !actor ) return;
 		if ( actor.type !== "character" && actor.type !== "npc" ) return;
-		injectPowersTabPowercastingSummary(root, actor);
+		const isEditable = isActorSheetEditMode(app);
+		injectPowersTabPowercastingSummary(root, actor, { isEditable });
 	});
 
 	/* // Old One:
@@ -929,17 +959,46 @@ function patchPowerAbilityScore() {
 	});
 	Hooks.on('sw5e.SpellData.availableAbilities', function (_this, result, config, ...args) {
 		if (_this.ability) return;
+		const actor = _this.parent?.actor;
 		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
 			if (_this.school in typeConfig.schools) {
-				const attrs = typeConfig.schools[_this.school].attr;
-				config.result = new Set(Array.isArray(attrs) ? attrs : [attrs]);
+				const defaults = new Set(Array.isArray(typeConfig.schools[_this.school].attr)
+					? typeConfig.schools[_this.school].attr
+					: [typeConfig.schools[_this.school].attr]);
+				if ( actor ) {
+					const effective = getEffectivePowercastingAbility(actor, {
+						castType,
+						school: _this.school,
+						purpose: "attack"
+					});
+					if ( effective?.id ) defaults.add(effective.id);
+				}
+				config.result = defaults;
 				return;
 			}
 		}
 	});
 	Hooks.on('sw5e.SpellData._typeAbilityMod', function (_this, result, config, ...args) {
-		const availableAbilities = Array.from(_this.availableAbilities ?? []);
-		config.result = getBestAbility(_this.parent.actor, availableAbilities).id ?? availableAbilities[0] ?? "int";
+		const actor = _this.parent?.actor;
+		if ( _this.ability ) return;
+		for (const [castType, typeConfig] of Object.entries(CONFIG.DND5E.powerCasting)) {
+			if (_this.school in typeConfig.schools) {
+				if ( actor ) {
+					const effective = getEffectivePowercastingAbility(actor, {
+						castType,
+						school: _this.school,
+						purpose: "attack"
+					});
+					if ( effective?.id ) {
+						config.result = effective.id;
+						return;
+					}
+				}
+				const availableAbilities = Array.from(_this.availableAbilities ?? []);
+				config.result = getBestAbility(actor, availableAbilities).id ?? availableAbilities[0] ?? "int";
+				return;
+			}
+		}
 	});
 }
 

@@ -1970,6 +1970,59 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehi
   border-bottom-color: var(--sw5e-underworld-row-divider) !important;
 }
 
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-destruction-tray {
+  --sw5e-destruction-tray-bg: color-mix(in srgb, var(--sw5e-underworld-panel) 84%, black);
+  --sw5e-destruction-tray-border: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 34%, var(--sw5e-underworld-muted-control-border));
+  --sw5e-destruction-tray-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 22%, var(--sw5e-underworld-muted-control-border));
+  --sw5e-destruction-tray-text: var(--sw5e-theme-text);
+  --sw5e-destruction-tray-accent: var(--sw5e-underworld-neon-cyan);
+  --sw5e-destruction-tray-toggle-border: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 28%, var(--sw5e-underworld-muted-control-border));
+  --sw5e-destruction-tray-roll: color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 68%, #e05a2c);
+  --sw5e-destruction-tray-roll-hover: color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 82%, #ff7040);
+  --sw5e-destruction-tray-success: var(--sw5e-underworld-neon-cyan);
+  --sw5e-destruction-tray-failure: color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 72%, #8b2f4a);
+  --sw5e-destruction-tray-pip-muted: color-mix(in srgb, var(--sw5e-theme-muted-text) 42%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-destruction-saves {
+  box-shadow: var(--sw5e-destruction-tray-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-destruction-toggle {
+  color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 58%, var(--sw5e-theme-text)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-destruction-tray.open .sw5e-starship-destruction-toggle {
+  background: var(--sw5e-destruction-tray-bg) !important;
+  border-color: var(--sw5e-destruction-tray-border) !important;
+  box-shadow: var(--sw5e-destruction-tray-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-destruction-tray.open .sw5e-starship-destruction-toggle:is(:hover, :focus-visible) {
+  color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 78%, var(--sw5e-underworld-neon-magenta)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-neon-magenta)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] :is(#tooltip, aside[role="tooltip"]).sw5e-destruction-save-tooltip {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 26%, var(--sw5e-underworld-muted-control-border)) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.32) !important;
+  color: color-mix(in srgb, var(--sw5e-theme-text) 86%, var(--sw5e-underworld-neon-cyan)) !important;
+  font-size: var(--font-size-12, 0.75rem) !important;
+  line-height: 1.25 !important;
+  padding: 0.18rem 0.42rem !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-destruction-reset:not(:disabled) {
+  color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 62%, var(--sw5e-theme-text)) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:not(:disabled),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:not(:disabled) :is(i, .fa-solid) {
+  color: var(--sw5e-destruction-tray-roll) !important;
+}
+
 /* Ability strip + save tabs (override legacy gold) */
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .ability-scores .ability-score {
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.28)) !important;
@@ -2167,7 +2220,8 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehi
 /* Core Power Routing + Fuel */
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-overview-operations :is(
   .sw5e-starship-core-routing-panel,
-  .sw5e-starship-core-fuel-panel
+  .sw5e-starship-core-fuel-panel,
+  .sw5e-starship-core-advanced-power-panel
 ) {
   background: var(--sw5e-underworld-panel-fill-strong) !important;
   border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
@@ -2206,6 +2260,36 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehi
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-overview-operations .sw5e-starship-systems-field--fuel.sw5e-starship-systems-field--locked {
   background: color-mix(in srgb, var(--sw5e-underworld-panel) 72%, black) !important;
   border: 1px dashed color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 24%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-track {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 22%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-fill {
+  background: linear-gradient(180deg, var(--sw5e-underworld-neon-cyan), color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 68%, #1a6b62));
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-breakpoint {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 35%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-label,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-systems-routing-effect {
+  color: var(--sw5e-theme-muted-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-action {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 28%, transparent);
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-action:not(:disabled):is(:hover, :focus-visible) {
+  border-color: var(--sw5e-underworld-neon-cyan);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 18%, transparent);
+  outline: none;
 }
 
 /* SotG list section shells + shared rows */

@@ -1,0 +1,62 @@
+<form class="flexcol sw5e-power-casting-ability-config-form">
+	<fieldset class="card">
+		<legend>{{forceLabel}}</legend>
+
+		{{#each primarySchoolRows}}
+		<div class="form-group">
+			<label>{{schoolLabel}}</label>
+			<div class="form-fields sw5e-power-ability-row">
+				<div class="sw5e-power-ability-col">
+					<span class="sw5e-power-ability-col-label">{{../abilityColumnLabel}}</span>
+					<select name="system.powercasting.force.schools.{{school}}.attr">
+						{{#each abilityOptions}}
+							<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+						{{/each}}
+					</select>
+				</div>
+				<div class="sw5e-power-ability-col">
+					<span class="sw5e-power-ability-col-label">{{../pointsColumnLabel}}</span>
+					<select name="flags.sw5e.powercastingOverrides.force.{{school}}.pointsAbility">
+						{{#each pointsOptions}}
+							<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+
+		<div class="form-group">
+			<label>{{uniModeLabel}}</label>
+			<div class="form-fields">
+				<select name="flags.sw5e.powercastingOverrides.force.uni.mode">
+					{{#each uniModeOptions}}
+						<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group sw5e-uni-fixed-group" {{#unless showUniFixed}}hidden{{/unless}}>
+			<label>{{uniFixedLabel}}</label>
+			<div class="form-fields">
+				<select name="system.powercasting.force.schools.uni.attr">
+					{{#each uniFixedOptions}}
+						<option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+	</fieldset>
+
+	<footer class="form-footer">
+		<button type="submit" class="dialog-button" data-action="reset">
+			<i class="fas fa-undo" inert></i>
+			<span>{{resetLabel}}</span>
+		</button>
+		<button type="submit" class="dialog-button default">
+			<i class="fas fa-save" inert></i>
+			<span>{{saveLabel}}</span>
+		</button>
+	</footer>
+</form>

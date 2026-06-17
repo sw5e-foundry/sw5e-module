@@ -248,6 +248,45 @@ export function isDnd5eRollConfigurationApp(app, element) {
 	return true;
 }
 
+const DND5E_REST_DIALOG_NAMES = new Set(["BaseRestDialog", "ShortRestDialog", "LongRestDialog"]);
+
+/**
+ * dnd5e short/long rest configuration dialogs (Dialog5e / ApplicationV2).
+ * Root: `.dnd5e2.application.rest` (+ `.short-rest` or `.long-rest`).
+ */
+export function isDnd5eRestDialogApp(app, element) {
+	if ( !(element instanceof HTMLElement) ) return false;
+	if ( !element.classList.contains("dnd5e2") ) return false;
+	if ( !element.classList.contains("application") ) return false;
+	if ( !element.classList.contains("rest") ) return false;
+	return DND5E_REST_DIALOG_NAMES.has(app?.constructor?.name ?? "");
+}
+
+/**
+ * dnd5e activity usage dialogs (cast power, save, etc.).
+ * Root: `.dnd5e2.application.activity-usage`.
+ */
+export function isDnd5eActivityUsageDialogApp(app, element) {
+	if ( !(element instanceof HTMLElement) ) return false;
+	if ( !element.classList.contains("dnd5e2") ) return false;
+	if ( !element.classList.contains("application") ) return false;
+	if ( !element.classList.contains("activity-usage") ) return false;
+	return app?.constructor?.name === "ActivityUsageDialog";
+}
+
+/**
+ * SW5E starship recharge/refitting repair dialogs (ApplicationV2).
+ * Root: `.dnd5e2.application.rest.starship-repair`.
+ */
+export function isSw5eStarshipRepairDialogApp(app, element) {
+	if ( !(element instanceof HTMLElement) ) return false;
+	if ( !element.classList.contains("dnd5e2") ) return false;
+	if ( !element.classList.contains("application") ) return false;
+	if ( !element.classList.contains("starship-repair") ) return false;
+	const ctorName = app?.constructor?.name ?? "";
+	return ctorName === "StarshipRechargeRepairDialog" || ctorName === "StarshipRefittingRepairDialog";
+}
+
 /**
  * dnd5e actor configuration dialogs (HP, AC, skills, etc.) opened from actor sheets.
  * Tight filter: Actor document + dnd5e actor ApplicationV2 config class + config-sheet chrome.
@@ -311,6 +350,18 @@ function applyDnd5eThemedApplicationFromHook(app, html) {
 	}
 	if ( isDnd5eRollConfigurationApp(app, root) ) {
 		applySw5eThemeScope(html, { scope: "roll-configuration" });
+		return;
+	}
+	if ( isDnd5eRestDialogApp(app, root) ) {
+		applySw5eThemeScope(html, { scope: "rest-dialog" });
+		return;
+	}
+	if ( isDnd5eActivityUsageDialogApp(app, root) ) {
+		applySw5eThemeScope(html, { scope: "activity-dialog" });
+		return;
+	}
+	if ( isSw5eStarshipRepairDialogApp(app, root) ) {
+		applySw5eThemeScope(html, { scope: "starship-repair" });
 		return;
 	}
 	if ( isDnd5eActorConfigSheet(app, root) ) {

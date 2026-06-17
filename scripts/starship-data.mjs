@@ -24,6 +24,9 @@ const LEGACY_STARSHIP_PACKS = new Set([
 
 const STARSHIP_CHARACTER_FLAG = "starshipCharacter";
 const STARSHIP_POWER_ZONES = ["central", "engines", "shields", "weapons"];
+/** SotG power die allocation slots (includes comms/sensors beyond routing zones). */
+export const STARSHIP_POWER_DIE_SLOTS = ["central", "comms", "engines", "sensors", "shields", "weapons"];
+const STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE = "flags.sw5e.legacyStarshipActor.system.attributes";
 const STARSHIP_TRAVEL_PACES = new Set(["slow", "normal", "fast"]);
 const STARSHIP_TOKEN_GRID_SPACES = Object.freeze({
 	tiny: 1,
@@ -65,6 +68,14 @@ function toFiniteNumber(value, fallback = null) {
 function localizeWithFallback(key, fallback) {
 	const localized = game?.i18n?.localize?.(key);
 	return localized && localized !== key ? localized : fallback;
+}
+
+function resolveStarshipSkillLabel(config, key) {
+	const labelKey = config?.label ?? key;
+	const fallback = config?.fullKey
+		? String(config.fullKey).charAt(0).toUpperCase() + String(config.fullKey).slice(1)
+		: String(key).toUpperCase();
+	return localizeWithFallback(labelKey, fallback);
 }
 
 function escapeHtml(value) {
@@ -188,11 +199,14 @@ function getRoutingMultiplier(selected, zone) {
 }
 
 function getPowerRoutingState(legacySystem = {}) {
-	const selected = legacySystem.attributes?.power?.routing ?? "none";
+	const raw = legacySystem.attributes?.power?.routing ?? "none";
+	// Legacy "central" penalized all zones with no boost — treat as unrouted for mechanics and UI.
+	const selected = raw === "central" ? "none" : raw;
 	return {
 		selected,
 		enginesMultiplier: getRoutingMultiplier(selected, "engines"),
 		weaponsMultiplier: getRoutingMultiplier(selected, "weapons"),
+		// Reserved for future shield automation (regen / temp SP); not consumed yet.
 		shieldsMultiplier: getRoutingMultiplier(selected, "shields")
 	};
 }
@@ -406,7 +420,7 @@ function buildLegacySystemFromCharacterStarship(actor, starshipFlag = {}) {
 	legacyAttributes.power ??= {};
 	legacyAttributes.power.routing = resources.power?.routing ?? legacyAttributes.power.routing ?? "none";
 	legacyAttributes.power.die = resources.power?.die ?? legacyAttributes.power.die ?? "d1";
-	for ( const zone of STARSHIP_POWER_ZONES ) {
+	for ( const zone of STARSHIP_POWER_DIE_SLOTS ) {
 		legacyAttributes.power[zone] ??= {};
 		legacyAttributes.power[zone].value = toFiniteNumber(
 			resources.power?.[zone]?.value,
@@ -672,11 +686,13 @@ export function getLegacyStarshipActorSystem(actor) {
 			merged.attributes ??= {};
 			merged.attributes.fuel = mergeStarshipSystemData(merged.attributes.fuel ?? {}, flagSystem.attributes.fuel);
 		}
-		const flagRouting = flagSystem.attributes?.power?.routing;
-		if ( flagRouting !== undefined && flagRouting !== null && flagRouting !== "" ) {
+		if ( hasOwnKeys(flagSystem.attributes?.power) ) {
 			merged.attributes ??= {};
-			merged.attributes.power ??= {};
-			merged.attributes.power.routing = flagRouting;
+			merged.attributes.power = mergeStarshipSystemData(merged.attributes.power ?? {}, flagSystem.attributes.power);
+		}
+		if ( hasOwnKeys(flagSystem.attributes?.death) ) {
+			merged.attributes ??= {};
+			merged.attributes.death = mergeStarshipSystemData(merged.attributes.death ?? {}, flagSystem.attributes.death);
 		}
 	}
 
@@ -931,6 +947,223 @@ export function deriveStarshipPools(actor) {
 		power: { die: powerDie, cscap, sscap },
 		mods: { slotsUsed: modSlotsUsed, slotMax: modSlotMax, suitesUsed, suiteMax }
 	};
+}
+
+function getStarshipPowerDieSlotLabel(slotKey) {
+	const labelKey = CONFIG?.SW5E?.powerDieSlots?.[slotKey];
+	if ( labelKey ) return localizeWithFallback(labelKey, slotKey);
+	const title = slotKey.charAt(0).toUpperCase() + slotKey.slice(1);
+	return title;
+}
+
+function resolveStarshipPowerDie(actor) {
+	const legacySystem = getLegacyStarshipActorSystem(actor);
+	const pools = deriveStarshipPools(actor);
+	const stored = legacySystem.attributes?.power?.die;
+	if ( typeof stored === "string" && stored !== "" && stored !== "d1" ) return stored;
+	return pools.power.die || "d4";
+}
+
+function getStarshipPowerSlotCouplingCap(slotKey, pools = {}) {
+	return slotKey === "central"
+		? (toFiniteNumber(pools?.power?.cscap, 0) ?? 0)
+		: (toFiniteNumber(pools?.power?.sscap, 0) ?? 0);
+}
+
+function getStarshipPowerSlotStoredMax(slotKey, power = {}) {
+	const stored = toFiniteNumber(power?.[slotKey]?.max, null);
+	return stored !== null ? Math.max(0, Math.trunc(stored)) : 0;
+}
+
+function resolveStarshipPowerSlotDisplayMax(slotKey, storedValue, storedMax, pools = {}) {
+	const couplingCap = getStarshipPowerSlotCouplingCap(slotKey, pools);
+	let displayMax = Math.max(storedMax, storedValue);
+	if ( couplingCap > 0 ) displayMax = Math.max(couplingCap, storedMax, storedValue);
+	return displayMax;
+}
+
+function resolveStarshipPowerSlotMax(slotKey, power = {}, pools = {}) {
+	const storedMax = getStarshipPowerSlotStoredMax(slotKey, power);
+	if ( storedMax > 0 ) return storedMax;
+	return getStarshipPowerSlotCouplingCap(slotKey, pools);
+}
+
+function getStarshipPowerSlotPeak(actor, slotKey) {
+	return toFiniteNumber(actor?.flags?.sw5e?.starship?.powerPeak?.[slotKey], 0) ?? 0;
+}
+
+/** Allocation ceiling for recovery — uses stored/coupling max, else peak/current for legacy actors. */
+export function resolveStarshipPowerSlotAllocationMax(actor, slotKey, power = {}, pools = {}) {
+	const storedValue = toFiniteNumber(power?.[slotKey]?.value, 0) ?? 0;
+	const storedMax = getStarshipPowerSlotStoredMax(slotKey, power);
+	const couplingCap = getStarshipPowerSlotCouplingCap(slotKey, pools);
+	if ( storedMax > 0 ) return storedMax;
+	if ( couplingCap > 0 ) return couplingCap;
+	return Math.max(getStarshipPowerSlotPeak(actor, slotKey), storedValue);
+}
+
+export async function recordStarshipPowerSlotPeak(actor, slotKey, observedValue) {
+	const value = Math.max(0, Math.trunc(Number(observedValue) || 0));
+	const prev = getStarshipPowerSlotPeak(actor, slotKey);
+	if ( value <= prev ) return;
+	const cur = actor?.flags?.sw5e?.starship ?? {};
+	const powerPeak = { ...(typeof cur.powerPeak === "object" && cur.powerPeak ? cur.powerPeak : {}) };
+	powerPeak[slotKey] = value;
+	await actor.update({ "flags.sw5e.starship": { ...cur, powerPeak } });
+}
+
+export function getStarshipPowerRecoverySlots(actor) {
+	const legacySystem = getLegacyStarshipActorSystem(actor);
+	const pools = deriveStarshipPools(actor);
+	const power = legacySystem.attributes?.power ?? {};
+
+	return STARSHIP_POWER_DIE_SLOTS.map(slotKey => {
+		const storedValue = toFiniteNumber(power[slotKey]?.value, 0) ?? 0;
+		const allocationMax = resolveStarshipPowerSlotAllocationMax(actor, slotKey, power, pools);
+		const missing = Math.max(0, allocationMax - storedValue);
+		return {
+			key: slotKey,
+			label: getStarshipPowerDieSlotLabel(slotKey),
+			value: storedValue,
+			allocationMax,
+			missing,
+			isFull: missing <= 0,
+			isCentral: slotKey === "central"
+		};
+	});
+}
+
+export function getStarshipPowerRecoverySummary(actor) {
+	const slots = getStarshipPowerRecoverySlots(actor);
+	const totalMissing = slots.reduce((sum, slot) => sum + slot.missing, 0);
+	return { slots, totalMissing, canRecover: totalMissing > 0 };
+}
+
+export function shouldMirrorStarshipLegacyAttributePath(systemPath) {
+	if ( systemPath === "system.attributes.power.routing" || systemPath === "system.attributes.power.die" ) return true;
+	if ( systemPath === "system.attributes.death.success" || systemPath === "system.attributes.death.failure" ) return true;
+	if ( systemPath === "system.attributes.hp.value" ) return true;
+	if ( systemPath.startsWith("system.attributes.fuel.") ) return true;
+	const slotMatch = systemPath.match(/^system\.attributes\.power\.(\w+)\.(value|max)$/);
+	return Boolean(slotMatch && STARSHIP_POWER_DIE_SLOTS.includes(slotMatch[1]));
+}
+
+export function buildStarshipLegacyAttributeMirrorUpdate(systemPath, value) {
+	const update = { [systemPath]: value };
+	if ( systemPath === "system.attributes.power.routing" ) {
+		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.power.routing`] = value;
+	} else if ( systemPath === "system.attributes.power.die" ) {
+		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.power.die`] = value;
+	} else if ( systemPath === "system.attributes.death.success" ) {
+		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.death.success`] = value;
+	} else if ( systemPath === "system.attributes.death.failure" ) {
+		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.death.failure`] = value;
+	} else if ( systemPath === "system.attributes.hp.value" ) {
+		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.hp.value`] = value;
+	} else if ( systemPath.startsWith("system.attributes.fuel.") ) {
+		const tail = systemPath.slice("system.attributes.fuel.".length);
+		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.fuel.${tail}`] = value;
+	} else {
+		const slotMatch = systemPath.match(/^system\.attributes\.power\.(\w+)\.(value|max)$/);
+		if ( slotMatch ) {
+			const [, slot, field] = slotMatch;
+			update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.power.${slot}.${field}`] = value;
+		}
+	}
+	return update;
+}
+
+export function buildStarshipLegacyAttributeBatchMirrorUpdate(entries = []) {
+	return entries.reduce((payload, [systemPath, value]) => ({
+		...payload,
+		...buildStarshipLegacyAttributeMirrorUpdate(systemPath, value)
+	}), {});
+}
+
+export async function persistStarshipLegacyAttributePath(actor, systemPath, value, { mirror = true } = {}) {
+	const isStarship = actor?.type === "vehicle" && actor?.flags?.sw5e?.legacyStarshipActor?.type === "starship";
+	const payload = mirror && isStarship && shouldMirrorStarshipLegacyAttributePath(systemPath)
+		? buildStarshipLegacyAttributeMirrorUpdate(systemPath, value)
+		: { [systemPath]: value };
+	await actor.update(payload);
+}
+
+export function getStarshipAdvancedPowerContext(actor) {
+	const legacySystem = getLegacyStarshipActorSystem(actor);
+	const pools = deriveStarshipPools(actor);
+	const power = legacySystem.attributes?.power ?? {};
+	const die = resolveStarshipPowerDie(actor);
+	const ui = actor?.flags?.sw5e?.starship?.ui ?? {};
+
+	const slots = STARSHIP_POWER_DIE_SLOTS.map(slotKey => {
+		const storedValue = toFiniteNumber(power[slotKey]?.value, 0) ?? 0;
+		const storedMax = getStarshipPowerSlotStoredMax(slotKey, power);
+		const derivedCap = getStarshipPowerSlotCouplingCap(slotKey, pools);
+		const displayValue = storedValue;
+		const displayMax = resolveStarshipPowerSlotDisplayMax(slotKey, storedValue, storedMax, pools);
+		const maxDisplayDiffers = displayMax !== storedMax;
+		const maxDisplayHint = maxDisplayDiffers
+			? (() => {
+				const key = "SW5E.StarshipSheet.AdvancedPowerMaxDisplayHint";
+				const formatted = game?.i18n?.format?.(key, { displayMax, storedMax });
+				return formatted && formatted !== key
+					? formatted
+					: `Play mode shows ${displayMax}; stored max is ${storedMax}.`;
+			})()
+			: null;
+		return {
+			key: slotKey,
+			label: getStarshipPowerDieSlotLabel(slotKey),
+			value: storedValue,
+			storedMax,
+			derivedCap,
+			displayValue,
+			displayMax,
+			allocationMax: resolveStarshipPowerSlotAllocationMax(actor, slotKey, power, pools),
+			maxDisplayDiffers,
+			maxDisplayHint,
+			isCentral: slotKey === "central",
+			canSpend: storedValue > 0
+		};
+	});
+
+	return {
+		die,
+		dieDisplay: die,
+		slots,
+		collapsed: ui.advancedPowerCollapsed !== false
+	};
+}
+
+export async function rollStarshipPowerDie(actor, slotKey) {
+	if ( !STARSHIP_POWER_DIE_SLOTS.includes(slotKey) ) return null;
+
+	const legacySystem = getLegacyStarshipActorSystem(actor);
+	const power = legacySystem.attributes?.power ?? {};
+	const current = toFiniteNumber(power[slotKey]?.value, 0) ?? 0;
+	if ( current < 1 ) {
+		const slotLabel = getStarshipPowerDieSlotLabel(slotKey);
+		const warnKey = "SW5E.PowerDieUnavailable";
+		const warnFmt = game?.i18n?.format?.(warnKey, { slot: slotLabel });
+		ui.notifications?.warn?.(warnFmt && warnFmt !== warnKey ? warnFmt : `No ${slotLabel} power dice available.`);
+		return null;
+	}
+
+	const die = resolveStarshipPowerDie(actor);
+	const rollData = actor?.getRollData?.() ?? {};
+	const roll = await new Roll(die, rollData).evaluate();
+	const flavor = localizeWithFallback("SW5E.PowerDiceRoll", "Power Die Roll");
+	const slotLabel = getStarshipPowerDieSlotLabel(slotKey);
+	await roll.toMessage({
+		speaker: ChatMessage.getSpeaker({ actor }),
+		flavor: `${flavor} (${slotLabel}): ${actor?.name ?? ""}`.trim(),
+		flags: { sw5e: { roll: { type: "pwrDieRoll", slot: slotKey } } }
+	});
+
+	const newValue = Math.max(0, current - 1);
+	await recordStarshipPowerSlotPeak(actor, slotKey, current);
+	await persistStarshipLegacyAttributePath(actor, `system.attributes.power.${slotKey}.value`, newValue);
+	return roll;
 }
 
 function getStarshipSkillsConfig() {
@@ -1190,7 +1423,7 @@ export function getStarshipSkillEntries(actor) {
 		if ( key === "man" && pilotSkill > baseTotal ) bonus += (pilotSkill - baseTotal);
 		return {
 			id: key,
-			label: config.label ?? key,
+			label: resolveStarshipSkillLabel(config, key),
 			ability,
 			abilityLabel: CONFIG?.DND5E?.abilities?.[ability]?.label ?? ability.toUpperCase(),
 			proficiencyMode,

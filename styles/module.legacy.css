@@ -310,6 +310,44 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   color: var(--color-text-secondary, var(--dnd5e-color-tan, #b0a080));
 }
 
+.dnd5e2.sheet.actor .sw5e-powers-banner-kicker .sw5e-powercasting-ability-config {
+  margin-left: 0.35rem;
+  padding: 0;
+  font-size: 0.85em;
+  line-height: 1;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.dnd5e2.sheet.actor .sw5e-powers-banner-kicker .sw5e-powercasting-ability-config:hover {
+  opacity: 1;
+  color: var(--dnd5e-color-gold, #d4b060);
+}
+
+.power-casting-ability-config .sw5e-power-ability-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.power-casting-ability-config .sw5e-power-ability-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.power-casting-ability-config .sw5e-power-ability-col-label {
+  font-size: var(--font-size-12);
+  color: var(--color-text-secondary);
+}
+
+.power-casting-ability-config .form-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
 .dnd5e2.sheet.actor .sw5e-powers-banner-head-right .sw5e-powers-known-badge {
   display: inline-flex;
   align-items: baseline;

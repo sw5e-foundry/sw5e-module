@@ -8,10 +8,11 @@
 - **Starship movement:** registered Space Speed and Turning Speed movement modes; integrated Starships with the stock dnd5e Movement dialog; added stock-compatible **Use Derived** movement reset; fixed Starship token movement to use Space movement.
 - **Starship abilities:** ability config cog behavior, skill/ability save-tab roll behavior, and NPC/character-style ability cards on the Starship sheet.
 - **Chassis / item modifications:** compact collapsible Modification Chassis panel with slot cards, footer icon actions, and tooltips; clickable installed modification names that open the source item sheet; chassis install picker sourced from Enhanced Items → Item Modifications; drag/drop installation from compendiums and world items; installed mod effect aggregation with synthetic roll-time contribution from active hosts.
+- **Powercasting ability overrides:** generic per-school forcecasting ability override system for features such as Cunning Forcecaster; Configure Powercasting dialog from the Powers tab Edit-mode cog; Light/Dark casting ability and max force point ability overrides; Universal **Highest Effective Light/Dark** mode with **Fixed Ability** option; documented Active Effect / flag paths for overrides.
 - **Active Effects / automation:** force and tech power attack bonuses; force and tech save DC bonuses including ability-specific and save-target DC keys; melee/ranged power attack bonuses via `mpak`/`rpak`; `CONFIG.SW5E.powerBonusEffectKeys` registry; Superiority Dice max changes via `system.superiority.dice.max` with formula bonus support.
 - **Expanded proficiency / mastery:** Mastery, High Mastery, and Grand Mastery skill-tier automation (advantage, double proficiency, chat-card rerolls) with improved inline reroll UX.
 - **Item source Active Effects:** Focus Generator and Wristpad item YAML; save-target DC effects on Fadecasting, Rendcasting, and Withercasting modifications; `mpak`/`rpak` effects on Channeling, Crystalizing, and related modifications.
-- **Theming:** SW5E Light and SW5E Dark polish across item sheets, advancement/config apps, roll configuration, tooltips, dropdowns/selects, and Foundry core UI surfaces; Cybernetic Augmentations dialog theming for SW5E Light, SW5E Dark, and Underworld Alloy.
+- **Theming:** SW5E Light and SW5E Dark polish across item sheets, advancement/config apps, roll configuration, tooltips, dropdowns/selects, and Foundry core UI surfaces; Cybernetic Augmentations dialog theming; Short Rest, Long Rest, and dnd5e activity usage dialogs (e.g. Cast Power / Save) for SW5E Light, SW5E Dark, and Underworld Alloy.
 - **Developer / internal:** migration and validation utilities for power-bonus and modification item effects; tests/utilities for `mpak`/`rpak` and installed-mod aggregation.
 
 ### Changed
@@ -19,6 +20,7 @@
 - **Chassis install picker:** removed developer/debug metadata from normal browser rows; simplified compatibility badges and issue messaging.
 - **Equipment attunement:** restored Attunement controls on SW5E equipment item sheets for attunable items without the dnd5e magic property by deriving magic during preparation.
 - **Proficiency config:** kept dnd5e-facing `proficiencyLevels` string-shaped and moved SW5E tier metadata to `CONFIG.SW5E.proficiencyTiers`.
+- **Configure Powercasting:** removed header and per-field helper text; **Save Changes** now saves and closes the dialog; Universal default compares effective Light/Dark abilities (after overrides) instead of raw Wisdom/Charisma.
 - **Currency:** simplified currency handling and removed the custom currency settings UI.
 - **Journal AppV2:** improved theme scoping for Underworld Alloy and related surfaces.
 
@@ -28,9 +30,12 @@
 - **Cybernetics dialog:** selector compilation issue that blocked SW5E Light theming; readability of installed augmentation cards, install area, buttons, scrollbars, and metadata.
 - **Chassis UI:** installed modification name styling no longer inherits global button slab styling.
 - **Power bonuses:** save DC preparation now consumes supported bonus keys.
+- **Powercasting UI:** Forcecasting config cog hidden in sheet Play mode; visible only in Edit mode.
+- **Character sheet tabs:** restored readable SW5E Light vertical tab backing after icon-control rules regressed transparency.
 - **Mastery rerolls:** reroll values no longer incorrectly always return 20.
 - **Superiority Dice:** preparation now preserves Active Effect changes to maximum dice and applies formula bonuses.
 - **Active Effects:** dropdown/select normalization across SW5E Light, SW5E Dark, and Underworld Alloy.
+- **Theme scope:** rest and activity usage ApplicationV2 dialogs now receive `sw5e-theme-root` scoping.
 
 ### Migration
 - Bumped `needsMigrationVersion` to `0.38` so updated worlds recognize this release.

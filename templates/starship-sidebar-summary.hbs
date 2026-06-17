@@ -91,32 +91,6 @@
             </div>
           {{/if}}
 
-          {{#if sidebarFuel}}
-            <div class="sw5e-starship-sidebar-quick sw5e-starship-sidebar-quick--fuel">
-              <input
-                type="number"
-                class="sw5e-starship-sidebar-input"
-                data-sw5e-system-path="system.attributes.fuel.value"
-                value="{{../systemsCore.fuelValue}}"
-                min="0"
-                step="1"
-                inputmode="numeric"
-                data-dtype="Number"
-                aria-label="{{label}}"
-              />
-            </div>
-          {{/if}}
-
-          {{#if sidebarRouting}}
-            <div class="sw5e-starship-sidebar-quick sw5e-starship-sidebar-quick--routing">
-              <select class="sw5e-starship-sidebar-select" data-sw5e-system-path="system.attributes.power.routing" data-dtype="String" aria-label="{{label}}">
-                {{#each ../systemsCore.routingOptions}}
-                  <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
-                {{/each}}
-              </select>
-            </div>
-          {{/if}}
-
           {{#if sidebarShowValueOnly}}
             <strong class="sw5e-starship-sidebar-summary-value{{#if sidebarDerivedRow}} sw5e-starship-sidebar-summary-value--derived{{/if}}">{{value}}</strong>
           {{/if}}

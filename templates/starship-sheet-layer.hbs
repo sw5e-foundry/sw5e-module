@@ -80,7 +80,6 @@
   <header class="sw5e-starship-section-header sw5e-crew-section-header">
     <div class="sw5e-starship-crew-heading">
       <span class="sw5e-starship-kicker">Crew &amp; Passengers</span>
-      <h2>Crew Management</h2>
     </div>
     <button
       type="button"
@@ -222,11 +221,31 @@
 {{/if}}
 {{/inline}}
 
+{{#*inline "sw5e-starship-core-repair"}}
+<section class="sw5e-starship-core-repair-panel" aria-label="{{localize "SW5E.StarshipSheet.RepairActionsAria"}}">
+  <div class="sw5e-starship-core-repair-actions">
+    <button
+      type="button"
+      class="sw5e-starship-repair-action"
+      data-sw5e-repair-action="recharge"
+      title="{{localize "SW5E.RechargeRepair"}}"
+      aria-label="{{localize "SW5E.RechargeRepair"}}"
+    >{{localize "SW5E.Recharge"}}</button>
+    <button
+      type="button"
+      class="sw5e-starship-repair-action"
+      data-sw5e-repair-action="refitting"
+      title="{{localize "SW5E.RefittingRepair"}}"
+      aria-label="{{localize "SW5E.RefittingRepair"}}"
+    >{{localize "SW5E.Refitting"}}</button>
+  </div>
+</section>
+{{/inline}}
+
 {{#*inline "sw5e-starship-core-routing"}}
 <section class="sw5e-starship-core-routing-panel sw5e-starship-system-path-scope" aria-label="{{systemsCore.labels.powerRouting}}">
   <div class="sw5e-starship-systems-field sw5e-starship-systems-field--routing-primary{{#unless @root.systemsRoutingEditable}} sw5e-starship-systems-field--locked{{/unless}}">
     <label class="sw5e-starship-systems-routing-title" for="sw5e-core-routing">{{systemsCore.labels.powerRouting}}</label>
-    <p class="sw5e-starship-systems-routing-hint">{{systemsCore.powerRoutingHint}}</p>
     <select
       id="sw5e-core-routing"
       class="sw5e-starship-systems-select sw5e-starship-systems-routing-select"
@@ -235,7 +254,7 @@
       {{#unless @root.systemsRoutingEditable}}disabled{{/unless}}
     >
       {{#each systemsCore.routingOptions}}
-      <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+      <option value="{{value}}" title="{{tooltip}}" {{#if selected}}selected{{/if}}>{{label}}</option>
       {{/each}}
     </select>
   </div>
@@ -246,7 +265,35 @@
 <section class="sw5e-starship-core-fuel-panel sw5e-starship-system-path-scope" aria-label="{{systemsCore.labels.fuel}}">
   <div class="sw5e-starship-systems-field sw5e-starship-systems-field--fuel{{#unless @root.systemsSetupEditable}} sw5e-starship-systems-field--locked{{/unless}}">
     <span class="sw5e-starship-systems-field-heading">{{systemsCore.labels.fuel}}</span>
-    <p class="sw5e-starship-systems-supporting-sheet-mode-hint">{{systemsCore.systemsSupportingSetupHint}}</p>
+
+    <div class="sw5e-starship-fuel-capacity" aria-label="{{systemsCore.labels.fuelCapacity}}">
+      <div class="sw5e-starship-fuel-track">
+        <span class="sw5e-starship-fuel-fill" style="width: {{systemsCore.fuelPct}}%;"></span>
+        <span class="sw5e-starship-fuel-breakpoint" data-pct="20" aria-hidden="true"></span>
+        <span class="sw5e-starship-fuel-breakpoint" data-pct="40" aria-hidden="true"></span>
+        <span class="sw5e-starship-fuel-breakpoint" data-pct="60" aria-hidden="true"></span>
+        <span class="sw5e-starship-fuel-breakpoint" data-pct="80" aria-hidden="true"></span>
+      </div>
+      <span class="sw5e-starship-fuel-label">{{systemsCore.fuelBarLabel}}</span>
+    </div>
+
+    <div class="sw5e-starship-core-fuel-actions{{#unless @root.systemsRoutingEditable}} sw5e-starship-core-fuel-actions--locked{{/unless}}">
+      <button
+        type="button"
+        class="sw5e-starship-fuel-action"
+        data-sw5e-fuel-action="burn"
+        title="{{systemsCore.labels.burnFuelTooltip}}"
+        {{#unless @root.systemsRoutingEditable}}disabled{{/unless}}
+      >{{systemsCore.labels.burnFuel}}</button>
+      <button
+        type="button"
+        class="sw5e-starship-fuel-action"
+        data-sw5e-fuel-action="refuel"
+        title="{{systemsCore.labels.refuelTooltip}}"
+        {{#unless @root.systemsRoutingEditable}}disabled{{/unless}}
+      >{{systemsCore.labels.refuel}}</button>
+    </div>
+
     <div class="sw5e-starship-systems-inline sw5e-starship-systems-inline--triple sw5e-starship-core-fuel-grid">
       <div class="sw5e-starship-systems-subfield">
         <label class="sw5e-starship-systems-label" for="sw5e-core-fuel-value">{{systemsCore.labels.fuelCurrent}}</label>
@@ -291,6 +338,114 @@
         />
       </div>
     </div>
+  </div>
+</section>
+{{/inline}}
+
+{{#*inline "sw5e-starship-core-advanced-power"}}
+<section
+  class="sw5e-starship-core-advanced-power-panel sw5e-starship-system-path-scope{{#if systemsCore.advancedPower.collapsed}} is-collapsed{{/if}}"
+  aria-label="{{systemsCore.advancedPower.panelAria}}"
+>
+  <header class="sw5e-starship-core-advanced-power-header">
+    <div class="sw5e-starship-core-advanced-power-heading">
+      <span class="sw5e-starship-systems-field-heading">{{systemsCore.advancedPower.title}}</span>
+    </div>
+    <button
+      type="button"
+      class="sw5e-starship-core-advanced-power-collapse"
+      data-sw5e-advanced-power-action="toggle-collapse"
+      aria-expanded="{{#if systemsCore.advancedPower.collapsed}}false{{else}}true{{/if}}"
+      title="{{#if systemsCore.advancedPower.collapsed}}{{systemsCore.advancedPower.expandTooltip}}{{else}}{{systemsCore.advancedPower.collapseTooltip}}{{/if}}"
+      aria-label="{{#if systemsCore.advancedPower.collapsed}}{{systemsCore.advancedPower.expandTooltip}}{{else}}{{systemsCore.advancedPower.collapseTooltip}}{{/if}}"
+    >
+      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+    </button>
+  </header>
+
+  <div class="sw5e-starship-core-advanced-power-body">
+    <div class="sw5e-starship-advanced-power-die-row{{#unless @root.systemsSetupEditable}} sw5e-starship-systems-field--locked{{/unless}}">
+      <span class="sw5e-starship-advanced-power-die-label">{{systemsCore.advancedPower.dieLabel}}</span>
+      {{#if @root.systemsSetupEditable}}
+      <select
+        id="sw5e-core-power-die"
+        class="sw5e-starship-systems-select sw5e-starship-advanced-power-die-select"
+        name="system.attributes.power.die"
+        data-dtype="String"
+      >
+        {{#each systemsCore.advancedPower.dieOptions}}
+        <option value="{{value}}" {{#if selected}}selected{{/if}}>{{value}}</option>
+        {{/each}}
+      </select>
+      {{else}}
+      <span class="sw5e-starship-advanced-power-die-value">{{systemsCore.advancedPower.dieDisplay}}</span>
+      {{/if}}
+    </div>
+
+    <div class="sw5e-starship-core-advanced-power-actions{{#unless @root.systemsRoutingEditable}} sw5e-starship-core-advanced-power-actions--locked{{/unless}}">
+      <button
+        type="button"
+        class="sw5e-starship-advanced-power-recover"
+        data-sw5e-advanced-power-action="recover"
+        data-can-recover="{{#if systemsCore.advancedPower.canRecover}}1{{else}}0{{/if}}"
+        title="{{systemsCore.advancedPower.recoverTooltip}}"
+        {{#unless @root.systemsRoutingEditable}}disabled{{/unless}}
+        {{#unless systemsCore.advancedPower.canRecover}}disabled{{/unless}}
+      >{{systemsCore.advancedPower.recoverLabel}}</button>
+    </div>
+
+    <div class="sw5e-starship-advanced-power-slots" role="list" aria-label="{{systemsCore.advancedPower.panelAria}}">
+      {{#each systemsCore.advancedPower.slots}}
+      <div class="sw5e-starship-advanced-power-slot{{#if isCentral}} is-central{{/if}}{{#if @root.systemsSetupEditable}} sw5e-starship-advanced-power-slot--edit{{/if}}" role="listitem">
+        <span class="sw5e-starship-advanced-power-slot-label">{{label}}</span>
+        {{#if @root.systemsSetupEditable}}
+        <div class="sw5e-starship-advanced-power-slot-field">
+          <label class="sw5e-starship-systems-label" for="sw5e-core-power-{{key}}-value">{{@root.systemsCore.advancedPower.currentLabel}}</label>
+          <input
+            id="sw5e-core-power-{{key}}-value"
+            class="sw5e-starship-systems-input sw5e-starship-advanced-power-input"
+            type="number"
+            name="system.attributes.power.{{key}}.value"
+            value="{{value}}"
+            min="0"
+            step="1"
+            data-dtype="Number"
+          />
+        </div>
+        <div class="sw5e-starship-advanced-power-slot-field">
+          <label class="sw5e-starship-systems-label" for="sw5e-core-power-{{key}}-max">{{@root.systemsCore.advancedPower.maxLabel}}</label>
+          <input
+            id="sw5e-core-power-{{key}}-max"
+            class="sw5e-starship-systems-input sw5e-starship-advanced-power-input"
+            type="number"
+            name="system.attributes.power.{{key}}.max"
+            value="{{storedMax}}"
+            min="0"
+            step="1"
+            data-dtype="Number"
+          />
+        </div>
+        {{#if maxDisplayDiffers}}
+        <span class="sw5e-starship-advanced-power-max-hint" role="note">{{maxDisplayHint}}</span>
+        {{/if}}
+        {{else}}
+        <span class="sw5e-starship-advanced-power-slot-value">{{displayValue}} / {{displayMax}}</span>
+        <div class="sw5e-starship-core-advanced-power-actions sw5e-starship-core-advanced-power-actions--slot{{#unless @root.systemsRoutingEditable}} sw5e-starship-core-advanced-power-actions--locked{{/unless}}">
+          <button
+            type="button"
+            class="sw5e-starship-advanced-power-spend"
+            data-sw5e-advanced-power-action="spend"
+            data-power-slot="{{key}}"
+            title="{{@root.systemsCore.advancedPower.spendTooltip}}"
+            {{#unless canSpend}}disabled{{/unless}}
+            {{#unless @root.systemsRoutingEditable}}disabled{{/unless}}
+          >{{@root.systemsCore.advancedPower.spendLabel}}</button>
+        </div>
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+
   </div>
 </section>
 {{/inline}}
@@ -429,13 +584,15 @@
             {{/if}}
 
             <div class="sw5e-starship-overview-operations">
+              {{> sw5e-starship-core-repair}}
               {{#if crew}}
-              <section class="sw5e-starship-crew-panel" aria-label="Crew Management">
+              <section class="sw5e-starship-crew-panel" aria-label="Crew &amp; Passengers">
                 {{> sw5e-starship-crew-management}}
                 {{> sw5e-starship-crew-roles}}
               </section>
               {{/if}}
               {{> sw5e-starship-core-routing}}
+              {{> sw5e-starship-core-advanced-power}}
               {{> sw5e-starship-core-fuel}}
             </div>
           </div>

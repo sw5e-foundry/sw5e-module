@@ -1,0 +1,61 @@
+<div class="sw5e-starship-destruction-tray{{#if open}} open{{/if}}" data-sw5e-destruction-tray>
+  <div class="sw5e-starship-destruction-shell">
+    <div class="sw5e-starship-destruction-popover">
+      <div class="sw5e-starship-destruction-saves" aria-label="{{panelAria}}">
+      <div class="pips sw5e-starship-destruction-pips--success" data-prop="system.attributes.death.success">
+        {{#each successTrayPips}}
+        <span class="pip pip--success{{#if filled}} filled{{/if}}" aria-hidden="true">
+          <i class="fas fa-check" inert></i>
+        </span>
+        {{/each}}
+      </div>
+
+      {{#if editMode}}
+      <button
+        type="button"
+        class="sw5e-starship-destruction-center unbutton sw5e-starship-destruction-reset"
+        data-sw5e-destruction-action="reset"
+        title="{{resetTooltip}}"
+        aria-label="{{resetLabel}}"
+        {{#unless editable}}disabled{{/unless}}
+      >
+        <i class="fa-solid fa-rotate-left" inert></i>
+      </button>
+      {{else}}
+      <button
+        type="button"
+        class="sw5e-starship-destruction-center unbutton sw5e-starship-destruction-roll{{#if canRoll}} rollable{{/if}}"
+        data-sw5e-destruction-action="roll"
+        data-can-roll="{{#if canRoll}}1{{else}}0{{/if}}"
+        title="{{#if canRoll}}{{rollTooltip}}{{else}}{{rollUnavailableTooltip}}{{/if}}"
+        aria-label="{{rollLabel}}"
+        {{#unless canRoll}}disabled{{/unless}}
+        {{#unless editable}}disabled{{/unless}}
+      >
+        <i class="fa-solid fa-burst" inert></i>
+      </button>
+      {{/if}}
+
+      <div class="pips sw5e-starship-destruction-pips--failure" data-prop="system.attributes.death.failure">
+        {{#each failureTrayPips}}
+        <span class="pip pip--failure{{#if filled}} filled failure{{/if}}" aria-hidden="true">
+          <i class="fas fa-times" inert></i>
+        </span>
+        {{/each}}
+      </div>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="sw5e-starship-destruction-toggle unbutton always-interactive"
+      data-sw5e-destruction-action="toggle"
+      data-tooltip="{{toggleTooltipKey}}"
+      data-tooltip-class="sw5e-destruction-save-tooltip dnd5e2 dnd5e-tooltip"
+      data-tooltip-direction="UP"
+      aria-label="{{toggleTooltip}}"
+    >
+      <i class="fa-solid fa-burst" inert></i>
+    </button>
+  </div>
+</div>

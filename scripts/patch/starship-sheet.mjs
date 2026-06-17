@@ -4,14 +4,26 @@ import {
 	deriveStarshipPools,
 	getDerivedStarshipRuntime,
 	getLegacyStarshipActorSystem,
+	getStarshipAdvancedPowerContext,
+	getStarshipPowerRecoverySummary,
 	getStarshipPrototypeTokenDimensions,
 	getStarshipSkillDisplayEntries,
 	getStarshipSkillEntries,
+	persistStarshipLegacyAttributePath,
 	rollStarshipAbility,
 	rollStarshipAbilityCheck,
 	rollStarshipAbilitySave,
-	rollStarshipSkill
+	rollStarshipPowerDie,
+	rollStarshipSkill,
+	STARSHIP_POWER_DIE_SLOTS
 } from "../starship-data.mjs";
+import { recoverStarshipPowerDice } from "../starship-power-recovery.mjs";
+import { openRechargeRepairDialog, openRefittingRepairDialog } from "../starship-repair.mjs";
+import {
+	buildDestructionSaveSidebarContext,
+	resetStarshipDestructionSaves,
+	rollStarshipDestructionSave
+} from "../starship-destruction-saves.mjs";
 import { buildVehicleStarshipCrewContext, buildVehicleAvailableActors, deployStarshipCrew, undeployStarshipCrew, toggleStarshipActiveCrew } from "../starship-character.mjs";
 import { getExpandedProficiencyHoverLabel } from "./proficiency.mjs";
 import { openStarshipMovementConfig } from "../starship-movement-config.mjs";
@@ -84,35 +96,61 @@ function isStarshipSheetEditMode(app) {
 }
 
 /**
- * Systems subtab: tier/size/hull/shields/fuel follow sheet EDIT mode; power routing follows actor edit permission (PLAY+EDIT).
- * Runs on each sync so PLAY/EDIT toggles work without a full SotG template re-render.
+ * Core operations (routing + fuel): sync disabled/locked state on PLAY/EDIT toggle without a full SotG re-render.
+ * Fuel cap/cost/value inputs follow sheet EDIT mode; routing select and Burn/Refuel follow actor edit permission.
  */
-function applySystemsSubtabControlState(app, starshipPanel) {
+function applyCoreOperationsControlState(app, starshipPanel) {
 	if ( !(starshipPanel instanceof HTMLElement) ) return;
-	const systemsBody = starshipPanel.querySelector("[data-application-part=\"sw5e-starship-sotg-systems\"]");
-	if ( !systemsBody ) return;
+	const overview = starshipPanel.querySelector("[data-sw5e-sotg-panel=\"overview\"]");
+	if ( !overview ) return;
 
 	const setupEditable = isStarshipSheetEditMode(app) && app.isEditable !== false;
 	const routingEditable = app.isEditable !== false;
 
 	const setupControlIds = [
-		"sw5e-systems-fuel-value",
-		"sw5e-systems-fuel-cap",
-		"sw5e-systems-fuel-cost"
+		"sw5e-core-fuel-value",
+		"sw5e-core-fuel-cap",
+		"sw5e-core-fuel-cost"
 	];
 
 	for ( const id of setupControlIds ) {
-		const el = systemsBody.querySelector(`#${id}`);
+		const el = overview.querySelector(`#${id}`);
 		if ( el instanceof HTMLInputElement || el instanceof HTMLSelectElement ) {
 			el.disabled = !setupEditable;
 			el.closest(".sw5e-starship-systems-field")?.classList.toggle("sw5e-starship-systems-field--locked", !setupEditable);
 		}
 	}
 
-	const routing = systemsBody.querySelector("#sw5e-systems-routing");
+	const routing = overview.querySelector("#sw5e-core-routing");
 	if ( routing instanceof HTMLSelectElement ) {
 		routing.disabled = !routingEditable;
 		routing.closest(".sw5e-starship-systems-field")?.classList.toggle("sw5e-starship-systems-field--locked", !routingEditable);
+	}
+
+	for ( const btn of overview.querySelectorAll("[data-sw5e-fuel-action]") ) {
+		if ( btn instanceof HTMLButtonElement ) btn.disabled = !routingEditable;
+	}
+	for ( const btn of overview.querySelectorAll("[data-sw5e-advanced-power-action='spend']") ) {
+		if ( btn instanceof HTMLButtonElement ) btn.disabled = !routingEditable;
+	}
+	const recoverBtn = overview.querySelector("[data-sw5e-advanced-power-action='recover']");
+	if ( recoverBtn instanceof HTMLButtonElement ) {
+		recoverBtn.disabled = !routingEditable || recoverBtn.dataset.canRecover !== "1";
+	}
+	overview.querySelector(".sw5e-starship-core-fuel-actions")
+		?.classList.toggle("sw5e-starship-core-fuel-actions--locked", !routingEditable);
+	overview.querySelector(".sw5e-starship-core-advanced-power-actions")
+		?.classList.toggle("sw5e-starship-core-advanced-power-actions--locked", !routingEditable);
+
+	const advancedPowerPanel = overview.querySelector(".sw5e-starship-core-advanced-power-panel");
+	if ( advancedPowerPanel ) {
+		for ( const input of advancedPowerPanel.querySelectorAll("input[name^='system.attributes.power.']") ) {
+			if ( input instanceof HTMLInputElement || input instanceof HTMLSelectElement ) {
+				input.disabled = !setupEditable;
+			}
+		}
+		advancedPowerPanel.querySelectorAll(".sw5e-starship-advanced-power-slot--edit")
+			.forEach(row => row.classList.toggle("sw5e-starship-systems-field--locked", !setupEditable));
 	}
 }
 
@@ -179,8 +217,10 @@ function syncSotgSheetPhaseClasses(app, starshipPanel) {
 	starshipPanel.classList.toggle("sw5e-starship-sotg--mode-edit", isEditMode);
 	starshipPanel.classList.toggle("sw5e-starship-sotg--mode-play", !isEditMode);
 	starshipPanel.classList.toggle("sw5e-starship-sotg--readonly", app.isEditable === false);
-	applySystemsSubtabControlState(app, starshipPanel);
+	applyCoreOperationsControlState(app, starshipPanel);
 	syncStarshipAbilitySaveTabRollState(app, starshipPanel);
+	const sheetRoot = starshipPanel.closest(".sw5e-starship-sheet") ?? app?.element;
+	syncDestructionTrayControlState(app, sheetRoot);
 }
 
 function scheduleStarshipAbilitySaveTabSync(root, app) {
@@ -881,8 +921,68 @@ function coerceStarshipIntegerHpField(actor, systemPath, raw) {
 	return Math.max(0, Math.trunc(n));
 }
 
-/** Power routing keys persisted on `system.attributes.power.routing` (sidebar + Systems tab). */
+/** Power routing keys persisted on `system.attributes.power.routing` (includes legacy `central`). */
 const STARSHIP_ROUTING_KEYS = ["none", "central", "engines", "shields", "weapons"];
+
+/** User-facing routing selector options (legacy `central` omitted; stored values normalized on read). */
+const STARSHIP_ROUTING_KEYS_VISIBLE = ["none", "engines", "shields", "weapons"];
+
+function getEffectivePowerRouting(routing) {
+	return routing === "central" ? "none" : (routing ?? "none");
+}
+
+function buildStarshipRoutingOptionLabel(value) {
+	if ( value === "none" ) return localizeOrFallback("SW5E.PowerRoutingNone", "None");
+	const optionKey = `SW5E.PowerRoutingOption.${value.charAt(0).toUpperCase()}${value.slice(1)}`;
+	return localizeOrFallback(optionKey, value);
+}
+
+function buildStarshipRoutingOptionTooltip(value) {
+	const key = `SW5E.StarshipSheet.PowerRoutingTooltip.${value}`;
+	const fallbacks = {
+		none: "No power is being routed. Space speed and weapon damage use their base derived values.",
+		engines: "Route power to engines. Space speed is doubled; other routed systems run at reduced capacity.",
+		shields: "Route power to shields. Tracked only — no shield boost yet; engines and weapons still run at reduced capacity.",
+		weapons: "Route power to weapons. Starship weapon damage is doubled; other routed systems run at reduced capacity."
+	};
+	return localizeOrFallback(key, fallbacks[value] ?? "");
+}
+
+function buildStarshipRoutingSelectionEffect(routing) {
+	const effective = getEffectivePowerRouting(routing);
+	if ( effective === "engines" ) {
+		return localizeOrFallback(
+			"SW5E.StarshipSheet.PowerRoutingEffectEngines",
+			"Enforced: space speed ×2. Weapons and shields run at reduced capacity."
+		);
+	}
+	if ( effective === "weapons" ) {
+		return localizeOrFallback(
+			"SW5E.StarshipSheet.PowerRoutingEffectWeapons",
+			"Enforced: starship weapon damage ×2. Engines and shields run at reduced capacity."
+		);
+	}
+	if ( effective === "shields" ) {
+		return localizeOrFallback(
+			"SW5E.StarshipSheet.PowerRoutingEffectShields",
+			"Tracked only: shield routing is stored but does not boost shields yet. Engines and weapons still run at reduced capacity."
+		);
+	}
+	return localizeOrFallback(
+		"SW5E.StarshipSheet.PowerRoutingEffectNone",
+		"No routing boost is applied to space speed or weapon damage."
+	);
+}
+
+function buildStarshipFuelBarContext(fuelValue, fuelCap) {
+	const value = Number.isFinite(Number(fuelValue)) ? Math.max(0, Math.trunc(Number(fuelValue))) : 0;
+	const cap = Number.isFinite(Number(fuelCap)) ? Math.max(0, Math.trunc(Number(fuelCap))) : 0;
+	const pct = cap > 0
+		? Math.min(100, Math.max(0, Math.round((value / cap) * 100)))
+		: (value > 0 ? 100 : 0);
+	const barLabel = cap > 0 ? `${value} / ${cap} units` : `${value} units`;
+	return { fuelPct: pct, fuelBarLabel: barLabel, fuelHasCap: cap > 0 };
+}
 
 /**
  * Delegate-only sidebar quick-edit paths — controls must use `data-sw5e-system-path` and no `name=`
@@ -894,46 +994,27 @@ const SIDEBAR_QUICK_EDIT_PATHS = new Set([
 	"system.attributes.hp.value",
 	"system.attributes.hp.max",
 	"system.attributes.hp.temp",
-	"system.attributes.hp.tempmax",
-	"system.attributes.fuel.value",
-	"system.attributes.power.routing"
+	"system.attributes.hp.tempmax"
 ]);
 
 /** SoTG Systems subtab: `name=` controls sit inside the vehicle sheet form; persist on `change` via trusted update (see delegate). */
 const STARSHIP_SYSTEMS_CORE_DIRECT_PATHS = new Set([
 	"system.attributes.power.routing",
+	"system.attributes.power.die",
 	"system.attributes.fuel.value",
 	"system.attributes.fuel.fuelCap",
-	"system.attributes.fuel.cost"
+	"system.attributes.fuel.cost",
+	...STARSHIP_POWER_DIE_SLOTS.flatMap(slot => [
+		`system.attributes.power.${slot}.value`,
+		`system.attributes.power.${slot}.max`
+	]),
+	"system.attributes.death.success",
+	"system.attributes.death.failure"
 ]);
-
-/** Mirror target: dnd5e vehicle schema drops SW5e `attributes.fuel` / `attributes.power.routing` from persisted `system`. */
-const STARSHIP_FUEL_POWER_LEGACY_FLAG_BASE = "flags.sw5e.legacyStarshipActor.system.attributes";
-
-function shouldMirrorStarshipFuelPowerToLegacyFlag(systemPath) {
-	return systemPath === "system.attributes.power.routing"
-		|| systemPath === "system.attributes.fuel.value"
-		|| systemPath === "system.attributes.fuel.fuelCap"
-		|| systemPath === "system.attributes.fuel.cost";
-}
-
-function buildStarshipFuelPowerMirrorUpdate(systemPath, value) {
-	const update = { [systemPath]: value };
-	if ( systemPath === "system.attributes.power.routing" ) {
-		update[`${STARSHIP_FUEL_POWER_LEGACY_FLAG_BASE}.power.routing`] = value;
-	} else if ( systemPath.startsWith("system.attributes.fuel.") ) {
-		const tail = systemPath.slice("system.attributes.fuel.".length);
-		update[`${STARSHIP_FUEL_POWER_LEGACY_FLAG_BASE}.fuel.${tail}`] = value;
-	}
-	return update;
-}
 
 /** @returns {Promise<void>} */
 async function persistStarshipFuelPowerSystemPath(act, systemPath, value) {
-	const payload = shouldMirrorStarshipFuelPowerToLegacyFlag(systemPath) && isSw5eStarshipActor(act)
-		? buildStarshipFuelPowerMirrorUpdate(systemPath, value)
-		: { [systemPath]: value };
-	await act.update(payload);
+	await persistStarshipLegacyAttributePath(act, systemPath, value);
 }
 
 /** @returns {Promise<void>} */
@@ -985,6 +1066,37 @@ function coerceStarshipFuelCapOrCost(actor, subKey, raw) {
 	return Math.max(0, Math.trunc(n));
 }
 
+function coerceStarshipPowerSlotField(actor, slotKey, field, raw) {
+	const legacySystem = getLegacyStarshipActorSystem(actor);
+	const power = legacySystem.attributes?.power ?? {};
+	const pools = deriveStarshipPools(actor);
+	const prevValue = Number.isFinite(Number(power[slotKey]?.value)) ? Number(power[slotKey].value) : 0;
+	const storedMax = Number(power[slotKey]?.max);
+	const prevMax = Number.isFinite(storedMax) && storedMax > 0
+		? storedMax
+		: (slotKey === "central" ? (pools.power.cscap ?? 0) : (pools.power.sscap ?? 0));
+	const prev = field === "max" ? prevMax : prevValue;
+	const trimmed = String(raw ?? "").trim();
+	if ( trimmed === "" ) return Math.max(0, Math.trunc(prev));
+	const n = Number(trimmed);
+	if ( !Number.isFinite(n) ) return Math.max(0, Math.trunc(prev));
+	return Math.max(0, Math.trunc(n));
+}
+
+const STARSHIP_POWER_DIE_OPTIONS = ["d4", "d6", "d8", "d10", "d12"];
+
+function coerceStarshipPowerDie(raw) {
+	const trimmed = String(raw ?? "").trim().toLowerCase();
+	if ( STARSHIP_POWER_DIE_OPTIONS.includes(trimmed) ) return trimmed;
+	return "d8";
+}
+
+function coerceStarshipDestructionTrack(raw) {
+	const n = Number(String(raw ?? "").trim());
+	if ( !Number.isFinite(n) ) return 0;
+	return Math.max(0, Math.min(3, Math.trunc(n)));
+}
+
 function isValidSidebarTraitsSize(value) {
 	return typeof value === "string"
 		&& value !== ""
@@ -1020,13 +1132,8 @@ function ensureStarshipTrustedSystemPathDelegate(root, app) {
 				value = coerced;
 			} else if ( path === "system.details.tier" ) {
 				value = coerceSidebarTier(act, el.value);
-			} else if ( path === "system.attributes.fuel.value" ) {
-				value = coerceSidebarFuelValue(act, el.value);
 			} else if ( path === "system.traits.size" ) {
 				if ( !isValidSidebarTraitsSize(el.value) ) return;
-				value = el.value;
-			} else if ( path === "system.attributes.power.routing" ) {
-				if ( !STARSHIP_ROUTING_KEYS.includes(el.value) ) return;
 				value = el.value;
 			} else {
 				return;
@@ -1050,7 +1157,7 @@ function ensureStarshipTrustedSystemPathDelegate(root, app) {
 			const path = el.name;
 			let value;
 			if ( path === "system.attributes.power.routing" ) {
-				if ( !STARSHIP_ROUTING_KEYS.includes(el.value) ) return;
+				if ( !STARSHIP_ROUTING_KEYS_VISIBLE.includes(el.value) ) return;
 				value = el.value;
 			} else if ( path === "system.attributes.fuel.value" ) {
 				value = coerceSidebarFuelValue(act, el.value);
@@ -1058,8 +1165,14 @@ function ensureStarshipTrustedSystemPathDelegate(root, app) {
 				value = coerceStarshipFuelCapOrCost(act, "fuelCap", el.value);
 			} else if ( path === "system.attributes.fuel.cost" ) {
 				value = coerceStarshipFuelCapOrCost(act, "cost", el.value);
+			} else if ( path === "system.attributes.power.die" ) {
+				value = coerceStarshipPowerDie(el.value);
+			} else if ( path === "system.attributes.death.success" || path === "system.attributes.death.failure" ) {
+				value = coerceStarshipDestructionTrack(el.value);
 			} else {
-				return;
+				const slotMatch = path.match(/^system\.attributes\.power\.(\w+)\.(value|max)$/);
+				if ( !slotMatch || !STARSHIP_POWER_DIE_SLOTS.includes(slotMatch[1]) ) return;
+				value = coerceStarshipPowerSlotField(act, slotMatch[1], slotMatch[2], el.value);
 			}
 			try {
 				await persistStarshipFuelPowerSystemPath(act, path, value);
@@ -1092,6 +1205,215 @@ function ensureStarshipTrustedSystemPathDelegate(root, app) {
 			console.error("SW5E MODULE | Starship Systems tab fallback update failed.", err);
 		}
 	});
+}
+
+/**
+ * Core fuel quick actions — Burn (−1) and Refuel (to cap). Usable whenever the actor is editable (Play or Edit).
+ */
+function ensureStarshipFuelActionsDelegate(root, app) {
+	if ( !root || root.dataset.sw5eFuelActionsDelegate === "1" ) return;
+	root.dataset.sw5eFuelActionsDelegate = "1";
+	root.addEventListener("click", async event => {
+		const btn = event.target.closest("[data-sw5e-fuel-action]");
+		if ( !btn || btn.disabled ) return;
+		const act = app?.actor;
+		if ( !act || app?.isEditable === false ) return;
+
+		const action = btn.dataset.sw5eFuelAction;
+		const legacySystem = getLegacyStarshipActorSystem(act);
+		const fuel = legacySystem.attributes?.fuel ?? {};
+		const current = Number.isFinite(Number(fuel.value)) ? Math.max(0, Math.trunc(Number(fuel.value))) : 0;
+		const cap = Number.isFinite(Number(fuel.fuelCap)) ? Math.max(0, Math.trunc(Number(fuel.fuelCap))) : 0;
+
+		let newValue;
+		if ( action === "burn" ) {
+			newValue = Math.max(0, current - 1);
+		} else if ( action === "refuel" ) {
+			if ( cap <= 0 ) {
+				ui.notifications.warn(localizeOrFallback(
+					"SW5E.StarshipSheet.RefuelNoCapWarning",
+					"Set a fuel capacity before refueling."
+				));
+				return;
+			}
+			newValue = cap;
+		} else {
+			return;
+		}
+
+		if ( newValue === current ) return;
+
+		try {
+			await persistStarshipFuelPowerSystemPath(act, "system.attributes.fuel.value", newValue);
+		} catch ( err ) {
+			console.error("SW5E MODULE | Starship fuel action update failed.", err);
+		}
+	});
+}
+
+function ensureStarshipRepairDelegate(root, app) {
+	if ( !root || root.dataset.sw5eRepairDelegate === "1" ) return;
+	root.dataset.sw5eRepairDelegate = "1";
+	root.addEventListener("click", async event => {
+		const btn = event.target.closest("[data-sw5e-repair-action]");
+		if ( !btn || btn.disabled ) return;
+		const act = app?.actor;
+		if ( !act || app?.isEditable === false ) return;
+
+		const action = btn.dataset.sw5eRepairAction;
+		try {
+			if ( action === "recharge" ) {
+				await openRechargeRepairDialog(act);
+			} else if ( action === "refitting" ) {
+				await openRefittingRepairDialog(act);
+			}
+			if ( app?.rendered ) await app.render(false);
+		} catch ( err ) {
+			if ( err?.message !== "cancelled" ) {
+				console.error("SW5E MODULE | Starship repair action failed.", err);
+			}
+		}
+	});
+}
+
+/**
+ * Advanced Power panel — collapse toggle (persist UI flag) and per-slot Roll/Spend in Play mode.
+ */
+function ensureStarshipAdvancedPowerDelegate(root, app) {
+	if ( !root || root.dataset.sw5eAdvancedPowerDelegate === "1" ) return;
+	root.dataset.sw5eAdvancedPowerDelegate = "1";
+	root.addEventListener("click", async event => {
+		const toggle = event.target.closest("[data-sw5e-advanced-power-action='toggle-collapse']");
+		if ( toggle ) {
+			const panel = toggle.closest(".sw5e-starship-core-advanced-power-panel");
+			if ( !panel ) return;
+			const willCollapse = !panel.classList.contains("is-collapsed");
+			panel.classList.toggle("is-collapsed", willCollapse);
+			toggle.setAttribute("aria-expanded", willCollapse ? "false" : "true");
+			const expandLabel = localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerExpand", "Expand Power Die Allocation");
+			const collapseLabel = localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerCollapse", "Collapse Power Die Allocation");
+			const label = willCollapse ? expandLabel : collapseLabel;
+			toggle.title = label;
+			toggle.setAttribute("aria-label", label);
+			toggle.dataset.tooltip = label;
+
+			const act = app?.actor;
+			if ( !act?.isOwner ) return;
+			try {
+				const cur = act.flags?.sw5e?.starship ?? {};
+				const ui = { ...(typeof cur.ui === "object" && cur.ui ? cur.ui : {}), advancedPowerCollapsed: willCollapse };
+				await act.update({ "flags.sw5e.starship": { ...cur, ui } });
+			} catch ( err ) {
+				console.error("SW5E MODULE | Starship advanced power collapse update failed.", err);
+			}
+			return;
+		}
+
+		const spendBtn = event.target.closest("[data-sw5e-advanced-power-action='spend']");
+		if ( spendBtn && !spendBtn.disabled ) {
+			const act = app?.actor;
+			if ( act && app?.isEditable !== false ) {
+				const slotKey = spendBtn.dataset.powerSlot;
+				if ( slotKey && STARSHIP_POWER_DIE_SLOTS.includes(slotKey) ) {
+					try {
+						await rollStarshipPowerDie(act, slotKey);
+					} catch ( err ) {
+						console.error("SW5E MODULE | Starship power die roll failed.", err);
+					}
+				}
+			}
+			return;
+		}
+
+		const recoverBtn = event.target.closest("[data-sw5e-advanced-power-action='recover']");
+		if ( recoverBtn && !recoverBtn.disabled ) {
+			const act = app?.actor;
+			if ( !act || app?.isEditable === false ) return;
+			try {
+				await recoverStarshipPowerDice(act);
+			} catch ( err ) {
+				console.error("SW5E MODULE | Starship power die recovery failed.", err);
+			}
+		}
+	});
+}
+
+function ensureStarshipDestructionSaveDelegate(root, app) {
+	if ( !root || root.dataset.sw5eDestructionSaveDelegate === "1" ) return;
+	root.dataset.sw5eDestructionSaveDelegate = "1";
+	root.addEventListener("click", async event => {
+		const toggleBtn = event.target.closest("[data-sw5e-destruction-action='toggle']");
+		if ( toggleBtn ) {
+			event.preventDefault();
+			toggleStarshipDestructionTray(app, root);
+			return;
+		}
+
+		const rollBtn = event.target.closest("[data-sw5e-destruction-action='roll']");
+		if ( rollBtn && !rollBtn.disabled ) {
+			const act = app?.actor;
+			if ( !act || app?.isEditable === false ) return;
+			try {
+				await rollStarshipDestructionSave(act);
+				await renderStarshipSidebarDestructionSaves(root, act, app);
+			} catch ( err ) {
+				console.error("SW5E MODULE | Starship destruction save roll failed.", err);
+			}
+			return;
+		}
+
+		const resetBtn = event.target.closest("[data-sw5e-destruction-action='reset']");
+		if ( resetBtn && !resetBtn.disabled ) {
+			const act = app?.actor;
+			if ( !act || !isStarshipSheetEditMode(app) || app?.isEditable === false ) return;
+			try {
+				await resetStarshipDestructionSaves(act);
+				await renderStarshipSidebarDestructionSaves(root, act, app);
+			} catch ( err ) {
+				console.error("SW5E MODULE | Starship destruction save reset failed.", err);
+			}
+		}
+	});
+}
+
+function toggleStarshipDestructionTray(app, root, open) {
+	const shell = getStarshipSidebarShell(root, app);
+	const tray = shell?.querySelector(".sw5e-starship-destruction-tray");
+	if ( !(tray instanceof HTMLElement) ) return;
+
+	const tab = tray.querySelector(".sw5e-starship-destruction-toggle");
+	const shouldOpen = typeof open === "boolean" ? open : !tray.classList.contains("open");
+	tray.classList.toggle("open", shouldOpen);
+	if ( app ) app._sw5eDestructionTrayOpen = shouldOpen;
+
+	if ( tab instanceof HTMLElement ) {
+		const tooltipKey = shouldOpen
+			? "SW5E.StarshipSheet.DestructionSaveHide"
+			: "SW5E.StarshipSheet.DestructionSaveShow";
+		tab.dataset.tooltip = tooltipKey;
+		tab.setAttribute(
+			"aria-label",
+			localizeOrFallback(tooltipKey, shouldOpen ? "Hide Destruction Saves" : "Show Destruction Saves")
+		);
+	}
+}
+
+function syncDestructionTrayControlState(app, root) {
+	const shell = getStarshipSidebarShell(root, app);
+	const tray = shell?.querySelector(".sw5e-starship-destruction-tray");
+	if ( !(tray instanceof HTMLElement) ) return;
+
+	const routingEditable = app?.isEditable !== false;
+	const setupEditable = isStarshipSheetEditMode(app) && routingEditable;
+
+	for ( const rollBtn of tray.querySelectorAll("[data-sw5e-destruction-action='roll']") ) {
+		if ( rollBtn instanceof HTMLButtonElement ) {
+			rollBtn.disabled = !routingEditable || rollBtn.dataset.canRoll !== "1";
+		}
+	}
+
+	const resetBtn = tray.querySelector("[data-sw5e-destruction-action='reset']");
+	if ( resetBtn instanceof HTMLButtonElement ) resetBtn.disabled = !setupEditable;
 }
 
 function getPrimaryTabNav(root) {
@@ -2062,6 +2384,7 @@ function makeOverviewCards(actor) {
 	const travel = formatTravel(actor);
 	const fuel = legacySystem.attributes?.fuel ?? {};
 	const routing = legacySystem.attributes?.power?.routing ?? "none";
+	const effectiveRouting = getEffectivePowerRouting(routing);
 
 	return [
 		{
@@ -2091,17 +2414,15 @@ function makeOverviewCards(actor) {
 		},
 		{
 			label: localizeOrFallback("SW5E.PowerDie", "Routing"),
-			value: localizeOrFallback(`SW5E.PowerRouting.${routing}`, routing),
+			value: buildStarshipRoutingOptionLabel(effectiveRouting),
 			note: pools.power.die ? `${pools.power.die} | ${formatPowerZones(legacySystem, pools)}` : formatPowerSummary(legacySystem)
 		}
 	];
 }
 
 /**
- * At-a-glance strip: same entries as the sidebar summary (hull, shields, tier, fuel, power, …),
- * plus the first four operational cards from makeOverviewCards (Movement, Travel Pace, Hyperdrive, Crew).
- * Fuel and Power Routing are not duplicated here — they come only from makeSidebarSummary.
- * Relies on makeOverviewCards maintaining [Movement, Travel, Hyperdrive, Crew, Fuel, Routing] order.
+ * At-a-glance strip: sidebar summary rows plus the first four operational cards
+ * (Movement, Travel Pace, Hyperdrive, Crew). Fuel and power routing live on Core only.
  */
 function makeStarshipSummaryStrip(actor) {
 	const operational = makeOverviewCards(actor);
@@ -2128,6 +2449,10 @@ function buildSystemsCoreContext(actor) {
 	const movement = runtime.movement ?? {};
 	const units = movement.units ?? actor.system?.attributes?.movement?.units ?? "ft";
 	const routing = power.routing ?? "none";
+	const effectiveRouting = getEffectivePowerRouting(routing);
+	const fuelValue = Number.isFinite(Number(fuel.value)) ? Number(fuel.value) : 0;
+	const fuelCap = Number.isFinite(Number(fuel.fuelCap)) ? Number(fuel.fuelCap) : 0;
+	const fuelBar = buildStarshipFuelBarContext(fuelValue, fuelCap);
 	const tierRaw = legacySystem.details?.tier ?? pools.tier;
 	const resolvedActorSize = resolveValidActorSizeKey(actor, legacySystem);
 
@@ -2142,14 +2467,13 @@ function buildSystemsCoreContext(actor) {
 		spaceSpeedDisplay: Number.isFinite(Number(movement.space))
 			? `${Math.round(Number(movement.space))} ${units}`
 			: "—",
-		routingOptions: STARSHIP_ROUTING_KEYS.map(value => ({
+		routingOptions: STARSHIP_ROUTING_KEYS_VISIBLE.map(value => ({
 			value,
-			label:
-				value === "none"
-					? localizeOrFallback("SW5E.PowerRoutingNone", "None")
-					: localizeOrFallback(`SW5E.PowerRouting.${value}`, value),
-			selected: routing === value
+			label: buildStarshipRoutingOptionLabel(value),
+			tooltip: buildStarshipRoutingOptionTooltip(value),
+			selected: effectiveRouting === value
 		})),
+		routingSelectionEffect: buildStarshipRoutingSelectionEffect(routing),
 		sizeOptions: Object.entries(CONFIG.DND5E?.actorSizes ?? {}).map(([value, entry]) => ({
 			value,
 			label: typeof entry === "string" ? entry : (entry?.label ?? value),
@@ -2160,9 +2484,12 @@ function buildSystemsCoreContext(actor) {
 		hullPointsMax: Number.isFinite(Number(hp.max)) ? Number(hp.max) : 0,
 		shieldPointsTemp: Number.isFinite(Number(hp.temp)) ? Number(hp.temp) : 0,
 		shieldPointsTempMax: Number.isFinite(Number(hp.tempmax)) ? Number(hp.tempmax) : 0,
-		fuelValue: Number.isFinite(Number(fuel.value)) ? Number(fuel.value) : 0,
-		fuelCap: Number.isFinite(Number(fuel.fuelCap)) ? Number(fuel.fuelCap) : 0,
+		fuelValue,
+		fuelCap,
 		fuelCost: Number.isFinite(Number(fuel.cost)) ? Number(fuel.cost) : 0,
+		fuelPct: fuelBar.fuelPct,
+		fuelBarLabel: fuelBar.fuelBarLabel,
+		fuelHasCap: fuelBar.fuelHasCap,
 		configSectionLede: localizeOrFallback(
 			"SW5E.StarshipSheet.SystemsConfigSectionLede",
 			"Tier, size, hull, shields, and dice pools are edited from the sidebar. Power routing and fuel are on the Core tab."
@@ -2170,7 +2497,7 @@ function buildSystemsCoreContext(actor) {
 		sectionOperationsKicker: localizeOrFallback("SW5E.StarshipSheet.SystemsSectionOperationsKicker", "Operations"),
 		powerRoutingHint: localizeOrFallback(
 			"SW5E.StarshipSheet.PowerRoutingSystemsHint",
-			"Chooses which subsystem receives boosted reactor output; other systems run at reduced capacity until you change routing."
+			"Choose which subsystem receives boosted reactor output during play. This is a legacy routing shortcut—not the SotG Boost action or power die allocation workflow."
 		),
 		sectionSupportingKicker: localizeOrFallback("SW5E.StarshipSheet.SystemsSectionSupportingKicker", "Power state & kinematics"),
 		systemsLivePlayBadge: localizeOrFallback("SW5E.StarshipSheet.SystemsLivePlayBadge", "Usable in Play mode"),
@@ -2190,8 +2517,50 @@ function buildSystemsCoreContext(actor) {
 			fuelCurrent: localizeOrFallback("SW5E.StarshipFuelFieldCurrent", "Current fuel"),
 			fuelCap: localizeOrFallback("SW5E.FuelCap", "Fuel cap"),
 			fuelCost: localizeOrFallback("SW5E.FuelCost", "Regeneration cost"),
+			fuelCapacity: localizeOrFallback("SW5E.FuelCapacity", "Fuel capacity"),
+			burnFuel: localizeOrFallback("SW5E.BurnFuel", "Burn"),
+			refuel: localizeOrFallback("SW5E.Refuel", "Refuel"),
+			burnFuelTooltip: localizeOrFallback("SW5E.StarshipSheet.BurnFuelTooltip", "Burn 1 fuel unit"),
+			refuelTooltip: localizeOrFallback("SW5E.StarshipSheet.RefuelTooltip", "Refuel to capacity"),
 			derived: localizeOrFallback("SW5E.Derived", "Derived")
-		}
+		},
+		advancedPower: (() => {
+			const powerCtx = getStarshipAdvancedPowerContext(actor);
+			const recovery = getStarshipPowerRecoverySummary(actor);
+			return {
+				...powerCtx,
+				canRecover: recovery.canRecover,
+				title: localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerTitle", "Power Die Allocation"),
+				panelAria: localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerPanelAria", "Power die allocation"),
+				dieLabel: localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerDieLabel", "Power die"),
+				currentLabel: localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerCurrent", "Current"),
+				maxLabel: localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerMax", "Max"),
+				spendLabel: localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerSpend", "Roll"),
+				spendTooltip: localizeOrFallback(
+					"SW5E.StarshipSheet.AdvancedPowerSpendTooltip",
+					"Spend 1 die from this pool and roll the ship power die"
+				),
+				recoverLabel: localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerRecover", "Recover Power"),
+				recoverTooltip: localizeOrFallback(
+					"SW5E.StarshipSheet.AdvancedPowerRecoverTooltip",
+					"Recover power dice using the equipped reactor formula, or manual recovery when no formula is available"
+				),
+				setupHint: localizeOrFallback(
+					"SW5E.StarshipSheet.AdvancedPowerSetupHint",
+					"Pool sizes and die type are setup fields — switch the sheet to Edit mode to change them. Roll spends dice during play."
+				),
+				recoveryNote: localizeOrFallback(
+					"SW5E.StarshipSheet.AdvancedPowerRecoveryNote",
+					"Recover Power refills pools using reactor recovery when available, otherwise manual recovery. Subsystem allocation follows legacy SW5e rules."
+				),
+				expandTooltip: localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerExpand", "Expand Power Die Allocation"),
+				collapseTooltip: localizeOrFallback("SW5E.StarshipSheet.AdvancedPowerCollapse", "Collapse Power Die Allocation"),
+				dieOptions: STARSHIP_POWER_DIE_OPTIONS.map(value => ({
+					value,
+					selected: (powerCtx.die ?? "d8") === value
+				}))
+			};
+		})()
 	};
 }
 
@@ -2211,13 +2580,10 @@ function formatPowerZones(legacySystem, pools) {
 
 function makeSidebarSummary(actor) {
 	const legacySystem = getLegacyStarshipActorSystem(actor);
-	const runtime = getDerivedStarshipRuntime(actor);
 	const pools = deriveStarshipPools(actor);
 	const hp = getStarshipLiveVehicleHp(actor);
-	const fuel = legacySystem.attributes?.fuel?.value;
-	const routing = legacySystem.attributes?.power?.routing ?? "none";
 
-	/** `sidebarTier` … `sidebarRouting` flags: which row may render sidebar quick-edit controls in EDIT mode (template + systemsCore). */
+	/** `sidebarTier` … `sidebarShield` flags: which row may render sidebar quick-edit controls in EDIT mode. */
 	return [
 		{
 			label: localizeOrFallback("SW5E.StarshipTier", "Tier"),
@@ -2226,9 +2592,7 @@ function makeSidebarSummary(actor) {
 			sidebarTier: true,
 			sidebarSize: false,
 			sidebarHull: false,
-			sidebarShield: false,
-			sidebarFuel: false,
-			sidebarRouting: false
+			sidebarShield: false
 		},
 		{
 			label: localizeOrFallback("SW5E.Size", "Size"),
@@ -2237,9 +2601,7 @@ function makeSidebarSummary(actor) {
 			sidebarTier: false,
 			sidebarSize: true,
 			sidebarHull: false,
-			sidebarShield: false,
-			sidebarFuel: false,
-			sidebarRouting: false
+			sidebarShield: false
 		},
 		{
 			label: localizeOrFallback("SW5E.HullPoints", "Hull Points"),
@@ -2248,9 +2610,7 @@ function makeSidebarSummary(actor) {
 			sidebarTier: false,
 			sidebarSize: false,
 			sidebarHull: true,
-			sidebarShield: false,
-			sidebarFuel: false,
-			sidebarRouting: false
+			sidebarShield: false
 		},
 		{
 			label: localizeOrFallback("SW5E.HullDice", "Hull Dice"),
@@ -2260,8 +2620,6 @@ function makeSidebarSummary(actor) {
 			sidebarSize: false,
 			sidebarHull: false,
 			sidebarShield: false,
-			sidebarFuel: false,
-			sidebarRouting: false,
 			sidebarDerivedRow: true
 		},
 		{
@@ -2271,9 +2629,7 @@ function makeSidebarSummary(actor) {
 			sidebarTier: false,
 			sidebarSize: false,
 			sidebarHull: false,
-			sidebarShield: true,
-			sidebarFuel: false,
-			sidebarRouting: false
+			sidebarShield: true
 		},
 		{
 			label: localizeOrFallback("SW5E.ShieldDice", "Shield Dice"),
@@ -2283,31 +2639,7 @@ function makeSidebarSummary(actor) {
 			sidebarSize: false,
 			sidebarHull: false,
 			sidebarShield: false,
-			sidebarFuel: false,
-			sidebarRouting: false,
 			sidebarDerivedRow: true
-		},
-		{
-			label: localizeOrFallback("SW5E.Fuel", "Fuel"),
-			value: Number.isFinite(Number(fuel)) ? `${fuel}` : "-",
-			note: null,
-			sidebarTier: false,
-			sidebarSize: false,
-			sidebarHull: false,
-			sidebarShield: false,
-			sidebarFuel: true,
-			sidebarRouting: false
-		},
-		{
-			label: localizeOrFallback("SW5E.PowerRouting", "Power Routing"),
-			value: localizeOrFallback(`SW5E.PowerRouting.${routing}`, routing),
-			note: pools.power.die ? `${pools.power.die} | ${formatPowerZones(legacySystem, pools)}` : formatPowerSummary(legacySystem),
-			sidebarTier: false,
-			sidebarSize: false,
-			sidebarHull: false,
-			sidebarShield: false,
-			sidebarFuel: false,
-			sidebarRouting: true
 		},
 		{
 			label: localizeOrFallback("SW5E.ModSlots", "Mod Slots"),
@@ -2316,9 +2648,7 @@ function makeSidebarSummary(actor) {
 			sidebarTier: false,
 			sidebarSize: false,
 			sidebarHull: false,
-			sidebarShield: false,
-			sidebarFuel: false,
-			sidebarRouting: false
+			sidebarShield: false
 		}
 	].map(entry => ({
 		...entry,
@@ -2328,8 +2658,6 @@ function makeSidebarSummary(actor) {
 			|| entry.sidebarSize
 			|| entry.sidebarHull
 			|| entry.sidebarShield
-			|| entry.sidebarFuel
-			|| entry.sidebarRouting
 		)
 	}));
 }
@@ -2675,6 +3003,52 @@ async function renderStarshipSidebarSummary(root, actor, app = null) {
 
 	if ( append ) container.append(wrapper);
 	else container.prepend(wrapper);
+}
+
+function getStarshipDestructionTrayMountPoint(root, app = null) {
+	const shell = getStarshipSidebarShell(root, app);
+	if ( !(shell instanceof HTMLElement) ) return null;
+
+	const nameBlock = shell.querySelector(
+		".sheet-sidebar > .name, [data-application-part='sidebar'] > .name, .sidebar > .name"
+	);
+	if ( !(nameBlock instanceof HTMLElement) || !(nameBlock.parentElement instanceof HTMLElement) ) return null;
+
+	return {
+		parent: nameBlock.parentElement,
+		reference: nameBlock,
+		insertAfter: true
+	};
+}
+
+async function renderStarshipSidebarDestructionSaves(root, actor, app = null) {
+	const shell = getStarshipSidebarShell(root, app);
+	if ( !(shell instanceof HTMLElement) ) return;
+
+	shell.querySelectorAll(".sw5e-starship-destruction-tray").forEach(node => node.remove());
+
+	const mountPoint = getStarshipDestructionTrayMountPoint(root, app);
+	if ( !mountPoint?.parent || !(mountPoint.reference instanceof HTMLElement) ) return;
+
+	const editMode = Boolean(isStarshipSheetEditMode(app) && app?.isEditable !== false);
+	const ctx = buildDestructionSaveSidebarContext(actor, {
+		open: app?._sw5eDestructionTrayOpen === true,
+		editMode,
+		editable: app?.isEditable !== false
+	});
+
+	const rendered = await foundry.applications.handlebars.renderTemplate(
+		getModulePath("templates/starship-sidebar-destruction-saves.hbs"),
+		ctx
+	);
+	const mount = document.createElement("div");
+	mount.innerHTML = rendered.trim();
+	const tray = mount.firstElementChild;
+	if ( !(tray instanceof HTMLElement) ) return;
+
+	mountPoint.reference.insertAdjacentElement(mountPoint.insertAfter ? "afterend" : "beforebegin", tray);
+
+	syncDestructionTrayControlState(app, root);
 }
 
 function focusSheetItem(root, app, itemId, tabId = STOCK_CARGO_TAB_ID) {
@@ -3047,10 +3421,15 @@ async function renderStarshipLayer(app, html, data) {
 
 	ensureStarshipAbilitySaveTabModeSync(root, app);
 	ensureStarshipTrustedSystemPathDelegate(root, app);
+	ensureStarshipFuelActionsDelegate(root, app);
+	ensureStarshipRepairDelegate(root, app);
+	ensureStarshipAdvancedPowerDelegate(root, app);
+	ensureStarshipDestructionSaveDelegate(root, app);
 	ensureStarshipOverviewAbilityMirrors(root, app, actor);
 	ensureStarshipSheetSubmitDiagnostic(root, app, actor);
 
 	await ensureWarningsDialog(root, app, actor);
+	await renderStarshipSidebarDestructionSaves(root, actor, app);
 	await renderStarshipSidebarSummary(root, actor, app);
 	await renderStarshipSidebarMovement(root, actor, app);
 	// Same task as sidebar mount: set scroll before the browser paints the new summary at 0 (async gap below would flash).
@@ -3442,5 +3821,12 @@ export function patchStarshipSheet() {
 	Hooks.on("preUpdateActor", (doc, changed, opts, uid) => {
 		logStarshipPreUpdateTraitsAfterSanitize(doc, changed);
 		logStarshipPreUpdateAbilities(doc, changed, "after sanitize");
+	});
+	Hooks.on("updateActor", (doc, changed) => {
+		if ( !isSw5eStarshipActor(doc) ) return;
+		const hull = foundry.utils.getProperty(changed, "system.attributes.hp.value");
+		if ( hull !== 0 ) return;
+		const sheet = doc.sheet;
+		if ( sheet?.rendered ) sheet._sw5eDestructionTrayOpen = true;
 	});
 }

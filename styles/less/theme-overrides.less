@@ -903,8 +903,8 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.editable .
   background: rgba(22, 22, 22, 0.9) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(button, .dialog-button, .create-document, [data-advantage-mode], [type="submit"], .sw5e-bodymods-inline-card, .sw5e-deployment-card-open),
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(button, .dialog-button, .create-document, [data-advantage-mode], [type="submit"], .sw5e-bodymods-inline-card, .sw5e-deployment-card-open) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(button, .dialog-button, .create-document, [data-advantage-mode], [type="submit"], .sw5e-bodymods-inline-card, .sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config),
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(button, .dialog-button, .create-document, [data-advantage-mode], [type="submit"], .sw5e-bodymods-inline-card, .sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config) {
   border: 1px solid transparent;
   border-radius: 6px;
   color: var(--sw5e-theme-button-text) !important;
@@ -1046,8 +1046,8 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(
   .trait-selector,
   .item-control,
   .sheet-header-control,
-  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
-  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):not(.item.control):has(> i:only-child)
 ):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]) {
   background: transparent !important;
   color: var(--sw5e-secondary-button) !important;
@@ -1061,8 +1061,8 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(
   .trait-selector,
   .item-control,
   .sheet-header-control,
-  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
-  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):not(.item.control):has(> i:only-child)
 ) :is(i, .gold-icon, .sw5e-deployment-icon-placeholder) {
   color: inherit !important;
 }
@@ -1073,8 +1073,8 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(
   .trait-selector,
   .item-control,
   .sheet-header-control,
-  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
-  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):not(.item.control):has(> i:only-child)
 ):is(:hover, :focus-visible) {
   background: rgba(32, 161, 208, 0.12) !important;
   background: color-mix(in srgb, var(--sw5e-secondary-button) 14%, transparent) !important;
@@ -1089,8 +1089,8 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(
   .trait-selector,
   .item-control,
   .sheet-header-control,
-  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
-  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):not(.item.control):has(> i:only-child)
 ):is(.active, .selected, [aria-pressed="true"], [aria-selected="true"]) {
   background: rgba(13, 153, 204, 0.16) !important;
   background: color-mix(in srgb, var(--sw5e-line-color) 16%, transparent) !important;
@@ -1824,6 +1824,86 @@ body[data-sw5e-theme="sw5e-light"] :is(.application, .window-app).dnd5e2.vertica
     0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 42%, transparent),
     0 0 14px color-mix(in srgb, var(--sw5e-light-active-control-border) 32%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.62) !important;
+}
+
+/* SW5E Light — character/NPC vertical tabs (re-assert after icon-control rules) */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item {
+  background: var(--sw5e-light-tab-inactive-fill) !important;
+  color: color-mix(in srgb, var(--sw5e-line-color) 76%, var(--sw5e-secondary-button)) !important;
+  --icon-fill: color-mix(in srgb, var(--sw5e-line-color) 76%, var(--sw5e-secondary-button));
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 54%, rgba(255, 255, 255, 0.34)) !important;
+  box-shadow: var(--sw5e-light-tab-glow-soft) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item::after {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 62%, rgba(255, 255, 255, 0.22)) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item :is(i, dnd5e-icon) {
+  color: inherit !important;
+  --icon-fill: currentColor;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item:is(:hover, :focus, :focus-visible):not(.active) {
+  background: var(--sw5e-light-hover-tint) !important;
+  color: var(--sw5e-line-color) !important;
+  --icon-fill: var(--sw5e-line-color);
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 66%, transparent) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 28%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-light-active-control-border) 22%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item:is(:hover, :focus, :focus-visible):not(.active)::after {
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 72%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item.active {
+  background: var(--sw5e-light-tab-active-fill) !important;
+  color: var(--sw5e-line-color) !important;
+  --icon-fill: var(--sw5e-line-color);
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 74%, transparent) !important;
+  box-shadow: var(--sw5e-light-tab-glow-strong), inset 0 1px 0 rgba(255, 255, 255, 0.56) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item.active::after {
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 84%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.vertical-tabs.sheet.actor:is(.character, .npc) nav.tabs.tabs-right > .item.active:is(:hover, :focus, :focus-visible) {
+  border-color: var(--sw5e-light-active-control-border) !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 42%, transparent),
+    0 0 14px color-mix(in srgb, var(--sw5e-light-active-control-border) 32%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.62) !important;
+}
+
+/* Powercasting config cog — Edit mode only (dnd5e adds .editable on ActorSheetV2 EDIT) */
+body[data-sw5e-theme] .sw5e-theme-root.dnd5e2.sheet.actor:not(.editable) .sw5e-powercasting-ability-config {
+  display: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.editable .sw5e-powercasting-ability-config,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.editable .sw5e-powercasting-ability-config {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--sw5e-secondary-button) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.editable .sw5e-powercasting-ability-config:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-light-hover-tint) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 42%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 24%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.editable .sw5e-powercasting-ability-config:is(:hover, :focus, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-secondary-button) 14%, transparent) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 36%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 52%, transparent) !important;
 }
 
 /* SW5E Light — item sheet horizontal tabs (dnd5e ItemSheet5e uses sheet-tabs, not vertical-tabs) */
@@ -3219,8 +3299,8 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(
   .item-control,
   .sheet-header-control,
   button.unbutton.control-button,
-  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
-  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):not(.item.control):has(> i:only-child)
 ):not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]) {
   background: transparent !important;
   color: var(--sw5e-secondary-button) !important;
@@ -3236,8 +3316,8 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(
   .item-control,
   .sheet-header-control,
   button.unbutton.control-button,
-  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
-  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):not(.item.control):has(> i:only-child)
 ) :is(i, .gold-icon, .sw5e-deployment-icon-placeholder, dnd5e-icon) {
   color: inherit !important;
   --icon-fill: currentColor;
@@ -3250,8 +3330,8 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(
   .item-control,
   .sheet-header-control,
   button.unbutton.control-button,
-  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
-  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):not(.item.control):has(> i:only-child)
 ):is(:hover, :focus, :focus-visible) {
   background: var(--sw5e-light-hover-tint) !important;
   color: var(--sw5e-line-color) !important;
@@ -3266,8 +3346,8 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(
   .item-control,
   .sheet-header-control,
   button.unbutton.control-button,
-  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):has(> i:only-child),
-  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):has(> i:only-child)
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):has(> i:only-child),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):not(.item.control):has(> i:only-child)
 ):is(.active, .selected, [aria-pressed="true"], [aria-selected="true"]) {
   background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.88)) !important;
   color: var(--sw5e-line-color) !important;
@@ -5844,7 +5924,9 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-stars
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-overview-operations :is(
     .sw5e-starship-core-routing-panel,
-    .sw5e-starship-core-fuel-panel
+    .sw5e-starship-core-fuel-panel,
+    .sw5e-starship-core-advanced-power-panel,
+    .sw5e-starship-core-destruction-panel
   ) {
   background: var(--sw5e-light-panel-fill-strong) !important;
   border: 1px solid var(--sw5e-light-muted-control-border) !important;
@@ -5921,7 +6003,9 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-star
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-overview-operations :is(
     .sw5e-starship-core-routing-panel,
-    .sw5e-starship-core-fuel-panel
+    .sw5e-starship-core-fuel-panel,
+    .sw5e-starship-core-advanced-power-panel,
+    .sw5e-starship-core-destruction-panel
   ) {
   background: var(--sw5e-theme-panel-background) !important;
   border: 1px solid var(--sw5e-dark-muted-control-border) !important;
@@ -6048,6 +6132,635 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-star
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-core-fuel-panel .sw5e-starship-core-fuel-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+/* Starship Core — fuel capacity bar + quick actions (structural) */
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-capacity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0.5rem 0 0.65rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-track {
+  position: relative;
+  height: 0.85rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-fill {
+  display: block;
+  height: 100%;
+  min-width: 0;
+  border-radius: inherit;
+  transition: width 0.2s ease;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-breakpoint {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-breakpoint[data-pct="20"] { left: 20%; }
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-breakpoint[data-pct="40"] { left: 40%; }
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-breakpoint[data-pct="60"] { left: 60%; }
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-breakpoint[data-pct="80"] { left: 80%; }
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-label {
+  font-size: var(--font-size-12, 0.75rem);
+  line-height: 1.2;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-fuel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-action {
+  flex: 1 1 auto;
+  min-width: 5.5rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+  font: inherit;
+  font-size: var(--font-size-12, 0.75rem);
+  cursor: pointer;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-fuel-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Starship Core — Recharge / Refitting repair */
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-repair-panel {
+  margin-bottom: 0.55rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-repair-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-repair-action {
+  flex: 1 1 auto;
+  min-width: 6.5rem;
+  padding: 0.32rem 0.7rem;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color, #3d9fd4) 28%, transparent);
+  background: color-mix(in srgb, var(--sw5e-line-color, #3d9fd4) 8%, transparent);
+  color: inherit;
+  font: inherit;
+  font-size: var(--font-size-12, 0.75rem);
+  cursor: pointer;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-repair-action:is(:hover, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color, #3d9fd4) 42%, transparent);
+  background: color-mix(in srgb, var(--sw5e-line-color, #3d9fd4) 14%, transparent);
+  outline: none;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-repair-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Starship Core — Advanced Power (power die allocation) */
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-panel {
+  margin-top: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 6px;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-heading {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-collapse {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-collapse .fa-chevron-down {
+  transition: transform 0.15s ease;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-panel.is-collapsed .sw5e-starship-core-advanced-power-body {
+  display: none;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-panel.is-collapsed .sw5e-starship-core-advanced-power-collapse .fa-chevron-down {
+  transform: rotate(-90deg);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-die-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.55rem 0 0.75rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-die-label,
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-slot-label {
+  font-size: var(--font-size-12, 0.75rem);
+  font-weight: 600;
+  min-width: 4.75rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-die-value {
+  font-size: var(--font-size-14, 0.875rem);
+  font-weight: 600;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-slots {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-slot {
+  display: grid;
+  grid-template-columns: minmax(4.75rem, 1fr) minmax(5rem, 1.25fr) auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--sw5e-line-color, #7a8a96) 18%, transparent);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-slot--edit {
+  grid-template-columns: minmax(5.5rem, 1fr) auto auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-slot-field {
+  display: grid;
+  grid-template-columns: auto 4.5rem;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-slot--edit .sw5e-starship-advanced-power-max-hint {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-actions--slot {
+  margin: 0;
+  justify-content: flex-end;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-slot.is-central .sw5e-starship-advanced-power-slot-label {
+  font-weight: 700;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-slot-value {
+  font-size: var(--font-size-13, 0.8125rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-input {
+  width: 3.5rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 0.65rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-recover,
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-spend {
+  min-width: 3.25rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  font: inherit;
+  font-size: var(--font-size-12, 0.75rem);
+  cursor: pointer;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-spend:disabled,
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-recover:disabled,
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-actions--locked .sw5e-starship-advanced-power-spend,
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-advanced-power-actions--locked .sw5e-starship-advanced-power-recover {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-max-hint {
+  font-size: var(--font-size-11, 0.6875rem);
+  line-height: 1.3;
+  opacity: 0.8;
+}
+
+/* Starship sidebar — Destruction Saves tray (compact overlay under SPACE VEHICLE) */
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-tray {
+  --sw5e-destruction-tray-bg: color-mix(in srgb, var(--sw5e-line-color, #3d9fd4) 10%, #eef3f7);
+  --sw5e-destruction-tray-border: color-mix(in srgb, var(--sw5e-line-color, #3d9fd4) 34%, #b8cfde);
+  --sw5e-destruction-tray-shadow: 0 3px 10px rgba(0, 0, 0, 0.14), 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color, #3d9fd4) 22%, transparent);
+  --sw5e-destruction-tray-text: var(--sw5e-theme-text, #1d2730);
+  --sw5e-destruction-tray-accent: var(--sw5e-line-color, #3d9fd4);
+  --sw5e-destruction-tray-toggle-border: color-mix(in srgb, var(--sw5e-line-color, #3d9fd4) 28%, transparent);
+  --sw5e-destruction-tray-roll: #c44a22;
+  --sw5e-destruction-tray-roll-hover: #e05a2c;
+  --sw5e-destruction-tray-success: color-mix(in srgb, var(--sw5e-line-color, #3d9fd4) 55%, #2f8f52);
+  --sw5e-destruction-tray-failure: color-mix(in srgb, #b44a4a 72%, #8b2f4a);
+  --sw5e-destruction-tray-pip-muted: color-mix(in srgb, var(--sw5e-theme-muted-text, #5d6b78) 35%, transparent);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 1rem;
+  margin: 0.06rem 0 0.1rem;
+  z-index: 5;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-popover {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, max-height 200ms ease, visibility 0s linear 200ms;
+  visibility: hidden;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-tray.open .sw5e-starship-destruction-shell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 13;
+  pointer-events: none;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-tray.open .sw5e-starship-destruction-shell > * {
+  pointer-events: auto;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-tray.open .sw5e-starship-destruction-popover {
+  max-height: 3rem;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 180ms ease, max-height 200ms ease;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3rem;
+  min-height: 2rem;
+  padding: 0.28rem 0.42rem;
+  background: var(--sw5e-destruction-tray-bg);
+  border: 1px solid var(--sw5e-destruction-tray-border);
+  border-radius: 7px;
+  box-shadow: var(--sw5e-destruction-tray-shadow);
+  color: var(--sw5e-destruction-tray-text);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-tray.open .sw5e-starship-destruction-saves {
+  border-radius: 7px 7px 0 0;
+  border-bottom: none;
+  box-shadow: var(--sw5e-destruction-tray-shadow), 0 1px 0 color-mix(in srgb, var(--sw5e-destruction-tray-bg) 88%, white);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves .pips {
+  display: inline-flex;
+  gap: 0.2rem;
+  flex: 1 1 auto;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves .pips.sw5e-starship-destruction-pips--success {
+  justify-content: flex-start;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves .pips.sw5e-starship-destruction-pips--failure {
+  justify-content: flex-end;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves .pip {
+  width: 0.92rem;
+  height: 0.92rem;
+  border-radius: 50%;
+  border: 1px solid var(--sw5e-destruction-tray-pip-muted);
+  background: color-mix(in srgb, var(--sw5e-destruction-tray-bg) 82%, white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves .pip .fas {
+  font-size: 0.5rem;
+  opacity: 0.3;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves .pip.pip--success.filled {
+  background: color-mix(in srgb, var(--sw5e-destruction-tray-success) 24%, var(--sw5e-destruction-tray-bg));
+  border-color: var(--sw5e-destruction-tray-success);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves .pip.pip--success.filled .fas {
+  color: var(--sw5e-destruction-tray-success);
+  opacity: 1;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves .pip.pip--failure.filled {
+  background: color-mix(in srgb, var(--sw5e-destruction-tray-failure) 22%, var(--sw5e-destruction-tray-bg));
+  border-color: var(--sw5e-destruction-tray-failure);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves .pip.pip--failure.filled .fas {
+  color: var(--sw5e-destruction-tray-failure);
+  opacity: 1;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-center {
+  width: 1.7rem;
+  height: 1.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-center .fa-solid,
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-center .fas {
+  font-size: 0.92rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:not(:disabled),
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:not(:disabled) .fa-solid {
+  color: var(--sw5e-destruction-tray-roll);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:is(:hover, :focus-visible):not(:disabled),
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:is(:hover, :focus-visible):not(:disabled) .fa-solid {
+  color: var(--sw5e-destruction-tray-roll-hover);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:is(:hover, :focus-visible):not(:disabled) {
+  background: color-mix(in srgb, var(--sw5e-destruction-tray-roll) 14%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-destruction-tray-roll) 22%, transparent);
+  outline: none;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll:disabled,
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll:disabled .fa-solid {
+  color: var(--sw5e-destruction-tray-pip-muted);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-reset:not(:disabled) {
+  color: color-mix(in srgb, var(--sw5e-destruction-tray-accent) 72%, #8a7340);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-reset:is(:hover, :focus-visible):not(:disabled) {
+  background: color-mix(in srgb, var(--sw5e-destruction-tray-accent) 12%, transparent);
+  outline: none;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-reset:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.95rem;
+  height: 0.95rem;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--sw5e-destruction-tray-toggle-border);
+  background: color-mix(in srgb, var(--sw5e-destruction-tray-bg) 55%, transparent);
+  color: color-mix(in srgb, var(--sw5e-destruction-tray-accent) 68%, var(--sw5e-destruction-tray-text));
+  opacity: 0.62;
+  flex: 0 0 auto;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-tray.open .sw5e-starship-destruction-toggle {
+  width: 1.05rem;
+  height: 0.82rem;
+  margin-top: -1px;
+  opacity: 0.95;
+  border-radius: 0 0 999px 999px;
+  border-top: none;
+  background: var(--sw5e-destruction-tray-bg);
+  border-color: var(--sw5e-destruction-tray-border);
+  box-shadow: var(--sw5e-destruction-tray-shadow);
+  color: color-mix(in srgb, var(--sw5e-destruction-tray-accent) 58%, var(--sw5e-destruction-tray-text));
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-toggle .fa-solid {
+  font-size: 0.52rem;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-tray:not(.open) .sw5e-starship-destruction-toggle:is(:hover, :focus-visible) {
+  opacity: 1;
+  border-color: color-mix(in srgb, var(--sw5e-destruction-tray-accent) 48%, transparent);
+  background: color-mix(in srgb, var(--sw5e-destruction-tray-accent) 10%, transparent);
+  outline: none;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-tray.open .sw5e-starship-destruction-toggle:is(:hover, :focus-visible) {
+  opacity: 1;
+  border-color: color-mix(in srgb, var(--sw5e-destruction-tray-accent) 52%, transparent);
+  color: var(--sw5e-destruction-tray-accent);
+  box-shadow: var(--sw5e-destruction-tray-shadow), 0 0 0 1px color-mix(in srgb, var(--sw5e-destruction-tray-accent) 16%, transparent);
+  outline: none;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-tray {
+  --sw5e-destruction-tray-bg: #e8f1f7;
+  --sw5e-destruction-tray-border: color-mix(in srgb, var(--sw5e-line-color) 42%, #9ebfd4);
+  --sw5e-destruction-tray-shadow: 0 4px 12px rgba(29, 55, 78, 0.14), 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 28%, #b8cfde);
+  --sw5e-destruction-tray-text: #1d2730;
+  --sw5e-destruction-tray-accent: #2a7fad;
+  --sw5e-destruction-tray-toggle-border: color-mix(in srgb, var(--sw5e-line-color) 32%, #c5d4de);
+  --sw5e-destruction-tray-roll: #c44a22;
+  --sw5e-destruction-tray-roll-hover: #dd5828;
+  --sw5e-destruction-tray-success: #2f8f52;
+  --sw5e-destruction-tray-failure: #b44a4a;
+  --sw5e-destruction-tray-pip-muted: color-mix(in srgb, #5d6b78 44%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves {
+  background: #e8f1f7;
+  color: #1d2730;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:not(:disabled),
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:not(:disabled) :is(i, .fa-solid) {
+  color: var(--sw5e-destruction-tray-roll) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:is(:hover, :focus-visible):not(:disabled),
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:is(:hover, :focus-visible):not(:disabled) :is(i, .fa-solid) {
+  color: var(--sw5e-destruction-tray-roll-hover) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-tray {
+  --sw5e-destruction-tray-bg: color-mix(in srgb, #1a2026 88%, #0f1216);
+  --sw5e-destruction-tray-border: color-mix(in srgb, var(--sw5e-line-color) 40%, #2f3840);
+  --sw5e-destruction-tray-shadow: 0 4px 14px rgba(0, 0, 0, 0.42), 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 26%, #2a3138);
+  --sw5e-destruction-tray-text: #e8f0f5;
+  --sw5e-destruction-tray-accent: var(--sw5e-line-color, #3fd0b8);
+  --sw5e-destruction-tray-toggle-border: color-mix(in srgb, var(--sw5e-line-color) 30%, #3a424a);
+  --sw5e-destruction-tray-roll: #e86840;
+  --sw5e-destruction-tray-roll-hover: #ff7a4d;
+  --sw5e-destruction-tray-success: color-mix(in srgb, var(--sw5e-line-color) 45%, #4ecf7d);
+  --sw5e-destruction-tray-failure: #e07070;
+  --sw5e-destruction-tray-pip-muted: color-mix(in srgb, #9eb0bd 30%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves {
+  box-shadow: var(--sw5e-destruction-tray-shadow);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:not(:disabled),
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:not(:disabled) :is(i, .fa-solid) {
+  color: var(--sw5e-destruction-tray-roll) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:is(:hover, :focus-visible):not(:disabled),
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-destruction-saves button.sw5e-starship-destruction-roll.rollable:is(:hover, :focus-visible):not(:disabled) :is(i, .fa-solid) {
+  color: var(--sw5e-destruction-tray-roll-hover) !important;
+}
+
+/* Destruction Saves tray toggle — softened scoped tooltip (Show/Hide only) */
+body[data-sw5e-theme="sw5e-light"] :is(#tooltip, aside[role="tooltip"]).sw5e-destruction-save-tooltip {
+  background: color-mix(in srgb, #e8f1f7 94%, white) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 24%, #c5d4de) !important;
+  box-shadow: 0 2px 8px rgba(29, 55, 78, 0.1) !important;
+  color: #3d5260 !important;
+  font-size: var(--font-size-12, 0.75rem) !important;
+  line-height: 1.25 !important;
+  padding: 0.18rem 0.42rem !important;
+  text-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] :is(#tooltip, aside[role="tooltip"]).sw5e-destruction-save-tooltip {
+  background: color-mix(in srgb, #2a2f34 92%, #1a1d20) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 28%, #3a4550) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.28) !important;
+  color: color-mix(in srgb, var(--sw5e-theme-text) 88%, #c8d4dc) !important;
+  font-size: var(--font-size-12, 0.75rem) !important;
+  line-height: 1.25 !important;
+  padding: 0.18rem 0.42rem !important;
+  text-shadow: none !important;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-systems-routing-effect {
+  margin: 0.45rem 0 0;
+  font-size: var(--font-size-12, 0.75rem);
+  line-height: 1.35;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-track {
+  background: color-mix(in srgb, var(--sw5e-line-color) 12%, #eef3f7);
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 22%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-fill {
+  background: linear-gradient(180deg, #3d9fd4, #2a7fad);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-breakpoint {
+  background: rgba(29, 39, 48, 0.28);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-label,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-systems-routing-effect {
+  color: var(--sw5e-theme-muted-text);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-action {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 34%, transparent);
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-action:not(:disabled):is(:hover, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 52%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 14%, transparent);
+  outline: none;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-track {
+  background: rgba(18, 22, 26, 0.92);
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 28%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-fill {
+  background: linear-gradient(180deg, #3fd0b8, #2a9f8d);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-breakpoint {
+  background: rgba(230, 240, 245, 0.22);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-label,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-systems-routing-effect {
+  color: var(--sw5e-theme-muted-text);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-action {
+  background: rgba(31, 37, 42, 0.92);
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 32%, transparent);
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-fuel-action:not(:disabled):is(:hover, :focus-visible) {
+  border-color: var(--sw5e-line-color);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 18%, transparent);
+  outline: none;
 }
 
 /* Starship sheet — select/dropdown normalization (all sheet selects; beats legacy dashboard surfaces)
