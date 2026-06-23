@@ -15179,6 +15179,48 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip.filled.death {
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan, #3fd0b8) 28%, transparent), 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-magenta, #ff4d8d) 55%, transparent), 0 0 8px var(--sw5e-system-damage-death-glow) !important;
 }
+/* SW5E maps --dnd5e-color-parchment to theme text; dnd5e uses it for condition hover → unreadable slab. */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition {
+  --dnd5e-condition-hover: var(--sw5e-light-hover-tint);
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition {
+  --dnd5e-condition-hover: var(--sw5e-foundry-control-background-hover);
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition {
+  --dnd5e-condition-hover: var(--sw5e-underworld-hover-tint);
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition:is(:hover, :focus-visible) {
+  background: var(--sw5e-light-hover-tint) !important;
+  color: var(--sw5e-theme-text) !important;
+  --icon-fill: var(--sw5e-theme-text);
+  --icon-stroke: var(--sw5e-theme-panel-background);
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition:is(:hover, :focus-visible) {
+  background: var(--sw5e-foundry-control-background-hover) !important;
+  color: var(--sw5e-theme-text) !important;
+  --icon-fill: var(--sw5e-theme-text);
+  --icon-stroke: var(--sw5e-theme-panel-background);
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition:is(:hover, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-theme-text) !important;
+  --icon-fill: var(--sw5e-theme-text);
+  --icon-stroke: var(--sw5e-theme-panel-background);
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition.active {
+  color: var(--sw5e-theme-heading) !important;
+  --icon-fill: var(--sw5e-theme-heading);
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition.active,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition.active {
+  color: var(--sw5e-theme-text) !important;
+  --icon-fill: var(--sw5e-line-color);
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition.active:is(:hover, :focus-visible),
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition.active:is(:hover, :focus-visible),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition.active:is(:hover, :focus-visible) {
+  --icon-fill: currentColor;
+}
 /* Item sheet — Modification Chassis compact panel (theme polish) */
 /*
  * Global chip styling in theme-overrides.less / underworld-overrides.less:

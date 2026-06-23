@@ -37,6 +37,11 @@ import { buildVehicleStarshipCrewContext, buildVehicleAvailableActors, deploySta
 import { getExpandedProficiencyHoverLabel } from "./proficiency.mjs";
 import { openStarshipMovementConfig } from "../starship-movement-config.mjs";
 import { openStarshipVitalConfig } from "../starship-vital-config.mjs";
+import {
+	registerStarshipConditionStatusEffectHooks,
+	registerStarshipEffectsConditionPresentation,
+	registerStarshipEffectsContextWrapper
+} from "../starship-conditions.mjs";
 /**
  * dnd5e pack asset — used only for on-sheet display when art is missing or fails to load (not persisted to actors).
  * @see https://github.com/foundryvtt/dnd5e — `icons/svg/actors/vehicle.svg`
@@ -4740,6 +4745,9 @@ async function renderStarshipLayer(app, html, data) {
 }
 
 export function patchStarshipSheet() {
+	registerStarshipConditionStatusEffectHooks();
+	registerStarshipEffectsContextWrapper();
+	registerStarshipEffectsConditionPresentation();
 	registerStarshipFeaturesTabPart();
 	registerStarshipTabsContextWrapper();
 	registerStarshipVehicleSheetShowAbilitiesDefault();

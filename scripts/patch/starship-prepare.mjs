@@ -22,6 +22,22 @@ function getActorSource(model) {
 	return null;
 }
 
+/** Live Actor document from a dnd5e data model (needed for ActiveEffect reads during prepare). */
+function getLiveActorFromModel(model) {
+	const candidates = [
+		model?.parent,
+		model?.parent?.document,
+		model?.parent?.parent,
+		model?.parent?.parent?.document
+	];
+
+	for ( const candidate of candidates ) {
+		if ( candidate?.documentName === "Actor" && candidate?.effects ) return candidate;
+	}
+
+	return null;
+}
+
 export function patchStarshipPrepare() {
 	try {
 		libWrapper.register(getModuleId(), "dnd5e.dataModels.actor.VehicleData.prototype.prepareAbilities", function(wrapped, ...args) {
@@ -42,15 +58,22 @@ export function patchStarshipPrepare() {
 
 			const result = wrapped(...args);
 			if ( isStarship ) {
-				const runtime = getDerivedStarshipRuntime({
-					_source: actorSource,
-					flags: actorSource.flags,
-					items: { contents: actorSource.items ?? [] },
-					system: {
-						abilities: this.abilities ?? actorSource.system?.abilities ?? {},
-						attributes: { movement: this.attributes?.movement ?? actorSource.system?.attributes?.movement ?? {} }
-					}
-				});
+				const liveActor = getLiveActorFromModel(this);
+				const runtime = getDerivedStarshipRuntime(
+					liveActor ?? {
+						_source: actorSource,
+						flags: actorSource.flags,
+						items: { contents: actorSource.items ?? [] },
+						system: {
+							abilities: this.abilities ?? actorSource.system?.abilities ?? {},
+							attributes: { movement: this.attributes?.movement ?? actorSource.system?.attributes?.movement ?? {} }
+						}
+					},
+					liveActor ? {
+						liveAbilities: this.abilities ?? actorSource.system?.abilities ?? {},
+						liveMovement: this.attributes?.movement ?? actorSource.system?.attributes?.movement ?? {}
+					} : {}
+				);
 				const movement = runtime.movement ?? {};
 				if ( actorSource.system && (typeof actorSource.system === "object") ) {
 					applyDerivedStarshipMovement(actorSource.system, movement);

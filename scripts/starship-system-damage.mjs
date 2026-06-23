@@ -1,3 +1,4 @@
+import { getStarshipConditionSlowedContribution } from "./starship-conditions.mjs";
 import {
 	getLegacyStarshipActorSystem,
 	isStarshipFlagVehicle,
@@ -347,8 +348,21 @@ export function getStarshipSlowedLevelFromSystemDamageLevel(systemDamageLevel) {
 	return clampStarshipSystemDamageLevel(systemDamageLevel) >= 2 ? 1 : 0;
 }
 
+/** Reserved for a future leveled Slowed tracker; returns 0 until that UI exists. */
+export function getExplicitStarshipSlowedLevel(_actor) {
+	return 0;
+}
+
+export function resolveEffectiveStarshipSlowedLevel(actor) {
+	const systemDamageSlowedLevel = getStarshipSlowedLevelFromSystemDamageLevel(getStarshipSystemDamageLevel(actor));
+	const conditionSlowedContribution = getStarshipConditionSlowedContribution(actor);
+	const explicitSlowedLevel = getExplicitStarshipSlowedLevel(actor);
+	const total = systemDamageSlowedLevel + conditionSlowedContribution + explicitSlowedLevel;
+	return Math.max(0, Math.min(STARSHIP_SLOWED_MAX_LEVEL, total));
+}
+
 export function resolveStarshipSlowedLevel(actor) {
-	return getStarshipSlowedLevelFromSystemDamageLevel(getStarshipSystemDamageLevel(actor));
+	return resolveEffectiveStarshipSlowedLevel(actor);
 }
 
 /** Apply SotG starship slowed reduction to a speed value (derived only — does not mutate storage). */

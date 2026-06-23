@@ -845,7 +845,7 @@ export function applyDerivedStarshipTravel(legacySystem = {}, travel = {}) {
 	return travelData;
 }
 
-export function getDerivedStarshipRuntime(actor) {
+export function getDerivedStarshipRuntime(actor, { liveAbilities, liveMovement } = {}) {
 	const legacySystem = getLegacyStarshipActorSystem(actor);
 	const items = actor?.items?.contents ?? actor?._source?.items ?? [];
 	const routing = resolveStarshipPowerRoutingState(actor, legacySystem);
@@ -854,8 +854,8 @@ export function getDerivedStarshipRuntime(actor) {
 	const movement = deriveStarshipMovementData({
 		legacySystem,
 		items,
-		liveAbilities: actor?.system?.abilities ?? {},
-		liveMovement: actor?.system?.attributes?.movement ?? {},
+		liveAbilities: liveAbilities ?? actor?.system?.abilities ?? {},
+		liveMovement: liveMovement ?? actor?.system?.attributes?.movement ?? {},
 		routingState: routing,
 		slowedLevel
 	});

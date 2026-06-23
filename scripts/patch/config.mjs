@@ -1,5 +1,6 @@
 import { applySw5eGalacticCreditsDefault } from "../currencies.mjs";
 import { getModulePath, normalizeCompendiumUuid } from "../module-support.mjs";
+import { applySw5eStarshipConditionConfig } from "../starship-conditions.mjs";
 import { EXPANDED_PROFICIENCY_TIERS } from "./proficiency.mjs";
 
 function normalizeCompendiumRecord(record = {}) {
@@ -2024,6 +2025,7 @@ export function patchConfig(config, strict = true) {
 		5: "SW5E.GrandMastery"
 	};
 	CONFIG.SW5E ??= {};
+	applySw5eStarshipConditionConfig();
 	CONFIG.SW5E.proficiencyTiers = foundry.utils.deepClone(EXPANDED_PROFICIENCY_TIERS);
 	CONFIG.SW5E.powerBonusEffectKeys = [
 		"system.bonuses.force.attack",
