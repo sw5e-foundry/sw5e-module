@@ -1,0 +1,40 @@
+<form class="flexcol sw5e-starship-shield-points-config-form">
+  <section class="flexcol">
+    <div class="final-value">{{value}} / {{effectiveMax}}</div>
+
+    <fieldset class="card">
+      <legend>{{labels.maxLegend}}</legend>
+      <div class="form-group">
+        <label>{{labels.maximum}}</label>
+        <div class="form-fields">
+          <input type="text" name="system.attributes.hp.tempmax" data-dtype="Number"
+                 inputmode="numeric" pattern="^[+=\-]?\d*" placeholder="0" value="{{source.tempmax}}">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>{{labels.currentLegend}}</legend>
+      <div class="form-group">
+        <label>{{labels.current}}</label>
+        <div class="form-fields">
+          <input type="text" name="system.attributes.hp.temp" data-dtype="Number"
+                 inputmode="numeric" pattern="^[+=\-]?\d*" placeholder="0" value="{{source.temp}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>{{labels.depleted}}</label>
+        <div class="form-fields">
+          <input type="checkbox" name="flags.sw5e.starship.shieldDepleted" {{#if shieldDepleted}}checked{{/if}}>
+        </div>
+      </div>
+    </fieldset>
+
+    <footer class="form-footer">
+      <button type="submit" class="dialog-button default">
+        <i class="fas fa-save" inert></i>
+        <span>{{labels.save}}</span>
+      </button>
+    </footer>
+  </section>
+</form>

@@ -1,45 +1,30 @@
 <section class="flexcol">
   <div class="note info">{{hint}}</div>
 
-  {{#if canRoll}}
+  {{#if fields.length}}
   <fieldset>
-    <legend>{{localize "SW5E.RechargeRepairSelect"}}</legend>
+    <legend>{{localize "DND5E.REST.Configuration"}}</legend>
+    {{> "dnd5e.fieldlist" fields }}
+  </fieldset>
+  {{/if}}
+
+  {{#if hullDice}}
+  {{#if hullDice.canRoll}}
+  <fieldset>
+    <legend>{{localize "SW5E.StarshipSheet.RepairHullDiceLegend"}}</legend>
     <div class="form-fields">
-      <span class="sw5e-starship-repair-die-display">{{denomination}}</span>
-      <button type="button" class="dice-button" data-action="rollHull" data-tooltip aria-label="{{rollLabel}}">
+      <select name="denom">
+        {{ selectOptions hullDice.options selected=hullDice.denomination }}
+      </select>
+      <button type="button" class="dice-button" data-action="rollHull" data-tooltip
+              aria-label="{{localize 'DND5E.Roll'}}">
         <i class="fa-solid fa-dice-d20" inert></i>
       </button>
     </div>
-    {{#if stagedRollCount}}
-    <p class="hint">{{localize "SW5E.StarshipSheet.RepairStagedRolls" count=stagedRollCount}}</p>
-    {{/if}}
+    {{ formField autoSpendField name="autoHD" value=config.autoHD input=inputs.createCheckboxInput rootId=partId }}
   </fieldset>
   {{else}}
-  <div class="note warn">{{noHdHint}}</div>
+  <div class="note warn">{{localize "SW5E.RechargeRepairNoHD"}}</div>
   {{/if}}
-
-  <fieldset class="sw5e-starship-repair-preview" aria-label="{{localize "SW5E.StarshipSheet.RepairPreviewAria"}}">
-    <legend>{{previewHeading}}</legend>
-    <ul class="sw5e-starship-repair-preview-list">
-      {{#each previewRows}}
-      <li>{{this}}</li>
-      {{/each}}
-    </ul>
-  </fieldset>
-
-  <fieldset>
-    <legend>{{localize "DND5E.REST.Configuration"}}</legend>
-    <div class="form-group">
-      <label class="checkbox">
-        <input type="checkbox" name="newDay" {{#if newDay}}checked{{/if}} />
-        {{newDayLabel}}
-      </label>
-      <p class="hint">{{newDayHint}}</p>
-    </div>
-  </fieldset>
-
-  <footer class="form-footer">
-    <button type="button" data-action="cancel">{{cancelLabel}}</button>
-    <button type="button" data-action="apply" class="default" autofocus>{{applyLabel}}</button>
-  </footer>
+  {{/if}}
 </section>

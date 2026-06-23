@@ -1,0 +1,227 @@
+/* Starship sidebar vital resource meters — upper sidebar placement + character palette */
+
+.sw5e-starship-sidebar-vitals {
+  --sw5e-starship-hull-fill-1: var(--dnd5e-color-hp-1, #2e8b4f);
+  --sw5e-starship-hull-fill-2: var(--dnd5e-color-hp-2, #3cb370);
+  --sw5e-starship-shield-fill-1: #023491;
+  --sw5e-starship-shield-fill-2: var(--dnd5e-color-blue, #1f78a8);
+  --sw5e-starship-hull-dice-fill-1: var(--dnd5e-color-hd-1, #6f1d2a);
+  --sw5e-starship-hull-dice-fill-2: var(--dnd5e-color-hd-2, #8b2436);
+  --sw5e-starship-shield-dice-fill-1: #023491;
+  --sw5e-starship-shield-dice-fill-2: var(--dnd5e-color-blue, #1f78a8);
+  --sw5e-starship-vital-track: rgba(18, 22, 28, 0.42);
+  --sw5e-starship-vital-label-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  --sw5e-starship-vital-primary-bar-height: 1.75rem;
+  --sw5e-starship-vital-compact-bar-height: 1.35rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+  margin: 0.3rem 0 0.4rem;
+  width: 100%;
+}
+
+.sw5e-starship-sidebar-vitals-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter > .label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.08rem;
+  font-size: var(--font-size-11, 0.6875rem);
+  letter-spacing: 0.04em;
+  color: var(--sw5e-theme-heading);
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter--primary > .label {
+  margin-bottom: 0.12rem;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter--compact > .label {
+  margin-bottom: 0.06rem;
+  font-size: var(--font-size-10, 0.625rem);
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter--compact > .label .config-button {
+  font-size: 0.6875rem;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter .meter {
+  width: 100%;
+}
+
+/* dnd5e only grows `.meter.sectioned > .hit-points`; shield progress must span full bar width. */
+.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-vitals .sw5e-starship-shield-meter.meter.sectioned > .progress {
+  flex: 1 1 0% !important;
+  width: 100% !important;
+  min-width: 0;
+  display: flex !important;
+  align-items: center;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter .progress,
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter .meter.hit-dice.progress {
+  position: relative;
+  min-height: var(--sw5e-starship-vital-primary-bar-height);
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  overflow: hidden;
+  background: var(--sw5e-starship-vital-track);
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 22%, transparent);
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter--compact .progress,
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter--compact .meter.hit-dice.progress {
+  min-height: var(--sw5e-starship-vital-compact-bar-height);
+  border-radius: 5px;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter .progress > .label,
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter .meter.hit-dice.progress > .label {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  min-height: var(--sw5e-starship-vital-primary-bar-height);
+  padding: 0 0.35rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: var(--font-size-12, 0.75rem);
+  color: #fff;
+  text-shadow: var(--sw5e-starship-vital-label-shadow);
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter--compact .progress > .label,
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter--compact .meter.hit-dice.progress > .label {
+  min-height: var(--sw5e-starship-vital-compact-bar-height);
+  padding: 0 0.28rem;
+  font-size: var(--font-size-11, 0.6875rem);
+  gap: 0.12rem;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter--compact .progress > .label .die {
+  margin-left: 0.15rem;
+  font-size: 0.95em;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter .progress > .label .die {
+  margin-left: 0.25rem;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter > .label .config-button {
+  color: var(--sw5e-theme-muted-text);
+  font-size: 0.75rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter > .label .config-button:hover {
+  color: var(--sw5e-theme-heading);
+  opacity: 1;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-play-meter--interactive {
+  cursor: var(--cursor-pointer, pointer);
+}
+
+.dnd5e2.sheet.actor.sw5e-starship-sheet.locked .sw5e-starship-sidebar-vitals .sw5e-starship-vital-play-meter--interactive {
+  cursor: var(--cursor-default, default);
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-inline-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: var(--sw5e-starship-vital-primary-bar-height);
+  padding: 0 0.35rem;
+  text-align: center;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: inherit;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter--compact .sw5e-starship-vital-inline-input {
+  min-height: var(--sw5e-starship-vital-compact-bar-height);
+  padding: 0 0.28rem;
+  font-size: var(--font-size-11, 0.6875rem);
+}
+
+/* Fill colors */
+.sw5e-starship-sidebar-vitals .sw5e-starship-hull-meter .progress.hit-points::before,
+.sw5e-starship-sidebar-vitals .sw5e-starship-hull-dice-meter::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--bar-percentage, 0%);
+  pointer-events: none;
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-hull-meter .progress.hit-points::before {
+  background: linear-gradient(to right, var(--sw5e-starship-hull-fill-1) 0%, var(--sw5e-starship-hull-fill-2) 100%);
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-shield-meter .progress.hit-points::before,
+.sw5e-starship-sidebar-vitals .sw5e-starship-shield-meter .progress.shield-points::before,
+.sw5e-starship-sidebar-vitals .sw5e-starship-shield-dice-meter::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--bar-percentage, 0%);
+  pointer-events: none;
+  background: linear-gradient(to right, var(--sw5e-starship-shield-fill-1) 0%, var(--sw5e-starship-shield-fill-2) 100%);
+}
+
+.sw5e-starship-sidebar-vitals .sw5e-starship-hull-dice-meter::before {
+  background: linear-gradient(to right, var(--sw5e-starship-hull-dice-fill-1) 0%, var(--sw5e-starship-hull-dice-fill-2) 100%);
+}
+
+/* SW5E Light track tuning */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-vitals {
+  --sw5e-starship-vital-track: color-mix(in srgb, var(--sw5e-theme-surface-strong) 42%, rgba(18, 22, 28, 0.28));
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter .progress,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter .meter.hit-dice.progress {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 28%, transparent);
+  box-shadow: inset 0 0 10px rgba(137, 158, 171, 0.12);
+}
+
+/* SW5E Dark */
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-vitals {
+  --sw5e-starship-vital-track: rgba(12, 14, 18, 0.72);
+}
+
+/* Underworld */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-vitals {
+  --sw5e-starship-vital-track: color-mix(in srgb, var(--sw5e-underworld-panel) 82%, black);
+  --sw5e-starship-shield-fill-1: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 28%, #023491);
+  --sw5e-starship-shield-fill-2: var(--sw5e-underworld-neon-cyan, #1f78a8);
+  --sw5e-starship-shield-dice-fill-1: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 22%, #023491);
+  --sw5e-starship-shield-dice-fill-2: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 72%, #1f78a8);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter .progress,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-vitals .sw5e-starship-vital-meter .meter.hit-dice.progress {
+  border-color: var(--sw5e-underworld-muted-control-border);
+}
+
+/* Portrait tier badge */
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .portrait .sw5e-starship-tier-badge {
+  cursor: default;
+}
+
+.sw5e-starship-suppress-stock-quality,
+.sw5e-starship-suppress-stock-sidebar-option,
+.sw5e-starship-suppress-stock-action-pips {
+  display: none !important;
+}

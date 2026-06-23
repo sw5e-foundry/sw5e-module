@@ -1,0 +1,52 @@
+<form class="flexcol sw5e-starship-hull-points-config-form">
+  <section class="flexcol">
+    <div class="final-value">{{value}} / {{effectiveMax}}</div>
+
+    <fieldset class="card">
+      <legend>{{labels.maxLegend}}</legend>
+      <div class="form-group">
+        <label>{{labels.maximum}}</label>
+        <div class="form-fields">
+          <input type="text" name="system.attributes.hp.max" data-dtype="Number"
+                 inputmode="numeric" pattern="^[+=\-]?\d*" placeholder="0" value="{{source.max}}">
+        </div>
+      </div>
+      {{#if showDt}}
+      <div class="form-group">
+        <label>{{labels.dt}}</label>
+        <div class="form-fields">
+          <input type="text" name="system.attributes.hp.dt" data-dtype="Number"
+                 inputmode="numeric" pattern="^[+=\-]?\d*" placeholder="0" value="{{source.dt}}">
+        </div>
+      </div>
+      {{/if}}
+      {{#if showMt}}
+      <div class="form-group">
+        <label>{{labels.mt}}</label>
+        <div class="form-fields">
+          <input type="text" name="system.attributes.hp.mt" data-dtype="Number"
+                 inputmode="numeric" pattern="^[+=\-]?\d*" placeholder="0" value="{{source.mt}}">
+        </div>
+      </div>
+      {{/if}}
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>{{labels.currentLegend}}</legend>
+      <div class="form-group">
+        <label>{{labels.current}}</label>
+        <div class="form-fields">
+          <input type="text" name="system.attributes.hp.value" data-dtype="Number"
+                 inputmode="numeric" pattern="^[+=\-]?\d*" placeholder="0" value="{{source.value}}">
+        </div>
+      </div>
+    </fieldset>
+
+    <footer class="form-footer">
+      <button type="submit" class="dialog-button default">
+        <i class="fas fa-save" inert></i>
+        <span>{{labels.save}}</span>
+      </button>
+    </footer>
+  </section>
+</form>

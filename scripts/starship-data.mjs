@@ -8,6 +8,18 @@ import {
 	isMasteryProficiencyTier,
 	isRerollProficiencyTier
 } from "./patch/proficiency.mjs";
+import { resolveStarshipPowerRoutingState } from "./starship-routing-gate.mjs";
+import {
+	applyStarshipSystemDamageAttackSaveAdvantageDefault,
+	applyStarshipSystemDamageSkillCheckAdvantageDefault,
+	applyStarshipSlowedToSpeed,
+	buildStarshipSystemDamageAttackSaveFlavorNote,
+	buildStarshipSystemDamageSkillCheckFlavorNote,
+	getStarshipSlowedLevelFromSystemDamageLevel,
+	isStarshipSystemDamageAttackSaveDisadvantageRoll,
+	isStarshipSystemDamageSkillCheckDisadvantageRoll,
+	resolveStarshipSlowedLevel
+} from "./starship-system-damage.mjs";
 
 const LEGACY_STARSHIP_PACKS = new Set([
 	"starshipactions",
@@ -210,6 +222,8 @@ function getPowerRoutingState(legacySystem = {}) {
 		shieldsMultiplier: getRoutingMultiplier(selected, "shields")
 	};
 }
+
+export { getPowerRoutingState };
 
 function getDeploymentUuidList(value) {
 	if ( Array.isArray(value?.items) ) return value.items.filter(Boolean);
@@ -454,13 +468,15 @@ function buildVehicleSystem(legacySystem = {}, items = [], existingSystem = {}) 
 	const cargoCap = toFiniteNumber(sizeSystem.cargoCap, toFiniteNumber(runtimeSystem.attributes?.capacity?.cargo, 0)) ?? 0;
 	const resolvedCargoCap = toFiniteNumber(runtimeSystem.attributes?.capacity?.cargo, cargoCap) ?? cargoCap;
 	const routing = getPowerRoutingState(runtimeSystem);
+	const slowedLevel = getStarshipSlowedLevelFromSystemDamageLevel(runtimeSystem.attributes?.systemDamage ?? 0);
 	const derivedMovement = deriveStarshipMovementData({
 		legacySystem: runtimeSystem,
 		items,
 		liveAbilities: runtimeSystem.abilities ?? {},
 		liveMovement: runtimeSystem.attributes?.movement ?? {},
 		sizeSystem,
-		routingState: routing
+		routingState: routing,
+		slowedLevel
 	});
 	const derivedTravel = deriveStarshipTravelData({ legacySystem: runtimeSystem, items });
 	applyDerivedStarshipMovement(runtimeSystem, derivedMovement);
@@ -665,7 +681,7 @@ function getStoredLegacyStarshipActorSystem(actor) {
 	return actor?.flags?.sw5e?.legacyStarshipActor?.system ?? {};
 }
 
-function isStarshipFlagVehicle(actor) {
+export function isStarshipFlagVehicle(actor) {
 	return actor?.type === "vehicle" && actor?.flags?.sw5e?.legacyStarshipActor?.type === "starship";
 }
 
@@ -731,7 +747,8 @@ export function deriveStarshipMovementData({
 	liveMovement = {},
 	sizeSystem = null,
 	routingState = null,
-	ignoreOverrides = false
+	ignoreOverrides = false,
+	slowedLevel = 0
 } = {}) {
 	const resolvedSizeSystem = sizeSystem ?? getLegacySizeSystem(getLegacyStarshipSize(items));
 	const movementProfile = getMovementProfile(items, resolvedSizeSystem);
@@ -770,6 +787,16 @@ export function deriveStarshipMovementData({
 	}
 
 	if ( Number.isFinite(space) && Number.isFinite(turn) && (turn > space) ) turn = space;
+
+	const resolvedSlowedLevel = Math.max(0, Math.trunc(Number(slowedLevel)) || 0);
+	const spaceBeforeSlowed = space;
+	const turnBeforeSlowed = turn;
+	if ( resolvedSlowedLevel > 0 ) {
+		space = applyStarshipSlowedToSpeed(space, resolvedSlowedLevel);
+		turn = applyStarshipSlowedToSpeed(turn, resolvedSlowedLevel);
+		if ( Number.isFinite(space) && Number.isFinite(turn) && (turn > space) ) turn = space;
+	}
+
 	return {
 		space: toFiniteNumber(space, fallbackSpace) ?? fallbackSpace,
 		turn: toFiniteNumber(turn, fallbackTurn) ?? fallbackTurn,
@@ -777,7 +804,10 @@ export function deriveStarshipMovementData({
 		baseSpaceSpeed,
 		baseTurnSpeed,
 		profileSource: movementProfile.source,
-		enginesMultiplier: routing.enginesMultiplier
+		enginesMultiplier: routing.enginesMultiplier,
+		slowedLevel: resolvedSlowedLevel,
+		spaceBeforeSlowed: toFiniteNumber(spaceBeforeSlowed, fallbackSpace) ?? fallbackSpace,
+		turnBeforeSlowed: toFiniteNumber(turnBeforeSlowed, fallbackTurn) ?? fallbackTurn
 	};
 }
 
@@ -818,14 +848,16 @@ export function applyDerivedStarshipTravel(legacySystem = {}, travel = {}) {
 export function getDerivedStarshipRuntime(actor) {
 	const legacySystem = getLegacyStarshipActorSystem(actor);
 	const items = actor?.items?.contents ?? actor?._source?.items ?? [];
-	const routing = getPowerRoutingState(legacySystem);
+	const routing = resolveStarshipPowerRoutingState(actor, legacySystem);
 	const crew = getStarshipCrewState(actor, legacySystem);
+	const slowedLevel = resolveStarshipSlowedLevel(actor);
 	const movement = deriveStarshipMovementData({
 		legacySystem,
 		items,
 		liveAbilities: actor?.system?.abilities ?? {},
 		liveMovement: actor?.system?.attributes?.movement ?? {},
-		routingState: routing
+		routingState: routing,
+		slowedLevel
 	});
 	const travel = deriveStarshipTravelData({ legacySystem, items, crewState: crew });
 	return { movement, travel, crew, routing };
@@ -1042,6 +1074,7 @@ export function getStarshipPowerRecoverySummary(actor) {
 export function shouldMirrorStarshipLegacyAttributePath(systemPath) {
 	if ( systemPath === "system.attributes.power.routing" || systemPath === "system.attributes.power.die" ) return true;
 	if ( systemPath === "system.attributes.death.success" || systemPath === "system.attributes.death.failure" ) return true;
+	if ( systemPath === "system.attributes.systemDamage" ) return true;
 	if ( systemPath === "system.attributes.hp.value" ) return true;
 	if ( systemPath.startsWith("system.attributes.fuel.") ) return true;
 	const slotMatch = systemPath.match(/^system\.attributes\.power\.(\w+)\.(value|max)$/);
@@ -1058,6 +1091,8 @@ export function buildStarshipLegacyAttributeMirrorUpdate(systemPath, value) {
 		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.death.success`] = value;
 	} else if ( systemPath === "system.attributes.death.failure" ) {
 		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.death.failure`] = value;
+	} else if ( systemPath === "system.attributes.systemDamage" ) {
+		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.systemDamage`] = value;
 	} else if ( systemPath === "system.attributes.hp.value" ) {
 		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.hp.value`] = value;
 	} else if ( systemPath.startsWith("system.attributes.fuel.") ) {
@@ -1543,17 +1578,26 @@ async function executeStarshipAbilityRoll(actor, abilityId, mode, event) {
 	const rollLabel = mode === "save"
 		? localizeWithFallback("SW5E.ActionSave", "Saving Throw")
 		: localizeWithFallback("SW5E.ActionAbil", "Ability Check");
+	const baseAdvantageMode = getStarshipAdvantageMode(event);
+	const advantageMode = mode === "save"
+		? applyStarshipSystemDamageAttackSaveAdvantageDefault(actor, baseAdvantageMode)
+		: baseAdvantageMode;
+	const systemDamageNote = mode === "save" ? buildStarshipSystemDamageAttackSaveFlavorNote(actor) : "";
 	const roll = new CONFIG.Dice.D20Roll(formula, rollData, {
 		flavor: `${actor.name}: ${entry.label} ${rollLabel}`,
-		advantageMode: getStarshipAdvantageMode(event),
+		advantageMode,
 		defaultRollMode,
 		rollMode: defaultRollMode
 	});
 
 	await roll.evaluate();
+	const baseFlavor = `${entry.label} (${rollLabel})`;
+	const flavor = isStarshipSystemDamageAttackSaveDisadvantageRoll(actor, advantageMode) && systemDamageNote
+		? `${baseFlavor} — ${systemDamageNote}`
+		: baseFlavor;
 	await roll.toMessage({
 		speaker: ChatMessage.getSpeaker({ actor }),
-		flavor: `${entry.label} (${rollLabel})`
+		flavor
 	});
 	return roll;
 }
@@ -1714,8 +1758,10 @@ function buildStarshipSkillFormula(
  * @param {string} skillId Starship skill key
  * @param {Event} [event] Click / key modifiers for fast-forward rolls
  * @param {User} [rollingUser] User performing the roll (defaults to `game.user`). Crew PB is resolved ship-centrically inside `rollStarshipSkill` (assigned+deployed, then active, then pilot — see `starship-crew-pb-source-design.md`).
+ * @param {{ flavorPrefix?: string, dc?: number|null }} [messageOptions] Optional chat flavor prefix and DC comparison.
+ * @returns {Promise<{ roll: Roll, total: number, skillId: string, label: string }|null>}
  */
-export async function rollStarshipSkill(actor, skillId, event, rollingUser) {
+export async function rollStarshipSkill(actor, skillId, event, rollingUser, messageOptions = {}) {
 	const entry = getStarshipSkillEntries(actor).find(skill => skill.id === skillId);
 	if ( !entry ) return null;
 
@@ -1742,20 +1788,26 @@ export async function rollStarshipSkill(actor, skillId, event, rollingUser) {
 	const abilities = buildStarshipRollAbilities(actor);
 	const masteryTier = entry.proficiencyMode;
 	const forcedAdvantage = isMasteryProficiencyTier(masteryTier);
+	const baseAdvantageMode = forcedAdvantage
+		? getProficiencyAdvantageMode()
+		: getStarshipAdvantageMode(event);
+	const defaultAdvantageMode = applyStarshipSystemDamageSkillCheckAdvantageDefault(actor, baseAdvantageMode);
+	const systemDamageNote = buildStarshipSystemDamageSkillCheckFlavorNote(actor);
 	const dialogSelection = fastForward
 		? {
 			ability: entry.ability,
 			bonus: "",
 			rollMode: defaultRollMode,
-			advantageMode: forcedAdvantage ? getProficiencyAdvantageMode() : getStarshipAdvantageMode(event)
+			advantageMode: forcedAdvantage ? getProficiencyAdvantageMode() : defaultAdvantageMode
 		}
 		: await (await import("./starship-skill-roll-config.mjs")).promptStarshipSkillRoll({
 			actor,
 			entry: dialogEntry,
 			abilities,
 			defaultRollMode,
-			initialMode: forcedAdvantage ? getProficiencyAdvantageMode() : getStarshipAdvantageMode(event),
-			forcedAdvantage
+			initialMode: forcedAdvantage ? getProficiencyAdvantageMode() : defaultAdvantageMode,
+			forcedAdvantage,
+			systemDamageNote
 		});
 	if ( !dialogSelection ) return null;
 
@@ -1810,6 +1862,12 @@ export async function rollStarshipSkill(actor, skillId, event, rollingUser) {
 		})
 		: "";
 	const chatFlavor = flavorSuffix ? `${baseFlavor} — ${flavorSuffix}` : baseFlavor;
+	const systemDamageFlavor = isStarshipSystemDamageSkillCheckDisadvantageRoll(actor, dialogSelection.advantageMode)
+		? systemDamageNote
+		: "";
+	const chatFlavorWithSystemDamage = systemDamageFlavor
+		? `${chatFlavor} — ${systemDamageFlavor}`
+		: chatFlavor;
 	const tierMetadata = forcedAdvantage
 		? createProficiencyTierChatFlag(masteryTier, {
 			type: "skill",
@@ -1817,17 +1875,28 @@ export async function rollStarshipSkill(actor, skillId, event, rollingUser) {
 			subjectUuid: actor.uuid
 		})
 		: null;
-	const messageFlavor = tierMetadata ? appendProficiencyTierFlavor(chatFlavor, tierMetadata) : chatFlavor;
+	const messageFlavor = tierMetadata ? appendProficiencyTierFlavor(chatFlavorWithSystemDamage, tierMetadata) : chatFlavorWithSystemDamage;
+	let finalFlavor = messageFlavor;
+	if ( messageOptions.flavorPrefix ) {
+		finalFlavor = `${messageOptions.flavorPrefix} — ${messageFlavor}`;
+	}
+	const dc = messageOptions.dc;
+	if ( dc != null && Number.isFinite(dc) ) {
+		const success = roll.total >= dc;
+		const resultKey = success ? "DND5E.Success" : "DND5E.Failure";
+		const resultLabel = game.i18n.localize(resultKey);
+		finalFlavor = `${finalFlavor} (DC ${dc}: ${resultLabel})`;
+	}
 	const messageData = {
 		speaker: ChatMessage.getSpeaker({ actor }),
-		flavor: messageFlavor
+		flavor: finalFlavor
 	};
 	if ( tierMetadata && isRerollProficiencyTier(masteryTier) ) {
 		messageData.flags = { sw5e: { proficiencyTier: tierMetadata } };
 	}
 
 	await roll.toMessage(messageData);
-	return roll;
+	return { roll, total: roll.total, skillId, label: entry.label };
 }
 
 export const normalizeLegacyStarshipActorSource = normalizeLegacyStarshipActorData;

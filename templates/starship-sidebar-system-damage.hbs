@@ -1,0 +1,16 @@
+<div class="sw5e-starship-system-damage-inner" aria-label="{{panelAria}}">
+  <div class="pips sw5e-starship-system-damage-pips" data-prop="system.attributes.systemDamage">
+    {{#each pips}}
+    <button
+      type="button"
+      class="{{classes}} unbutton"
+      data-sw5e-system-damage-action="toggle-pip"
+      data-n="{{n}}"
+      data-tooltip="{{tooltip}}"
+      aria-label="{{label}}"
+      aria-pressed="{{filled}}"
+      {{#unless ../editable}}disabled tabindex="-1"{{/unless}}
+    ></button>
+    {{/each}}
+  </div>
+</div>

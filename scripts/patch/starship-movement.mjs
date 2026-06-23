@@ -134,7 +134,6 @@ export function registerStarshipMovementReadyHooks() {
 	Hooks.once("ready", () => {
 		for ( const actor of game.actors ) {
 			if ( !isSw5eStarshipActor(actor) ) continue;
-			actor.prepareData();
 			void ensureStarshipTokenMovementAction(actor);
 		}
 	});

@@ -1,0 +1,152 @@
+/* System Damage pips — scoped away from generic `.sheet-sidebar .pips .pip` theme rules. */
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage {
+  --sw5e-system-damage-empty-bg: color-mix(in srgb, var(--sw5e-theme-surface, #1a2026) 55%, transparent);
+  --sw5e-system-damage-empty-border: color-mix(in srgb, var(--sw5e-theme-text, #9eb0bd) 34%, transparent);
+  --sw5e-system-damage-active-bg: #e87838;
+  --sw5e-system-damage-active-border: #ff9848;
+  --sw5e-system-damage-death-bg: #e03838;
+  --sw5e-system-damage-death-border: #ff5858;
+  --sw5e-system-damage-death-glow: rgba(255, 72, 72, 0.55);
+  --sw5e-system-damage-row-glow: transparent;
+
+  margin: 0.28rem 0 0.38rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage--catastrophic {
+  --sw5e-system-damage-row-glow: color-mix(in srgb, var(--sw5e-system-damage-death-glow) 42%, transparent);
+}
+
+.sw5e-starship-system-damage-inner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.sw5e-starship-system-damage-pips {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.24rem;
+  flex-wrap: nowrap;
+  padding: 0.12rem 0.2rem;
+  border-radius: 999px;
+  box-shadow: 0 0 10px var(--sw5e-system-damage-row-glow);
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip {
+  width: 0.88rem;
+  height: 0.88rem;
+  min-width: 0.88rem;
+  min-height: 0.88rem;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--sw5e-system-damage-empty-border);
+  background: var(--sw5e-system-damage-empty-bg);
+  flex: 0 0 auto;
+  cursor: pointer;
+  opacity: 1;
+  filter: none;
+  color: inherit;
+  box-shadow: none;
+  transition: background 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+/* Empty / muted */
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip:not(.filled) {
+  background: var(--sw5e-system-damage-empty-bg) !important;
+  border-color: var(--sw5e-system-damage-empty-border) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-system-damage-empty-border) 28%, transparent) !important;
+  opacity: 1 !important;
+}
+
+/* Active levels 1–5 (and 1–5 at level 6) */
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip.filled:not(.death) {
+  background: var(--sw5e-system-damage-active-bg) !important;
+  border-color: var(--sw5e-system-damage-active-border) !important;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, #fff 22%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-system-damage-active-border) 45%, transparent) !important;
+  opacity: 1 !important;
+}
+
+/* Level 6 catastrophic pip when active */
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip.filled.death {
+  background: var(--sw5e-system-damage-death-bg) !important;
+  border-color: var(--sw5e-system-damage-death-border) !important;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, #fff 30%, transparent),
+    0 0 0 1px color-mix(in srgb, #fff 35%, transparent),
+    0 0 7px var(--sw5e-system-damage-death-glow) !important;
+  opacity: 1 !important;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip:not(:disabled):is(:hover, :focus-visible) {
+  outline: none;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip:not(.filled):not(:disabled):is(:hover, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-system-damage-active-border) 55%, var(--sw5e-system-damage-empty-border)) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-system-damage-active-bg) 18%, transparent) !important;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip.filled:not(.death):not(:disabled):is(:hover, :focus-visible) {
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, #fff 28%, transparent),
+    0 0 0 2px color-mix(in srgb, var(--sw5e-system-damage-active-border) 55%, transparent) !important;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip.filled.death:not(:disabled):is(:hover, :focus-visible) {
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, #fff 35%, transparent),
+    0 0 0 2px color-mix(in srgb, #fff 40%, transparent),
+    0 0 10px var(--sw5e-system-damage-death-glow) !important;
+}
+
+/* SW5E Light */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage {
+  --sw5e-system-damage-empty-bg: #eef4f8;
+  --sw5e-system-damage-empty-border: color-mix(in srgb, #7a8f9e 52%, #c5d4de);
+  --sw5e-system-damage-active-bg: #e07028;
+  --sw5e-system-damage-active-border: #c85818;
+  --sw5e-system-damage-death-bg: #d02828;
+  --sw5e-system-damage-death-border: #b81818;
+  --sw5e-system-damage-death-glow: rgba(208, 40, 40, 0.45);
+}
+
+/* SW5E Dark */
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage {
+  --sw5e-system-damage-empty-bg: color-mix(in srgb, #1a2026 88%, #0f1216);
+  --sw5e-system-damage-empty-border: color-mix(in srgb, #9eb0bd 38%, #3a424a);
+  --sw5e-system-damage-active-bg: #f08838;
+  --sw5e-system-damage-active-border: #ffb060;
+  --sw5e-system-damage-death-bg: #ff4848;
+  --sw5e-system-damage-death-border: #ff7070;
+  --sw5e-system-damage-death-glow: rgba(255, 72, 72, 0.62);
+}
+
+/* Underworld Alloy */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage {
+  --sw5e-system-damage-empty-bg: color-mix(in srgb, var(--sw5e-underworld-panel, #121820) 86%, black);
+  --sw5e-system-damage-empty-border: color-mix(in srgb, var(--sw5e-underworld-muted-text, #8a9aa6) 48%, #3a4038);
+  --sw5e-system-damage-active-bg: color-mix(in srgb, #f08838 68%, var(--sw5e-underworld-neon-amber, #ffb347));
+  --sw5e-system-damage-active-border: var(--sw5e-underworld-neon-amber, #ffb347);
+  --sw5e-system-damage-death-bg: color-mix(in srgb, #ff4848 62%, var(--sw5e-underworld-neon-magenta, #ff4d8d));
+  --sw5e-system-damage-death-border: var(--sw5e-underworld-neon-magenta, #ff4d8d);
+  --sw5e-system-damage-death-glow: color-mix(in srgb, var(--sw5e-underworld-neon-magenta, #ff4d8d) 55%, transparent);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-sidebar-system-damage button.sw5e-starship-system-damage-pip.filled.death {
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan, #3fd0b8) 28%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-magenta, #ff4d8d) 55%, transparent),
+    0 0 8px var(--sw5e-system-damage-death-glow) !important;
+}

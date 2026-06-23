@@ -4,6 +4,7 @@ import {
 	LEGACY_SETTINGS_NAMESPACE,
 	SETTINGS_NAMESPACE
 } from "./module-support.mjs";
+import { isDnd5eActivityConfigApp, resolveActivityConfigThemeScope } from "./patch/starship-activity.mjs";
 
 export const SW5E_THEME_SETTING = "themeMode";
 
@@ -284,7 +285,9 @@ export function isSw5eStarshipRepairDialogApp(app, element) {
 	if ( !element.classList.contains("application") ) return false;
 	if ( !element.classList.contains("starship-repair") ) return false;
 	const ctorName = app?.constructor?.name ?? "";
-	return ctorName === "StarshipRechargeRepairDialog" || ctorName === "StarshipRefittingRepairDialog";
+	return ctorName === "StarshipRechargeRepairDialog"
+		|| ctorName === "StarshipRefittingRepairDialog"
+		|| ctorName === "StarshipRegenRepairDialog";
 }
 
 /**
@@ -356,12 +359,16 @@ function applyDnd5eThemedApplicationFromHook(app, html) {
 		applySw5eThemeScope(html, { scope: "rest-dialog" });
 		return;
 	}
+	if ( isDnd5eActivityConfigApp(app, root) ) {
+		applySw5eThemeScope(html, { scope: resolveActivityConfigThemeScope(app) });
+		return;
+	}
 	if ( isDnd5eActivityUsageDialogApp(app, root) ) {
 		applySw5eThemeScope(html, { scope: "activity-dialog" });
 		return;
 	}
 	if ( isSw5eStarshipRepairDialogApp(app, root) ) {
-		applySw5eThemeScope(html, { scope: "starship-repair" });
+		applySw5eThemeScope(html, { scope: "rest-dialog" });
 		return;
 	}
 	if ( isDnd5eActorConfigSheet(app, root) ) {

@@ -28,6 +28,10 @@
     </div>
   </fieldset>
 
+  {{#if systemDamageNote}}
+  <p class="notes">{{systemDamageNote}}</p>
+  {{/if}}
+
   <footer class="sheet-footer flexrow">
     <button type="button" data-advantage-mode="{{advantageMode}}" {{#if isDefaultAdvantage}}autofocus{{/if}}>{{advantageLabel}}</button>
     {{#unless forcedAdvantage}}

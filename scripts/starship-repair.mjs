@@ -1,36 +1,45 @@
 import { getModulePath } from "./module-support.mjs";
-import { applySw5eThemeScope } from "./theme.mjs";
 import {
 	STARSHIP_POWER_DIE_SLOTS,
 	buildStarshipLegacyAttributeBatchMirrorUpdate,
 	deriveStarshipPools,
 	getLegacyStarshipActorSystem,
+	getStarshipPowerRecoverySlots,
 	resolveStarshipPowerSlotAllocationMax
 } from "./starship-data.mjs";
+import { recoverStarshipPowerDice } from "./starship-power-recovery.mjs";
 import {
+	getStarshipEffectiveHullMax,
+	getStarshipEffectiveShieldMax,
+	getStarshipSystemDamageLevel,
+	reduceStarshipSystemDamageLevel
+} from "./starship-system-damage.mjs";
+import { resetStarshipDestructionSaves } from "./starship-destruction-saves.mjs";
+import {
+	applyStarshipNaturalShieldDieRoll,
 	buildRecoverStarshipHullDiceItemUpdate,
 	buildRecoverStarshipShieldDiceItemUpdate,
 	buildStarshipHullDiceSpendItemUpdate,
 	getStarshipHullDiceAvailability,
 	getStarshipLiveHp,
 	getStarshipShieldDepleted,
+	getStarshipShieldExpendDisabledReason,
+	getStarshipShieldRegenRateMult,
 	previewStarshipHullDieRoll,
 	setStarshipShieldDepleted
 } from "./starship-dice-rolls.mjs";
 
-const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+const Dialog5e = dnd5e.applications.api.Dialog5e;
+const { BooleanField } = foundry.data.fields;
 
-const REPAIR_DIALOG_CLASSES = ["dnd5e2", "application", "rest", "starship-repair"];
-const REPAIR_DIALOG_POSITION = { width: 560, height: "auto" };
-const REPAIR_THEME_SCOPE = "starship-repair";
+const REPAIR_DIALOG_WIDTH = 380;
 
-function localizeOrFallback(key, fallback, data = {}) {	const formatted = game?.i18n?.format?.(key, data);
-	if ( formatted && formatted !== key ) return formatted;
+function localizeOrFallback(key, fallback, data = {}) {
 	const localized = game?.i18n?.localize?.(key);
-	if ( localized && localized !== key ) return localized;
+	const text = (localized && localized !== key) ? localized : fallback;
 	return Object.entries(data).reduce(
-		(text, [name, value]) => text.replaceAll(`{${name}}`, String(value)),
-		fallback
+		(result, [name, value]) => result.replaceAll(`{${name}}`, String(value)),
+		text
 	);
 }
 
@@ -92,9 +101,78 @@ function buildPreviewData(preview, { refitting = false } = {}) {
 	};
 }
 
-function applyRepairDialogThemeScope(app) {
-	const root = app.element instanceof HTMLElement ? app.element : app.element?.[0] ?? null;
-	applySw5eThemeScope(root, { scope: REPAIR_THEME_SCOPE });
+function buildRepairNewDayFields(context, { value = false } = {}) {
+	return [{
+		field: new BooleanField({
+			label: game?.i18n?.localize?.("DND5E.REST.NewDay.Label") ?? "New Day",
+			hint: game?.i18n?.localize?.("DND5E.REST.NewDay.Hint")
+				?? "Recover limited use abilities which recharge at dusk, dawn, or on a new day."
+		}),
+		input: context.inputs.createCheckboxInput,
+		name: "newDay",
+		value
+	}];
+}
+
+function buildRepairApplyButton(applyLabel, applyIcon = "fa-solid fa-wrench") {
+	return [{
+		default: true,
+		icon: applyIcon,
+		label: applyLabel,
+		name: "apply",
+		type: "submit"
+	}];
+}
+
+/** Read repair dialog checkbox state without mutating Foundry's form submission object. */
+function parseRepairFormSubmission(formData) {
+	const raw = formData?.object ?? {};
+	return {
+		newDay: Boolean(raw.newDay),
+		autoHD: Boolean(raw.autoHD)
+	};
+}
+
+function parseRefittingFormSubmission(formData) {
+	const raw = formData?.object ?? {};
+	return {
+		newDay: Boolean(raw.newDay),
+		reduceSystemDamage: Boolean(raw.reduceSystemDamage)
+	};
+}
+
+function buildHullDiceOptions(availability) {
+	const number = Math.max(0, availability.remaining);
+	const die = availability.die || "d6";
+	const availableLabel = game?.i18n?.format?.("DND5E.HITDICE.Available", { number });
+	return [{
+		value: die,
+		label: (availableLabel && availableLabel !== "DND5E.HITDICE.Available")
+			? `${die} (${availableLabel})`
+			: `${die} (${number} available)`
+	}];
+}
+
+async function autoStageHullDice(actor, staged) {
+	while ( true ) {
+		const availability = getStarshipHullDiceAvailability(actor, staged.hullDiceSpent);
+		if ( availability.remaining <= 0 ) break;
+
+		const hp = getStarshipLiveHp(actor);
+		const hullMax = getStarshipEffectiveHullMax(actor, hp.max);
+		const hullValue = Math.max(0, Number(hp.value) || 0);
+		if ( hullValue + staged.hpGain >= hullMax ) break;
+
+		const preview = await previewStarshipHullDieRoll(actor, {
+			denomination: availability.die,
+			stagedHpGain: staged.hpGain
+		});
+		if ( !preview || preview.hpGain <= 0 ) break;
+
+		staged.hpGain += preview.hpGain;
+		staged.hullDiceSpent += 1;
+		staged.rolls.push(preview.roll);
+	}
 }
 
 function formatPoolFraction(current, max) {
@@ -112,9 +190,18 @@ function buildRepairPowerDiceRecovery(actor) {
 	return buildStarshipLegacyAttributeBatchMirrorUpdate(entries);
 }
 
-function getShieldCapacity(actor) {
+function getStoredShieldCapacity(actor) {
 	const hp = getStarshipLiveHp(actor);
 	return Math.max(0, Number(hp.tempmax) || 0);
+}
+
+function getShieldCapacity(actor, systemDamageLevel) {
+	return getStarshipEffectiveShieldMax(actor, getStoredShieldCapacity(actor), systemDamageLevel);
+}
+
+function getHullCapacity(actor, systemDamageLevel) {
+	const hp = getStarshipLiveHp(actor);
+	return getStarshipEffectiveHullMax(actor, Math.max(0, Number(hp.max) || 0), systemDamageLevel);
 }
 
 export function buildRechargeRepairPreview(actor, staged = {}) {
@@ -123,7 +210,7 @@ export function buildRechargeRepairPreview(actor, staged = {}) {
 	const stagedHp = Math.max(0, Number(staged.hpGain) || 0);
 	const stagedSpent = Math.max(0, Number(staged.hullDiceSpent) || 0);
 	const hullValue = Math.max(0, Number(hp.value) || 0);
-	const hullMax = Math.max(0, Number(hp.max) || 0);
+	const hullMax = getHullCapacity(actor);
 	const shieldValue = Math.max(0, Number(hp.temp) || 0);
 	const shieldMax = getShieldCapacity(actor);
 	const depleted = getStarshipShieldDepleted(actor);
@@ -176,13 +263,17 @@ export function buildRechargeRepairPreview(actor, staged = {}) {
 	};
 }
 
-export function buildRefittingRepairPreview(actor) {
+export function buildRefittingRepairPreview(actor, { reduceSystemDamage = false } = {}) {
 	const hp = getStarshipLiveHp(actor);
 	const pools = deriveStarshipPools(actor);
+	const systemDamageBefore = getStarshipSystemDamageLevel(actor);
+	const finalSystemDamage = reduceSystemDamage && systemDamageBefore > 0
+		? systemDamageBefore - 1
+		: systemDamageBefore;
 	const hullValue = Math.max(0, Number(hp.value) || 0);
-	const hullMax = Math.max(0, Number(hp.max) || 0);
+	const hullMax = getHullCapacity(actor, finalSystemDamage);
 	const shieldValue = Math.max(0, Number(hp.temp) || 0);
-	const shieldMax = getShieldCapacity(actor);
+	const shieldMax = getShieldCapacity(actor, finalSystemDamage);
 	const hullDiceMax = pools.hull?.max ?? 0;
 	const shldDiceMax = pools.shld?.max ?? 0;
 
@@ -202,7 +293,15 @@ export function buildRefittingRepairPreview(actor) {
 }
 
 async function postRepairChatMessage(actor, { refitting, result }) {
-	const { hullPointsGained = 0, hullDiceSpent = 0, hullDiceRecovered = 0, shieldPointsGained = 0, shieldDiceRecovered = 0 } = result;
+	const {
+		hullPointsGained = 0,
+		hullDiceSpent = 0,
+		hullDiceRecovered = 0,
+		shieldPointsGained = 0,
+		shieldDiceRecovered = 0,
+		systemDamageBefore = 0,
+		systemDamageAfter = 0
+	} = result;
 	let messageKey = refitting ? "SW5E.RefittingRepairResult" : "SW5E.RechargeRepairResult";
 	if ( hullPointsGained > 0 ) messageKey += "HP";
 	if ( refitting ? hullDiceRecovered > 0 : hullDiceSpent > 0 ) messageKey += "HD";
@@ -216,11 +315,19 @@ async function postRepairChatMessage(actor, { refitting, result }) {
 		shldPoints: shieldPointsGained,
 		shldDice: shieldDiceRecovered
 	};
+	let content = localizeOrFallback(messageKey, "{name} completes a repair.", formatArgs);
+	if ( refitting && systemDamageAfter < systemDamageBefore ) {
+		content += `<p>${localizeOrFallback(
+			"SW5E.StarshipSheet.RefittingSystemDamageReduced",
+			"System Damage reduced: {before} → {after}",
+			{ before: systemDamageBefore, after: systemDamageAfter }
+		)}</p>`;
+	}
 	await ChatMessage.create({
 		user: game.user.id,
 		speaker: ChatMessage.getSpeaker({ actor }),
 		flavor: localizeOrFallback(flavorKey, refitting ? "Refitting Repair (8 hours)" : "Recharge Repair (1 hour)"),
-		content: localizeOrFallback(messageKey, "{name} completes a repair.", formatArgs)
+		content
 	});
 }
 
@@ -233,8 +340,9 @@ export async function applyRechargeRepair(actor, { staged = {}, newDay = false, 
 	const stagedSpent = Math.max(0, Number(staged.hullDiceSpent) || 0);
 
 	if ( stagedHp > 0 ) {
+		const effectiveHullMax = getHullCapacity(actor);
 		actorEntries.push(["system.attributes.hp.value", Math.min(
-			Math.max(0, Number(hp.max) || 0),
+			effectiveHullMax,
 			Math.max(0, Number(hp.value) || 0) + stagedHp
 		)]);
 	}
@@ -258,6 +366,7 @@ export async function applyRechargeRepair(actor, { staged = {}, newDay = false, 
 	await actor.update(actorUpdate, { isRest: true });
 	if ( itemUpdates.length ) await actor.updateEmbeddedDocuments("Item", itemUpdates, { isRest: true });
 	if ( preview.resetShields ) await setStarshipShieldDepleted(actor, false);
+	await resetStarshipDestructionSaves(actor);
 
 	if ( Array.isArray(staged.rolls) ) {
 		const flavor = localizeOrFallback("SW5E.HullDiceRoll", "Hull Die Roll");
@@ -286,11 +395,19 @@ export async function applyRechargeRepair(actor, { staged = {}, newDay = false, 
 	return result;
 }
 
-export async function applyRefittingRepair(actor, { newDay = true, chat = true } = {}) {
+export async function applyRefittingRepair(actor, { newDay = true, reduceSystemDamage = false, chat = true } = {}) {
 	if ( !actor ) return null;
+	const systemDamageBefore = getStarshipSystemDamageLevel(actor);
+
+	let systemDamageAfter = systemDamageBefore;
+	if ( reduceSystemDamage && systemDamageBefore > 0 ) {
+		const reduction = await reduceStarshipSystemDamageLevel(actor, 1);
+		systemDamageAfter = reduction.after;
+	}
+
 	const hp = getStarshipLiveHp(actor);
-	const hullMax = Math.max(0, Number(hp.max) || 0);
-	const shieldMax = getShieldCapacity(actor);
+	const hullMax = getHullCapacity(actor, systemDamageAfter);
+	const shieldMax = getShieldCapacity(actor, systemDamageAfter);
 	const hullBefore = Math.max(0, Number(hp.value) || 0);
 	const shieldBefore = Math.max(0, Number(hp.temp) || 0);
 
@@ -312,6 +429,7 @@ export async function applyRefittingRepair(actor, { newDay = true, chat = true }
 	await actor.update(actorUpdate, { isRest: true });
 	if ( itemUpdates.length ) await actor.updateEmbeddedDocuments("Item", itemUpdates, { isRest: true });
 	await setStarshipShieldDepleted(actor, false);
+	await resetStarshipDestructionSaves(actor);
 
 	const result = {
 		hullPointsGained: Math.max(0, hullMax - hullBefore),
@@ -319,6 +437,8 @@ export async function applyRefittingRepair(actor, { newDay = true, chat = true }
 		hullDiceRecovered: hullRecovery.recovered,
 		shieldPointsGained: Math.max(0, shieldMax - shieldBefore),
 		shieldDiceRecovered: shieldRecovery.recovered,
+		systemDamageBefore,
+		systemDamageAfter,
 		newDay
 	};
 
@@ -326,111 +446,128 @@ export async function applyRefittingRepair(actor, { newDay = true, chat = true }
 	return result;
 }
 
-export class StarshipRechargeRepairDialog extends HandlebarsApplicationMixin(ApplicationV2) {
-	constructor(actor, options = {}) {
+export class StarshipRechargeRepairDialog extends Dialog5e {
+	constructor(options = {}) {
 		super(options);
-		this.actor = actor;
+		this.actor = options.actor;
 		this.staged = { hpGain: 0, hullDiceSpent: 0, rolls: [] };
 		this.newDay = false;
+		this.autoHD = false;
+		this.#denom = null;
 		this.#applied = false;
+		this.#result = null;
 		this.#resolve = null;
 		this.#reject = null;
 	}
 
+	#denom;
 	#resolve;
 	#reject;
 	#applied = false;
+	#result = null;
 
 	static DEFAULT_OPTIONS = {
-		tag: "form",
-		classes: [...REPAIR_DIALOG_CLASSES, "recharge-repair"],
-		position: REPAIR_DIALOG_POSITION,
+		classes: ["rest", "starship-repair", "recharge-repair"],
+		position: { width: REPAIR_DIALOG_WIDTH },
 		actions: {
-			rollHull: StarshipRechargeRepairDialog.#onRollHull,
-			apply: StarshipRechargeRepairDialog.#onApply,
-			cancel: StarshipRechargeRepairDialog.#onCancel
+			rollHull: StarshipRechargeRepairDialog.#onRollHull
+		},
+		form: {
+			handler: StarshipRechargeRepairDialog.#handleFormSubmission
+		},
+		window: {
+			title: "SW5E.RechargeRepair",
+			minimizable: false
 		}
 	};
 
 	static PARTS = {
-		form: {
+		...super.PARTS,
+		content: {
 			template: getModulePath("templates/apps/starship-recharge-repair-dialog.hbs")
 		}
 	};
 
-	get title() {
-		return localizeOrFallback("SW5E.RechargeRepair", "Recharge Repair");
-	}
-
 	static open(actor) {
 		return new Promise((resolve, reject) => {
-			const dialog = new StarshipRechargeRepairDialog(actor);
+			const dialog = new StarshipRechargeRepairDialog({
+				actor,
+				buttons: buildRepairApplyButton(
+					localizeOrFallback("SW5E.StarshipSheet.RepairApplyRecharge", "Apply Recharge")
+				)
+			});
 			dialog.#resolve = resolve;
 			dialog.#reject = reject;
-			dialog.render(true);
+			dialog.addEventListener("close", () => {
+				if ( dialog.#applied ) dialog.#resolve?.(dialog.#result);
+				else dialog.#reject?.(new Error("cancelled"));
+			}, { once: true });
+			dialog.render({ force: true });
 		});
 	}
 
-	async _prepareContext() {
+	async _prepareContext(options) {
+		const context = await super._prepareContext(options);
 		const availability = getStarshipHullDiceAvailability(this.actor, this.staged.hullDiceSpent);
-		const preview = buildRechargeRepairPreview(this.actor, this.staged);
-		const { heading, rows } = buildPreviewData(preview);
-		return {
-			hint: localizeOrFallback(
-				"SW5E.RechargeRepairHint",
-				"On a recharge repair you may spend remaining Hull Dice and recover Shields."
-			),
-			denomination: availability.die,
-			canRoll: availability.remaining > 0,
-			noHdHint: localizeOrFallback("SW5E.RechargeRepairNoHD", "No Hull Dice remaining"),
-			newDayLabel: localizeOrFallback("SW5E.StarshipSheet.RepairNewDayLabel", "Is New Day?"),
-			newDayHint: localizeOrFallback(
-				"SW5E.StarshipSheet.RepairNewDayHint",
-				"Recover limited use abilities which recharge \"per day\"? (Item recovery not yet implemented.)"
-			),
+		context.config = {
 			newDay: this.newDay,
-			previewHeading: heading,
-			previewRows: rows,
-			stagedRollCount: this.staged.rolls.length,
-			rollLabel: localizeOrFallback("SW5E.StarshipSheet.RepairRollHullDie", "Roll Hull Die"),
-			applyLabel: localizeOrFallback("SW5E.StarshipSheet.RepairApplyRecharge", "Apply Recharge"),
-			cancelLabel: localizeOrFallback("Cancel", "Cancel")
+			autoHD: this.autoHD
 		};
-	}
-
-	_onRender(context, options) {
-		super._onRender(context, options);
-		applyRepairDialogThemeScope(this);
-		const root = this.element instanceof HTMLElement ? this.element : this.element?.[0] ?? null;
-		const checkbox = root?.querySelector("input[name='newDay']");
-		if ( checkbox ) checkbox.checked = this.newDay;
+		context.hint = localizeOrFallback(
+			"SW5E.RechargeRepairHint",
+			"On a recharge repair you may spend remaining Hull Dice and recover Shields."
+		);
+		context.fields = buildRepairNewDayFields(context, { value: this.newDay });
+		context.hullDice = {
+			canRoll: availability.remaining > 0,
+			denomination: this.#denom ?? availability.die,
+			options: buildHullDiceOptions(availability)
+		};
+		context.autoSpendField = new BooleanField({
+			label: localizeOrFallback(
+				"SW5E.StarshipSheet.RepairAutoSpendHD.Label",
+				"Auto Spend Hull Dice"
+			),
+			hint: localizeOrFallback(
+				"SW5E.StarshipSheet.RepairAutoSpendHD.Hint",
+				"Automatically spend hull dice until they run out or health is full."
+			)
+		});
+		return context;
 	}
 
 	static async #onRollHull(_event, _target) {
 		const dialog = this;
+		dialog.#denom = dialog.form?.denom?.value;
+		const availability = getStarshipHullDiceAvailability(dialog.actor, dialog.staged.hullDiceSpent);
 		const preview = await previewStarshipHullDieRoll(dialog.actor, {
-			denomination: getStarshipHullDiceAvailability(dialog.actor, dialog.staged.hullDiceSpent).die,
+			denomination: dialog.#denom || availability.die,
 			stagedHpGain: dialog.staged.hpGain
 		});
 		if ( !preview ) return;
 		dialog.staged.hpGain += preview.hpGain;
 		dialog.staged.hullDiceSpent += 1;
 		dialog.staged.rolls.push(preview.roll);
+		const formData = new foundry.applications.ux.FormDataExtended(dialog.form);
+		const { newDay, autoHD } = parseRepairFormSubmission(formData);
+		dialog.newDay = newDay;
+		dialog.autoHD = autoHD;
 		await dialog.render();
 	}
 
-	static async #onApply(_event, _target) {
+	static async #handleFormSubmission(_event, _form, formData) {
 		const dialog = this;
-		const checkbox = dialog.element?.querySelector?.("input[name='newDay']");
-		dialog.newDay = Boolean(checkbox?.checked);
+		const { newDay, autoHD } = parseRepairFormSubmission(formData);
+		dialog.newDay = newDay;
+		dialog.autoHD = autoHD;
+		if ( autoHD ) await autoStageHullDice(dialog.actor, dialog.staged);
 		try {
-			const result = await applyRechargeRepair(dialog.actor, {
+			dialog.#result = await applyRechargeRepair(dialog.actor, {
 				staged: dialog.staged,
-				newDay: dialog.newDay,
+				newDay,
 				chat: true
 			});
 			dialog.#applied = true;
-			dialog.#resolve?.(result);
 			await dialog.close();
 		} catch ( err ) {
 			console.error("SW5E MODULE | Recharge repair failed.", err);
@@ -440,26 +577,16 @@ export class StarshipRechargeRepairDialog extends HandlebarsApplicationMixin(App
 			));
 		}
 	}
-
-	static async #onCancel(_event, _target) {
-		const dialog = this;
-		dialog.#applied = true;
-		dialog.#reject?.(new Error("cancelled"));
-		await dialog.close();
-	}
-
-	async close(options = {}) {
-		if ( !this.#applied ) this.#reject?.(new Error("cancelled"));
-		return super.close(options);
-	}
 }
 
-export class StarshipRefittingRepairDialog extends HandlebarsApplicationMixin(ApplicationV2) {
-	constructor(actor, options = {}) {
+export class StarshipRefittingRepairDialog extends Dialog5e {
+	constructor(options = {}) {
 		super(options);
-		this.actor = actor;
+		this.actor = options.actor;
 		this.newDay = true;
+		this.reduceSystemDamage = false;
 		this.#applied = false;
+		this.#result = null;
 		this.#resolve = null;
 		this.#reject = null;
 	}
@@ -467,76 +594,90 @@ export class StarshipRefittingRepairDialog extends HandlebarsApplicationMixin(Ap
 	#resolve;
 	#reject;
 	#applied = false;
+	#result = null;
+	#reduceDefaultSet = false;
 
 	static DEFAULT_OPTIONS = {
-		tag: "form",
-		classes: [...REPAIR_DIALOG_CLASSES, "refitting-repair"],
-		position: REPAIR_DIALOG_POSITION,
-		actions: {
-			apply: StarshipRefittingRepairDialog.#onApply,
-			cancel: StarshipRefittingRepairDialog.#onCancel
+		classes: ["rest", "starship-repair", "refitting-repair"],
+		position: { width: REPAIR_DIALOG_WIDTH },
+		form: {
+			handler: StarshipRefittingRepairDialog.#handleFormSubmission
+		},
+		window: {
+			title: "SW5E.RefittingRepair",
+			minimizable: false
 		}
 	};
 
 	static PARTS = {
-		form: {
+		...super.PARTS,
+		content: {
 			template: getModulePath("templates/apps/starship-refitting-repair-dialog.hbs")
 		}
 	};
 
-	get title() {
-		return localizeOrFallback("SW5E.RefittingRepair", "Refitting Repair");
-	}
-
 	static open(actor) {
 		return new Promise((resolve, reject) => {
-			const dialog = new StarshipRefittingRepairDialog(actor);
+			const dialog = new StarshipRefittingRepairDialog({
+				actor,
+				buttons: buildRepairApplyButton(
+					localizeOrFallback("SW5E.StarshipSheet.RepairApplyRefitting", "Apply Refitting")
+				)
+			});
 			dialog.#resolve = resolve;
 			dialog.#reject = reject;
-			dialog.render(true);
+			dialog.addEventListener("close", () => {
+				if ( dialog.#applied ) dialog.#resolve?.(dialog.#result);
+				else dialog.#reject?.(new Error("cancelled"));
+			}, { once: true });
+			dialog.render({ force: true });
 		});
 	}
 
-	async _prepareContext() {
-		const preview = buildRefittingRepairPreview(this.actor);
-		const { heading, rows } = buildPreviewData(preview, { refitting: true });
-		return {
-			hint: localizeOrFallback(
-				"SW5E.StarshipSheet.RefittingRepairHint",
-				"On a refitting repair you will recover hull points, your hull dice, and shields."
-			),
-			newDayLabel: localizeOrFallback("SW5E.StarshipSheet.RepairNewDayLabel", "Is New Day?"),
-			newDayHint: localizeOrFallback(
-				"SW5E.StarshipSheet.RepairNewDayHint",
-				"Recover limited use abilities which recharge \"per day\"? (Item recovery not yet implemented.)"
-			),
+	async _prepareContext(options) {
+		const context = await super._prepareContext(options);
+		const systemDamageLevel = getStarshipSystemDamageLevel(this.actor);
+		const canReduceSystemDamage = systemDamageLevel > 0;
+
+		if ( canReduceSystemDamage && !this.#reduceDefaultSet ) {
+			this.reduceSystemDamage = true;
+			this.#reduceDefaultSet = true;
+		}
+
+		context.config = {
 			newDay: this.newDay,
-			previewHeading: heading,
-			previewRows: rows,
-			applyLabel: localizeOrFallback("SW5E.StarshipSheet.RepairApplyRefitting", "Apply Refitting"),
-			cancelLabel: localizeOrFallback("Cancel", "Cancel")
+			reduceSystemDamage: canReduceSystemDamage ? this.reduceSystemDamage : false
 		};
+		context.hint = localizeOrFallback(
+			"SW5E.StarshipSheet.RefittingRepairHint",
+			"On a refitting repair you will recover hull points, your hull dice, and shields."
+		);
+		context.fields = buildRepairNewDayFields(context, { value: this.newDay });
+		context.canReduceSystemDamage = canReduceSystemDamage;
+		context.reduceSystemDamageField = new BooleanField({
+			label: localizeOrFallback(
+				"SW5E.StarshipSheet.RefittingReduceSystemDamage.Label",
+				"Reduce System Damage"
+			),
+			hint: localizeOrFallback(
+				"SW5E.StarshipSheet.RefittingReduceSystemDamage.Hint",
+				"Finishing maintenance reduces System Damage by 1."
+			)
+		});
+		return context;
 	}
 
-	_onRender(context, options) {
-		super._onRender(context, options);
-		applyRepairDialogThemeScope(this);
-		const root = this.element instanceof HTMLElement ? this.element : this.element?.[0] ?? null;
-		const checkbox = root?.querySelector("input[name='newDay']");
-		if ( checkbox ) checkbox.checked = this.newDay;
-	}
-
-	static async #onApply(_event, _target) {
+	static async #handleFormSubmission(_event, _form, formData) {
 		const dialog = this;
-		const checkbox = dialog.element?.querySelector?.("input[name='newDay']");
-		dialog.newDay = Boolean(checkbox?.checked);
+		const { newDay, reduceSystemDamage } = parseRefittingFormSubmission(formData);
+		const canReduce = getStarshipSystemDamageLevel(dialog.actor) > 0;
 		try {
-			const result = await applyRefittingRepair(dialog.actor, {
-				newDay: dialog.newDay,
+			dialog.#result = await applyRefittingRepair(dialog.actor, {
+				newDay,
+				reduceSystemDamage: canReduce && reduceSystemDamage,
 				chat: true
 			});
 			dialog.#applied = true;
-			dialog.#resolve?.(result);
 			await dialog.close();
 		} catch ( err ) {
 			console.error("SW5E MODULE | Refitting repair failed.", err);
@@ -545,18 +686,6 @@ export class StarshipRefittingRepairDialog extends HandlebarsApplicationMixin(Ap
 				"Repair could not be applied."
 			));
 		}
-	}
-
-	static async #onCancel(_event, _target) {
-		const dialog = this;
-		dialog.#applied = true;
-		dialog.#reject?.(new Error("cancelled"));
-		await dialog.close();
-	}
-
-	async close(options = {}) {
-		if ( !this.#applied ) this.#reject?.(new Error("cancelled"));
-		return super.close(options);
 	}
 }
 
@@ -571,6 +700,193 @@ export async function openRefittingRepairDialog(actor) {
 export async function openRechargeRepairDialog(actor) {
 	try {
 		return await StarshipRechargeRepairDialog.open(actor);
+	} catch {
+		return null;
+	}
+}
+
+function sumPowerSlotValues(slots = []) {
+	return slots.reduce((sum, slot) => sum + Math.max(0, Number(slot?.value) || 0), 0);
+}
+
+async function postRegenChatMessage(actor, { shieldDieSpent = false, shieldPointsGained = 0, powerDiceRecovered = 0 } = {}) {
+	if ( !shieldDieSpent && powerDiceRecovered <= 0 ) return;
+
+	let messageKey = "SW5E.RegenRepairResult";
+	if ( shieldDieSpent && shieldPointsGained > 0 ) messageKey += "S";
+	if ( powerDiceRecovered > 0 ) messageKey += "P";
+
+	await ChatMessage.create({
+		user: game.user.id,
+		speaker: ChatMessage.getSpeaker({ actor }),
+		flavor: localizeOrFallback("SW5E.RegenRepair", "Starship Regen"),
+		content: localizeOrFallback(messageKey, "{name} regenerates.", {
+			name: actor.name,
+			shieldPoints: shieldPointsGained,
+			powerDice: powerDiceRecovered
+		})
+	});
+}
+
+export async function applyRegenRepair(actor, { useShieldDie = false, chat = true } = {}) {
+	if ( !actor ) return null;
+
+	let shieldPointsGained = 0;
+	let shieldDieSpent = false;
+
+	if ( useShieldDie ) {
+		const shieldResult = await applyStarshipNaturalShieldDieRoll(actor, { chat: true });
+		if ( shieldResult && !shieldResult.error && shieldResult.spGain > 0 ) {
+			shieldPointsGained = shieldResult.spGain;
+			shieldDieSpent = true;
+		}
+	}
+
+	const slotsBefore = getStarshipPowerRecoverySlots(actor);
+	const powerBeforeTotal = sumPowerSlotValues(slotsBefore);
+	let powerDiceRecovered = 0;
+
+	const powerRecovered = await recoverStarshipPowerDice(actor);
+	if ( powerRecovered ) {
+		const slotsAfter = getStarshipPowerRecoverySlots(actor);
+		powerDiceRecovered = Math.max(0, sumPowerSlotValues(slotsAfter) - powerBeforeTotal);
+	}
+
+	const result = {
+		shieldPointsGained,
+		shieldDieSpent,
+		powerDiceRecovered
+	};
+
+	if ( chat ) await postRegenChatMessage(actor, result);
+	return result;
+}
+
+export class StarshipRegenRepairDialog extends Dialog5e {
+	constructor(options = {}) {
+		super(options);
+		this.actor = options.actor;
+		this.expendShieldDie = Boolean(options.expendShieldDie);
+		this.#applied = false;
+		this.#result = null;
+		this.#resolve = null;
+		this.#reject = null;
+	}
+
+	#resolve;
+	#reject;
+	#applied = false;
+	#result = null;
+	#expendDefaultSet = false;
+
+	static DEFAULT_OPTIONS = {
+		classes: ["rest", "starship-repair", "regen-repair"],
+		position: { width: REPAIR_DIALOG_WIDTH },
+		form: {
+			handler: StarshipRegenRepairDialog.#handleFormSubmission
+		},
+		window: {
+			title: "SW5E.RegenRepair",
+			minimizable: false
+		}
+	};
+
+	static PARTS = {
+		...super.PARTS,
+		content: {
+			template: getModulePath("templates/apps/starship-regen-repair-dialog.hbs")
+		}
+	};
+
+	static open(actor) {
+		return new Promise((resolve, reject) => {
+			const dialog = new StarshipRegenRepairDialog({
+				actor,
+				expendShieldDie: false,
+				buttons: buildRepairApplyButton(
+					localizeOrFallback("SW5E.StarshipSheet.RepairApplyRegen", "Apply Regen"),
+					"fa-solid fa-bolt"
+				)
+			});
+			dialog.#resolve = resolve;
+			dialog.#reject = reject;
+			dialog.addEventListener("close", () => {
+				if ( dialog.#applied ) dialog.#resolve?.(dialog.#result);
+				else dialog.#reject?.(new Error("cancelled"));
+			}, { once: true });
+			dialog.render({ force: true });
+		});
+	}
+
+	async _prepareContext(options) {
+		const context = await super._prepareContext(options);
+		const disabledReason = getStarshipShieldExpendDisabledReason(this.actor);
+		const regenMult = await getStarshipShieldRegenRateMult(this.actor);
+		const hasRegenData = Number.isFinite(regenMult) && regenMult > 0;
+		const canExpend = !disabledReason && hasRegenData;
+
+		if ( canExpend && !this.#expendDefaultSet ) {
+			this.expendShieldDie = true;
+			this.#expendDefaultSet = true;
+		}
+
+		context.hint = localizeOrFallback(
+			"SW5E.RegenRepairHint",
+			"At the beginning of its turn, the starship can expend a shield die to recover shield points, and automatically recovers power dice."
+		);
+		context.canExpendShieldDie = canExpend;
+		context.expendShieldDieDisabledReason = !hasRegenData
+			? localizeOrFallback(
+				"SW5E.StarshipSheet.RegenNoShieldRegenData",
+				"Shield regeneration data is unavailable — equip a shield with a regeneration coefficient."
+			)
+			: disabledReason;
+		context.config = { expendShieldDie: canExpend ? this.expendShieldDie : false };
+		context.expendShieldDieField = new BooleanField({
+			label: localizeOrFallback(
+				"SW5E.StarshipSheet.RegenExpendShieldDie.Label",
+				"Expend Shield Die"
+			),
+			hint: localizeOrFallback(
+				"SW5E.StarshipSheet.RegenExpendShieldDie.Hint",
+				"Recover shield points by expending a Shield Die."
+			),
+			disabled: !canExpend
+		});
+		context.powerRecoveryHint = localizeOrFallback(
+			"SW5E.StarshipSheet.RegenPowerRecoveryHint",
+			"Power dice recovery will also be resolved."
+		);
+		return context;
+	}
+
+	static async #handleFormSubmission(_event, _form, formData) {
+		const dialog = this;
+		const raw = formData?.object ?? {};
+		const disabledReason = getStarshipShieldExpendDisabledReason(dialog.actor);
+		const regenMult = await getStarshipShieldRegenRateMult(dialog.actor);
+		const canExpend = !disabledReason && Number.isFinite(regenMult) && regenMult > 0;
+		const useShieldDie = canExpend && Boolean(raw.expendShieldDie);
+		try {
+			dialog.#result = await applyRegenRepair(dialog.actor, {
+				useShieldDie,
+				chat: true
+			});
+			dialog.#applied = true;
+			await dialog.close();
+		} catch ( err ) {
+			console.error("SW5E MODULE | Regen repair failed.", err);
+			ui.notifications?.error?.(localizeOrFallback(
+				"SW5E.StarshipSheet.RepairApplyFailed",
+				"Repair could not be applied."
+			));
+		}
+	}
+}
+
+export async function openRegenRepairDialog(actor) {
+	try {
+		return await StarshipRegenRepairDialog.open(actor);
 	} catch {
 		return null;
 	}

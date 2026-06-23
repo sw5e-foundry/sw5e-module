@@ -36,13 +36,14 @@ function buildFormulaLabel(entry = {}) {
 }
 
 export class StarshipSkillRollConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
-	constructor({ actor, entry, abilities, defaultRollMode, initialMode, forcedAdvantage }={}) {
+	constructor({ actor, entry, abilities, defaultRollMode, initialMode, forcedAdvantage, systemDamageNote }={}) {
 		super();
 		this.actor = actor;
 		this.entry = entry;
 		this.abilities = abilities ?? {};
 		this.defaultRollMode = defaultRollMode ?? game.settings.get("core", "rollMode");
 		this.forcedAdvantage = Boolean(forcedAdvantage);
+		this.systemDamageNote = systemDamageNote ?? "";
 		const advantage = CONFIG?.Dice?.D20Roll?.ADV_MODE?.ADVANTAGE ?? 1;
 		this.initialMode = this.forcedAdvantage ? advantage : (initialMode ?? (CONFIG?.Dice?.D20Roll?.ADV_MODE?.NORMAL ?? 0));
 		this.#result = new Promise(resolve => {
@@ -112,7 +113,8 @@ export class StarshipSkillRollConfigApp extends HandlebarsApplicationMixin(Appli
 			forcedAdvantage: this.forcedAdvantage,
 			isDefaultAdvantage: this.initialMode === advantage,
 			isDefaultNormal: this.initialMode === normal,
-			isDefaultDisadvantage: this.initialMode === disadvantage
+			isDefaultDisadvantage: this.initialMode === disadvantage,
+			systemDamageNote: this.systemDamageNote
 		};
 	}
 

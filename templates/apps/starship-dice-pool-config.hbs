@@ -1,0 +1,27 @@
+<form class="flexcol sw5e-starship-dice-pool-config-form">
+  <fieldset>
+    <div class="form-group" data-pool="{{poolKey}}">
+      <label>{{labels.current}}{{#if die}} ({{die}}){{/if}}</label>
+      <div class="form-fields">
+        <button type="button" class="unbutton control-button middle" data-action="decrease"
+                aria-label="{{labels.decrease}}">
+          <i class="fa-solid fa-minus" inert></i>
+        </button>
+        <input type="number" name="current" value="{{current}}" min="0" max="{{max}}" step="1">
+        <span class="separator">/</span>
+        <span class="max">{{max}}</span>
+        <button type="button" class="unbutton control-button middle" data-action="increase"
+                aria-label="{{labels.increase}}">
+          <i class="fa-solid fa-plus" inert></i>
+        </button>
+      </div>
+    </div>
+  </fieldset>
+
+  <footer class="form-footer">
+    <button type="submit" class="dialog-button default">
+      <i class="fas fa-save" inert></i>
+      <span>{{labels.save}}</span>
+    </button>
+  </footer>
+</form>

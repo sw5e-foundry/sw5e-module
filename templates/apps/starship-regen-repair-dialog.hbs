@@ -1,0 +1,12 @@
+<section class="flexcol">
+  <div class="note info">{{hint}}</div>
+
+  <fieldset>
+    <legend>{{localize "SW5E.StarshipSheet.RegenConfigurationLegend"}}</legend>
+    {{ formField expendShieldDieField name="expendShieldDie" value=config.expendShieldDie input=inputs.createCheckboxInput rootId=partId }}
+    {{#unless canExpendShieldDie}}
+    <p class="notes">{{expendShieldDieDisabledReason}}</p>
+    {{/unless}}
+    <p class="hint">{{powerRecoveryHint}}</p>
+  </fieldset>
+</section>

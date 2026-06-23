@@ -1,0 +1,113 @@
+<div class="sw5e-starship-sidebar-vitals-inner">
+  {{!-- Hull Points — primary/tall meter --}}
+  <div class="meter-group sw5e-starship-vital-meter sw5e-starship-vital-meter--primary">
+    <div class="label roboto-condensed-upper">
+      <span>{{labels.hullPoints}}</span>
+      {{#if sheetEditMode}}
+      <button type="button" class="config-button unbutton" data-sw5e-vital-config="hullPoints"
+              data-tooltip="SW5E.StarshipVitalConfig.ConfigureHullPoints"
+              aria-label="{{labels.configureHullPoints}}">
+        <i class="fas fa-cog" inert></i>
+      </button>
+      {{/if}}
+    </div>
+    <div class="meter sectioned hit-points sw5e-starship-hull-meter">
+      <div class="progress hit-points sw5e-starship-vital-play-meter" role="meter"
+           aria-valuemin="0" aria-valuenow="{{vitals.hull.value}}" aria-valuemax="{{vitals.hull.max}}"
+           style="--bar-percentage: {{vitals.hull.pct}}%">
+        <div class="label">
+          <span class="value">{{vitals.hull.value}}</span>
+          <span class="separator" aria-hidden="true">/</span>
+          <span class="max">{{vitals.hull.max}}</span>
+        </div>
+        {{#unless sheetEditMode}}
+        <input type="text" class="sw5e-starship-vital-inline-input" data-sw5e-vital-path="system.attributes.hp.value"
+               data-dtype="Number" inputmode="numeric" pattern="^[+=\-]?\d*" placeholder="0"
+               value="{{vitals.hull.value}}" hidden aria-label="{{labels.hullPoints}}" />
+        {{/unless}}
+      </div>
+    </div>
+  </div>
+
+  {{!-- Shield Points --}}
+  <div class="meter-group sw5e-starship-vital-meter sw5e-starship-vital-meter--compact">
+    <div class="label roboto-condensed-upper">
+      <span>{{labels.shieldPoints}}</span>
+      {{#if sheetEditMode}}
+      <button type="button" class="config-button unbutton" data-sw5e-vital-config="shieldPoints"
+              data-tooltip="SW5E.StarshipVitalConfig.ConfigureShieldPoints"
+              aria-label="{{labels.configureShieldPoints}}">
+        <i class="fas fa-cog" inert></i>
+      </button>
+      {{/if}}
+    </div>
+    <div class="meter sectioned sw5e-starship-shield-meter">
+      <div class="progress hit-points sw5e-starship-vital-play-meter" role="meter"
+           aria-valuemin="0" aria-valuenow="{{vitals.shield.value}}" aria-valuemax="{{vitals.shield.max}}"
+           style="--bar-percentage: {{vitals.shield.pct}}%">
+        <div class="label">
+          <span class="value">{{vitals.shield.value}}</span>
+          <span class="separator" aria-hidden="true">/</span>
+          <span class="max">{{vitals.shield.max}}</span>
+        </div>
+        {{#unless sheetEditMode}}
+        <input type="text" class="sw5e-starship-vital-inline-input" data-sw5e-vital-path="system.attributes.hp.temp"
+               data-dtype="Number" inputmode="numeric" pattern="^[+=\-]?\d*" placeholder="0"
+               value="{{vitals.shield.value}}" hidden aria-label="{{labels.shieldPoints}}" />
+        {{/unless}}
+      </div>
+    </div>
+  </div>
+
+  {{!-- Hull Dice --}}
+  <div class="meter-group sw5e-starship-vital-meter sw5e-starship-vital-meter--compact">
+    <div class="label roboto-condensed-upper">
+      <span>{{labels.hullDice}}</span>
+      {{#if sheetEditMode}}
+      <button type="button" class="config-button unbutton" data-sw5e-vital-config="hullDice"
+              data-tooltip="SW5E.StarshipVitalConfig.ConfigureHullDice"
+              aria-label="{{labels.configureHullDice}}">
+        <i class="fas fa-cog" inert></i>
+      </button>
+      {{/if}}
+    </div>
+    <div class="meter hit-dice progress sw5e-starship-hull-dice-meter" role="meter"
+         aria-valuemin="0" aria-valuenow="{{vitals.hullDice.current}}" aria-valuemax="{{vitals.hullDice.max}}"
+         style="--bar-percentage: {{vitals.hullDice.pct}}%">
+      <div class="label">
+        <span class="value">{{vitals.hullDice.current}}</span>
+        <span class="separator" aria-hidden="true">/</span>
+        <span class="max">{{vitals.hullDice.max}}</span>
+        {{#if vitals.hullDice.die}}
+        <span class="die">{{vitals.hullDice.die}}</span>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  {{!-- Shield Dice --}}
+  <div class="meter-group sw5e-starship-vital-meter sw5e-starship-vital-meter--compact">
+    <div class="label roboto-condensed-upper">
+      <span>{{labels.shieldDice}}</span>
+      {{#if sheetEditMode}}
+      <button type="button" class="config-button unbutton" data-sw5e-vital-config="shieldDice"
+              data-tooltip="SW5E.StarshipVitalConfig.ConfigureShieldDice"
+              aria-label="{{labels.configureShieldDice}}">
+        <i class="fas fa-cog" inert></i>
+      </button>
+      {{/if}}
+    </div>
+    <div class="meter hit-dice progress sw5e-starship-shield-dice-meter" role="meter"
+         aria-valuemin="0" aria-valuenow="{{vitals.shieldDice.current}}" aria-valuemax="{{vitals.shieldDice.max}}"
+         style="--bar-percentage: {{vitals.shieldDice.pct}}%">
+      <div class="label">
+        <span class="value">{{vitals.shieldDice.current}}</span>
+        <span class="separator" aria-hidden="true">/</span>
+        <span class="max">{{vitals.shieldDice.max}}</span>
+        {{#if vitals.shieldDice.die}}
+        <span class="die">{{vitals.shieldDice.die}}</span>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

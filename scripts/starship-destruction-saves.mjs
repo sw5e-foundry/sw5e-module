@@ -3,6 +3,8 @@ import {
 	getLegacyStarshipActorSystem,
 	persistStarshipLegacyAttributePath
 } from "./starship-data.mjs";
+import { incrementStarshipSystemDamageLevel } from "./starship-system-damage.mjs";
+import { isSw5eStarshipActor } from "./patch/starship-movement.mjs";
 
 const DESTRUCTION_SAVE_TARGET = 10;
 const DESTRUCTION_SAVE_TRACK_MAX = 3;
@@ -117,7 +119,7 @@ export function buildDestructionSaveSidebarContext(actor, options = {}) {
 
 function getDestructionSaveRollParts(actor) {
 	const globalBonuses = actor?.system?.bonuses?.abilities ?? {};
-	const parts = ["1d20"];
+	const parts = [];
 	const rollData = actor?.getRollData?.() ?? {};
 	if ( globalBonuses.save ) {
 		parts.push("@saveBonus");
@@ -127,13 +129,100 @@ function getDestructionSaveRollParts(actor) {
 			rollData.saveBonus = globalBonuses.save;
 		}
 	}
-	return { parts: parts.join(" + "), rollData };
+	return { parts, rollData };
 }
 
 function getD20NaturalResult(roll) {
 	const die = roll?.dice?.[0];
 	const result = die?.results?.[0]?.result ?? die?.results?.[0]?.value;
 	return Number.isFinite(Number(result)) ? Number(result) : null;
+}
+
+function resolveIncomingHullValue(doc, changed) {
+	const paths = [
+		"system.attributes.hp.value",
+		"flags.sw5e.legacyStarshipActor.system.attributes.hp.value"
+	];
+	for ( const path of paths ) {
+		if ( foundry.utils.hasProperty(changed, path) ) {
+			return Math.max(0, Math.trunc(Number(foundry.utils.getProperty(changed, path)) || 0));
+		}
+	}
+	return getStarshipHullValue(doc);
+}
+
+function onStarshipDestructionSavePreUpdateActor(doc, changed, options) {
+	if ( !isSw5eStarshipActor(doc) ) return;
+	const priorHull = getStarshipHullValue(doc);
+	const nextHull = resolveIncomingHullValue(doc, changed);
+	if ( priorHull <= 0 && nextHull > 0 ) {
+		options.sw5eResetDestructionSavesOnHullRecovery = true;
+	}
+}
+
+async function onStarshipDestructionSaveUpdateActor(doc, changed, options) {
+	if ( !options?.sw5eResetDestructionSavesOnHullRecovery ) return;
+	if ( !isSw5eStarshipActor(doc) ) return;
+	const death = getStarshipDeathCounters(doc);
+	if ( death.success === 0 && death.failure === 0 ) return;
+	await resetStarshipDestructionSaves(doc);
+}
+
+export function registerStarshipDestructionSaveHooks() {
+	Hooks.on("preUpdateActor", onStarshipDestructionSavePreUpdateActor);
+	Hooks.on("updateActor", onStarshipDestructionSaveUpdateActor);
+}
+
+async function applyDestructionSaveRollResult(actor, roll, rollMode) {
+	const death = getStarshipDeathCounters(actor);
+	const natural = getD20NaturalResult(roll);
+	const isCritical = natural === 20;
+	const isFumble = natural === 1;
+	const updates = [];
+	let chatString = null;
+
+	if ( isCritical ) {
+		updates.push(["system.attributes.death.success", 0]);
+		updates.push(["system.attributes.death.failure", 0]);
+		updates.push(["system.attributes.hp.value", 1]);
+		chatString = "SW5E.DestructionSaveCriticalSuccess";
+	} else if ( isFumble ) {
+		const failures = Math.min(
+			DESTRUCTION_SAVE_TRACK_MAX,
+			death.failure + 2
+		);
+		updates.push(["system.attributes.death.failure", failures]);
+		await incrementStarshipSystemDamageLevel(actor, 2);
+	} else if ( roll.total >= DESTRUCTION_SAVE_TARGET ) {
+		const successes = death.success + 1;
+		if ( successes >= DESTRUCTION_SAVE_TRACK_MAX ) {
+			updates.push(["system.attributes.death.success", 0]);
+			updates.push(["system.attributes.death.failure", 0]);
+			chatString = "SW5E.DestructionSaveSuccess";
+		} else {
+			updates.push(["system.attributes.death.success", successes]);
+		}
+	} else {
+		const failures = Math.min(
+			DESTRUCTION_SAVE_TRACK_MAX,
+			death.failure + 1
+		);
+		updates.push(["system.attributes.death.failure", failures]);
+		await incrementStarshipSystemDamageLevel(actor, 1);
+	}
+
+	if ( updates.length ) {
+		await actor.update(buildStarshipLegacyAttributeBatchMirrorUpdate(updates));
+	}
+
+	if ( chatString ) {
+		const chatData = {
+			content: localizeOrFallback(chatString, chatString, { name: actor.name }),
+			speaker: ChatMessage.getSpeaker({ actor })
+		};
+		ChatMessage.applyRollMode(chatData, rollMode);
+		await ChatMessage.create(chatData);
+	}
 }
 
 export async function rollStarshipDestructionSave(actor) {
@@ -150,64 +239,44 @@ export async function rollStarshipDestructionSave(actor) {
 	}
 
 	const { parts, rollData } = getDestructionSaveRollParts(actor);
-	const flavor = localizeOrFallback("SW5E.DestructionSavingThrow", "Destruction Saving Throw");
-	const defaultRollMode = game.settings.get("core", "rollMode");
-	const roll = new CONFIG.Dice.D20Roll(parts, rollData, {
-		flavor: `${flavor}: ${actor.name}`,
+	const dialogTitle = localizeOrFallback("SW5E.DestructionSaveRollDialogTitle", "Destruction Save");
+
+	const rollConfig = {
 		target: DESTRUCTION_SAVE_TARGET,
-		defaultRollMode,
-		rollMode: defaultRollMode
-	});
+		hookNames: ["destructionSave"],
+		subject: actor,
+		rolls: [
+			CONFIG.Dice.D20Roll.mergeConfigs({
+				parts,
+				data: rollData,
+				options: { target: DESTRUCTION_SAVE_TARGET }
+			})
+		]
+	};
 
-	await roll.evaluate();
-	await roll.toMessage({
-		speaker: ChatMessage.getSpeaker({ actor }),
-		flavor,
-		flags: { sw5e: { roll: { type: "destruction" } } }
-	});
-
-	const natural = getD20NaturalResult(roll);
-	const isCritical = natural === 20;
-	const isFumble = natural === 1;
-	const updates = [];
-	let chatString = null;
-
-	if ( roll.total >= DESTRUCTION_SAVE_TARGET ) {
-		const successes = death.success + 1;
-		if ( isCritical ) {
-			updates.push(["system.attributes.death.success", 0]);
-			updates.push(["system.attributes.death.failure", 0]);
-			updates.push(["system.attributes.hp.value", 1]);
-			chatString = "SW5E.DestructionSaveCriticalSuccess";
-		} else if ( successes >= DESTRUCTION_SAVE_TRACK_MAX ) {
-			updates.push(["system.attributes.death.success", 0]);
-			updates.push(["system.attributes.death.failure", 0]);
-			chatString = "SW5E.DestructionSaveSuccess";
-		} else {
-			updates.push(["system.attributes.death.success", successes]);
+	const dialogConfig = {
+		options: {
+			window: {
+				title: dialogTitle,
+				subtitle: actor.name
+			}
 		}
-	} else {
-		const failures = Math.min(
-			DESTRUCTION_SAVE_TRACK_MAX,
-			death.failure + (isFumble ? 2 : 1)
-		);
-		updates.push(["system.attributes.death.failure", failures]);
-		if ( failures >= DESTRUCTION_SAVE_TRACK_MAX ) chatString = "SW5E.DestructionSaveFailure";
-	}
+	};
 
-	if ( updates.length ) {
-		await actor.update(buildStarshipLegacyAttributeBatchMirrorUpdate(updates));
-	}
+	const messageConfig = {
+		data: {
+			speaker: ChatMessage.getSpeaker({ actor }),
+			flavor: dialogTitle,
+			flags: { sw5e: { roll: { type: "destruction" } } }
+		}
+	};
 
-	if ( chatString ) {
-		const chatData = {
-			content: localizeOrFallback(chatString, chatString, { name: actor.name }),
-			speaker: ChatMessage.getSpeaker({ actor })
-		};
-		ChatMessage.applyRollMode(chatData, defaultRollMode);
-		await ChatMessage.create(chatData);
-	}
+	const rolls = await CONFIG.Dice.D20Roll.build(rollConfig, dialogConfig, messageConfig);
+	if ( !rolls?.length ) return null;
 
+	const roll = rolls[0];
+	const rollMode = messageConfig.rollMode ?? game.settings.get("core", "rollMode");
+	await applyDestructionSaveRollResult(actor, roll, rollMode);
 	return roll;
 }
 
