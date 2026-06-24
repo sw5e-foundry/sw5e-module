@@ -20,6 +20,7 @@ import {
 import { recoverStarshipPowerDice } from "../starship-power-recovery.mjs";
 import { openRechargeRepairDialog, openRefittingRepairDialog, openRegenRepairDialog } from "../starship-repair.mjs";
 import { shouldShowStarshipPowerRouting, isLegacyPowerRoutingOverrideEnabled, STARSHIP_LEGACY_POWER_ROUTING_FLAG } from "../starship-routing-gate.mjs";
+import { isStarshipWeaponItem } from "../starship-weapon-rolls.mjs";
 import {
 	buildDestructionSaveSidebarContext,
 	resetStarshipDestructionSaves,
@@ -4092,71 +4093,8 @@ function focusSheetItem(root, app, itemId, tabId = STOCK_CARGO_TAB_ID) {
 	}, 50);
 }
 
-function isStarshipWeaponItem(item) {
-	if ( item?.type !== "weapon" ) return false;
-	const typeValue = item.system?.type?.value ?? "";
-	return /starship/i.test(typeValue) || getCompendiumPack(item) === "starshipweapons";
-}
-
-function getStarshipWeaponRollData(actor, item) {
-	const rollData = foundry.utils.deepClone(actor?.getRollData?.() ?? {});
-	if ( !item?.system?.ability && isStarshipWeaponItem(item) ) {
-		const wisdomMod = Number.isFinite(Number(actor?.system?.abilities?.wis?.mod))
-			? Number(actor.system.abilities.wis.mod)
-			: 0;
-		rollData.mod = wisdomMod;
-	}
-	return rollData;
-}
-
-async function rollStarshipWeaponDamage(item, actor, multiplier = 1) {
-	const damageParts = Array.isArray(item?.system?.damage?.parts) ? item.system.damage.parts : [];
-	if ( !damageParts.length ) {
-		if ( typeof item?.use === "function" ) await item.use();
-		return;
-	}
-
-	const rollData = getStarshipWeaponRollData(actor, item);
-	const formula = damageParts
-		.map(([part]) => {
-			if ( multiplier === 2 ) return `(${part}) * 2`;
-			if ( multiplier === 0.5 ) return `floor((${part}) / 2)`;
-			return part;
-		})
-		.join(" + ");
-	const damageTypes = damageParts.map(([, type]) => type).filter(Boolean);
-	const roll = new CONFIG.Dice.DamageRoll(formula, rollData, {});
-	await roll.evaluate();
-	const routingNote = multiplier === 2
-		? localizeOrFallback("SW5E.PowerRoutingWeaponsPositive", "Weapons deal double damage")
-		: multiplier === 0.5
-			? localizeOrFallback("SW5E.PowerRoutingWeaponsNegative", "Ship weapon damage is reduced by half")
-			: "";
-	const typeLabel = damageTypes
-		.map(type => CONFIG.DND5E?.damageTypes?.[type]?.label ?? CONFIG.DND5E?.damageTypes?.[type] ?? type)
-		.join(", ");
-	await roll.toMessage({
-		speaker: ChatMessage.getSpeaker({ actor }),
-		flavor: [item.name, typeLabel ? `(${typeLabel})` : "", routingNote].filter(Boolean).join(" ")
-	});
-}
-
 async function useStarshipItem(item, actor = item?.actor, event) {
 	if ( !item ) return;
-	if ( actor && isStarshipWeaponItem(item) ) {
-		const weaponRouting = getDerivedStarshipRuntime(actor).routing?.weaponsMultiplier ?? 1;
-		if ( weaponRouting !== 1 ) {
-			if ( typeof item.rollAttack === "function" ) {
-				try {
-					await item.rollAttack({ event });
-				} catch ( err ) {
-					console.warn("SW5E MODULE | Failed starship weapon attack roll.", err);
-				}
-			}
-			await rollStarshipWeaponDamage(item, actor, weaponRouting);
-			return;
-		}
-	}
 
 	const methods = ["use", "roll", "displayCard", "toMessage"];
 	for ( const method of methods ) {

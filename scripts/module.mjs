@@ -17,6 +17,7 @@ import { registerStarshipMovementReadyHooks } from "./patch/starship-movement.mj
 import { patchStarshipMovementSensesConfig } from "./starship-movement-config.mjs";
 import { patchStarshipSheet } from "./patch/starship-sheet.mjs";
 import { registerStarshipSystemDamageRollHooks } from "./starship-system-damage.mjs";
+import { registerStarshipWeaponRollHooks } from "./starship-weapon-rolls.mjs";
 import { registerStarshipDestructionSaveHooks } from "./starship-destruction-saves.mjs";
 import { patchAugmentationsSheet } from "./patch/augmentations-sheet.mjs";
 import { patchDroidCustomizationsSheet } from "./patch/droid-customizations-sheet.mjs";
@@ -100,6 +101,7 @@ Hooks.once('init', async function() {
 	registerStarshipMovementReadyHooks();
 	patchStarshipMovementSensesConfig();
 	registerStarshipSystemDamageRollHooks();
+	registerStarshipWeaponRollHooks();
 	registerStarshipDestructionSaveHooks();
 	patchStarshipSheet();
 	patchAugmentationsSheet();
