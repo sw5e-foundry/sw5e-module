@@ -10,7 +10,6 @@ import {
 } from "./patch/proficiency.mjs";
 import { resolveStarshipPowerRoutingState } from "./starship-routing-gate.mjs";
 import {
-	applyStarshipSystemDamageAttackSaveAdvantageDefault,
 	applyStarshipSystemDamageSkillCheckAdvantageDefault,
 	applyStarshipSlowedToSpeed,
 	buildStarshipSystemDamageAttackSaveFlavorNote,
@@ -20,6 +19,7 @@ import {
 	isStarshipSystemDamageSkillCheckDisadvantageRoll,
 	resolveStarshipSlowedLevel
 } from "./starship-system-damage.mjs";
+import { resolveStarshipDefaultAdvantageMode, postStarshipSaveAutoFailMessage, shouldStarshipSaveAutoFail } from "./starship-roll-modifiers.mjs";
 
 const LEGACY_STARSHIP_PACKS = new Set([
 	"starshipactions",
@@ -1569,9 +1569,21 @@ function buildStarshipAbilityRollFormula(actor, abilityId, entry, mode) {
 	return { formula, rollData };
 }
 
+async function resolveStarshipAbilitySaveAutoFail(actor, abilityId) {
+	if ( !shouldStarshipSaveAutoFail(actor, abilityId) ) return null;
+	const entry = getStarshipAbilityRollEntry(actor, abilityId);
+	if ( !entry ) return null;
+	return postStarshipSaveAutoFailMessage(actor, entry.label);
+}
+
 async function executeStarshipAbilityRoll(actor, abilityId, mode, event) {
 	const entry = getStarshipAbilityRollEntry(actor, abilityId);
 	if ( !entry ) return null;
+
+	if ( mode === "save" ) {
+		const autoFail = await resolveStarshipAbilitySaveAutoFail(actor, abilityId);
+		if ( autoFail ) return autoFail;
+	}
 
 	const { formula, rollData } = buildStarshipAbilityRollFormula(actor, abilityId, entry, mode);
 	const defaultRollMode = game.settings.get("core", "rollMode");
@@ -1579,9 +1591,8 @@ async function executeStarshipAbilityRoll(actor, abilityId, mode, event) {
 		? localizeWithFallback("SW5E.ActionSave", "Saving Throw")
 		: localizeWithFallback("SW5E.ActionAbil", "Ability Check");
 	const baseAdvantageMode = getStarshipAdvantageMode(event);
-	const advantageMode = mode === "save"
-		? applyStarshipSystemDamageAttackSaveAdvantageDefault(actor, baseAdvantageMode)
-		: baseAdvantageMode;
+	const rollKind = mode === "save" ? "save" : "check";
+	const advantageMode = resolveStarshipDefaultAdvantageMode({ actor, rollKind, baseMode: baseAdvantageMode });
 	const systemDamageNote = mode === "save" ? buildStarshipSystemDamageAttackSaveFlavorNote(actor) : "";
 	const roll = new CONFIG.Dice.D20Roll(formula, rollData, {
 		flavor: `${actor.name}: ${entry.label} ${rollLabel}`,
@@ -1628,6 +1639,8 @@ export async function rollStarshipAbilityCheck(actor, abilityId, event) {
  */
 export async function rollStarshipAbilitySave(actor, abilityId, event) {
 	if ( !abilityId ) return null;
+	const autoFail = await resolveStarshipAbilitySaveAutoFail(actor, abilityId);
+	if ( autoFail ) return autoFail;
 	if ( typeof actor?.rollSavingThrow === "function" ) {
 		try {
 			return await actor.rollSavingThrow({ ability: abilityId, event });

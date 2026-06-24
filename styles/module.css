@@ -15221,6 +15221,41 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-stars
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition.active:is(:hover, :focus-visible) {
   --icon-fill: currentColor;
 }
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-used .fa-solid.fa-toggle-off,
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-used .fa-solid.fa-toggle-on {
+  display: none;
+}
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-slowed .fa-solid.fa-toggle-off,
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-slowed .fa-solid.fa-toggle-on {
+  display: none;
+}
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-slowed .sw5e-starship-slowed-levels {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.2rem;
+  margin-inline-start: auto;
+}
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-slowed .sw5e-starship-slowed-level {
+  min-width: 1.35rem;
+  padding: 0.1rem 0.25rem;
+  border: 1px solid var(--sw5e-theme-border, var(--color-border-light-2));
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--font-size-12);
+  line-height: 1.2;
+  cursor: pointer;
+}
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-slowed .sw5e-starship-slowed-level:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-slowed .sw5e-starship-slowed-level.active {
+  font-weight: 700;
+  border-color: currentColor;
+}
 /* Item sheet — Modification Chassis compact panel (theme polish) */
 /*
  * Global chip styling in theme-overrides.less / underworld-overrides.less:

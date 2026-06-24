@@ -40,8 +40,10 @@ import { openStarshipVitalConfig } from "../starship-vital-config.mjs";
 import {
 	registerStarshipConditionStatusEffectHooks,
 	registerStarshipEffectsConditionPresentation,
-	registerStarshipEffectsContextWrapper
+	registerStarshipEffectsContextWrapper,
+	registerStarshipEffectsSlowedToggleGuard
 } from "../starship-conditions.mjs";
+import { registerStarshipTokenStatusHooks } from "../starship-token-status.mjs";
 /**
  * dnd5e pack asset — used only for on-sheet display when art is missing or fails to load (not persisted to actors).
  * @see https://github.com/foundryvtt/dnd5e — `icons/svg/actors/vehicle.svg`
@@ -4746,8 +4748,10 @@ async function renderStarshipLayer(app, html, data) {
 
 export function patchStarshipSheet() {
 	registerStarshipConditionStatusEffectHooks();
+	registerStarshipTokenStatusHooks();
 	registerStarshipEffectsContextWrapper();
 	registerStarshipEffectsConditionPresentation();
+	registerStarshipEffectsSlowedToggleGuard();
 	registerStarshipFeaturesTabPart();
 	registerStarshipTabsContextWrapper();
 	registerStarshipVehicleSheetShowAbilitiesDefault();

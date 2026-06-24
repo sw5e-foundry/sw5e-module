@@ -1,4 +1,11 @@
-import { getStarshipConditionSlowedContribution } from "./starship-conditions.mjs";
+import { getStarshipConditionSlowedContribution, getStarshipExplicitSlowedLevel } from "./starship-conditions.mjs";
+import {
+	applyStarshipResolvedAdvantageModeToRollConfig,
+	getStarshipRollBaseAdvantageModeFromConfig,
+	resolveIncomingAttackTargetActors,
+	resolveStarshipAttackRollAdvantageMode,
+	resolveStarshipDefaultAdvantageMode
+} from "./starship-roll-modifiers.mjs";
 import {
 	getLegacyStarshipActorSystem,
 	isStarshipFlagVehicle,
@@ -96,12 +103,7 @@ export function appliesStarshipSystemDamageSkillCheckDisadvantage(actor) {
 
 /** Default disadvantage when System Damage >= 1; preserves explicit adv/dis from event modifiers. */
 export function applyStarshipSystemDamageSkillCheckAdvantageDefault(actor, advantageMode) {
-	if ( !appliesStarshipSystemDamageSkillCheckDisadvantage(actor) ) return advantageMode;
-	const modes = CONFIG?.Dice?.D20Roll?.ADV_MODE ?? {};
-	const normal = modes.NORMAL ?? 0;
-	const disadvantage = modes.DISADVANTAGE ?? -1;
-	if ( advantageMode === normal ) return disadvantage;
-	return advantageMode;
+	return resolveStarshipDefaultAdvantageMode({ actor, rollKind: "check", baseMode: advantageMode });
 }
 
 export function buildStarshipSystemDamageSkillCheckFlavorNote(actor) {
@@ -127,12 +129,7 @@ export function appliesStarshipSystemDamageAttackSaveDisadvantage(actor) {
 
 /** Default disadvantage when System Damage >= 3; preserves explicit adv/dis from event modifiers. */
 export function applyStarshipSystemDamageAttackSaveAdvantageDefault(actor, advantageMode) {
-	if ( !appliesStarshipSystemDamageAttackSaveDisadvantage(actor) ) return advantageMode;
-	const modes = CONFIG?.Dice?.D20Roll?.ADV_MODE ?? {};
-	const normal = modes.NORMAL ?? 0;
-	const disadvantage = modes.DISADVANTAGE ?? -1;
-	if ( advantageMode === normal ) return disadvantage;
-	return advantageMode;
+	return resolveStarshipDefaultAdvantageMode({ actor, rollKind: "save", baseMode: advantageMode });
 }
 
 export function buildStarshipSystemDamageAttackSaveFlavorNote(actor) {
@@ -149,51 +146,57 @@ export function isStarshipSystemDamageAttackSaveDisadvantageRoll(actor, advantag
 	return advantageMode === disadvantage;
 }
 
-function getDnd5eRollEventKeyModifiers(event) {
-	const areKeysPressed = globalThis.dnd5e?.utils?.areKeysPressed;
-	if ( typeof areKeysPressed === "function" ) {
-		return {
-			advantage: areKeysPressed(event, "skipDialogAdvantage"),
-			disadvantage: areKeysPressed(event, "skipDialogDisadvantage")
-		};
+function isStarshipAbilityCheckRollConfig(config) {
+	return (config?.hookNames ?? []).includes("AbilityCheck");
+}
+
+function onStarshipRollModifierPreRoll(config, dialog, message) {
+	const actor = resolveRollConfigActor(config);
+	if ( !actor ) return;
+
+	if ( isStarshipAttackRollConfig(config) ) {
+		const starshipTargets = resolveIncomingAttackTargetActors();
+		const attackerIsStarship = isStarshipFlagVehicle(actor);
+		if ( !attackerIsStarship && starshipTargets.length === 0 ) return;
+
+		const baseMode = getStarshipRollBaseAdvantageModeFromConfig(config);
+		const resolvedMode = resolveStarshipAttackRollAdvantageMode({
+			attacker: attackerIsStarship ? actor : null,
+			targetActors: starshipTargets,
+			baseMode
+		});
+		if ( !applyStarshipResolvedAdvantageModeToRollConfig(config, resolvedMode) ) return;
+
+		const disadvantage = CONFIG?.Dice?.D20Roll?.ADV_MODE?.DISADVANTAGE ?? -1;
+		if ( resolvedMode === disadvantage
+			&& attackerIsStarship
+			&& appliesStarshipSystemDamageAttackSaveDisadvantage(actor) ) {
+			config.sw5eStarshipSystemDamageAttackSave = true;
+			appendStarshipSystemDamageAttackSaveDialogNote(dialog, actor);
+		}
+		return;
 	}
-	return {
-		advantage: Boolean(event?.altKey),
-		disadvantage: Boolean(event?.ctrlKey || event?.metaKey)
-	};
-}
 
-function shouldDefaultStarshipSystemDamageRollDisadvantage(config = {}) {
-	if ( config.advantage ) return false;
-	const keys = getDnd5eRollEventKeyModifiers(config.event);
-	if ( keys.advantage ) return false;
-	for ( const roll of config.rolls ?? [] ) {
-		if ( roll?.options?.advantage ) return false;
+	if ( !isStarshipFlagVehicle(actor) ) return;
+
+	let rollKind = null;
+	if ( isStarshipSavingThrowRollConfig(config) ) rollKind = "save";
+	else if ( isStarshipAbilityCheckRollConfig(config) ) rollKind = "check";
+	else return;
+
+	const baseMode = getStarshipRollBaseAdvantageModeFromConfig(config);
+	const resolvedMode = resolveStarshipDefaultAdvantageMode({ actor, rollKind, baseMode });
+	if ( !applyStarshipResolvedAdvantageModeToRollConfig(config, resolvedMode) ) return;
+
+	const disadvantage = CONFIG?.Dice?.D20Roll?.ADV_MODE?.DISADVANTAGE ?? -1;
+	if ( rollKind === "save"
+		&& resolvedMode === disadvantage
+		&& appliesStarshipSystemDamageAttackSaveDisadvantage(actor) ) {
+		config.sw5eStarshipSystemDamageAttackSave = true;
+		appendStarshipSystemDamageAttackSaveDialogNote(dialog, actor);
 	}
-	return true;
 }
 
-function applyStarshipSystemDamageD20RollDisadvantageConfig(actor, config = {}) {
-	if ( !appliesStarshipSystemDamageAttackSaveDisadvantage(actor) ) return false;
-	if ( !shouldDefaultStarshipSystemDamageRollDisadvantage(config) ) return false;
-	config.disadvantage = true;
-	config.sw5eStarshipSystemDamageAttackSave = true;
-	for ( const roll of config.rolls ?? [] ) {
-		roll.options ??= {};
-		if ( !roll.options.advantage ) roll.options.disadvantage = true;
-	}
-	return true;
-}
-
-/** Apply Level 3 default disadvantage to a dnd5e attack roll configuration object. */
-export function applyStarshipSystemDamageAttackDisadvantageDefault(actor, rollOptions = {}) {
-	return applyStarshipSystemDamageD20RollDisadvantageConfig(actor, rollOptions);
-}
-
-/** Apply Level 3 default disadvantage to a dnd5e saving throw configuration object. */
-export function applyStarshipSystemDamageSaveDisadvantageDefault(actor, rollOptions = {}) {
-	return applyStarshipSystemDamageD20RollDisadvantageConfig(actor, rollOptions);
-}
 
 function resolveRollConfigActor(config) {
 	const subject = config?.subject;
@@ -231,14 +234,22 @@ function appendStarshipSystemDamageAttackSaveMessageFlavor(message, actor) {
 	foundry.utils.setProperty(message, "data.flavor", existing ? `${existing} — ${note}` : note);
 }
 
-function onStarshipSystemDamagePreRoll(config, dialog, message) {
-	const actor = resolveRollConfigActor(config);
-	if ( !actor || !isStarshipFlagVehicle(actor) ) return;
-	const isSave = isStarshipSavingThrowRollConfig(config);
-	const isAttack = isStarshipAttackRollConfig(config);
-	if ( !isSave && !isAttack ) return;
-	if ( !applyStarshipSystemDamageD20RollDisadvantageConfig(actor, config) ) return;
-	appendStarshipSystemDamageAttackSaveDialogNote(dialog, actor);
+/** Apply Level 3+ default roll modifiers to a dnd5e attack roll configuration object. */
+export function applyStarshipSystemDamageAttackDisadvantageDefault(actor, rollOptions = {}) {
+	const baseMode = getStarshipRollBaseAdvantageModeFromConfig(rollOptions);
+	const resolvedMode = resolveStarshipAttackRollAdvantageMode({
+		attacker: isStarshipFlagVehicle(actor) ? actor : null,
+		targetActors: resolveIncomingAttackTargetActors(),
+		baseMode
+	});
+	return applyStarshipResolvedAdvantageModeToRollConfig(rollOptions, resolvedMode);
+}
+
+/** Apply Level 3 default disadvantage to a dnd5e saving throw configuration object. */
+export function applyStarshipSystemDamageSaveDisadvantageDefault(actor, rollOptions = {}) {
+	const baseMode = getStarshipRollBaseAdvantageModeFromConfig(rollOptions);
+	const resolvedMode = resolveStarshipDefaultAdvantageMode({ actor, rollKind: "save", baseMode });
+	return applyStarshipResolvedAdvantageModeToRollConfig(rollOptions, resolvedMode);
 }
 
 function onStarshipSystemDamagePostRollConfiguration(rolls, config, message) {
@@ -279,10 +290,11 @@ async function onStarshipSystemDamageApplyDamage(actor, amount, options) {
 	await incrementStarshipSystemDamageLevel(actor, 1);
 }
 
-/** Register dnd5e roll hooks for System Damage Level 3 attack/save disadvantage. */
+/** Register dnd5e roll hooks for Starship roll modifier defaults (SD + conditions). */
 export function registerStarshipSystemDamageRollHooks() {
-	Hooks.on("dnd5e.preRollSavingThrow", onStarshipSystemDamagePreRoll);
-	Hooks.on("dnd5e.preRollAttack", onStarshipSystemDamagePreRoll);
+	Hooks.on("dnd5e.preRollSavingThrow", onStarshipRollModifierPreRoll);
+	Hooks.on("dnd5e.preRollAttack", onStarshipRollModifierPreRoll);
+	Hooks.on("dnd5e.preRollAbilityCheck", onStarshipRollModifierPreRoll);
 	Hooks.on("dnd5e.postRollConfiguration", onStarshipSystemDamagePostRollConfiguration);
 	Hooks.on("dnd5e.preApplyDamage", onStarshipSystemDamagePreApplyDamage);
 	Hooks.on("dnd5e.applyDamage", onStarshipSystemDamageApplyDamage);
@@ -348,9 +360,9 @@ export function getStarshipSlowedLevelFromSystemDamageLevel(systemDamageLevel) {
 	return clampStarshipSystemDamageLevel(systemDamageLevel) >= 2 ? 1 : 0;
 }
 
-/** Reserved for a future leveled Slowed tracker; returns 0 until that UI exists. */
-export function getExplicitStarshipSlowedLevel(_actor) {
-	return 0;
+/** Explicit manual Slowed level from Effects tab (flags.sw5e.starship.conditions.slowedLevel). */
+export function getExplicitStarshipSlowedLevel(actor) {
+	return getStarshipExplicitSlowedLevel(actor);
 }
 
 export function resolveEffectiveStarshipSlowedLevel(actor) {

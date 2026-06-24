@@ -1,12 +1,18 @@
 ## Changelog
 
-### [1.3.8] 2026-06-05
+### [1.3.8] 2026-06-24
 
 ### Added
 - **Underworld Alloy theme:** new theme mode with tokens, Foundry theme scoping, global dialog/app foundation styling, and themed PC/NPC actor sheets, item sheets, Starship sheets, chat/roll cards, and journal/datapad surfaces.
-- **Starship Core layout:** redesigned Core tab with Crew Management, Power Routing, and Fuel controls moved from the old Crew tab; improved crew action buttons and tooltips.
+- **Starship sheet layout:** primary tabs are now **Core | Inventory | Features | Effects | Description**; Inventory holds Weapons, Equipment, Modifications, and stock Loot/Cargo; Features holds Starship Actions and Systems; Modifications header shows slot and suite usage stats.
+- **Starship Core layout:** redesigned Core tab with Crew Management, Power Routing, and Fuel controls moved from the old Crew tab; collapsible Crew & Passengers, Fuel, and Power Die Allocation panels; Recharge, Refitting, and Regen repair workflows on Core.
 - **Starship movement:** registered Space Speed and Turning Speed movement modes; integrated Starships with the stock dnd5e Movement dialog; added stock-compatible **Use Derived** movement reset; fixed Starship token movement to use Space movement.
 - **Starship abilities:** ability config cog behavior, skill/ability save-tab roll behavior, and NPC/character-style ability cards on the Starship sheet.
+- **System Damage (levels 1–6):** disadvantage on Starship skill/ability checks (level 1+), slowed movement contribution (level 2+), outgoing attack/save disadvantage (level 3+), effective Hull/Shield/Regen caps (level 4+), Used latch (level 5+), and catastrophic helper state (level 6); System Damage sidebar pips and token icon sync when SD > 0.
+- **Destruction Saves:** stock dnd5e D20 roll configuration dialog; failure and natural 1 increment System Damage; natural 20 restores Hull to 1 and resets counters; three successes stabilize; sidebar tray at Hull 0.
+- **Starship conditions:** starship-only Effects condition grid with RAW tooltips; explicit Slowed level buttons (1–4); Used flag-backed control; condition-derived slowed movement stacking (Disabled/Stalled/Stunned/Tractored) with deduplication.
+- **Starship roll modifiers:** default outgoing disadvantage/advantage for Ionized, Blinded, and Invisible; incoming attack default advantage/disadvantage vs targeted Blinded/Stalled/Stunned/Invisible Starships; Stalled/Stunned STR/DEX save auto-fail (Destruction Saves unaffected).
+- **Token HUD / token icons:** starship-only status palette filtering; Used, Slowed 1–4, Cover, and System Damage display icons synced from flags/SD (display-only ActiveEffects, not source of truth).
 - **Chassis / item modifications:** compact collapsible Modification Chassis panel with slot cards, footer icon actions, and tooltips; clickable installed modification names that open the source item sheet; chassis install picker sourced from Enhanced Items → Item Modifications; drag/drop installation from compendiums and world items; installed mod effect aggregation with synthetic roll-time contribution from active hosts.
 - **Powercasting ability overrides:** generic per-school forcecasting ability override system for features such as Cunning Forcecaster; Configure Powercasting dialog from the Powers tab Edit-mode cog; Light/Dark casting ability and max force point ability overrides; Universal **Highest Effective Light/Dark** mode with **Fixed Ability** option; documented Active Effect / flag paths for overrides.
 - **Active Effects / automation:** force and tech power attack bonuses; force and tech save DC bonuses including ability-specific and save-target DC keys; melee/ranged power attack bonuses via `mpak`/`rpak`; `CONFIG.SW5E.powerBonusEffectKeys` registry; Superiority Dice max changes via `system.superiority.dice.max` with formula bonus support.
@@ -16,7 +22,9 @@
 - **Developer / internal:** migration and validation utilities for power-bonus and modification item effects; tests/utilities for `mpak`/`rpak` and installed-mod aggregation.
 
 ### Changed
-- **Starship sheet:** removed the legacy Crew tab (crew now on Core); removed the experimental Starship Sheet V2 preview shell; improved Starship sheet Light/Dark theme sync and select/dropdown normalization.
+- **Starship sheet:** removed the legacy Crew tab (crew now on Core); removed the experimental Starship Sheet V2 preview shell; removed sidebar Starship Systems summary card (Mod Slots/Suites); stock vehicle Features tab hidden in favor of dedicated Starship Features tab; improved Starship sheet Light/Dark theme sync and select/dropdown normalization; Patch and Regenerate Shields fall through to stock item use (custom compact recovery dialog removed).
+- **Starship repair:** Refitting optional Reduce System Damage applies before restore target calculation; Recharge and Refitting reset Destruction Saves; Regen does not reset Destruction Saves; SD level 4 caps Recharge/Refitting restore targets at effective max.
+- **Starship token status sync:** distinct embedded ActiveEffect IDs per synced status (fixes Slowed level icon swaps); fresh mutable options on embedded-document operations (fixes sync crash).
 - **Chassis install picker:** removed developer/debug metadata from normal browser rows; simplified compatibility badges and issue messaging.
 - **Equipment attunement:** restored Attunement controls on SW5E equipment item sheets for attunable items without the dnd5e magic property by deriving magic during preparation.
 - **Proficiency config:** kept dnd5e-facing `proficiencyLevels` string-shaped and moved SW5E tier metadata to `CONFIG.SW5E.proficiencyTiers`.
@@ -26,6 +34,10 @@
 
 ### Fixed
 - **Starship:** non-starship vehicles no longer show Space/Turn movement fields; save-tab roll markup and overlap issues on the Starship sheet.
+- **Starship token status sync:** `Cannot add property parent, object is not extensible` when toggling Used/Slowed/System Damage statuses.
+- **Starship Effects tab:** display-only sync ActiveEffects no longer appear in the generic Active Effects list.
+- **Destruction Saves:** roll formula corrected to single `1d20` (not double d20); stale three-failure destroy wording removed.
+- **Starship UI polish:** condition hover styling; destruction save dialog parity; shield meter fill; sidebar vital meter placement.
 - **Startup / compatibility:** early libWrapper registration for Starship movement; dnd5e pre-localization error for Space/Turn movement type registration; Mastery proficiency config localization startup/render errors.
 - **Cybernetics dialog:** selector compilation issue that blocked SW5E Light theming; readability of installed augmentation cards, install area, buttons, scrollbars, and metadata.
 - **Chassis UI:** installed modification name styling no longer inherits global button slab styling.
@@ -41,6 +53,11 @@
 - Bumped `needsMigrationVersion` to `0.38` so updated worlds recognize this release.
 - No destructive actor/item migration is required for this bump.
 - New or updated compendium source Active Effects require a compendium rebuild/import to appear in packed data.
+- Starship sheet, condition, System Damage, and token icon sync behavior applies at runtime on existing vehicle-backed starship actors.
+
+### Testing
+- `npm run lint` passed; `npm run build:styles` passed.
+- Release-prep QA on B-wing starship (sheet tabs, sidebar, Effects grid, Token HUD, Slowed icon swap, Used/SD icons) documented in `ai/sessions/2026-06-24-starship-release-prep-qa.md`.
 
 ### [1.3.7] 2026-06-04
 ### Added
