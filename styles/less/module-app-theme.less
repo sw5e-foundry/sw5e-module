@@ -1,0 +1,252 @@
+/* SW5e module ApplicationV2 config dialogs — SW5E Light / Dark / Underworld.
+   Scoped via data-sw5e-theme-root="module-app" (power points, vitals, skill roll config, etc.) */
+
+@app-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="module-app"].dnd5e2:is(.application, .config-sheet)';
+@app-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="module-app"].dnd5e2:is(.application, .config-sheet)';
+@app-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="module-app"].dnd5e2:is(.application, .config-sheet)';
+
+/* ——— SW5E Light ——— */
+@{app-light} {
+  background: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  background-image: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 38%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+
+@{app-light} .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
+}
+
+@{app-light} :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{app-light} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{app-light} .final-value {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{app-light} :is(fieldset, fieldset.card) {
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 72%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{app-light} :is(fieldset, fieldset.card) > legend {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{app-light} .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{app-light} :is(p.hint, .notes, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{app-light} :is(input, select, textarea) {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+
+@{app-light} :is(input, select, textarea):is(:hover, :focus, :focus-visible):not(:disabled):not([readonly]) {
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+  outline: none;
+}
+
+@{app-light} :is(button, .dialog-button, [type="submit"], [type="button"]) {
+  filter: none !important;
+}
+
+@{app-light} :is(button.dialog-button, footer.form-footer > button):not([type="submit"]) {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-secondary-button) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+@{app-light} :is(button.dialog-button, footer.form-footer > button):not([type="submit"]):is(:hover, :focus, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.9)) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
+}
+
+@{app-light} footer.form-footer > [type="submit"],
+@{app-light} button.dialog-button.default {
+  background: var(--sw5e-theme-primary-button) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 82%, black) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+
+/* ——— SW5E Dark ——— */
+@{app-dark} {
+  background: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  background-image: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{app-dark} .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+
+@{app-dark} :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{app-dark} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{app-dark} .final-value {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{app-dark} :is(fieldset, fieldset.card) {
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  background: rgba(24, 24, 24, 0.42) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{app-dark} :is(fieldset, fieldset.card) > legend {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{app-dark} .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{app-dark} :is(p.hint, .notes, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{app-dark} :is(input, select, textarea) {
+  background: rgba(18, 22, 28, 0.88) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{app-dark} :is(input, select, textarea):is(:hover, :focus, :focus-visible):not(:disabled):not([readonly]) {
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+  outline: none;
+}
+
+@{app-dark} :is(button.dialog-button, footer.form-footer > button):not([type="submit"]) {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-secondary-button) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  filter: none !important;
+}
+
+@{app-dark} :is(button.dialog-button, footer.form-footer > button):not([type="submit"]):is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: rgba(32, 161, 208, 0.55) !important;
+}
+
+@{app-dark} footer.form-footer > [type="submit"],
+@{app-dark} button.dialog-button.default {
+  background: var(--sw5e-theme-primary-button) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 72%, black) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+
+/* ——— Underworld Alloy ——— */
+@{app-underworld} {
+  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  background-image: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{app-underworld} .window-header {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+@{app-underworld} :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{app-underworld} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+@{app-underworld} .final-value {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+@{app-underworld} :is(fieldset, fieldset.card) {
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 82%, black) !important;
+}
+
+@{app-underworld} :is(fieldset, fieldset.card) > legend {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+@{app-underworld} .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{app-underworld} :is(p.hint, .notes, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{app-underworld} :is(input, select, textarea) {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{app-underworld} :is(input, select, textarea):is(:hover, :focus, :focus-visible):not(:disabled):not([readonly]) {
+  border-color: var(--sw5e-underworld-neon-cyan) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 24%, transparent) !important;
+}
+
+@{app-underworld} :is(button.dialog-button, footer.form-footer > button):not([type="submit"]) {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  filter: none !important;
+}
+
+@{app-underworld} :is(button.dialog-button, footer.form-footer > button):not([type="submit"]):is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+}
+
+@{app-underworld} footer.form-footer > [type="submit"],
+@{app-underworld} button.dialog-button.default {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 72%, black) !important;
+  border-color: var(--sw5e-underworld-neon-magenta) !important;
+  color: var(--sw5e-theme-text) !important;
+}

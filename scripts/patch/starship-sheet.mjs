@@ -470,7 +470,10 @@ function applyStarshipSheetScrollPositions(app, state) {
 function restoreStarshipSheetViewState(app, state, root) {
 	if ( !state || !app || !root ) return;
 	try {
-		if ( state.sotgSub === "features" || state.stockPrimary === STARSHIP_FEATURES_TAB_ID ) {
+		const onCoreTab = state.sw5ePrimary === STARSHIP_TAB_ID || state.sw5ePrimary === true;
+		const wantsFeatures = !onCoreTab
+			&& (state.sotgSub === "features" || state.stockPrimary === STARSHIP_FEATURES_TAB_ID);
+		if ( wantsFeatures ) {
 			activateSheetTab(root, app, STARSHIP_FEATURES_TAB_ID);
 			applyStarshipSheetScrollPositions(app, {
 				sidebarScrollTop: Number(state.sidebarScrollTop) || 0,
@@ -2074,7 +2077,7 @@ function activateSheetTab(root, app, tabId) {
  */
 function desyncStaleStockTabGroupWhileSotgVisible(app) {
 	if ( !app?.tabGroups || typeof app.tabGroups !== "object" ) return;
-	if ( app.tabGroups.primary !== STOCK_CARGO_TAB_ID ) return;
+	if ( app.tabGroups.primary !== STOCK_CARGO_TAB_ID && app.tabGroups.primary !== STARSHIP_FEATURES_TAB_ID ) return;
 	app.tabGroups.primary = "effects";
 }
 
@@ -2836,16 +2839,19 @@ function getStarshipModificationPoolSummary(actor) {
 	};
 }
 
-function createStarshipModificationHeaderStat(label, value) {
+function createStarshipModificationHeaderStat(value, suffixLabel = "") {
 	const stat = document.createElement("span");
 	stat.className = "sw5e-starship-modifications-header-stat";
-	const labelEl = document.createElement("span");
-	labelEl.className = "sw5e-starship-modifications-header-stat-label";
-	labelEl.textContent = label;
 	const valueEl = document.createElement("span");
 	valueEl.className = "sw5e-starship-modifications-header-stat-value";
 	valueEl.textContent = value;
-	stat.append(labelEl, valueEl);
+	stat.append(valueEl);
+	if ( suffixLabel ) {
+		const suffixEl = document.createElement("span");
+		suffixEl.className = "sw5e-starship-modifications-header-stat-suffix";
+		suffixEl.textContent = suffixLabel;
+		stat.append(suffixEl);
+	}
 	return stat;
 }
 
@@ -2860,7 +2866,6 @@ function applyStarshipModificationsSectionHeader(root, actor) {
 	if ( !header ) return false;
 
 	const { modSlots, suites } = getStarshipModificationPoolSummary(actor);
-	const modSlotsLabel = localizeOrFallback("SW5E.ModSlots", "Mod Slots");
 	const suitesLabel = localizeOrFallback("SW5E.Suites", "Suites");
 
 	let stats = header.querySelector(".sw5e-starship-modifications-header-stats");
@@ -2873,8 +2878,8 @@ function applyStarshipModificationsSectionHeader(root, actor) {
 	}
 
 	stats.replaceChildren(
-		createStarshipModificationHeaderStat(modSlotsLabel, modSlots),
-		createStarshipModificationHeaderStat(suitesLabel, suites)
+		createStarshipModificationHeaderStat(modSlots),
+		createStarshipModificationHeaderStat(suites, suitesLabel)
 	);
 	return true;
 }

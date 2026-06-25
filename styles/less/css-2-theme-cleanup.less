@@ -1,0 +1,371 @@
+/* CSS-2 theme cleanup — journal Light/Dark parity, maneuver sheet, actor item-summary remaps */
+
+@maneuver-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item:has(nav.sheet-navigation.tabs)';
+@maneuver-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item:has(nav.sheet-navigation.tabs)';
+@maneuver-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.item:has(nav.sheet-navigation.tabs)';
+
+@item-summary-actor-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-description .item-summary';
+@item-summary-actor-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-description .item-summary';
+@item-summary-actor-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-description .item-summary';
+
+/* =============================================================================
+ * Journal Light/Dark parity — port Underworld journal datapad polish
+ * ============================================================================= */
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application {
+  --dnd5e-application-background: var(--sw5e-light-chat-datapad-panel);
+  --item-summary-background: var(--sw5e-light-parchment-color);
+  --table-background-color: color-mix(in srgb, var(--sw5e-theme-surface-strong) 82%, white);
+  --filigree-background-color: var(--sw5e-light-parchment-color);
+  --separated-list-item-background-color: var(--sw5e-light-parchment-color);
+  --multi-select-tag-background: var(--sw5e-light-parchment-color);
+  background: var(--sw5e-theme-window-background) !important;
+  background-image: var(--sw5e-light-chat-datapad-panel) !important;
+  background-size: auto !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application .window-content,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application .journal-sheet .journal-entry-content,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application .journal-page-content {
+  background: var(--sw5e-light-chat-datapad-panel) !important;
+  background-image: var(--sw5e-light-chat-datapad-panel) !important;
+  border-color: var(--sw5e-light-chat-datapad-border) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application :is(table, blockquote, .advice, .info, .notification) {
+  border-color: var(--sw5e-light-chat-datapad-border) !important;
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 78%, white) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2-journal.application {
+  --dnd5e-application-background: var(--sw5e-dark-chat-datapad-panel);
+  --item-summary-background: var(--sw5e-dark-chat-datapad-panel);
+  --table-background-color: color-mix(in srgb, var(--sw5e-theme-panel-background) 82%, black);
+  --filigree-background-color: var(--sw5e-theme-panel-background);
+  --separated-list-item-background-color: var(--sw5e-theme-panel-background);
+  --multi-select-tag-background: var(--sw5e-theme-panel-background);
+  background: var(--sw5e-theme-window-background) !important;
+  background-image: var(--sw5e-dark-chat-datapad-panel) !important;
+  background-size: auto !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2-journal.application .window-content,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2-journal.application .journal-sheet .journal-entry-content,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2-journal.application .journal-page-content {
+  background: var(--sw5e-dark-chat-datapad-panel) !important;
+  background-image: var(--sw5e-dark-chat-datapad-panel) !important;
+  border-color: var(--sw5e-dark-chat-datapad-border) !important;
+  color: var(--sw5e-theme-text);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2-journal.application :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2-journal.application :is(table, blockquote, .advice, .info, .notification) {
+  border-color: var(--sw5e-dark-chat-datapad-border) !important;
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 72%, black) !important;
+  color: var(--sw5e-theme-text);
+}
+
+/* =============================================================================
+ * Actor sheet item-summary — remap --item-summary-background for Light/Dark/Underworld
+ * ============================================================================= */
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.application {
+  --item-summary-background: var(--sw5e-light-parchment-color);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.application {
+  --item-summary-background: color-mix(in srgb, var(--sw5e-theme-panel-background) 88%, rgba(18, 18, 18, 0.92));
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.application {
+  --item-summary-background: color-mix(in srgb, var(--sw5e-underworld-olive) 18%, var(--sw5e-underworld-panel));
+}
+
+@{item-summary-actor-light} {
+  background: var(--sw5e-light-parchment-color) !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 0 0 4px 4px;
+}
+
+@{item-summary-actor-light} :is(a, button.unbutton) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{item-summary-actor-light} .item-properties {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{item-summary-actor-dark} {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 88%, rgba(18, 18, 18, 0.92)) !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: 0 0 4px 4px;
+}
+
+@{item-summary-actor-dark} :is(a, button.unbutton) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{item-summary-actor-dark} .item-properties {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{item-summary-actor-underworld} {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 18%, var(--sw5e-underworld-panel)) !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 0 0 4px 4px;
+}
+
+@{item-summary-actor-underworld} :is(a, button.unbutton) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+@{item-summary-actor-underworld} .item-properties {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+/* =============================================================================
+ * Maneuver item sheet — legacy dnd5e layout (sheet-navigation) SW5e theming
+ * ============================================================================= */
+
+@{maneuver-light} .window-content,
+@{maneuver-light} .sheet-body {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-light} .sheet-header {
+  border-bottom: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-light} .sheet-header .profile {
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  background: color-mix(in srgb, var(--sw5e-theme-input) 90%, white) !important;
+}
+
+@{maneuver-light} .sheet-header .charname input {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  border-color: transparent !important;
+  background: transparent !important;
+}
+
+@{maneuver-light} .sheet-header .charname input:is(:hover, :focus, :focus-visible) {
+  border-color: var(--sw5e-light-muted-control-border) !important;
+  background: var(--sw5e-theme-input) !important;
+}
+
+@{maneuver-light} .sheet-header .item-subtitle :is(.item-type, .item-status) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{maneuver-light} .sheet-header .summary li {
+  border-right-color: var(--sw5e-light-row-divider) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-light} nav.sheet-navigation.tabs .item {
+  color: var(--sw5e-theme-muted-text) !important;
+  border-bottom-color: var(--sw5e-light-muted-control-border) !important;
+}
+
+@{maneuver-light} nav.sheet-navigation.tabs .item.active {
+  color: var(--sw5e-theme-heading) !important;
+  border-bottom-color: var(--sw5e-theme-primary-button) !important;
+}
+
+@{maneuver-light} nav.sheet-navigation.tabs .item:is(:hover, :focus-visible):not(.active) {
+  color: var(--sw5e-line-color) !important;
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
+}
+
+@{maneuver-light} h3.form-header {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  border-top-color: var(--sw5e-light-muted-control-border) !important;
+  border-bottom-color: var(--sw5e-light-muted-control-border) !important;
+  text-shadow: none !important;
+}
+
+@{maneuver-light} :is(.form-group label, .checkbox) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-light} :is(input, select, textarea) {
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-light} p.hint {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{maneuver-light} .editor-content {
+  background: color-mix(in srgb, var(--sw5e-theme-input) 92%, white) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-dark} .window-content,
+@{maneuver-dark} .sheet-body {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-dark} .sheet-header {
+  border-bottom: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-dark} .sheet-header .profile {
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  background: color-mix(in srgb, var(--sw5e-theme-input) 90%, black) !important;
+}
+
+@{maneuver-dark} .sheet-header .charname input {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  border-color: transparent !important;
+  background: transparent !important;
+}
+
+@{maneuver-dark} .sheet-header .charname input:is(:hover, :focus, :focus-visible) {
+  border-color: var(--sw5e-dark-muted-control-border) !important;
+  background: var(--sw5e-theme-input) !important;
+}
+
+@{maneuver-dark} .sheet-header .item-subtitle :is(.item-type, .item-status) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{maneuver-dark} .sheet-header .summary li {
+  border-right-color: color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-dark} nav.sheet-navigation.tabs .item {
+  color: var(--sw5e-theme-muted-text) !important;
+  border-bottom-color: var(--sw5e-dark-muted-control-border) !important;
+}
+
+@{maneuver-dark} nav.sheet-navigation.tabs .item.active {
+  color: var(--sw5e-theme-heading) !important;
+  border-bottom-color: var(--sw5e-theme-primary-button) !important;
+}
+
+@{maneuver-dark} nav.sheet-navigation.tabs .item:is(:hover, :focus-visible):not(.active) {
+  color: var(--sw5e-line-color) !important;
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
+}
+
+@{maneuver-dark} h3.form-header {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  border-top-color: var(--sw5e-dark-muted-control-border) !important;
+  border-bottom-color: var(--sw5e-dark-muted-control-border) !important;
+  text-shadow: none !important;
+}
+
+@{maneuver-dark} :is(.form-group label, .checkbox) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-dark} :is(input, select, textarea) {
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-dark} p.hint {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{maneuver-dark} .editor-content {
+  background: color-mix(in srgb, var(--sw5e-theme-input) 90%, black) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-underworld} .window-content,
+@{maneuver-underworld} .sheet-body {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-underworld} .sheet-header {
+  border-bottom: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+}
+
+@{maneuver-underworld} .sheet-header .profile {
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) !important;
+}
+
+@{maneuver-underworld} .sheet-header .charname input {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{maneuver-underworld} .sheet-header .item-subtitle :is(.item-type, .item-status) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{maneuver-underworld} .sheet-header .summary li {
+  border-right-color: var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-underworld} nav.sheet-navigation.tabs .item {
+  color: var(--sw5e-theme-muted-text) !important;
+  border-bottom-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+@{maneuver-underworld} nav.sheet-navigation.tabs .item.active {
+  color: var(--sw5e-theme-heading) !important;
+  border-bottom-color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+@{maneuver-underworld} nav.sheet-navigation.tabs .item:is(:hover, :focus-visible):not(.active) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+@{maneuver-underworld} h3.form-header {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  border-top-color: var(--sw5e-underworld-muted-control-border) !important;
+  border-bottom-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+@{maneuver-underworld} :is(.form-group label, .checkbox) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-underworld} :is(input, select, textarea) {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{maneuver-underworld} p.hint {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{maneuver-underworld} .editor-content {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 16%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}

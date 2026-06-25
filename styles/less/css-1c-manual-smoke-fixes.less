@@ -1,0 +1,489 @@
+/* CSS-1C manual smoke fixes — effects toggle hover, badge polish */
+
+@toggle-active-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(button, a).item-control.item-action[data-action="toggleActive"]';
+@toggle-active-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(button, a).item-control.item-action[data-action="toggleActive"]';
+@toggle-active-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(button, a).item-control.item-action[data-action="toggleActive"]';
+
+/* Effects enable/disable — suppress full-row hover strip and misaligned halo */
+@{toggle-active-light},
+@{toggle-active-dark},
+@{toggle-active-underworld} {
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  align-self: center !important;
+  flex: 0 0 1.5rem !important;
+  width: 1.5rem !important;
+  min-width: 1.5rem !important;
+  height: 1.5rem !important;
+  min-height: 1.5rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  overflow: visible;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+@{toggle-active-light}:is(:hover, :focus, :focus-visible),
+@{toggle-active-dark}:is(:hover, :focus, :focus-visible),
+@{toggle-active-underworld}:is(:hover, :focus, :focus-visible) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+@{toggle-active-light}:is(:hover, :focus, :focus-visible)::before,
+@{toggle-active-dark}:is(:hover, :focus, :focus-visible)::before,
+@{toggle-active-underworld}:is(:hover, :focus, :focus-visible)::before,
+@{toggle-active-light}:not(.active, [aria-pressed="true"], [aria-selected="true"])::before,
+@{toggle-active-dark}:not(.active, [aria-pressed="true"], [aria-selected="true"])::before,
+@{toggle-active-underworld}:not(.active, [aria-pressed="true"], [aria-selected="true"])::before {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+@{toggle-active-light}:is(.active, [aria-pressed="true"], [aria-selected="true"])::before,
+@{toggle-active-dark}:is(.active, [aria-pressed="true"], [aria-selected="true"])::before,
+@{toggle-active-underworld}:is(.active, [aria-pressed="true"], [aria-selected="true"])::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.35rem;
+  height: 1.35rem;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@{toggle-active-light}:is(.active, [aria-pressed="true"], [aria-selected="true"])::before {
+  border: 1px solid color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent);
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.88));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 28%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.62);
+}
+
+@{toggle-active-dark}:is(.active, [aria-pressed="true"], [aria-selected="true"])::before,
+@{toggle-active-underworld}:is(.active, [aria-pressed="true"], [aria-selected="true"])::before {
+  border: 1px solid color-mix(in srgb, var(--sw5e-secondary-button) 36%, transparent);
+  background: rgba(8, 12, 16, 0.18);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-secondary-button) 18%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+@{toggle-active-light}:is(:hover, :focus, :focus-visible) :is(i, svg, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light),
+@{toggle-active-dark}:is(:hover, :focus, :focus-visible) :is(i, svg, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light),
+@{toggle-active-underworld}:is(:hover, :focus, :focus-visible) :is(i, svg, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  position: relative;
+  z-index: 1;
+  opacity: 1 !important;
+}
+
+/* Starship skill roll config — optional system note after configuration */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.application.roll-configuration.sw5e-starship-skill-roll-config .sw5e-starship-skill-system-note,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.application.roll-configuration.sw5e-starship-skill-roll-config .sw5e-starship-skill-system-note {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+/* ——— NPC badge polish — SW5E Light ——— */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative) {
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  right: 4px;
+  min-width: 2rem;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.35rem;
+  border-radius: 50%;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: var(--sw5e-light-sidebar-ornament-shadow) !important;
+  isolation: isolate;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::before {
+  z-index: -2;
+  background: var(--sw5e-light-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::after {
+  inset: 3px;
+  background: var(--sw5e-light-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-light-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative) > * {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.65rem;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: var(--sw5e-light-sidebar-ornament-shadow-lozenge) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  clip-path: polygon(50% 0, 94% 22%, 100% 50%, 94% 78%, 50% 100%, 6% 78%, 0 50%, 6% 22%);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::before {
+  z-index: -2;
+  background: var(--sw5e-light-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::after {
+  inset: 2px 1px;
+  background: var(--sw5e-light-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-light-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency > * {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge {
+  min-width: 2.65rem;
+  min-height: 2.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ——— NPC badge polish — SW5E Dark ——— */
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative) {
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  right: 4px;
+  min-width: 2rem;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.35rem;
+  border-radius: 50%;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.36)) !important;
+  isolation: isolate;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::before {
+  z-index: -2;
+  background: var(--sw5e-dark-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::after {
+  inset: 3px;
+  background: var(--sw5e-dark-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-dark-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.65rem;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: var(--sw5e-dark-sidebar-ornament-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  clip-path: polygon(50% 0, 94% 22%, 100% 50%, 94% 78%, 50% 100%, 6% 78%, 0 50%, 6% 22%);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::before {
+  z-index: -2;
+  background: var(--sw5e-dark-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::after {
+  inset: 2px 1px;
+  background: var(--sw5e-dark-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-dark-sidebar-ornament-inner-line);
+}
+
+/* ——— NPC badge polish — Underworld ——— */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative) {
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  right: 4px;
+  min-width: 2rem;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.35rem;
+  border-radius: 50%;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: var(--sw5e-underworld-sidebar-ornament-shadow) !important;
+  isolation: isolate;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::before {
+  z-index: -2;
+  background: var(--sw5e-underworld-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .initiative-wrapper .initiative)::after {
+  inset: 3px;
+  background: var(--sw5e-underworld-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-underworld-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.65rem;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: var(--sw5e-underworld-sidebar-ornament-shadow-lozenge) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  clip-path: polygon(50% 0, 94% 22%, 100% 50%, 94% 78%, 50% 100%, 6% 78%, 0 50%, 6% 22%);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::before {
+  z-index: -2;
+  background: var(--sw5e-underworld-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency::after {
+  inset: 2px 1px;
+  background: var(--sw5e-underworld-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-underworld-sidebar-ornament-inner-line);
+}
+
+/* ——— Starship portrait badge polish ——— */
+@ship-portrait-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .portrait';
+@ship-portrait-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .portrait';
+@ship-portrait-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .portrait';
+
+@{ship-portrait-light},
+@{ship-portrait-dark},
+@{ship-portrait-underworld} {
+  position: relative;
+}
+
+@{ship-portrait-light} :is(.initiative-wrapper, .initiative),
+@{ship-portrait-dark} :is(.initiative-wrapper, .initiative),
+@{ship-portrait-underworld} :is(.initiative-wrapper, .initiative) {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  margin: 0 !important;
+}
+
+@{ship-portrait-light} :is(.initiative, .initiative-wrapper .initiative),
+@{ship-portrait-dark} :is(.initiative, .initiative-wrapper .initiative),
+@{ship-portrait-underworld} :is(.initiative, .initiative-wrapper .initiative) {
+  min-width: 2rem;
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.35rem;
+  border-radius: 50%;
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  isolation: isolate;
+}
+
+@{ship-portrait-light} :is(.initiative, .initiative-wrapper .initiative) {
+  filter: var(--sw5e-light-sidebar-ornament-shadow) !important;
+}
+
+@{ship-portrait-dark} :is(.initiative, .initiative-wrapper .initiative) {
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.36)) !important;
+}
+
+@{ship-portrait-underworld} :is(.initiative, .initiative-wrapper .initiative) {
+  filter: var(--sw5e-underworld-sidebar-ornament-shadow) !important;
+}
+
+@{ship-portrait-light} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::before,
+@{ship-portrait-light} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::after,
+@{ship-portrait-dark} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::before,
+@{ship-portrait-dark} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::after,
+@{ship-portrait-underworld} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::before,
+@{ship-portrait-underworld} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+@{ship-portrait-light} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::before,
+@{ship-portrait-dark} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::before,
+@{ship-portrait-underworld} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::before {
+  z-index: -2;
+}
+
+@{ship-portrait-light} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::before {
+  background: var(--sw5e-light-sidebar-ornament-outline-strong);
+}
+
+@{ship-portrait-light} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::after {
+  inset: 3px;
+  background: var(--sw5e-light-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-light-sidebar-ornament-inner-line);
+}
+
+@{ship-portrait-dark} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::before {
+  background: var(--sw5e-dark-sidebar-ornament-outline-strong);
+}
+
+@{ship-portrait-dark} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::after {
+  inset: 3px;
+  background: var(--sw5e-dark-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-dark-sidebar-ornament-inner-line);
+}
+
+@{ship-portrait-underworld} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::before {
+  background: var(--sw5e-underworld-sidebar-ornament-outline-strong);
+}
+
+@{ship-portrait-underworld} :is(.initiative, .initiative-wrapper .initiative, .sw5e-starship-tier-badge)::after {
+  inset: 3px;
+  background: var(--sw5e-underworld-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-underworld-sidebar-ornament-inner-line);
+}
+
+@{ship-portrait-light} :is(.loyalty-badge.badge, .sw5e-starship-tier-badge),
+@{ship-portrait-dark} :is(.loyalty-badge.badge, .sw5e-starship-tier-badge),
+@{ship-portrait-underworld} :is(.loyalty-badge.badge, .sw5e-starship-tier-badge) {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  min-width: 1.85rem;
+  min-height: 1.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.3rem;
+  margin: 0 !important;
+  border-radius: 50%;
+  background: none !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  isolation: isolate;
+}
+
+@{ship-portrait-light} :is(.loyalty-badge.badge, .sw5e-starship-tier-badge) {
+  filter: var(--sw5e-light-sidebar-ornament-shadow) !important;
+}
+
+@{ship-portrait-dark} :is(.loyalty-badge.badge, .sw5e-starship-tier-badge) {
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.36)) !important;
+}
+
+@{ship-portrait-underworld} :is(.loyalty-badge.badge, .sw5e-starship-tier-badge) {
+  filter: var(--sw5e-underworld-sidebar-ornament-shadow) !important;
+}
+
+@{ship-portrait-light} :is(.initiative, .initiative-wrapper .initiative, .loyalty-badge.badge, .sw5e-starship-tier-badge) > *,
+@{ship-portrait-dark} :is(.initiative, .initiative-wrapper .initiative, .loyalty-badge.badge, .sw5e-starship-tier-badge) > *,
+@{ship-portrait-underworld} :is(.initiative, .initiative-wrapper .initiative, .loyalty-badge.badge, .sw5e-starship-tier-badge) > * {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,259 @@
+/* CSS-2B screenshot corrections — journal Light/Dark polish (sidebar, content surface, controls).
+   Scoped to .sw5e-theme-root.dnd5e2-journal.application only. */
+
+@journal-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application';
+@journal-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2-journal.application';
+@journal-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2-journal.application';
+
+/* ——— SW5E Light ——— */
+@{journal-light} {
+  --dnd5e-journal-content-background: var(--sw5e-light-parchment-color);
+  --dnd5e-journal-header-background: color-mix(in srgb, var(--sw5e-theme-input) 90%, white);
+}
+
+@{journal-light} .journal-sidebar {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 94%, white) !important;
+  border-right: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{journal-light} .journal-sidebar input {
+  --input-text-color: var(--sw5e-theme-text);
+  --input-placeholder-color: var(--sw5e-theme-muted-text);
+  --input-background-color: var(--sw5e-theme-input);
+  --input-border-color: var(--sw5e-theme-input-border);
+  --input-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent);
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+@{journal-light} .journal-sidebar input:is(:hover, :focus, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+}
+
+@{journal-light} .journal-sidebar :is(.inline-control, .create) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-theme-input) 88%, white);
+  --button-hover-background-color: color-mix(in srgb, var(--sw5e-line-color) 10%, var(--sw5e-theme-input));
+  --button-text-color: var(--sw5e-theme-text);
+  --button-hover-text-color: var(--sw5e-theme-heading);
+  --button-border-color: var(--sw5e-light-muted-control-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 45%, transparent);
+  border-radius: 4px !important;
+}
+
+@{journal-light} .journal-sidebar :is(.directory-list, .toc, .pages) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{journal-light} .journal-sidebar :is(.directory-item, .pages li) a,
+@{journal-light} .journal-sidebar :is(.journal-entry-page-link, .journal-entry-link) {
+  color: var(--sw5e-theme-text) !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+}
+
+@{journal-light} .journal-sidebar :is(.directory-item.active, li.active) > a,
+@{journal-light} .journal-sidebar a.active {
+  background: color-mix(in srgb, var(--sw5e-line-color) 10%, white) !important;
+  color: var(--sw5e-theme-heading) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+
+@{journal-light} .journal-sidebar :is(.directory-item, .pages li) a:is(:hover, :focus-visible),
+@{journal-light} .journal-sidebar :is(.journal-entry-page-link, .journal-entry-link):is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 6%, white) !important;
+  color: var(--sw5e-line-color) !important;
+}
+
+@{journal-light} .journal-entry-content,
+@{journal-light}.journal-entry-page .window-content,
+@{journal-light} .journal-page-content {
+  --dnd5e-journal-content-background: var(--sw5e-light-parchment-color);
+  background: var(--sw5e-light-chat-datapad-panel) !important;
+  background-image: var(--sw5e-light-chat-datapad-panel) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{journal-light} .journal-header {
+  gap: 0.75rem !important;
+  margin-bottom: 0.5rem !important;
+  padding: 0.75rem 1rem 0 !important;
+}
+
+@{journal-light} .journal-header .title {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  border-radius: 4px !important;
+}
+
+@{journal-light} .journal-header .title:is(:hover, :focus, :focus-visible):not(:disabled) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 45%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 20%, transparent) !important;
+}
+
+@{journal-light} .action-buttons :is(.previous, .next, .create) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-theme-input) 88%, white);
+  --button-hover-background-color: color-mix(in srgb, var(--sw5e-line-color) 10%, var(--sw5e-theme-input));
+  --button-text-color: var(--sw5e-theme-text);
+  --button-hover-text-color: var(--sw5e-theme-heading);
+  --button-border-color: var(--sw5e-light-muted-control-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 45%, transparent);
+  border-radius: 4px !important;
+}
+
+@{journal-light} prose-mirror .editor-content,
+@{journal-light} .scrollable {
+  background: transparent !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{journal-light} :is(.journal-entry-content, .journal-page-content, prose-mirror .editor-content) :is(a, .content-link) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{journal-light} :is(.journal-entry-content, .journal-page-content) :is(p, li, span, small) {
+  color: var(--sw5e-theme-text);
+}
+
+@{journal-light} .toc::-webkit-scrollbar-thumb,
+@{journal-light} .scrollable::-webkit-scrollbar-thumb,
+@{journal-light} prose-mirror .editor-content::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sw5e-line-color) 48%, #c5d4de) !important;
+}
+
+/* ——— SW5E Dark ——— */
+@{journal-dark} {
+  --dnd5e-journal-content-background: color-mix(in srgb, var(--sw5e-theme-panel-background) 88%, rgba(18, 18, 18, 0.92));
+  --dnd5e-journal-header-background: color-mix(in srgb, var(--sw5e-theme-input) 90%, black);
+}
+
+@{journal-dark} .journal-sidebar {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 90%, black) !important;
+  border-right: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{journal-dark} .journal-sidebar input {
+  --input-text-color: var(--sw5e-theme-text);
+  --input-placeholder-color: var(--sw5e-theme-muted-text);
+  --input-background-color: var(--sw5e-theme-input);
+  --input-border-color: var(--sw5e-theme-input-border);
+  --input-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent);
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{journal-dark} .journal-sidebar input:is(:hover, :focus, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+
+@{journal-dark} .journal-sidebar :is(.inline-control, .create) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-theme-input) 90%, black);
+  --button-hover-background-color: color-mix(in srgb, var(--sw5e-line-color) 12%, var(--sw5e-theme-input));
+  --button-text-color: var(--sw5e-theme-text);
+  --button-hover-text-color: var(--sw5e-theme-heading);
+  --button-border-color: var(--sw5e-dark-muted-control-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent);
+  border-radius: 4px !important;
+}
+
+@{journal-dark} .journal-sidebar :is(.directory-item, .pages li) a,
+@{journal-dark} .journal-sidebar :is(.journal-entry-page-link, .journal-entry-link) {
+  color: var(--sw5e-theme-text) !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+}
+
+@{journal-dark} .journal-sidebar :is(.directory-item.active, li.active) > a,
+@{journal-dark} .journal-sidebar a.active {
+  background: color-mix(in srgb, var(--sw5e-line-color) 12%, rgba(18, 18, 18, 0.92)) !important;
+  color: var(--sw5e-theme-heading) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
+}
+
+@{journal-dark} .journal-sidebar :is(.directory-item, .pages li) a:is(:hover, :focus-visible),
+@{journal-dark} .journal-sidebar :is(.journal-entry-page-link, .journal-entry-link):is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 8%, rgba(18, 18, 18, 0.9)) !important;
+  color: var(--sw5e-line-color) !important;
+}
+
+@{journal-dark} .journal-entry-content,
+@{journal-dark}.journal-entry-page .window-content,
+@{journal-dark} .journal-page-content {
+  background: var(--sw5e-dark-chat-datapad-panel) !important;
+  background-image: var(--sw5e-dark-chat-datapad-panel) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{journal-dark} .journal-header {
+  gap: 0.75rem !important;
+  margin-bottom: 0.5rem !important;
+  padding: 0.75rem 1rem 0 !important;
+}
+
+@{journal-dark} .journal-header .title {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  border-radius: 4px !important;
+}
+
+@{journal-dark} .journal-header .title:is(:hover, :focus, :focus-visible):not(:disabled) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 45%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+}
+
+@{journal-dark} .action-buttons :is(.previous, .next, .create) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-theme-input) 90%, black);
+  --button-hover-background-color: color-mix(in srgb, var(--sw5e-line-color) 12%, var(--sw5e-theme-input));
+  --button-text-color: var(--sw5e-theme-text);
+  --button-hover-text-color: var(--sw5e-theme-heading);
+  --button-border-color: var(--sw5e-dark-muted-control-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent);
+  border-radius: 4px !important;
+}
+
+@{journal-dark} :is(.journal-entry-content, .journal-page-content, prose-mirror .editor-content) :is(a, .content-link) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{journal-dark} .toc::-webkit-scrollbar-thumb,
+@{journal-dark} .scrollable::-webkit-scrollbar-thumb,
+@{journal-dark} prose-mirror .editor-content::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sw5e-line-color) 55%, #1a2228) !important;
+}
+
+/* ——— Underworld sidebar/content cohesion (no regression) ——— */
+@{journal-underworld} {
+  --dnd5e-journal-content-background: color-mix(in srgb, var(--sw5e-underworld-olive) 16%, var(--sw5e-underworld-panel));
+  --dnd5e-journal-header-background: var(--sw5e-underworld-input-bg);
+}
+
+@{journal-underworld} .journal-sidebar {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 18%, var(--sw5e-underworld-panel)) !important;
+  border-right: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+}
+
+@{journal-underworld} .journal-sidebar input {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{journal-underworld} .journal-sidebar :is(.directory-item.active, li.active) > a,
+@{journal-underworld} .journal-sidebar a.active {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 10%, var(--sw5e-underworld-panel)) !important;
+  color: var(--sw5e-theme-heading) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 35%, transparent) !important;
+}
+
+@{journal-underworld} .journal-header .title {
+  font-family: var(--sw5e-font-heading) !important;
+}

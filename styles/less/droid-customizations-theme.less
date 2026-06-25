@@ -1,0 +1,483 @@
+/* Droid customizations manager — SW5E Light / Dark / Underworld.
+   Scoped via data-sw5e-theme-root="droid-customizations". Beats unscoped legacy gold/dark rules. */
+
+@droid-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations"]';
+@droid-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations"]';
+@droid-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations"]';
+
+@droid-sections: .sw5e-droid-customizations-installed, .sw5e-droid-customizations-motor, .sw5e-droid-customizations-limits;
+
+/* ——— SW5E Light ——— */
+@{droid-light} .window-content {
+  color-scheme: light !important;
+  background: transparent !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app.standard-form {
+  color-scheme: light !important;
+  color: var(--sw5e-theme-text) !important;
+  background: var(--sw5e-theme-page-center) !important;
+  background-image: var(--sw5e-theme-surface-background) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) color-mix(in srgb, var(--sw5e-theme-panel-background) 80%, white);
+}
+
+@{droid-light} .sw5e-droid-customizations-app.standard-form::-webkit-scrollbar {
+  width: 9px;
+}
+
+@{droid-light} .sw5e-droid-customizations-app.standard-form::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 88%, white) !important;
+  border-radius: 5px;
+}
+
+@{droid-light} .sw5e-droid-customizations-app.standard-form::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sw5e-line-color) 48%, #c5d4de) !important;
+  border-radius: 5px;
+  border: 2px solid color-mix(in srgb, var(--sw5e-theme-panel-background) 90%, white);
+}
+
+@{droid-light} .sw5e-droid-customizations-app :is(h3, h4) {
+  color: var(--sw5e-theme-heading) !important;
+  border-bottom-color: color-mix(in srgb, var(--sw5e-theme-line) 55%, transparent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app :is(@{droid-sections}) {
+  background: var(--sw5e-theme-panel-background) !important;
+  border: 1px solid var(--sw5e-theme-line) !important;
+  box-shadow: var(--sw5e-theme-shadow) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-section-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-theme-line) 55%, transparent) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-installed-card {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 92%, white) !important;
+  border: 1px solid var(--sw5e-theme-line) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-installed-art {
+  border-color: var(--sw5e-theme-line) !important;
+  background: color-mix(in srgb, var(--sw5e-line-color) 10%, white) !important;
+  color: var(--sw5e-theme-heading) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app.standard-form button.sw5e-droid-installed-name {
+  appearance: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  color: var(--sw5e-theme-text) !important;
+  text-decoration: underline !important;
+  text-decoration-color: color-mix(in srgb, var(--sw5e-line-color) 45%, transparent) !important;
+  text-shadow: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app.standard-form button.sw5e-droid-installed-name:is(:hover, :focus-visible) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-meta-pill {
+  background: color-mix(in srgb, var(--sw5e-line-color) 8%, white) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-theme-line) 70%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app :is(.sw5e-droid-installed-date, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-aug-actions .sw5e-aug-remove {
+  background: color-mix(in srgb, var(--sw5e-theme-secondary-button) 88%, white) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-theme-heading) 35%, var(--sw5e-theme-line)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-installed-install {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 96%, white) !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-theme-line) 50%, transparent) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-installed-install.sw5e-droid-drop-target--active {
+  background: color-mix(in srgb, var(--sw5e-line-color) 10%, var(--sw5e-theme-panel-background)) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 40%, transparent), 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 14%, transparent) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-install-actions :is(.sw5e-aug-install-submit, .sw5e-droid-install-world-submit, .sw5e-droid-motor-upgrade-submit, .sw5e-droid-limits-save-submit) {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 94%, white) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 50%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-install-actions .sw5e-aug-install-submit,
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-motor-upgrade-submit,
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-limits-save-submit {
+  background: var(--sw5e-theme-primary-button) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-motor-preview {
+  background: color-mix(in srgb, var(--sw5e-theme-input) 88%, white) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .notification.warning {
+  background: color-mix(in srgb, var(--sw5e-theme-heading) 8%, white) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-heading) 28%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-aug-validation {
+  background: var(--sw5e-theme-input) !important;
+  border-color: var(--sw5e-theme-line) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app :is(select, input, textarea) {
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app :is(.form-group label, .checkbox) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-light} .sw5e-droid-customizations-app .sw5e-droid-collapsible-summary i {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+/* ——— SW5E Dark ——— */
+@{droid-dark} .window-content {
+  color-scheme: dark !important;
+  background: transparent !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app.standard-form {
+  color-scheme: dark !important;
+  color: var(--sw5e-theme-text) !important;
+  background: var(--sw5e-theme-page-center) !important;
+  background-image: var(--sw5e-theme-surface-background) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) rgba(18, 22, 26, 0.6);
+}
+
+@{droid-dark} .sw5e-droid-customizations-app.standard-form::-webkit-scrollbar {
+  width: 9px;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app.standard-form::-webkit-scrollbar-track {
+  background: rgba(18, 22, 26, 0.6) !important;
+  border-radius: 5px;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app.standard-form::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sw5e-line-color) 55%, #1a2228) !important;
+  border-radius: 5px;
+  border: 2px solid rgba(18, 22, 26, 0.55);
+}
+
+@{droid-dark} .sw5e-droid-customizations-app :is(h3, h4) {
+  color: var(--sw5e-theme-heading) !important;
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app :is(@{droid-sections}) {
+  background: var(--sw5e-theme-panel-background) !important;
+  border: 1px solid var(--sw5e-theme-line) !important;
+  box-shadow: var(--sw5e-theme-shadow) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-section-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-installed-card {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 88%, black) !important;
+  border: 1px solid var(--sw5e-theme-line) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-installed-art {
+  border-color: var(--sw5e-theme-line) !important;
+  background: color-mix(in srgb, var(--sw5e-line-color) 14%, rgba(18, 18, 18, 0.9)) !important;
+  color: var(--sw5e-theme-heading) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app.standard-form button.sw5e-droid-installed-name {
+  appearance: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  color: var(--sw5e-theme-text) !important;
+  text-decoration: underline !important;
+  text-decoration-color: color-mix(in srgb, var(--sw5e-line-color) 50%, transparent) !important;
+  text-shadow: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app.standard-form button.sw5e-droid-installed-name:is(:hover, :focus-visible) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-meta-pill {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--sw5e-theme-line) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app :is(.sw5e-droid-installed-date, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-aug-actions .sw5e-aug-remove {
+  background: color-mix(in srgb, var(--sw5e-theme-secondary-button) 90%, black) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-theme-heading) 38%, var(--sw5e-theme-line)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-installed-install {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 90%, black) !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 38%, transparent) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-installed-install.sw5e-droid-drop-target--active {
+  background: color-mix(in srgb, var(--sw5e-line-color) 12%, var(--sw5e-theme-panel-background)) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 45%, transparent), 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 16%, transparent) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-install-actions :is(.sw5e-aug-install-submit, .sw5e-droid-install-world-submit, .sw5e-droid-motor-upgrade-submit, .sw5e-droid-limits-save-submit) {
+  background: color-mix(in srgb, var(--sw5e-theme-secondary-button) 88%, black) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-install-actions .sw5e-aug-install-submit,
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-motor-upgrade-submit,
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-limits-save-submit {
+  background: var(--sw5e-theme-primary-button) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-motor-preview {
+  background: color-mix(in srgb, var(--sw5e-theme-input) 90%, black) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .notification.warning {
+  background: color-mix(in srgb, var(--sw5e-theme-heading) 12%, rgba(18, 18, 18, 0.95)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-heading) 32%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-aug-validation {
+  background: var(--sw5e-theme-input) !important;
+  border-color: var(--sw5e-theme-line) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app :is(select, input, textarea) {
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app :is(.form-group label, .checkbox) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-dark} .sw5e-droid-customizations-app .sw5e-droid-collapsible-summary i {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+/* ——— Underworld Alloy ——— */
+@{droid-underworld} .window-content {
+  color-scheme: dark !important;
+  background: transparent !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app.standard-form {
+  color-scheme: dark !important;
+  color: var(--sw5e-theme-text) !important;
+  background: var(--sw5e-theme-page-center) !important;
+  background-image: var(--sw5e-theme-surface-background) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, transparent) var(--sw5e-underworld-graphite);
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app.standard-form::-webkit-scrollbar {
+  width: 9px;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app.standard-form::-webkit-scrollbar-track {
+  background: var(--sw5e-underworld-graphite) !important;
+  border-radius: 5px;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app.standard-form::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-graphite)) !important;
+  border-radius: 5px;
+  border: 2px solid color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black);
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app :is(h3, h4) {
+  color: var(--sw5e-theme-heading) !important;
+  border-bottom-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 32%, var(--sw5e-underworld-border)) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  text-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app :is(@{droid-sections}) {
+  background: var(--sw5e-theme-panel-background) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: var(--sw5e-theme-shadow) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-section-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 32%, var(--sw5e-underworld-border)) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-installed-card {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 28%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-installed-art {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 38%, var(--sw5e-underworld-border)) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-leather-deep) 35%, var(--sw5e-underworld-panel)) !important;
+  color: var(--sw5e-theme-heading) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app.standard-form button.sw5e-droid-installed-name {
+  appearance: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  color: var(--sw5e-theme-heading) !important;
+  text-decoration: underline !important;
+  text-decoration-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 40%, transparent) !important;
+  text-shadow: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app.standard-form button.sw5e-droid-installed-name:is(:hover, :focus-visible) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-meta-pill {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 22%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app :is(.sw5e-droid-installed-date, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-aug-actions .sw5e-aug-remove {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 38%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 35%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-installed-install {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 18%, var(--sw5e-underworld-panel)) !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-installed-install.sw5e-droid-drop-target--active {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 10%, var(--sw5e-underworld-panel)) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent), 0 0 0 2px var(--sw5e-underworld-control-ring) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-install-actions :is(.sw5e-aug-install-submit, .sw5e-droid-install-world-submit, .sw5e-droid-motor-upgrade-submit, .sw5e-droid-limits-save-submit) {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 30%, var(--sw5e-underworld-panel-strong)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-install-actions .sw5e-aug-install-submit,
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-motor-upgrade-submit,
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-limits-save-submit {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-motor-preview {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .notification.warning {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 10%, var(--sw5e-underworld-panel)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 30%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-aug-validation {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app :is(select, input, textarea) {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app :is(.form-group label, .checkbox) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-underworld} .sw5e-droid-customizations-app .sw5e-droid-collapsible-summary i {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}

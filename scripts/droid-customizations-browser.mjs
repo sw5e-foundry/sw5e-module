@@ -114,6 +114,7 @@ function defaultLockedFilters() {
 
 export class DroidCustomizationCompendiumBrowser extends CompendiumBrowser {
 	static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
+		classes: ["compendium-browser", "vertical-tabs", "dialog-lg", "sw5e-droid-customizations-browser"],
 		window: {
 			title: "SW5E.DroidCustomizations.BrowserTitle"
 		},
@@ -135,6 +136,12 @@ export class DroidCustomizationCompendiumBrowser extends CompendiumBrowser {
 			foundry.utils.mergeObject(options, { selection: { min: 1, max: 1 } }, { inplace: false })
 		);
 		return result?.size ? result.first() : null;
+	}
+
+	async _prepareResultsContext(context, options) {
+		context = await super._prepareResultsContext(context, options);
+		context.hint = localizeOrFallback(this.options.hint ?? "", this.options.hint ?? "");
+		return context;
 	}
 
 	async _prepareContext(options) {

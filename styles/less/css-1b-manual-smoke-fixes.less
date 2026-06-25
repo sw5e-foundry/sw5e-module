@@ -1,0 +1,361 @@
+/* CSS-1B manual smoke fixes — NPC/Starship save tabs, header badges, portrait overlays */
+
+@npc-save-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .ability-scores .ability-score .save-tab';
+@ship-save-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-ability-strip .ability-score .save-tab';
+@npc-save-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .ability-scores .ability-score .save-tab';
+@ship-save-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-ability-strip .ability-score .save-tab';
+@npc-save-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .ability-scores .ability-score .save-tab';
+
+/* ——— Saving throw boxes — SW5E Light ——— */
+@{npc-save-light},
+@{ship-save-light} {
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 82%, rgba(255, 255, 255, 0.9)) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 0 0 3px 3px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+@{npc-save-light} > i,
+@{ship-save-light} > i {
+  color: var(--sw5e-light-minor-accent) !important;
+}
+
+@{npc-save-light}.rollable:hover .save,
+@{ship-save-light}.rollable:hover .save {
+  color: var(--sw5e-line-color) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+}
+
+/* ——— Saving throw boxes — SW5E Dark ——— */
+@{npc-save-dark},
+@{ship-save-dark} {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: 0 0 3px 3px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+@{npc-save-dark} > i,
+@{ship-save-dark} > i {
+  color: var(--sw5e-secondary-button) !important;
+}
+
+@{npc-save-dark}.rollable:hover .save,
+@{ship-save-dark}.rollable:hover .save {
+  color: var(--sw5e-line-color) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+
+/* ——— Saving throw boxes — Underworld ——— */
+@{npc-save-underworld} {
+  background: var(--sw5e-underworld-panel-fill-strong) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 0 0 3px 3px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+@{npc-save-underworld} > i {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+@{npc-save-underworld}.rollable:hover .save {
+  color: var(--sw5e-underworld-neon-blue) !important;
+  text-shadow: 0 0 8px var(--sw5e-underworld-glow-blue) !important;
+}
+
+/* ——— NPC header badges — SW5E Light ——— */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  filter: var(--sw5e-light-sidebar-ornament-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait > :is(img, video) {
+  border-color: var(--sw5e-light-sidebar-ornament-outline) !important;
+  background: linear-gradient(180deg, rgba(245, 249, 252, 0.98) 0%, rgba(216, 229, 237, 0.94) 100%) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.46), inset 0 -18px 28px rgba(164, 181, 193, 0.18);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait::after {
+  border-color: var(--sw5e-light-sidebar-ornament-outline) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.68), 0 5px 12px rgba(74, 96, 111, 0.1);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .death-saves, .loyalty-badge) {
+  background: var(--sw5e-light-sidebar-ornament-fill) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-light-sidebar-ornament-outline) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header :is(.vitals .ac-badge, .cr-badge) {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  background: none !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.48);
+  filter: var(--sw5e-light-sidebar-ornament-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::after,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::after {
+  clip-path: polygon(50% 0, 84% 12%, 94% 46%, 78% 86%, 50% 100%, 22% 86%, 6% 46%, 16% 12%);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::after {
+  inset: 0;
+  border-radius: 50%;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::before {
+  inset: 0;
+  z-index: -2;
+  background: var(--sw5e-light-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::after {
+  inset: 3px;
+  background: var(--sw5e-light-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-light-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::after {
+  inset: 4px;
+  background: var(--sw5e-light-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-light-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge > *,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge > * {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency {
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 78%, rgba(255, 255, 255, 0.88)) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency :is(.label, .value, span) {
+  color: var(--sw5e-theme-text) !important;
+}
+
+/* ——— NPC header badges — SW5E Dark ——— */
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait > :is(img, video) {
+  border-color: var(--sw5e-dark-sidebar-ornament-outline) !important;
+  background: linear-gradient(180deg, rgba(42, 46, 52, 0.96) 0%, rgba(16, 18, 22, 0.98) 100%) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait::after {
+  border-color: var(--sw5e-dark-sidebar-ornament-outline) !important;
+  box-shadow: inset 0 0 0 1px rgba(6, 15, 22, 0.72);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .death-saves, .loyalty-badge) {
+  background: var(--sw5e-dark-sidebar-ornament-fill) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-dark-sidebar-ornament-outline) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header :is(.vitals .ac-badge, .cr-badge) {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  background: none !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.36)) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::after,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::after {
+  clip-path: polygon(50% 0, 84% 12%, 94% 46%, 78% 86%, 50% 100%, 22% 86%, 6% 46%, 16% 12%);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::after {
+  inset: 0;
+  border-radius: 50%;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::before {
+  inset: 0;
+  z-index: -2;
+  background: var(--sw5e-dark-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::after {
+  inset: 3px;
+  background: var(--sw5e-dark-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-dark-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::after {
+  inset: 4px;
+  background: var(--sw5e-dark-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-dark-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency {
+  background: rgba(24, 24, 24, 0.72) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+/* ——— NPC header badges — Underworld ——— */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait {
+  filter: var(--sw5e-underworld-sidebar-ornament-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait > :is(img, video) {
+  border-color: var(--sw5e-underworld-sidebar-ornament-outline) !important;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sw5e-underworld-panel-strong) 92%, black) 0%, color-mix(in srgb, var(--sw5e-underworld-graphite) 88%, black) 100%) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .portrait :is(.initiative, .initiative-score, .death-saves, .loyalty-badge),
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .stats .proficiency {
+  background: var(--sw5e-underworld-sidebar-ornament-fill) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-sidebar-ornament-outline) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header :is(.vitals .ac-badge, .cr-badge) {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  background: none !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: var(--sw5e-underworld-sidebar-ornament-shadow) !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::after,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::after {
+  clip-path: polygon(50% 0, 84% 12%, 94% 46%, 78% 86%, 50% 100%, 22% 86%, 6% 46%, 16% 12%);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::after {
+  inset: 0;
+  border-radius: 50%;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::before {
+  inset: 0;
+  z-index: -2;
+  background: var(--sw5e-underworld-sidebar-ornament-outline-strong);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .vitals .ac-badge::after {
+  inset: 3px;
+  background: var(--sw5e-underworld-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-underworld-sidebar-ornament-inner-line);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .cr-badge::after {
+  inset: 4px;
+  background: var(--sw5e-underworld-sidebar-ornament-fill);
+  box-shadow: inset 0 0 0 1px var(--sw5e-underworld-sidebar-ornament-inner-line);
+}
+
+/* ——— Starship portrait/status badges — SW5E Light / Dark / Underworld ——— */
+@ship-portrait-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .portrait';
+@ship-portrait-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .portrait';
+@ship-portrait-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet :is(aside.sheet-sidebar, [data-application-part="sidebar"]) .portrait';
+
+@{ship-portrait-light} :is(.initiative, .initiative-wrapper .initiative, .loyalty-badge.badge, .sw5e-starship-tier-badge) {
+  background: var(--sw5e-light-sidebar-ornament-fill) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-light-sidebar-ornament-outline) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+@{ship-portrait-dark} :is(.initiative, .initiative-wrapper .initiative, .loyalty-badge.badge, .sw5e-starship-tier-badge) {
+  background: var(--sw5e-dark-sidebar-ornament-fill) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-dark-sidebar-ornament-outline) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
+}
+
+@{ship-portrait-underworld} :is(.initiative, .initiative-wrapper .initiative, .loyalty-badge.badge, .sw5e-starship-tier-badge) {
+  background: var(--sw5e-underworld-sidebar-ornament-fill) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-underworld-sidebar-ornament-outline) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+}
+
+/* Starship skill roll config — notes under configuration */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.application.roll-configuration.sw5e-starship-skill-roll-config .sw5e-starship-skill-roll-form .notes,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.application.roll-configuration.sw5e-starship-skill-roll-config .sw5e-starship-skill-roll-form .notes {
+  color: var(--sw5e-theme-muted-text) !important;
+}

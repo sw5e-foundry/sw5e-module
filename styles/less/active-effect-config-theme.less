@@ -1,0 +1,314 @@
+/* Active Effect configuration dialog — SW5E Light / Dark / Underworld.
+   Scoped via data-sw5e-theme-root="active-effect-config" from scripts/theme.mjs */
+
+@ae-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application';
+@ae-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application';
+@ae-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application';
+
+/* ——— SW5E Light ——— */
+@{ae-light} {
+  background: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  background-image: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 38%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+
+@{ae-light} .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
+}
+
+@{ae-light} :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{ae-light} .window-subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{ae-light} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-light} form.standard-form {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-light} nav.tabs {
+  border-bottom-color: var(--sw5e-light-muted-control-border) !important;
+}
+
+@{ae-light} nav.tabs .item {
+  color: var(--sw5e-theme-muted-text) !important;
+  border-color: transparent !important;
+}
+
+@{ae-light} nav.tabs .item:is(.active, :hover, :focus-visible) {
+  color: var(--sw5e-theme-heading) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  background: color-mix(in srgb, var(--sw5e-light-hover-tint) 65%, transparent) !important;
+}
+
+@{ae-light} :is(fieldset, fieldset.card) {
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 72%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-light} :is(fieldset, fieldset.card) > legend {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{ae-light} .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-light} :is(p.hint, .notes, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{ae-light} :is(input, select, textarea) {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+
+@{ae-light} :is(input, select, textarea):is(:hover, :focus, :focus-visible) {
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+@{ae-light} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  accent-color: var(--sw5e-line-color);
+  color-scheme: light;
+}
+
+@{ae-light} footer.form-footer > :is(button, [type="submit"], [type="button"]) {
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  filter: none !important;
+}
+
+@{ae-light} footer.form-footer > [type="button"],
+@{ae-light} footer.form-footer .dialog-button:not([type="submit"]) {
+  background-color: rgba(248, 251, 253, 0.92) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-light} footer.form-footer > [type="submit"],
+@{ae-light} footer.form-footer .dialog-button.default {
+  background: var(--sw5e-theme-primary-button) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 82%, black) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+
+@{ae-light} footer.form-footer > :is(button, [type="submit"], [type="button"]):is(:hover, :focus, :focus-visible) {
+  filter: none !important;
+}
+
+/* ——— SW5E Dark ——— */
+@{ae-dark} {
+  background: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  background-image: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{ae-dark} .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+
+@{ae-dark} :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{ae-dark} .window-subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{ae-dark} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-dark} form.standard-form {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-dark} nav.tabs {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+@{ae-dark} nav.tabs .item {
+  color: var(--sw5e-theme-muted-text) !important;
+  border-color: transparent !important;
+}
+
+@{ae-dark} nav.tabs .item:is(.active, :hover, :focus-visible) {
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 48%, transparent) !important;
+  background: color-mix(in srgb, var(--sw5e-secondary-button) 12%, transparent) !important;
+}
+
+@{ae-dark} :is(fieldset, fieldset.card) {
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  background: rgba(24, 24, 24, 0.42) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-dark} :is(fieldset, fieldset.card) > legend {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{ae-dark} .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-dark} :is(p.hint, .notes, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{ae-dark} :is(input, select, textarea) {
+  background: rgba(18, 22, 28, 0.88) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{ae-dark} :is(input, select, textarea):is(:hover, :focus, :focus-visible) {
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+}
+
+@{ae-dark} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  accent-color: var(--sw5e-line-color);
+  color-scheme: dark;
+}
+
+@{ae-dark} footer.form-footer > :is(button, [type="submit"], [type="button"]) {
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  filter: none !important;
+}
+
+@{ae-dark} footer.form-footer > [type="button"],
+@{ae-dark} footer.form-footer .dialog-button:not([type="submit"]) {
+  background: rgba(24, 24, 24, 0.56) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-dark} footer.form-footer > [type="submit"],
+@{ae-dark} footer.form-footer .dialog-button.default {
+  background: var(--sw5e-theme-primary-button) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 72%, black) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+
+/* ——— Underworld Alloy ——— */
+@{ae-underworld} {
+  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  background-image: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{ae-underworld} .window-header {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+@{ae-underworld} :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{ae-underworld} .window-subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{ae-underworld} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-underworld} nav.tabs {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+@{ae-underworld} nav.tabs .item {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{ae-underworld} nav.tabs .item:is(.active, :hover, :focus-visible) {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 42%, transparent) !important;
+  background: var(--sw5e-underworld-hover-tint) !important;
+}
+
+@{ae-underworld} :is(fieldset, fieldset.card) {
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 82%, black) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-underworld} :is(fieldset, fieldset.card) > legend {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{ae-underworld} .form-group label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{ae-underworld} :is(p.hint, .notes, .hint) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{ae-underworld} :is(input, select, textarea) {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{ae-underworld} :is(input, select, textarea):is(:hover, :focus, :focus-visible) {
+  border-color: var(--sw5e-underworld-neon-cyan) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 24%, transparent) !important;
+}
+
+@{ae-underworld} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  accent-color: var(--sw5e-underworld-neon-cyan);
+  color-scheme: dark;
+}
+
+@{ae-underworld} footer.form-footer > [type="button"],
+@{ae-underworld} footer.form-footer .dialog-button:not([type="submit"]) {
+  background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  filter: none !important;
+}
+
+@{ae-underworld} footer.form-footer > [type="submit"],
+@{ae-underworld} footer.form-footer .dialog-button.default {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-magenta) 72%, black) !important;
+  border-color: var(--sw5e-underworld-neon-magenta) !important;
+  color: var(--sw5e-theme-text) !important;
+}

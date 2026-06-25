@@ -1,5 +1,58 @@
 @starshipEffectsConditions: .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-condition;
 
+@actorEffectsConditions: .sw5e-theme-root.dnd5e2.sheet.actor .tab[data-tab="effects"] .conditions-list .condition:not(.sw5e-starship-effects-condition);
+
+/* Character/NPC (and stock starship) Effects condition hover — beats parchment-as-text remap */
+body[data-sw5e-theme="sw5e-light"] @{actorEffectsConditions} {
+	--dnd5e-condition-hover: var(--sw5e-light-hover-tint);
+}
+
+body[data-sw5e-theme="sw5e-dark"] @{actorEffectsConditions} {
+	--dnd5e-condition-hover: var(--sw5e-foundry-control-background-hover);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] @{actorEffectsConditions} {
+	--dnd5e-condition-hover: var(--sw5e-underworld-hover-tint);
+}
+
+body[data-sw5e-theme="sw5e-light"] @{actorEffectsConditions}:is(:hover, :focus-visible) {
+	background: var(--sw5e-light-hover-tint) !important;
+	color: var(--sw5e-theme-text) !important;
+	--icon-fill: var(--sw5e-theme-text);
+	--icon-stroke: var(--sw5e-theme-panel-background);
+}
+
+body[data-sw5e-theme="sw5e-dark"] @{actorEffectsConditions}:is(:hover, :focus-visible) {
+	background: var(--sw5e-foundry-control-background-hover) !important;
+	color: var(--sw5e-theme-text) !important;
+	--icon-fill: var(--sw5e-theme-text);
+	--icon-stroke: var(--sw5e-theme-panel-background);
+}
+
+body[data-sw5e-theme="sw5e-underworld"] @{actorEffectsConditions}:is(:hover, :focus-visible) {
+	background: var(--sw5e-underworld-hover-tint) !important;
+	color: var(--sw5e-theme-text) !important;
+	--icon-fill: var(--sw5e-theme-text);
+	--icon-stroke: var(--sw5e-theme-panel-background);
+}
+
+body[data-sw5e-theme="sw5e-light"] @{actorEffectsConditions}.active {
+	color: var(--sw5e-theme-heading) !important;
+	--icon-fill: var(--sw5e-theme-heading);
+}
+
+body[data-sw5e-theme="sw5e-dark"] @{actorEffectsConditions}.active,
+body[data-sw5e-theme="sw5e-underworld"] @{actorEffectsConditions}.active {
+	color: var(--sw5e-theme-text) !important;
+	--icon-fill: var(--sw5e-line-color);
+}
+
+body[data-sw5e-theme="sw5e-light"] @{actorEffectsConditions}.active:is(:hover, :focus-visible),
+body[data-sw5e-theme="sw5e-dark"] @{actorEffectsConditions}.active:is(:hover, :focus-visible),
+body[data-sw5e-theme="sw5e-underworld"] @{actorEffectsConditions}.active:is(:hover, :focus-visible) {
+	--icon-fill: currentColor;
+}
+
 /* SW5E maps --dnd5e-color-parchment to theme text; dnd5e uses it for condition hover → unreadable slab. */
 body[data-sw5e-theme="sw5e-light"] @{starshipEffectsConditions} {
 	--dnd5e-condition-hover: var(--sw5e-light-hover-tint);
@@ -53,6 +106,14 @@ body[data-sw5e-theme="sw5e-underworld"] @{starshipEffectsConditions}.active:is(:
 
 @starshipEffectsUsed: .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .tab[data-tab="effects"] .conditions-list .condition.sw5e-starship-effects-used;
 
+@{starshipEffectsUsed},
+@{starshipEffectsSlowed} {
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
+	min-width: 0;
+}
+
 @{starshipEffectsUsed} {
 	.fa-solid.fa-toggle-off,
 	.fa-solid.fa-toggle-on {
@@ -69,9 +130,10 @@ body[data-sw5e-theme="sw5e-underworld"] @{starshipEffectsConditions}.active:is(:
 	}
 
 	.sw5e-starship-slowed-levels {
-		display: flex;
+		display: inline-flex;
 		flex: 0 0 auto;
 		align-items: center;
+		flex-wrap: nowrap;
 		gap: 0.2rem;
 		margin-inline-start: auto;
 	}

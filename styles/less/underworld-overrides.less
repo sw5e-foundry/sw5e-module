@@ -2190,6 +2190,32 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehi
   color: var(--sw5e-underworld-danger) !important;
 }
 
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet :is(
+  .sw5e-starship-core-advanced-power-collapse,
+  .sw5e-starship-core-fuel-collapse,
+  .sw5e-starship-core-crew-collapse,
+  .sw5e-starship-core-collapsible-toggle
+) {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: var(--sw5e-underworld-muted-text) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet :is(
+  .sw5e-starship-core-advanced-power-collapse,
+  .sw5e-starship-core-fuel-collapse,
+  .sw5e-starship-core-crew-collapse,
+  .sw5e-starship-core-collapsible-toggle
+):is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 12%, transparent) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 28%, transparent) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  filter: none !important;
+  outline: none;
+}
+
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet [data-sw5e-sotg-panel="overview"] .sw5e-starship-crew-roles {
   border-top-color: var(--sw5e-underworld-row-divider) !important;
 }

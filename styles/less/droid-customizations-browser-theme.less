@@ -1,0 +1,463 @@
+/* Droid customization compendium picker — scoped CompendiumBrowser polish (CSS-2B).
+   Hook: data-sw5e-theme-root="droid-customizations-browser" on .sw5e-droid-customizations-browser */
+
+@droid-browser-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser';
+@droid-browser-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser';
+@droid-browser-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser';
+
+@droid-results-header: .results .items-section.card > .items-header.header;
+
+/* ——— SW5E Light ——— */
+@{droid-browser-light} {
+  --dnd5e-application-background: var(--sw5e-theme-page-center);
+  --filter-header-label-color: var(--sw5e-theme-heading);
+  --filter-range-label-color: var(--sw5e-theme-text);
+  --dnd5e-inventory-border: 1px solid var(--sw5e-light-muted-control-border);
+  color: var(--sw5e-theme-text);
+}
+
+@{droid-browser-light} .window-content {
+  background: var(--sw5e-theme-page-center) !important;
+  background-image: var(--sw5e-theme-surface-background) !important;
+  background-size: cover !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-light} .sidebar {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 94%, white) !important;
+  border-right: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-light} .sidebar search input[type="text"] {
+  --input-background-color: var(--sw5e-theme-input);
+  --input-text-color: var(--sw5e-theme-text);
+  --input-placeholder-color: var(--sw5e-theme-muted-text);
+  --input-border-color: var(--sw5e-theme-input-border);
+  --input-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent);
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+@{droid-browser-light} .sidebar search input[type="text"]:is(:hover, :focus, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+}
+
+@{droid-browser-light} .sidebar .filter-control {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-browser-light} .sidebar .filter-header > label > span {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-body) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+@{droid-browser-light} .sidebar .filter-header > label::before,
+@{droid-browser-light} .sidebar .filter-header > label::after {
+  border-top-color: color-mix(in srgb, var(--sw5e-theme-line) 70%, transparent) !important;
+}
+
+@{droid-browser-light} .sidebar filter-state {
+  --filter-state-background-color: var(--sw5e-line-color);
+}
+
+@{droid-browser-light} .sidebar .filter-choice,
+@{droid-browser-light} .sidebar .filter.filter-boolean > label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-light} .sidebar :is(dnd5e-checkbox, input[type="checkbox"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+}
+
+@{droid-browser-light} .results {
+  background: transparent !important;
+}
+
+@{droid-browser-light} .results > .note.info {
+  background: color-mix(in srgb, var(--sw5e-line-color) 8%, white) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-theme-line) 55%, transparent) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-light} .results .items-section.card {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 92%, white) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 6px !important;
+  box-shadow: var(--sw5e-light-card-shadow-soft) !important;
+}
+
+@{droid-browser-light} @{droid-results-header} {
+  background: var(--sw5e-light-section-header-background) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-left: 3px solid var(--sw5e-theme-heading) !important;
+  border-radius: 4px 4px 0 0 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), inset 0 0 0 1px rgba(175, 198, 214, 0.18) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-browser-light} @{droid-results-header} > :is(h3, .item-name) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+@{droid-browser-light} @{droid-results-header} > :not(:is(h3, .item-name)) {
+  color: var(--sw5e-theme-muted-text) !important;
+  font-family: var(--sw5e-font-body) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-shadow: none !important;
+}
+
+@{droid-browser-light} .results .items-section .item {
+  border-bottom-color: var(--sw5e-light-row-divider) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-light} .results .items-section .item:is(:hover, :focus-within) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 6%, white) !important;
+}
+
+@{droid-browser-light} .results .items-section .item.selected {
+  border-left-color: var(--sw5e-line-color) !important;
+  background: color-mix(in srgb, var(--sw5e-line-color) 10%, white) !important;
+}
+
+@{droid-browser-light} .results .items-section .item .item-name .title {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-light} .results .items-section .item .item-name .subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-browser-light} .results .items-section .item .item-source {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-browser-light} .results .items-section .item .item-image {
+  border-color: var(--sw5e-light-muted-control-border) !important;
+}
+
+@{droid-browser-light} .results .items-section .item :is(dnd5e-checkbox, input[type="checkbox"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+}
+
+@{droid-browser-light} .footer:not(:empty) {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 96%, white) !important;
+  border-top: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-light} .footer:not(:empty) .count {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-browser-light} .footer:not(:empty) .count:not(.invalid) .value {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{droid-browser-light} .footer:not(:empty) .count.invalid .value {
+  color: var(--sw5e-theme-heading) !important;
+}
+
+@{droid-browser-light} .footer:not(:empty) button[type="submit"] {
+  background: var(--sw5e-theme-primary-button) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 45%, transparent) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-button-text) !important;
+  box-shadow: none !important;
+}
+
+@{droid-browser-light} .footer:not(:empty) button[type="submit"]:is(:hover, :focus-visible):not(:disabled) {
+  filter: brightness(1.04) !important;
+}
+
+/* ——— SW5E Dark ——— */
+@{droid-browser-dark} {
+  --dnd5e-application-background: var(--sw5e-theme-page-center);
+  --filter-header-label-color: var(--sw5e-theme-heading);
+  --filter-range-label-color: var(--sw5e-theme-text);
+  --dnd5e-inventory-border: 1px solid var(--sw5e-dark-muted-control-border);
+  color: var(--sw5e-theme-text);
+}
+
+@{droid-browser-dark} .window-content {
+  background: var(--sw5e-theme-page-center) !important;
+  background-image: var(--sw5e-theme-surface-background) !important;
+  background-size: cover !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-dark} .sidebar {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 90%, black) !important;
+  border-right: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-dark} .sidebar search input[type="text"] {
+  --input-background-color: var(--sw5e-theme-input);
+  --input-text-color: var(--sw5e-theme-text);
+  --input-placeholder-color: var(--sw5e-theme-muted-text);
+  --input-border-color: var(--sw5e-theme-input-border);
+  --input-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent);
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-dark} .sidebar search input[type="text"]:is(:hover, :focus, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+
+@{droid-browser-dark} .sidebar .filter-header > label > span {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-body) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+@{droid-browser-dark} .sidebar .filter-header > label::before,
+@{droid-browser-dark} .sidebar .filter-header > label::after {
+  border-top-color: color-mix(in srgb, var(--sw5e-line-color) 35%, transparent) !important;
+}
+
+@{droid-browser-dark} .sidebar filter-state {
+  --filter-state-background-color: var(--sw5e-line-color);
+}
+
+@{droid-browser-dark} .sidebar .filter-choice,
+@{droid-browser-dark} .sidebar .filter.filter-boolean > label {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-dark} .sidebar :is(dnd5e-checkbox, input[type="checkbox"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+}
+
+@{droid-browser-dark} .results > .note.info {
+  background: color-mix(in srgb, var(--sw5e-line-color) 10%, rgba(18, 18, 18, 0.92)) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-dark} .results .items-section.card {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 88%, black) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: 6px !important;
+}
+
+@{droid-browser-dark} @{droid-results-header} {
+  background: linear-gradient(180deg, rgba(54, 54, 54, 0.94) 0%, rgba(22, 22, 22, 0.98) 100%) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-left: 3px solid var(--sw5e-theme-heading) !important;
+  border-radius: 4px 4px 0 0 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(6, 15, 22, 0.28) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-browser-dark} @{droid-results-header} > :is(h3, .item-name) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+@{droid-browser-dark} @{droid-results-header} > :not(:is(h3, .item-name)) {
+  color: var(--sw5e-theme-muted-text) !important;
+  font-family: var(--sw5e-font-body) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-shadow: none !important;
+}
+
+@{droid-browser-dark} .results .items-section .item {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 20%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-dark} .results .items-section .item:is(:hover, :focus-within) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 8%, rgba(18, 18, 18, 0.9)) !important;
+}
+
+@{droid-browser-dark} .results .items-section .item.selected {
+  border-left-color: var(--sw5e-line-color) !important;
+  background: color-mix(in srgb, var(--sw5e-line-color) 12%, rgba(18, 18, 18, 0.92)) !important;
+}
+
+@{droid-browser-dark} .results .items-section .item .item-name .subtitle,
+@{droid-browser-dark} .results .items-section .item .item-source {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-browser-dark} .results .items-section .item .item-image {
+  border-color: var(--sw5e-dark-muted-control-border) !important;
+}
+
+@{droid-browser-dark} .results .items-section .item :is(dnd5e-checkbox, input[type="checkbox"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+}
+
+@{droid-browser-dark} .footer:not(:empty) {
+  background: color-mix(in srgb, var(--sw5e-theme-panel-background) 90%, black) !important;
+  border-top: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-dark} .footer:not(:empty) .count:not(.invalid) .value {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{droid-browser-dark} .footer:not(:empty) button[type="submit"] {
+  background: var(--sw5e-theme-primary-button) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-button-text) !important;
+  box-shadow: none !important;
+}
+
+/* ——— Underworld Alloy ——— */
+@{droid-browser-underworld} {
+  --dnd5e-application-background: var(--sw5e-theme-page-center);
+  --filter-header-label-color: var(--sw5e-theme-heading);
+  --filter-range-label-color: var(--sw5e-theme-text);
+  --dnd5e-inventory-border: 1px solid var(--sw5e-underworld-muted-control-border);
+  color: var(--sw5e-theme-text);
+}
+
+@{droid-browser-underworld} .window-content {
+  background: var(--sw5e-theme-page-center) !important;
+  background-image: var(--sw5e-theme-surface-background) !important;
+  background-size: cover !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-underworld} .sidebar {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 18%, var(--sw5e-underworld-panel)) !important;
+  border-right: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+}
+
+@{droid-browser-underworld} .sidebar search input[type="text"] {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{droid-browser-underworld} .sidebar .filter-header > label > span {
+  color: var(--sw5e-theme-heading) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+@{droid-browser-underworld} .sidebar .filter-header > label::before,
+@{droid-browser-underworld} .sidebar .filter-header > label::after {
+  border-top-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 32%, var(--sw5e-underworld-border)) !important;
+}
+
+@{droid-browser-underworld} .sidebar filter-state {
+  --filter-state-background-color: var(--sw5e-underworld-neon-cyan);
+}
+
+@{droid-browser-underworld} .sidebar :is(dnd5e-checkbox, input[type="checkbox"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
+  accent-color: var(--sw5e-underworld-neon-cyan);
+}
+
+@{droid-browser-underworld} .results .items-section.card {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 16%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: 6px !important;
+}
+
+@{droid-browser-underworld} @{droid-results-header} {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 28%, var(--sw5e-underworld-panel-strong)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-left: 3px solid var(--sw5e-underworld-neon-cyan) !important;
+  border-radius: 4px 4px 0 0 !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{droid-browser-underworld} @{droid-results-header} > :is(h3, .item-name) {
+  color: var(--sw5e-theme-heading) !important;
+  text-shadow: none !important;
+}
+
+@{droid-browser-underworld} .results .items-section .item {
+  border-bottom-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+
+@{droid-browser-underworld} .results .items-section .item:is(:hover, :focus-within) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 8%, var(--sw5e-underworld-panel)) !important;
+}
+
+@{droid-browser-underworld} .results .items-section .item.selected {
+  border-left-color: var(--sw5e-underworld-neon-cyan) !important;
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 10%, var(--sw5e-underworld-panel)) !important;
+}
+
+@{droid-browser-underworld} .results .items-section .item :is(dnd5e-checkbox, input[type="checkbox"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
+  accent-color: var(--sw5e-underworld-neon-cyan);
+}
+
+@{droid-browser-underworld} .footer:not(:empty) {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 20%, var(--sw5e-underworld-panel)) !important;
+  border-top: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+}
+
+@{droid-browser-underworld} .footer:not(:empty) .count:not(.invalid) .value {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+@{droid-browser-underworld} .footer:not(:empty) button[type="submit"] {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-theme-text) !important;
+}

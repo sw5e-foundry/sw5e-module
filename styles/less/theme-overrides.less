@@ -981,7 +981,7 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-se
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
   button,
   a
-).item-control:is(:hover, :focus, :focus-visible)::before {
+).item-control:not([data-action="toggleActive"]):is(:hover, :focus, :focus-visible)::before {
   border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 34%, rgba(67, 67, 67, 0.14));
   background: rgba(255, 255, 255, 0.58);
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 18%, transparent), inset 0 0 0 1px rgba(255, 255, 255, 0.52);
@@ -1006,8 +1006,18 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-se
   [data-action="toggleActive"]
 ) {
   position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
   width: 1.5rem !important;
   min-width: 1.5rem !important;
+  height: 1.5rem !important;
+  min-height: 1.5rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  overflow: visible;
 }
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
@@ -1113,9 +1123,11 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor .items-sec
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  align-self: stretch;
+  align-self: center;
   width: 1.5rem !important;
   min-width: 1.5rem !important;
+  height: 1.5rem !important;
+  min-height: 1.5rem !important;
   padding: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
@@ -3580,7 +3592,7 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[dat
 }
 
 /* SW5E Light — item sheet Advancement tab (main list rows/cards; not config popouts) */
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .items-section.card {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 249, 0.82) 100%) !important;
   border: 1px solid var(--sw5e-light-muted-control-border) !important;
   border-radius: 8px;
@@ -3589,67 +3601,67 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[da
   overflow: hidden;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-list > li.item {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item {
   border-bottom: 1px solid color-mix(in srgb, var(--sw5e-light-muted-control-border) 55%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-list > li.item:nth-child(odd) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item:nth-child(odd) {
   background: color-mix(in srgb, var(--sw5e-light-hover-tint) 42%, rgba(255, 255, 255, 0.55)) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-list > li.item:nth-child(even) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item:nth-child(even) {
   background: rgba(255, 255, 255, 0.38) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-list > li.item:is(:hover, :focus-within) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item:is(:hover, :focus-within) {
   background: color-mix(in srgb, var(--sw5e-light-hover-tint) 68%, rgba(255, 255, 255, 0.72)) !important;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 22%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] :is(.gold-icon, .item-image.gold-icon) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) :is(.gold-icon, .item-image.gold-icon) {
   border-color: var(--sw5e-light-icon-frame-border) !important;
   background-color: rgba(255, 255, 255, 0.86) !important;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.58), 0 0 0 1px rgba(96, 122, 138, 0.08) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-list > li.item:is(:hover, :focus-within) :is(.gold-icon, .item-image.gold-icon) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item:is(:hover, :focus-within) :is(.gold-icon, .item-image.gold-icon) {
   border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 56%, rgba(255, 255, 255, 0.26)) !important;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.62), 0 0 0 1px color-mix(in srgb, var(--sw5e-light-active-control-border) 22%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-name .title {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-name :is(.title, &.activity-name) {
   color: var(--sw5e-theme-text) !important;
   font-family: var(--sw5e-font-body) !important;
   text-shadow: none !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-name .summary {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-name .summary {
   color: var(--sw5e-theme-muted-text) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-name .summary .tag {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-name .summary .tag {
   color: var(--sw5e-theme-muted-text) !important;
   text-decoration-color: color-mix(in srgb, var(--sw5e-theme-muted-text) 55%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-name .summary :is(.content-link, .content-link > i) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-name .summary :is(.content-link, .content-link > i) {
   color: var(--sw5e-line-color) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] :is(.advancement-value, .item-detail.advancement-value) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) :is(.advancement-value, .item-detail.advancement-value) {
   color: var(--sw5e-theme-muted-text) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-detail.advancement-value.empty::after {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-detail.advancement-value.empty::after {
   color: var(--sw5e-light-empty-text) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .items-header :is(.info-control, .item-control) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-header :is(.info-control, .item-control) {
   color: var(--sw5e-secondary-button) !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .items-header .item-controls :is(button, a).item-control:not(.unbutton),
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] button.gold-button {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-header .item-controls :is(button, a).item-control:not(.unbutton),
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) button.gold-button {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
   color: var(--sw5e-secondary-button) !important;
   border: 1px solid var(--sw5e-light-muted-control-border) !important;
@@ -3658,15 +3670,15 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[da
   filter: none !important;
 }
 
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .items-header .item-controls :is(button, a).item-control:not(.unbutton):is(:hover, :focus, :focus-visible),
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] button.gold-button:is(:hover, :focus, :focus-visible) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-header .item-controls :is(button, a).item-control:not(.unbutton):is(:hover, :focus, :focus-visible),
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) button.gold-button:is(:hover, :focus, :focus-visible) {
   background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.9)) !important;
   color: var(--sw5e-line-color) !important;
   border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
 }
 
 /* SW5E Dark — item sheet Advancement tab (main list rows/cards; not config popouts) */
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .items-section.card {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card {
   background: linear-gradient(180deg, rgba(56, 56, 56, 0.78) 0%, rgba(28, 28, 28, 0.92) 100%) !important;
   border: 1px solid var(--sw5e-dark-muted-control-border) !important;
   border-radius: 8px;
@@ -3675,66 +3687,66 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[dat
   overflow: hidden;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-list > li.item {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item {
   border-bottom: 1px solid color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-list > li.item:nth-child(odd) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item:nth-child(odd) {
   background: color-mix(in srgb, var(--sw5e-secondary-button) 6%, rgba(24, 24, 24, 0.42)) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-list > li.item:nth-child(even) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item:nth-child(even) {
   background: rgba(18, 18, 18, 0.28) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-list > li.item:is(:hover, :focus-within) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item:is(:hover, :focus-within) {
   background: color-mix(in srgb, var(--sw5e-secondary-button) 12%, rgba(28, 28, 28, 0.72)) !important;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] :is(.gold-icon, .item-image.gold-icon) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) :is(.gold-icon, .item-image.gold-icon) {
   border-color: var(--sw5e-dark-icon-frame-border) !important;
   background-color: rgba(10, 14, 18, 0.55) !important;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.12) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-list > li.item:is(:hover, :focus-within) :is(.gold-icon, .item-image.gold-icon) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item:is(:hover, :focus-within) :is(.gold-icon, .item-image.gold-icon) {
   border-color: color-mix(in srgb, var(--sw5e-dark-active-control-border) 64%, transparent) !important;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 0 1px color-mix(in srgb, var(--sw5e-dark-active-control-border) 26%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-name .title {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-name :is(.title, &.activity-name) {
   color: var(--sw5e-theme-text) !important;
   font-family: var(--sw5e-font-body) !important;
   text-shadow: none !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-name .summary {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-name .summary {
   color: var(--sw5e-theme-muted-text) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-name .summary .tag {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-name .summary .tag {
   color: var(--sw5e-theme-muted-text) !important;
   text-decoration-color: color-mix(in srgb, var(--sw5e-theme-muted-text) 55%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-name .summary :is(.content-link, .content-link > i) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-name .summary :is(.content-link, .content-link > i) {
   color: var(--sw5e-line-color) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] :is(.advancement-value, .item-detail.advancement-value) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) :is(.advancement-value, .item-detail.advancement-value) {
   color: var(--sw5e-theme-muted-text) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-detail.advancement-value.empty::after {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-detail.advancement-value.empty::after {
   color: color-mix(in srgb, var(--sw5e-theme-muted-text) 72%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .items-header :is(.info-control, .item-control) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-header :is(.info-control, .item-control) {
   color: var(--sw5e-secondary-button) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-controls :is(.control-button, .item-control, button.unbutton) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-controls :is(.control-button, .item-control, button.unbutton) {
   background: transparent !important;
   color: var(--sw5e-secondary-button) !important;
   border-color: transparent !important;
@@ -3742,15 +3754,15 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[dat
   filter: none !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .item-controls :is(.control-button, .item-control, button.unbutton):is(:hover, :focus, :focus-visible) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-controls :is(.control-button, .item-control, button.unbutton):is(:hover, :focus, :focus-visible) {
   background: rgba(32, 161, 208, 0.14) !important;
   color: var(--sw5e-line-color) !important;
   border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .items-header .item-controls :is(button, a).item-control:not(.unbutton),
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] button.gold-button {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-header .item-controls :is(button, a).item-control:not(.unbutton),
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) button.gold-button {
   background: rgba(24, 24, 24, 0.72) !important;
   color: var(--sw5e-secondary-button) !important;
   border: 1px solid rgba(32, 161, 208, 0.35) !important;
@@ -3759,8 +3771,8 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[dat
   filter: none !important;
 }
 
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] .items-header .item-controls :is(button, a).item-control:not(.unbutton):is(:hover, :focus, :focus-visible),
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[data-application-part="advancement"] button.gold-button:is(:hover, :focus, :focus-visible) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-header .item-controls :is(button, a).item-control:not(.unbutton):is(:hover, :focus, :focus-visible),
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) button.gold-button:is(:hover, :focus, :focus-visible) {
   background: rgba(32, 161, 208, 0.14) !important;
   color: var(--sw5e-line-color) !important;
   border-color: rgba(32, 161, 208, 0.55) !important;
@@ -4143,6 +4155,47 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-stars
   border: 1px solid color-mix(in srgb, var(--sw5e-theme-line) 35%, transparent) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
   color: var(--sw5e-theme-text);
+}
+
+/* Starship sheet — SotG inner tabs / kickers (SW5E Light; beats legacy gold/dark surfaces) */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-sotg-nav {
+  border-bottom-color: var(--sw5e-light-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-sotg-tab {
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 78%, white) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-sotg-tab:is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-light-hover-tint) 72%, rgba(255, 255, 255, 0.82)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  outline: none;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-sotg-tab.active {
+  background: color-mix(in srgb, var(--sw5e-light-hover-tint) 88%, rgba(255, 255, 255, 0.9)) !important;
+  border-color: var(--sw5e-line-color) !important;
+  color: var(--sw5e-theme-heading) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 18%, transparent) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-kicker,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-subtitle {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-crew-section {
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 62%, rgba(255, 255, 255, 0.72)) !important;
+  border-color: var(--sw5e-light-muted-control-border) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet dialog.sw5e-starship-warnings-dialog {
+  border-color: var(--sw5e-light-muted-control-border) !important;
+  background: var(--sw5e-theme-panel-background) !important;
+  color: var(--sw5e-theme-text) !important;
 }
 
 /* Starship sheet — S6 Core skills list (SW5E Light) */
@@ -4671,24 +4724,36 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-star
 
 .dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-modifications-header-stats {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1.25rem;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 0.85rem;
   margin-inline-start: auto;
   margin-inline-end: 0.5rem;
   font-size: var(--font-size-12, 0.75rem);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  white-space: nowrap;
 }
 
 .dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-modifications-header-stat {
   display: inline-flex;
   align-items: baseline;
-  gap: 0.35rem;
+  gap: 0.25rem;
+}
+
+.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-modifications-header-stat-label {
+  display: none;
 }
 
 .dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-modifications-header-stat-value {
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.dnd5e2.sheet.actor.vehicle.sw5e-starship-sheet .sw5e-starship-modifications-header-stat-suffix {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 /* Starship sheet — S4 left sidebar (SW5E Dark) */
@@ -6381,6 +6446,63 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-stars
   display: none;
 }
 
+/* Neutralize global theme button fill on Core collapsible chevrons */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet :is(
+  .sw5e-starship-core-advanced-power-collapse,
+  .sw5e-starship-core-fuel-collapse,
+  .sw5e-starship-core-crew-collapse,
+  .sw5e-starship-core-collapsible-toggle
+) {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: var(--sw5e-theme-muted-text) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet :is(
+  .sw5e-starship-core-advanced-power-collapse,
+  .sw5e-starship-core-fuel-collapse,
+  .sw5e-starship-core-crew-collapse,
+  .sw5e-starship-core-collapsible-toggle
+):is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 12%, transparent) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+  color: var(--sw5e-theme-heading) !important;
+  filter: none !important;
+  outline: none;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet :is(
+  .sw5e-starship-core-advanced-power-collapse,
+  .sw5e-starship-core-fuel-collapse,
+  .sw5e-starship-core-crew-collapse,
+  .sw5e-starship-core-collapsible-toggle
+) {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: var(--sw5e-theme-muted-text) !important;
+  filter: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet :is(
+  .sw5e-starship-core-advanced-power-collapse,
+  .sw5e-starship-core-fuel-collapse,
+  .sw5e-starship-core-crew-collapse,
+  .sw5e-starship-core-collapsible-toggle
+):is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 14%, transparent) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  filter: none !important;
+  outline: none;
+}
+
+.sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-core-collapsible-heading .sw5e-starship-systems-field-heading {
+  line-height: 1.25;
+}
+
 .sw5e-theme-root.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-advanced-power-die-row {
   display: flex;
   align-items: center;
@@ -7100,72 +7222,6 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.application.roll-confi
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.application.roll-configuration nav.dialog-buttons > :is(button, [type="submit"])[autofocus] {
   background-color: rgba(20, 36, 44, 0.88) !important;
   background-image: none !important;
-  border-color: var(--sw5e-line-color) !important;
-  color: var(--sw5e-secondary-button) !important;
-}
-
-/* Starship skill roll config app — SW5E Light */
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.config-sheet.sw5e-starship-skill-roll-config fieldset {
-  border: 1px solid var(--sw5e-light-muted-control-border) !important;
-  border-radius: var(--sw5e-starship-radius-sm, 6px);
-  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 72%, transparent) !important;
-}
-
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.config-sheet.sw5e-starship-skill-roll-config .sw5e-starship-skill-roll-form .notes {
-  color: var(--sw5e-theme-muted-text) !important;
-}
-
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.config-sheet.sw5e-starship-skill-roll-config .sheet-footer :is(button, [data-advantage-mode]) {
-  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 78%, transparent) !important;
-  border: 1px solid var(--sw5e-light-muted-control-border) !important;
-  border-radius: var(--sw5e-starship-radius-sm, 6px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
-  color: var(--sw5e-theme-text) !important;
-  filter: none !important;
-}
-
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.config-sheet.sw5e-starship-skill-roll-config .sheet-footer :is(button, [data-advantage-mode]):is(:hover, :focus-visible) {
-  background: rgba(13, 153, 204, 0.14) !important;
-  border-color: var(--sw5e-line-color) !important;
-  color: var(--sw5e-theme-text) !important;
-  filter: none !important;
-}
-
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.config-sheet.sw5e-starship-skill-roll-config .sheet-footer :is(button, [data-advantage-mode])[autofocus] {
-  background: color-mix(in srgb, var(--sw5e-line-color) 14%, rgba(255, 255, 255, 0.82)) !important;
-  border-color: var(--sw5e-line-color) !important;
-  color: var(--sw5e-line-color) !important;
-}
-
-/* Starship skill roll config app — SW5E Dark */
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.config-sheet.sw5e-starship-skill-roll-config fieldset {
-  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
-  border-radius: var(--sw5e-starship-radius-sm, 6px);
-  background: rgba(24, 24, 24, 0.42) !important;
-}
-
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.config-sheet.sw5e-starship-skill-roll-config .sw5e-starship-skill-roll-form .notes {
-  color: var(--sw5e-theme-muted-text) !important;
-}
-
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.config-sheet.sw5e-starship-skill-roll-config .sheet-footer :is(button, [data-advantage-mode]) {
-  background: rgba(24, 24, 24, 0.56) !important;
-  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
-  border-radius: var(--sw5e-starship-radius-sm, 6px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-  color: var(--sw5e-theme-text) !important;
-  filter: none !important;
-}
-
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.config-sheet.sw5e-starship-skill-roll-config .sheet-footer :is(button, [data-advantage-mode]):is(:hover, :focus-visible) {
-  background: rgba(32, 161, 208, 0.18) !important;
-  border-color: var(--sw5e-line-color) !important;
-  color: var(--sw5e-theme-text) !important;
-  filter: none !important;
-}
-
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.config-sheet.sw5e-starship-skill-roll-config .sheet-footer :is(button, [data-advantage-mode])[autofocus] {
-  background: color-mix(in srgb, var(--sw5e-secondary-button) 18%, rgba(0, 0, 0, 0.34)) !important;
   border-color: var(--sw5e-line-color) !important;
   color: var(--sw5e-secondary-button) !important;
 }

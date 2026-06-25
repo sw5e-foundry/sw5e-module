@@ -320,6 +320,22 @@ export function isSw5eAugmentationsApp(app, element) {
 }
 
 /**
+ * SW5E Droid customizations manager (ApplicationV2).
+ */
+export function isSw5eDroidCustomizationsApp(app, element) {
+	if ( app?.constructor?.name === "DroidCustomizationsApp" ) return true;
+	return element instanceof HTMLElement && element.classList.contains("sw5e-droid-customizations-manager");
+}
+
+/**
+ * SW5E Droid customization compendium picker (scoped CompendiumBrowser).
+ */
+export function isSw5eDroidCustomizationsBrowser(app, element) {
+	if ( app?.constructor?.name === "DroidCustomizationCompendiumBrowser" ) return true;
+	return element instanceof HTMLElement && element.classList.contains("sw5e-droid-customizations-browser");
+}
+
+/**
  * dnd5e journal entry/page sheets (AppV2). Legacy renderJournalSheet hooks do not fire on v13.
  */
 export function isDnd5eJournalApp(app, element) {
@@ -337,6 +353,14 @@ function applyDnd5eThemedApplicationFromHook(app, html) {
 	const root = getHtmlRoot(html) ?? getAppRoot(app);
 	if ( isSw5eAugmentationsApp(app, root) ) {
 		applySw5eThemeScope(html, { scope: "cybernetics" });
+		return;
+	}
+	if ( isSw5eDroidCustomizationsApp(app, root) ) {
+		applySw5eThemeScope(html, { scope: "droid-customizations" });
+		return;
+	}
+	if ( isSw5eDroidCustomizationsBrowser(app, root) ) {
+		applySw5eThemeScope(html, { scope: "droid-customizations-browser" });
 		return;
 	}
 	if ( isDnd5eJournalApp(app, root) ) {
