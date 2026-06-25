@@ -35,7 +35,7 @@ system:
     width: null
     units: ''
     type: enemy
-    prompt: true
+    prompt: false
   range:
     value: 800
     long: 3200
@@ -130,10 +130,22 @@ system:
         override: false
         units: ft
       target:
+        affects:
+          count: '1'
+          type: enemy
+          choice: false
+          special: ''
+        override: false
+        prompt: false
         template:
-          size: '1'
-          type: 'enemy'
-          units: ''
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
       type: attack
 ownership:
   default: 0

@@ -143,7 +143,16 @@ system:
         override: false
         units: ft
       roll: {}
-      target: {}
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
       type: utility
     sw5e0attack00000:
       _id: sw5e0attack00000
@@ -171,6 +180,12 @@ system:
         template:
           type: ''
           units: ''
+          contiguous: false
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
       type: attack
 ownership:
   default: 0

@@ -200,7 +200,16 @@ system:
         override: false
         units: ft
         value: '40'
-      target: {}
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
       type: attack
 ownership:
   default: 0

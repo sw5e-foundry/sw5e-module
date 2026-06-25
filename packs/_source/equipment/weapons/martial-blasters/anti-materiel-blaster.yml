@@ -105,7 +105,16 @@ system:
         override: false
         units: ft
         value: '180'
-      target: {}
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
       type: attack
   properties:
     - powerCell

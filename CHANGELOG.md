@@ -49,6 +49,15 @@
 - **Active Effects:** dropdown/select normalization across SW5E Light, SW5E Dark, and Underworld Alloy.
 - **Theme scope:** rest and activity usage ApplicationV2 dialogs now receive `sw5e-theme-root` scoping.
 
+### Weapon Activities
+- Added stock dnd5e Attack Activities to primary and secondary Starship weapons and propagated matching Activities to eligible Drake's Shipyard embedded source weapons while preserving legacy weapon data for compatibility.
+- Starship weapon rolls now use Wisdom by default when no attack ability is set, and Power Routing damage scaling applies through stock dnd5e damage rolls.
+- Added save-based Activities for Proton Torpedo and Concussion Missile; these tertiary payloads use Dexterity saves, deal half damage on a successful save, and keep launcher shells as utility/gating items without fake `0d0` Attack Activities.
+- Normal single-target weapon Activities no longer prompt for measured templates, while weapons with explicit template geometry keep measured-template placement enabled.
+- Fixed invalid weapon Activity duration data where `duration.value` incorrectly stored `inst`, and normalized measured-template prompt defaults across the migrated weapon categories.
+- Cleaned up the remaining non-Starship wrapper and natural-weapon Activity serialization so these records use valid instantaneous duration data and explicit single-target prompt defaults without changing weapon mechanics.
+- Deferred launcher selection, reload, ammo consumption, bombs/mines/cluster munitions, and migration of existing world actors until the broader Starship weapon rollout is complete.
+
 ### Migration
 - Bumped `needsMigrationVersion` to `0.38` so updated worlds recognize this release.
 - No destructive actor/item migration is required for this bump.

@@ -47,7 +47,7 @@ system:
       description: {}
       duration:
         units: inst
-        value: inst
+        value: ''
       img: null
       name: Burst Attack
       range:
@@ -60,10 +60,22 @@ system:
           calculation: spellcasting
           formula: ''
       target:
-        template:
-          size: '1'
+        affects:
+          count: '1'
           type: enemy
-          units: ''
+          choice: false
+          special: ''
+        override: false
+        prompt: false
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
       type: save
   properties:
     - auto

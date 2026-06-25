@@ -2,6 +2,21 @@ import { getDerivedStarshipRuntime } from "./starship-data.mjs";
 import { isSw5eStarshipActor } from "./patch/starship-movement.mjs";
 
 const STARSHIP_WEAPON_TYPE_PATTERN = /\(starship\)/i;
+const STARSHIP_LAUNCHER_TYPE_VALUES = new Set(["tertiary (starship)", "quaternary (starship)"]);
+const STARSHIP_AMMO_PAYLOAD_SUBTYPES = new Set(["ssmissile", "sstorpedo"]);
+const PLACEHOLDER_LAUNCHER_DAMAGE_PATTERN = /^0d0(?:\s*\+\s*@mod)?$/i;
+
+function getItemDamageFormulaParts(item) {
+	return (item?.system?.damage?.parts ?? [])
+		.map(part => Array.isArray(part) ? String(part[0] ?? "").trim() : "")
+		.filter(Boolean);
+}
+
+function hasRealDamageParts(item) {
+	const formulas = getItemDamageFormulaParts(item);
+	if ( !formulas.length ) return false;
+	return formulas.some(formula => !PLACEHOLDER_LAUNCHER_DAMAGE_PATTERN.test(formula));
+}
 
 /**
  * @param {Item5e|object|null|undefined} item
@@ -19,23 +34,88 @@ export function isStarshipWeaponItem(item) {
 }
 
 /**
+ * Direct-hit starship ordnance payloads stay on ammo items, not launcher shells.
+ * This pilot supports missile/torpedo ammo only; bombs, mines, and cluster payloads remain deferred.
+ * @param {Item5e|object|null|undefined} item
+ * @returns {boolean}
+ */
+export function isStarshipAmmoPayloadItem(item) {
+	if ( item?.type !== "consumable" ) return false;
+	if ( item.system?.type?.value !== "ammo" ) return false;
+	const subtype = item.system?.type?.subtype ?? "";
+	if ( !STARSHIP_AMMO_PAYLOAD_SUBTYPES.has(subtype) ) return false;
+	if ( (item.system?.actionType ?? "") !== "rwak" ) return false;
+	return hasRealDamageParts(item);
+}
+
+/**
+ * Launcher shells are separate gating items that own compatibility/reload state rather than the real payload roll data.
+ * @param {Item5e|object|null|undefined} item
+ * @returns {boolean}
+ */
+export function isStarshipLauncherShellItem(item) {
+	if ( item?.type !== "weapon" ) return false;
+	if ( !STARSHIP_LAUNCHER_TYPE_VALUES.has(item.system?.type?.value ?? "") ) return false;
+	if ( (item.system?.actionType ?? "") !== "" ) return false;
+	const ammoTypes = item.system?.ammo?.types;
+	if ( !Array.isArray(ammoTypes) || !ammoTypes.length ) return false;
+	const formulas = getItemDamageFormulaParts(item);
+	return !formulas.length || formulas.every(formula => PLACEHOLDER_LAUNCHER_DAMAGE_PATTERN.test(formula));
+}
+
+/**
+ * @param {Item5e|object|null|undefined} launcher
+ * @param {string|null|undefined} subtype
+ * @returns {boolean}
+ */
+export function launcherAcceptsStarshipAmmoSubtype(launcher, subtype) {
+	if ( !isStarshipLauncherShellItem(launcher) ) return false;
+	if ( typeof subtype !== "string" || !subtype ) return false;
+	return Array.isArray(launcher.system?.ammo?.types) && launcher.system.ammo.types.includes(subtype);
+}
+
+/**
+ * Pure resolver for future launcher-selected payload workflows. No UI or consumption side effects.
+ * @param {Item5e|object|null|undefined} launcher
+ * @param {Actor5e|object|null|undefined} actor
+ * @returns {Array<Item5e|object>}
+ */
+export function getCompatibleStarshipLauncherAmmoItems(launcher, actor = launcher?.actor) {
+	if ( !isStarshipLauncherShellItem(launcher) ) return [];
+	const items = actor?.items?.contents
+		?? Array.from(actor?.items?.values?.() ?? actor?.items ?? []);
+	return items.filter(item => isStarshipAmmoPayloadItem(item)
+		&& launcherAcceptsStarshipAmmoSubtype(launcher, item.system?.type?.subtype));
+}
+
+/**
+ * @param {Item5e|object|null|undefined} item
+ * @returns {boolean}
+ */
+export function isStarshipAttackPayloadItem(item) {
+	return isStarshipWeaponItem(item) || isStarshipAmmoPayloadItem(item);
+}
+
+/**
  * @param {Item5e|object|null|undefined} item
  * @returns {boolean}
  */
 export function shouldUseStarshipWisAttackAbility(item) {
-	if ( !isStarshipWeaponItem(item) ) return false;
+	if ( !isStarshipAttackPayloadItem(item) ) return false;
 	const systemAbility = item.system?.ability;
 	if ( systemAbility && systemAbility !== "none" ) return false;
 
 	const activities = item.system?.activities;
 	if ( !activities?.size ) return true;
 
+	let hasAttackActivity = false;
 	for ( const activity of activities ) {
 		if ( activity.type !== "attack" ) continue;
+		hasAttackActivity = true;
 		const attackAbility = activity.attack?.ability ?? "";
 		if ( attackAbility && attackAbility !== "none" ) return false;
 	}
-	return true;
+	return hasAttackActivity;
 }
 
 /**
@@ -141,7 +221,7 @@ function onStarshipWeaponPreRollDamage(config) {
 	const item = resolveRollConfigItem(config);
 	const actor = resolveRollConfigActor(config);
 	if ( !item || !actor || !isSw5eStarshipActor(actor) ) return;
-	if ( !isStarshipWeaponItem(item) ) return;
+	if ( !isStarshipAttackPayloadItem(item) ) return;
 	if ( isHealDamageRollConfig(config) ) return;
 
 	const multiplier = getDerivedStarshipRuntime(actor).routing?.weaponsMultiplier ?? 1;

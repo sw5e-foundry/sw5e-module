@@ -116,7 +116,16 @@ system:
         dc:
           calculation: dex
           formula: ''
-      target: {}
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
       type: save
   properties:
     - auto

@@ -202,7 +202,16 @@ system:
       range:
         units: ft
         value: '90'
-      target: {}
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
       type: attack
     sw5e1save0000000:
       _id: sw5e1save0000000
@@ -228,7 +237,16 @@ system:
         dc:
           calculation: dex
           formula: ''
-      target: {}
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
       type: save
 ownership:
   default: 0

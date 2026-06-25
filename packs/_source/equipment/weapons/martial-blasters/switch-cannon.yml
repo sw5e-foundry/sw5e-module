@@ -212,7 +212,16 @@ system:
         override: false
         units: ft
         value: '100'
-      target: {}
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
       type: attack
     sw5e1save0000000:
       _id: sw5e1save0000000
@@ -244,6 +253,8 @@ system:
           size: '10'
           type: cube
           units: ''
+        override: false
+        prompt: true
       type: save
 ownership:
   default: 0

@@ -157,7 +157,16 @@ system:
       range:
         override: false
         units: ft
-      target: {}
+      target:
+        template:
+          contiguous: false
+          units: ft
+          type: ''
+        affects:
+          choice: false
+          type: ''
+        override: false
+        prompt: false
       type: attack
 effects: []
 _id: cI346Xc9uCBNlDNt

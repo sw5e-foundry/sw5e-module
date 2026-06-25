@@ -143,16 +143,28 @@ system:
       description: {}
       duration:
         units: inst
-        value: inst
+        value: ''
       img: null
       range:
         override: false
         units: ft
       target:
-        template:
-          size: '1'
+        affects:
+          count: '1'
           type: enemy
-          units: ''
+          choice: false
+          special: ''
+        override: false
+        prompt: false
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
       type: attack
 folder: lqvFGQf8zNq71jS0
 sort: 0
