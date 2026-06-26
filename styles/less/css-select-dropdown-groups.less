@@ -1,0 +1,74 @@
+/* Native <select> optgroup labels — grouped dropdown readability (SW5E Light/Dark/Underworld).
+   dnd5e grouped selects (Activity activation cost, duration units, range, etc.) render
+   <optgroup label="…"> via options with a `group` field. Global option styling without
+   matching optgroup labels caused unreadable black group headers on Windows/Chromium. */
+
+@select-light: ~'body[data-sw5e-theme="sw5e-light"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select';
+@select-dark: ~'body[data-sw5e-theme="sw5e-dark"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select';
+@select-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select';
+
+/* ——— SW5E Light ——— */
+@{select-light} optgroup {
+  background: #e8f0f5 !important;
+  background-color: #e8f0f5 !important;
+  color: var(--sw5e-line-color) !important;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@{select-light} optgroup option {
+  background: #f7fafc !important;
+  background-color: #f7fafc !important;
+  color: #1d2730 !important;
+  font-weight: 400;
+}
+
+@{select-light} option:disabled {
+  background: #e8f0f5 !important;
+  background-color: #e8f0f5 !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+/* ——— SW5E Dark ——— */
+@{select-dark} optgroup {
+  background: #252c34 !important;
+  background-color: #252c34 !important;
+  color: var(--sw5e-line-color) !important;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@{select-dark} optgroup option {
+  background: #1a1f24 !important;
+  background-color: #1a1f24 !important;
+  color: #e8eef2 !important;
+  font-weight: 400;
+}
+
+@{select-dark} option:disabled {
+  background: #252c34 !important;
+  background-color: #252c34 !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+/* ——— Underworld Alloy ——— */
+@{select-underworld} optgroup {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 24%, var(--sw5e-underworld-input-bg)) !important;
+  background-color: color-mix(in srgb, var(--sw5e-underworld-olive) 24%, var(--sw5e-underworld-input-bg)) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@{select-underworld} optgroup option {
+  background: var(--sw5e-underworld-input-bg) !important;
+  background-color: var(--sw5e-underworld-input-bg) !important;
+  color: var(--sw5e-theme-text) !important;
+  font-weight: 400;
+}
+
+@{select-underworld} option:disabled {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 20%, var(--sw5e-underworld-input-bg)) !important;
+  background-color: color-mix(in srgb, var(--sw5e-underworld-olive) 20%, var(--sw5e-underworld-input-bg)) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}

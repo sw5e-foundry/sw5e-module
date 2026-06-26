@@ -1,3 +1,12 @@
+/*
+ * SW5e legacy stylesheet — inlined first in styles/less/module.less.
+ * Serves as unscoped fallback for surfaces not yet covered by scoped theme LESS.
+ * Gold/parchment/dark-gradient rules here are intentionally overridden by
+ * body[data-sw5e-theme] + .sw5e-theme-root rules loaded later in the cascade.
+ * CSS-4B: prune confirmed-dead blocks (orphaned SotG inner nav, pre-slot-grid chassis,
+ * aug-table chrome) after staged QA — do not bulk-delete without template/script audit.
+ */
+
 .dnd5e .form-group.grid>label {
   flex: 0 0 100%;
   margin: 0;
@@ -683,7 +692,8 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   min-width: 0;
 }
 
-/* SotG inner tabs (Overview / Crew / Skills) — separate from primary sheet tabs */
+/* SotG inner tabs (Overview / Crew / Skills) — orphaned markup (SOTG_SUB_TAB_IDS = overview only).
+ * Retained as unscoped fallback; themed overrides in theme-overrides.less if class reappears. */
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-sotg-nav {
   display: flex;
   flex-wrap: wrap;
@@ -760,7 +770,6 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
 }
 
 
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-action-button,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-group-link,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button {
   appearance: none;
@@ -774,7 +783,6 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   transition: border-color 120ms ease, background 120ms ease;
 }
 
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-action-button,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-group-link {
   padding: var(--sw5e-starship-space-sm) var(--sw5e-starship-space-md);
 }
@@ -785,24 +793,15 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   text-align: center;
 }
 
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button-secondary {
-  background: rgb(0 0 0 / 18%);
-  color: var(--dnd5e-color-tan);
-}
-
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button-danger {
   background: rgb(73 18 22 / 42%);
   color: rgb(255 210 210);
 }
 
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-action-button:hover,
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-action-button:focus,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-group-link:hover,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-group-link:focus,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button:hover,
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button:focus,
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-icon-button:hover,
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-icon-button:focus {
+.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button:focus {
   border-color: var(--dnd5e-color-gold);
   background: rgb(255 255 255 / 10%);
 }
@@ -2136,17 +2135,6 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
 }
 
 /* Overview dashboard rules live with the main Overview section styles above. */
-
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-icon-button {
-  appearance: none;
-  display: inline-flex;
-  padding: 0;
-  border: var(--sw5e-starship-border-subtle);
-  border-radius: var(--sw5e-starship-radius-sm);
-  background: rgb(0 0 0 / 18%);
-  cursor: pointer;
-  overflow: hidden;
-}
 
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-main {
   display: grid;

@@ -1,6 +1,6 @@
 import { applySw5eThemeScope } from "./theme.mjs";
 
-const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+const Dialog5e = dnd5e.applications.api.Dialog5e;
 
 const D20_ICON = "systems/dnd5e/icons/svg/dice/d20.svg";
 
@@ -42,7 +42,7 @@ function buildSkillPromptTitle(entry = {}) {
 	return `${ability} (${skill}) Check`;
 }
 
-export class StarshipSkillRollConfigApp extends HandlebarsApplicationMixin(ApplicationV2) {
+export class StarshipSkillRollConfigApp extends Dialog5e {
 	constructor({ actor, entry, abilities, defaultRollMode, initialMode, forcedAdvantage, systemDamageNote }={}) {
 		super({
 			window: {
@@ -62,12 +62,10 @@ export class StarshipSkillRollConfigApp extends HandlebarsApplicationMixin(Appli
 		});
 	}
 
-	static DEFAULT_OPTIONS = {
-		tag: "dialog",
-		classes: ["dnd5e2", "application", "roll-configuration", "sw5e-starship-skill-roll-config"],
+	static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
+		classes: ["roll-configuration", "sw5e-starship-skill-roll-config"],
 		window: {
-			icon: "fa-solid fa-dice",
-			contentClasses: ["standard-form"]
+			icon: "fa-solid fa-dice"
 		},
 		form: {
 			handler: StarshipSkillRollConfigApp.#handleFormSubmission
@@ -76,7 +74,7 @@ export class StarshipSkillRollConfigApp extends HandlebarsApplicationMixin(Appli
 			width: 400,
 			height: "auto"
 		}
-	};
+	}, { inplace: false });
 
 	static PARTS = {
 		formulas: {
@@ -103,7 +101,7 @@ export class StarshipSkillRollConfigApp extends HandlebarsApplicationMixin(Appli
 	}
 
 	async _prepareContext(options={}) {
-		return {};
+		return super._prepareContext(options);
 	}
 
 	async _preparePartContext(partId, context, options) {
@@ -249,16 +247,19 @@ export class StarshipSkillRollConfigApp extends HandlebarsApplicationMixin(Appli
 	}
 
 	static async #handleFormSubmission(event, form, formData) {
-		event.preventDefault();
 		const action = event.submitter?.dataset?.action ?? "normal";
 		const advantage = CONFIG?.Dice?.D20Roll?.ADV_MODE ?? {};
 		let advantageMode = advantage.NORMAL ?? 0;
 		if ( action === "advantage" ) advantageMode = advantage.ADVANTAGE ?? 1;
 		else if ( action === "disadvantage" ) advantageMode = advantage.DISADVANTAGE ?? -1;
 
+		const situational = formData.get("roll.0.situational")
+			?? formData.object?.roll?.[0]?.situational
+			?? "";
+
 		this.#finish({
 			ability: String(formData.get("ability") || this.entry?.ability || "int"),
-			bonus: String(formData.get("roll.0.situational") ?? "").trim(),
+			bonus: String(situational).trim(),
 			rollMode: String(formData.get("rollMode") || this.defaultRollMode),
 			advantageMode: Number.isFinite(Number(advantageMode)) ? Number(advantageMode) : this.initialMode
 		});

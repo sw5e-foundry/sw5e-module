@@ -1,27 +1,53 @@
+/* SW5e module stylesheet entry — compile via `npm run build:styles`.
+ * Cascade: later imports win at equal specificity. Do not reorder phase files
+ * without checking override dependencies (especially css-2* journal stack). */
+
+/* —— Base tokens / legacy core —— */
 @import "fonts.less";
 @import "tokens.less";
 @import (inline) "../module.legacy.css";
+
+/* —— Theme overrides (Light/Dark + Underworld split) —— */
 @import "theme-overrides.less";
 @import "underworld-overrides.less";
+
+/* —— Scoped dialog / app themes —— */
 @import "cybernetics-dialog-theme.less";
 @import "rest-activity-dialog-theme.less";
 @import "active-effect-config-theme.less";
 @import "module-app-theme.less";
+@import "dialog-prompt-theme.less";
+@import "activity-type-chooser-theme.less";
+@import "context-menu-theme.less";
+
+/* —— Starship-specific —— */
 @import "starship-sidebar-vitals.less";
 @import "starship-sidebar-system-damage.less";
 @import "starship-effects-conditions.less";
+
+/* —— CSS-1 manual smoke fixes —— */
 @import "css-1b-manual-smoke-fixes.less";
 @import "css-1c-manual-smoke-fixes.less";
+
+/* —— Item / manager surfaces —— */
 @import "chassis-panel-theme.less";
 @import "droid-customizations-theme.less";
+
+/* —— Scoped Compendium Browser themes —— */
 @import "droid-customizations-browser-theme.less";
 @import "augmentations-browser-theme.less";
-@import "dialog-prompt-theme.less";
+
+/* —— CSS-3 chat polish (loads before css-2 so css-2 journal stack retains precedence) —— */
 @import "css-3-chat-cards-theme.less";
+@import "css-select-dropdown-groups.less";
+
+/* —— CSS-2 theme cleanup phases (ordered cascade: 2 → 2b → 2c → 2d → 2f → 2g) —— */
 @import "css-2-theme-cleanup.less";
 @import "css-2b-screenshot-corrections.less";
 @import "css-2c-journal-style-parity.less";
 @import "css-2d-journal-light-polish.less";
 @import "css-2f-button-icon-contrast.less";
 @import "css-2g-journal-icon-rendering-and-scrollbar-fix.less";
+
+/* —— Feature misc —— */
 @import "proficiency-mastery-reroll.less";

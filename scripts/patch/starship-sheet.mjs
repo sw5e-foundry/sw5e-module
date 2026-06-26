@@ -2209,21 +2209,6 @@ function resolveStarshipSkillAbilityAbbreviation(entry) {
 }
 
 /**
- * Concise hover/aria summary: name, ability abbr, mod, passive, tier label, optional crew PB line.
- * Does not affect roll math or stored tier semantics.
- */
-function buildStarshipSkillRowHoverTooltip({ label, abilityAbbr, modDisplay, passiveDisplay, tierLabel, crewLine }) {
-	const ab = abilityAbbr ? ` (${abilityAbbr})` : "";
-	const passivePart = passiveDisplay !== undefined && passiveDisplay !== null && String(passiveDisplay).trim() !== ""
-		? ` · passive ${passiveDisplay}`
-		: "";
-	let s = `${label}${ab}. Mod ${modDisplay}${passivePart}. ${tierLabel}`;
-	const crew = String(crewLine ?? "").trim();
-	if ( crew ) s += `. ${crew}`;
-	return s;
-}
-
-/**
  * Presentation fields for the Overview skills list (ability abbreviation, signed modifier, passive total).
  * Passive uses {@link CONFIG.DND5E.skillPassive} base (default 10) + prepared skill modifier, matching core 5e passive notation.
  */
@@ -2236,14 +2221,6 @@ function enrichStarshipSkillsForSheet(actor) {
 		const tierLabel = formatStarshipSkillTierOptionLabel(entry.proficiencyMode);
 		const modDisplay = formatSignedSkillMod(entry.effectiveTotal);
 		const passiveDisplay = Number.isFinite(passiveTotal) ? String(passiveTotal) : "";
-		const rowTooltip = buildStarshipSkillRowHoverTooltip({
-			label: entry.label,
-			abilityAbbr,
-			modDisplay,
-			passiveDisplay,
-			tierLabel,
-			crewLine: entry.effectiveCrewPbLine ?? ""
-		});
 		return {
 			...entry,
 			value: entry.proficiencyMode,
@@ -2253,7 +2230,6 @@ function enrichStarshipSkillsForSheet(actor) {
 			abilityAbbr,
 			abbreviation: abilityAbbr,
 			tierLabel,
-			rowTooltip,
 			modDisplay,
 			passiveDisplay
 		};

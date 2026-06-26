@@ -572,13 +572,12 @@
                     class="sw5e-starship-skill-roll-area"
                     data-sw5e-action="roll-skill"
                     data-skill-id="{{id}}"
-                    title="{{rowTooltip}}"
-                    aria-label="{{ localize "DND5E.Roll" }} {{label}} — {{rowTooltip}}"
+                    aria-label="{{ localize "DND5E.Roll" }} {{label}}"
                   >
                     <span class="sw5e-starship-skill-prof" aria-hidden="true">{{{icon}}}</span>
                     <span class="sw5e-starship-skill-ability-abbr">{{abilityAbbr}}</span>
                     <span class="sw5e-starship-skill-label">{{label}}</span>
-                    <span class="sw5e-starship-skill-mod" data-tooltip="SW5E.Modifier">{{modDisplay}}</span>
+                    <span class="sw5e-starship-skill-mod">{{modDisplay}}</span>
                     <span class="sw5e-starship-skill-passive">{{#if passiveDisplay}}{{passiveDisplay}}{{else}}—{{/if}}</span>
                   </button>
                   {{#if ../editable}}

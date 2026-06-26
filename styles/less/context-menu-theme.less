@@ -1,0 +1,120 @@
+/* dnd5e ContextMenu5e (#context-menu.dnd5e2) — scoped while SW5e theme is active (CSS-3B).
+   Menus render under body; cannot inherit sheet .sw5e-theme-root. */
+
+@menu-light: ~'body[data-sw5e-theme="sw5e-light"] #context-menu.dnd5e2';
+@menu-dark: ~'body[data-sw5e-theme="sw5e-dark"] #context-menu.dnd5e2';
+@menu-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] #context-menu.dnd5e2';
+
+/* ——— SW5E Light ——— */
+@{menu-light} {
+  background: linear-gradient(180deg, rgba(248, 251, 253, 0.98), rgba(226, 237, 244, 0.96)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 38%, transparent) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px) !important;
+  box-shadow:
+    0 4px 14px rgba(13, 153, 204, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+
+@{menu-light} .context-item {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{menu-light} .context-item:hover {
+  background: color-mix(in srgb, var(--sw5e-line-color) 10%, rgba(255, 255, 255, 0.92)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{menu-light} .context-item[disabled],
+@{menu-light} .context-item.disabled {
+  opacity: 0.45;
+}
+
+@{menu-light} .context-item i {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{menu-light} .context-item dnd5e-icon {
+  --icon-fill: var(--sw5e-line-color);
+}
+
+@{menu-light} [data-group-id]:has(li)::before {
+  border-block-start-color: var(--sw5e-light-row-divider) !important;
+}
+
+/* ——— SW5E Dark ——— */
+@{menu-dark} {
+  background: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px) !important;
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{menu-dark} .context-item {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{menu-dark} .context-item:hover {
+  background: rgba(32, 161, 208, 0.14) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{menu-dark} .context-item[disabled],
+@{menu-dark} .context-item.disabled {
+  opacity: 0.45;
+}
+
+@{menu-dark} .context-item i {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{menu-dark} .context-item dnd5e-icon {
+  --icon-fill: var(--sw5e-line-color);
+}
+
+@{menu-dark} [data-group-id]:has(li)::before {
+  border-block-start-color: color-mix(in srgb, var(--sw5e-line-color) 20%, transparent) !important;
+}
+
+/* ——— Underworld Alloy ——— */
+@{menu-underworld} {
+  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px) !important;
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{menu-underworld} .context-item {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{menu-underworld} .context-item:hover {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 14%, var(--sw5e-underworld-panel)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{menu-underworld} .context-item[disabled],
+@{menu-underworld} .context-item.disabled {
+  opacity: 0.45;
+}
+
+@{menu-underworld} .context-item i {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+
+@{menu-underworld} .context-item dnd5e-icon {
+  --icon-fill: var(--sw5e-underworld-neon-cyan);
+}
+
+@{menu-underworld} [data-group-id]:has(li)::before {
+  border-block-start-color: var(--sw5e-underworld-row-divider) !important;
+}

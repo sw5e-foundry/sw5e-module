@@ -1,4 +1,8 @@
 /* Generated from styles/less/module.less. Do not edit styles/module.css directly. */
+/* SW5e module stylesheet entry — compile via `npm run build:styles`.
+ * Cascade: later imports win at equal specificity. Do not reorder phase files
+ * without checking override dependencies (especially css-2* journal stack). */
+/* —— Base tokens / legacy core —— */
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -305,6 +309,15 @@ body[data-sw5e-theme="sw5e-underworld"] {
   --color-canvas-2: var(--sw5e-foundry-canvas-2);
   --color-canvas-3: var(--sw5e-foundry-canvas-3);
 }
+/*
+ * SW5e legacy stylesheet — inlined first in styles/less/module.less.
+ * Serves as unscoped fallback for surfaces not yet covered by scoped theme LESS.
+ * Gold/parchment/dark-gradient rules here are intentionally overridden by
+ * body[data-sw5e-theme] + .sw5e-theme-root rules loaded later in the cascade.
+ * CSS-4B: prune confirmed-dead blocks (orphaned SotG inner nav, pre-slot-grid chassis,
+ * aug-table chrome) after staged QA — do not bulk-delete without template/script audit.
+ */
+
 .dnd5e .form-group.grid>label {
   flex: 0 0 100%;
   margin: 0;
@@ -990,7 +1003,8 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   min-width: 0;
 }
 
-/* SotG inner tabs (Overview / Crew / Skills) — separate from primary sheet tabs */
+/* SotG inner tabs (Overview / Crew / Skills) — orphaned markup (SOTG_SUB_TAB_IDS = overview only).
+ * Retained as unscoped fallback; themed overrides in theme-overrides.less if class reappears. */
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-sotg-nav {
   display: flex;
   flex-wrap: wrap;
@@ -1067,7 +1081,6 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
 }
 
 
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-action-button,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-group-link,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button {
   appearance: none;
@@ -1081,7 +1094,6 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   transition: border-color 120ms ease, background 120ms ease;
 }
 
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-action-button,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-group-link {
   padding: var(--sw5e-starship-space-sm) var(--sw5e-starship-space-md);
 }
@@ -1092,24 +1104,15 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
   text-align: center;
 }
 
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button-secondary {
-  background: rgb(0 0 0 / 18%);
-  color: var(--dnd5e-color-tan);
-}
-
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button-danger {
   background: rgb(73 18 22 / 42%);
   color: rgb(255 210 210);
 }
 
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-action-button:hover,
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-action-button:focus,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-group-link:hover,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-group-link:focus,
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button:hover,
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button:focus,
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-icon-button:hover,
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-icon-button:focus {
+.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-button:focus {
   border-color: var(--dnd5e-color-gold);
   background: rgb(255 255 255 / 10%);
 }
@@ -2443,17 +2446,6 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2 .pills .pill:not(.gre
 }
 
 /* Overview dashboard rules live with the main Overview section styles above. */
-
-.dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-icon-button {
-  appearance: none;
-  display: inline-flex;
-  padding: 0;
-  border: var(--sw5e-starship-border-subtle);
-  border-radius: var(--sw5e-starship-radius-sm);
-  background: rgb(0 0 0 / 18%);
-  cursor: pointer;
-  overflow: hidden;
-}
 
 .dnd5e2.sheet.actor.sw5e-starship-sheet .sw5e-starship-tab .sw5e-starship-item-main {
   display: grid;
@@ -5409,6 +5401,7 @@ body[data-sw5e-theme="sw5e-dark"] #pause::after {
 }
 
 
+/* —— Theme overrides (Light/Dark + Underworld split) —— */
 body[data-sw5e-theme="sw5e-light"],
 body[data-sw5e-theme="sw5e-dark"] {
   color-scheme: var(--sw5e-theme-color-scheme);
@@ -13972,6 +13965,7 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2-journal.applicat
   background: color-mix(in srgb, var(--sw5e-underworld-panel-strong) 72%, black) !important;
   color: var(--sw5e-theme-text);
 }
+/* —— Scoped dialog / app themes —— */
 /* Cybernetic Augmentations dialog — SW5E Light / Dark / Underworld.
    Targets the actual scroll root: .sw5e-augmentations-app inside themed cybernetics scope.
    Beats unscoped legacy rules in module.legacy.css. */
@@ -15397,6 +15391,521 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="m
   border-color: var(--sw5e-underworld-neon-magenta) !important;
   color: var(--sw5e-theme-text) !important;
 }
+/* Ephemeral DialogV2.wait / legacy Dialog prompts — scoped via data-sw5e-theme-root="dialog-prompt" (CSS-3). */
+/* ——— SW5E Light ——— */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] {
+  background: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  background-image: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 38%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(p, li, label, span, td, th, strong, em) {
+  color: var(--sw5e-theme-text);
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.hint, .notes, p.notes) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(input, select, textarea) {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(input, select, textarea):is(:hover, :focus, :focus-visible):not(:disabled):not([readonly]) {
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+  outline: none;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button) {
+  filter: none !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]) {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-secondary-button) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]):is(:hover, :focus, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.9)) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer > [type="submit"], .dialog-buttons > .dialog-button.default, button.dialog-button.default) {
+  background: var(--sw5e-theme-primary-button) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 82%, black) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-dialog {
+  color: var(--sw5e-theme-text);
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table {
+  border-color: var(--sw5e-light-muted-control-border) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table th {
+  background: var(--sw5e-light-section-header-background) !important;
+  color: var(--sw5e-theme-heading) !important;
+  border-color: var(--sw5e-light-muted-control-border) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table td {
+  border-color: var(--sw5e-light-row-divider) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-secondary-button) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
+  color: var(--sw5e-line-color) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-warnings {
+  background: color-mix(in srgb, var(--sw5e-line-color) 8%, white) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-theme-line) 55%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+/* ——— SW5E Dark ——— */
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] {
+  background: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  background-image: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.hint, .notes, p.notes) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(input, select, textarea) {
+  background: rgba(18, 22, 28, 0.88) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(input, select, textarea):is(:hover, :focus, :focus-visible):not(:disabled):not([readonly]) {
+  border-color: var(--sw5e-line-color) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+  outline: none;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]) {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-secondary-button) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  filter: none !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]):is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: rgba(32, 161, 208, 0.55) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer > [type="submit"], .dialog-buttons > .dialog-button.default, button.dialog-button.default) {
+  background: var(--sw5e-theme-primary-button) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 72%, black) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table th {
+  background: linear-gradient(180deg, rgba(54, 54, 54, 0.94) 0%, rgba(22, 22, 22, 0.98) 100%) !important;
+  color: var(--sw5e-theme-heading) !important;
+  border-color: var(--sw5e-dark-muted-control-border) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table td {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 20%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-secondary-button) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll:hover:not(:disabled) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  color: var(--sw5e-line-color) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-warnings {
+  background: color-mix(in srgb, var(--sw5e-line-color) 10%, rgba(18, 18, 18, 0.92)) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+/* ——— Underworld Alloy ——— */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] {
+  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  background-image: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-header {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.window-title, .window-header h1) {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.hint, .notes, p.notes) {
+  color: var(--sw5e-theme-muted-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(input, select, textarea) {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]) {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-leather-deep) 72%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]):is(:hover, :focus, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 14%, var(--sw5e-underworld-panel)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer > [type="submit"], .dialog-buttons > .dialog-button.default, button.dialog-button.default) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table th {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 28%, var(--sw5e-underworld-panel-strong)) !important;
+  color: var(--sw5e-theme-heading) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table td {
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+  box-shadow: 0 0 10px var(--sw5e-underworld-glow-blue) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-warnings {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 22%, var(--sw5e-underworld-graphite)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+/* dnd5e CreateDocumentDialog activity type chooser — scoped via data-sw5e-theme-root="activity-type-chooser" (CSS-3B). */
+/* ——— SW5E Light ——— */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document {
+  background: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  background-image: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 38%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .document-name {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .document-name:enabled:is(:hover, :focus, :focus-visible) {
+  color: var(--sw5e-line-color) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document select.unselect {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol.unlist.card {
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 78%, white) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li {
+  border-bottom-color: var(--sw5e-light-row-divider) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li:has(input:enabled):hover,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li:has(input:checked) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 10%, rgba(255, 255, 255, 0.92)) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li:has(input:disabled) {
+  opacity: 0.45;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol label > span {
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document :is(ol dnd5e-icon, ol img) {
+  --icon-fill: var(--sw5e-line-color);
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol input[type="radio"] {
+  accent-color: var(--sw5e-line-color);
+  color-scheme: light;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document footer.form-footer > :is(button, [type="submit"]) {
+  filter: none !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document footer.form-footer > [type="button"] {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-secondary-button) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document footer.form-footer > [type="submit"] {
+  background: var(--sw5e-theme-primary-button) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 82%, black) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+/* ——— SW5E Dark ——— */
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document {
+  background: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  background-image: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .document-name {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .document-name:enabled:is(:hover, :focus, :focus-visible) {
+  color: var(--sw5e-line-color) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document select.unselect {
+  background: rgba(18, 22, 28, 0.88) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol.unlist.card {
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 88%, rgba(12, 14, 16, 0.96)) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 20%, transparent) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li:has(input:enabled):hover,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li:has(input:checked) {
+  background: rgba(32, 161, 208, 0.14) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li:has(input:disabled) {
+  opacity: 0.45;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol label > span {
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document :is(ol dnd5e-icon, ol img) {
+  --icon-fill: var(--sw5e-line-color);
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol input[type="radio"] {
+  accent-color: var(--sw5e-line-color);
+  color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document footer.form-footer > [type="button"] {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-secondary-button) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  filter: none !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document footer.form-footer > [type="submit"] {
+  background: var(--sw5e-theme-primary-button) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 72%, black) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+/* ——— Underworld Alloy ——— */
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document {
+  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  background-image: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .window-header {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document .document-name {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document select.unselect {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol.unlist.card {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 18%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li:has(input:enabled):hover,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li:has(input:checked) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 14%, var(--sw5e-underworld-panel)) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol li:has(input:disabled) {
+  opacity: 0.45;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol label > span {
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document :is(ol dnd5e-icon, ol img) {
+  --icon-fill: var(--sw5e-underworld-neon-cyan);
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document ol input[type="radio"] {
+  accent-color: var(--sw5e-underworld-neon-cyan);
+  color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document footer.form-footer > [type="button"] {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-leather-deep) 72%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document footer.form-footer > [type="submit"] {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+/* dnd5e ContextMenu5e (#context-menu.dnd5e2) — scoped while SW5e theme is active (CSS-3B).
+   Menus render under body; cannot inherit sheet .sw5e-theme-root. */
+/* ——— SW5E Light ——— */
+body[data-sw5e-theme="sw5e-light"] #context-menu.dnd5e2 {
+  background: linear-gradient(180deg, rgba(248, 251, 253, 0.98), rgba(226, 237, 244, 0.96)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 38%, transparent) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px) !important;
+  box-shadow: 0 4px 14px rgba(13, 153, 204, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+body[data-sw5e-theme="sw5e-light"] #context-menu.dnd5e2 .context-item {
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-light"] #context-menu.dnd5e2 .context-item:hover {
+  background: color-mix(in srgb, var(--sw5e-line-color) 10%, rgba(255, 255, 255, 0.92)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-light"] #context-menu.dnd5e2 .context-item[disabled],
+body[data-sw5e-theme="sw5e-light"] #context-menu.dnd5e2 .context-item.disabled {
+  opacity: 0.45;
+}
+body[data-sw5e-theme="sw5e-light"] #context-menu.dnd5e2 .context-item i {
+  color: var(--sw5e-line-color) !important;
+}
+body[data-sw5e-theme="sw5e-light"] #context-menu.dnd5e2 .context-item dnd5e-icon {
+  --icon-fill: var(--sw5e-line-color);
+}
+body[data-sw5e-theme="sw5e-light"] #context-menu.dnd5e2 [data-group-id]:has(li)::before {
+  border-block-start-color: var(--sw5e-light-row-divider) !important;
+}
+/* ——— SW5E Dark ——— */
+body[data-sw5e-theme="sw5e-dark"] #context-menu.dnd5e2 {
+  background: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-dark"] #context-menu.dnd5e2 .context-item {
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] #context-menu.dnd5e2 .context-item:hover {
+  background: rgba(32, 161, 208, 0.14) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] #context-menu.dnd5e2 .context-item[disabled],
+body[data-sw5e-theme="sw5e-dark"] #context-menu.dnd5e2 .context-item.disabled {
+  opacity: 0.45;
+}
+body[data-sw5e-theme="sw5e-dark"] #context-menu.dnd5e2 .context-item i {
+  color: var(--sw5e-line-color) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] #context-menu.dnd5e2 .context-item dnd5e-icon {
+  --icon-fill: var(--sw5e-line-color);
+}
+body[data-sw5e-theme="sw5e-dark"] #context-menu.dnd5e2 [data-group-id]:has(li)::before {
+  border-block-start-color: color-mix(in srgb, var(--sw5e-line-color) 20%, transparent) !important;
+}
+/* ——— Underworld Alloy ——— */
+body[data-sw5e-theme="sw5e-underworld"] #context-menu.dnd5e2 {
+  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-underworld"] #context-menu.dnd5e2 .context-item {
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] #context-menu.dnd5e2 .context-item:hover {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 14%, var(--sw5e-underworld-panel)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] #context-menu.dnd5e2 .context-item[disabled],
+body[data-sw5e-theme="sw5e-underworld"] #context-menu.dnd5e2 .context-item.disabled {
+  opacity: 0.45;
+}
+body[data-sw5e-theme="sw5e-underworld"] #context-menu.dnd5e2 .context-item i {
+  color: var(--sw5e-underworld-neon-cyan) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] #context-menu.dnd5e2 .context-item dnd5e-icon {
+  --icon-fill: var(--sw5e-underworld-neon-cyan);
+}
+body[data-sw5e-theme="sw5e-underworld"] #context-menu.dnd5e2 [data-group-id]:has(li)::before {
+  border-block-start-color: var(--sw5e-underworld-row-divider) !important;
+}
+/* —— Starship-specific —— */
 /* Starship sidebar vital resource meters — upper sidebar placement + character palette */
 .sw5e-starship-sidebar-vitals {
   --sw5e-starship-hull-fill-1: var(--dnd5e-color-hp-1, #2e8b4f);
@@ -15841,6 +16350,7 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.sw5e
   font-weight: 700;
   border-color: currentColor;
 }
+/* —— CSS-1 manual smoke fixes —— */
 /* CSS-1B manual smoke fixes — NPC/Starship save tabs, header badges, portrait overlays */
 /* ——— Saving throw boxes — SW5E Light ——— */
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor.npc .sheet-header .ability-scores .ability-score .save-tab,
@@ -16571,6 +17081,7 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2.sheet.actor.vehi
   position: relative;
   z-index: 1;
 }
+/* —— Item / manager surfaces —— */
 /* Item sheet — Modification Chassis compact panel (theme polish) */
 /*
  * Global chip styling in theme-overrides.less / underworld-overrides.less:
@@ -17182,28 +17693,29 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="d
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations"] .sw5e-droid-customizations-app .sw5e-droid-collapsible-summary i {
   color: var(--sw5e-underworld-neon-cyan) !important;
 }
+/* —— Scoped Compendium Browser themes —— */
 /* Droid customization compendium picker — scoped CompendiumBrowser polish (CSS-2B).
    Hook: data-sw5e-theme-root="droid-customizations-browser" on .sw5e-droid-customizations-browser */
 /* ——— SW5E Light ——— */
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser {
   --dnd5e-application-background: var(--sw5e-theme-page-center);
   --filter-header-label-color: var(--sw5e-theme-heading);
   --filter-range-label-color: var(--sw5e-theme-text);
   --dnd5e-inventory-border: 1px solid var(--sw5e-light-muted-control-border);
   color: var(--sw5e-theme-text);
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .window-content {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .window-content {
   background: var(--sw5e-theme-page-center) !important;
   background-image: var(--sw5e-theme-surface-background) !important;
   background-size: cover !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar {
   background: color-mix(in srgb, var(--sw5e-theme-panel-background) 94%, white) !important;
   border-right: 1px solid var(--sw5e-light-muted-control-border) !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar search input[type="text"] {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar search input[type="text"] {
   --input-background-color: var(--sw5e-theme-input);
   --input-text-color: var(--sw5e-theme-text);
   --input-placeholder-color: var(--sw5e-theme-muted-text);
@@ -17215,32 +17727,32 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmen
   color: var(--sw5e-theme-text) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar search input[type="text"]:is(:hover, :focus, :focus-visible) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar search input[type="text"]:is(:hover, :focus, :focus-visible) {
   border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-control {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-control {
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label > span {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label > span {
   color: var(--sw5e-theme-heading) !important;
   font-family: var(--sw5e-font-body) !important;
   font-weight: 700 !important;
   letter-spacing: 0.04em !important;
   text-transform: uppercase !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::before,
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::after {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::after {
   border-top-color: color-mix(in srgb, var(--sw5e-theme-line) 70%, transparent) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar filter-state {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar filter-state {
   --filter-state-background-color: var(--sw5e-line-color);
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-choice,
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter.filter-boolean > label {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-choice,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter.filter-boolean > label {
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar :is(dnd5e-checkbox, input[type="checkbox"]) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar :is(dnd5e-checkbox, input[type="checkbox"]) {
   --checkbox-border-color: var(--sw5e-light-muted-control-border);
   --checkbox-empty-color: rgba(255, 255, 255, 0.78);
   --checkbox-fill-color: var(--sw5e-line-color);
@@ -17248,22 +17760,22 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmen
   --checkbox-checked-color: var(--sw5e-line-color);
   accent-color: var(--sw5e-line-color);
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results {
   background: transparent !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results > .note.info {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results > .note.info {
   background: color-mix(in srgb, var(--sw5e-line-color) 8%, white) !important;
   border: 1px solid color-mix(in srgb, var(--sw5e-theme-line) 55%, transparent) !important;
   border-radius: 4px !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card {
   background: color-mix(in srgb, var(--sw5e-theme-panel-background) 92%, white) !important;
   border: 1px solid var(--sw5e-light-muted-control-border) !important;
   border-radius: 6px !important;
   box-shadow: var(--sw5e-light-card-shadow-soft) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header {
   background: var(--sw5e-light-section-header-background) !important;
   border: 1px solid var(--sw5e-light-muted-control-border) !important;
   border-left: 3px solid var(--sw5e-theme-heading) !important;
@@ -17271,14 +17783,14 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmen
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), inset 0 0 0 1px rgba(175, 198, 214, 0.18) !important;
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header > :is(h3, .item-name) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header > :is(h3, .item-name) {
   color: var(--sw5e-theme-heading) !important;
   font-family: var(--sw5e-font-body) !important;
   font-size: 13px !important;
   font-weight: 800 !important;
   text-shadow: none !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header > :not(:is(h3, .item-name)) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header > :not(:is(h3, .item-name)) {
   color: var(--sw5e-theme-muted-text) !important;
   font-family: var(--sw5e-font-body) !important;
   font-size: 10px !important;
@@ -17286,30 +17798,30 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmen
   letter-spacing: 0.05em !important;
   text-shadow: none !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item {
   border-bottom-color: var(--sw5e-light-row-divider) !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item:is(:hover, :focus-within) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item:is(:hover, :focus-within) {
   background: color-mix(in srgb, var(--sw5e-line-color) 6%, white) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item.selected {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item.selected {
   border-left-color: var(--sw5e-line-color) !important;
   background: color-mix(in srgb, var(--sw5e-line-color) 10%, white) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-name .title {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-name .title {
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-name .subtitle {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-name .subtitle {
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-source {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-source {
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-image {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-image {
   border-color: var(--sw5e-light-muted-control-border) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item :is(dnd5e-checkbox, input[type="checkbox"]) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item :is(dnd5e-checkbox, input[type="checkbox"]) {
   --checkbox-border-color: var(--sw5e-light-muted-control-border);
   --checkbox-empty-color: rgba(255, 255, 255, 0.78);
   --checkbox-fill-color: var(--sw5e-line-color);
@@ -17317,50 +17829,50 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmen
   --checkbox-checked-color: var(--sw5e-line-color);
   accent-color: var(--sw5e-line-color);
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) {
   background: color-mix(in srgb, var(--sw5e-theme-panel-background) 96%, white) !important;
   border-top: 1px solid var(--sw5e-light-muted-control-border) !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) .count {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) .count {
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) .count:not(.invalid) .value {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) .count:not(.invalid) .value {
   color: var(--sw5e-line-color) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) .count.invalid .value {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) .count.invalid .value {
   color: var(--sw5e-theme-heading) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) button[type="submit"] {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) button[type="submit"] {
   background: var(--sw5e-theme-primary-button) !important;
   border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 45%, transparent) !important;
   border-radius: 4px !important;
   color: var(--sw5e-theme-button-text) !important;
   box-shadow: none !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) button[type="submit"]:is(:hover, :focus-visible):not(:disabled) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) button[type="submit"]:is(:hover, :focus-visible):not(:disabled) {
   filter: brightness(1.04) !important;
 }
 /* ——— SW5E Dark ——— */
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser {
   --dnd5e-application-background: var(--sw5e-theme-page-center);
   --filter-header-label-color: var(--sw5e-theme-heading);
   --filter-range-label-color: var(--sw5e-theme-text);
   --dnd5e-inventory-border: 1px solid var(--sw5e-dark-muted-control-border);
   color: var(--sw5e-theme-text);
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .window-content {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .window-content {
   background: var(--sw5e-theme-page-center) !important;
   background-image: var(--sw5e-theme-surface-background) !important;
   background-size: cover !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar {
   background: color-mix(in srgb, var(--sw5e-theme-panel-background) 90%, black) !important;
   border-right: 1px solid var(--sw5e-dark-muted-control-border) !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar search input[type="text"] {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar search input[type="text"] {
   --input-background-color: var(--sw5e-theme-input);
   --input-text-color: var(--sw5e-theme-text);
   --input-placeholder-color: var(--sw5e-theme-muted-text);
@@ -17371,29 +17883,29 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augment
   border-radius: 4px !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar search input[type="text"]:is(:hover, :focus, :focus-visible) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar search input[type="text"]:is(:hover, :focus, :focus-visible) {
   border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
   box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label > span {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label > span {
   color: var(--sw5e-theme-heading) !important;
   font-family: var(--sw5e-font-body) !important;
   font-weight: 700 !important;
   letter-spacing: 0.04em !important;
   text-transform: uppercase !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::before,
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::after {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::after {
   border-top-color: color-mix(in srgb, var(--sw5e-line-color) 35%, transparent) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar filter-state {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar filter-state {
   --filter-state-background-color: var(--sw5e-line-color);
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-choice,
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter.filter-boolean > label {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-choice,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter.filter-boolean > label {
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar :is(dnd5e-checkbox, input[type="checkbox"]) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar :is(dnd5e-checkbox, input[type="checkbox"]) {
   --checkbox-border-color: var(--sw5e-dark-muted-control-border);
   --checkbox-empty-color: rgba(24, 24, 24, 0.82);
   --checkbox-fill-color: var(--sw5e-line-color);
@@ -17401,18 +17913,18 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augment
   --checkbox-checked-color: var(--sw5e-line-color);
   accent-color: var(--sw5e-line-color);
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results > .note.info {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results > .note.info {
   background: color-mix(in srgb, var(--sw5e-line-color) 10%, rgba(18, 18, 18, 0.92)) !important;
   border: 1px solid var(--sw5e-dark-muted-control-border) !important;
   border-radius: 4px !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card {
   background: color-mix(in srgb, var(--sw5e-theme-panel-background) 88%, black) !important;
   border: 1px solid var(--sw5e-dark-muted-control-border) !important;
   border-radius: 6px !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header {
   background: linear-gradient(180deg, rgba(54, 54, 54, 0.94) 0%, rgba(22, 22, 22, 0.98) 100%) !important;
   border: 1px solid var(--sw5e-dark-muted-control-border) !important;
   border-left: 3px solid var(--sw5e-theme-heading) !important;
@@ -17420,14 +17932,14 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augment
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(6, 15, 22, 0.28) !important;
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header > :is(h3, .item-name) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header > :is(h3, .item-name) {
   color: var(--sw5e-theme-heading) !important;
   font-family: var(--sw5e-font-body) !important;
   font-size: 13px !important;
   font-weight: 800 !important;
   text-shadow: none !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header > :not(:is(h3, .item-name)) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header > :not(:is(h3, .item-name)) {
   color: var(--sw5e-theme-muted-text) !important;
   font-family: var(--sw5e-font-body) !important;
   font-size: 10px !important;
@@ -17435,25 +17947,25 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augment
   letter-spacing: 0.05em !important;
   text-shadow: none !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item {
   border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 20%, transparent) !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item:is(:hover, :focus-within) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item:is(:hover, :focus-within) {
   background: color-mix(in srgb, var(--sw5e-line-color) 8%, rgba(18, 18, 18, 0.9)) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item.selected {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item.selected {
   border-left-color: var(--sw5e-line-color) !important;
   background: color-mix(in srgb, var(--sw5e-line-color) 12%, rgba(18, 18, 18, 0.92)) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-name .subtitle,
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-source {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-name .subtitle,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-source {
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-image {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item .item-image {
   border-color: var(--sw5e-dark-muted-control-border) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item :is(dnd5e-checkbox, input[type="checkbox"]) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item :is(dnd5e-checkbox, input[type="checkbox"]) {
   --checkbox-border-color: var(--sw5e-dark-muted-control-border);
   --checkbox-empty-color: rgba(24, 24, 24, 0.82);
   --checkbox-fill-color: var(--sw5e-line-color);
@@ -17461,15 +17973,15 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augment
   --checkbox-checked-color: var(--sw5e-line-color);
   accent-color: var(--sw5e-line-color);
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) {
   background: color-mix(in srgb, var(--sw5e-theme-panel-background) 90%, black) !important;
   border-top: 1px solid var(--sw5e-dark-muted-control-border) !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) .count:not(.invalid) .value {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) .count:not(.invalid) .value {
   color: var(--sw5e-line-color) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) button[type="submit"] {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) button[type="submit"] {
   background: var(--sw5e-theme-primary-button) !important;
   border: 1px solid color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
   border-radius: 4px !important;
@@ -17477,90 +17989,90 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="augment
   box-shadow: none !important;
 }
 /* ——— Underworld Alloy ——— */
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser {
   --dnd5e-application-background: var(--sw5e-theme-page-center);
   --filter-header-label-color: var(--sw5e-theme-heading);
   --filter-range-label-color: var(--sw5e-theme-text);
   --dnd5e-inventory-border: 1px solid var(--sw5e-underworld-muted-control-border);
   color: var(--sw5e-theme-text);
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .window-content {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .window-content {
   background: var(--sw5e-theme-page-center) !important;
   background-image: var(--sw5e-theme-surface-background) !important;
   background-size: cover !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar {
   background: color-mix(in srgb, var(--sw5e-underworld-olive) 18%, var(--sw5e-underworld-panel)) !important;
   border-right: 1px solid var(--sw5e-underworld-muted-control-border) !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar search input[type="text"] {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar search input[type="text"] {
   background: var(--sw5e-underworld-input-bg) !important;
   border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
   border-radius: 4px !important;
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label > span {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label > span {
   color: var(--sw5e-theme-heading) !important;
   font-weight: 700 !important;
   letter-spacing: 0.04em !important;
   text-transform: uppercase !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::before,
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::after {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar .filter-header > label::after {
   border-top-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 32%, var(--sw5e-underworld-border)) !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar filter-state {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar filter-state {
   --filter-state-background-color: var(--sw5e-underworld-neon-cyan);
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .sidebar :is(dnd5e-checkbox, input[type="checkbox"]) {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .sidebar :is(dnd5e-checkbox, input[type="checkbox"]) {
   --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
   --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
   --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
   --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
   accent-color: var(--sw5e-underworld-neon-cyan);
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card {
   background: color-mix(in srgb, var(--sw5e-underworld-olive) 16%, var(--sw5e-underworld-panel)) !important;
   border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
   border-radius: 6px !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header {
   background: color-mix(in srgb, var(--sw5e-underworld-olive) 28%, var(--sw5e-underworld-panel-strong)) !important;
   border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
   border-left: 3px solid var(--sw5e-underworld-neon-cyan) !important;
   border-radius: 4px 4px 0 0 !important;
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header > :is(h3, .item-name) {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section.card > .items-header.header > :is(h3, .item-name) {
   color: var(--sw5e-theme-heading) !important;
   text-shadow: none !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item {
   border-bottom-color: var(--sw5e-underworld-muted-control-border) !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item:is(:hover, :focus-within) {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item:is(:hover, :focus-within) {
   background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 8%, var(--sw5e-underworld-panel)) !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item.selected {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item.selected {
   border-left-color: var(--sw5e-underworld-neon-cyan) !important;
   background: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 10%, var(--sw5e-underworld-panel)) !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .results .items-section .item :is(dnd5e-checkbox, input[type="checkbox"]) {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .results .items-section .item :is(dnd5e-checkbox, input[type="checkbox"]) {
   --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
   --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
   --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
   --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
   accent-color: var(--sw5e-underworld-neon-cyan);
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) {
   background: color-mix(in srgb, var(--sw5e-underworld-olive) 20%, var(--sw5e-underworld-panel)) !important;
   border-top: 1px solid var(--sw5e-underworld-muted-control-border) !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) .count:not(.invalid) .value {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) .count:not(.invalid) .value {
   color: var(--sw5e-underworld-neon-cyan) !important;
 }
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="augmentations-browser"].dnd5e2.compendium-browser .footer:not(:empty) button[type="submit"] {
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="droid-customizations-browser"].dnd5e2.compendium-browser .footer:not(:empty) button[type="submit"] {
   background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
   border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
   border-radius: 4px !important;
@@ -17950,232 +18462,7 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="a
   border-radius: 4px !important;
   color: var(--sw5e-theme-text) !important;
 }
-/* Ephemeral DialogV2.wait / legacy Dialog prompts — scoped via data-sw5e-theme-root="dialog-prompt" (CSS-3). */
-/* ——— SW5E Light ——— */
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] {
-  background: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
-  background-image: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
-  border-color: color-mix(in srgb, var(--sw5e-line-color) 38%, transparent) !important;
-  color: var(--sw5e-theme-text) !important;
-  color-scheme: light;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-header {
-  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.window-title, .window-header h1) {
-  color: var(--sw5e-theme-heading) !important;
-  font-family: var(--sw5e-font-heading) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-content {
-  background-color: transparent !important;
-  background-image: none !important;
-  color: var(--sw5e-theme-text) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(p, li, label, span, td, th, strong, em) {
-  color: var(--sw5e-theme-text);
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.hint, .notes, p.notes) {
-  color: var(--sw5e-theme-muted-text) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(input, select, textarea) {
-  background: rgba(255, 255, 255, 0.94) !important;
-  border: 1px solid var(--sw5e-light-muted-control-border) !important;
-  color: var(--sw5e-theme-text) !important;
-  color-scheme: light;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(input, select, textarea):is(:hover, :focus, :focus-visible):not(:disabled):not([readonly]) {
-  border-color: var(--sw5e-line-color) !important;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
-  outline: none;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button) {
-  filter: none !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]) {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
-  border: 1px solid var(--sw5e-light-muted-control-border) !important;
-  color: var(--sw5e-secondary-button) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]):is(:hover, :focus, :focus-visible) {
-  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.9)) !important;
-  color: var(--sw5e-line-color) !important;
-  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer > [type="submit"], .dialog-buttons > .dialog-button.default, button.dialog-button.default) {
-  background: var(--sw5e-theme-primary-button) !important;
-  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 82%, black) !important;
-  color: var(--sw5e-theme-button-text) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-dialog {
-  color: var(--sw5e-theme-text);
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table {
-  border-color: var(--sw5e-light-muted-control-border) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table th {
-  background: var(--sw5e-light-section-header-background) !important;
-  color: var(--sw5e-theme-heading) !important;
-  border-color: var(--sw5e-light-muted-control-border) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table td {
-  border-color: var(--sw5e-light-row-divider) !important;
-  color: var(--sw5e-theme-text) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
-  border: 1px solid var(--sw5e-light-muted-control-border) !important;
-  color: var(--sw5e-secondary-button) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
-  color: var(--sw5e-line-color) !important;
-}
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-warnings {
-  background: color-mix(in srgb, var(--sw5e-line-color) 8%, white) !important;
-  border: 1px solid color-mix(in srgb, var(--sw5e-theme-line) 55%, transparent) !important;
-  color: var(--sw5e-theme-text) !important;
-}
-/* ——— SW5E Dark ——— */
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] {
-  background: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
-  background-image: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
-  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
-  color: var(--sw5e-theme-text) !important;
-  color-scheme: dark;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-header {
-  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.window-title, .window-header h1) {
-  color: var(--sw5e-theme-heading) !important;
-  font-family: var(--sw5e-font-heading) !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-content {
-  background-color: transparent !important;
-  background-image: none !important;
-  color: var(--sw5e-theme-text) !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.hint, .notes, p.notes) {
-  color: var(--sw5e-theme-muted-text) !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(input, select, textarea) {
-  background: rgba(18, 22, 28, 0.88) !important;
-  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
-  color: var(--sw5e-theme-text) !important;
-  color-scheme: dark;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(input, select, textarea):is(:hover, :focus, :focus-visible):not(:disabled):not([readonly]) {
-  border-color: var(--sw5e-line-color) !important;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
-  outline: none;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]) {
-  background: rgba(24, 24, 24, 0.72) !important;
-  border: 1px solid rgba(32, 161, 208, 0.35) !important;
-  color: var(--sw5e-secondary-button) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-  filter: none !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]):is(:hover, :focus, :focus-visible) {
-  background: rgba(32, 161, 208, 0.14) !important;
-  color: var(--sw5e-line-color) !important;
-  border-color: rgba(32, 161, 208, 0.55) !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer > [type="submit"], .dialog-buttons > .dialog-button.default, button.dialog-button.default) {
-  background: var(--sw5e-theme-primary-button) !important;
-  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 72%, black) !important;
-  color: var(--sw5e-theme-button-text) !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table th {
-  background: linear-gradient(180deg, rgba(54, 54, 54, 0.94) 0%, rgba(22, 22, 22, 0.98) 100%) !important;
-  color: var(--sw5e-theme-heading) !important;
-  border-color: var(--sw5e-dark-muted-control-border) !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table td {
-  border-color: color-mix(in srgb, var(--sw5e-line-color) 20%, transparent) !important;
-  color: var(--sw5e-theme-text) !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll {
-  background: rgba(24, 24, 24, 0.72) !important;
-  border: 1px solid rgba(32, 161, 208, 0.35) !important;
-  color: var(--sw5e-secondary-button) !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll:hover:not(:disabled) {
-  background: rgba(32, 161, 208, 0.14) !important;
-  color: var(--sw5e-line-color) !important;
-}
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-warnings {
-  background: color-mix(in srgb, var(--sw5e-line-color) 10%, rgba(18, 18, 18, 0.92)) !important;
-  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
-  color: var(--sw5e-theme-text) !important;
-}
-/* ——— Underworld Alloy ——— */
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] {
-  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
-  background-image: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
-  border-color: var(--sw5e-underworld-muted-control-border) !important;
-  color: var(--sw5e-theme-text) !important;
-  color-scheme: dark;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-header {
-  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.window-title, .window-header h1) {
-  color: var(--sw5e-theme-heading) !important;
-  font-family: var(--sw5e-font-heading) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .window-content {
-  background-color: transparent !important;
-  background-image: none !important;
-  color: var(--sw5e-theme-text) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(.hint, .notes, p.notes) {
-  color: var(--sw5e-theme-muted-text) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(input, select, textarea) {
-  background: var(--sw5e-underworld-input-bg) !important;
-  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
-  color: var(--sw5e-theme-text) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]) {
-  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
-  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-leather-deep) 72%, var(--sw5e-underworld-border)) !important;
-  color: var(--sw5e-theme-text) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]):is(:hover, :focus, :focus-visible) {
-  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 14%, var(--sw5e-underworld-panel)) !important;
-  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer > [type="submit"], .dialog-buttons > .dialog-button.default, button.dialog-button.default) {
-  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
-  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
-  color: var(--sw5e-theme-text) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table th {
-  background: color-mix(in srgb, var(--sw5e-underworld-olive) 28%, var(--sw5e-underworld-panel-strong)) !important;
-  color: var(--sw5e-theme-heading) !important;
-  border-color: var(--sw5e-underworld-muted-control-border) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-table td {
-  border-color: var(--sw5e-underworld-muted-control-border) !important;
-  color: var(--sw5e-theme-text) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll {
-  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
-  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
-  color: var(--sw5e-theme-text) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-roll:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
-  box-shadow: 0 0 10px var(--sw5e-underworld-glow-blue) !important;
-}
-body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] .sw5e-droid-procedure-warnings {
-  background: color-mix(in srgb, var(--sw5e-underworld-olive) 22%, var(--sw5e-underworld-graphite)) !important;
-  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
-  color: var(--sw5e-theme-text) !important;
-}
+/* —— CSS-3 chat polish (loads before css-2 so css-2 journal stack retains precedence) —— */
 /* SW5e chat card polish — scoped chat messages (CSS-3).
    Complements theme-overrides.less / underworld-overrides.less baseline datapad shells. */
 /* ——— SW5E Light ——— */
@@ -18287,6 +18574,68 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="c
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="chat"] .message-content h4.dice-total {
   color: var(--sw5e-underworld-neon-cyan) !important;
 }
+/* Native <select> optgroup labels — grouped dropdown readability (SW5E Light/Dark/Underworld).
+   dnd5e grouped selects (Activity activation cost, duration units, range, etc.) render
+   <optgroup label="…"> via options with a `group` field. Global option styling without
+   matching optgroup labels caused unreadable black group headers on Windows/Chromium. */
+/* ——— SW5E Light ——— */
+body[data-sw5e-theme="sw5e-light"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select optgroup {
+  background: #e8f0f5 !important;
+  background-color: #e8f0f5 !important;
+  color: var(--sw5e-line-color) !important;
+  font-weight: 700;
+  font-style: normal;
+}
+body[data-sw5e-theme="sw5e-light"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select optgroup option {
+  background: #f7fafc !important;
+  background-color: #f7fafc !important;
+  color: #1d2730 !important;
+  font-weight: 400;
+}
+body[data-sw5e-theme="sw5e-light"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select option:disabled {
+  background: #e8f0f5 !important;
+  background-color: #e8f0f5 !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+/* ——— SW5E Dark ——— */
+body[data-sw5e-theme="sw5e-dark"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select optgroup {
+  background: #252c34 !important;
+  background-color: #252c34 !important;
+  color: var(--sw5e-line-color) !important;
+  font-weight: 700;
+  font-style: normal;
+}
+body[data-sw5e-theme="sw5e-dark"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select optgroup option {
+  background: #1a1f24 !important;
+  background-color: #1a1f24 !important;
+  color: #e8eef2 !important;
+  font-weight: 400;
+}
+body[data-sw5e-theme="sw5e-dark"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select option:disabled {
+  background: #252c34 !important;
+  background-color: #252c34 !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+/* ——— Underworld Alloy ——— */
+body[data-sw5e-theme="sw5e-underworld"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select optgroup {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 24%, var(--sw5e-underworld-input-bg)) !important;
+  background-color: color-mix(in srgb, var(--sw5e-underworld-olive) 24%, var(--sw5e-underworld-input-bg)) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  font-weight: 700;
+  font-style: normal;
+}
+body[data-sw5e-theme="sw5e-underworld"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select optgroup option {
+  background: var(--sw5e-underworld-input-bg) !important;
+  background-color: var(--sw5e-underworld-input-bg) !important;
+  color: var(--sw5e-theme-text) !important;
+  font-weight: 400;
+}
+body[data-sw5e-theme="sw5e-underworld"] :is(.sw5e-theme-root, .application[data-sw5e-theme-root], .window-app[data-sw5e-theme-root]) select option:disabled {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 20%, var(--sw5e-underworld-input-bg)) !important;
+  background-color: color-mix(in srgb, var(--sw5e-underworld-olive) 20%, var(--sw5e-underworld-input-bg)) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+/* —— CSS-2 theme cleanup phases (ordered cascade: 2 → 2b → 2c → 2d → 2f → 2g) —— */
 /* CSS-2 theme cleanup — journal Light/Dark parity, maneuver sheet, actor item-summary remaps */
 /* =============================================================================
  * Journal Light/Dark parity — port Underworld journal datapad polish
@@ -20101,6 +20450,7 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.chara
 )::-webkit-scrollbar-thumb:hover {
   background: color-mix(in srgb, var(--sw5e-line-color) 72%, #8aaec0) !important;
 }
+/* —— Feature misc —— */
 /* Mastery tier skill reroll controls — inline chat card UX */
 .sw5e-mastery-reroll-actions {
   display: flex;

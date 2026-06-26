@@ -349,8 +349,20 @@ const DIALOG_PROMPT_EXCLUDED_ROOT_CLASSES = Object.freeze([
 	"sw5e-augmentations-manager",
 	"sw5e-droid-customizations-manager",
 	"power-point-config",
-	"sw5e-starship-skill-roll-config"
+	"sw5e-starship-skill-roll-config",
+	"create-document"
 ]);
+
+/**
+ * dnd5e CreateDocumentDialog for new Activity pseudo-documents (Attack, Cast, Check, etc.).
+ * Root: `.dnd5e2.create-document` from `UtilityActivity.createDialog`.
+ */
+export function isDnd5eActivityTypeChooserDialog(app, element) {
+	if ( !(element instanceof HTMLElement) ) return false;
+	if ( app?.constructor?.name !== "CreateDocumentDialog" ) return false;
+	if ( !element.classList.contains("create-document") ) return false;
+	return app?.documentType?.documentName === "Activity";
+}
 
 /**
  * Ephemeral DialogV2.wait / legacy Dialog prompts that are not handled by a dedicated theme scope.
@@ -437,6 +449,10 @@ function applyDnd5eThemedApplicationFromHook(app, html) {
 	}
 	if ( isDnd5eActorConfigSheet(app, root) ) {
 		applySw5eThemeScope(html, { scope: "config-sheet" });
+		return;
+	}
+	if ( isDnd5eActivityTypeChooserDialog(app, root) ) {
+		applySw5eThemeScope(html, { scope: "activity-type-chooser" });
 		return;
 	}
 	if ( isEphemeralDialogPromptApp(app, root) ) {

@@ -1,0 +1,248 @@
+/* dnd5e CreateDocumentDialog activity type chooser — scoped via data-sw5e-theme-root="activity-type-chooser" (CSS-3B). */
+
+@chooser-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document';
+@chooser-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document';
+@chooser-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-type-chooser"].dnd5e2.create-document';
+
+/* ——— SW5E Light ——— */
+@{chooser-light} {
+  background: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  background-image: linear-gradient(180deg, rgba(248, 251, 253, 0.96), rgba(226, 237, 244, 0.94)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 38%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+
+@{chooser-light} .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
+}
+
+@{chooser-light} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{chooser-light} .document-name {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{chooser-light} .document-name:enabled:is(:hover, :focus, :focus-visible) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{chooser-light} select.unselect {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: light;
+}
+
+@{chooser-light} ol.unlist.card {
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 78%, white) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+@{chooser-light} ol li {
+  border-bottom-color: var(--sw5e-light-row-divider) !important;
+}
+
+@{chooser-light} ol li:has(input:enabled):hover,
+@{chooser-light} ol li:has(input:checked) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 10%, rgba(255, 255, 255, 0.92)) !important;
+}
+
+@{chooser-light} ol li:has(input:disabled) {
+  opacity: 0.45;
+}
+
+@{chooser-light} ol label > span {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{chooser-light} :is(ol dnd5e-icon, ol img) {
+  --icon-fill: var(--sw5e-line-color);
+}
+
+@{chooser-light} ol input[type="radio"] {
+  accent-color: var(--sw5e-line-color);
+  color-scheme: light;
+}
+
+@{chooser-light} footer.form-footer > :is(button, [type="submit"]) {
+  filter: none !important;
+}
+
+@{chooser-light} footer.form-footer > [type="button"] {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  color: var(--sw5e-secondary-button) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+@{chooser-light} footer.form-footer > [type="submit"] {
+  background: var(--sw5e-theme-primary-button) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 82%, black) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+
+/* ——— SW5E Dark ——— */
+@{chooser-dark} {
+  background: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  background-image: linear-gradient(180deg, rgba(28, 32, 36, 0.98), rgba(18, 20, 22, 0.96)) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{chooser-dark} .window-header {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+}
+
+@{chooser-dark} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{chooser-dark} .document-name {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{chooser-dark} .document-name:enabled:is(:hover, :focus, :focus-visible) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{chooser-dark} select.unselect {
+  background: rgba(18, 22, 28, 0.88) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{chooser-dark} ol.unlist.card {
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 88%, rgba(12, 14, 16, 0.96)) !important;
+  border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+@{chooser-dark} ol li {
+  border-bottom-color: color-mix(in srgb, var(--sw5e-line-color) 20%, transparent) !important;
+}
+
+@{chooser-dark} ol li:has(input:enabled):hover,
+@{chooser-dark} ol li:has(input:checked) {
+  background: rgba(32, 161, 208, 0.14) !important;
+}
+
+@{chooser-dark} ol li:has(input:disabled) {
+  opacity: 0.45;
+}
+
+@{chooser-dark} ol label > span {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{chooser-dark} :is(ol dnd5e-icon, ol img) {
+  --icon-fill: var(--sw5e-line-color);
+}
+
+@{chooser-dark} ol input[type="radio"] {
+  accent-color: var(--sw5e-line-color);
+  color-scheme: dark;
+}
+
+@{chooser-dark} footer.form-footer > [type="button"] {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  color: var(--sw5e-secondary-button) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  filter: none !important;
+}
+
+@{chooser-dark} footer.form-footer > [type="submit"] {
+  background: var(--sw5e-theme-primary-button) !important;
+  border-color: color-mix(in srgb, var(--sw5e-theme-primary-button) 72%, black) !important;
+  color: var(--sw5e-theme-button-text) !important;
+}
+
+/* ——— Underworld Alloy ——— */
+@{chooser-underworld} {
+  background: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  background-image: linear-gradient(180deg, var(--sw5e-underworld-panel-strong), var(--sw5e-underworld-bg)) !important;
+  border-color: var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+  color-scheme: dark;
+}
+
+@{chooser-underworld} .window-header {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+@{chooser-underworld} .window-content {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{chooser-underworld} .document-name {
+  color: var(--sw5e-theme-heading) !important;
+  font-family: var(--sw5e-font-heading) !important;
+}
+
+@{chooser-underworld} select.unselect {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{chooser-underworld} ol.unlist.card {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 18%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
+  border-radius: var(--sw5e-starship-radius-sm, 6px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+@{chooser-underworld} ol li {
+  border-bottom-color: var(--sw5e-underworld-row-divider) !important;
+}
+
+@{chooser-underworld} ol li:has(input:enabled):hover,
+@{chooser-underworld} ol li:has(input:checked) {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 14%, var(--sw5e-underworld-panel)) !important;
+}
+
+@{chooser-underworld} ol li:has(input:disabled) {
+  opacity: 0.45;
+}
+
+@{chooser-underworld} ol label > span {
+  color: var(--sw5e-theme-text) !important;
+}
+
+@{chooser-underworld} :is(ol dnd5e-icon, ol img) {
+  --icon-fill: var(--sw5e-underworld-neon-cyan);
+}
+
+@{chooser-underworld} ol input[type="radio"] {
+  accent-color: var(--sw5e-underworld-neon-cyan);
+  color-scheme: dark;
+}
+
+@{chooser-underworld} footer.form-footer > [type="button"] {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-leather-deep) 72%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+@{chooser-underworld} footer.form-footer > [type="submit"] {
+  background: color-mix(in srgb, var(--sw5e-underworld-neon-blue) 22%, var(--sw5e-underworld-panel-strong)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 48%, var(--sw5e-underworld-border)) !important;
+  color: var(--sw5e-theme-text) !important;
+}
