@@ -22,6 +22,13 @@ import { openRechargeRepairDialog, openRefittingRepairDialog, openRegenRepairDia
 import { shouldShowStarshipPowerRouting, isLegacyPowerRoutingOverrideEnabled, STARSHIP_LEGACY_POWER_ROUTING_FLAG } from "../starship-routing-gate.mjs";
 import { isStarshipWeaponItem } from "../starship-weapon-rolls.mjs";
 import {
+	fireStarshipLauncherThroughAmmoBridge,
+	isStarshipLauncherItem
+} from "../starship-launcher-ammo.mjs";
+import {
+	hasTriggerActivityConfig
+} from "../sw5e-activity-trigger.mjs";
+import {
 	buildDestructionSaveSidebarContext,
 	resetStarshipDestructionSaves,
 	rollStarshipDestructionSave
@@ -4076,6 +4083,16 @@ function focusSheetItem(root, app, itemId, tabId = STOCK_CARGO_TAB_ID) {
 
 async function useStarshipItem(item, actor = item?.actor, event) {
 	if ( !item ) return;
+
+	if ( isSw5eStarshipActor(actor) && isStarshipLauncherItem(item) ) {
+		const utilityActivity = [...(item.system?.activities ?? [])].find(activity => activity?.type === "utility");
+		if ( utilityActivity && hasTriggerActivityConfig(utilityActivity) ) {
+			await utilityActivity.use({ event });
+			return;
+		}
+		await fireStarshipLauncherThroughAmmoBridge(item, { event });
+		return;
+	}
 
 	const methods = ["use", "roll", "displayCard", "toMessage"];
 	for ( const method of methods ) {

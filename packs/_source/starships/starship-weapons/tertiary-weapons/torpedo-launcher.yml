@@ -106,6 +106,38 @@ system:
   summons: null
   magicalBonus: null
   firingArc: ''
+  activities:
+    sw5e0utility0000:
+      _id: sw5e0utility0000
+      name: Use
+      activation:
+        type: action
+      description: {}
+      duration:
+        units: inst
+        value: ''
+      img: null
+      roll:
+        formula: ''
+      target:
+        prompt: false
+        template:
+          type: ''
+          units: ft
+      type: utility
+      consumption:
+        scaling:
+          allowed: false
+        spellSlot: true
+        targets:
+          - type: material
+            target: ''
+            value: '1'
+      flags:
+        sw5e:
+          triggerActivity:
+            mode: consumedMaterial
+            timing: afterParentUseBeforeConsumption
 ownership:
   default: 0
 folder: XrZTsfcXm8cIZTpi

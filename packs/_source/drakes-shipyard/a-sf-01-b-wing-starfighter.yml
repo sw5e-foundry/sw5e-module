@@ -6869,6 +6869,38 @@ items:
       summons: null
       magicalBonus: null
       firingArc: ''
+      activities:
+        sw5e0utility0000:
+          _id: sw5e0utility0000
+          name: Use
+          activation:
+            type: action
+          description: {}
+          duration:
+            units: inst
+            value: ''
+          img: null
+          roll:
+            formula: ''
+          target:
+            prompt: false
+            template:
+              type: ''
+              units: ft
+          type: utility
+          consumption:
+            scaling:
+              allowed: false
+            spellSlot: true
+            targets:
+              - type: material
+                target: tjtk93DHSfHOw2Bd
+                value: '1'
+          flags:
+            sw5e:
+              triggerActivity:
+                mode: consumedMaterial
+                timing: afterParentUseBeforeConsumption
     ownership:
       default: 0
     _stats:
@@ -6995,6 +7027,38 @@ items:
       summons: null
       magicalBonus: null
       firingArc: ''
+      activities:
+        sw5e0utility0000:
+          _id: sw5e0utility0000
+          name: Use
+          activation:
+            type: action
+          description: {}
+          duration:
+            units: inst
+            value: ''
+          img: null
+          roll:
+            formula: ''
+          target:
+            prompt: false
+            template:
+              type: ''
+              units: ft
+          type: utility
+          consumption:
+            scaling:
+              allowed: false
+            spellSlot: true
+            targets:
+              - type: material
+                target: tjtk93DHSfHOw2Bd
+                value: '1'
+          flags:
+            sw5e:
+              triggerActivity:
+                mode: consumedMaterial
+                timing: afterParentUseBeforeConsumption
     ownership:
       default: 0
     _stats:
@@ -7051,7 +7115,7 @@ items:
         width: null
         units: ''
         type: enemy
-        prompt: true
+        prompt: false
       range:
         value: 800
         long: 3200
@@ -7081,9 +7145,9 @@ items:
         versatile: ''
       formula: ''
       save:
-        ability: ''
+        ability: dex
         dc: null
-        scaling: spell
+        scaling: wis
       properties:
         - exp
       type:
@@ -7099,6 +7163,57 @@ items:
       enchantment: null
       summons: null
       magicalBonus: null
+      activities:
+        sw5e0save0000000:
+          _id: sw5e0save0000000
+          name: Save
+          activation:
+            type: action
+          damage:
+            onSave: half
+            parts:
+              - custom:
+                  enabled: false
+                denomination: 12
+                number: 2
+                scaling:
+                  mode: ''
+                  number: 1
+                types:
+                  - energy
+          description: {}
+          duration:
+            units: inst
+            value: ''
+          img: null
+          range:
+            units: ft
+            value: '800'
+            special: ''
+          save:
+            ability:
+              - dex
+            dc:
+              calculation: wis
+              formula: ''
+          target:
+            affects:
+              count: '1'
+              type: enemy
+              choice: false
+              special: ''
+            override: false
+            prompt: false
+            template:
+              count: ''
+              contiguous: false
+              stationary: false
+              type: ''
+              size: ''
+              width: ''
+              height: ''
+              units: ft
+          type: save
     ownership:
       default: 0
     _stats:
