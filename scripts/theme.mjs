@@ -336,6 +336,42 @@ export function isSw5eDroidCustomizationsBrowser(app, element) {
 }
 
 /**
+ * SW5E Augmentation compendium picker (scoped CompendiumBrowser).
+ */
+export function isSw5eAugmentationsBrowser(app, element) {
+	if ( app?.constructor?.name === "AugmentationCompendiumBrowser" ) return true;
+	return element instanceof HTMLElement && element.classList.contains("sw5e-augmentations-browser");
+}
+
+const DIALOG_PROMPT_EXCLUDED_ROOT_CLASSES = Object.freeze([
+	"sw5e-chassis-install-browser-app",
+	"compendium-browser",
+	"sw5e-augmentations-manager",
+	"sw5e-droid-customizations-manager",
+	"power-point-config",
+	"sw5e-starship-skill-roll-config"
+]);
+
+/**
+ * Ephemeral DialogV2.wait / legacy Dialog prompts that are not handled by a dedicated theme scope.
+ */
+export function isEphemeralDialogPromptApp(app, element) {
+	if ( !(element instanceof HTMLElement) ) return false;
+	if ( element.dataset.sw5eThemeRoot ) return false;
+
+	for ( const className of DIALOG_PROMPT_EXCLUDED_ROOT_CLASSES ) {
+		if ( element.classList.contains(className) ) return false;
+	}
+
+	const ctorName = app?.constructor?.name ?? "";
+	if ( ctorName === "Dialog" || ctorName === "CheckboxSelectDialog" ) {
+		return element.classList.contains("dialog");
+	}
+	if ( ctorName === "DialogV2" ) return true;
+	return false;
+}
+
+/**
  * dnd5e journal entry/page sheets (AppV2). Legacy renderJournalSheet hooks do not fire on v13.
  */
 export function isDnd5eJournalApp(app, element) {
@@ -361,6 +397,10 @@ function applyDnd5eThemedApplicationFromHook(app, html) {
 	}
 	if ( isSw5eDroidCustomizationsBrowser(app, root) ) {
 		applySw5eThemeScope(html, { scope: "droid-customizations-browser" });
+		return;
+	}
+	if ( isSw5eAugmentationsBrowser(app, root) ) {
+		applySw5eThemeScope(html, { scope: "augmentations-browser" });
 		return;
 	}
 	if ( isDnd5eJournalApp(app, root) ) {
@@ -397,6 +437,19 @@ function applyDnd5eThemedApplicationFromHook(app, html) {
 	}
 	if ( isDnd5eActorConfigSheet(app, root) ) {
 		applySw5eThemeScope(html, { scope: "config-sheet" });
+		return;
+	}
+	if ( isEphemeralDialogPromptApp(app, root) ) {
+		applySw5eThemeScope(html, { scope: "dialog-prompt" });
+	}
+}
+
+function applyLegacyDialogThemeFromHook(app, html) {
+	if ( isSw5eThemeOff() ) return;
+	const root = getHtmlRoot(html) ?? getAppRoot(app);
+	if ( !root || root.dataset.sw5eThemeRoot ) return;
+	if ( isEphemeralDialogPromptApp(app, root) ) {
+		applySw5eThemeScope(html, { scope: "dialog-prompt" });
 	}
 }
 
@@ -409,6 +462,7 @@ export function registerSw5eThemeHooks() {
 	Hooks.on("renderActorSheetV2", (app, html) => applyThemeScopeFromHook(app, html, "sheet"));
 	Hooks.on("renderItemSheet5e", (app, html) => applyThemeScopeFromHook(app, html, "sheet"));
 	Hooks.on("renderApplicationV2", (app, html) => applyDnd5eThemedApplicationFromHook(app, html));
+	Hooks.on("renderDialog", (app, html) => applyLegacyDialogThemeFromHook(app, html));
 	Hooks.on("renderChatLog", (app, html) => applyThemeScopeFromHook(app, html, "chat-log"));
 	Hooks.on("renderChatMessageHTML", (message, html) => applyThemeScopeFromHook(message, html, "chat"));
 	Hooks.on("renderJournalSheet", (app, html) => applyThemeScopeFromHook(app, html, "journal"));
