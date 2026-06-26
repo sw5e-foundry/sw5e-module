@@ -55,7 +55,9 @@ system:
     threshold: null
     damage: ''
   damage:
-    parts: []
+    parts:
+      - - '@mod'
+        - fire
     versatile: ''
   formula: ''
   save:
@@ -95,6 +97,20 @@ system:
       activation:
         condition: ''
         type: action
+      damage:
+        critical:
+          allow: true
+        parts:
+          - custom:
+              enabled: true
+              formula: '@mod'
+            denomination: null
+            number: null
+            scaling:
+              mode: ''
+              number: 1
+            types:
+              - fire
       description: {}
       duration:
         units: round
@@ -103,14 +119,12 @@ system:
       range:
         override: false
         units: ft
-      roll:
-        formula: ''
       target:
         template:
           size: '0'
           type: ''
           units: ''
-      type: utility
+      type: damage
   method: powerCasting
   prepared: true
 effects: []
