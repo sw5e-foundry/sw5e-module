@@ -1,0 +1,580 @@
+/* CSS-2C — Journal Entry/Page visual parity (Light datapad, Dark terminal, Underworld alloy).
+   Scoped: body[data-sw5e-theme] .sw5e-theme-root.dnd5e2-journal.application
+   Inspiration: SW5e datapad screenshots — color/contrast/spacing only; no copied artwork. */
+
+@journal-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application';
+@journal-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2-journal.application';
+@journal-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2-journal.application';
+
+@journal-content-surface: :is(.journal-entry-content, .journal-page-content);
+@journal-content-page-surface: ~'.window-content';
+@journal-body-surface: :is(.scrollable, prose-mirror .editor-content, .journal-sheet);
+@journal-page-links: :is(.directory-item, .pages li, li.page, li.entry);
+
+/* =============================================================================
+ * SW5E Light — clean pale datapad / document shell
+ * ============================================================================= */
+
+@{journal-light} {
+  --sw5e-journal-shell-bg: linear-gradient(180deg, rgba(236, 243, 248, 0.98) 0%, rgba(214, 226, 235, 0.94) 100%);
+  --sw5e-journal-sidebar-bg: linear-gradient(180deg, rgba(248, 251, 253, 0.98) 0%, rgba(224, 236, 244, 0.94) 100%);
+  --sw5e-journal-content-bg: var(--sw5e-light-chat-datapad-panel);
+  --sw5e-journal-content-border: var(--sw5e-light-chat-datapad-border);
+  --sw5e-journal-content-shadow: var(--sw5e-light-chat-datapad-shadow);
+  --sw5e-journal-heading-accent: var(--sw5e-theme-heading);
+  --sw5e-journal-body-text: var(--sw5e-theme-text);
+  --sw5e-journal-link-accent: var(--sw5e-line-color);
+  --sw5e-journal-active-row: color-mix(in srgb, var(--sw5e-line-color) 10%, white);
+  --sw5e-journal-hover-row: color-mix(in srgb, var(--sw5e-line-color) 6%, white);
+  --dnd5e-application-background: transparent;
+  --dnd5e-journal-content-background: transparent;
+  --item-summary-background: var(--sw5e-light-chat-datapad-panel);
+  --filigree-background-color: var(--sw5e-light-chat-datapad-panel);
+  --separated-list-item-background-color: color-mix(in srgb, var(--sw5e-theme-surface-strong) 82%, white);
+  --multi-select-tag-background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 82%, white);
+  --table-background-color: color-mix(in srgb, var(--sw5e-theme-surface-strong) 86%, white);
+  background: var(--sw5e-journal-shell-bg) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  box-shadow: var(--sw5e-light-card-shadow-soft) !important;
+  color: var(--sw5e-journal-body-text);
+}
+
+@{journal-light} .window-content {
+  background: transparent !important;
+  background-image: none !important;
+  gap: 0 !important;
+}
+
+@{journal-light} .journal-sidebar {
+  background: var(--sw5e-journal-sidebar-bg) !important;
+  border-right: 1px solid var(--sw5e-journal-content-border) !important;
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.55) !important;
+  color: var(--sw5e-journal-body-text) !important;
+  min-width: 220px;
+}
+
+@{journal-light} .journal-sidebar :is(.pages-header, .header, h4) {
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+}
+
+@{journal-light} .journal-sidebar input {
+  --input-text-color: var(--sw5e-journal-body-text);
+  --input-placeholder-color: var(--sw5e-theme-muted-text);
+  --input-background-color: var(--sw5e-theme-input);
+  --input-border-color: var(--sw5e-theme-input-border);
+  background: var(--sw5e-theme-input) !important;
+  border: 1px solid var(--sw5e-theme-input-border) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62) !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-light} .journal-sidebar input:is(:hover, :focus, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 50%, transparent) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+@{journal-light} .journal-sidebar :is(.inline-control, .create, .collapse, .expand) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-theme-input) 90%, white);
+  --button-hover-background-color: var(--sw5e-journal-hover-row);
+  --button-text-color: var(--sw5e-journal-body-text);
+  --button-hover-text-color: var(--sw5e-journal-heading-accent);
+  --button-border-color: var(--sw5e-light-muted-control-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 40%, transparent);
+  border-radius: 4px !important;
+}
+
+@{journal-light} @{journal-page-links} {
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-light} @{journal-page-links} :is(a, .page-title, button) {
+  color: var(--sw5e-journal-body-text) !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+}
+
+@{journal-light} @{journal-page-links}:is(.active, .expanded) > :is(a, .page-title, button),
+@{journal-light} @{journal-page-links} :is(a, .page-title, button).active {
+  background: var(--sw5e-journal-active-row) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 26%, transparent) !important;
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-weight: 600 !important;
+}
+
+@{journal-light} @{journal-page-links} :is(a, .page-title, button):is(:hover, :focus-visible) {
+  background: var(--sw5e-journal-hover-row) !important;
+  color: var(--sw5e-line-color) !important;
+}
+
+@{journal-light} @{journal-content-surface},
+@{journal-light}.journal-entry-page @{journal-content-page-surface} {
+  position: relative;
+  background: var(--sw5e-journal-content-bg) !important;
+  background-image: var(--sw5e-journal-content-bg) !important;
+  border: 1px solid var(--sw5e-journal-content-border) !important;
+  border-radius: 0 !important;
+  box-shadow: var(--sw5e-journal-content-shadow) !important;
+  color: var(--sw5e-journal-body-text) !important;
+  margin: 0 !important;
+}
+
+@{journal-light} @{journal-body-surface} {
+  background: transparent !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-light} .journal-header {
+  align-items: center !important;
+  border-bottom: 1px solid var(--sw5e-journal-content-border) !important;
+  gap: 0.75rem !important;
+  margin: 0 !important;
+  padding: 0.85rem 1rem 0.65rem !important;
+}
+
+@{journal-light} .journal-header .title {
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-align: center !important;
+  text-shadow: none !important;
+  width: 100%;
+}
+
+@{journal-light} .journal-header .title:is(:hover, :focus, :focus-visible):not(:disabled) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 42%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 18%, transparent) !important;
+}
+
+@{journal-light} .action-buttons :is(.previous, .next, .create, .lock-mode) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-theme-input) 90%, white);
+  --button-hover-background-color: var(--sw5e-journal-hover-row);
+  --button-text-color: var(--sw5e-journal-body-text);
+  --button-hover-text-color: var(--sw5e-journal-heading-accent);
+  --button-border-color: var(--sw5e-light-muted-control-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 40%, transparent);
+  border-radius: 4px !important;
+}
+
+@{journal-light} :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  text-shadow: none !important;
+}
+
+@{journal-light} :is(p, li, span, small, .editor-content) {
+  color: var(--sw5e-journal-body-text);
+}
+
+@{journal-light} :is(a, .content-link, .inline-roll) {
+  color: var(--sw5e-journal-link-accent) !important;
+}
+
+@{journal-light} :is(table, blockquote, .advice, .info, .notification) {
+  background: color-mix(in srgb, var(--sw5e-theme-surface-strong) 84%, white) !important;
+  border: 1px solid var(--sw5e-journal-content-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-light} :is(.book-navigation, .journal-footer) {
+  border-color: var(--sw5e-journal-content-border) !important;
+  color: var(--sw5e-theme-muted-text) !important;
+}
+
+@{journal-light} .book-navigation a {
+  color: var(--sw5e-journal-link-accent) !important;
+}
+
+@{journal-light} prose-mirror menu {
+  --menu-background: color-mix(in srgb, var(--sw5e-theme-input) 92%, white);
+  --button-text-color: var(--sw5e-journal-body-text);
+  border-bottom: 1px solid var(--sw5e-journal-content-border) !important;
+}
+
+/* =============================================================================
+ * SW5E Dark — dark terminal / datapad
+ * ============================================================================= */
+
+@{journal-dark} {
+  --sw5e-journal-shell-bg: linear-gradient(180deg, #0c1218 0%, #141c28 52%, #0a1018 100%);
+  --sw5e-journal-sidebar-bg: linear-gradient(180deg, rgba(16, 22, 30, 0.98) 0%, rgba(10, 14, 20, 0.96) 100%);
+  --sw5e-journal-content-bg: linear-gradient(180deg, rgba(14, 20, 30, 0.97) 0%, rgba(8, 12, 18, 0.99) 100%);
+  --sw5e-journal-content-border: color-mix(in srgb, var(--sw5e-line-color) 38%, rgba(18, 26, 38, 0.92));
+  --sw5e-journal-content-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 12%, transparent), 0 8px 24px rgba(0, 0, 0, 0.42);
+  --sw5e-journal-heading-accent: var(--sw5e-line-color);
+  --sw5e-journal-body-text: color-mix(in srgb, var(--sw5e-theme-text) 92%, var(--sw5e-line-color) 8%);
+  --sw5e-journal-link-accent: var(--sw5e-secondary-button);
+  --sw5e-journal-active-row: color-mix(in srgb, var(--sw5e-line-color) 14%, rgba(8, 12, 18, 0.96));
+  --sw5e-journal-hover-row: color-mix(in srgb, var(--sw5e-line-color) 8%, rgba(10, 14, 20, 0.94));
+  --dnd5e-application-background: transparent;
+  --dnd5e-journal-content-background: transparent;
+  --item-summary-background: var(--sw5e-journal-content-bg);
+  --filigree-background-color: rgba(10, 14, 20, 0.92);
+  --separated-list-item-background-color: rgba(12, 18, 26, 0.92);
+  --multi-select-tag-background: rgba(12, 18, 26, 0.92);
+  --table-background-color: rgba(12, 18, 26, 0.94);
+  background: var(--sw5e-journal-shell-bg) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-journal-content-border) !important;
+  box-shadow: var(--sw5e-journal-content-shadow) !important;
+  color: var(--sw5e-journal-body-text);
+}
+
+@{journal-dark} .window-content {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+@{journal-dark} .journal-sidebar {
+  background: var(--sw5e-journal-sidebar-bg) !important;
+  border-right: 1px solid var(--sw5e-journal-content-border) !important;
+  box-shadow: inset -1px 0 0 color-mix(in srgb, var(--sw5e-line-color) 10%, transparent) !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-dark} .journal-sidebar :is(.pages-header, .header, h4) {
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--sw5e-line-color) 28%, transparent) !important;
+  text-transform: uppercase !important;
+}
+
+@{journal-dark} .journal-sidebar input {
+  background: color-mix(in srgb, var(--sw5e-theme-input) 92%, black) !important;
+  border: 1px solid var(--sw5e-journal-content-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-journal-body-text) !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.28) !important;
+}
+
+@{journal-dark} .journal-sidebar input:is(:hover, :focus, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 55%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent), 0 0 12px color-mix(in srgb, var(--sw5e-line-color) 12%, transparent) !important;
+}
+
+@{journal-dark} .journal-sidebar :is(.inline-control, .create, .collapse, .expand) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-theme-input) 90%, black);
+  --button-hover-background-color: var(--sw5e-journal-hover-row);
+  --button-text-color: var(--sw5e-journal-body-text);
+  --button-hover-text-color: var(--sw5e-journal-heading-accent);
+  --button-border-color: var(--sw5e-journal-content-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 45%, transparent);
+  border-radius: 4px !important;
+}
+
+@{journal-dark} @{journal-page-links} :is(a, .page-title, button) {
+  color: var(--sw5e-journal-body-text) !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+}
+
+@{journal-dark} @{journal-page-links}:is(.active, .expanded) > :is(a, .page-title, button),
+@{journal-dark} @{journal-page-links} :is(a, .page-title, button).active {
+  background: var(--sw5e-journal-active-row) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 32%, transparent), 0 0 10px color-mix(in srgb, var(--sw5e-line-color) 10%, transparent) !important;
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+}
+
+@{journal-dark} @{journal-page-links} :is(a, .page-title, button):is(:hover, :focus-visible) {
+  background: var(--sw5e-journal-hover-row) !important;
+  color: var(--sw5e-journal-heading-accent) !important;
+}
+
+@{journal-dark} @{journal-content-surface},
+@{journal-dark}.journal-entry-page @{journal-content-page-surface} {
+  position: relative;
+  isolation: isolate;
+  background: var(--sw5e-journal-content-bg) !important;
+  background-image: var(--sw5e-journal-content-bg) !important;
+  border-left: 1px solid var(--sw5e-journal-content-border) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 8%, transparent) !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-dark} @{journal-content-surface}::after,
+@{journal-dark}.journal-entry-page @{journal-content-page-surface}::after {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    color-mix(in srgb, var(--sw5e-line-color) 6%, transparent) 2px,
+    color-mix(in srgb, var(--sw5e-line-color) 6%, transparent) 3px
+  );
+  content: "";
+  inset: 0;
+  opacity: 0.35;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+@{journal-dark} @{journal-content-surface} > *,
+@{journal-dark}.journal-entry-page @{journal-content-page-surface} > * {
+  position: relative;
+  z-index: 1;
+}
+
+@{journal-dark} @{journal-body-surface} {
+  background: transparent !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-dark} .journal-header {
+  border-bottom: 1px solid var(--sw5e-journal-content-border) !important;
+  gap: 0.75rem !important;
+  margin: 0 !important;
+  padding: 0.85rem 1rem 0.65rem !important;
+}
+
+@{journal-dark} .journal-header .title {
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-align: center !important;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--sw5e-line-color) 32%, transparent) !important;
+  width: 100%;
+}
+
+@{journal-dark} .action-buttons :is(.previous, .next, .create, .lock-mode) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-theme-input) 90%, black);
+  --button-hover-background-color: var(--sw5e-journal-hover-row);
+  --button-text-color: var(--sw5e-journal-body-text);
+  --button-hover-text-color: var(--sw5e-journal-heading-accent);
+  --button-border-color: var(--sw5e-journal-content-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 45%, transparent);
+  border-radius: 4px !important;
+}
+
+@{journal-dark} :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
+}
+
+@{journal-dark} :is(p, li, span, small, .editor-content) {
+  color: var(--sw5e-journal-body-text);
+}
+
+@{journal-dark} :is(a, .content-link, .inline-roll) {
+  color: var(--sw5e-journal-link-accent) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--sw5e-secondary-button) 18%, transparent);
+}
+
+@{journal-dark} :is(table, blockquote, .advice, .info, .notification) {
+  background: color-mix(in srgb, var(--sw5e-line-color) 6%, rgba(8, 12, 18, 0.96)) !important;
+  border: 1px solid var(--sw5e-journal-content-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-journal-body-text) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 8%, transparent) !important;
+}
+
+@{journal-dark} .book-navigation a {
+  color: var(--sw5e-journal-link-accent) !important;
+}
+
+@{journal-dark} prose-mirror menu {
+  --menu-background: rgba(10, 14, 20, 0.94);
+  --button-text-color: var(--sw5e-journal-body-text);
+  border-bottom: 1px solid var(--sw5e-journal-content-border) !important;
+}
+
+@{journal-dark} .toc::-webkit-scrollbar-thumb,
+@{journal-dark} .scrollable::-webkit-scrollbar-thumb,
+@{journal-dark} prose-mirror .editor-content::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--sw5e-line-color) 55%, #0a1018) !important;
+}
+
+/* =============================================================================
+ * Underworld Alloy — warm amber/orange terminal datapad
+ * ============================================================================= */
+
+@{journal-underworld} {
+  --sw5e-journal-shell-bg: linear-gradient(180deg, var(--sw5e-underworld-bg-deep) 0%, var(--sw5e-underworld-graphite) 55%, #120d0a 100%);
+  --sw5e-journal-sidebar-bg: linear-gradient(180deg, color-mix(in srgb, var(--sw5e-underworld-leather-deep) 24%, var(--sw5e-underworld-panel)) 0%, var(--sw5e-underworld-graphite) 100%);
+  --sw5e-journal-content-bg: linear-gradient(180deg, color-mix(in srgb, var(--sw5e-underworld-leather-deep) 18%, var(--sw5e-underworld-panel-strong)) 0%, var(--sw5e-underworld-graphite) 100%);
+  --sw5e-journal-content-border: color-mix(in srgb, var(--sw5e-underworld-warning) 32%, var(--sw5e-underworld-border));
+  --sw5e-journal-content-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-warning) 10%, transparent), var(--sw5e-underworld-card-shadow-soft);
+  --sw5e-journal-heading-accent: var(--sw5e-underworld-sand);
+  --sw5e-journal-body-text: var(--sw5e-theme-text);
+  --sw5e-journal-link-accent: var(--sw5e-underworld-warning);
+  --sw5e-journal-active-row: color-mix(in srgb, var(--sw5e-underworld-warning) 12%, var(--sw5e-underworld-panel));
+  --sw5e-journal-hover-row: color-mix(in srgb, var(--sw5e-underworld-warning) 7%, var(--sw5e-underworld-panel));
+  --dnd5e-application-background: transparent;
+  --dnd5e-journal-content-background: transparent;
+  --item-summary-background: var(--sw5e-journal-content-bg);
+  background: var(--sw5e-journal-shell-bg) !important;
+  background-image: none !important;
+  border: 1px solid var(--sw5e-journal-content-border) !important;
+  box-shadow: var(--sw5e-journal-content-shadow) !important;
+  color: var(--sw5e-journal-body-text);
+}
+
+@{journal-underworld} .window-content {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+@{journal-underworld} .journal-sidebar {
+  background: var(--sw5e-journal-sidebar-bg) !important;
+  border-right: 1px solid var(--sw5e-journal-content-border) !important;
+  box-shadow: inset -1px 0 0 color-mix(in srgb, var(--sw5e-underworld-warning) 8%, transparent) !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-underworld} .journal-sidebar :is(.pages-header, .header, h4) {
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+@{journal-underworld} .journal-sidebar input {
+  background: var(--sw5e-underworld-input-bg) !important;
+  border: 1px solid var(--sw5e-journal-content-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-underworld} .journal-sidebar input:is(:hover, :focus, :focus-visible) {
+  border-color: color-mix(in srgb, var(--sw5e-underworld-warning) 48%, transparent) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-warning) 20%, transparent) !important;
+}
+
+@{journal-underworld} .journal-sidebar :is(.inline-control, .create, .collapse, .expand) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-underworld-olive) 28%, var(--sw5e-underworld-panel));
+  --button-hover-background-color: var(--sw5e-journal-hover-row);
+  --button-text-color: var(--sw5e-journal-body-text);
+  --button-hover-text-color: var(--sw5e-journal-heading-accent);
+  --button-border-color: var(--sw5e-journal-content-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-underworld-warning) 40%, transparent);
+  border-radius: 4px !important;
+}
+
+@{journal-underworld} @{journal-page-links} :is(a, .page-title, button) {
+  color: var(--sw5e-journal-body-text) !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+}
+
+@{journal-underworld} @{journal-page-links}:is(.active, .expanded) > :is(a, .page-title, button),
+@{journal-underworld} @{journal-page-links} :is(a, .page-title, button).active {
+  background: var(--sw5e-journal-active-row) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-warning) 30%, transparent) !important;
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-weight: 600 !important;
+}
+
+@{journal-underworld} @{journal-page-links} :is(a, .page-title, button):is(:hover, :focus-visible) {
+  background: var(--sw5e-journal-hover-row) !important;
+  color: var(--sw5e-underworld-warning) !important;
+}
+
+@{journal-underworld} @{journal-content-surface},
+@{journal-underworld}.journal-entry-page @{journal-content-page-surface} {
+  position: relative;
+  isolation: isolate;
+  background: var(--sw5e-journal-content-bg) !important;
+  background-image: var(--sw5e-journal-content-bg) !important;
+  border-left: 1px solid var(--sw5e-journal-content-border) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-warning) 6%, transparent) !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-underworld} @{journal-content-surface}::after,
+@{journal-underworld}.journal-entry-page @{journal-content-page-surface}::after {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    color-mix(in srgb, var(--sw5e-underworld-warning) 5%, transparent) 2px,
+    color-mix(in srgb, var(--sw5e-underworld-warning) 5%, transparent) 3px
+  );
+  content: "";
+  inset: 0;
+  opacity: 0.28;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+@{journal-underworld} @{journal-content-surface} > *,
+@{journal-underworld}.journal-entry-page @{journal-content-page-surface} > * {
+  position: relative;
+  z-index: 1;
+}
+
+@{journal-underworld} @{journal-body-surface} {
+  background: transparent !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-underworld} .journal-header {
+  border-bottom: 1px solid var(--sw5e-journal-content-border) !important;
+  gap: 0.75rem !important;
+  margin: 0 !important;
+  padding: 0.85rem 1rem 0.65rem !important;
+}
+
+@{journal-underworld} .journal-header .title {
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-align: center !important;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--sw5e-underworld-warning) 18%, transparent) !important;
+  width: 100%;
+}
+
+@{journal-underworld} .action-buttons :is(.previous, .next, .create, .lock-mode) {
+  --button-background-color: color-mix(in srgb, var(--sw5e-underworld-olive) 28%, var(--sw5e-underworld-panel));
+  --button-hover-background-color: var(--sw5e-journal-hover-row);
+  --button-text-color: var(--sw5e-journal-body-text);
+  --button-hover-text-color: var(--sw5e-journal-heading-accent);
+  --button-border-color: var(--sw5e-journal-content-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-underworld-warning) 40%, transparent);
+  border-radius: 4px !important;
+}
+
+@{journal-underworld} :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--sw5e-journal-heading-accent) !important;
+  font-family: var(--sw5e-font-heading) !important;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--sw5e-underworld-warning) 14%, transparent) !important;
+}
+
+@{journal-underworld} :is(p, li, span, small, .editor-content) {
+  color: var(--sw5e-journal-body-text);
+}
+
+@{journal-underworld} :is(a, .content-link, .inline-roll) {
+  color: var(--sw5e-journal-link-accent) !important;
+}
+
+@{journal-underworld} :is(table, blockquote, .advice, .info, .notification) {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 16%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid var(--sw5e-journal-content-border) !important;
+  border-radius: 4px !important;
+  color: var(--sw5e-journal-body-text) !important;
+}
+
+@{journal-underworld} .book-navigation a {
+  color: var(--sw5e-journal-link-accent) !important;
+}
+
+@{journal-underworld} prose-mirror menu {
+  --menu-background: color-mix(in srgb, var(--sw5e-underworld-graphite) 92%, black);
+  --button-text-color: var(--sw5e-journal-body-text);
+  border-bottom: 1px solid var(--sw5e-journal-content-border) !important;
+}

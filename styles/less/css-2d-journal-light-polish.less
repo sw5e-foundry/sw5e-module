@@ -1,0 +1,262 @@
+/* CSS-2D — Journal Light button readability, datapad edge glow (all themes), Light content polish.
+   Scoped: body[data-sw5e-theme] .sw5e-theme-root.dnd5e2-journal.application */
+
+@journal-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application';
+@journal-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2-journal.application';
+@journal-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root.dnd5e2-journal.application';
+
+@journal-content-surface: :is(.journal-entry-content, .journal-page-content);
+@journal-content-page-surface: ~'.window-content';
+@journal-page-links: :is(.directory-item, .pages li, li.page, li.entry);
+
+@journal-light-buttons: ~':is(
+  .journal-sidebar .inline-control,
+  .journal-sidebar .create,
+  .journal-sidebar .collapse,
+  .journal-sidebar .expand,
+  .journal-sidebar button.unbutton,
+  .journal-sidebar search button.filter-control,
+  .action-buttons .previous,
+  .action-buttons .next,
+  .action-buttons .create,
+  .action-buttons .lock-mode,
+  .journal-footer button,
+  .pages-footer button,
+  .edit-container button,
+  prose-mirror menu button
+)';
+
+/* =============================================================================
+ * SW5E Light — readable controls + blue/teal datapad edge glow + richer content
+ * ============================================================================= */
+
+@{journal-light} {
+  --sw5e-journal-edge-accent: var(--sw5e-line-color);
+  --sw5e-journal-edge-glow-outer:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-journal-edge-accent) 34%, transparent),
+    0 0 16px color-mix(in srgb, var(--sw5e-journal-edge-accent) 20%, transparent),
+    0 0 32px color-mix(in srgb, var(--sw5e-journal-edge-accent) 9%, transparent);
+  --sw5e-journal-edge-glow-inset:
+    inset 0 0 0 1px color-mix(in srgb, var(--sw5e-journal-edge-accent) 18%, rgba(255, 255, 255, 0.72)),
+    inset 0 0 22px color-mix(in srgb, var(--sw5e-journal-edge-accent) 7%, transparent);
+  --sw5e-journal-content-bg:
+    linear-gradient(
+      180deg,
+      rgba(252, 254, 255, 0.99) 0%,
+      rgba(238, 247, 252, 0.97) 42%,
+      rgba(220, 236, 246, 0.95) 100%
+    );
+  --sw5e-journal-content-border: color-mix(in srgb, var(--sw5e-line-color) 38%, var(--sw5e-light-muted-control-border));
+  --sw5e-journal-content-shadow:
+    var(--sw5e-journal-edge-glow-inset),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 14%, transparent),
+    0 6px 18px color-mix(in srgb, var(--sw5e-line-color) 8%, rgba(73, 96, 112, 0.1));
+  --sw5e-journal-btn-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(228, 241, 248, 0.94) 100%);
+  --sw5e-journal-btn-surface-hover: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(214, 234, 244, 0.96) 100%);
+  --sw5e-journal-btn-border: color-mix(in srgb, var(--sw5e-line-color) 44%, #b8ccd8);
+  --sw5e-journal-btn-text: var(--sw5e-theme-text);
+  --sw5e-journal-btn-icon: var(--sw5e-line-color);
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 30%, var(--sw5e-light-muted-control-border)) !important;
+  box-shadow: var(--sw5e-journal-edge-glow-outer), var(--sw5e-light-card-shadow-soft) !important;
+}
+
+/* Edge-glow inset lives on interior shell only — never position the application root (breaks Foundry window placement). */
+@{journal-light} .window-content {
+  isolation: isolate;
+  position: relative;
+}
+
+@{journal-light} .window-content::before {
+  border-radius: inherit;
+  box-shadow: var(--sw5e-journal-edge-glow-inset);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+@{journal-light} .window-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+@{journal-light} .journal-sidebar {
+  border-right-color: color-mix(in srgb, var(--sw5e-line-color) 28%, var(--sw5e-light-muted-control-border)) !important;
+  box-shadow:
+    inset -1px 0 0 rgba(255, 255, 255, 0.62),
+    inset -8px 0 18px color-mix(in srgb, var(--sw5e-line-color) 5%, transparent) !important;
+}
+
+@{journal-light} @{journal-light-buttons} {
+  --button-background-color: transparent;
+  --button-hover-background-color: transparent;
+  --button-text-color: var(--sw5e-journal-btn-text);
+  --button-hover-text-color: var(--sw5e-line-color);
+  --button-border-color: var(--sw5e-journal-btn-border);
+  --button-hover-border-color: color-mix(in srgb, var(--sw5e-line-color) 58%, transparent);
+  --icon-fill: var(--sw5e-journal-btn-icon);
+  background: var(--sw5e-journal-btn-surface) !important;
+  border: 1px solid var(--sw5e-journal-btn-border) !important;
+  border-radius: 4px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 8%, transparent) !important;
+  color: var(--sw5e-journal-btn-text) !important;
+  filter: none !important;
+  text-shadow: none !important;
+}
+
+@{journal-light} @{journal-light-buttons}:is(:hover, :focus, :focus-visible):not(:disabled) {
+  background: var(--sw5e-journal-btn-surface-hover) !important;
+  border-color: color-mix(in srgb, var(--sw5e-line-color) 58%, transparent) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-line-color) 14%, transparent) !important;
+  color: var(--sw5e-line-color) !important;
+}
+
+@{journal-light} @{journal-light-buttons} :is(i, dnd5e-icon, .icon) {
+  color: var(--sw5e-journal-btn-icon) !important;
+  --icon-fill: currentColor;
+  opacity: 1 !important;
+}
+
+@{journal-light} @{journal-light-buttons}:is(:hover, :focus, :focus-visible):not(:disabled) :is(i, dnd5e-icon, .icon) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{journal-light} @{journal-content-surface},
+@{journal-light}.journal-entry-page @{journal-content-page-surface} {
+  background: var(--sw5e-journal-content-bg) !important;
+  background-image: var(--sw5e-journal-content-bg) !important;
+  border-color: var(--sw5e-journal-content-border) !important;
+  box-shadow: var(--sw5e-journal-content-shadow) !important;
+}
+
+@{journal-light} @{journal-page-links}:is(.active, .expanded) > :is(a, .page-title, button),
+@{journal-light} @{journal-page-links} :is(a, .page-title, button).active {
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 34%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-line-color) 18%, transparent) !important;
+}
+
+@{journal-light} prose-mirror menu {
+  --menu-background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(228, 241, 248, 0.92) 100%);
+  box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--sw5e-line-color) 16%, transparent) !important;
+}
+
+/* =============================================================================
+ * SW5E Dark — subtle white/grey edge glow (preserve terminal tone)
+ * ============================================================================= */
+
+@{journal-dark} {
+  --sw5e-journal-edge-glow-outer:
+    0 0 0 1px rgba(236, 242, 248, 0.1),
+    0 0 14px rgba(220, 228, 236, 0.07),
+    0 0 28px rgba(200, 210, 220, 0.04);
+  --sw5e-journal-edge-glow-inset:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 0 20px rgba(220, 228, 236, 0.04);
+  box-shadow: var(--sw5e-journal-edge-glow-outer), 0 8px 24px rgba(0, 0, 0, 0.42) !important;
+}
+
+@{journal-dark} .window-content {
+  isolation: isolate;
+  position: relative;
+}
+
+@{journal-dark} .window-content::before {
+  border-radius: inherit;
+  box-shadow: var(--sw5e-journal-edge-glow-inset);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+@{journal-dark} .window-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+@{journal-dark} .journal-sidebar {
+  box-shadow:
+    inset -1px 0 0 rgba(255, 255, 255, 0.05),
+    inset -8px 0 16px rgba(220, 228, 236, 0.03) !important;
+}
+
+@{journal-dark} @{journal-content-surface},
+@{journal-dark}.journal-entry-page @{journal-content-page-surface} {
+  box-shadow:
+    var(--sw5e-journal-edge-glow-inset),
+    inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 8%, transparent),
+    0 0 0 1px rgba(255, 255, 255, 0.04) !important;
+}
+
+@{journal-dark} @{journal-page-links}:is(.active, .expanded) > :is(a, .page-title, button),
+@{journal-dark} @{journal-page-links} :is(a, .page-title, button).active {
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--sw5e-line-color) 32%, transparent),
+    0 0 10px color-mix(in srgb, var(--sw5e-line-color) 10%, transparent),
+    0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+
+/* =============================================================================
+ * Underworld Alloy — brown/orange edge glow (preserve amber terminal tone)
+ * ============================================================================= */
+
+@{journal-underworld} {
+  --sw5e-journal-edge-glow-outer:
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-warning) 26%, transparent),
+    0 0 16px color-mix(in srgb, var(--sw5e-underworld-warning) 14%, transparent),
+    0 0 30px color-mix(in srgb, var(--sw5e-underworld-leather) 10%, transparent);
+  --sw5e-journal-edge-glow-inset:
+    inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-warning) 14%, transparent),
+    inset 0 0 22px color-mix(in srgb, var(--sw5e-underworld-warning) 6%, transparent);
+  border-color: color-mix(in srgb, var(--sw5e-underworld-warning) 24%, var(--sw5e-underworld-border)) !important;
+  box-shadow: var(--sw5e-journal-edge-glow-outer), var(--sw5e-underworld-card-shadow-soft) !important;
+}
+
+@{journal-underworld} .window-content {
+  isolation: isolate;
+  position: relative;
+}
+
+@{journal-underworld} .window-content::before {
+  border-radius: inherit;
+  box-shadow: var(--sw5e-journal-edge-glow-inset);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+@{journal-underworld} .window-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+@{journal-underworld} .journal-sidebar {
+  box-shadow:
+    inset -1px 0 0 color-mix(in srgb, var(--sw5e-underworld-warning) 8%, transparent),
+    inset -8px 0 18px color-mix(in srgb, var(--sw5e-underworld-warning) 5%, transparent) !important;
+}
+
+@{journal-underworld} @{journal-content-surface},
+@{journal-underworld}.journal-entry-page @{journal-content-page-surface} {
+  box-shadow:
+    var(--sw5e-journal-edge-glow-inset),
+    inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-warning) 8%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-warning) 6%, transparent) !important;
+}
+
+@{journal-underworld} @{journal-page-links}:is(.active, .expanded) > :is(a, .page-title, button),
+@{journal-underworld} @{journal-page-links} :is(a, .page-title, button).active {
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--sw5e-underworld-warning) 32%, transparent),
+    0 0 12px color-mix(in srgb, var(--sw5e-underworld-warning) 14%, transparent) !important;
+}

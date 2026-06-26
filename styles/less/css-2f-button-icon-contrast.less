@@ -1,0 +1,183 @@
+/* CSS-2F — SW5E Light button icon contrast across scoped .sw5e-theme-root surfaces.
+   Root cause: dnd5e journal/apps set pale --button-text-color / --icon-fill (e.g. color-light-1)
+   on controls with pale SW5E Light shells, making FA / dnd5e-icon glyphs nearly invisible. */
+
+@light-root: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root';
+
+@light-icon-children: ~':is(
+  i,
+  svg,
+  dnd5e-icon,
+  .icon,
+  .fas,
+  .fa-solid,
+  .fa-regular,
+  .fa-light,
+  .fa-duotone,
+  .fa-layers,
+  .fa-layers-text,
+  .fa-layers-counter
+)';
+
+/* Shared control shells — mirrors theme-overrides icon-control bundle + journal/app surfaces */
+@light-control-shell: ~':is(
+  .config-button,
+  .control-button,
+  .trait-selector,
+  .item-control,
+  .effect-control,
+  .info-control,
+  .sheet-header-control,
+  .header-control,
+  .filter-control,
+  .inline-control,
+  button.unbutton,
+  a.button,
+  .action-buttons :is(button, a),
+  .journal-footer :is(button, a),
+  .pages-footer :is(button, a),
+  .edit-container :is(button, a),
+  .items-header :is(.info-control, .item-control),
+  prose-mirror menu button,
+  search button.filter-control,
+  button:not(.default):not([type="submit"]):not(.dialog-button):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):has(> @{light-icon-children}),
+  a:not(.content-link):not(.inline-roll):not(.roll-link):not(.sw5e-deployment-card-open):not(.item.control):has(> @{light-icon-children})
+)';
+
+@light-primary-exclude: ~':not(.default):not([type="submit"]):not(.dialog-button.default)';
+
+/* =============================================================================
+ * SW5E Light — control icon tokens (dnd5e CSS variables + SW5e tokens)
+ * ============================================================================= */
+
+@{light-root} {
+  --sw5e-light-control-icon-color: var(--sw5e-line-color);
+  --sw5e-light-control-icon-color-hover: color-mix(in srgb, var(--sw5e-line-color) 82%, var(--sw5e-theme-heading));
+  --sw5e-light-control-icon-color-disabled: color-mix(in srgb, var(--sw5e-line-color) 42%, var(--sw5e-theme-muted-text));
+  --control-button-text-color: var(--sw5e-light-control-icon-color);
+  --hint-icon-color: var(--sw5e-light-control-icon-color);
+  --item-control-header-color: var(--sw5e-light-control-icon-color);
+  --item-control-active-color: var(--sw5e-line-color);
+  --filter-control-active-color: var(--sw5e-line-color);
+}
+
+/* =============================================================================
+ * Control shells — remap dnd5e button/icon variables; reinforce teal on pale surfaces
+ * ============================================================================= */
+
+@{light-root} @{light-control-shell}@{light-primary-exclude}:not(.active):not(.selected):not([aria-pressed="true"]):not([aria-selected="true"]):not(:disabled) {
+  --button-text-color: var(--sw5e-light-control-icon-color);
+  --button-hover-text-color: var(--sw5e-light-control-icon-color-hover);
+  --icon-fill: currentColor;
+  color: var(--sw5e-light-control-icon-color) !important;
+  filter: none !important;
+}
+
+@{light-root} @{light-control-shell}@{light-primary-exclude}:is(:hover, :focus, :focus-visible):not(:disabled) {
+  --button-text-color: var(--sw5e-light-control-icon-color-hover);
+  --button-hover-text-color: var(--sw5e-light-control-icon-color-hover);
+  --icon-fill: currentColor;
+  color: var(--sw5e-light-control-icon-color-hover) !important;
+}
+
+@{light-root} @{light-control-shell}@{light-primary-exclude}:is(.active, .selected, [aria-pressed="true"], [aria-selected="true"]):not(:disabled) {
+  --button-text-color: var(--sw5e-light-control-icon-color-hover);
+  --icon-fill: currentColor;
+  color: var(--sw5e-light-control-icon-color-hover) !important;
+}
+
+@{light-root} @{light-control-shell}@{light-primary-exclude}:disabled,
+@{light-root} @{light-control-shell}@{light-primary-exclude}[aria-disabled="true"] {
+  --button-text-color: var(--sw5e-light-control-icon-color-disabled);
+  --icon-fill: currentColor;
+  color: var(--sw5e-light-control-icon-color-disabled) !important;
+}
+
+/* Icon glyphs — explicit fill/color beats dnd5e --color-light-1 / pale --icon-fill inheritance */
+@{light-root} @{light-control-shell}@{light-primary-exclude} @{light-icon-children} {
+  color: inherit !important;
+  --icon-fill: currentColor !important;
+  --fa-primary-color: currentColor;
+  --fa-secondary-color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Buttons/links with icons + label text (Add Page, etc.) — not always .item-control */
+@{light-root} :is(button, a)@{light-primary-exclude}:not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):not(.content-link):not(.inline-roll):not(.roll-link):has(> @{light-icon-children}) @{light-icon-children} {
+  color: var(--sw5e-light-control-icon-color) !important;
+  --icon-fill: currentColor !important;
+  fill: currentColor;
+  opacity: 1 !important;
+}
+
+@{light-root} :is(button, a)@{light-primary-exclude}:not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):not(.content-link):not(.inline-roll):not(.roll-link):has(> @{light-icon-children}):is(:hover, :focus, :focus-visible):not(:disabled) @{light-icon-children} {
+  color: var(--sw5e-light-control-icon-color-hover) !important;
+}
+
+@{light-root} :is(button, a)@{light-primary-exclude}:not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):not(.content-link):not(.inline-roll):not(.roll-link):has(> @{light-icon-children}):disabled @{light-icon-children},
+@{light-root} :is(button, a)@{light-primary-exclude}:not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):not(.content-link):not(.inline-roll):not(.roll-link):has(> @{light-icon-children})[aria-disabled="true"] @{light-icon-children} {
+  color: var(--sw5e-light-control-icon-color-disabled) !important;
+  opacity: 0.78 !important;
+}
+
+/* =============================================================================
+ * Journal — reinforce page controls, sidebar, editor toolbar (CSS-2D shells)
+ * ============================================================================= */
+
+@journal-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application';
+
+@{journal-light} :is(
+  .journal-sidebar .inline-control,
+  .journal-sidebar .create,
+  .journal-sidebar .collapse,
+  .journal-sidebar .expand,
+  .journal-sidebar button.unbutton,
+  .journal-sidebar search button.filter-control,
+  .action-buttons :is(button, a),
+  .journal-footer :is(button, a),
+  .pages-footer :is(button, a),
+  .edit-container :is(button, a),
+  prose-mirror menu button
+)@{light-primary-exclude} {
+  --button-text-color: var(--sw5e-light-control-icon-color);
+  --button-hover-text-color: var(--sw5e-light-control-icon-color-hover);
+  --icon-fill: currentColor;
+}
+
+@{journal-light} :is(
+  .journal-sidebar .inline-control,
+  .journal-sidebar .create,
+  .journal-sidebar .collapse,
+  .journal-sidebar .expand,
+  .journal-sidebar button.unbutton,
+  .journal-sidebar search button.filter-control,
+  .action-buttons :is(button, a),
+  .journal-footer :is(button, a),
+  .pages-footer :is(button, a),
+  .edit-container :is(button, a),
+  prose-mirror menu button
+)@{light-primary-exclude} @{light-icon-children} {
+  color: var(--sw5e-light-control-icon-color) !important;
+  --icon-fill: currentColor !important;
+  fill: currentColor;
+  opacity: 1 !important;
+}
+
+@{journal-light} :is(
+  .journal-sidebar .inline-control,
+  .journal-sidebar .create,
+  .journal-sidebar .collapse,
+  .journal-sidebar .expand,
+  .journal-sidebar button.unbutton,
+  .journal-sidebar search button.filter-control,
+  .action-buttons :is(button, a),
+  .journal-footer :is(button, a),
+  .pages-footer :is(button, a),
+  .edit-container :is(button, a),
+  prose-mirror menu button
+)@{light-primary-exclude}:is(:hover, :focus, :focus-visible):not(:disabled) @{light-icon-children} {
+  color: var(--sw5e-light-control-icon-color-hover) !important;
+}

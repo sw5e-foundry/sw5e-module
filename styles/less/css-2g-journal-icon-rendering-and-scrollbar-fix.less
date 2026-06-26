@@ -1,0 +1,269 @@
+/* CSS-2G — Journal FA pseudo-element icon rendering + SW5E Light actor scrollbar de-gold.
+   CSS-2F failed because journal/AppV2 controls render icons on button ::before (not child <i>),
+   while dnd5e sets --button-text-color: var(--color-light-1) and button:not(.icon) forces Roboto. */
+
+@light-root: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root';
+
+/* Beat dnd5e `.sheet.dnd5e2-journal.journal-entry.application …` specificity + late load */
+@journal-light-app: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.sheet.dnd5e2-journal.journal-entry.application';
+@journal-light-page: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.sheet.dnd5e2-journal.journal-entry-page.application';
+@journal-light-any: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2-journal.application';
+
+@journal-interior-controls: ~':is(
+  .journal-sidebar :is(.inline-control, .create, .collapse, .expand),
+  .journal-sidebar button.unbutton,
+  .journal-sidebar search button.filter-control,
+  .action-buttons :is(.previous, .next, .create, .lock-mode),
+  .journal-footer :is(button, a),
+  .pages-footer :is(button, a),
+  .edit-container :is(.editor-edit, button),
+  .controls-dropdown .header-control button,
+  prose-mirror menu button
+)';
+
+@journal-fa-pseudo-targets: ~':is(
+  .journal-sidebar :is(.inline-control, .create, .collapse, .expand),
+  .action-buttons :is(.previous, .next, .create, .lock-mode),
+  search button.filter-control,
+  .edit-container :is(.editor-edit, button),
+  prose-mirror menu button,
+  .controls-dropdown .header-control button
+)';
+
+@light-scrollbar-thumb: color-mix(in srgb, var(--sw5e-line-color) 52%, #b8ccd8);
+@light-scrollbar-track: color-mix(in srgb, var(--sw5e-theme-surface-strong) 78%, #dce8ef);
+@light-scrollbar-thumb-hover: color-mix(in srgb, var(--sw5e-line-color) 72%, #8aaec0);
+
+/* =============================================================================
+ * Journal — dnd5e variable bleed + AppV2 button glyph color
+ * ============================================================================= */
+
+@{journal-light-app} .journal-sidebar :is(.inline-control, .create),
+@{journal-light-app} @{journal-interior-controls} {
+  --button-text-color: var(--sw5e-line-color) !important;
+  --button-hover-text-color: color-mix(in srgb, var(--sw5e-line-color) 82%, var(--sw5e-theme-heading)) !important;
+  --icon-fill: currentColor !important;
+}
+
+@{journal-light-app} @{journal-interior-controls}:not(.default):not([type="submit"]):not(.dialog-button.default) {
+  color: var(--sw5e-line-color) !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+@{journal-light-app} @{journal-interior-controls}:is(:hover, :focus, :focus-visible):not(:disabled) {
+  --button-text-color: color-mix(in srgb, var(--sw5e-line-color) 82%, var(--sw5e-theme-heading)) !important;
+  --button-hover-text-color: color-mix(in srgb, var(--sw5e-line-color) 82%, var(--sw5e-theme-heading)) !important;
+  color: color-mix(in srgb, var(--sw5e-line-color) 82%, var(--sw5e-theme-heading)) !important;
+}
+
+@{journal-light-app} @{journal-interior-controls}:disabled,
+@{journal-light-app} @{journal-interior-controls}[aria-disabled="true"] {
+  --button-text-color: color-mix(in srgb, var(--sw5e-line-color) 42%, var(--sw5e-theme-muted-text)) !important;
+  color: color-mix(in srgb, var(--sw5e-line-color) 42%, var(--sw5e-theme-muted-text)) !important;
+}
+
+/* Restore Font Awesome on pseudo-element icon buttons (inline-control lacks `.icon` class) */
+@{journal-light-app} @{journal-fa-pseudo-targets},
+@{journal-light-page} @{journal-fa-pseudo-targets},
+@{journal-light-app} @{journal-fa-pseudo-targets}:is(.icon, .fas, .fa-solid, .fa-regular, .fa-light, [class*="fa-"]),
+@{journal-light-page} @{journal-fa-pseudo-targets}:is(.icon, .fas, .fa-solid, .fa-regular, .fa-light, [class*="fa-"]) {
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+
+@{journal-light-app} @{journal-fa-pseudo-targets}::before,
+@{journal-light-app} @{journal-fa-pseudo-targets}::after,
+@{journal-light-page} @{journal-fa-pseudo-targets}::before,
+@{journal-light-page} @{journal-fa-pseudo-targets}::after,
+@{journal-light-app} @{journal-fa-pseudo-targets} > i::before,
+@{journal-light-page} @{journal-fa-pseudo-targets} > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+/* Child <i> / dnd5e-icon fallback where present (Add Page plus, etc.) */
+@{journal-light-any} @{journal-interior-controls} :is(i, svg, dnd5e-icon, .icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  color: inherit !important;
+  --icon-fill: currentColor !important;
+  fill: currentColor;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-weight: bold;
+  opacity: 1 !important;
+}
+
+/* Bottom book navigation — FA on link ::before / ::after (not buttons) */
+@{journal-light-any}.journal-entry .book-navigation a::before,
+@{journal-light-any}.journal-entry .book-navigation a::after {
+  color: var(--sw5e-line-color) !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-weight: bold;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+@{journal-light-any}.journal-entry .book-navigation a:is(:hover, :focus, :focus-visible) {
+  color: color-mix(in srgb, var(--sw5e-line-color) 82%, var(--sw5e-theme-heading)) !important;
+}
+
+@{journal-light-any}.journal-entry .book-navigation a:is(:hover, :focus, :focus-visible)::before,
+@{journal-light-any}.journal-entry .book-navigation a:is(:hover, :focus, :focus-visible)::after {
+  color: inherit !important;
+}
+
+/* =============================================================================
+ * Shared interior FA pseudo buttons (same mechanism as journal — compendium browsers, etc.)
+ * ============================================================================= */
+
+@{light-root}.dnd5e2 :is(button, a):is(.inline-control, .icon, .fas, .fa-solid, .fa-regular, .fa-light, [class*="fa-"]):not(.default):not([type="submit"]):not(.dialog-button.default):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open) {
+  --button-text-color: var(--sw5e-line-color) !important;
+  --button-hover-text-color: color-mix(in srgb, var(--sw5e-line-color) 82%, var(--sw5e-theme-heading)) !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  color: var(--sw5e-line-color) !important;
+}
+
+@{light-root}.dnd5e2 :is(button, a):is(.inline-control, .icon, .fas, .fa-solid, .fa-regular, .fa-light, [class*="fa-"]):not(.default):not([type="submit"]):not(.dialog-button.default):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open)::before,
+@{light-root}.dnd5e2 :is(button, a):is(.inline-control, .icon, .fas, .fa-solid, .fa-regular, .fa-light, [class*="fa-"]):not(.default):not([type="submit"]):not(.dialog-button.default):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open)::after,
+@{light-root}.dnd5e2 :is(button, a):is(.inline-control, .icon, .fas, .fa-solid, .fa-regular, .fa-light, [class*="fa-"]):not(.default):not([type="submit"]):not(.dialog-button.default):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open) > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+/* Vertical sheet tabs already have dedicated rules — do not override tab labels */
+@{light-root}.dnd5e2.vertical-tabs nav.tabs.tabs-right > .item:is(.icon, .fas, .fa-solid, .fa-regular, .fa-light, [class*="fa-"]) {
+  font-family: var(--sw5e-font-body) !important;
+  font-weight: normal !important;
+  text-transform: none !important;
+}
+
+@{light-root}.dnd5e2.vertical-tabs nav.tabs.tabs-right > .item::before,
+@{light-root}.dnd5e2.vertical-tabs nav.tabs.tabs-right > .item::after {
+  font-family: var(--font-awesome) !important;
+}
+
+/* =============================================================================
+ * Journal scrollbars — full override (dnd5e gold + css-2b thumb-only gap)
+ * ============================================================================= */
+
+@{journal-light-any}.journal-entry .scrollable,
+@{journal-light-any}.journal-entry-page.editor-content,
+@{journal-light-any} .toc,
+@{journal-light-any} prose-mirror .editor-content {
+  scrollbar-color: @light-scrollbar-thumb transparent !important;
+  scrollbar-width: thin;
+}
+
+@{journal-light-any}.journal-entry .scrollable::-webkit-scrollbar,
+@{journal-light-any}.journal-entry-page.editor-content::-webkit-scrollbar,
+@{journal-light-any} .toc::-webkit-scrollbar,
+@{journal-light-any} prose-mirror .editor-content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+@{journal-light-any}.journal-entry .scrollable::-webkit-scrollbar-track,
+@{journal-light-any}.journal-entry-page.editor-content::-webkit-scrollbar-track,
+@{journal-light-any} .toc::-webkit-scrollbar-track,
+@{journal-light-any} prose-mirror .editor-content::-webkit-scrollbar-track {
+  background: @light-scrollbar-track !important;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+@{journal-light-any}.journal-entry .scrollable::-webkit-scrollbar-thumb,
+@{journal-light-any}.journal-entry-page.editor-content::-webkit-scrollbar-thumb,
+@{journal-light-any} .toc::-webkit-scrollbar-thumb,
+@{journal-light-any} prose-mirror .editor-content::-webkit-scrollbar-thumb {
+  background: @light-scrollbar-thumb !important;
+  border: none;
+  border-radius: 4px;
+}
+
+@{journal-light-any}.journal-entry .scrollable::-webkit-scrollbar-thumb:hover,
+@{journal-light-any}.journal-entry-page.editor-content::-webkit-scrollbar-thumb:hover,
+@{journal-light-any} .toc::-webkit-scrollbar-thumb:hover,
+@{journal-light-any} prose-mirror .editor-content::-webkit-scrollbar-thumb:hover {
+  background: @light-scrollbar-thumb-hover !important;
+}
+
+/* =============================================================================
+ * Character / NPC actor sheet — de-gold scrollbars (dnd5e --dnd5e-color-scrollbar)
+ * ============================================================================= */
+
+@{light-root}.dnd5e2.sheet.actor:is(.character, .npc) :is(
+  .window-content,
+  .sheet-body,
+  .sheet-body .main-content,
+  .tab-body,
+  aside.sheet-sidebar,
+  .sidebar
+) {
+  scrollbar-color: @light-scrollbar-thumb transparent !important;
+  scrollbar-width: thin;
+}
+
+@{light-root}.dnd5e2.sheet.actor:is(.character, .npc) :is(
+  .window-content,
+  .sheet-body,
+  .sheet-body .main-content,
+  .tab-body,
+  aside.sheet-sidebar,
+  .sidebar
+)::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+@{light-root}.dnd5e2.sheet.actor:is(.character, .npc) :is(
+  .window-content,
+  .sheet-body,
+  .sheet-body .main-content,
+  .tab-body,
+  aside.sheet-sidebar,
+  .sidebar
+)::-webkit-scrollbar-track {
+  background: @light-scrollbar-track !important;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+@{light-root}.dnd5e2.sheet.actor:is(.character, .npc) :is(
+  .window-content,
+  .sheet-body,
+  .sheet-body .main-content,
+  .tab-body,
+  aside.sheet-sidebar,
+  .sidebar
+)::-webkit-scrollbar-thumb {
+  background: @light-scrollbar-thumb !important;
+  border: none;
+  border-radius: 4px;
+}
+
+@{light-root}.dnd5e2.sheet.actor:is(.character, .npc) :is(
+  .window-content,
+  .sheet-body,
+  .sheet-body .main-content,
+  .tab-body,
+  aside.sheet-sidebar,
+  .sidebar
+)::-webkit-scrollbar-thumb:hover {
+  background: @light-scrollbar-thumb-hover !important;
+}
