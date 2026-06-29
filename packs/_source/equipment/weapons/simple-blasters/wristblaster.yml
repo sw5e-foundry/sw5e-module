@@ -27,36 +27,17 @@ flags:
       effect: []
 system:
   description:
-    value: >-
+    value: |-
       <h3>Disguised</h3>
-
-      <p>You have advantage on Charisma (Deception) checks made to hide the
-      nature of a weapon with this property.</p>
-
+      <p>You have advantage on Charisma (Deception) checks made to hide the nature of a weapon with this property.</p>
       <h3>Fixed</h3>
-
-      <p>A weapon with this property does not fill the hand, but you can't use
-      the weapon while the hand is full. Additionally, you have a +10 bonus to
-      ability checks and saving throws to avoid being disarmed of this
-      weapon.</p>
-
+      <p>A weapon with this property does not fill the hand, but you can't use the weapon while the hand is full. Additionally, you have a +10 bonus to ability checks and saving throws to avoid being disarmed of this weapon.</p>
       <h3>Light</h3>
-
-      <p>A weapon with this property is small and easy to handle, making it
-      ideal for use when engaging in Double- or Two-Weapon Fighting. See the
-      rules for Double- and Two-Weapon Fighting in chapter 9.</p>
-
+      <p>A weapon with this property is small and easy to handle, making it ideal for use when engaging in Double- or Two-Weapon Fighting. See the rules for Double- and Two-Weapon Fighting in chapter 9.</p>
       <h3>Power cell (range 30/120) Cell</h3>
-
-      <p>Weapons with this property are fueled by power cells, which must be
-      loaded in order to fire the weapon. A power cell fuels a number of attacks
-      equal to the weapon's reload number.</p>
-
+      <p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>
       <h3>Reload 8</h3>
-
-      <p>A number of shots equal to the reload number can be made with a weapon
-      with this property. A character must then reload it using an action or a
-      bonus action (their choice). You must have one free hand to reload.</p>
+      <p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>
     chat: ''
   source:
     custom: PHB
@@ -92,7 +73,7 @@ system:
     units: ft
   uses:
     value: null
-    max: ''
+    max: '8'
     per: null
     recovery: ''
     prompt: true
@@ -202,6 +183,11 @@ system:
         override: false
         prompt: false
       type: attack
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
 ownership:
   default: 0
 _stats:
@@ -213,4 +199,3 @@ _stats:
   lastModifiedBy: dnd5ebuilder0000
   duplicateSource: null
 _key: '!items!TlrVX9tsQfnzmyo6'
-

@@ -5,6 +5,7 @@ import { patchPacks } from "./patch/packs.mjs";
 import { patchManeuver } from "./patch/maneuver.mjs";
 import { patchMedpac } from "./patch/medpac.mjs";
 import { patchBlasterReload } from "./patch/blaster-reload.mjs";
+import { patchBlasterAmmoUx } from "./patch/blaster-ammo-ux.mjs";
 import { patchChassisItemSheet } from "./patch/chassis-item-sheet.mjs";
 import { patchPowercasting } from "./patch/powercasting.mjs";
 import { patchForceRecovery } from "./patch/force-recovery.mjs";
@@ -93,6 +94,7 @@ Hooks.once('init', async function() {
 	patchManeuver();
 	patchMedpac();
 	patchBlasterReload();
+	patchBlasterAmmoUx();
 	patchPowercasting();
 	patchForceRecovery();
 	patchProficiencyInit();

@@ -25,24 +25,13 @@ flags:
       effect: []
 system:
   description:
-    value: >-
+    value: |-
       <h3>Power cell (range 30/120) Cell</h3>
-
-      <p>Weapons with this property are fueled by power cells, which must be
-      loaded in order to fire the weapon. A power cell fuels a number of attacks
-      equal to the weapon's reload number.</p>
-
+      <p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>
       <h3>Reload 8</h3>
-
-      <p>A number of shots equal to the reload number can be made with a weapon
-      with this property. A character must then reload it using an action or a
-      bonus action (their choice). You must have one free hand to reload.</p>
-
+      <p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>
       <h3>Vicious 1</h3>
-
-      <p>Whenever you deal damage with a weapon with the vicious property and
-      roll the maximum on a weapon damage die, you gain a bonus to damage equal
-      to the vicious number.</p>
+      <p>Whenever you deal damage with a weapon with the vicious property and roll the maximum on a weapon damage die, you gain a bonus to damage equal to the vicious number.</p>
     chat: ''
   source:
     custom: WH
@@ -78,7 +67,7 @@ system:
     units: ft
   uses:
     value: null
-    max: ''
+    max: '8'
     per: null
     recovery: ''
     prompt: true
@@ -186,6 +175,11 @@ system:
         override: false
         prompt: false
       type: attack
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
 ownership:
   default: 0
 _stats:
@@ -197,4 +191,3 @@ _stats:
   lastModifiedBy: dnd5ebuilder0000
   duplicateSource: null
 _key: '!items!btSGBSe1oW54ekiK'
-

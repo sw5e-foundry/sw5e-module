@@ -19,6 +19,8 @@
 - **Expanded proficiency / mastery:** Mastery, High Mastery, and Grand Mastery skill-tier automation (advantage, double proficiency, chat-card rerolls) with improved inline reroll UX.
 - **Item source Active Effects:** Focus Generator and Wristpad item YAML; save-target DC effects on Fadecasting, Rendcasting, and Withercasting modifications; `mpak`/`rpak` effects on Channeling, Crystalizing, and related modifications.
 - **Theming:** SW5E Light and SW5E Dark polish across item sheets, advancement/config apps, roll configuration, tooltips, dropdowns/selects, and Foundry core UI surfaces; Cybernetic Augmentations dialog theming; Short Rest, Long Rest, and dnd5e activity usage dialogs (e.g. Cast Power / Save) for SW5E Light, SW5E Dark, and Underworld Alloy.
+- **Blaster reload workflow:** supported PC and NPC blasters now use magazine-style `system.uses` tracking; reloading consumes a compatible Power Cell or Slug Cartridge from inventory and refills the weapon.
+- **Blaster ammo UX:** empty or insufficient-ammo Attack / Rapid / Burst uses now whisper owners + GMs with a private Reload chat card for supported managed blasters.
 - **Developer / internal:** migration and validation utilities for power-bonus and modification item effects; tests/utilities for `mpak`/`rpak` and installed-mod aggregation.
 
 ### Changed
@@ -48,6 +50,9 @@
 - **Superiority Dice:** preparation now preserves Active Effect changes to maximum dice and applies formula bonuses.
 - **Active Effects:** dropdown/select normalization across SW5E Light, SW5E Dark, and Underworld Alloy.
 - **Theme scope:** rest and activity usage ApplicationV2 dialogs now receive `sw5e-theme-root` scoping.
+- **Blaster activities:** supported reloadable blasters now consume the correct `itemUses` shots for Attack, Rapid, and Burst activities, including alternate-fire shot costs.
+- **Blaster reload controls:** restored the character-sheet reload control and managed-blaster detection for affected existing world items, including legacy `flags.sw5e.reload.types` compatibility.
+- **Blaster reload polish:** localized reload labels/messages and aligned sheet/chat reload interactions for supported blasters, including direct reload access from weapon rows and out-of-ammo chat cards.
 
 ### Weapon Activities
 - Added stock dnd5e Attack Activities to primary and secondary Starship weapons and propagated matching Activities to eligible Drake's Shipyard embedded source weapons while preserving legacy weapon data for compatibility.
@@ -62,6 +67,7 @@
 - Bumped `needsMigrationVersion` to `0.38` so updated worlds recognize this release.
 - No destructive actor/item migration is required for this bump.
 - New or updated compendium source Active Effects require a compendium rebuild/import to appear in packed data.
+- Updated blaster weapon Activity `itemUses` consumption requires the normal compendium rebuild/import flow to appear in packed data, and older actor-owned or world-copied weapons may still need refresh/re-import to pick up the new reload/use configuration.
 - Starship sheet, condition, System Damage, and token icon sync behavior applies at runtime on existing vehicle-backed starship actors.
 
 ### Testing

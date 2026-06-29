@@ -1,8 +1,22 @@
 const SUPPORTED_AMMO_TYPES = new Set(["powerCell", "cartridge"]);
-const RELOAD_BUTTON_CLASS = "sw5e-module-blaster-reload";
+const RELOAD_ICON_CLASS = "sw5e-reload-icon";
+const RELOAD_ICON_SELECTOR = "[data-sw5e-blaster-reload='true']";
+const LEGACY_WARNED_ITEMS = new Set();
 
 function getHtmlRoot(html) {
 	return html instanceof HTMLElement ? html : html?.[0] ?? html;
+}
+
+function localizeReloadLabel() {
+	return game.i18n.localize("SW5E.WeaponReload");
+}
+
+/**
+ * @param {import("@league/foundry").documents.Actor|null|undefined} actor
+ */
+export function isReloadableActor(actor) {
+	if ( !actor ) return false;
+	return actor.type === "character" || actor.type === "npc";
 }
 
 function getAmmoTypes(itemData) {
@@ -13,40 +27,60 @@ function getAmmoTypes(itemData) {
 }
 
 function getReloadMax(itemData) {
-	const ammoMax = Number(itemData?.system?.ammo?.max);
-	if ( Number.isFinite(ammoMax) && (ammoMax > 0) ) return ammoMax;
-
-	const systemRel = Number(itemData?.system?.properties?.rel ?? itemData?.system?.properties?.ovr);
-	if ( Number.isFinite(systemRel) && (systemRel > 0) ) return systemRel;
+	const usesMax = Number(itemData?.system?.uses?.max);
+	if ( Number.isFinite(usesMax) && (usesMax > 0) ) return usesMax;
 
 	const flagRel = Number(
 		itemData?.flags?.sw5e?.properties?.rel
 		?? itemData?.flags?.sw5e?.properties?.reload
-		?? itemData?.flags?.sw5e?.properties?.ovr
 	);
 	return Number.isFinite(flagRel) && (flagRel > 0) ? flagRel : 0;
 }
 
-function getReloadValue(itemData) {
-	const value = Number(itemData?.system?.ammo?.value);
-	return Number.isFinite(value) ? value : 0;
+function getUsesSpent(item) {
+	const spent = Number(item?.system?.uses?.spent);
+	return Number.isFinite(spent) && (spent > 0) ? spent : 0;
 }
 
-function getInitialAmmoValueUpdate(itemData) {
+function isWeaponMagazineFull(item) {
+	return getUsesSpent(item) <= 0;
+}
+
+function needsUsesMaxWrite(item) {
+	const max = item?.system?.uses?.max;
+	return max == null || max === "";
+}
+
+function warnLegacyBlasterData(item) {
+	if ( !item?.id || LEGACY_WARNED_ITEMS.has(item.id) ) return;
+
+	const legacyAmmoValue = item.system?.ammo?.value;
+	const legacyReloadFlag = item.flags?.sw5e?.reload;
+	if ( legacyAmmoValue == null && !legacyReloadFlag ) return;
+
+	LEGACY_WARNED_ITEMS.add(item.id);
+	const details = [];
+	if ( legacyAmmoValue != null ) details.push("system.ammo.value");
+	if ( legacyReloadFlag ) details.push("flags.sw5e.reload");
+	console.warn(`SW5E MODULE | ${item.name} uses legacy blaster ammo data (${details.join(", ")}). Runtime reload uses system.uses only.`);
+}
+
+function getInitialUsesUpdate(itemData) {
 	if ( itemData?.type !== "weapon" ) return null;
 	if ( !getAmmoTypes(itemData).some(type => SUPPORTED_AMMO_TYPES.has(type)) ) return null;
-	if ( ![null, undefined, ""].includes(itemData?.system?.ammo?.value) ) return null;
+	if ( !needsUsesMaxWrite(itemData) ) return null;
 
 	const reloadMax = getReloadMax(itemData);
 	if ( reloadMax <= 0 ) return null;
-	return { "system.ammo.value": reloadMax };
+	return { "system.uses.max": String(reloadMax) };
 }
 
-function isManagedBlasterWeapon(item) {
+export function isManagedBlasterWeapon(item) {
 	if ( item?.type !== "weapon" ) return false;
-	if ( !item?.system?.ammo ) return false;
 	if ( getReloadMax(item) <= 0 ) return false;
-	return getAmmoTypes(item).some(type => SUPPORTED_AMMO_TYPES.has(type));
+	if ( !getAmmoTypes(item).some(type => SUPPORTED_AMMO_TYPES.has(type)) ) return false;
+	warnLegacyBlasterData(item);
+	return true;
 }
 
 function getCompatibleAmmo(weapon) {
@@ -58,8 +92,8 @@ function getCompatibleAmmo(weapon) {
 
 	return actor.items.filter(item => {
 		if ( item.type !== "consumable" ) return false;
-		if ( item.system?.consumableType !== "ammo" ) return false;
-		return validTypes.has(item.system?.ammoType);
+		if ( item.system?.type?.value !== "ammo" ) return false;
+		return validTypes.has(item.system?.type?.subtype);
 	});
 }
 
@@ -68,97 +102,184 @@ function getAmmoQuantity(item) {
 	return Number.isFinite(quantity) ? quantity : 0;
 }
 
-function getAmmoLabel(weapon) {
-	const labels = [];
-	const types = new Set(getAmmoTypes(weapon).filter(type => SUPPORTED_AMMO_TYPES.has(type)));
-	if ( types.has("powerCell") ) labels.push("power cells");
-	if ( types.has("cartridge") ) labels.push("slug cartridges");
-	return labels.join(" or ") || "ammo";
-}
-
-async function resolveAmmoTarget(weapon) {
+function resolveAmmoForReload(weapon) {
 	const compatibleAmmo = getCompatibleAmmo(weapon);
 	if ( !compatibleAmmo.length ) return { reason: "missing" };
 
 	const currentTarget = weapon.system?.ammo?.target;
-	const currentAmmo = compatibleAmmo.find(item => item.id === currentTarget);
-	if ( currentAmmo && (getAmmoQuantity(currentAmmo) > 0) ) return { ammo: currentAmmo };
+	const targetedAmmo = currentTarget
+		? compatibleAmmo.find(item => item.id === currentTarget && getAmmoQuantity(item) > 0)
+		: null;
+	if ( targetedAmmo ) return { ammo: targetedAmmo };
 
-	const availableAmmo = compatibleAmmo.filter(item => getAmmoQuantity(item) > 0);
-	if ( !availableAmmo.length ) return { reason: "empty" };
+	const availableAmmo = compatibleAmmo.find(item => getAmmoQuantity(item) > 0);
+	if ( availableAmmo ) return { ammo: availableAmmo };
 
-	const nextAmmo = availableAmmo[0];
-	if ( nextAmmo.id !== currentTarget ) {
-		await weapon.update({ "system.ammo.target": nextAmmo.id });
-		return { ammo: weapon.actor?.items?.get(nextAmmo.id) ?? nextAmmo };
-	}
-
-	return { ammo: nextAmmo };
+	return { reason: "empty" };
 }
 
-function warnReloadUnavailable(weapon, reason) {
-	const label = getAmmoLabel(weapon);
-	const name = weapon?.name ?? game.i18n.localize("SW5E.WeaponReload");
-	const message = reason === "empty"
-		? `No ${label} remaining to reload ${name}.`
-		: `No ${label} available to reload ${name}.`;
-	ui.notifications.warn(message);
+function getPrimaryAmmoType(weapon) {
+	const types = getAmmoTypes(weapon).filter(type => SUPPORTED_AMMO_TYPES.has(type));
+	if ( types.includes("powerCell") && !types.includes("cartridge") ) return "powerCell";
+	if ( types.includes("cartridge") && !types.includes("powerCell") ) return "cartridge";
+	return types[0] ?? null;
+}
+
+function getNoAmmoWhisper(actor, weapon) {
+	const actorName = actor?.name ?? game.i18n.localize("DOCUMENT.Actor");
+	const ammoType = getPrimaryAmmoType(weapon);
+	if ( ammoType === "powerCell" ) {
+		return game.i18n.format("SW5E.NoPowerCells", { actor: actorName });
+	}
+	return game.i18n.format("SW5E.NoCartridges", { actor: actorName });
+}
+
+async function whisperToActorOwnersAndGM(actor, content) {
+	const whisper = game.users.filter(u => actor.testUserPermission(u, "OWNER") || u.isGM);
+	await ChatMessage.create({
+		content,
+		whisper,
+		speaker: ChatMessage.getSpeaker({ actor })
+	});
+}
+
+function canReloadActor(actor) {
+	return !!actor?.isOwner || game.user.isGM;
+}
+
+/**
+ * Reload a managed PC blaster: consume one inventory ammo and restore item uses to full.
+ * @param {import("@league/foundry").documents.Actor} actor
+ * @param {import("@league/foundry").documents.Item} weapon
+ * @param {object} [options]
+ * @returns {Promise<{ok: boolean, reason: string}>}
+ */
+export async function reloadBlasterWeapon(actor, weapon, options = {}) {
+	if ( !actor || !weapon ) return { ok: false, reason: "invalid" };
+	if ( !isReloadableActor(actor) ) return { ok: false, reason: "not-character" };
+	if ( !isManagedBlasterWeapon(weapon) ) return { ok: false, reason: "not-managed" };
+	if ( !canReloadActor(actor) ) return { ok: false, reason: "no-permission" };
+
+	if ( isWeaponMagazineFull(weapon) ) {
+		await whisperToActorOwnersAndGM(actor, game.i18n.format("SW5E.BlasterAlreadyFull", { name: weapon.name }));
+		return { ok: true, reason: "already-full" };
+	}
+
+	const resolvedAmmo = resolveAmmoForReload(weapon);
+	if ( !resolvedAmmo.ammo ) {
+		await whisperToActorOwnersAndGM(actor, getNoAmmoWhisper(actor, weapon));
+		return { ok: false, reason: resolvedAmmo.reason ?? "no-ammo" };
+	}
+
+	const ammo = resolvedAmmo.ammo;
+	const ammoQuantity = getAmmoQuantity(ammo);
+	if ( ammoQuantity <= 0 ) {
+		await whisperToActorOwnersAndGM(actor, getNoAmmoWhisper(actor, weapon));
+		return { ok: false, reason: "empty" };
+	}
+
+	const reloadMax = getReloadMax(weapon);
+	const weaponUpdates = { "system.uses.spent": 0 };
+	if ( needsUsesMaxWrite(weapon) ) weaponUpdates["system.uses.max"] = String(reloadMax);
+
+	try {
+		await ammo.update({ "system.quantity": ammoQuantity - 1 });
+	} catch (error) {
+		console.error("SW5E MODULE | Blaster reload ammo update failed.", error);
+		await whisperToActorOwnersAndGM(actor, `Failed to reload ${weapon.name}.`);
+		return { ok: false, reason: "ammo-update-failed" };
+	}
+
+	try {
+		await weapon.update(weaponUpdates);
+	} catch (error) {
+		console.error("SW5E MODULE | Blaster reload weapon update failed.", error);
+		await whisperToActorOwnersAndGM(actor, `Failed to reload ${weapon.name}.`);
+		return { ok: false, reason: "weapon-update-failed" };
+	}
+
+	await whisperToActorOwnersAndGM(actor, game.i18n.format("SW5E.BlasterReloaded", { name: weapon.name }));
+	return { ok: true, reason: "reloaded" };
 }
 
 async function onReloadButtonClick(app, event) {
 	event.preventDefault();
 	event.stopPropagation();
 
-	const row = event.currentTarget.closest(".item[data-item-id]");
+	const row = event.currentTarget.closest("li.item[data-item-id]");
 	const weapon = app.actor?.items?.get(row?.dataset?.itemId);
-	if ( !isManagedBlasterWeapon(weapon) ) return;
+	if ( !weapon || !isManagedBlasterWeapon(weapon) ) return;
 
-	const reloadMax = getReloadMax(weapon);
-	if ( getReloadValue(weapon) >= reloadMax ) return;
-
-	const resolvedAmmo = await resolveAmmoTarget(weapon);
-	if ( !resolvedAmmo.ammo ) {
-		warnReloadUnavailable(weapon, resolvedAmmo.reason);
-		return;
-	}
-
-	const activeWeapon = app.actor?.items?.get(weapon.id) ?? weapon;
-	activeWeapon.reloadWeapon();
+	await reloadBlasterWeapon(app.actor, weapon);
 }
 
+/**
+ * dnd5e 5.2.5 inventory rows: controls live in the always-visible controls column.
+ * @param {HTMLElement} row
+ */
+function findItemControlsContainer(row) {
+	return row.querySelector('.item-controls[data-column-id="controls"]')
+		?? row.querySelector(".item-row .item-controls");
+}
+
+/**
+ * `renderActorSheetV2` may provide a partial subtree, so prefer a root that actually
+ * contains the inventory rows before falling back to the sheet element.
+ * @param {HTMLElement|JQuery|null|undefined} html
+ * @param {object} app
+ * @returns {HTMLElement|null}
+ */
+function resolveReloadRenderRoot(html, app) {
+	const hookRoot = getHtmlRoot(html);
+	const appRoot = getHtmlRoot(app?.element);
+	const hasInventory = root => (
+		root instanceof HTMLElement
+		&& !!root.querySelector?.("li.item[data-item-id], dnd5e-inventory, .inventory-element")
+	);
+
+	if ( hasInventory(hookRoot) ) return hookRoot;
+	if ( hasInventory(appRoot) ) return appRoot;
+	if ( appRoot instanceof HTMLElement ) return appRoot;
+	return hookRoot instanceof HTMLElement ? hookRoot : null;
+}
+
+/**
+ * @param {object} app
+ */
 function createReloadButton(app) {
-	const button = document.createElement("a");
-	button.className = `item-control ${RELOAD_BUTTON_CLASS}`;
-	button.dataset.action = "itemReload";
-	button.dataset.tooltip = game.i18n.localize("SW5E.WeaponReload");
-	button.setAttribute("aria-label", game.i18n.localize("SW5E.WeaponReload"));
-	button.innerHTML = `<i class="fas fa-rotate-right"></i>`;
+	const label = localizeReloadLabel();
+	const button = document.createElement("button");
+	button.type = "button";
+	button.className = `unbutton config-button item-control always-interactive ${RELOAD_ICON_CLASS}`;
+	button.dataset.sw5eBlasterReload = "true";
+	button.dataset.tooltip = label;
+	button.setAttribute("aria-label", label);
+	button.innerHTML = `<i class="fas fa-rotate-right" inert></i>`;
 	button.addEventListener("click", onReloadButtonClick.bind(null, app));
 	return button;
 }
 
 function renderReloadButtons(app, html) {
-	const root = getHtmlRoot(html);
-	if ( !root || !app?.actor?.isOwner || (app.actor.type !== "character") ) return;
+	const root = resolveReloadRenderRoot(html, app);
+	if ( !(root instanceof HTMLElement) || !isReloadableActor(app?.actor) || !canReloadActor(app?.actor) ) return;
 
-	root.querySelectorAll(`.${RELOAD_BUTTON_CLASS}`).forEach(button => button.remove());
+	root.querySelectorAll(RELOAD_ICON_SELECTOR).forEach(button => button.remove());
 
-	for ( const row of root.querySelectorAll(".item[data-item-id]") ) {
-		const weapon = app.actor.items.get(row.dataset.itemId);
+	for ( const row of root.querySelectorAll("li.item[data-item-id]") ) {
+		const weapon = app.actor?.items?.get(row.dataset.itemId);
 		if ( !isManagedBlasterWeapon(weapon) ) continue;
 
-		const controls = row.querySelector(".item-controls");
+		const controls = findItemControlsContainer(row);
 		if ( !controls ) continue;
 
-		const button = createReloadButton(app);
-		controls.insertBefore(button, controls.firstChild);
+		controls.insertBefore(createReloadButton(app), controls.firstChild);
 	}
 }
 
 export function patchBlasterReload() {
 	Hooks.on("preCreateItem", (document, data) => {
 		if ( document?.parent?.documentName !== "Actor" ) return;
-		const updates = getInitialAmmoValueUpdate(data);
+		const updates = getInitialUsesUpdate(data);
 		if ( updates ) document.updateSource(updates);
 	});
 

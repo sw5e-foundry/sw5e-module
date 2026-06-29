@@ -124,9 +124,51 @@ system:
           type: ''
           units: ''
       type: attack
+      effects:
+        - _id: yY0Ae2TbZ7mQK8Lp
   method: powerCasting
   prepared: true
-effects: []
+effects:
+  - name: Slowed
+    img: modules/sw5e-module/icons/svg/conditions/slowed.svg
+    origin: Compendium.sw5e-module.powers-maneuvers.Item.lkj9xq3JVc4MW1wG
+    transfer: false
+    _id: yY0Ae2TbZ7mQK8Lp
+    type: base
+    system: {}
+    changes:
+      - key: system.attributes.movement.walk
+        mode: 2
+        value: '-15'
+        priority: 5
+    disabled: false
+    duration:
+      startTime: null
+      combat: null
+      seconds: null
+      rounds: null
+      turns: 1
+      startRound: null
+      startTurn: null
+    description: ''
+    tint: '#ffffff'
+    statuses: []
+    sort: 0
+    flags:
+      dnd5e:
+        riders:
+          statuses: []
+    _stats:
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+      coreVersion: '13.351'
+      systemId: dnd5e
+      systemVersion: 5.2.5
+      createdTime: 1780740000000
+      modifiedTime: 1780740000000
+      lastModifiedBy: dnd5ebuilder0000
+    _key: '!items.effects!lkj9xq3JVc4MW1wG.yY0Ae2TbZ7mQK8Lp'
 _id: lkj9xq3JVc4MW1wG
 folder: F7Xw56nq48vPc23j
 sort: 0

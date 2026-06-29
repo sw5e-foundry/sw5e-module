@@ -26,28 +26,14 @@ flags:
       effect: []
 system:
   description:
-    value: >-
+    value: |-
       <h3>Power cell (range 70/280) Cell</h3>
-
-      <p>Weapons with this property are fueled by power cells, which must be
-      loaded in order to fire the weapon. A power cell fuels a number of attacks
-      equal to the weapon's reload number.</p>
-
+      <p>Weapons with this property are fueled by power cells, which must be loaded in order to fire the weapon. A power cell fuels a number of attacks equal to the weapon's reload number.</p>
       <h3>Reload 16</h3>
-
-      <p>A number of shots equal to the reload number can be made with a weapon
-      with this property. A character must then reload it using an action or a
-      bonus action (their choice). You must have one free hand to reload.</p>
-
+      <p>A number of shots equal to the reload number can be made with a weapon with this property. A character must then reload it using an action or a bonus action (their choice). You must have one free hand to reload.</p>
       <h3>Silent</h3>
-
-      <p>When you make a ranged weapon attack with a weapon with the silent
-      property while hidden, it does not automatically reveal your presence.
-      Make a Dexterity (Stealth) check contested by your targets' Wisdom
-      (Perception) check. On a success, you remain hidden.</p>
-
+      <p>When you make a ranged weapon attack with a weapon with the silent property while hidden, it does not automatically reveal your presence. Make a Dexterity (Stealth) check contested by your targets' Wisdom (Perception) check. On a success, you remain hidden.</p>
       <h3>Two-handed</h3>
-
       <p>A weapon with this property requires two hands to use.</p>
     chat: ''
   source:
@@ -84,7 +70,7 @@ system:
     units: ft
   uses:
     value: null
-    max: ''
+    max: '16'
     per: null
     recovery: ''
     prompt: true
@@ -193,6 +179,11 @@ system:
         override: false
         prompt: false
       type: attack
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
 ownership:
   default: 0
 _stats:
@@ -204,4 +195,3 @@ _stats:
   lastModifiedBy: dnd5ebuilder0000
   duplicateSource: null
 _key: '!items!Gq8Xo1CEp8m1HLEa'
-
