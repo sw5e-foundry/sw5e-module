@@ -20914,3 +20914,68 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor:is(.chara
   transition: color 0.2s ease, text-shadow 0.2s ease;
   text-shadow: 0 0 8px color-mix(in srgb, var(--color-shadow-highlight, #4fc3f7) 35%, transparent);
 }
+
+/* Book journal compendia — reflow GMBinder images into document flow */
+.journal-sheet .sw5e-book-image,
+.journal-entry .sw5e-book-image,
+.prosemirror .sw5e-book-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  clear: both;
+  position: static !important;
+  z-index: auto !important;
+  transform: none !important;
+}
+
+.journal-sheet .sw5e-book-image-row,
+.journal-entry .sw5e-book-image-row,
+.prosemirror .sw5e-book-image-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.25rem;
+  margin: 1rem 0;
+  clear: both;
+  width: 100%;
+}
+
+.journal-sheet .sw5e-book-image-row .sw5e-book-image,
+.journal-entry .sw5e-book-image-row .sw5e-book-image,
+.prosemirror .sw5e-book-image-row .sw5e-book-image {
+  flex: 0 1 auto;
+  max-height: 200px;
+  width: auto;
+  max-width: 14%;
+  min-width: 60px;
+  margin: 0;
+  clear: none;
+}
+
+.journal-sheet .sw5e-book-table,
+.journal-entry .sw5e-book-table,
+.prosemirror .sw5e-book-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+}
+
+.journal-sheet .sw5e-book-table th,
+.journal-sheet .sw5e-book-table td,
+.journal-entry .sw5e-book-table th,
+.journal-entry .sw5e-book-table td,
+.prosemirror .sw5e-book-table th,
+.prosemirror .sw5e-book-table td {
+  border: 1px solid color-mix(in srgb, var(--color-border-light-tertiary, #666) 70%, transparent);
+  padding: 0.35rem 0.6rem;
+  vertical-align: top;
+}
+
+.journal-sheet .sw5e-book-table th,
+.journal-entry .sw5e-book-table th,
+.prosemirror .sw5e-book-table th {
+  background: color-mix(in srgb, var(--color-border-dark-4, #2a3a4a) 55%, transparent);
+  font-weight: 600;
+}

@@ -9,6 +9,8 @@
     "build:source": "node ./utils/packs.mjs package unpack",
     "compile": "npm run build:styles && npm run build:db",
     "extract": "npm run build:source",
+    "import:books": "node ./utils/import-books-journals.mjs",
+    "import:books:dry": "node ./utils/import-books-journals.mjs --dry-run",
     "postinstall": "npm run build:styles && npm run build:db"
   },
   "devDependencies": {
