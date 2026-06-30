@@ -4,6 +4,9 @@
 @ae-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application';
 @ae-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application';
 @ae-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application';
+@ae-change-tab: ~':is(.tab[data-tab="changes"], .tab.changes)';
+@ae-control-shell: ~':is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link))';
+@ae-icon-children: ~':is(i, svg, dnd5e-icon, .icon, .fas, .fa-solid, .fa-regular, .fa-light, .fa-duotone, .fa-layers, .fa-layers-text, .fa-layers-counter)';
 
 /* ——— SW5E Light ——— */
 @{ae-light} {
@@ -85,8 +88,54 @@
 }
 
 @{ae-light} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
   accent-color: var(--sw5e-line-color);
   color-scheme: light;
+}
+
+@{ae-light} @{ae-change-tab} @{ae-control-shell} {
+  --button-text-color: var(--sw5e-secondary-button);
+  --button-hover-text-color: var(--sw5e-line-color);
+  --icon-fill: currentColor;
+  color: var(--sw5e-secondary-button) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+
+@{ae-light} @{ae-change-tab} @{ae-control-shell}:is(:hover, :focus, :focus-visible, .active, [aria-pressed="true"], [aria-selected="true"]) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{ae-light} @{ae-change-tab} @{ae-control-shell} @{ae-icon-children} {
+  color: inherit !important;
+  --icon-fill: currentColor !important;
+  --fa-primary-color: currentColor;
+  --fa-secondary-color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+  opacity: 1 !important;
+}
+
+@{ae-light} @{ae-change-tab} @{ae-control-shell}::before,
+@{ae-light} @{ae-change-tab} @{ae-control-shell}::after,
+@{ae-light} @{ae-change-tab} @{ae-control-shell} > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
 }
 
 @{ae-light} footer.form-footer > :is(button, [type="submit"], [type="button"]) {
@@ -194,8 +243,54 @@
 }
 
 @{ae-dark} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
   accent-color: var(--sw5e-line-color);
   color-scheme: dark;
+}
+
+@{ae-dark} @{ae-change-tab} @{ae-control-shell} {
+  --button-text-color: var(--sw5e-secondary-button);
+  --button-hover-text-color: var(--sw5e-line-color);
+  --icon-fill: currentColor;
+  color: var(--sw5e-secondary-button) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+
+@{ae-dark} @{ae-change-tab} @{ae-control-shell}:is(:hover, :focus, :focus-visible, .active, [aria-pressed="true"], [aria-selected="true"]) {
+  color: var(--sw5e-line-color) !important;
+}
+
+@{ae-dark} @{ae-change-tab} @{ae-control-shell} @{ae-icon-children} {
+  color: inherit !important;
+  --icon-fill: currentColor !important;
+  --fa-primary-color: currentColor;
+  --fa-secondary-color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+  opacity: 1 !important;
+}
+
+@{ae-dark} @{ae-change-tab} @{ae-control-shell}::before,
+@{ae-dark} @{ae-change-tab} @{ae-control-shell}::after,
+@{ae-dark} @{ae-change-tab} @{ae-control-shell} > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
 }
 
 @{ae-dark} footer.form-footer > :is(button, [type="submit"], [type="button"]) {
@@ -294,8 +389,54 @@
 }
 
 @{ae-underworld} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-empty-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
   accent-color: var(--sw5e-underworld-neon-cyan);
   color-scheme: dark;
+}
+
+@{ae-underworld} @{ae-change-tab} @{ae-control-shell} {
+  --button-text-color: var(--sw5e-underworld-neon-cyan);
+  --button-hover-text-color: var(--sw5e-underworld-neon-blue);
+  --icon-fill: currentColor;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+
+@{ae-underworld} @{ae-change-tab} @{ae-control-shell}:is(:hover, :focus, :focus-visible, .active, [aria-pressed="true"], [aria-selected="true"]) {
+  color: var(--sw5e-underworld-neon-blue) !important;
+}
+
+@{ae-underworld} @{ae-change-tab} @{ae-control-shell} @{ae-icon-children} {
+  color: inherit !important;
+  --icon-fill: currentColor !important;
+  --fa-primary-color: currentColor;
+  --fa-secondary-color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+  opacity: 1 !important;
+}
+
+@{ae-underworld} @{ae-change-tab} @{ae-control-shell}::before,
+@{ae-underworld} @{ae-change-tab} @{ae-control-shell}::after,
+@{ae-underworld} @{ae-change-tab} @{ae-control-shell} > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
 }
 
 @{ae-underworld} footer.form-footer > [type="button"],

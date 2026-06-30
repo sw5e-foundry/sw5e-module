@@ -105,6 +105,38 @@
   opacity: 1 !important;
 }
 
+/* File-picker / document-tag controls often render the glyph on button ::before. */
+@{light-root} :is(file-picker, document-tags) > button@{light-primary-exclude} {
+  --button-text-color: var(--sw5e-light-control-icon-color);
+  --button-hover-text-color: var(--sw5e-light-control-icon-color-hover);
+  --icon-fill: currentColor;
+  color: var(--sw5e-light-control-icon-color) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+
+@{light-root} :is(file-picker, document-tags) > button@{light-primary-exclude}:is(:hover, :focus, :focus-visible):not(:disabled) {
+  color: var(--sw5e-light-control-icon-color-hover) !important;
+}
+
+@{light-root} :is(file-picker, document-tags) > button@{light-primary-exclude}::before,
+@{light-root} :is(file-picker, document-tags) > button@{light-primary-exclude}::after,
+@{light-root} :is(file-picker, document-tags) > button@{light-primary-exclude} > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
+}
+
 /* Buttons/links with icons + label text (Add Page, etc.) — not always .item-control */
 @{light-root} :is(button, a)@{light-primary-exclude}:not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):not(.content-link):not(.inline-roll):not(.roll-link):has(> @{light-icon-children}) @{light-icon-children} {
   color: var(--sw5e-light-control-icon-color) !important;

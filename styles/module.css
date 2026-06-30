@@ -6235,7 +6235,51 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-se
   padding: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--sw5e-secondary-button) !important;
   overflow: visible;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control.item-action:is(
+  [data-action="equip"],
+  [data-action="attune"],
+  [data-action="attunement"],
+  [data-action="activate"],
+  [data-action="toggleActive"]
+) :is(i, svg, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  position: relative;
+  z-index: 1;
+  color: inherit !important;
+  fill: currentColor;
+  stroke: currentColor;
+  opacity: 1 !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control.item-action:is(
+  [data-action="equip"],
+  [data-action="attune"],
+  [data-action="attunement"],
+  [data-action="activate"],
+  [data-action="toggleActive"]
+):is(:hover, :focus, :focus-visible) {
+  color: color-mix(in srgb, var(--sw5e-light-active-control-border) 68%, var(--sw5e-secondary-button)) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control.item-action:is(
+  [data-action="equip"],
+  [data-action="attune"],
+  [data-action="attunement"],
+  [data-action="activate"],
+  [data-action="toggleActive"]
+):is(.active, [aria-pressed="true"], [aria-selected="true"]) {
+  color: var(--sw5e-line-color) !important;
 }
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
   button,
@@ -6438,6 +6482,14 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
   background-color: rgba(255, 255, 255, 0.86) !important;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.58), 0 0 0 1px rgba(96, 122, 138, 0.08) !important;
 }
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+}
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
   .item:hover,
   .item:focus-within,
@@ -6465,6 +6517,14 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
   border-color: var(--sw5e-dark-icon-frame-border) !important;
   background-color: rgba(10, 14, 18, 0.55) !important;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.12) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
 }
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
   .item:hover,
@@ -8285,10 +8345,21 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[dat
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 249, 0.82) 100%) !important;
   border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-inline-start-color: var(--sw5e-light-muted-control-border) !important;
   border-radius: 8px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62) !important;
   color: var(--sw5e-theme-text);
   overflow: hidden;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header) {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(237, 244, 248, 0.9) 100%) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--sw5e-light-muted-control-border) 72%, transparent) !important;
+  box-shadow: none !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header)::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header)::after {
+  background: none !important;
+  box-shadow: none !important;
 }
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item {
   border-bottom: 1px solid color-mix(in srgb, var(--sw5e-light-muted-control-border) 55%, transparent) !important;
@@ -8355,10 +8426,21 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card {
   background: linear-gradient(180deg, rgba(56, 56, 56, 0.78) 0%, rgba(28, 28, 28, 0.92) 100%) !important;
   border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-inline-start-color: var(--sw5e-dark-muted-control-border) !important;
   border-radius: 8px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
   color: var(--sw5e-theme-text);
   overflow: hidden;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header) {
+  background: linear-gradient(180deg, rgba(48, 54, 60, 0.86) 0%, rgba(24, 28, 32, 0.92) 100%) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+  box-shadow: none !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header)::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header)::after {
+  background: none !important;
+  box-shadow: none !important;
 }
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item {
   border-bottom: 1px solid color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
@@ -8601,18 +8683,24 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(.sw5e-bodymods-inline-ti
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(.sw5e-bodymods-inline-title, .sw5e-starship-item-name.title, .sw5e-starship-group-lede strong, .item-name, .card-header h3, .message-sender) {
   color: var(--sw5e-theme-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section.items-list > .items-section.card > .items-header.header, .tab[data-tab="advancement"] > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) {
   background: var(--sw5e-light-section-header-background) !important;
   border: 1px solid var(--sw5e-light-muted-control-border) !important;
   border-left: 3px solid var(--sw5e-theme-heading) !important;
+  border-inline-start: 3px solid var(--sw5e-theme-heading) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), inset 0 0 0 1px rgba(175, 198, 214, 0.18) !important;
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section.items-list > .items-section.card > .items-header.header, .tab[data-tab="advancement"] > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > * {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header))::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header))::after {
+  background: none !important;
+  box-shadow: none !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > * {
   font-family: var(--sw5e-font-body) !important;
   text-shadow: none !important;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section.items-list > .items-section.card > .items-header.header, .tab[data-tab="advancement"] > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > :is(h3, .item-name) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > :is(h3, .item-name) {
   color: var(--sw5e-theme-heading) !important;
   font-family: var(--sw5e-font-body) !important;
   font-size: 13px !important;
@@ -8621,7 +8709,7 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .ite
   line-height: 1.2 !important;
   text-align: left;
 }
-body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section.items-list > .items-section.card > .items-header.header, .tab[data-tab="advancement"] > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > :not(:is(h3, .item-name)) {
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > :not(:is(h3, .item-name)) {
   color: var(--sw5e-theme-muted-text) !important;
   font-family: var(--sw5e-font-body) !important;
   font-size: 10px !important;
@@ -8674,18 +8762,24 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-pow
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-powers-banner-sep {
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section.items-list > .items-section.card > .items-header.header, .tab[data-tab="advancement"] > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) {
   background: linear-gradient(180deg, rgba(54, 54, 54, 0.94) 0%, rgba(22, 22, 22, 0.98) 100%) !important;
   border: 1px solid var(--sw5e-dark-muted-control-border) !important;
   border-left: 3px solid var(--sw5e-theme-heading) !important;
+  border-inline-start: 3px solid var(--sw5e-theme-heading) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(6, 15, 22, 0.28) !important;
   color: var(--sw5e-theme-muted-text) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section.items-list > .items-section.card > .items-header.header, .tab[data-tab="advancement"] > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > * {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header))::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header))::after {
+  background: none !important;
+  box-shadow: none !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > * {
   font-family: var(--sw5e-font-body) !important;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.72) !important;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section.items-list > .items-section.card > .items-header.header, .tab[data-tab="advancement"] > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > :is(h3, .item-name) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > :is(h3, .item-name) {
   color: var(--sw5e-theme-heading) !important;
   font-family: var(--sw5e-font-body) !important;
   font-size: 13px !important;
@@ -8694,7 +8788,7 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item
   line-height: 1.2 !important;
   text-align: left;
 }
-body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section.items-list > .items-section.card > .items-header.header, .tab[data-tab="advancement"] > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > :not(:is(h3, .item-name)) {
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is( section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header, .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header, .advancement.tab > .items-section.card > .items-header.header, .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)) > :not(:is(h3, .item-name)) {
   color: var(--sw5e-theme-muted-text) !important;
   font-family: var(--sw5e-font-body) !important;
   font-size: 10px !important;
@@ -14554,6 +14648,12 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="rest-d
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-dialog"].dnd5e2.application,
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application,
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
   color-scheme: light;
 }
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="rest-dialog"].dnd5e2.application button.dice-button,
@@ -14703,6 +14803,12 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="rest-di
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-dialog"].dnd5e2.application,
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application,
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
   color-scheme: dark;
 }
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="rest-dialog"].dnd5e2.application button.dice-button,
@@ -14852,6 +14958,12 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="r
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-dialog"].dnd5e2.application,
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application,
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-empty-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
+  accent-color: var(--sw5e-underworld-neon-cyan);
   color-scheme: dark;
 }
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="rest-dialog"].dnd5e2.application button.dice-button,
@@ -14926,6 +15038,114 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="a
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(dnd5e-multi-select, multi-select, .tags-input, .form-group) {
   color: var(--sw5e-theme-text);
 }
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+  color: var(--sw5e-secondary-button) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button:is(:hover, :focus, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.9)) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button::after,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-secondary-button) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button:is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: rgba(32, 161, 208, 0.55) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button::after,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-leather-deep) 72%, var(--sw5e-underworld-border)) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button::after,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity :is(file-picker, document-tags) > button > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
+}
 body[data-sw5e-theme] .popover[data-tooltip-class="activity"],
 body[data-sw5e-theme] .popover.activity-tooltip {
   background: var(--sw5e-theme-surface-strong, #1a1a1a);
@@ -14999,8 +15219,50 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
 }
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
   accent-color: var(--sw5e-line-color);
   color-scheme: light;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)) {
+  --button-text-color: var(--sw5e-secondary-button);
+  --button-hover-text-color: var(--sw5e-line-color);
+  --icon-fill: currentColor;
+  color: var(--sw5e-secondary-button) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)):is(:hover, :focus, :focus-visible, .active, [aria-pressed="true"], [aria-selected="true"]) {
+  color: var(--sw5e-line-color) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)) :is(i, svg, dnd5e-icon, .icon, .fas, .fa-solid, .fa-regular, .fa-light, .fa-duotone, .fa-layers, .fa-layers-text, .fa-layers-counter) {
+  color: inherit !important;
+  --icon-fill: currentColor !important;
+  --fa-primary-color: currentColor;
+  --fa-secondary-color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+  opacity: 1 !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link))::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link))::after,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)) > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
 }
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application footer.form-footer > :is(button, [type="submit"], [type="button"]) {
   border-radius: var(--sw5e-starship-radius-sm, 6px);
@@ -15088,8 +15350,50 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
 }
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
   accent-color: var(--sw5e-line-color);
   color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)) {
+  --button-text-color: var(--sw5e-secondary-button);
+  --button-hover-text-color: var(--sw5e-line-color);
+  --icon-fill: currentColor;
+  color: var(--sw5e-secondary-button) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)):is(:hover, :focus, :focus-visible, .active, [aria-pressed="true"], [aria-selected="true"]) {
+  color: var(--sw5e-line-color) !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)) :is(i, svg, dnd5e-icon, .icon, .fas, .fa-solid, .fa-regular, .fa-light, .fa-duotone, .fa-layers, .fa-layers-text, .fa-layers-counter) {
+  color: inherit !important;
+  --icon-fill: currentColor !important;
+  --fa-primary-color: currentColor;
+  --fa-secondary-color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+  opacity: 1 !important;
+}
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link))::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link))::after,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)) > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
 }
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application footer.form-footer > :is(button, [type="submit"], [type="button"]) {
   border-radius: var(--sw5e-starship-radius-sm, 6px);
@@ -15170,8 +15474,50 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="a
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 24%, transparent) !important;
 }
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-empty-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
   accent-color: var(--sw5e-underworld-neon-cyan);
   color-scheme: dark;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)) {
+  --button-text-color: var(--sw5e-underworld-neon-cyan);
+  --button-hover-text-color: var(--sw5e-underworld-neon-blue);
+  --icon-fill: currentColor;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)):is(:hover, :focus, :focus-visible, .active, [aria-pressed="true"], [aria-selected="true"]) {
+  color: var(--sw5e-underworld-neon-blue) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)) :is(i, svg, dnd5e-icon, .icon, .fas, .fa-solid, .fa-regular, .fa-light, .fa-duotone, .fa-layers, .fa-layers-text, .fa-layers-counter) {
+  color: inherit !important;
+  --icon-fill: currentColor !important;
+  --fa-primary-color: currentColor;
+  --fa-secondary-color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+  opacity: 1 !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link))::before,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link))::after,
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application :is(.tab[data-tab="changes"], .tab.changes) :is(.control-button, .effect-control, .item-control, .inline-control, button.unbutton, button:not(.default):not([type="submit"]):not(.dialog-button), a:not(.content-link):not(.inline-roll):not(.roll-link)) > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
 }
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application footer.form-footer > [type="button"],
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="active-effect-config"].dnd5e2.application footer.form-footer .dialog-button:not([type="submit"]) {
@@ -15238,6 +15584,15 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="module
   border-color: var(--sw5e-line-color) !important;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
   outline: none;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="module-app"].dnd5e2:is(.application, .config-sheet) :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+  color-scheme: light;
 }
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="module-app"].dnd5e2:is(.application, .config-sheet) :is(button, .dialog-button, [type="submit"], [type="button"]) {
   filter: none !important;
@@ -15310,6 +15665,15 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="module-
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
   outline: none;
 }
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="module-app"].dnd5e2:is(.application, .config-sheet) :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+  color-scheme: dark;
+}
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="module-app"].dnd5e2:is(.application, .config-sheet) :is(button.dialog-button, footer.form-footer > button):not([type="submit"]) {
   background: rgba(24, 24, 24, 0.72) !important;
   border: 1px solid rgba(32, 161, 208, 0.35) !important;
@@ -15374,6 +15738,15 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="m
   border-color: var(--sw5e-underworld-neon-cyan) !important;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 24%, transparent) !important;
 }
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="module-app"].dnd5e2:is(.application, .config-sheet) :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-empty-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
+  accent-color: var(--sw5e-underworld-neon-cyan);
+  color-scheme: dark;
+}
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="module-app"].dnd5e2:is(.application, .config-sheet) :is(button.dialog-button, footer.form-footer > button):not([type="submit"]) {
   background: color-mix(in srgb, var(--sw5e-underworld-panel) 90%, black) !important;
   border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
@@ -15428,6 +15801,15 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog
   border-color: var(--sw5e-line-color) !important;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 22%, transparent) !important;
   outline: none;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+  color-scheme: light;
 }
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button) {
   filter: none !important;
@@ -15511,6 +15893,15 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
   outline: none;
 }
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+  color-scheme: dark;
+}
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]) {
   background: rgba(24, 24, 24, 0.72) !important;
   border: 1px solid rgba(32, 161, 208, 0.35) !important;
@@ -15578,6 +15969,15 @@ body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="d
   background: var(--sw5e-underworld-input-bg) !important;
   border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
   color: var(--sw5e-theme-text) !important;
+}
+body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-empty-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
+  accent-color: var(--sw5e-underworld-neon-cyan);
+  color-scheme: dark;
 }
 body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="dialog-prompt"] :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]) {
   background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
@@ -20089,6 +20489,35 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is( .config-button, .contro
   stroke: currentColor;
   filter: none !important;
   opacity: 1 !important;
+}
+/* File-picker / document-tag controls often render the glyph on button ::before. */
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(file-picker, document-tags) > button:not(.default):not([type="submit"]):not(.dialog-button.default) {
+  --button-text-color: var(--sw5e-light-control-icon-color);
+  --button-hover-text-color: var(--sw5e-light-control-icon-color-hover);
+  --icon-fill: currentColor;
+  color: var(--sw5e-light-control-icon-color) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(file-picker, document-tags) > button:not(.default):not([type="submit"]):not(.dialog-button.default):is(:hover, :focus, :focus-visible):not(:disabled) {
+  color: var(--sw5e-light-control-icon-color-hover) !important;
+}
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(file-picker, document-tags) > button:not(.default):not([type="submit"]):not(.dialog-button.default)::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(file-picker, document-tags) > button:not(.default):not([type="submit"]):not(.dialog-button.default)::after,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(file-picker, document-tags) > button:not(.default):not([type="submit"]):not(.dialog-button.default) > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
 }
 /* Buttons/links with icons + label text (Add Page, etc.) — not always .item-control */
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root :is(button, a):not(.default):not([type="submit"]):not(.dialog-button.default):not(.sw5e-bodymods-inline-card):not(.sw5e-deployment-card-open):not(.sw5e-powercasting-ability-config):not(.content-link):not(.inline-roll):not(.roll-link):has( > :is(

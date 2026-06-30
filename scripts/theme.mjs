@@ -17,6 +17,7 @@ export const SW5E_THEMES = Object.freeze({
 
 /** Legacy stored value; normalized to {@link SW5E_THEMES.OFF} at runtime. */
 const LEGACY_THEME_DND5E = "dnd5e";
+const LEGACY_THEME_FOLLOW_FOUNDRY = "follow-foundry";
 
 export const SW5E_THEME_CHOICES = Object.freeze(Object.values(SW5E_THEMES));
 export const SW5E_DEFAULT_THEME = SW5E_THEMES.SW5E_LIGHT;
@@ -69,6 +70,7 @@ function collectScopedElements(root) {
 export function normalizeSw5eTheme(value) {
 	const theme = typeof value === "string" ? value.trim().toLowerCase() : "";
 	if ( theme === LEGACY_THEME_DND5E ) return SW5E_THEMES.OFF;
+	if ( theme === LEGACY_THEME_FOLLOW_FOUNDRY ) return SW5E_DEFAULT_THEME;
 	return SW5E_THEME_CHOICES.includes(theme) ? theme : SW5E_DEFAULT_THEME;
 }
 
@@ -192,6 +194,8 @@ function migrateLegacyThemeSetting() {
 			const value = game.settings.get(namespace, SW5E_THEME_SETTING);
 			if ( value === LEGACY_THEME_DND5E ) {
 				void game.settings.set(namespace, SW5E_THEME_SETTING, SW5E_THEMES.OFF);
+			} else if ( value === LEGACY_THEME_FOLLOW_FOUNDRY ) {
+				void game.settings.set(namespace, SW5E_THEME_SETTING, SW5E_THEMES.SW5E_LIGHT);
 			}
 		} catch ( err ) {
 			console.warn("SW5E | Theme setting migration failed", err);

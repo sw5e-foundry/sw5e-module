@@ -67,6 +67,16 @@
   outline: none;
 }
 
+@{app-light} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+  color-scheme: light;
+}
+
 @{app-light} :is(button, .dialog-button, [type="submit"], [type="button"]) {
   filter: none !important;
 }
@@ -153,6 +163,16 @@
   outline: none;
 }
 
+@{app-dark} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+  color-scheme: dark;
+}
+
 @{app-dark} :is(button.dialog-button, footer.form-footer > button):not([type="submit"]) {
   background: rgba(24, 24, 24, 0.72) !important;
   border: 1px solid rgba(32, 161, 208, 0.35) !important;
@@ -229,6 +249,16 @@
 @{app-underworld} :is(input, select, textarea):is(:hover, :focus, :focus-visible):not(:disabled):not([readonly]) {
   border-color: var(--sw5e-underworld-neon-cyan) !important;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 24%, transparent) !important;
+}
+
+@{app-underworld} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-empty-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
+  accent-color: var(--sw5e-underworld-neon-cyan);
+  color-scheme: dark;
 }
 
 @{app-underworld} :is(button.dialog-button, footer.form-footer > button):not([type="submit"]) {

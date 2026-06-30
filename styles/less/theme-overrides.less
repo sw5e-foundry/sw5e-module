@@ -1017,7 +1017,54 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-se
   padding: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--sw5e-secondary-button) !important;
   overflow: visible;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control.item-action:is(
+  [data-action="equip"],
+  [data-action="attune"],
+  [data-action="attunement"],
+  [data-action="activate"],
+  [data-action="toggleActive"]
+) :is(i, svg, dnd5e-icon, .fas, .fa-solid, .fa-regular, .fa-light) {
+  position: relative;
+  z-index: 1;
+  color: inherit !important;
+  fill: currentColor;
+  stroke: currentColor;
+  opacity: 1 !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control.item-action:is(
+  [data-action="equip"],
+  [data-action="attune"],
+  [data-action="attunement"],
+  [data-action="activate"],
+  [data-action="toggleActive"]
+):is(:hover, :focus, :focus-visible) {
+  color: color-mix(in srgb, var(--sw5e-light-active-control-border) 68%, var(--sw5e-secondary-button)) !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
+  button,
+  a
+).item-control.item-action:is(
+  [data-action="equip"],
+  [data-action="attune"],
+  [data-action="attunement"],
+  [data-action="activate"],
+  [data-action="toggleActive"]
+):is(.active, [aria-pressed="true"], [aria-selected="true"]) {
+  color: var(--sw5e-line-color) !important;
 }
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .items-section .item .item-controls :is(
@@ -1269,6 +1316,15 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.58), 0 0 0 1px rgba(96, 122, 138, 0.08) !important;
 }
 
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+}
+
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
   .item:hover,
   .item:focus-within,
@@ -1297,6 +1353,15 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
   border-color: var(--sw5e-dark-icon-frame-border) !important;
   background-color: rgba(10, 14, 18, 0.55) !important;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.12) !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.actor :is(
@@ -3595,10 +3660,23 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section[dat
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 246, 249, 0.82) 100%) !important;
   border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-inline-start-color: var(--sw5e-light-muted-control-border) !important;
   border-radius: 8px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62) !important;
   color: var(--sw5e-theme-text);
   overflow: hidden;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header) {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(237, 244, 248, 0.9) 100%) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--sw5e-light-muted-control-border) 72%, transparent) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header)::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header)::after {
+  background: none !important;
+  box-shadow: none !important;
 }
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item {
@@ -3681,10 +3759,23 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.item section:is
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card {
   background: linear-gradient(180deg, rgba(56, 56, 56, 0.78) 0%, rgba(28, 28, 28, 0.92) 100%) !important;
   border: 1px solid var(--sw5e-dark-muted-control-border) !important;
+  border-inline-start-color: var(--sw5e-dark-muted-control-border) !important;
   border-radius: 8px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
   color: var(--sw5e-theme-text);
   overflow: hidden;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header) {
+  background: linear-gradient(180deg, rgba(48, 54, 60, 0.86) 0%, rgba(24, 28, 32, 0.92) 100%) !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--sw5e-line-color) 24%, transparent) !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header)::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .items-section.card > :is(.items-header, header)::after {
+  background: none !important;
+  box-shadow: none !important;
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet.item section:is([data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) .item-list > li.item {
@@ -3981,21 +4072,38 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root :is(.sw5e-bodymods-inline-tit
 }
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
-  section.items-list > .items-section.card > .items-header.header,
-  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
   .advancement.tab > .items-section.card > .items-header.header,
   .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
 ) {
   background: var(--sw5e-light-section-header-background) !important;
   border: 1px solid var(--sw5e-light-muted-control-border) !important;
   border-left: 3px solid var(--sw5e-theme-heading) !important;
+  border-inline-start: 3px solid var(--sw5e-theme-heading) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), inset 0 0 0 1px rgba(175, 198, 214, 0.18) !important;
   color: var(--sw5e-theme-muted-text) !important;
 }
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
-  section.items-list > .items-section.card > .items-header.header,
-  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
+  .advancement.tab > .items-section.card > .items-header.header,
+  .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
+)::before,
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
+  .advancement.tab > .items-section.card > .items-header.header,
+  .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
+)::after {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
   .advancement.tab > .items-section.card > .items-header.header,
   .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
 ) > * {
@@ -4004,8 +4112,8 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .ite
 }
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
-  section.items-list > .items-section.card > .items-header.header,
-  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
   .advancement.tab > .items-section.card > .items-header.header,
   .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
 ) > :is(h3, .item-name) {
@@ -4019,8 +4127,8 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .ite
 }
 
 body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
-  section.items-list > .items-section.card > .items-header.header,
-  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
   .advancement.tab > .items-section.card > .items-header.header,
   .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
 ) > :not(:is(h3, .item-name)) {
@@ -4090,21 +4198,38 @@ body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root.dnd5e2.sheet.actor .sw5e-pow
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
-  section.items-list > .items-section.card > .items-header.header,
-  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
   .advancement.tab > .items-section.card > .items-header.header,
   .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
 ) {
   background: linear-gradient(180deg, rgba(54, 54, 54, 0.94) 0%, rgba(22, 22, 22, 0.98) 100%) !important;
   border: 1px solid var(--sw5e-dark-muted-control-border) !important;
   border-left: 3px solid var(--sw5e-theme-heading) !important;
+  border-inline-start: 3px solid var(--sw5e-theme-heading) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(6, 15, 22, 0.28) !important;
   color: var(--sw5e-theme-muted-text) !important;
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
-  section.items-list > .items-section.card > .items-header.header,
-  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
+  .advancement.tab > .items-section.card > .items-header.header,
+  .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
+)::before,
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
+  .advancement.tab > .items-section.card > .items-header.header,
+  .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
+)::after {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
   .advancement.tab > .items-section.card > .items-header.header,
   .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
 ) > * {
@@ -4113,8 +4238,8 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
-  section.items-list > .items-section.card > .items-header.header,
-  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
   .advancement.tab > .items-section.card > .items-header.header,
   .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
 ) > :is(h3, .item-name) {
@@ -4128,8 +4253,8 @@ body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item
 }
 
 body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root.dnd5e2.sheet:is(.actor, .item) :is(
-  section.items-list > .items-section.card > .items-header.header,
-  .tab[data-tab="advancement"] > .items-section.card > .items-header.header,
+  section:is(.items-list, [data-application-part="advancement"], [data-application-part="activities"], [data-application-part="effects"]) > .items-section.card > .items-header.header,
+  .tab:is([data-tab="advancement"], [data-tab="activities"], [data-tab="effects"]) > .items-section.card > .items-header.header,
   .advancement.tab > .items-section.card > .items-header.header,
   .advancement .level-list :is(.items-header, .level-header, .choices-header, .replacement-header)
 ) > :not(:is(h3, .item-name)) {

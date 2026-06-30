@@ -70,6 +70,12 @@
 }
 
 @{dlg-light} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
   color-scheme: light;
 }
 
@@ -179,6 +185,12 @@
 }
 
 @{dlg-dark} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
   color-scheme: dark;
 }
 
@@ -288,6 +300,12 @@
 }
 
 @{dlg-underworld} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-empty-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
+  accent-color: var(--sw5e-underworld-neon-cyan);
   color-scheme: dark;
 }
 
@@ -347,6 +365,7 @@
 @activity-config-light: ~'body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity, body[data-sw5e-theme="sw5e-light"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity';
 @activity-config-dark: ~'body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity, body[data-sw5e-theme="sw5e-dark"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity';
 @activity-config-underworld: ~'body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="activity-config"].dnd5e2.application.activity, body[data-sw5e-theme="sw5e-underworld"] .sw5e-theme-root[data-sw5e-theme-root="starship-activity-config"].dnd5e2.application.activity';
+@activity-picker-buttons: ~':is(file-picker, document-tags) > button';
 
 @{activity-config-light},
 @{activity-config-dark},
@@ -354,6 +373,108 @@
   :is(dnd5e-multi-select, multi-select, .tags-input, .form-group) {
     color: var(--sw5e-theme-text);
   }
+}
+
+@{activity-config-light} @{activity-picker-buttons} {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(236, 243, 248, 0.88) 100%) !important;
+  border: 1px solid var(--sw5e-light-muted-control-border) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+  color: var(--sw5e-secondary-button) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+
+@{activity-config-light} @{activity-picker-buttons}:is(:hover, :focus, :focus-visible) {
+  background: color-mix(in srgb, var(--sw5e-light-active-control-border) 14%, rgba(255, 255, 255, 0.9)) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: color-mix(in srgb, var(--sw5e-light-active-control-border) 58%, transparent) !important;
+}
+
+@{activity-config-light} @{activity-picker-buttons}::before,
+@{activity-config-light} @{activity-picker-buttons}::after,
+@{activity-config-light} @{activity-picker-buttons} > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+@{activity-config-dark} @{activity-picker-buttons} {
+  background: rgba(24, 24, 24, 0.72) !important;
+  border: 1px solid rgba(32, 161, 208, 0.35) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-secondary-button) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+
+@{activity-config-dark} @{activity-picker-buttons}:is(:hover, :focus, :focus-visible) {
+  background: rgba(32, 161, 208, 0.14) !important;
+  color: var(--sw5e-line-color) !important;
+  border-color: rgba(32, 161, 208, 0.55) !important;
+}
+
+@{activity-config-dark} @{activity-picker-buttons}::before,
+@{activity-config-dark} @{activity-picker-buttons}::after,
+@{activity-config-dark} @{activity-picker-buttons} > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+@{activity-config-underworld} @{activity-picker-buttons} {
+  background: color-mix(in srgb, var(--sw5e-underworld-olive) 42%, var(--sw5e-underworld-panel)) !important;
+  border: 1px solid color-mix(in srgb, var(--sw5e-underworld-leather-deep) 72%, var(--sw5e-underworld-border)) !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  color: var(--sw5e-underworld-neon-cyan) !important;
+  filter: none !important;
+  font-family: var(--font-awesome) !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: bold;
+  line-height: 1 !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+
+@{activity-config-underworld} @{activity-picker-buttons}:is(:hover, :focus, :focus-visible) {
+  background: var(--sw5e-underworld-hover-tint) !important;
+  color: var(--sw5e-underworld-neon-blue) !important;
+  border-color: color-mix(in srgb, var(--sw5e-underworld-neon-cyan) 55%, var(--sw5e-underworld-border)) !important;
+}
+
+@{activity-config-underworld} @{activity-picker-buttons}::before,
+@{activity-config-underworld} @{activity-picker-buttons}::after,
+@{activity-config-underworld} @{activity-picker-buttons} > i::before {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: currentColor;
 }
 
 body[data-sw5e-theme] .popover[data-tooltip-class="activity"],

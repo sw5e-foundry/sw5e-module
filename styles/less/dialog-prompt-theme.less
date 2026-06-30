@@ -49,6 +49,16 @@
   outline: none;
 }
 
+@{dialog-light} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-light-muted-control-border);
+  --checkbox-empty-color: rgba(255, 255, 255, 0.78);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+  color-scheme: light;
+}
+
 @{dialog-light} :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button) {
   filter: none !important;
 }
@@ -149,6 +159,16 @@
   outline: none;
 }
 
+@{dialog-dark} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-dark-muted-control-border);
+  --checkbox-empty-color: rgba(24, 24, 24, 0.82);
+  --checkbox-fill-color: var(--sw5e-line-color);
+  --checkbox-background-color: var(--sw5e-line-color);
+  --checkbox-checked-color: var(--sw5e-line-color);
+  accent-color: var(--sw5e-line-color);
+  color-scheme: dark;
+}
+
 @{dialog-dark} :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]) {
   background: rgba(24, 24, 24, 0.72) !important;
   border: 1px solid rgba(32, 161, 208, 0.35) !important;
@@ -229,6 +249,16 @@
   background: var(--sw5e-underworld-input-bg) !important;
   border: 1px solid var(--sw5e-underworld-muted-control-border) !important;
   color: var(--sw5e-theme-text) !important;
+}
+
+@{dialog-underworld} :is(dnd5e-checkbox, input[type="checkbox"], input[type="radio"]) {
+  --checkbox-border-color: var(--sw5e-underworld-muted-control-border);
+  --checkbox-empty-color: color-mix(in srgb, var(--sw5e-underworld-panel) 88%, black);
+  --checkbox-fill-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-background-color: var(--sw5e-underworld-neon-cyan);
+  --checkbox-checked-color: var(--sw5e-underworld-neon-cyan);
+  accent-color: var(--sw5e-underworld-neon-cyan);
+  color-scheme: dark;
 }
 
 @{dialog-underworld} :is(footer.form-footer, .dialog-buttons) > :is(button, .dialog-button):not(.default):not([type="submit"]) {
