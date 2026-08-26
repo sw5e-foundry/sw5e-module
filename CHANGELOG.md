@@ -12,7 +12,7 @@
 - **Foundry VTT:** minimum **14**, verified **14** (validated on **14.367**; historical **14.365** evidence retained).
 - **dnd5e:** minimum **5.0.0**, verified **5.3.3**.
 - **lib-wrapper:** minimum and verified **1.13.5.1** (required).
-- **`needsMigrationVersion`:** remains **1.3.6** (no threshold bump in this release).
+- **`needsMigrationVersion`:** **2.0.0** (bumped so worlds already stamped at **1.3.6** receive ForcedReplacement / equality / Auto-Thrusters world remediation).
 
 #### Added / validated for Foundry 14
 - Full Foundry 14 / dnd5e 5.3.3 compatibility validation (clean install, character/NPC/vehicle/starship sheets, packs, Activities, ChatMessage usage, token bars, permissions matrix).
@@ -22,6 +22,8 @@
 #### Changed
 - Compatibility declarations raised for the 2.x Foundry 14 line (see Compatibility above).
 - Actor/token artwork preservation, Active Effect `system.changes` handling, and advancement runtime normalization verified on Foundry 14.
+- Migration uses Foundry 14 `ForcedReplacement` for advancement updates (no legacy `==advancement` keys) and `foundry.utils.equals` for macro flag comparison.
+- Existing-world Auto-Thrusters remediation: repair legacy embedded transferable effects to the locked V14 target/formula; remove only exact redundant Actor-level snapshots.
 - Starship sheet corrections retained and revalidated: B-Wing Hull **44/44** and Shields **75/75**, Auto-Thrusters once-only, Drake duplicate cleanup.
 - NPC gear property presentation and superiority-school icons revalidated.
 - Artwork, pause banner, and light/dark sheet theme parity (PR #72 line) revalidated on Foundry 14.
