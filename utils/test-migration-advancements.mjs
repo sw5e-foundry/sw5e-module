@@ -35,7 +35,11 @@ function assertUnchanged(before, after, label) {
 }
 
 function advancementFromUpdate(update) {
-	return update?.["system.advancement"] ?? update?.system?.advancement;
+	const raw = update?.["system.advancement"] ?? update?.system?.advancement;
+	const ForcedReplacement = globalThis.foundry?.data?.operators?.ForcedReplacement;
+	if ( ForcedReplacement && raw instanceof ForcedReplacement ) return ForcedReplacement.get(raw);
+	if ( raw && typeof raw === "object" && raw[Symbol.for("sw5e.ForcedReplacement")] === true ) return raw.value;
+	return raw;
 }
 
 function advancementEntries(update) {
@@ -242,7 +246,7 @@ check("Object advancement form remains supported", () => {
 		}
 	};
 	const update = migrateItemData(item, {}, {}, { sourceContext: SOURCE_CONTEXT.WORLD_ITEM });
-	const advancement = update["system.advancement"] ?? update.system?.advancement;
+	const advancement = advancementFromUpdate(update);
 	assert.ok(advancement, "object advancement must still migrate");
 	const entries = Array.isArray(advancement) ? advancement : Object.values(advancement);
 	assert.equal(entries[0].configuration.pool[0], "languages:standard:common");

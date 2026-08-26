@@ -36,6 +36,12 @@ import {
 	remapSuperiorityEffectKeys
 } from "./effect-change-collection.mjs";
 import {
+	createForcedReplacement,
+	unwrapForcedReplacementsDeep,
+	valuesEqual
+} from "./migration-operators.mjs";
+import { remediateActorAutoThrusters } from "./auto-thrusters-remediation.mjs";
+import {
 	applyImagePathMigration,
 	ArtworkMigrationInvariantError,
 	collectArtworkInvariantViolations,
@@ -1310,6 +1316,8 @@ export const migrateActorData = function(actor, migrationData, flags={}, { actor
 
 	// Migrate Owned Items
 	if ( !workingActor.items ) {
+		const autoThrustersEarly = remediateActorAutoThrusters(workingActor, { log: true });
+		if ( autoThrustersEarly.changed ) requiresFullSourceMigration = true;
 		if ( requiresFullSourceMigration ) {
 			migrateSw5eStarshipPrototypeToken(workingActor, null, { persistToSource: true });
 			flags.persistSourceMigration = true;
@@ -1342,6 +1350,10 @@ export const migrateActorData = function(actor, migrationData, flags={}, { actor
 
 		return arr;
 	}, []);
+
+	const autoThrusters = remediateActorAutoThrusters(workingActor, { log: true });
+	if ( autoThrusters.changed ) requiresFullSourceMigration = true;
+
 	if ( requiresFullSourceMigration ) {
 		migrateSw5eStarshipPrototypeToken(workingActor, null, { persistToSource: true });
 		flags.persistSourceMigration = true;
@@ -1445,7 +1457,7 @@ export const migrateMacroData = function(macro, migrationData) {
 	}
 	if ( macro.flags ) {
 		const normalizedFlags = normalizeCompendiumReferences(foundry.utils.deepClone(macro.flags), { moduleId: getModuleId() });
-		if ( !foundry.utils.objectsEqual(normalizedFlags, macro.flags) ) updateData.flags = normalizedFlags;
+		if ( !valuesEqual(normalizedFlags, macro.flags) ) updateData.flags = normalizedFlags;
 	}
 	return updateData;
 };
@@ -1625,7 +1637,8 @@ function getInvalidDocumentSource(collection, id, legacyKey) {
 
 function applyUpdateData(target, updateData) {
 	if ( foundry.utils.isEmpty(updateData) ) return;
-	foundry.utils.mergeObject(target, foundry.utils.expandObject(updateData), { inplace: true });
+	const plainUpdate = unwrapForcedReplacementsDeep(updateData);
+	foundry.utils.mergeObject(target, foundry.utils.expandObject(plainUpdate), { inplace: true });
 }
 
 function applyUpdateToClone(source, updateData) {
@@ -2052,7 +2065,11 @@ function _migrateAdvancements(itemData, updateData, context={}) {
 			}
 		}
 	}
-	if (changed) updateData["system.advancement"] = form === "object" ? itemData.system.advancement : entries;
+	if ( changed ) {
+		const advancementValue = form === "object" ? itemData.system.advancement : entries;
+		// Foundry 14: force-replace advancement (never emit legacy ==advancement keys).
+		updateData["system.advancement"] = createForcedReplacement(advancementValue);
+	}
 
 	return updateData;
 }

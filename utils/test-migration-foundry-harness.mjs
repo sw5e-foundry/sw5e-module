@@ -55,6 +55,10 @@ function objectsEqual(a, b) {
 	return JSON.stringify(a) === JSON.stringify(b);
 }
 
+function equals(a, b) {
+	return objectsEqual(a, b);
+}
+
 function expandObject(obj) {
 	const out = {};
 	for ( const [key, value] of Object.entries(obj ?? {}) ) {
@@ -62,6 +66,21 @@ function expandObject(obj) {
 		else out[key] = value;
 	}
 	return out;
+}
+
+class ForcedReplacement {
+	constructor(value) {
+		this.value = value;
+	}
+
+	static create(value) {
+		return new ForcedReplacement(value);
+	}
+
+	static get(value) {
+		if ( value instanceof ForcedReplacement ) return value.value;
+		return value;
+	}
 }
 
 function createCollection(docs=[]) {
@@ -163,14 +182,19 @@ export function installMigrationTestHarness({
 			setProperty,
 			mergeObject,
 			objectsEqual,
+			equals,
 			expandObject,
 			isNewerVersion(a, b) {
 				if ( !b ) return true;
 				return String(a) > String(b);
 			}
 		},
+		data: {
+			operators: { ForcedReplacement }
+		},
 		abstract: { DataModel: class DataModel {} }
 	};
+	globalThis._replace = ForcedReplacement.create;
 	globalThis.CONFIG = {
 		Item: { documentClass: class Item {} },
 		Actor: { documentClass: class Actor {} },
