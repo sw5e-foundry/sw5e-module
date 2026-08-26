@@ -1,5 +1,46 @@
 ## Changelog
 
+### [2.0.0] — pending publication
+
+**Status:** Local release candidate prepared on branch `v.next-2.X.X`. **Not tagged. Not published. Not installable from GitHub Releases until a separate ship authorization.**
+
+**Release line:** First stable **2.x** release. Foundry **14**-oriented. Does **not** claim Foundry 13 compatibility.
+
+**Q-09 note:** Historical `[1.4.0]` changelog material below remains the Foundry **13** / dnd5e **5.2.5** development record. Public GitHub tags/releases `1.4.0`–`1.4.3` belong to that 1.x line and are preserved as published history. This `2.0.0` section covers the Foundry 14 / dnd5e 5.3.3 compatibility line and must not be read as a renumbering of `1.4.0`.
+
+#### Compatibility
+- **Foundry VTT:** minimum **14**, verified **14** (validated on **14.367**; historical **14.365** evidence retained).
+- **dnd5e:** minimum **5.0.0**, verified **5.3.3**.
+- **lib-wrapper:** minimum and verified **1.13.5.1** (required).
+- **`needsMigrationVersion`:** remains **1.3.6** (no threshold bump in this release).
+
+#### Added / validated for Foundry 14
+- Full Foundry 14 / dnd5e 5.3.3 compatibility validation (clean install, character/NPC/vehicle/starship sheets, packs, Activities, ChatMessage usage, token bars, permissions matrix).
+- Offline regression suite for release readiness.
+- Release packaging continues to exclude `packs/_source/*` and `*.psd`; theme parchment assets and SW5e logo are verified in the release archive.
+
+#### Changed
+- Compatibility declarations raised for the 2.x Foundry 14 line (see Compatibility above).
+- Actor/token artwork preservation, Active Effect `system.changes` handling, and advancement runtime normalization verified on Foundry 14.
+- Starship sheet corrections retained and revalidated: B-Wing Hull **44/44** and Shields **75/75**, Auto-Thrusters once-only, Drake duplicate cleanup.
+- NPC gear property presentation and superiority-school icons revalidated.
+- Artwork, pause banner, and light/dark sheet theme parity (PR #72 line) revalidated on Foundry 14.
+
+#### Known issues
+- **Launcher compatibility** remains a deferred known issue. Do not expect the Foundry launcher path to replace portable/harness install guidance for this release line.
+- Tech Recovery is not implemented (intentional absence).
+- Excluding `scripts/dev` from the release zip remains deferred cleanup and is not a ship requirement for 2.0.0.
+
+#### Upgrade from 1.x
+1. Back up every world before upgrading.
+2. Install Foundry **14** and **dnd5e 5.3.3**.
+3. Install **lib-wrapper 1.13.5.1** (or newer matching the declared minimum).
+4. Install SW5e **2.0.0** from the published release assets when available.
+5. Run **dnd5e system migration**, then **SW5e module migration**.
+6. Confirm portraits, prototype tokens, scene tokens, and starship Hull/Shields after migration.
+
+---
+
 ### [1.4.0] 2026-07-14
 
 ### Added
