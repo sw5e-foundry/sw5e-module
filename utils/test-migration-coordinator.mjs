@@ -6,7 +6,8 @@ import assert from "node:assert/strict";
 import {
 	installMigrationTestHarness,
 	resetMigrationTestHarness,
-	formatLocalization
+	formatLocalization,
+	createMockActor
 } from "./test-migration-foundry-harness.mjs";
 import {
 	migrateWorld,
@@ -56,6 +57,11 @@ function hasCompleteWithErrors(notifications, version="1.4.1", count=1) {
 
 function hasBlocked(notifications, version="1.4.1") {
 	return Boolean(notificationMessage(notifications, "error", expectedBlocked(version)));
+}
+
+function hasDevelopmentCompleteSuccess(notifications, version="#{VERSION}#") {
+	const expected = formatLocalization("MIGRATION.sw5eCompleteSuccessDevelopment", { version });
+	return Boolean(notificationMessage(notifications, "info", expected));
 }
 
 function hasLegacyCleanComplete(notifications, version="1.4.1") {
@@ -327,7 +333,7 @@ await check("1. One Actor migration throws, later Actors still process", async (
 	await migrateWorld();
 	assert.equal(first.updated, undefined);
 	assert.equal(second.updated, true);
-	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.4.1");
+	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.3.4");
 	assert.equal(hasCompleteWithErrors(notifications), true);
 	resetMigrationTestHarness();
 });
@@ -346,7 +352,7 @@ await check("2. One Item migration throws, later Items still process", async () 
 	await migrateWorld();
 	assert.equal(first.updated, undefined);
 	assert.equal(second.updated, true);
-	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.4.1");
+	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.3.4");
 	assert.equal(hasCompleteWithErrors(notifications), true);
 	resetMigrationTestHarness();
 });
@@ -375,7 +381,7 @@ await check("3. One Scene ActorDelta migration throws, later Scenes still proces
 	await migrateWorld();
 	assert.equal(firstDelta.updated, undefined);
 	assert.equal(secondDelta.updated, true);
-	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.4.1");
+	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.3.4");
 	assert.equal(hasCompleteWithErrors(notifications), true);
 	resetMigrationTestHarness();
 });
@@ -403,7 +409,7 @@ await check("4. One Compendium document transform throws, later documents still 
 	assert.ok(packFailure);
 	assert.equal(packFailure.sourceContext, "compendium-actor-item");
 	assert.equal(packFailure.packId, "world.test-actors");
-	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.4.1");
+	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.3.4");
 	assert.equal(hasCompleteWithErrors(notifications), true);
 	resetMigrationTestHarness();
 });
@@ -434,11 +440,11 @@ await check("5-8. Failed document update is skipped, identity recorded, completi
 	assert.equal(hasCompleteWithErrors(notifications), true);
 	assert.equal(hasCompleteSuccess(notifications), false);
 	assert.equal(hasLegacyCleanComplete(notifications), false);
-	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.4.1");
+	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.3.4");
 	resetMigrationTestHarness();
 });
 
-await check("9-10. Version advances after recoverable failures; next login does not rerun", async () => {
+await check("9-10. Recoverable failures remain unstamped and retryable on next login", async () => {
 	const first = remappableActor("BadActor000000009", "Bad Actor");
 	const second = remappableActor("OkActor0000000009", "Later Actor");
 	const { settingsStore } = installMigrationTestHarness({
@@ -450,8 +456,8 @@ await check("9-10. Version advances after recoverable failures; next login does 
 		error: new Error("recoverable boom")
 	};
 	await migrateWorld();
-	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.4.1");
-	assert.equal(needsMigration(), false);
+	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.3.4");
+	assert.equal(needsMigration(), true);
 	resetMigrationTestHarness();
 });
 
@@ -544,7 +550,7 @@ await check("14. Artwork-violating document is skipped without affecting safe do
 	const run = getLastMigrationRun();
 	assert.ok(run.summary.artworkInvariantSkips >= 1);
 	assert.ok(run.documentFailures.some(row => row.documentId === "ArtBadActor000001"));
-	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.4.1");
+	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.3.4");
 	assert.equal(hasCompleteWithErrors(notifications), true);
 	assert.equal(hasCompleteSuccess(notifications), false);
 	resetMigrationTestHarness();
@@ -645,6 +651,96 @@ await check("Corrected rerun remains eligible and successful rerun advances vers
 	globalThis.__SW5E_MIGRATION_TEST_HOOKS__ = {};
 	await migrateWorld();
 	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.4.1");
+	resetMigrationTestHarness();
+});
+
+await check("Placeholder #{VERSION}# still remediates Auto-Thrusters and stamps are skipped", async () => {
+	const actorSource = {
+		_id: "LRB3mTAKyvKVAV3Z",
+		name: "A/SF-01 B-wing starfighter",
+		type: "vehicle",
+		flags: { sw5e: { legacyStarshipActor: { type: "starship" } } },
+		effects: [{
+			_id: "9hTss8Gebtw4efXl",
+			name: "Auto-Thrusters",
+			transfer: false,
+			origin: "Actor.Y0Vf2Yi6pPQjliD1.Item.bYUvLvm9ant0G9t7",
+			changes: [{
+				key: "system.abilities.dex.save",
+				value: "((@str.mod)/2)",
+				mode: 2,
+				priority: 20
+			}]
+		}],
+		items: [{
+			_id: "bYUvLvm9ant0G9t7",
+			name: "Auto-Thrusters",
+			type: "feat",
+			system: { description: { value: "", chat: "" } },
+			_stats: { compendiumSource: "Compendium.sw5e-module.starships.Ps2LiBeSQQAi57Kf" },
+			effects: [{
+				_id: "DwFh63OFTvVGSjQD",
+				name: "Auto-Thrusters",
+				transfer: true,
+				origin: null,
+				changes: [{
+					key: "system.abilities.dex.save",
+					value: "((@str.mod)/2)",
+					mode: 2,
+					priority: 20
+				}]
+			}]
+		}]
+	};
+	const { notifications, settingsStore } = installMigrationTestHarness({
+		moduleVersion: "#{VERSION}#",
+		needsMigrationVersion: "2.0.0",
+		moduleMigrationVersion: "1.3.6",
+		actors: [createMockActor(actorSource)]
+	});
+	assert.equal(needsMigration(), true);
+	await migrateWorld();
+	const run = getLastMigrationRun();
+	const actor = game.actors.get("LRB3mTAKyvKVAV3Z");
+	const effect = actor.items.get("bYUvLvm9ant0G9t7").effects.get("DwFh63OFTvVGSjQD");
+	assert.equal(run.summary.autoThrusters.updatedVerified >= 1, true);
+	assert.equal(run.summary.completionState, "completed");
+	assert.equal(run.summary.stampSkippedReason, "development-placeholder-version");
+	assert.equal(settingsStore["sw5e-module.moduleMigrationVersion"], "1.3.6");
+	assert.ok(hasDevelopmentCompleteSuccess(notifications, "#{VERSION}#"));
+	assert.equal(effect.system.changes[0].key, "system.abilities.dex.bonuses.save");
+	assert.equal(actor.effects.has("9hTss8Gebtw4efXl"), false);
+	resetMigrationTestHarness();
+});
+
+await check("Ambiguous Auto-Thrusters remediation blocks clean success", async () => {
+	const broken = {
+		_id: "LRB3mTAKyvKVAV3Z",
+		name: "A/SF-01 B-wing starfighter",
+		type: "vehicle",
+		flags: { sw5e: { legacyStarshipActor: { type: "starship" } } },
+		effects: [],
+		items: [{
+			_id: "bYUvLvm9ant0G9t7",
+			name: "Auto-Thrusters",
+			type: "feat",
+			system: { description: { value: "", chat: "" } },
+			_stats: { compendiumSource: "Compendium.sw5e-module.starships.Ps2LiBeSQQAi57Kf" },
+			effects: []
+		}]
+	};
+	const { notifications } = installMigrationTestHarness({
+		moduleVersion: "#{VERSION}#",
+		needsMigrationVersion: "2.0.0",
+		moduleMigrationVersion: "1.3.6",
+		actors: [createMockActor(broken)]
+	});
+	await migrateWorld();
+	const run = getLastMigrationRun();
+	assert.equal(run.summary.autoThrusters.ambiguous >= 1, true);
+	assert.equal(run.summary.completionState, "completed-with-errors");
+	assert.equal(hasDevelopmentCompleteSuccess(notifications, "#{VERSION}#"), false);
+	assert.ok(hasCompleteWithErrors(notifications, "#{VERSION}#", run.summary.autoThrusters.ambiguous));
 	resetMigrationTestHarness();
 });
 

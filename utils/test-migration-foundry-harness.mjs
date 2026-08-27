@@ -83,8 +83,171 @@ class ForcedReplacement {
 	}
 }
 
+function createEmbeddedCollection(parent, embeddedName, entries=[]) {
+	const byId = new Map(entries.map(entry => [entry._id ?? entry.id, structuredClone(entry)]));
+	return {
+		get size() { return byId.size; },
+		get contents() { return [...byId.values()]; },
+		map(fn) { return [...byId.values()].map(fn); },
+		[Symbol.iterator]() { return byId.values(); },
+		get(id) { return byId.get(id); },
+		has(id) { return byId.has(id); },
+		async updateEmbeddedDocuments(_embeddedName, updates=[], _operation={}) {
+			const out = [];
+			for ( const update of updates ) {
+				const id = update._id;
+				const current = byId.get(id);
+				if ( !current ) continue;
+				const merged = mergeObject(current, update, { inplace: false });
+				if ( update.system?.changes ) delete merged.changes;
+				byId.set(id, merged);
+				out.push(merged);
+			}
+			return out;
+		},
+		async deleteEmbeddedDocuments(_embeddedName, ids=[], _operation={}) {
+			const out = [];
+			for ( const id of ids ) {
+				const current = byId.get(id);
+				if ( !current ) continue;
+				byId.delete(id);
+				out.push(current);
+			}
+			return out;
+		}
+	};
+}
+
+function normalizeEffectData(effect) {
+	const normalized = structuredClone(effect);
+	if ( !normalized.system?.changes && Array.isArray(normalized.changes) ) {
+		normalized.system = normalized.system ?? {};
+		normalized.system.changes = normalized.changes.map(change => ({
+			...change,
+			type: change.type ?? "add",
+			phase: change.phase ?? "initial",
+			priority: change.priority ?? 20
+		}));
+	}
+	return normalized;
+}
+
+function normalizeItemData(item) {
+	const normalized = structuredClone(item);
+	const effects = (normalized.effects ?? []).map(normalizeEffectData);
+	normalized.effects = effects;
+	return normalized;
+}
+
+export function createMockActor(raw={}) {
+	const data = structuredClone(raw);
+	const id = data.id ?? data._id;
+	data.id = id;
+	data._id = id;
+	const itemEntries = (data.items ?? []).map(normalizeItemData);
+	const effectEntries = (data.effects ?? []).map(normalizeEffectData);
+	const items = createEmbeddedCollection(data, "Item", itemEntries);
+	const effects = createEmbeddedCollection(data, "ActiveEffect", effectEntries);
+	const actor = {
+		...data,
+		uuid: data.uuid ?? `Actor.${id}`,
+		type: data.type ?? "vehicle",
+		flags: data.flags ?? {},
+		_stats: data._stats ?? {},
+		system: data.system ?? { attributes: { hp: {} } },
+		_source: data._source ?? {
+			system: data.system ?? { attributes: { hp: {} } },
+			flags: data.flags ?? {},
+			_stats: data._stats ?? {}
+		},
+		items,
+		effects,
+		allApplicableEffects() {
+			const out = [];
+			for ( const effect of effects.contents ) {
+				if ( effect.disabled ) continue;
+				out.push({ ...effect, active: true });
+			}
+			for ( const item of items.contents ) {
+				for ( const effect of item.effects.contents ?? item.effects ?? [] ) {
+					if ( effect.transfer === true ) out.push({ ...effect, active: true });
+				}
+			}
+			return out;
+		},
+		async update(updateData={}, _options={}) {
+			const expanded = expandObject(updateData);
+			if ( Array.isArray(expanded.items) ) {
+				for ( const itemData of expanded.items ) {
+					const id = itemData?._id ?? itemData?.id;
+					const existing = items.get(id);
+					if ( !existing ) continue;
+					const effectUpdates = itemData.effects;
+					const itemPatch = { ...itemData };
+					delete itemPatch.effects;
+					mergeObject(existing, itemPatch, { inplace: true });
+					if ( Array.isArray(effectUpdates) ) {
+						for ( const effectData of effectUpdates ) {
+							const effectId = effectData?._id ?? effectData?.id;
+							const existingEffect = existing.effects?.get?.(effectId);
+							if ( existingEffect ) {
+								mergeObject(existingEffect, effectData, { inplace: true });
+								if ( effectData.system?.changes ) delete existingEffect.changes;
+							}
+						}
+					}
+				}
+				delete expanded.items;
+			}
+			if ( Array.isArray(expanded.effects) ) {
+				for ( const effectData of expanded.effects ) {
+					const id = effectData?._id ?? effectData?.id;
+					const existing = effects.get(id);
+					if ( existing ) mergeObject(existing, effectData, { inplace: true });
+				}
+				delete expanded.effects;
+			}
+			mergeObject(actor, expanded, { inplace: true });
+			mergeObject(actor._source, expanded, { inplace: true });
+			actor.updated = true;
+			return actor;
+		},
+		async deleteEmbeddedDocuments(embeddedName, ids=[], _operation={}) {
+			return effects.deleteEmbeddedDocuments(embeddedName, ids, _operation);
+		},
+		toObject(expanded=false) {
+			return {
+				_id: actor._id,
+				name: actor.name,
+				type: actor.type,
+				flags: structuredClone(actor.flags),
+				system: structuredClone(actor.system),
+				_stats: structuredClone(actor._stats),
+				items: items.contents.map(item => ({
+					_id: item._id,
+					name: item.name,
+					type: item.type,
+					flags: structuredClone(item.flags ?? {}),
+					system: structuredClone(item.system ?? {}),
+					_stats: structuredClone(item._stats ?? {}),
+					effects: item.effects.contents.map(effect => structuredClone(effect))
+				})),
+				effects: effects.contents.map(effect => structuredClone(effect))
+			};
+		}
+	};
+	for ( const item of items.contents ) {
+		item.parent = actor;
+		const effectList = Array.isArray(item.effects) ? item.effects : [...(item.effects?.contents ?? [])];
+		item.effects = createEmbeddedCollection(item, "ActiveEffect", effectList);
+		item.updateEmbeddedDocuments = (...args) => item.effects.updateEmbeddedDocuments(...args);
+	}
+	return actor;
+}
+
 function createCollection(docs=[]) {
-	const byId = new Map(docs.map(d => [d.id ?? d._id, d]));
+	const normalized = docs.map(doc => doc?.update ? doc : createMockActor(doc));
+	const byId = new Map(normalized.map(d => [d.id ?? d._id, d]));
 	return {
 		get size() { return byId.size; },
 		invalidDocumentIds: new Set(),
@@ -101,15 +264,19 @@ export function installMigrationTestHarness({
 	moduleVersion="1.4.1",
 	needsMigrationVersion="1.3.6",
 	moduleMigrationVersion="",
+	dnd5eMigrationVersion="5.3.3",
 	actors=[],
 	items=[],
 	scenes=[],
 	macros=[],
 	tables=[],
 	packs=[],
-	throwOnSettingsSet=null
+	throwOnSettingsSet=null,
+	worldDnd5eVersion="5.3.3"
 }={}) {
-	const settingsStore = {};
+	const settingsStore = {
+		"dnd5e.systemMigrationVersion": dnd5eMigrationVersion
+	};
 	if ( moduleMigrationVersion !== "" && moduleMigrationVersion != null ) {
 		settingsStore["sw5e-module.moduleMigrationVersion"] = moduleMigrationVersion;
 	}
@@ -122,8 +289,12 @@ export function installMigrationTestHarness({
 	};
 	const game = {
 		user: { isGM: true },
-		system: { id: "dnd5e", version: "5.2.5" },
-		world: { id: "synth-test", title: "synth-test", coreVersion: "13.351" },
+		system: {
+			id: "dnd5e",
+			version: "5.3.3",
+			flags: { needsMigrationVersion: "5.3.3", compatibleMigrationVersion: "5.0.0" }
+		},
+		world: { id: "synth-test", title: "synth-test", coreVersion: "14.367", flags: { dnd5e: { version: worldDnd5eVersion } } },
 		actors: createCollection(actors),
 		items: createCollection(items),
 		scenes: createCollection(scenes),
@@ -152,7 +323,10 @@ export function installMigrationTestHarness({
 			},
 			get(ns, key) {
 				const full = `${ns}.${key}`;
-				if ( !(full in settingsStore) ) throw new Error(`${full} is not a registered game setting`);
+				if ( !(full in settingsStore) ) {
+					if ( `${ns}.${key}` === "dnd5e.systemMigrationVersion" ) return "";
+					throw new Error(`${full} is not a registered game setting`);
+				}
 				return settingsStore[full];
 			},
 			set(ns, key, value) {
@@ -186,7 +360,17 @@ export function installMigrationTestHarness({
 			expandObject,
 			isNewerVersion(a, b) {
 				if ( !b ) return true;
-				return String(a) > String(b);
+				if ( !a ) return false;
+				const normalize = v => String(v).split("-")[0];
+				const pa = normalize(a).split(".").map(Number);
+				const pb = normalize(b).split(".").map(Number);
+				for ( let i = 0; i < Math.max(pa.length, pb.length); i++ ) {
+					const av = pa[i] ?? 0;
+					const bv = pb[i] ?? 0;
+					if ( av > bv ) return true;
+					if ( av < bv ) return false;
+				}
+				return false;
 			}
 		},
 		data: {

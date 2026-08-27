@@ -141,6 +141,47 @@ export function emitMissingSystemDiagnostic(run, context, itemData, shape) {
 	return { emitted: true, duplicate: false, severity, classification, identity, count: 1 };
 }
 
+function createEmptyAutoThrustersRemediationSummary() {
+	return {
+		actorsScanned: 0,
+		candidatesFound: 0,
+		matched: 0,
+		notAffected: 0,
+		alreadyCorrect: 0,
+		updateRequested: 0,
+		updateSucceeded: 0,
+		updateVerified: 0,
+		deleteRequested: 0,
+		deleteSucceeded: 0,
+		deleteVerified: 0,
+		updatedVerified: 0,
+		skipped: 0,
+		ambiguous: 0,
+		unexpandedInput: 0,
+		barrierFailed: 0,
+		updateFailed: 0,
+		deleteFailed: 0,
+		postconditionFailed: 0,
+		laterOverwrite: 0
+	};
+}
+
+function createEmptyBwingResourceSummary() {
+	return {
+		actorsScanned: 0,
+		matched: 0,
+		notBwing: 0,
+		alreadyCanonical: 0,
+		updateRequested: 0,
+		updateSucceeded: 0,
+		updateVerified: 0,
+		updatedVerified: 0,
+		ambiguous: 0,
+		updateFailed: 0,
+		postconditionFailed: 0
+	};
+}
+
 function createEmptyMigrationSummary() {
 	return {
 		documentsAttempted: 0,
@@ -151,8 +192,202 @@ function createEmptyMigrationSummary() {
 		packsAttempted: 0,
 		packFailures: 0,
 		artworkInvariantSkips: 0,
-		completionState: "pending"
+		dnd5eBarrier: null,
+		autoThrusters: createEmptyAutoThrustersRemediationSummary(),
+		bwingResources: createEmptyBwingResourceSummary(),
+		completionState: "pending",
+		stampSkippedReason: null,
+		stampPersisted: false
 	};
+}
+
+/**
+ * Whether remediation accounting blocks a clean success.
+ * @param {object} [summary]
+ * @returns {number}
+ */
+export function countBlockingAutoThrustersRemediationResults(summary={}) {
+	const at = summary?.autoThrusters ?? {};
+	return Number(at.unexpandedInput ?? 0)
+		+ Number(at.barrierFailed ?? 0)
+		+ Number(at.postconditionFailed ?? 0)
+		+ Number(at.laterOverwrite ?? 0);
+}
+
+/**
+ * @param {object} [summary]
+ * @returns {number}
+ */
+export function countContinuableAutoThrustersResults(summary={}) {
+	const at = summary?.autoThrusters ?? {};
+	return Number(at.ambiguous ?? 0)
+		+ Number(at.updateFailed ?? 0)
+		+ Number(at.deleteFailed ?? 0);
+}
+
+/**
+ * @param {object} [summary]
+ * @returns {number}
+ */
+export function countBlockingBwingResourceResults(summary={}) {
+	const br = summary?.bwingResources ?? {};
+	return Number(br.postconditionFailed ?? 0);
+}
+
+/**
+ * @param {object} [summary]
+ * @returns {number}
+ */
+export function countContinuableBwingResourceResults(summary={}) {
+	const br = summary?.bwingResources ?? {};
+	return Number(br.ambiguous ?? 0)
+		+ Number(br.updateFailed ?? 0);
+}
+
+/**
+ * @param {object} [summary]
+ * @returns {boolean}
+ */
+export function hasBlockingMigrationOutcome(summary={}) {
+	if ( summary?.dnd5eBarrier && summary.dnd5eBarrier.required && !summary.dnd5eBarrier.passed ) return true;
+	if ( Number(summary?.documentFailures ?? 0) > 0 ) return true;
+	if ( Number(summary?.packFailures ?? 0) > 0 ) return true;
+	if ( countBlockingAutoThrustersRemediationResults(summary) > 0 ) return true;
+	if ( countBlockingBwingResourceResults(summary) > 0 ) return true;
+	return false;
+}
+
+/**
+ * @param {object} [summary]
+ * @returns {boolean}
+ */
+export function hasContinuableActorLevelErrors(summary={}) {
+	return countContinuableAutoThrustersResults(summary) > 0
+		|| countContinuableBwingResourceResults(summary) > 0
+		|| Number(summary?.documentFailures ?? 0) > 0;
+}
+
+/**
+ * Record one Actor Auto-Thrusters remediation result into the migration run summary.
+ * @param {object} run
+ * @param {object} result
+ */
+export function recordAutoThrustersRemediationResult(run, result={}) {
+	if ( !run ) return;
+	if ( !run.summary ) run.summary = createEmptyMigrationSummary();
+	if ( !run.summary.autoThrusters ) run.summary.autoThrusters = createEmptyAutoThrustersRemediationSummary();
+	const at = run.summary.autoThrusters;
+	at.actorsScanned += 1;
+	const classification = result.classification ?? null;
+
+	switch ( classification ) {
+		case "NOT_AFFECTED":
+			at.notAffected += 1;
+			at.skipped += 1;
+			return;
+		case "MATCHED":
+			at.candidatesFound += 1;
+			at.matched += 1;
+			return;
+		case "ALREADY_CORRECT":
+			at.candidatesFound += 1;
+			at.matched += 1;
+			at.alreadyCorrect += 1;
+			return;
+		case "UPDATED_VERIFIED":
+			at.candidatesFound += 1;
+			at.matched += 1;
+			if ( result.updateRequested ) at.updateRequested += 1;
+			if ( result.updateSucceeded ) at.updateSucceeded += 1;
+			if ( result.updateVerified ) at.updateVerified += 1;
+			if ( result.deleteRequested ) at.deleteRequested += 1;
+			if ( result.deleteSucceeded ) at.deleteSucceeded += 1;
+			if ( result.deleteVerified ) at.deleteVerified += 1;
+			at.updatedVerified += 1;
+			return;
+		case "AMBIGUOUS":
+			at.candidatesFound += 1;
+			at.ambiguous += 1;
+			return;
+		case "UNEXPANDED_INPUT":
+			at.unexpandedInput += 1;
+			return;
+		case "DND5E_BARRIER_FAILED":
+			at.barrierFailed += 1;
+			return;
+		case "UPDATE_FAILED":
+			at.candidatesFound += 1;
+			at.matched += 1;
+			if ( result.updateRequested ) at.updateRequested += 1;
+			at.updateFailed += 1;
+			return;
+		case "DELETE_FAILED":
+			at.candidatesFound += 1;
+			at.matched += 1;
+			if ( result.updateRequested ) at.updateRequested += 1;
+			if ( result.updateSucceeded ) at.updateSucceeded += 1;
+			if ( result.updateVerified ) at.updateVerified += 1;
+			if ( result.deleteRequested ) at.deleteRequested += 1;
+			at.deleteFailed += 1;
+			return;
+		case "POSTCONDITION_FAILED":
+			at.candidatesFound += 1;
+			at.matched += 1;
+			at.postconditionFailed += 1;
+			return;
+		case "LATER_OVERWRITE":
+			at.laterOverwrite += 1;
+			return;
+		default:
+			if ( result.failed ) at.unexpandedInput += 1;
+			else at.skipped += 1;
+	}
+}
+
+/**
+ * @param {object} run
+ * @param {object} result
+ */
+export function recordBwingResourceRemediationResult(run, result={}) {
+	if ( !run ) return;
+	if ( !run.summary ) run.summary = createEmptyMigrationSummary();
+	if ( !run.summary.bwingResources ) run.summary.bwingResources = createEmptyBwingResourceSummary();
+	const br = run.summary.bwingResources;
+	br.actorsScanned += 1;
+	switch ( result.classification ) {
+		case "NOT_BWING":
+			br.notBwing += 1;
+			return;
+		case "MATCHED":
+			br.matched += 1;
+			return;
+		case "ALREADY_CANONICAL":
+			br.matched += 1;
+			br.alreadyCanonical += 1;
+			return;
+		case "RESOURCE_UPDATED_VERIFIED":
+			br.matched += 1;
+			if ( result.updateRequested ) br.updateRequested += 1;
+			if ( result.updateSucceeded ) br.updateSucceeded += 1;
+			if ( result.updateVerified ) br.updateVerified += 1;
+			br.updatedVerified += 1;
+			return;
+		case "RESOURCE_AMBIGUOUS":
+			br.matched += 1;
+			br.ambiguous += 1;
+			return;
+		case "RESOURCE_UPDATE_FAILED":
+			br.matched += 1;
+			if ( result.updateRequested ) br.updateRequested += 1;
+			br.updateFailed += 1;
+			return;
+		case "RESOURCE_POSTCONDITION_FAILED":
+			br.matched += 1;
+			br.postconditionFailed += 1;
+			return;
+		default:
+			return;
+	}
 }
 
 export function createMigrationRunState() {
@@ -167,7 +402,9 @@ export function createMigrationRunState() {
 		foundryPackMigrateCompleted: [],
 		summary: createEmptyMigrationSummary(),
 		documentFailures: [],
-		documentFailureKeys: new Set()
+		documentFailureKeys: new Set(),
+		remediationResults: [],
+		bwingResults: []
 	};
 }
 

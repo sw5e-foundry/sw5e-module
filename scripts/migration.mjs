@@ -40,7 +40,9 @@ import {
 	unwrapForcedReplacementsDeep,
 	valuesEqual
 } from "./migration-operators.mjs";
-import { remediateActorAutoThrusters } from "./auto-thrusters-remediation.mjs";
+import { executeAutoThrustersRemediation, verifyLiveAutoThrustersPostcondition } from "./auto-thrusters-remediation.mjs";
+import { executeBwingResourceRemediation } from "./bwing-resource-remediation.mjs";
+import { waitForDnd5eMigrationCompletion } from "./dnd5e-migration-barrier.mjs";
 import {
 	applyImagePathMigration,
 	ArtworkMigrationInvariantError,
@@ -54,6 +56,14 @@ import {
 	emitMissingSystemDiagnostic,
 	createMigrationRunState,
 	recordDocumentFailure,
+	recordAutoThrustersRemediationResult,
+	recordBwingResourceRemediationResult,
+	countBlockingAutoThrustersRemediationResults,
+	countBlockingBwingResourceResults,
+	countContinuableAutoThrustersResults,
+	countContinuableBwingResourceResults,
+	hasBlockingMigrationOutcome,
+	hasContinuableActorLevelErrors,
 	upsertPackLedger,
 	buildBoundedIdentity,
 	classifyMissingSystem
@@ -64,7 +74,8 @@ export {
 	SOURCE_CONTEXT,
 	describeItemSystemShape,
 	classifyMissingSystem,
-	buildBoundedIdentity
+	buildBoundedIdentity,
+	countBlockingAutoThrustersRemediationResults
 };
 
 const MIGRATABLE_COMPENDIUM_DOCUMENTS = ["Actor", "Item", "Scene", "JournalEntry", "RollTable"];
@@ -117,6 +128,25 @@ function applyCandidateMutationTestHook(candidate) {
 	candidate.preparedUpdate.img = "";
 }
 
+/**
+ * Foundry 14 Document.toObject() defaults to source=true, which deepClones `_source`.
+ * With LevelDB sidecars, embedded items/effects in `_source` are often ID strings.
+ * Migration and Auto-Thrusters remediation require expanded embed objects.
+ * @param {object} document
+ * @returns {object|null}
+ */
+function getExpandedMigrationSource(document) {
+	if ( !document ) return null;
+	if ( typeof document.toObject === "function" ) {
+		try {
+			return document.toObject(false);
+		} catch ( _err ) {
+			return document.toObject();
+		}
+	}
+	return foundry.utils.deepClone(document);
+}
+
 function tryBuildCandidate(run, builder) {
 	run.summary.documentsAttempted += 1;
 	try {
@@ -160,6 +190,32 @@ async function writeCandidate(run, candidate) {
 			actorId: candidate.actorId ?? null,
 			itemId: candidate.itemId ?? null
 		});
+	}
+}
+
+/**
+ * Run world-Actor Auto-Thrusters and B-Wing resource remediation after ordinary migration.
+ * @param {object} run
+ */
+async function _runWorldRemediationPass(run) {
+	run.phase = "remediation";
+	run.identity = { phase: "remediation", documentType: "World" };
+	for ( const actor of game.actors ) {
+		run.identity = {
+			phase: "remediation",
+			documentType: "Actor",
+			documentId: actor.id,
+			documentName: actor.name,
+			actorId: actor.id
+		};
+		const liveActor = game.actors.get(actor.id) ?? actor;
+		const autoResult = await executeAutoThrustersRemediation(liveActor);
+		run.remediationResults.push(autoResult);
+		recordAutoThrustersRemediationResult(run, autoResult);
+
+		const bwingResult = await executeBwingResourceRemediation(game.actors.get(actor.id) ?? liveActor);
+		run.bwingResults.push(bwingResult);
+		recordBwingResourceRemediationResult(run, bwingResult);
 	}
 }
 
@@ -445,9 +501,20 @@ export const migrateWorld = async function() {
 	beginStarshipFoodCurrentMigrationReport();
 	try {
 		applyMigrationTestHook("migrate-world-start", run);
+		run.identity = { phase: "dnd5e-barrier", documentType: "World" };
+		applyMigrationTestHook("dnd5e-barrier", run);
+		const barrier = await waitForDnd5eMigrationCompletion();
+		run.summary.dnd5eBarrier = barrier;
+		if ( barrier.required && !barrier.passed ) {
+			run.summary.completionState = "blocked";
+			const err = new Error(`DND5e migration barrier failed: timedOut=${barrier.timedOut}`);
+			throw wrapUnexpectedMigrationError(err, run);
+		}
+
 		run.identity = { phase: "collect-world", documentType: "World" };
 		applyMigrationTestHook("collect-world", run);
 		await _migrateWorldDocuments(migrationData, run);
+		await _runWorldRemediationPass(run);
 		run.sw5eWritesCompleted = true;
 	} catch(err) {
 		run.summary.completionState = "blocked";
@@ -473,10 +540,43 @@ export const migrateWorld = async function() {
 	}
 
 	const moduleVersion = getModule()?.version ?? version;
+	const blocked = hasBlockingMigrationOutcome(run.summary);
+	const continuableErrors = hasContinuableActorLevelErrors(run.summary);
+	if ( blocked && !continuableErrors ) {
+		run.summary.completionState = "blocked";
+		ui.notifications.error(game.i18n.format("MIGRATION.sw5eBlocked", { version }), { permanent: true });
+		return;
+	}
+	if ( continuableErrors || run.documentFailures.length > 0 ) {
+		run.summary.completionState = "completed-with-errors";
+		const reportedCount = Math.max(
+			run.documentFailures.length,
+			countContinuableAutoThrustersResults(run.summary),
+			countContinuableBwingResourceResults(run.summary)
+		);
+		ui.notifications.warn(
+			game.i18n.format("MIGRATION.sw5eCompleteWithErrors", { count: reportedCount, version }),
+			{ permanent: true }
+		);
+		return;
+	}
+
+	run.summary.completionState = "completed";
+	if ( moduleVersion === "#{VERSION}#" ) {
+		run.summary.stampSkippedReason = "development-placeholder-version";
+		ui.notifications.info(game.i18n.format("MIGRATION.sw5eCompleteSuccessDevelopment", { version }), { permanent: true });
+		return;
+	}
+
 	try {
-		if (moduleVersion !== "#{VERSION}#") {
-			await game.settings.set(SETTINGS_NAMESPACE, "moduleMigrationVersion", moduleVersion);
+		await game.settings.set(SETTINGS_NAMESPACE, "moduleMigrationVersion", moduleVersion);
+		const persisted = game.settings.get(SETTINGS_NAMESPACE, "moduleMigrationVersion");
+		if ( persisted !== moduleVersion ) {
+			run.summary.completionState = "blocked";
+			throw new Error(`Migration stamp mismatch: expected ${moduleVersion}, got ${persisted}`);
 		}
+		run.summary.stampPersisted = true;
+		ui.notifications.info(game.i18n.format("MIGRATION.sw5eCompleteSuccess", { version: moduleVersion }), { permanent: true });
 	} catch(err) {
 		run.summary.completionState = "blocked";
 		const wrapped = wrapUnexpectedMigrationError(err, run);
@@ -488,19 +588,6 @@ export const migrateWorld = async function() {
 		ui.notifications.error(game.i18n.format("MIGRATION.sw5eBlocked", { version }), { permanent: true });
 		throw wrapped;
 	}
-
-	const failCount = run.documentFailures.length;
-	if ( failCount === 0 ) {
-		run.summary.completionState = "completed";
-		ui.notifications.info(game.i18n.format("MIGRATION.sw5eCompleteSuccess", { version }), { permanent: true });
-		return;
-	}
-
-	run.summary.completionState = "completed-with-errors";
-	ui.notifications.warn(
-		game.i18n.format("MIGRATION.sw5eCompleteWithErrors", { count: failCount, version }),
-		{ permanent: true }
-	);
 };
 
 /**
@@ -525,7 +612,9 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 		.concat(Array.from(game.actors.invalidDocumentIds).map(id => [game.actors.getInvalid(id), false]));
 	for ( const [actor, valid] of actors ) {
 		const flags = { persistSourceMigration: false };
-		const source = valid ? actor.toObject() : getInvalidDocumentSource(game.actors, actor.id, "actors");
+		const source = valid
+			? getExpandedMigrationSource(actor)
+			: getInvalidDocumentSource(game.actors, actor.id, "actors");
 		if ( !source ) continue;
 		run.identity = {
 			phase: run.phase,
@@ -572,7 +661,9 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 		.concat(Array.from(game.items.invalidDocumentIds).map(id => [game.items.getInvalid(id), false]));
 	for ( const [item, valid] of items ) {
 		const flags = { persistSourceMigration: false };
-		const source = valid ? item.toObject() : getInvalidDocumentSource(game.items, item.id, "items");
+		const source = valid
+			? getExpandedMigrationSource(item)
+			: getInvalidDocumentSource(game.items, item.id, "items");
 		if ( !source ) continue;
 		run.identity = {
 			phase: run.phase,
@@ -707,7 +798,7 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 		for ( const token of s.tokens ) {
 			if ( token.actorLink || !token.actor ) continue;
 			const flags = { persistSourceMigration: false };
-			const source = token.actor.toObject();
+			const source = getExpandedMigrationSource(token.actor);
 			run.identity = {
 				phase: run.phase,
 				sourceContext: SOURCE_CONTEXT.SCENE_ACTOR_DELTA_ITEM,
@@ -1209,7 +1300,9 @@ function _remapSuperiorityEffectKeys(effect, updateData) {
 export const migrateEffects = function(parent, migrationData) {
 	if (!parent.effects) return {};
 	return parent.effects.reduce((arr, e) => {
-		const effectData = e instanceof CONFIG.ActiveEffect.documentClass ? e.toObject() : e;
+		const effectData = e instanceof CONFIG.ActiveEffect.documentClass
+			? (typeof e.toObject === "function" ? e.toObject(false) : e.toObject())
+			: e;
 		let effectUpdate = migrateEffectData(effectData, migrationData, { parent });
 		if (!foundry.utils.isEmpty(effectUpdate)) {
 			effectUpdate._id = effectData._id;
@@ -1304,6 +1397,15 @@ export const migrateActorData = function(actor, migrationData, flags={}, { actor
 	_migrateOrphanCurrencyWallet(workingActor, updateData);
 	_migrateStarshipFoodCurrentValue(workingActor, updateData);
 
+	const embedsAreIdRefs = (
+		(Array.isArray(workingActor.items) && workingActor.items.length > 0 && typeof workingActor.items[0] === "string")
+		|| (Array.isArray(workingActor.effects) && workingActor.effects.length > 0 && typeof workingActor.effects[0] === "string")
+	);
+	if ( embedsAreIdRefs ) {
+		migrateSw5eStarshipPrototypeToken(workingActor, updateData);
+		return updateData;
+	}
+
 	// Migrate embedded effects
 	if ( workingActor.effects ) {
 		const effects = migrateEffects(workingActor, migrationData);
@@ -1316,8 +1418,6 @@ export const migrateActorData = function(actor, migrationData, flags={}, { actor
 
 	// Migrate Owned Items
 	if ( !workingActor.items ) {
-		const autoThrustersEarly = remediateActorAutoThrusters(workingActor, { log: true });
-		if ( autoThrustersEarly.changed ) requiresFullSourceMigration = true;
 		if ( requiresFullSourceMigration ) {
 			migrateSw5eStarshipPrototypeToken(workingActor, null, { persistToSource: true });
 			flags.persistSourceMigration = true;
@@ -1329,7 +1429,7 @@ export const migrateActorData = function(actor, migrationData, flags={}, { actor
 
 	const items = workingActor.items.reduce((arr, i) => {
 		// Migrate the Owned Item
-		const itemData = i instanceof CONFIG.Item.documentClass ? i.toObject() : i;
+		const itemData = i instanceof CONFIG.Item.documentClass ? getExpandedMigrationSource(i) : i;
 		const itemFlags = { persistSourceMigration: false };
 		let itemUpdate = migrateItemData(itemData, migrationData, itemFlags, {
 			...actorContext,
@@ -1348,11 +1448,14 @@ export const migrateActorData = function(actor, migrationData, flags={}, { actor
 			arr.push({ ...itemUpdate, _id: itemData._id });
 		}
 
+		// Keep workingActor.items aligned when itemData is a clone from a Document.
+		if ( itemData !== i && Array.isArray(workingActor.items) ) {
+			const idx = workingActor.items.findIndex(entry => (entry?._id ?? entry) === itemData._id);
+			if ( idx >= 0 ) workingActor.items[idx] = itemData;
+		}
+
 		return arr;
 	}, []);
-
-	const autoThrusters = remediateActorAutoThrusters(workingActor, { log: true });
-	if ( autoThrusters.changed ) requiresFullSourceMigration = true;
 
 	if ( requiresFullSourceMigration ) {
 		migrateSw5eStarshipPrototypeToken(workingActor, null, { persistToSource: true });
