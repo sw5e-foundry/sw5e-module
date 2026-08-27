@@ -3,6 +3,7 @@ import { patchConfig } from "./patch/config.mjs";
 import { patchDataModels } from "./patch/dataModels.mjs";
 import { patchPacks } from "./patch/packs.mjs";
 import { patchManeuver } from "./patch/maneuver.mjs";
+import { patchItemChoiceAdvancement } from "./patch/item-choice-advancement.mjs";
 import { patchMedpac } from "./patch/medpac.mjs";
 import { patchBlasterReload } from "./patch/blaster-reload.mjs";
 import { patchBlasterAmmoUx } from "./patch/blaster-ammo-ux.mjs";
@@ -98,6 +99,8 @@ Hooks.once('init', async function() {
 	patchDataModels();
 
 	patchManeuver();
+	// After dnd5e system init has registered advancementTypes; mutates shared VALID_TYPES Set.
+	patchItemChoiceAdvancement();
 	patchMedpac();
 	patchBlasterReload();
 	patchBlasterAmmoUx();
