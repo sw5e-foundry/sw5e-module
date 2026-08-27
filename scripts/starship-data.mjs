@@ -1563,7 +1563,10 @@ export function shouldMirrorStarshipLegacyAttributePath(systemPath) {
 	if ( systemPath === "system.attributes.power.routing" || systemPath === "system.attributes.power.die" ) return true;
 	if ( systemPath === "system.attributes.death.success" || systemPath === "system.attributes.death.failure" ) return true;
 	if ( systemPath === "system.attributes.systemDamage" ) return true;
-	if ( systemPath === "system.attributes.hp.value" ) return true;
+	if ( systemPath === "system.attributes.hp.value"
+		|| systemPath === "system.attributes.hp.max"
+		|| systemPath === "system.attributes.hp.temp"
+		|| systemPath === "system.attributes.hp.tempmax" ) return true;
 	if ( systemPath.startsWith("system.attributes.fuel.") ) return true;
 	// Food: mirror value / foodCap / cost only — never foodCapMod (AE-prepared).
 	if (
@@ -1591,6 +1594,12 @@ export function buildStarshipLegacyAttributeMirrorUpdate(systemPath, value) {
 		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.systemDamage`] = value;
 	} else if ( systemPath === "system.attributes.hp.value" ) {
 		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.hp.value`] = value;
+	} else if ( systemPath === "system.attributes.hp.max" ) {
+		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.hp.max`] = value;
+	} else if ( systemPath === "system.attributes.hp.temp" ) {
+		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.hp.temp`] = value;
+	} else if ( systemPath === "system.attributes.hp.tempmax" ) {
+		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.hp.tempmax`] = value;
 	} else if ( systemPath.startsWith("system.attributes.fuel.") ) {
 		const tail = systemPath.slice("system.attributes.fuel.".length);
 		update[`${STARSHIP_LEGACY_ATTRIBUTE_FLAG_BASE}.fuel.${tail}`] = value;
