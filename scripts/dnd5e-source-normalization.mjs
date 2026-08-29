@@ -613,8 +613,20 @@ export function normalizeLegacyItemAdvancement(item) {
 		const asObject = {}
 		for ( const entry of rawAdvancement ) {
 			if ( !isObjectLike(entry) ) continue
-			// Match upstream: key by existing `_id` only; do not fabricate IDs.
-			if ( typeof entry._id === "string" && entry._id ) asObject[entry._id] = entry
+
+			// Preserve existing Advancement IDs, but generate a Foundry ID for
+			// legacy SW5E entries which do not have one. Object-native DND5e
+			// storage is keyed by the same ID stored in advancement._id.
+			let advancementId = (typeof entry._id === "string" && entry._id)
+				? entry._id
+				: foundry.utils.randomID()
+
+			// Prevent an accidental overwrite if malformed legacy data contains
+			// duplicate Advancement IDs.
+			while ( asObject[advancementId] ) advancementId = foundry.utils.randomID()
+
+			entry._id = advancementId
+			asObject[advancementId] = entry
 		}
 		item.system.advancement = asObject
 		advancement = asObject
