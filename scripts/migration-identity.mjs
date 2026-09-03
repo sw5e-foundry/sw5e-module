@@ -192,6 +192,7 @@ function createEmptyMigrationSummary() {
 		packsAttempted: 0,
 		packFailures: 0,
 		artworkInvariantSkips: 0,
+		collectionLossSkips: 0,
 		dnd5eBarrier: null,
 		autoThrusters: createEmptyAutoThrustersRemediationSummary(),
 		bwingResources: createEmptyBwingResourceSummary(),

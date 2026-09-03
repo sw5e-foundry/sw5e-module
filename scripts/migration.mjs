@@ -37,6 +37,8 @@ import {
 } from "./effect-change-collection.mjs";
 import {
 	createForcedReplacement,
+	isForcedReplacement,
+	unwrapForcedReplacement,
 	unwrapForcedReplacementsDeep,
 	valuesEqual
 } from "./migration-operators.mjs";
@@ -103,6 +105,193 @@ export class MigrationDocumentError extends Error {
 	}
 }
 
+/**
+ * Raised when a full-source write payload would empty a non-empty keyed Item collection
+ * (`system.advancement`, `system.activities`) that the live document still holds.
+ */
+export class MigrationCollectionLossError extends Error {
+	/**
+	 * @param {object[]} violations
+	 */
+	constructor(violations=[]) {
+		const first = violations[0];
+		const summary = first
+			? `${first.documentType} ${first.documentId} item ${first.itemId ?? first.documentId} ${first.collection} (${first.before} -> ${first.after})`
+			: "unknown";
+		super(`SW5E migration refused to persist collection loss (${violations.length}): ${summary}`);
+		this.name = "MigrationCollectionLossError";
+		this.violations = violations;
+	}
+}
+
+/**
+ * Raised when source serialization exposes an embedded-document ID that cannot be
+ * expanded from the live collection. Fail closed so a full-source write cannot
+ * persist unresolved ID strings.
+ */
+export class MigrationUnexpandedEmbedError extends Error {
+	/**
+	 * @param {object} [identity]
+	 */
+	constructor({ parentType, parentId, embeddedName, embedId }={}) {
+		super(`SW5E migration could not expand embedded ${embeddedName ?? "collection"} ${embedId ?? "unknown"} on ${parentType ?? "Document"} ${parentId ?? "unknown"}`);
+		this.name = "MigrationUnexpandedEmbedError";
+		this.parentType = parentType ?? null;
+		this.parentId = parentId ?? null;
+		this.embeddedName = embeddedName ?? null;
+		this.embedId = embedId ?? null;
+	}
+}
+
+/** Keyed Item collections that must never be emptied by a migration write. */
+const GUARDED_ITEM_COLLECTIONS = ["advancement", "activities"];
+
+function isMapLikeCollection(value) {
+	return Boolean(
+		value
+		&& (typeof value === "object")
+		&& !Array.isArray(value)
+		&& (typeof value.size === "number")
+		&& (typeof value.get === "function")
+		&& (typeof value.keys === "function")
+		&& (typeof value.forEach === "function")
+	);
+}
+
+/**
+ * Count meaningful keyed-collection entries without mutating the value.
+ * Accepts arrays, plain objects, Map-like fixtures, ForcedReplacement wrappers,
+ * missing, and null.
+ * @param {*} value
+ * @returns {number}
+ */
+function countKeyedEntries(value) {
+	if ( (value === undefined) || (value === null) ) return 0;
+	if ( isForcedReplacement(value) ) value = unwrapForcedReplacement(value);
+	if ( (value === undefined) || (value === null) ) return 0;
+	if ( Array.isArray(value) ) return value.filter(v => v && (typeof v === "object")).length;
+	if ( isMapLikeCollection(value) ) return Number(value.size);
+	if ( typeof value === "object" ) return Object.keys(value).length;
+	return 0;
+}
+
+function getLiveItemSystemSource(liveItem) {
+	let system = liveItem?._source?.system;
+	if ( !system && (typeof liveItem?.toObject === "function") ) system = liveItem.toObject()?.system;
+	return (system && (typeof system === "object")) ? system : null;
+}
+
+/**
+ * Compare one Item payload against the live Item source for guarded collection loss.
+ * @param {object} liveItem     Live Item document (or mock)
+ * @param {object} payloadItem  Item data about to be written
+ * @param {object} identity
+ * @returns {object[]}
+ */
+function collectItemCollectionLossViolations(liveItem, payloadItem, identity={}) {
+	const violations = [];
+	if ( !payloadItem || (typeof payloadItem !== "object") ) return violations;
+	const payloadSystem = payloadItem.system;
+	const hasSystemObject = payloadSystem && (typeof payloadSystem === "object") && !isForcedReplacement(payloadSystem);
+	const liveSystem = getLiveItemSystemSource(liveItem);
+	if ( !liveSystem ) return violations;
+	for ( const key of GUARDED_ITEM_COLLECTIONS ) {
+		const before = countKeyedEntries(liveSystem[key]);
+		if ( before === 0 ) continue;
+		const flatKey = `system.${key}`;
+		let after;
+		if ( flatKey in payloadItem ) after = payloadItem[flatKey];
+		else if ( hasSystemObject ) after = payloadSystem[key];
+		else continue;
+		const afterCount = countKeyedEntries(after);
+		if ( afterCount > 0 ) continue;
+		violations.push({ ...identity, collection: flatKey, before, after: afterCount });
+	}
+	return violations;
+}
+
+/**
+ * Collect guarded-collection loss violations for a write candidate. Only full-source
+ * (`recursive: false`) writes can delete keys, so recursive diff writes are not checked.
+ * @param {object} candidate
+ * @returns {object[]}
+ */
+function collectCandidateCollectionLossViolations(candidate) {
+	if ( !candidate ) return [];
+	if ( !candidate.persistSourceMigration && (candidate.options?.recursive !== false) ) return [];
+	const payload = candidate.writePayload ?? candidate.preparedUpdate;
+	if ( !payload || (typeof payload !== "object") ) return [];
+	const doc = candidate.document;
+	const base = {
+		documentType: candidate.documentType,
+		documentId: candidate.documentId,
+		documentUuid: candidate.document?.uuid ?? null,
+		documentName: candidate.logName ?? null,
+		caller: candidate.caller ?? null,
+		operation: candidate.caller ?? "persistSourceMigration"
+	};
+	const violations = [];
+	if ( candidate.documentType === "Item" ) {
+		violations.push(...collectItemCollectionLossViolations(doc, payload, { ...base, itemId: candidate.documentId }));
+	}
+	const items = isForcedReplacement(payload.items) ? undefined : payload.items;
+	if ( Array.isArray(items) ) {
+		for ( const itemPayload of items ) {
+			if ( !itemPayload || (typeof itemPayload !== "object") ) continue;
+			const liveItem = doc?.items?.get?.(itemPayload._id);
+			if ( !liveItem ) continue;
+			violations.push(...collectItemCollectionLossViolations(liveItem, itemPayload, {
+				...base,
+				itemId: itemPayload._id,
+				itemName: itemPayload.name ?? null
+			}));
+		}
+	}
+	return violations;
+}
+
+export function formatCollectionLossDiagnostic(v) {
+	return [
+		"SW5E migration collection-loss violation",
+		`type=${v.documentType}`,
+		`id=${v.documentId}`,
+		`uuid=${v.documentUuid ?? ""}`,
+		`item=${v.itemId ?? ""}`,
+		`collection=${v.collection}`,
+		`before=${v.before}`,
+		`after=${v.after}`,
+		`operation=${v.operation ?? v.caller ?? ""}`
+	].join(" ");
+}
+
+/**
+ * Refuse to write a candidate whose payload would wipe advancements or activities that
+ * the live document still has. Records a document failure so the run cannot stamp clean.
+ * @param {object} run
+ * @param {object} candidate
+ * @returns {boolean}
+ */
+export function isCollectionLossSafeCandidate(run, candidate) {
+	const violations = collectCandidateCollectionLossViolations(candidate);
+	if ( !violations.length ) return true;
+	if ( run?.summary ) run.summary.collectionLossSkips = Number(run.summary.collectionLossSkips ?? 0) + 1;
+	const err = new MigrationCollectionLossError(violations);
+	for ( const violation of violations ) console.error(formatCollectionLossDiagnostic(violation));
+	recordDocumentFailure(run, err, {
+		phase: run?.phase ?? "write",
+		sourceContext: candidate.sourceContext ?? run?.identity?.sourceContext ?? null,
+		packId: candidate.packCollection ?? null,
+		documentType: candidate.documentType,
+		documentId: candidate.documentId,
+		documentName: candidate.logName,
+		sceneId: candidate.sceneId ?? null,
+		tokenId: candidate.tokenId ?? null,
+		actorId: candidate.actorId ?? null,
+		itemId: candidate.itemId ?? violations[0]?.itemId ?? null
+	});
+	return false;
+}
+
 function applyMigrationTestHook(point, run) {
 	const hook = globalThis.__SW5E_MIGRATION_TEST_HOOKS__;
 	if ( !hook?.forceUnexpectedAt || hook.forceUnexpectedAt !== point ) return;
@@ -129,22 +318,82 @@ function applyCandidateMutationTestHook(candidate) {
 }
 
 /**
- * Foundry 14 Document.toObject() defaults to source=true, which deepClones `_source`.
- * With LevelDB sidecars, embedded items/effects in `_source` are often ID strings.
- * Migration and Auto-Thrusters remediation require expanded embed objects.
+ * Serialize a live Document into a plain source object for migration.
+ *
+ * Always uses `Document.toObject()` (source=true), which deepClones `_source`.
+ *
+ * Never use `toObject(false)` here. That serializes *prepared* data through the class
+ * schema. In dnd5e 5.3.3 the `system.advancement` and `system.activities` MappingFields
+ * initialize to Collection (Map) instances, and Foundry's `TypedObjectField.toObject`
+ * iterates them with `for...in`, which yields `{}`. Fed into the full-source write path
+ * (`diff: false, recursive: false`) that empties every advancement and activity on the
+ * document. See ai/sessions/2026-09-03-migration-advancement-wipe-investigation.md.
+ *
+ * Defensive embed expansion: if an embedded collection in `_source` is stored as ID
+ * strings (LevelDB sidecar refs), each string is replaced with the matching live
+ * embedded Document's own source. The 2026-08-26 live probe found `_source` already
+ * expanded on Foundry 14.367, so this is a safeguard rather than the expected path.
  * @param {object} document
  * @returns {object|null}
  */
-function getExpandedMigrationSource(document) {
+export function getExpandedMigrationSource(document) {
 	if ( !document ) return null;
-	if ( typeof document.toObject === "function" ) {
-		try {
-			return document.toObject(false);
-		} catch ( _err ) {
-			return document.toObject();
+	if ( typeof document.toObject !== "function" ) return foundry.utils.deepClone(document);
+	const source = document.toObject();
+	if ( !source || (typeof source !== "object") ) return source ?? null;
+	expandEmbeddedSourceRefs(source, document, "items");
+	expandEmbeddedSourceRefs(source, document, "effects");
+	return source;
+}
+
+/**
+ * Replace ID-string entries in `source[embeddedName]` with the live embedded Document's
+ * source. Recurses into item-embedded effects.
+ * @param {object} source
+ * @param {object} document
+ * @param {"items"|"effects"} embeddedName
+ */
+function expandEmbeddedSourceRefs(source, document, embeddedName) {
+	const entries = source?.[embeddedName];
+	if ( !Array.isArray(entries) ) return;
+	const collection = document?.[embeddedName];
+	const parentType = document?.documentName
+		?? source?.documentName
+		?? (embeddedName === "items" ? "Actor" : "Document");
+	const parentId = document?.id ?? document?._id ?? source?._id ?? null;
+	for ( let i = 0; i < entries.length; i++ ) {
+		const entry = entries[i];
+		if ( typeof entry === "string" ) {
+			const embedded = collection?.get?.(entry);
+			const expanded = embedded ? getExpandedMigrationSource(embedded) : null;
+			if ( !expanded || (typeof expanded !== "object") ) {
+				throw new MigrationUnexpandedEmbedError({
+					parentType,
+					parentId,
+					embeddedName,
+					embedId: entry
+				});
+			}
+			entries[i] = expanded;
+		} else if ( entry && (typeof entry === "object") && (embeddedName === "items") ) {
+			const embedded = collection?.get?.(entry._id);
+			if ( embedded ) {
+				expandEmbeddedSourceRefs(entry, embedded, "effects");
+				continue;
+			}
+			const unresolvedEffect = Array.isArray(entry.effects)
+				? entry.effects.find(effect => typeof effect === "string")
+				: null;
+			if ( unresolvedEffect ) {
+				throw new MigrationUnexpandedEmbedError({
+					parentType: "Item",
+					parentId: entry._id ?? parentId,
+					embeddedName: "effects",
+					embedId: unresolvedEffect
+				});
+			}
 		}
 	}
-	return foundry.utils.deepClone(document);
 }
 
 function tryBuildCandidate(run, builder) {
@@ -165,6 +414,7 @@ function tryBuildCandidate(run, builder) {
 }
 
 async function writeCandidate(run, candidate) {
+	if ( !isCollectionLossSafeCandidate(run, candidate) ) return;
 	try {
 		const hook = globalThis.__SW5E_MIGRATION_TEST_HOOKS__;
 		if ( hook?.failUpdateDocumentId && hook.failUpdateDocumentId === candidate.documentId ) {
@@ -943,7 +1193,7 @@ export const migrateCompendium = async function(pack, run=null) {
 		});
 		for ( let doc of documents ) {
 			const flags = { persistSourceMigration: false };
-			const source = doc.toObject();
+			const source = getExpandedMigrationSource(doc);
 			const packContext = {
 				phase: run.phase,
 				packId: pack.collection,
@@ -1301,7 +1551,7 @@ export const migrateEffects = function(parent, migrationData) {
 	if (!parent.effects) return {};
 	return parent.effects.reduce((arr, e) => {
 		const effectData = e instanceof CONFIG.ActiveEffect.documentClass
-			? (typeof e.toObject === "function" ? e.toObject(false) : e.toObject())
+			? getExpandedMigrationSource(e)
 			: e;
 		let effectUpdate = migrateEffectData(effectData, migrationData, { parent });
 		if (!foundry.utils.isEmpty(effectUpdate)) {

@@ -28,6 +28,9 @@
 - NPC gear property presentation and superiority-school icons revalidated.
 - Artwork, pause banner, and light/dark sheet theme parity (PR #72 line) revalidated on Foundry 14.
 
+#### Fixed
+- World migration no longer strips Item advancements and activities when migrating legacy content under Foundry 14 / dnd5e 5.3.3. Copied-world runtime validation remains pending maintainer confirmation.
+
 #### Known issues
 - **Launcher compatibility** remains a deferred known issue. Do not expect the Foundry launcher path to replace portable/harness install guidance for this release line.
 - Tech Recovery is not implemented (intentional absence).
