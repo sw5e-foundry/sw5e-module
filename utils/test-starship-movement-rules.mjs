@@ -29,22 +29,22 @@ function roleItem({
 	requirements="Small Starship",
 	withEffect=true,
 	disabled=false,
-	mode=5,
+	type="override",
 	badKeys=false
 }={}) {
 	const changes = [
-		{ key: "system.abilities.con.value", mode: 2, value: "1", priority: 1 }
+		{ key: "system.abilities.con.value", type: "add", value: "1", priority: 1 }
 	];
 	if ( withEffect ) {
 		if ( badKeys ) {
 			changes.push(
-				{ key: "attributes.movement.space", mode: 2, value: String(space), priority: 20 },
-				{ key: "attributes.movement.turning", mode: 2, value: String(turn), priority: 20 }
+				{ key: "attributes.movement.space", type: "add", value: String(space), priority: 20 },
+				{ key: "attributes.movement.turning", type: "add", value: String(turn), priority: 20 }
 			);
 		} else {
 			changes.push(
-				{ key: "system.attributes.movement.speeds.space", mode, value: String(space), priority: 20 },
-				{ key: "system.attributes.movement.speeds.turn", mode, value: String(turn), priority: 20 }
+				{ key: "system.attributes.movement.speeds.space", type, value: String(space), priority: 20 },
+				{ key: "system.attributes.movement.speeds.turn", type, value: String(turn), priority: 20 }
 			);
 		}
 	}
@@ -107,15 +107,15 @@ function overrideEffect({
 	malformed=false
 }={}) {
 	const changes = [];
-	const mode = addMode ? 2 : 5;
+	const type = addMode ? "add" : "override";
 	if ( malformed ) {
 		changes.push(
-			{ key: "attributes.movement.space", mode: 2, value: String(space) },
-			{ key: "attributes.movement.turning", mode: 2, value: String(turn) }
+			{ key: "attributes.movement.space", type: "add", value: String(space) },
+			{ key: "attributes.movement.turning", type: "add", value: String(turn) }
 		);
 	} else {
-		if ( includeSpace ) changes.push({ key: "system.attributes.movement.speeds.space", mode, value: String(space) });
-		if ( includeTurn ) changes.push({ key: "system.attributes.movement.speeds.turn", mode, value: String(turn) });
+		if ( includeSpace ) changes.push({ key: "system.attributes.movement.speeds.space", type, value: String(space) });
+		if ( includeTurn ) changes.push({ key: "system.attributes.movement.speeds.turn", type, value: String(turn) });
 	}
 	return { id, name, disabled, changes };
 }
