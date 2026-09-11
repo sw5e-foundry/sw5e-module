@@ -6,6 +6,8 @@ import {
 } from "./starship-data.mjs";
 import { isSw5eStarshipActor, STARSHIP_MOVEMENT_TYPE_KEYS } from "./patch/starship-movement.mjs";
 
+const STARSHIP_SPEEDS_PATH_PREFIX = "system.attributes.movement.speeds.";
+const STARSHIP_UNITS_PATH = "system.attributes.movement.units";
 const STARSHIP_MOVEMENT_TYPE_SET = new Set(STARSHIP_MOVEMENT_TYPE_KEYS);
 const STARSHIP_BRIDGED_MOVEMENT_KEYS = Object.freeze(["space", "turn", "walk", "fly", "units"]);
 const STARSHIP_FIXED_ZERO_MOVEMENT_KEYS = Object.freeze(["walk", "fly"]);
@@ -35,7 +37,7 @@ function resolveMovementTypeKey(entry, index, orderedKeys, fields) {
 
 function ensureStarshipMovementEntryName(entry, key) {
 	if ( !entry || !key ) return;
-	const path = `system.attributes.movement.${key}`;
+	const path = key === "units" ? STARSHIP_UNITS_PATH : `${STARSHIP_SPEEDS_PATH_PREFIX}${key}`;
 	if ( !entry.name ) entry.name = path;
 	if ( entry.field && !entry.field.name ) entry.field.name = path;
 }
@@ -43,10 +45,12 @@ function ensureStarshipMovementEntryName(entry, key) {
 function getTrackedStarshipMovementKey(target) {
 	const path = target?.name;
 	if ( typeof path !== "string" ) return null;
-	const key = path.startsWith("system.attributes.movement.")
-		? path.slice("system.attributes.movement.".length)
-		: null;
-	return key && STARSHIP_BRIDGED_MOVEMENT_KEY_SET.has(key) ? key : null;
+	if ( path === STARSHIP_UNITS_PATH ) return "units";
+	if ( path.startsWith(STARSHIP_SPEEDS_PATH_PREFIX) ) {
+		const key = path.slice(STARSHIP_SPEEDS_PATH_PREFIX.length);
+		return key && STARSHIP_BRIDGED_MOVEMENT_KEY_SET.has(key) ? key : null;
+	}
+	return null;
 }
 
 function resetPendingStarshipMovementEdits(actor) {
@@ -176,6 +180,7 @@ function onStarshipMovementConfigPreUpdate(doc, changed) {
 
 	for ( const key of STARSHIP_FIXED_ZERO_MOVEMENT_KEYS ) {
 		if ( key in movement ) delete movement[key];
+		if ( movement.speeds && (key in movement.speeds) ) delete movement.speeds[key];
 	}
 
 	if ( resolved.warning ) {

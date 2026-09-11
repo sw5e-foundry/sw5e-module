@@ -775,9 +775,23 @@ function getMovementBaseValue(value) {
 }
 
 /** Canonical Actor paths for Role published movement (OVERRIDE Active Effects). */
-export const STARSHIP_ROLE_MOVEMENT_SPACE_KEY = "system.attributes.movement.space";
-export const STARSHIP_ROLE_MOVEMENT_TURN_KEY = "system.attributes.movement.turn";
+export const STARSHIP_ROLE_MOVEMENT_SPACE_KEY = "system.attributes.movement.speeds.space";
+export const STARSHIP_ROLE_MOVEMENT_TURN_KEY = "system.attributes.movement.speeds.turn";
 export const STARSHIP_ACTIVE_EFFECT_MODE_OVERRIDE = 5;
+
+/**
+ * Read Space/Turn from the dnd5e 6.0 Actor movement structure (`movement.speeds`).
+ * Does not read obsolete sibling `movement.space` / `movement.turn` keys.
+ * @param {object} [movement]
+ * @returns {{ space: number|null, turn: number|null }}
+ */
+export function readStarshipActorMovementSpeeds(movement={}) {
+	const speeds = movement?.speeds && typeof movement.speeds === "object" ? movement.speeds : {};
+	return {
+		space: toFiniteNumber(speeds.space, null),
+		turn: toFiniteNumber(speeds.turn, null)
+	};
+}
 
 function normalizeMovementEffectKey(key) {
 	return String(key ?? "").trim();
@@ -889,7 +903,7 @@ function resolveStarshipMovementBase({
 		let base = null;
 		if ( controlled && published[field] !== null ) base = published[field];
 		else if ( underlying[field] !== null && underlying[field] !== undefined ) base = underlying[field];
-		else base = getMovementBaseValue(liveMovement?.[field]);
+		else base = readStarshipActorMovementSpeeds(liveMovement)[field];
 		if ( base === null ) base = getMovementBaseValue(legacyMovement?.[field]) ?? 0;
 		return base + (Number(deltas[field]) || 0);
 	};
@@ -1047,43 +1061,53 @@ export function resolveStarshipMovementSourceUpdate({
 	fieldControllers = null
 } = {}) {
 	const movement = { ...(proposedMovement ?? {}) };
+	const speeds = {
+		...(movement.speeds && typeof movement.speeds === "object" ? movement.speeds : {})
+	};
 	const controllers = fieldControllers ?? { space: { controlled: false }, turn: { controlled: false } };
 	const blockedFields = [];
 	const savedFields = [];
 
 	if ( pendingKeys ) {
-		for ( const key of ["space", "turn", "walk", "fly", "units"] ) {
+		for ( const key of ["space", "turn", "walk", "fly"] ) {
 			if ( pendingKeys.has(key) ) continue;
-			delete movement[key];
+			delete speeds[key];
 		}
+		if ( !pendingKeys.has("units") ) delete movement.units;
 	}
 
 	for ( const key of ["walk", "fly"] ) {
-		if ( key in movement ) delete movement[key];
+		delete speeds[key];
+		delete movement[key];
 	}
 
 	for ( const key of ["space", "turn"] ) {
-		if ( !(key in movement) ) continue;
-		const next = toFiniteNumber(movement[key], null);
+		if ( !(key in speeds) ) continue;
+		const next = toFiniteNumber(speeds[key], null);
 		if ( next === null ) {
-			delete movement[key];
+			delete speeds[key];
 			continue;
 		}
 		const rounded = Math.max(0, Math.round(next));
-		movement[key] = rounded;
+		speeds[key] = rounded;
 		const prior = toFiniteNumber(underlying[key], null);
 		const changed = prior === null ? true : rounded !== Math.round(prior);
 		if ( !changed ) {
-			delete movement[key];
+			delete speeds[key];
 			continue;
 		}
 		if ( controllers[key]?.controlled ) {
-			delete movement[key];
+			delete speeds[key];
 			blockedFields.push(key);
 			continue;
 		}
 		savedFields.push(key);
 	}
+
+	delete movement.space;
+	delete movement.turn;
+	if ( Object.keys(speeds).length ) movement.speeds = speeds;
+	else delete movement.speeds;
 
 	return {
 		movement,
@@ -1100,9 +1124,10 @@ export function getStarshipUnderlyingMovement(actor) {
 	const src = actor?._source?.system?.attributes?.movement
 		?? actor?.system?.attributes?.movement
 		?? {};
+	const speeds = readStarshipActorMovementSpeeds(src);
 	return {
-		space: toFiniteNumber(src.space, null),
-		turn: toFiniteNumber(src.turn, null),
+		space: speeds.space,
+		turn: speeds.turn,
 		units: src.units ?? "ft"
 	};
 }

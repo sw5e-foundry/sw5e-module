@@ -43,8 +43,8 @@ function roleItem({
 			);
 		} else {
 			changes.push(
-				{ key: "system.attributes.movement.space", mode, value: String(space), priority: 20 },
-				{ key: "system.attributes.movement.turn", mode, value: String(turn), priority: 20 }
+				{ key: "system.attributes.movement.speeds.space", mode, value: String(space), priority: 20 },
+				{ key: "system.attributes.movement.speeds.turn", mode, value: String(turn), priority: 20 }
 			);
 		}
 	}
@@ -79,10 +79,19 @@ function legacySystem({ routing="none" }={}) {
 }
 
 function mockActor({ effects=[], sourceMovement={} }={}) {
+	const movement = sourceMovement.speeds
+		? { units: sourceMovement.units ?? "ft", ...sourceMovement, speeds: { ...sourceMovement.speeds } }
+		: {
+			units: sourceMovement.units ?? "ft",
+			speeds: {
+				space: sourceMovement.space,
+				turn: sourceMovement.turn
+			}
+		};
 	return {
 		effects: { contents: effects },
-		_source: { system: { attributes: { movement: { ...sourceMovement } } } },
-		system: { attributes: { movement: { ...sourceMovement } } }
+		_source: { system: { attributes: { movement: { ...movement, speeds: { ...movement.speeds } } } } },
+		system: { attributes: { movement: { ...movement, speeds: { ...movement.speeds } } } }
 	};
 }
 
@@ -105,8 +114,8 @@ function overrideEffect({
 			{ key: "attributes.movement.turning", mode: 2, value: String(turn) }
 		);
 	} else {
-		if ( includeSpace ) changes.push({ key: "system.attributes.movement.space", mode, value: String(space) });
-		if ( includeTurn ) changes.push({ key: "system.attributes.movement.turn", mode, value: String(turn) });
+		if ( includeSpace ) changes.push({ key: "system.attributes.movement.speeds.space", mode, value: String(space) });
+		if ( includeTurn ) changes.push({ key: "system.attributes.movement.speeds.turn", mode, value: String(turn) });
 	}
 	return { id, name, disabled, changes };
 }
@@ -115,7 +124,7 @@ test("1. No Role, underlying present — Size does not alter", () => {
 	const result = deriveStarshipMovementData({
 		items: [],
 		legacySystem: legacySystem(),
-		liveMovement: { space: 120, turn: 80 },
+		liveMovement: { speeds: { space: 120, turn: 80 } },
 		sizeSystem: sizeSystem({ baseSpaceSpeed: 300, baseTurnSpeed: 250 })
 	});
 	assert.equal(result.space, 120);
@@ -127,7 +136,7 @@ test("2. No Role, underlying zero — Size does not replace zero", () => {
 	const result = deriveStarshipMovementData({
 		items: [],
 		legacySystem: legacySystem(),
-		liveMovement: { space: 0, turn: 0 },
+		liveMovement: { speeds: { space: 0, turn: 0 } },
 		sizeSystem: sizeSystem({ baseSpaceSpeed: 300, baseTurnSpeed: 250 })
 	});
 	assert.equal(result.space, 0);
@@ -145,7 +154,7 @@ test("3. Disabled Role movement effect — underlying live; Size does not restor
 	const result = deriveStarshipMovementData({
 		items: [roleItem({ space: 350, turn: 100 })],
 		legacySystem: legacySystem(),
-		liveMovement: { space: 40, turn: 30 },
+		liveMovement: { speeds: { space: 40, turn: 30 } },
 		sizeSystem: sizeSystem({ baseSpaceSpeed: 300, baseTurnSpeed: 250 }),
 		actor
 	});
@@ -154,7 +163,7 @@ test("3. Disabled Role movement effect — underlying live; Size does not restor
 
 	const resolved = resolveStarshipMovementSourceUpdate({
 		underlying: { space: 40, turn: 30 },
-		proposedMovement: { space: 55, turn: 44 },
+		proposedMovement: { speeds: { space: 55, turn: 44 } },
 		pendingKeys: new Set(["space", "turn"]),
 		fieldControllers: controllers
 	});
@@ -167,7 +176,7 @@ test("4. Deleted Role movement effect — underlying editable; no Size fallback"
 	const result = deriveStarshipMovementData({
 		items: [],
 		legacySystem: legacySystem(),
-		liveMovement: { space: 111, turn: 222 },
+		liveMovement: { speeds: { space: 111, turn: 222 } },
 		sizeSystem: sizeSystem({ baseSpaceSpeed: 300, baseTurnSpeed: 250 }),
 		fieldControllers: controllers
 	});
@@ -176,7 +185,7 @@ test("4. Deleted Role movement effect — underlying editable; no Size fallback"
 
 	const resolved = resolveStarshipMovementSourceUpdate({
 		underlying: { space: 111, turn: 222 },
-		proposedMovement: { space: 150, turn: 160 },
+		proposedMovement: { speeds: { space: 150, turn: 160 } },
 		pendingKeys: new Set(["space", "turn"]),
 		fieldControllers: controllers
 	});
@@ -193,7 +202,7 @@ test("5. Malformed Role effect — underlying authoritative; no Size conceal", (
 	const result = deriveStarshipMovementData({
 		items: [roleItem({ space: 350, turn: 100, badKeys: true })],
 		legacySystem: legacySystem(),
-		liveMovement: { space: 25, turn: 15 },
+		liveMovement: { speeds: { space: 25, turn: 15 } },
 		sizeSystem: sizeSystem({ baseSpaceSpeed: 300, baseTurnSpeed: 250 }),
 		fieldControllers: controllers
 	});
@@ -214,7 +223,7 @@ test("6. Valid Role Override — live AE values; Size does not independently aff
 	const result = deriveStarshipMovementData({
 		items,
 		legacySystem: legacySystem({ routing: "engines" }),
-		liveMovement: { space: 200, turn: 500 },
+		liveMovement: { speeds: { space: 200, turn: 500 } },
 		sizeSystem: sizeSystem({ baseSpaceSpeed: 999, baseTurnSpeed: 888 }),
 		fieldControllers: controllers,
 		slowedLevel: 1
@@ -232,7 +241,7 @@ test("7. Explicit zero with valid effect disabled — zero remains; no fallback"
 	const result = deriveStarshipMovementData({
 		items: [roleItem({ space: 350, turn: 100 })],
 		legacySystem: legacySystem(),
-		liveMovement: { space: 0, turn: 0 },
+		liveMovement: { speeds: { space: 0, turn: 0 } },
 		sizeSystem: sizeSystem({ baseSpaceSpeed: 300, baseTurnSpeed: 250 }),
 		actor
 	});
@@ -248,7 +257,7 @@ test("8. Role/Size mismatch soft warning — Size does not substitute speed", ()
 	const result = deriveStarshipMovementData({
 		items,
 		legacySystem: legacySystem(),
-		liveMovement: { space: 200, turn: 500 },
+		liveMovement: { speeds: { space: 200, turn: 500 } },
 		sizeSystem: sizeSystem({ identifier: "small", baseSpaceSpeed: 300, baseTurnSpeed: 250 }),
 		fieldControllers: getStarshipMovementFieldControllers(mockActor({
 			effects: [overrideEffect({ name: "Role: Warship", space: 200, turn: 500 })]
@@ -260,7 +269,7 @@ test("8. Role/Size mismatch soft warning — Size does not substitute speed", ()
 
 test("9. Size change alone does not change movement", () => {
 	const items = [];
-	const live = { space: 90, turn: 70 };
+	const live = { speeds: { space: 90, turn: 70 } };
 	const a = deriveStarshipMovementData({
 		items,
 		legacySystem: legacySystem(),
@@ -282,7 +291,7 @@ test("No soft recovery when published OVERRIDE exists but live is zero", () => {
 	const result = deriveStarshipMovementData({
 		items: [roleItem({ space: 200, turn: 500 })],
 		legacySystem: legacySystem(),
-		liveMovement: { space: 0, turn: 0 },
+		liveMovement: { speeds: { space: 0, turn: 0 } },
 		sizeSystem: sizeSystem()
 	});
 	assert.equal(result.space, 0);
@@ -293,7 +302,7 @@ test("No Role item attributes.speed runtime fallback when AE absent", () => {
 	const result = deriveStarshipMovementData({
 		items: [roleItem({ space: 350, turn: 100, withEffect: false })],
 		legacySystem: legacySystem(),
-		liveMovement: { space: 0, turn: 0 },
+		liveMovement: { speeds: { space: 0, turn: 0 } },
 		sizeSystem: sizeSystem({ baseSpaceSpeed: 300, baseTurnSpeed: 250 })
 	});
 	assert.equal(result.space, 0);
@@ -306,7 +315,7 @@ test("Controlled edit warns; does not save; no movementOverrides", () => {
 	}));
 	const resolved = resolveStarshipMovementSourceUpdate({
 		underlying: { space: 50, turn: 40 },
-		proposedMovement: { space: 999, turn: 888 },
+		proposedMovement: { speeds: { space: 999, turn: 888 } },
 		pendingKeys: new Set(["space", "turn"]),
 		fieldControllers: controllers
 	});
@@ -321,13 +330,13 @@ test("Partial control: Space Override, Turn free", () => {
 	}));
 	const resolved = resolveStarshipMovementSourceUpdate({
 		underlying: { space: 50, turn: 40 },
-		proposedMovement: { space: 999, turn: 120 },
+		proposedMovement: { speeds: { space: 999, turn: 120 } },
 		pendingKeys: new Set(["space", "turn"]),
 		fieldControllers: controllers
 	});
 	assert.deepEqual(resolved.blockedFields, ["space"]);
 	assert.deepEqual(resolved.savedFields, ["turn"]);
-	assert.equal(resolved.movement.turn, 120);
+	assert.equal(resolved.movement.speeds.turn, 120);
 });
 
 test("Add-mode / ability-only do not control base", () => {
@@ -352,7 +361,7 @@ test("Duplicate Override effects: ambiguous soft warning", () => {
 			roleItem({ name: "Role: B", space: 450, turn: 200 })
 		],
 		legacySystem: legacySystem(),
-		liveMovement: { space: 350, turn: 100 },
+		liveMovement: { speeds: { space: 350, turn: 100 } },
 		fieldControllers: controllers
 	});
 	assert.ok(result.roleWarnings.some(w => w.code === "duplicate-movement-override-space"));
@@ -364,13 +373,13 @@ test("Ability / tier do not alter Role movement", () => {
 	const a = deriveStarshipMovementData({
 		items,
 		legacySystem: legacySystem(),
-		liveMovement: { space: 350, turn: 100 },
+		liveMovement: { speeds: { space: 350, turn: 100 } },
 		liveAbilities: { str: { value: 3 }, con: { value: 30 } }
 	});
 	const b = deriveStarshipMovementData({
 		items,
 		legacySystem: legacySystem(),
-		liveMovement: { space: 350, turn: 100 },
+		liveMovement: { speeds: { space: 350, turn: 100 } },
 		liveAbilities: { str: { value: 30 }, con: { value: 3 } }
 	});
 	assert.equal(a.space, b.space);
@@ -387,7 +396,7 @@ test("Travel not mutated by derive", () => {
 	deriveStarshipMovementData({
 		items: [roleItem()],
 		legacySystem: legacy,
-		liveMovement: { space: 350, turn: 100 }
+		liveMovement: { speeds: { space: 350, turn: 100 } }
 	});
 	assert.equal(legacy.attributes.travel.speeds.air, "12");
 	assert.equal(legacy.attributes.travel.paces.air, "fast");
@@ -397,7 +406,7 @@ test("Routing ×2 / ×0.5 on live base once", () => {
 	const engines = deriveStarshipMovementData({
 		items: [roleItem({ space: 350, turn: 100 })],
 		legacySystem: legacySystem({ routing: "engines" }),
-		liveMovement: { space: 350, turn: 100 }
+		liveMovement: { speeds: { space: 350, turn: 100 } }
 	});
 	assert.equal(engines.space, 700);
 	assert.equal(engines.turn, 100);
@@ -405,7 +414,7 @@ test("Routing ×2 / ×0.5 on live base once", () => {
 	const shields = deriveStarshipMovementData({
 		items: [roleItem({ space: 350, turn: 100 })],
 		legacySystem: legacySystem({ routing: "shields" }),
-		liveMovement: { space: 350, turn: 100 }
+		liveMovement: { speeds: { space: 350, turn: 100 } }
 	});
 	assert.equal(shields.space, 175);
 });
@@ -428,7 +437,7 @@ test("A. Slowed exact mapping base 200/500", () => {
 			items,
 			actor,
 			legacySystem: legacySystem(),
-			liveMovement: { space: 999, turn: 999 },
+			liveMovement: { speeds: { space: 999, turn: 999 } },
 			slowedLevel: Number(level)
 		});
 		assert.equal(result.space, space, `level ${level} space`);
@@ -485,12 +494,12 @@ test("C. Level transitions never compound prior Slowed output", () => {
 			items,
 			actor,
 			legacySystem: legacySystem(),
-			liveMovement: prior ?? { space: 200, turn: 500 },
+			liveMovement: prior ?? { speeds: { space: 200, turn: 500 } },
 			slowedLevel: level
 		});
 		assert.equal(result.space, expect[level][0], `transition→${level} space`);
 		assert.equal(result.turn, expect[level][1], `transition→${level} turn`);
-		prior = { space: result.space, turn: result.turn };
+		prior = { speeds: { space: result.space, turn: result.turn } };
 	}
 });
 
@@ -500,7 +509,7 @@ test("D. Repeated derive at same level does not compound", () => {
 		effects: [overrideEffect({ name: "Role: Warship", space: 200, turn: 500 })],
 		sourceMovement: { space: 10, turn: 10 }
 	});
-	let live = { space: 200, turn: 500 };
+	let live = { speeds: { space: 200, turn: 500 } };
 	for ( let i = 0; i < 5; i++ ) {
 		const result = deriveStarshipMovementData({
 			items,
@@ -511,7 +520,7 @@ test("D. Repeated derive at same level does not compound", () => {
 		});
 		assert.equal(result.space, 50);
 		assert.equal(result.turn, 350);
-		live = { space: result.space, turn: result.turn };
+		live = { speeds: { space: result.space, turn: result.turn } };
 	}
 });
 
@@ -577,8 +586,8 @@ test("G. Removal / inactive restores routed Role base; underlying unchanged", ()
 	});
 	assert.equal(cleared.space, 400);
 	assert.equal(cleared.turn, 500);
-	assert.equal(actor._source.system.attributes.movement.space, 40);
-	assert.equal(actor._source.system.attributes.movement.turn, 30);
+	assert.equal(actor._source.system.attributes.movement.speeds.space, 40);
+	assert.equal(actor._source.system.attributes.movement.speeds.turn, 30);
 });
 
 test("Stored travel is preserved under Slowed fill", () => {
