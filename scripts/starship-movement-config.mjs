@@ -5,6 +5,12 @@ import {
 	resolveStarshipMovementSourceUpdate
 } from "./starship-data.mjs";
 import { isSw5eStarshipActor, STARSHIP_MOVEMENT_TYPE_KEYS } from "./patch/starship-movement.mjs";
+import {
+	STARSHIP_SPEEDS_PATH_PREFIX,
+	STARSHIP_UNITS_PATH,
+	filterNonStarshipMovementContext,
+	resolveMovementTypeKey
+} from "./starship-movement-context.mjs";
 
 const STARSHIP_MOVEMENT_TYPE_SET = new Set(STARSHIP_MOVEMENT_TYPE_KEYS);
 const STARSHIP_BRIDGED_MOVEMENT_KEYS = Object.freeze(["space", "turn", "walk", "fly", "units"]);
@@ -19,23 +25,9 @@ function localizeOrFallback(key, fallback) {
 	return localized && localized !== key ? localized : fallback;
 }
 
-/**
- * MovementSensesConfig builds `context.types` from `this.types` in order; `space` / `turn`
- * FormulaFields may lack `field.name`, so resolve the movement key by index or fields map.
- */
-function resolveMovementTypeKey(entry, index, orderedKeys, fields) {
-	const keyFromOrder = orderedKeys?.[index];
-	if ( keyFromOrder && fields?.[keyFromOrder] === entry.field ) return keyFromOrder;
-	if ( entry.field?.name ) return entry.field.name;
-	if ( entry.field && fields ) {
-		return Object.keys(fields).find(key => fields[key] === entry.field) ?? null;
-	}
-	return keyFromOrder ?? null;
-}
-
 function ensureStarshipMovementEntryName(entry, key) {
 	if ( !entry || !key ) return;
-	const path = `system.attributes.movement.${key}`;
+	const path = key === "units" ? STARSHIP_UNITS_PATH : `${STARSHIP_SPEEDS_PATH_PREFIX}${key}`;
 	if ( !entry.name ) entry.name = path;
 	if ( entry.field && !entry.field.name ) entry.field.name = path;
 }
@@ -43,10 +35,12 @@ function ensureStarshipMovementEntryName(entry, key) {
 function getTrackedStarshipMovementKey(target) {
 	const path = target?.name;
 	if ( typeof path !== "string" ) return null;
-	const key = path.startsWith("system.attributes.movement.")
-		? path.slice("system.attributes.movement.".length)
-		: null;
-	return key && STARSHIP_BRIDGED_MOVEMENT_KEY_SET.has(key) ? key : null;
+	if ( path === STARSHIP_UNITS_PATH ) return "units";
+	if ( path.startsWith(STARSHIP_SPEEDS_PATH_PREFIX) ) {
+		const key = path.slice(STARSHIP_SPEEDS_PATH_PREFIX.length);
+		return key && STARSHIP_BRIDGED_MOVEMENT_KEY_SET.has(key) ? key : null;
+	}
+	return null;
 }
 
 function resetPendingStarshipMovementEdits(actor) {
@@ -98,15 +92,6 @@ function applyStarshipMovementDisplayValues(actor, context, orderedKeys) {
 		const units = getStarshipDialogMovementValue(actor, "units");
 		if ( units !== undefined && units !== null && units !== "" ) context.data.units = units;
 	}
-	return context;
-}
-
-function filterNonStarshipMovementContext(context, orderedKeys) {
-	if ( !Array.isArray(context.types) ) return context;
-	context.types = context.types.filter((entry, index) => {
-		const key = resolveMovementTypeKey(entry, index, orderedKeys, context.fields);
-		return !key || !STARSHIP_MOVEMENT_TYPE_SET.has(key);
-	});
 	return context;
 }
 
@@ -176,6 +161,7 @@ function onStarshipMovementConfigPreUpdate(doc, changed) {
 
 	for ( const key of STARSHIP_FIXED_ZERO_MOVEMENT_KEYS ) {
 		if ( key in movement ) delete movement[key];
+		if ( movement.speeds && (key in movement.speeds) ) delete movement.speeds[key];
 	}
 
 	if ( resolved.warning ) {

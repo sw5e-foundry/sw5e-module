@@ -722,8 +722,8 @@ export function formatMovement(actor, legacySystem, runtime = null) {
 		};
 	}
 
-	const spaceSpeed = Number.isFinite(Number(actor.system?.attributes?.movement?.space))
-		? Number(actor.system.attributes.movement.space)
+	const spaceSpeed = Number.isFinite(Number(actor.system?.attributes?.movement?.speeds?.space))
+		? Number(actor.system.attributes.movement.speeds.space)
 		: null;
 	return {
 		primary: spaceSpeed != null ? `${spaceSpeed} ${units}` : "-",

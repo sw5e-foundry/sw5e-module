@@ -62,8 +62,8 @@ const MATRIX = {
 	}
 };
 
-const SPACE_KEY = "system.attributes.movement.space";
-const TURN_KEY = "system.attributes.movement.turn";
+const SPACE_KEY = "system.attributes.movement.speeds.space";
+const TURN_KEY = "system.attributes.movement.speeds.turn";
 const MODE_OVERRIDE = 5;
 
 let passed = 0;

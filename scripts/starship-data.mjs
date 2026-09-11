@@ -775,19 +775,95 @@ function getMovementBaseValue(value) {
 }
 
 /** Canonical Actor paths for Role published movement (OVERRIDE Active Effects). */
-export const STARSHIP_ROLE_MOVEMENT_SPACE_KEY = "system.attributes.movement.space";
-export const STARSHIP_ROLE_MOVEMENT_TURN_KEY = "system.attributes.movement.turn";
-export const STARSHIP_ACTIVE_EFFECT_MODE_OVERRIDE = 5;
+export const STARSHIP_ROLE_MOVEMENT_SPACE_KEY = "system.attributes.movement.speeds.space";
+export const STARSHIP_ROLE_MOVEMENT_TURN_KEY = "system.attributes.movement.speeds.turn";
+/** Foundry 14.367 ActiveEffect change string types (BaseActiveEffect.#MODES_TO_TYPES). */
+export const STARSHIP_ACTIVE_EFFECT_TYPE_OVERRIDE = "override";
+export const STARSHIP_ACTIVE_EFFECT_TYPE_ADD = "add";
+
+/**
+ * Read Space/Turn from the dnd5e 6.0 Actor movement structure (`movement.speeds`).
+ * Does not read obsolete sibling `movement.space` / `movement.turn` keys.
+ * @param {object} [movement]
+ * @returns {{ space: number|null, turn: number|null }}
+ */
+export function readStarshipActorMovementSpeeds(movement={}) {
+	const speeds = movement?.speeds && typeof movement.speeds === "object" ? movement.speeds : {};
+	return {
+		space: toFiniteNumber(speeds.space, null),
+		turn: toFiniteNumber(speeds.turn, null)
+	};
+}
 
 function normalizeMovementEffectKey(key) {
 	return String(key ?? "").trim();
 }
 
-function isCanonicalRoleMovementOverrideChange(change) {
+function getStarshipMovementChangeType(change) {
+	return String(change?.type ?? "").trim();
+}
+
+function collectApplicableMovementEffects(actor) {
+	if ( !actor ) return [];
+	if ( typeof actor.allApplicableEffects === "function" ) return [...actor.allApplicableEffects()];
+	return actor.appliedEffects ?? actor.effects?.contents ?? actor.effects ?? [];
+}
+
+/**
+ * True when a change is a Foundry 14 OVERRIDE on a canonical `movement.speeds` path.
+ * Compares string `type` only. Sibling keys are not canonical.
+ * @param {object} [change]
+ * @returns {boolean}
+ */
+export function isCanonicalRoleMovementOverrideChange(change) {
 	const key = normalizeMovementEffectKey(change?.key);
-	const mode = Number(change?.mode);
-	if ( mode !== STARSHIP_ACTIVE_EFFECT_MODE_OVERRIDE ) return false;
+	if ( getStarshipMovementChangeType(change) !== STARSHIP_ACTIVE_EFFECT_TYPE_OVERRIDE ) return false;
 	return key === STARSHIP_ROLE_MOVEMENT_SPACE_KEY || key === STARSHIP_ROLE_MOVEMENT_TURN_KEY;
+}
+
+function isCanonicalStarshipMovementAddChange(change) {
+	const key = normalizeMovementEffectKey(change?.key);
+	if ( getStarshipMovementChangeType(change) !== STARSHIP_ACTIVE_EFFECT_TYPE_ADD ) return false;
+	return key === STARSHIP_ROLE_MOVEMENT_SPACE_KEY || key === STARSHIP_ROLE_MOVEMENT_TURN_KEY;
+}
+
+function emptyMovementOverrideValues() {
+	return { space: null, turn: null, source: null, hasPublishedEffect: false };
+}
+
+function readOverrideValuesFromEffects(effects = []) {
+	let space = null;
+	let turn = null;
+	let source = null;
+	for ( const effect of effects ) {
+		if ( !effect || effect.disabled ) continue;
+		for ( const change of effect.changes ?? [] ) {
+			if ( !isCanonicalRoleMovementOverrideChange(change) ) continue;
+			const key = normalizeMovementEffectKey(change.key);
+			const value = toFiniteNumber(change.value, null);
+			if ( value === null ) continue;
+			if ( key === STARSHIP_ROLE_MOVEMENT_SPACE_KEY ) space = value;
+			if ( key === STARSHIP_ROLE_MOVEMENT_TURN_KEY ) turn = value;
+			source = effect.name ?? source;
+		}
+	}
+	return {
+		space,
+		turn,
+		source,
+		hasPublishedEffect: space !== null || turn !== null
+	};
+}
+
+/**
+ * Canonical OVERRIDE values from applicable Actor effects (transferred Role items and
+ * world-created actor AEs). Sibling keys are ignored.
+ * @param {object|null} actor
+ * @returns {{ space: number|null, turn: number|null, source: string|null, hasPublishedEffect: boolean }}
+ */
+export function getStarshipMovementOverrideValues(actor) {
+	if ( !actor ) return emptyMovementOverrideValues();
+	return readOverrideValuesFromEffects(collectApplicableMovementEffects(actor));
 }
 
 /**
@@ -801,19 +877,11 @@ export function getRolePublishedMovementFromItems(items = []) {
 	let source = null;
 	for ( const item of roles ) {
 		const effects = item.effects?.contents ?? item.effects ?? [];
-		for ( const effect of effects ) {
-			if ( effect?.disabled ) continue;
-			for ( const change of effect.changes ?? [] ) {
-				if ( !isCanonicalRoleMovementOverrideChange(change) ) continue;
-				const key = normalizeMovementEffectKey(change.key);
-				const value = toFiniteNumber(change.value, null);
-				if ( value === null ) continue;
-				if ( key === STARSHIP_ROLE_MOVEMENT_SPACE_KEY ) space = value;
-				if ( key === STARSHIP_ROLE_MOVEMENT_TURN_KEY ) turn = value;
-			}
-		}
-		if ( space !== null || turn !== null ) {
-			source = item.name ?? "Role";
+		const fromItem = readOverrideValuesFromEffects(effects);
+		if ( fromItem.space !== null ) space = fromItem.space;
+		if ( fromItem.turn !== null ) turn = fromItem.turn;
+		if ( fromItem.hasPublishedEffect ) {
+			source = item.name ?? fromItem.source ?? "Role";
 			break;
 		}
 	}
@@ -860,12 +928,15 @@ export function getStarshipRoleMovementValidationWarnings(items = [], sizeSystem
  * Resolve prepared combat movement base before routing/Slowed.
  *
  * Authority (no Size / Role-item-speed fallback; no soft recovery from live 0):
- * - Enabled Override controllers → published Role OVERRIDE values from item AEs
- * - Else underlying Actor `_source` movement (homebrew)
- * - Plus enabled Add-mode deltas on canonical paths (e.g. Combat Thrusters)
+ * - Enabled Override controllers → canonical OVERRIDE values from applicable effects
+ *   (Role transfer or world-created actor AEs on `movement.speeds.*`)
+ * - Else underlying Actor `_source.speeds` (homebrew)
+ * - Else flag-stored chassis baseline when an actor is present (not live sibling extras)
+ * - Plus enabled Add-type deltas on canonical paths (e.g. Combat Thrusters)
  *
  * Never use already Slowed/routed prepared live values as the base (prevents double Slowed
  * when sheet code re-calls derive after prepare wrote Slowed results).
+ * Live sibling extras from obsolete AE keys are not controllers.
  */
 function resolveStarshipMovementBase({
 	items = [],
@@ -875,22 +946,28 @@ function resolveStarshipMovementBase({
 	actor = null,
 	addDeltas = null
 } = {}) {
-	const published = getRolePublishedMovementFromItems(items);
+	const publishedFromItems = getRolePublishedMovementFromItems(items);
+	const publishedFromActor = actor ? getStarshipMovementOverrideValues(actor) : emptyMovementOverrideValues();
+	const published = publishedFromActor.hasPublishedEffect ? publishedFromActor : publishedFromItems;
 	const underlying = actor
 		? getStarshipUnderlyingMovement(actor)
 		: {
 			space: getMovementBaseValue(legacyMovement.space),
 			turn: getMovementBaseValue(legacyMovement.turn)
 		};
+	const flagMovement = actor?.flags?.sw5e?.legacyStarshipActor?.system?.attributes?.movement ?? {};
 	const deltas = addDeltas ?? (actor ? getStarshipMovementAddDeltas(actor) : { space: 0, turn: 0 });
 
 	const pick = (field) => {
 		const controlled = !!fieldControllers?.[field]?.controlled;
 		let base = null;
-		if ( controlled && published[field] !== null ) base = published[field];
+		if ( controlled && published[field] !== null && published[field] !== undefined ) base = published[field];
 		else if ( underlying[field] !== null && underlying[field] !== undefined ) base = underlying[field];
-		else base = getMovementBaseValue(liveMovement?.[field]);
-		if ( base === null ) base = getMovementBaseValue(legacyMovement?.[field]) ?? 0;
+		else if ( !actor ) base = readStarshipActorMovementSpeeds(liveMovement)[field];
+		if ( base === null ) {
+			if ( actor ) base = getMovementBaseValue(flagMovement?.[field]) ?? 0;
+			else base = getMovementBaseValue(legacyMovement?.[field]) ?? 0;
+		}
 		return base + (Number(deltas[field]) || 0);
 	};
 
@@ -914,23 +991,17 @@ function resolveStarshipMovementBase({
 	};
 }
 
-/** Foundry ActiveEffect mode Add. */
-const STARSHIP_ACTIVE_EFFECT_MODE_ADD = 2;
-
 /**
- * Sum enabled Add-mode deltas on canonical movement paths (not Override).
+ * Sum enabled Add-type deltas on canonical movement paths (not Override).
+ * Uses Foundry 14 string `type`; does not read a numeric mode property.
  */
 export function getStarshipMovementAddDeltas(actor) {
 	const deltas = { space: 0, turn: 0 };
 	if ( !actor ) return deltas;
-	const effects = typeof actor.allApplicableEffects === "function"
-		? [...actor.allApplicableEffects()]
-		: (actor.appliedEffects ?? actor.effects?.contents ?? actor.effects ?? []);
-	for ( const effect of effects ) {
+	for ( const effect of collectApplicableMovementEffects(actor) ) {
 		if ( !effect || effect.disabled ) continue;
 		for ( const change of effect.changes ?? [] ) {
-			const mode = Number(change?.mode);
-			if ( mode !== STARSHIP_ACTIVE_EFFECT_MODE_ADD ) continue;
+			if ( !isCanonicalStarshipMovementAddChange(change) ) continue;
 			const key = normalizeMovementEffectKey(change.key);
 			const value = toFiniteNumber(change.value, null);
 			if ( value === null ) continue;
@@ -965,9 +1036,7 @@ export function getStarshipMovementFieldControllers(actor, { includeDisabled = f
 	if ( !actor ) return result;
 
 	const byField = { space: new Map(), turn: new Map() };
-	const effects = typeof actor.allApplicableEffects === "function"
-		? [...actor.allApplicableEffects()]
-		: (actor.appliedEffects ?? actor.effects?.contents ?? actor.effects ?? []);
+	const effects = collectApplicableMovementEffects(actor);
 	for ( const effect of effects ) {
 		if ( !effect ) continue;
 		if ( !includeDisabled && effect.disabled ) continue;
@@ -1047,43 +1116,53 @@ export function resolveStarshipMovementSourceUpdate({
 	fieldControllers = null
 } = {}) {
 	const movement = { ...(proposedMovement ?? {}) };
+	const speeds = {
+		...(movement.speeds && typeof movement.speeds === "object" ? movement.speeds : {})
+	};
 	const controllers = fieldControllers ?? { space: { controlled: false }, turn: { controlled: false } };
 	const blockedFields = [];
 	const savedFields = [];
 
 	if ( pendingKeys ) {
-		for ( const key of ["space", "turn", "walk", "fly", "units"] ) {
+		for ( const key of ["space", "turn", "walk", "fly"] ) {
 			if ( pendingKeys.has(key) ) continue;
-			delete movement[key];
+			delete speeds[key];
 		}
+		if ( !pendingKeys.has("units") ) delete movement.units;
 	}
 
 	for ( const key of ["walk", "fly"] ) {
-		if ( key in movement ) delete movement[key];
+		delete speeds[key];
+		delete movement[key];
 	}
 
 	for ( const key of ["space", "turn"] ) {
-		if ( !(key in movement) ) continue;
-		const next = toFiniteNumber(movement[key], null);
+		if ( !(key in speeds) ) continue;
+		const next = toFiniteNumber(speeds[key], null);
 		if ( next === null ) {
-			delete movement[key];
+			delete speeds[key];
 			continue;
 		}
 		const rounded = Math.max(0, Math.round(next));
-		movement[key] = rounded;
+		speeds[key] = rounded;
 		const prior = toFiniteNumber(underlying[key], null);
 		const changed = prior === null ? true : rounded !== Math.round(prior);
 		if ( !changed ) {
-			delete movement[key];
+			delete speeds[key];
 			continue;
 		}
 		if ( controllers[key]?.controlled ) {
-			delete movement[key];
+			delete speeds[key];
 			blockedFields.push(key);
 			continue;
 		}
 		savedFields.push(key);
 	}
+
+	delete movement.space;
+	delete movement.turn;
+	if ( Object.keys(speeds).length ) movement.speeds = speeds;
+	else delete movement.speeds;
 
 	return {
 		movement,
@@ -1095,14 +1174,14 @@ export function resolveStarshipMovementSourceUpdate({
 
 /**
  * Underlying stored Actor movement (homebrew / editable source), not prepared live.
+ * Reads `_source.speeds` only. Does not treat live sibling extras as underlying.
  */
 export function getStarshipUnderlyingMovement(actor) {
-	const src = actor?._source?.system?.attributes?.movement
-		?? actor?.system?.attributes?.movement
-		?? {};
+	const src = actor?._source?.system?.attributes?.movement ?? {};
+	const speeds = readStarshipActorMovementSpeeds(src);
 	return {
-		space: toFiniteNumber(src.space, null),
-		turn: toFiniteNumber(src.turn, null),
+		space: speeds.space,
+		turn: speeds.turn,
 		units: src.units ?? "ft"
 	};
 }
