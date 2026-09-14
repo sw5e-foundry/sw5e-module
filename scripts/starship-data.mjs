@@ -780,6 +780,7 @@ export const STARSHIP_ROLE_MOVEMENT_TURN_KEY = "system.attributes.movement.speed
 /** Foundry 14.367 ActiveEffect change string types (BaseActiveEffect.#MODES_TO_TYPES). */
 export const STARSHIP_ACTIVE_EFFECT_TYPE_OVERRIDE = "override";
 export const STARSHIP_ACTIVE_EFFECT_TYPE_ADD = "add";
+export const STARSHIP_ACTIVE_EFFECT_TYPE_MULTIPLY = "multiply";
 
 /**
  * Read Space/Turn from the dnd5e 6.0 Actor movement structure (`movement.speeds`).
@@ -824,6 +825,12 @@ export function isCanonicalRoleMovementOverrideChange(change) {
 function isCanonicalStarshipMovementAddChange(change) {
 	const key = normalizeMovementEffectKey(change?.key);
 	if ( getStarshipMovementChangeType(change) !== STARSHIP_ACTIVE_EFFECT_TYPE_ADD ) return false;
+	return key === STARSHIP_ROLE_MOVEMENT_SPACE_KEY || key === STARSHIP_ROLE_MOVEMENT_TURN_KEY;
+}
+
+function isCanonicalStarshipMovementMultiplyChange(change) {
+	const key = normalizeMovementEffectKey(change?.key);
+	if ( getStarshipMovementChangeType(change) !== STARSHIP_ACTIVE_EFFECT_TYPE_MULTIPLY ) return false;
 	return key === STARSHIP_ROLE_MOVEMENT_SPACE_KEY || key === STARSHIP_ROLE_MOVEMENT_TURN_KEY;
 }
 
@@ -933,10 +940,12 @@ export function getStarshipRoleMovementValidationWarnings(items = [], sizeSystem
  * - Else underlying Actor `_source.speeds` (homebrew)
  * - Else flag-stored chassis baseline when an actor is present (not live sibling extras)
  * - Plus enabled Add-type deltas on canonical paths (e.g. Combat Thrusters)
+ * - Then canonical multiply factors when no OVERRIDE controller supersedes that field
  *
  * Never use already Slowed/routed prepared live values as the base (prevents double Slowed
  * when sheet code re-calls derive after prepare wrote Slowed results).
  * Live sibling extras from obsolete AE keys are not controllers.
+ * Multiply does not read live prepared speeds (prevents doubling an already-written DTO).
  */
 function resolveStarshipMovementBase({
 	items = [],
@@ -971,8 +980,11 @@ function resolveStarshipMovementBase({
 		return base + (Number(deltas[field]) || 0);
 	};
 
-	const space = pick("space");
-	const turn = pick("turn");
+	const spaceBase = pick("space");
+	const turnBase = pick("turn");
+	const factors = actor ? getStarshipMovementMultiplyFactors(actor) : { space: 1, turn: 1 };
+	const space = fieldControllers?.space?.controlled ? spaceBase : spaceBase * factors.space;
+	const turn = fieldControllers?.turn?.controlled ? turnBase : turnBase * factors.turn;
 
 	let profileSource = "Actor";
 	if ( fieldControllers?.space?.controlled || fieldControllers?.turn?.controlled ) {
@@ -1010,6 +1022,30 @@ export function getStarshipMovementAddDeltas(actor) {
 		}
 	}
 	return deltas;
+}
+
+/**
+ * Product of enabled multiply-type factors on canonical movement paths.
+ * Uses Foundry 14 string `type`; does not read a numeric mode property.
+ * Sibling keys and OVERRIDE/ADD changes are ignored.
+ * @param {object|null} actor
+ * @returns {{ space: number, turn: number }}
+ */
+export function getStarshipMovementMultiplyFactors(actor) {
+	const factors = { space: 1, turn: 1 };
+	if ( !actor ) return factors;
+	for ( const effect of collectApplicableMovementEffects(actor) ) {
+		if ( !effect || effect.disabled ) continue;
+		for ( const change of effect.changes ?? [] ) {
+			if ( !isCanonicalStarshipMovementMultiplyChange(change) ) continue;
+			const factor = toFiniteNumber(change.value, null);
+			if ( factor === null ) continue;
+			const key = normalizeMovementEffectKey(change.key);
+			if ( key === STARSHIP_ROLE_MOVEMENT_SPACE_KEY ) factors.space *= factor;
+			else if ( key === STARSHIP_ROLE_MOVEMENT_TURN_KEY ) factors.turn *= factor;
+		}
+	}
+	return factors;
 }
 
 export function getStarshipTravelPaceOptions() {

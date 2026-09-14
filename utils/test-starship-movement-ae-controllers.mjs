@@ -9,6 +9,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
 	STARSHIP_ACTIVE_EFFECT_TYPE_ADD,
+	STARSHIP_ACTIVE_EFFECT_TYPE_MULTIPLY,
 	STARSHIP_ACTIVE_EFFECT_TYPE_OVERRIDE,
 	STARSHIP_ROLE_MOVEMENT_SPACE_KEY,
 	STARSHIP_ROLE_MOVEMENT_TURN_KEY,
@@ -52,6 +53,7 @@ function change({ key, type, value, priority=20, mode }={}) {
 test("constants match Foundry 14.367 string types", () => {
 	assert.equal(STARSHIP_ACTIVE_EFFECT_TYPE_OVERRIDE, "override");
 	assert.equal(STARSHIP_ACTIVE_EFFECT_TYPE_ADD, "add");
+	assert.equal(STARSHIP_ACTIVE_EFFECT_TYPE_MULTIPLY, "multiply");
 	assert.equal(STARSHIP_ROLE_MOVEMENT_SPACE_KEY, "system.attributes.movement.speeds.space");
 	assert.equal(STARSHIP_ROLE_MOVEMENT_TURN_KEY, "system.attributes.movement.speeds.turn");
 });
@@ -80,6 +82,17 @@ test("supported OVERRIDE and ADD string types are handled; unrelated types ignor
 	});
 	assert.equal(getStarshipMovementAddDeltas(addActor).space, 50);
 	assert.equal(getStarshipMovementFieldControllers(addActor).space.controlled, false);
+
+	const multiplyActor = mockActor({
+		effects: [{
+			id: "mult1",
+			name: "Overload Systems",
+			disabled: false,
+			changes: [change({ key: STARSHIP_ROLE_MOVEMENT_TURN_KEY, type: "multiply", value: 2 })]
+		}]
+	});
+	assert.equal(getStarshipMovementFieldControllers(multiplyActor).turn.controlled, false);
+	assert.equal(getStarshipMovementAddDeltas(multiplyActor).turn, 0);
 });
 
 test("obsolete sibling keys are ignored even with string OVERRIDE", () => {
