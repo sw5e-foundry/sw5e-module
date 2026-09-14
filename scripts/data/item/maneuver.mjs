@@ -1,5 +1,9 @@
 import { getBestAbility } from "./../../utils.mjs";
 import {
+	adaptManeuverCardContext,
+	maneuverChatPropertyDescriptors
+} from "../../maneuver-card-data.mjs";
+import {
 	buildManeuverActivationTypes,
 	buildManeuverDescriptionSummary,
 	buildManeuverDurationUnits,
@@ -260,10 +264,11 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 	/** @inheritDoc */
 	async getCardData(enrichmentOptions = {}) {
 		const context = await super.getCardData(enrichmentOptions);
-		context.isManeuver = true;
-		context.subtitle = CONFIG.DND5E.superiority.types[this.type.value]?.label ?? "";
-		context.properties = [];
-		return context;
+		const typeLabel = CONFIG.DND5E.superiority.types[this.type.value]?.label ?? "";
+		return adaptManeuverCardContext(context, {
+			typeLabel,
+			extraProperties: this.chatProperties
+		});
 	}
 
 	/* -------------------------------------------- */
@@ -334,12 +339,10 @@ export default class ManeuverData extends ItemDataModel.mixin(ItemDescriptionTem
 
 	/**
 	 * Properties displayed in chat.
-	 * @type {string[]}
+	 * @type {object[]}
 	 */
 	get chatProperties() {
-		return [
-			...this.parent.labels.components?.tags ?? []
-		];
+		return maneuverChatPropertyDescriptors(this.parent.labels.components?.tags ?? []);
 	}
 
 	/* -------------------------------------------- */

@@ -48,10 +48,10 @@ export function patchStarshipArmorClassConfig() {
 	try {
 		libWrapper.register(getModuleId(), target, async function(wrapped, partId, context, options) {
 			context = await wrapped(partId, context, options);
-			if ( !Array.isArray(context?.calculationOptions) ) return context;
+			if ( !Array.isArray(context?.formulaOptions) ) return context;
 			const isStarship = isSw5eStarshipActor(this.document);
-			context.calculationOptions = filterArmorClassCalculationOptions(
-				context.calculationOptions,
+			context.formulaOptions = filterArmorClassCalculationOptions(
+				context.formulaOptions,
 				isStarship
 			);
 			return context;

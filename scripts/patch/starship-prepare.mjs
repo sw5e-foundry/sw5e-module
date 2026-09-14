@@ -99,10 +99,13 @@ export function patchStarshipPrepare() {
 				if ( this.attributes?.movement && (typeof this.attributes.movement === "object") ) {
 					// Live values only: Role AE / underlying base → routing → Slowed.
 					// Do not persist routing or Slowed into Actor underlying movement.
-					this.attributes.movement.space = movement.space;
-					this.attributes.movement.turn = movement.turn;
-					this.attributes.movement.walk = 0;
-					this.attributes.movement.fly = 0;
+					const speeds = (this.attributes.movement.speeds && typeof this.attributes.movement.speeds === "object")
+						? this.attributes.movement.speeds
+						: (this.attributes.movement.speeds = {});
+					speeds.space = movement.space;
+					speeds.turn = movement.turn;
+					speeds.walk = 0;
+					speeds.fly = 0;
 					if ( movement.units ) this.attributes.movement.units = movement.units;
 				}
 				if ( liveActor && Array.isArray(movement.roleWarnings) && movement.roleWarnings.length ) {
