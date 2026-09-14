@@ -6,7 +6,7 @@ import {
 	resolveSuperiorityDiceMax,
 	sumSuperiorityDiceMaxAdditions,
 	SUPERIORITY_DICE_MAX_EFFECT_KEY,
-	SUPERIORITY_DICE_MAX_ADD_MODE
+	SUPERIORITY_DICE_MAX_ADD_TYPE
 } from "../scripts/patch/maneuver.mjs";
 
 let passed = 0;
@@ -16,10 +16,10 @@ function check(name, fn) {
 	console.log(`ok - ${name}`);
 }
 
-function addEffect(value, { key = SUPERIORITY_DICE_MAX_EFFECT_KEY, mode = SUPERIORITY_DICE_MAX_ADD_MODE, disabled = false } = {}) {
+function addEffect(value, { key = SUPERIORITY_DICE_MAX_EFFECT_KEY, type = SUPERIORITY_DICE_MAX_ADD_TYPE, disabled = false } = {}) {
 	return {
 		disabled,
-		changes: [{ key, mode, value }]
+		changes: [{ key, type, value }]
 	};
 }
 
@@ -80,7 +80,7 @@ check("multiple ADD changes summed once", () => {
 		addEffect(1),
 		addEffect(2),
 		{ disabled: false, changes: [
-			{ key: SUPERIORITY_DICE_MAX_EFFECT_KEY, mode: SUPERIORITY_DICE_MAX_ADD_MODE, value: "3" }
+			{ key: SUPERIORITY_DICE_MAX_EFFECT_KEY, type: SUPERIORITY_DICE_MAX_ADD_TYPE, value: "3" }
 		] }
 	]);
 	assert.equal(additions, 6);
@@ -104,18 +104,25 @@ check("wrong key ignored", () => {
 	assert.equal(sumSuperiorityDiceMaxAdditions([addEffect(5, { key: "system.attributes.hp.max" })]), 0);
 });
 
-check("unsupported OVERRIDE mode ignored", () => {
-	assert.equal(sumSuperiorityDiceMaxAdditions([addEffect(5, { mode: 5 })]), 0);
+check("unsupported OVERRIDE type ignored", () => {
+	assert.equal(sumSuperiorityDiceMaxAdditions([addEffect(5, { type: "override" })]), 0);
 });
 
-check("unsupported MULTIPLY mode ignored", () => {
-	assert.equal(sumSuperiorityDiceMaxAdditions([addEffect(2, { mode: 1 })]), 0);
+check("unsupported MULTIPLY type ignored", () => {
+	assert.equal(sumSuperiorityDiceMaxAdditions([addEffect(2, { type: "multiply" })]), 0);
+});
+
+check("numeric-only persisted mode is not treated as ADD (no fallback)", () => {
+	assert.equal(sumSuperiorityDiceMaxAdditions([{
+		disabled: false,
+		changes: [{ key: SUPERIORITY_DICE_MAX_EFFECT_KEY, mode: 2, value: 1 }]
+	}]), 0);
 });
 
 check("missing value ignored", () => {
 	assert.equal(sumSuperiorityDiceMaxAdditions([{
 		disabled: false,
-		changes: [{ key: SUPERIORITY_DICE_MAX_EFFECT_KEY, mode: SUPERIORITY_DICE_MAX_ADD_MODE }]
+		changes: [{ key: SUPERIORITY_DICE_MAX_EFFECT_KEY, type: SUPERIORITY_DICE_MAX_ADD_TYPE }]
 	}]), 0);
 });
 

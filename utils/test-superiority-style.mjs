@@ -19,7 +19,7 @@ import {
 	resolveSuperiorityDiceMax,
 	sumSuperiorityDiceMaxAdditions,
 	SUPERIORITY_DICE_MAX_EFFECT_KEY,
-	SUPERIORITY_DICE_MAX_ADD_MODE
+	SUPERIORITY_DICE_MAX_ADD_TYPE
 } from "../scripts/patch/maneuver.mjs";
 
 let passed = 0;
@@ -193,7 +193,7 @@ check("duplicate Style still +1 in calculated", () => {
 check("foreign ADD +1 plus Style with source null", () => {
 	const additions = sumSuperiorityDiceMaxAdditions([{
 		disabled: false,
-		changes: [{ key: SUPERIORITY_DICE_MAX_EFFECT_KEY, mode: SUPERIORITY_DICE_MAX_ADD_MODE, value: "1" }]
+		changes: [{ key: SUPERIORITY_DICE_MAX_EFFECT_KEY, type: SUPERIORITY_DICE_MAX_ADD_TYPE, value: "1" }]
 	}]);
 	assert.equal(resolveSuperiorityDiceMax({
 		sourceMax: null,

@@ -31,10 +31,11 @@ const SUPERIORITY_SYNC_PROMISE_KEY = "sw5eSuperioritySyncPromise";
 export const SUPERIORITY_DICE_MAX_EFFECT_KEY = "system.superiority.dice.max";
 
 /**
- * Foundry ACTIVE_EFFECT_MODES.ADD. Other modes targeting this key are deferred in Bug 19A
- * (no repository evidence for MULTIPLY/OVERRIDE/UPGRADE/DOWNGRADE/CUSTOM on this path).
+ * Foundry 14 prepared Active Effect change.type for ADD.
+ * Other types targeting this key are deferred in Bug 19A
+ * (no repository evidence for multiply/override/upgrade/downgrade/custom on this path).
  */
-export const SUPERIORITY_DICE_MAX_ADD_MODE = 2;
+export const SUPERIORITY_DICE_MAX_ADD_TYPE = "add";
 
 function getActorManeuvers(actor) {
 	return getModuleTypeCandidates("maneuver").flatMap(type => actor.itemTypes?.[type] ?? []);
@@ -75,7 +76,7 @@ export function resolveSuperiorityDiceMax({ sourceMax, calculatedMax, effectAddi
 /**
  * Sum finite numeric ADD changes targeting `system.superiority.dice.max` from an applicable-effects collection.
  * Each matching change is counted once. Disabled effects are skipped when `disabled === true`.
- * Unsupported modes and invalid values are ignored (deferred / safe no-op).
+ * Unsupported types and invalid values are ignored (deferred / safe no-op).
  *
  * @param {Iterable<object>|object[]|null|undefined} effects
  * @returns {number}
@@ -90,8 +91,8 @@ export function sumSuperiorityDiceMaxAdditions(effects) {
 		if ( !Array.isArray(changes) ) continue;
 		for ( const change of changes ) {
 			if ( !change || change.key !== SUPERIORITY_DICE_MAX_EFFECT_KEY ) continue;
-			const mode = Number(change.mode);
-			if ( mode !== SUPERIORITY_DICE_MAX_ADD_MODE ) continue;
+			const type = String(change.type ?? "").trim();
+			if ( type !== SUPERIORITY_DICE_MAX_ADD_TYPE ) continue;
 			const raw = change.value;
 			if ( raw === "" || raw == null ) continue;
 			const value = Number(raw);
