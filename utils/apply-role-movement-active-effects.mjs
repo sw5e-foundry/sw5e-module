@@ -2,6 +2,9 @@
 /**
  * One-shot: add Role movement OVERRIDE AEs + sync attributes.speed; fix Courier.
  * Preserves surrounding YAML formatting where possible.
+ *
+ * Not invoked by build:db. Importing this module does not write pack source.
+ * Explicit CLI execution still writes the 36 size Role YAML files.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -10,7 +13,14 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const FEATURES = path.join(ROOT, "packs/_source/starships/starship-features");
 
-const MATRIX = {
+export const ROLE_MOVEMENT_AE_SPACE_KEY = "system.attributes.movement.speeds.space";
+export const ROLE_MOVEMENT_AE_TURN_KEY = "system.attributes.movement.speeds.turn";
+export const ROLE_MOVEMENT_AE_OBSOLETE_SPACE_KEY = "system.attributes.movement.space";
+export const ROLE_MOVEMENT_AE_OBSOLETE_TURN_KEY = "system.attributes.movement.turn";
+export const ROLE_MOVEMENT_AE_MODE = 5;
+export const ROLE_MOVEMENT_AE_PRIORITY = 20;
+
+export const ROLE_MOVEMENT_MATRIX = {
 	tiny: {
 		"role-droid.yml": [450, 200],
 		"role-munition.yml": [450, 200],
@@ -61,23 +71,50 @@ const MATRIX = {
 	}
 };
 
-const MOVEMENT_BLOCK = (space, turn) =>
-	`      - key: system.attributes.movement.space
-        mode: 5
-        value: '${space}'
-        priority: 20
-      - key: system.attributes.movement.turn
-        mode: 5
-        value: '${turn}'
-        priority: 20
-`;
+export function buildRoleMovementChanges(space, turn) {
+	return [
+		{
+			key: ROLE_MOVEMENT_AE_SPACE_KEY,
+			mode: ROLE_MOVEMENT_AE_MODE,
+			value: String(space),
+			priority: ROLE_MOVEMENT_AE_PRIORITY
+		},
+		{
+			key: ROLE_MOVEMENT_AE_TURN_KEY,
+			mode: ROLE_MOVEMENT_AE_MODE,
+			value: String(turn),
+			priority: ROLE_MOVEMENT_AE_PRIORITY
+		}
+	];
+}
 
-function stripExistingMovementChanges(changesBlock) {
-	// Remove any prior movement.* change entries (space/turn/turning).
+export function renderRoleMovementChangeBlock(space, turn) {
+	return `      - key: ${ROLE_MOVEMENT_AE_SPACE_KEY}
+        mode: ${ROLE_MOVEMENT_AE_MODE}
+        value: '${space}'
+        priority: ${ROLE_MOVEMENT_AE_PRIORITY}
+      - key: ${ROLE_MOVEMENT_AE_TURN_KEY}
+        mode: ${ROLE_MOVEMENT_AE_MODE}
+        value: '${turn}'
+        priority: ${ROLE_MOVEMENT_AE_PRIORITY}
+`;
+}
+
+export function stripExistingMovementChanges(changesBlock) {
+	// Remove prior movement space/turn/turning change entries, including speeds.* paths.
+	// Use ^ with /m so consecutive movement keys are all removed; a leading-\n match
+	// would consume the newline the next key needs.
 	return changesBlock.replace(
-		/\n      - key: (?:system\.)?attributes\.movement\.(?:space|turn|turning)\n(?:        .*\n)*/g,
-		"\n"
+		/^      - key: (?:system\.)?attributes\.movement\.(?:speeds\.)?(?:space|turn|turning)\n(?:        .*\n)*/gm,
+		""
 	);
+}
+
+export function applyRoleMovementChangeYaml(changesBlock, space, turn) {
+	let body = stripExistingMovementChanges(changesBlock);
+	if ( !body.endsWith("\n") ) body += "\n";
+	body += renderRoleMovementChangeBlock(space, turn);
+	return body;
 }
 
 function applyFile(full, space, turn) {
@@ -96,9 +133,7 @@ function applyFile(full, space, turn) {
 	const changesMatch = text.match(/(\n    changes:\n)([\s\S]*?)(\n    disabled:)/);
 	if ( !changesMatch ) throw new Error(`Could not find effects changes in ${full}`);
 
-	let body = stripExistingMovementChanges(changesMatch[2]);
-	if ( !body.endsWith("\n") ) body += "\n";
-	body += MOVEMENT_BLOCK(space, turn);
+	const body = applyRoleMovementChangeYaml(changesMatch[2], space, turn);
 
 	text = text.slice(0, changesMatch.index)
 		+ changesMatch[1]
@@ -109,13 +144,16 @@ function applyFile(full, space, turn) {
 	fs.writeFileSync(full, text, "utf8");
 }
 
-let updated = 0;
-for ( const [size, files] of Object.entries(MATRIX) ) {
-	for ( const [file, [space, turn]] of Object.entries(files) ) {
-		const full = path.join(FEATURES, size, file);
-		applyFile(full, space, turn);
-		updated += 1;
-		console.log(`updated ${size}/${file} → ${space}/${turn}`);
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if ( isDirectRun ) {
+	let updated = 0;
+	for ( const [size, files] of Object.entries(ROLE_MOVEMENT_MATRIX) ) {
+		for ( const [file, [space, turn]] of Object.entries(files) ) {
+			const full = path.join(FEATURES, size, file);
+			applyFile(full, space, turn);
+			updated += 1;
+			console.log(`updated ${size}/${file} → ${space}/${turn}`);
+		}
 	}
+	console.log(`\n${updated} Role records updated`);
 }
-console.log(`\n${updated} Role records updated`);
