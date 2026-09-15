@@ -30,8 +30,8 @@ await check("empty world with no stamp does not require dnd5e migration", async 
 });
 
 await check("current dnd5e stamp satisfies completion predicate", async () => {
-	installMigrationTestHarness({ dnd5eMigrationVersion: "5.3.3" });
-	assert.equal(isDnd5eMigrationComplete("5.3.3", "5.3.3"), true);
+	installMigrationTestHarness({ dnd5eMigrationVersion: "6.0.0" });
+	assert.equal(isDnd5eMigrationComplete("6.0.0", "6.0.0"), true);
 	assert.equal(evaluateDnd5eMigrationRequirement().required, false);
 	resetMigrationTestHarness();
 });
@@ -42,10 +42,10 @@ await check("older dnd5e stamp requires migration and barrier waits until curren
 	assert.equal(barrier.required, true);
 	assert.equal(barrier.passed, false);
 	assert.equal(barrier.timedOut, true);
-	settingsStore["dnd5e.systemMigrationVersion"] = "5.3.3";
+	settingsStore["dnd5e.systemMigrationVersion"] = "6.0.0";
 	const pass = await waitForDnd5eMigrationCompletion({ pollIntervalMs: 1, timeoutMs: 50 });
 	assert.equal(pass.passed, true);
-	assert.equal(pass.finalVersion, "5.3.3");
+	assert.equal(pass.finalVersion, "6.0.0");
 	resetMigrationTestHarness();
 });
 

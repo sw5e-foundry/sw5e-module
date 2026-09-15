@@ -264,7 +264,7 @@ export function installMigrationTestHarness({
 	moduleVersion="1.4.1",
 	needsMigrationVersion="1.3.6",
 	moduleMigrationVersion="",
-	dnd5eMigrationVersion="5.3.3",
+	dnd5eMigrationVersion="6.0.0",
 	actors=[],
 	items=[],
 	scenes=[],
@@ -272,7 +272,7 @@ export function installMigrationTestHarness({
 	tables=[],
 	packs=[],
 	throwOnSettingsSet=null,
-	worldDnd5eVersion="5.3.3"
+	worldDnd5eVersion="6.0.0"
 }={}) {
 	const settingsStore = {
 		"dnd5e.systemMigrationVersion": dnd5eMigrationVersion
@@ -291,8 +291,8 @@ export function installMigrationTestHarness({
 		user: { isGM: true },
 		system: {
 			id: "dnd5e",
-			version: "5.3.3",
-			flags: { needsMigrationVersion: "5.3.3", compatibleMigrationVersion: "5.0.0" }
+			version: "6.0.0",
+			flags: { needsMigrationVersion: "6.0.0", compatibleMigrationVersion: "5.0.0" }
 		},
 		world: { id: "synth-test", title: "synth-test", coreVersion: "14.367", flags: { dnd5e: { version: worldDnd5eVersion } } },
 		actors: createCollection(actors),

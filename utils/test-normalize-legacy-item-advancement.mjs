@@ -4,7 +4,7 @@
  * Pure-function coverage only; does not prove Foundry runtime advancement UI.
  */
 import assert from "node:assert/strict";
-import { normalizeLegacyItemAdvancement } from "../scripts/dnd5e-source-normalization.mjs";
+import { normalizeLegacyItemAdvancement, TARGET_DND5E_VERSION } from "../scripts/dnd5e-source-normalization.mjs";
 
 const previousFoundry = globalThis.foundry;
 let randomSeq = 0;
@@ -36,6 +36,10 @@ function restoreFoundry() {
 }
 
 try {
+	check("P8B-00: pack TARGET_DND5E_VERSION is dnd5e 6.0.0", () => {
+		assert.equal(TARGET_DND5E_VERSION, "6.0.0");
+	});
+
 	check("P8B-01: legacy array becomes object and second call is idempotent", () => {
 		const item = {
 			_id: "ItemAdv000000001",
@@ -176,7 +180,7 @@ try {
 		assert.equal("advancement" in item.system, false);
 	});
 
-	console.log(`\n${passed} checks passed (P8B-01..05)`);
+	console.log(`\n${passed} checks passed (P8B-00..05)`);
 } finally {
 	restoreFoundry();
 }

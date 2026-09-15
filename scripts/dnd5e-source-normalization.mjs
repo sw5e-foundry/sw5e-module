@@ -1,6 +1,6 @@
 import { normalizeSwCurrencyWallet, normalizeSwPriceDenomination } from "./currencies.mjs";
 
-export const TARGET_DND5E_VERSION = "5.2.5"
+export const TARGET_DND5E_VERSION = "6.0.0"
 
 const LEGACY_ITEM_TYPE_REMAPS = {
 	power: "spell",
