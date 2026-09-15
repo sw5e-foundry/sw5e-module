@@ -1,8 +1,13 @@
 import { getFlag } from "../utils.mjs";
+import { getModuleId } from "../module-support.mjs";
 
 const MEDPAC_FLAG_PATH = "medpac";
 const MEDPAC_BUTTON_SELECTOR = "[data-sw5e-medpac-roll]";
 const MEDPAC_MESSAGE_CLASS = "sw5e-medpac-message";
+/** dnd5e 6.0 usage-card `system.buttons[].action` handled via UtilityActivity#onChatAction. */
+export const MEDPAC_CHAT_ACTION = "sw5eMedpacRoll";
+const MEDPAC_CHAT_ACTION_SELECTOR = `[data-action="${MEDPAC_CHAT_ACTION}"]`;
+const MEDPAC_ON_CHAT_ACTION_TARGET = "dnd5e.documents.activity.UtilityActivity.prototype.onChatAction";
 
 function getHtmlRoot(html) {
 	return html instanceof HTMLElement ? html : html?.[0] ?? null;
@@ -46,28 +51,66 @@ function getMedpacConfig(subject) {
 	};
 }
 
+/**
+ * Write Medpac SW5e flags and a 6.0 usage-card button onto `preCreateUsageMessage` config.
+ * ChatMessage is created from `messageConfig.data`; top-level `messageConfig.flags` is ignored.
+ * Compact dnd5e2 usage cards render `system.buttons` after `renderChatMessageHTML`, so a sibling
+ * DOM inject is wiped unless the button is persisted here.
+ * @param {object|null|undefined} messageConfig
+ * @param {object} medpac
+ * @returns {object|null|undefined}
+ */
+export function applyMedpacFlagsToUsageMessage(messageConfig, medpac) {
+	if ( !messageConfig || !medpac ) return messageConfig;
+	const data = (messageConfig.data ??= {});
+	data.flags = foundry.utils.mergeObject(data.flags ?? {}, {
+		sw5e: { medpac }
+	}, { inplace: false });
+	const system = (data.system ??= {});
+	const buttons = Array.isArray(system.buttons) ? system.buttons.slice() : [];
+	if ( !buttons.some(button => button?.action === MEDPAC_CHAT_ACTION) ) {
+		buttons.push({
+			action: MEDPAC_CHAT_ACTION,
+			icon: "fa-solid fa-heart-pulse",
+			label: { value: `Roll ${medpac.itemName} Healing` },
+			visibility: "all"
+		});
+	}
+	system.buttons = buttons;
+	return messageConfig;
+}
+
 function addMedpacMessageFlag(activity, messageConfig) {
 	const medpac = getMedpacConfig(activity);
 	if (!medpac) return;
-	messageConfig.flags = foundry.utils.mergeObject(messageConfig.flags ?? {}, {
-		sw5e: { medpac }
-	}, { inplace: false });
+	applyMedpacFlagsToUsageMessage(messageConfig, medpac);
 }
 
-function resolveClickActor() {
+function resolveClickActor(message, medpac) {
 	const controlled = canvas?.tokens?.controlled
 		?.map(token => token.actor)
 		?.find(actor => actor?.isOwner);
 	if (controlled) return controlled;
 
 	const character = game.user?.character;
-	return character?.isOwner ? character : null;
+	if (character?.isOwner) return character;
+
+	const associated = message?.getAssociatedActor?.() ?? message?.speakerActor;
+	if (associated?.isOwner) return associated;
+
+	const itemUuid = medpac?.itemUuid;
+	if (itemUuid && typeof fromUuidSync === "function") {
+		const item = fromUuidSync(itemUuid);
+		const parent = item?.parent;
+		if (parent?.isOwner) return parent;
+	}
+	return null;
 }
 
 function collectClassHitDice(actor) {
 	const tallies = new Map();
 	for (const cls of actor?.itemTypes?.class ?? []) {
-		const hitDie = cls?.system?.hitDice;
+		const hitDie = cls?.system?.hd?.denomination ?? cls?.system?.hitDice;
 		const faces = parseHitDieFaces(hitDie);
 		if (!faces) continue;
 		const levels = Math.max(Number(cls?.system?.levels) || 0, 1);
@@ -78,7 +121,7 @@ function collectClassHitDice(actor) {
 	return Array.from(tallies.values());
 }
 
-function getPredominantHitDie(actor) {
+export function getPredominantHitDie(actor) {
 	const classHitDice = collectClassHitDice(actor);
 	if (classHitDice.length) {
 		classHitDice.sort((left, right) => {
@@ -88,7 +131,8 @@ function getPredominantHitDie(actor) {
 		return classHitDice[0].hitDie;
 	}
 
-	return parseHitDieFormula(actor?.system?.attributes?.hp?.formula);
+	const actorHd = actor?.system?.attributes?.hd?.denomination ?? actor?.system?.attributes?.hp?.formula;
+	return parseHitDieFormula(actorHd) ?? parseHitDieFormula(actor?.system?.attributes?.hp?.formula);
 }
 
 function createMedpacButton(medpac) {
@@ -108,7 +152,7 @@ async function rollMedpacHealing(message, button) {
 	const medpac = getFlag(message, MEDPAC_FLAG_PATH);
 	if (!medpac?.enabled) return;
 
-	const actor = resolveClickActor();
+	const actor = resolveClickActor(message, medpac);
 	if (!actor) {
 		ui.notifications.warn("Select a token you control or assign a character before rolling medpac healing.");
 		return;
@@ -142,7 +186,11 @@ async function rollMedpacHealing(message, button) {
 		}
 	});
 
-	button.blur();
+	button?.blur?.();
+}
+
+function hasMedpacChatButton(root) {
+	return Boolean(root?.querySelector(`${MEDPAC_BUTTON_SELECTOR}, ${MEDPAC_CHAT_ACTION_SELECTOR}`));
 }
 
 function renderMedpacButton(message, html) {
@@ -150,7 +198,9 @@ function renderMedpacButton(message, html) {
 	if (!medpac?.enabled) return;
 
 	const root = getHtmlRoot(html);
-	if (!root || root.querySelector(MEDPAC_BUTTON_SELECTOR)) return;
+	if (!root) return;
+	root.classList.add(MEDPAC_MESSAGE_CLASS);
+	if (hasMedpacChatButton(root)) return;
 
 	const content = root.querySelector(".message-content") ?? root;
 	const { controls, button } = createMedpacButton(medpac);
@@ -165,10 +215,33 @@ function renderMedpacButton(message, html) {
 	});
 
 	content.append(controls);
-	root.classList.add(MEDPAC_MESSAGE_CLASS);
+}
+
+function onRenderMedpacChatMessage(message, html) {
+	renderMedpacButton(message, html);
+	// dnd5e 6.0 usage cards replace `.message-content` in ApplicationV2 `_onRender` after this hook.
+	globalThis.requestAnimationFrame?.(() => renderMedpacButton(message, html));
+}
+
+async function onMedpacChatAction(wrapped, event, target, message) {
+	const action = target?.dataset?.action ?? message?.system?.getButton?.(target)?.action;
+	if ( action === MEDPAC_CHAT_ACTION ) {
+		await rollMedpacHealing(message, target);
+		return;
+	}
+	return wrapped(event, target, message);
+}
+
+function patchMedpacChatAction() {
+	try {
+		libWrapper.register(getModuleId(), MEDPAC_ON_CHAT_ACTION_TARGET, onMedpacChatAction, "MIXED");
+	} catch (err) {
+		console.warn("SW5E MODULE | Could not wrap UtilityActivity.onChatAction for Medpac.", err);
+	}
 }
 
 export function patchMedpac() {
+	patchMedpacChatAction();
 	Hooks.on("dnd5e.preCreateUsageMessage", addMedpacMessageFlag);
-	Hooks.on("renderChatMessageHTML", renderMedpacButton);
+	Hooks.on("renderChatMessageHTML", onRenderMedpacChatMessage);
 }
