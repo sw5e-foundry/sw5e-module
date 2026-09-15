@@ -26,6 +26,7 @@ import {
 	validateChassisRemove
 } from "../chassis.mjs";
 import { prefetchInstalledModEffectsForHost, prefetchInstalledModEffectsForActor } from "../installed-mod-effects.mjs";
+import { itemSystemRaritiesUpdateValue } from "../item-system-rarity.mjs";
 import { getModulePath, getModuleSettingValue } from "../module-support.mjs";
 import { withPreservedItemSheetScroll } from "./properties.mjs";
 
@@ -334,28 +335,13 @@ function formatInstallBrowserDebugHints(row) {
 }
 
 /**
- * dnd5e 5.x `system.rarity` patch (object with `value` or plain string).
- * @param {import("@league/foundry").documents.Item} item
- * @param {string} dndRarityKey
- */
-function itemSystemRarityUpdateValue(item, dndRarityKey) {
-	const cur = item.system?.rarity;
-	if ( typeof cur === "object" && cur !== null && !Array.isArray(cur) ) {
-		const next = foundry.utils.deepClone(cur);
-		next.value = dndRarityKey;
-		return next;
-	}
-	return dndRarityKey;
-}
-
-/**
  * When item rarity changes on the sheet, mirror slot tier + `chassis.rarity` from {@link normalizeChassis}.
  * @param {import("@league/foundry").documents.Item} item
  * @param {object} change
  */
 function syncChassisFlagsRarityFromItem(item, change) {
 	if ( !(item instanceof Item) || !globalThis.game?.ready ) return;
-	if ( !foundry.utils.hasProperty(change, "system.rarity") ) return;
+	if ( !foundry.utils.hasProperty(change, "system.rarities") ) return;
 	const raw = getChassis(item);
 	if ( !raw?.enabled ) return;
 	const synced = normalizeChassis(item, raw);
@@ -850,10 +836,9 @@ async function openChassisRarityUpgradeDialog(app) {
 		const cur = normalizeChassis(host, getChassis(host));
 		const nextState = normalizeChassis(host, cur, { rarityPreview: targetRarity });
 		const dndKey = chassisRarityToItemSystemRarity(targetRarity);
-		const systemRarity = itemSystemRarityUpdateValue(host, dndKey);
 		void withPreservedItemSheetScroll(app, () => host.update({
 			"flags.sw5e.chassis": nextState,
-			"system.rarity": systemRarity
+			"system.rarities": itemSystemRaritiesUpdateValue(dndKey)
 		})).catch(console.error);
 		ui.notifications.info(game.i18n.format("SW5E.Chassis.UpgradeDone", { rarity: labelChassisRarity(targetRarity) }));
 	};

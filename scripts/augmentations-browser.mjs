@@ -2,6 +2,7 @@ import {
 	AUGMENTATION_CATEGORIES,
 	AUGMENTATION_RARITIES
 } from "./augmentations.mjs";
+import { physicalItemRarityBrowserClauses } from "./item-system-rarity.mjs";
 
 function localizeOrFallback(key, fallback) {
 	const localized = game.i18n.localize(key);
@@ -99,7 +100,7 @@ function augmentationRarityFilter(rarity) {
 		o: "OR",
 		v: [
 			{ k: "flags.sw5e.augmentation.rarity", v: rarity },
-			{ k: "system.rarity", o: "in", v: RARITY_VALUE_MAP[rarity] ?? [rarity] }
+			...physicalItemRarityBrowserClauses(RARITY_VALUE_MAP[rarity] ?? [rarity])
 		]
 	};
 }

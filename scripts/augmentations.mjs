@@ -5,6 +5,7 @@
  */
 
 import { isActorDroidCustomizationHost, isDroidCustomizationItem } from "./droid-customizations.mjs";
+import { getItemSystemRarityKey } from "./item-system-rarity.mjs";
 
 // ——— Types / constants ———
 
@@ -385,9 +386,7 @@ function getItemDndTypeKey(item) {
  * @returns {AugmentationRarity}
  */
 export function inferAugmentationRarityFromItem(item) {
-	const raw = item?.system?.rarity;
-	const key = typeof raw === "object" && raw !== null ? (raw.value ?? "") : (raw ?? "");
-	const normalized = typeof key === "string" ? key : "";
+	const normalized = getItemSystemRarityKey(item);
 	const mapped = ITEM_SYSTEM_RARITY_TO_AUGMENTATION[normalized];
 	if ( mapped ) return /** @type {AugmentationRarity} */ (mapped);
 	if ( AUGMENTATION_RARITIES.includes(normalized) ) return /** @type {AugmentationRarity} */ (normalized);

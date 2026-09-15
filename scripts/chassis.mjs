@@ -7,6 +7,7 @@ import { getModuleId, getModuleSettingValue } from "./module-support.mjs";
 import { isCyberneticAugmentationSourceCustom } from "./augmentations.mjs";
 import { isDroidCustomizationItem } from "./droid-customizations.mjs";
 import { cloneEffectsSnapshot } from "./chassis-effect-snapshot.mjs";
+import { getItemSystemRarityKey } from "./item-system-rarity.mjs";
 
 /**
  * Item compendium pack names (within this module) used as modification sources for the install browser.
@@ -31,6 +32,7 @@ const CHASSIS_MOD_COMPENDIUM_INDEX_FIELDS = /** @type {const} */ ([
 	"type",
 	"folder",
 	"system.rarity",
+	"system.rarities",
 	"system.type",
 	"system.source",
 	"system.description",
@@ -286,9 +288,7 @@ export function inferChassisTypeFromItem(item) {
  * @returns {ChassisRarity}
  */
 export function inferChassisRarityFromItem(item) {
-	const raw = item?.system?.rarity;
-	const key = typeof raw === "object" && raw !== null ? (raw.value ?? "") : (raw ?? "");
-	const normalized = typeof key === "string" ? key : "";
+	const normalized = getItemSystemRarityKey(item);
 	const mapped = ITEM_SYSTEM_RARITY_TO_CHASSIS[normalized];
 	if ( mapped ) return mapped;
 	if ( CHASSIS_RARITIES.includes(normalized) ) return /** @type {ChassisRarity} */ (normalized);
@@ -306,7 +306,7 @@ export function getEffectiveChassisRarity(item) {
 }
 
 /**
- * dnd5e `system.rarity` value string for a chassis tier (for persisting upgrades on the item).
+ * dnd5e rarity key for a chassis tier (persist as `system.rarities` on 6.0 items).
  * @param {ChassisRarity} chassisRarity
  * @returns {string}
  */

@@ -5,6 +5,8 @@
  * Host routing is **species-only** via {@link isActorDroidCustomizationHost} (see {@link SW5E_DROID_SPECIES_NAMES}).
  */
 
+import { getItemSystemRarityKey } from "./item-system-rarity.mjs";
+
 // ——— Item flag key (singular on Item documents) ———
 
 export const ITEM_META_FLAG = /** @type {const} */ ("droidCustomization");
@@ -355,9 +357,7 @@ function inferDroidCategoryFromSourceRoutedItem(item) {
  * @returns {DroidCustomizationRarity}
  */
 export function inferDroidCustomizationRarityFromItem(item) {
-	const raw = item?.system?.rarity;
-	const key = typeof raw === "object" && raw !== null ? (raw.value ?? "") : (raw ?? "");
-	const normalized = typeof key === "string" ? key : "";
+	const normalized = getItemSystemRarityKey(item);
 	const mapped = ITEM_SYSTEM_RARITY_TO_DROID[normalized];
 	if ( mapped ) return /** @type {DroidCustomizationRarity} */ (mapped);
 	if ( DROID_CUSTOMIZATION_RARITIES.includes(normalized) ) return /** @type {DroidCustomizationRarity} */ (normalized);

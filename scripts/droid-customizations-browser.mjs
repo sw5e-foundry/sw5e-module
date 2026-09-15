@@ -2,6 +2,7 @@ import {
 	DROID_CUSTOMIZATION_CATEGORIES,
 	DROID_CUSTOMIZATION_RARITIES
 } from "./droid-customizations.mjs";
+import { physicalItemRarityBrowserClauses } from "./item-system-rarity.mjs";
 
 function localizeOrFallback(key, fallback) {
 	const localized = game.i18n.localize(key);
@@ -99,7 +100,7 @@ function droidCustomizationRarityFilter(rarity) {
 		o: "OR",
 		v: [
 			{ k: "flags.sw5e.droidCustomization.rarity", v: rarity },
-			{ k: "system.rarity", o: "in", v: RARITY_VALUE_MAP[rarity] ?? [rarity] }
+			...physicalItemRarityBrowserClauses(RARITY_VALUE_MAP[rarity] ?? [rarity])
 		]
 	};
 }
