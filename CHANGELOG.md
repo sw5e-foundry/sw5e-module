@@ -44,6 +44,16 @@
 5. Run **dnd5e system migration**, then **SW5e module migration**.
 6. Confirm portraits, prototype tokens, scene tokens, and starship Hull/Shields after migration.
 
+#### Addendum — 2026-09-15 — dnd5e 6.0.0 before publication
+
+The unpublished `2.0.0` line above planned Foundry 14 / dnd5e **5.3.3** as the verified target. That planned target was superseded **before publication**. This addendum does not rewrite the 5.3.3 bullets, 1.x history, or 5.2.5 entries.
+
+**Current unpublished 2.0.0 declarations:** Foundry minimum and verified **14.367**; dnd5e minimum and verified **exactly 6.0.0**; lib-wrapper **1.13.5.1**; module ID `sw5e-module`. No 5.3.3 runtime fallback.
+
+**Upgrade (supersedes the 5.3.3 install steps above for anyone installing this unpublished line):** back up every world; do not migrate a production original in place; install Foundry **14.367** and **dnd5e 6.0.0**; install lib-wrapper **1.13.5.1**; install SW5e; run **dnd5e system migration first**, then **SW5e module migration**.
+
+This addendum does not tag, publish, or claim that 2.0.0 is publicly installable.
+
 ---
 
 ### [1.4.0] 2026-07-14

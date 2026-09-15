@@ -22,7 +22,7 @@ There are no tests. There is no frontend bundler — Foundry loads JS/CSS/templa
 
 `sw5e-module` is a Foundry VTT module that layers SW5E (Star Wars 5e) content and mechanics onto the `dnd5e` system. It does not fork dnd5e — it patches it at runtime using `lib-wrapper`.
 
-**Targets:** Foundry VTT 13.351, dnd5e 5.2.5, lib-wrapper (required)
+**Targets:** Foundry VTT 14 (minimum 14.367), dnd5e 6.0.0, lib-wrapper 1.13.5.1. Branch: `v.next-2.X.X`.
 
 **Module ID:** `sw5e-module` — the Foundry data symlink directory must be named `sw5e-module` to match. (The ID was changed from `sw5e` upstream; mismatches cause "Invalid module detected" errors.)
 
