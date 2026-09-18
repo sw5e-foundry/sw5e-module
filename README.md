@@ -15,7 +15,7 @@ Implementation of the **Star Wars 5e** ruleset as a module for **dnd5e**.
 | dnd5e | **exactly 6.0.0** (minimum and verified) |
 | lib-wrapper | minimum and verified **1.13.5.1** |
 
-The **2.x** release line is Foundry **14**-oriented and does **not** claim Foundry **13** compatibility. The public **1.x** line remains the Foundry 13 / dnd5e 5.2.5 family.
+The **2.x** release line is Foundry **14**-oriented and does **not** claim Foundry **13** compatibility. **SW5e 1.4.3** is the last public **1.x** release and remains the Foundry 13 / dnd5e 5.2.5 line.
 
 > [!IMPORTANT]
 > This repository contains the **source** for the SW5E module.
@@ -63,12 +63,14 @@ https://github.com/sw5e-foundry/sw5e-module/releases/latest/download/module.json
 
 That URL always points at the newest **published** GitHub release. Until **2.0.0** is shipped, `latest` may still resolve to a **1.x** Foundry 13 build.
 
-### Upgrade from 1.x to 2.x (Foundry 14)
+### Upgrade from SW5e 1.4.3 to 2.x (Foundry 14)
 
-1. Back up every world. Do not open or migrate an original production world in place.
-2. Move to Foundry **14.367** (or later 14.x meeting that minimum) with **dnd5e exactly 6.0.0**.
-3. Install **lib-wrapper 1.13.5.1** (or newer meeting the declared minimum).
-4. Install SW5e **2.0.0** from the published release when available.
+**Copy-then-migrate.** Never migrate a production world in place. Copy the 1.4.3 world (Foundry 13 / dnd5e 5.2.5) and upgrade the copy.
+
+1. Back up every world. Copy the world you will upgrade; leave the production original closed and unmigrated.
+2. Install Foundry **14** (minimum **14.367**).
+3. Install **dnd5e 6.x** (minimum **6.0.0**) and **lib-wrapper 1.13.5.1** (or newer meeting the declared minimum).
+4. Install SW5e **2.x** from the published release when available. Until **2.0.0** is shipped, `latest` may still resolve to a **1.x** Foundry 13 build.
 5. Run **dnd5e system migration first**, then **SW5e module migration**.
 6. Confirm character portraits, prototype tokens, scene tokens, and starship Hull/Shields after migration.
 

@@ -54,6 +54,18 @@ The unpublished `2.0.0` line above planned Foundry 14 / dnd5e **5.3.3** as the v
 
 This addendum does not tag, publish, or claim that 2.0.0 is publicly installable.
 
+#### Addendum — 2026-09-18 — SW5e 1.4.3 copy-then-migrate
+
+This addendum does not rewrite the `[1.4.0]` section, the Q-09 note, or the 2026-09-15 5.3.3 / 6.0.0 addendum above.
+
+**1.x source:** **SW5e 1.4.3** is the last public 1.x release (Foundry 13 / dnd5e verified **5.2.5**, world stamp `needsMigrationVersion` **1.3.6**). Upgrade a **copy** of that world into 2.x. Never migrate a production original in place.
+
+**Upgrade order:** Foundry **14** (minimum **14.367**) → dnd5e **6.x** (minimum **6.0.0**) + lib-wrapper **1.13.5.1** → SW5e **2.x** → **dnd5e system migration first**, then **SW5e module migration**. Confirm portraits, prototype tokens, scene tokens, and starship Hull/Shields.
+
+`flags.needsMigrationVersion` **2.0.0** is greater than the 1.4.3 stamp **1.3.6**, so GM `ready` still runs `migrateWorld` on copied 1.4.3 worlds.
+
+Copied-world Foundry validation remains pending. Offline tests do not close that gate. Checklist: [docs/foundry-14-1.4.3-migration-gates.md](docs/foundry-14-1.4.3-migration-gates.md) (all **Awaiting Foundry**).
+
 ---
 
 ### [1.4.0] 2026-07-14
