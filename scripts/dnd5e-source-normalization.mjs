@@ -1,4 +1,9 @@
 import { normalizeSwCurrencyWallet, normalizeSwPriceDenomination } from "./currencies.mjs";
+import {
+	firstRarityFromCollection,
+	itemSystemRaritiesUpdateValue,
+	normalizeRarityScalar
+} from "./item-system-rarity.mjs";
 
 export const TARGET_DND5E_VERSION = "6.0.0"
 
@@ -672,6 +677,47 @@ export function normalizeLegacyItemAdvancement(item) {
 	return changed
 }
 
+function raritiesPersistEqual(current, next) {
+	if ( !Array.isArray(next) ) return false
+	if ( Array.isArray(current) ) {
+		return current.length === next.length && current.every((value, index) => value === next[index])
+	}
+	if ( current instanceof Set ) {
+		if ( current.size !== next.length ) return false
+		return next.every(value => current.has(value))
+	}
+	return false
+}
+
+/**
+ * Persist dnd5e 6 `system.rarities` and drop leftover `system.rarity`.
+ * Called from {@link normalizeDnd5eItemSource} even when no other item normalizer fires
+ * so world `migrateItemData` upgrades 1.4.3 items.
+ * @param {object} item
+ * @returns {boolean}
+ */
+export function normalizePhysicalItemRarities(item) {
+	const sys = item?.system
+	if ( !isObjectLike(sys) ) return false
+
+	const hasRarity = Object.prototype.hasOwnProperty.call(sys, "rarity")
+	const hasRarities = Object.prototype.hasOwnProperty.call(sys, "rarities")
+	if ( !hasRarity && !hasRarities ) return false
+
+	const key = firstRarityFromCollection(sys.rarities) || normalizeRarityScalar(sys.rarity)
+	const next = itemSystemRaritiesUpdateValue(key)
+	let changed = false
+	if ( !raritiesPersistEqual(sys.rarities, next) ) {
+		sys.rarities = next
+		changed = true
+	}
+	if ( hasRarity ) {
+		delete sys.rarity
+		changed = true
+	}
+	return changed
+}
+
 export function normalizeDnd5eItemSource(item, { targetSystemVersion=TARGET_DND5E_VERSION }={}) {
 	if ( !item?.system ) return false
 
@@ -688,6 +734,7 @@ export function normalizeDnd5eItemSource(item, { targetSystemVersion=TARGET_DND5
 	changed = normalizeLegacyClassSuperiorityProgression(item) || changed
 	changed = normalizeClassSuperiorityProgression(item) || changed
 	changed = normalizeLegacyScholarSuperiorityFeature(item) || changed
+	changed = normalizePhysicalItemRarities(item) || changed
 
 	if ( changed ) changed = normalizeSystemStats(item, { targetSystemVersion }) || changed
 
