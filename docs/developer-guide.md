@@ -10,9 +10,9 @@ If you need a simpler setup-first walkthrough, start with [Local Setup And Workf
 
 Current project targets:
 
-- Foundry VTT `13.351`
-- `dnd5e` `5.2.5`
-- `lib-wrapper` enabled
+- Foundry VTT `14.368` (minimum `14.367`)
+- `dnd5e` `6.0.3` (minimum `6.0.0`)
+- `lib-wrapper` `1.13.5.1`
 
 The main manifest is [`module.json`](../module.json). It defines module metadata, the entry script, loaded styles, languages, and the full compendium registry.
 

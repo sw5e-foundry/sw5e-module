@@ -1,7 +1,8 @@
 /**
  * dnd5e 6.0 physical-item rarity: persisted `system.rarities` SetField.
  * The `system.rarity` getter still returns the first rarity on prepared documents.
- * Leftover `system.rarity` strings remain on unmigrated pack source until TARGET_DND5E_VERSION is 6.0.0.
+ * Leftover `system.rarity` strings remain on unmigrated 1.x world items; pack source and
+ * `normalizePhysicalItemRarities` persist `system.rarities` (TARGET_DND5E_VERSION is already 6.0.0).
  */
 
 /**
@@ -50,7 +51,7 @@ export function physicalItemRarityBrowserClauses(values) {
  * @param {unknown} collection
  * @returns {string}
  */
-function firstRarityFromCollection(collection) {
+export function firstRarityFromCollection(collection) {
 	if ( collection == null ) return "";
 	if ( typeof collection.first === "function" ) {
 		return normalizeRarityScalar(collection.first());
@@ -68,7 +69,7 @@ function firstRarityFromCollection(collection) {
  * @param {unknown} raw
  * @returns {string}
  */
-function normalizeRarityScalar(raw) {
+export function normalizeRarityScalar(raw) {
 	if ( raw == null ) return "";
 	if ( typeof raw === "string" ) return raw;
 	if ( typeof raw === "object" && !Array.isArray(raw) && !(raw instanceof Set) ) {
