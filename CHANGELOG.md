@@ -66,6 +66,14 @@ This addendum does not rewrite the `[1.4.0]` section, the Q-09 note, or the 2026
 
 Copied-world Foundry validation remains pending. Offline tests do not close that gate. Checklist: [docs/foundry-14-1.4.3-migration-gates.md](docs/foundry-14-1.4.3-migration-gates.md) (all **Awaiting Foundry**).
 
+#### Addendum — 2026-09-18 — Foundry 14.368 / dnd5e 6.0.3 verified pins
+
+This addendum does not rewrite the 5.3.3 historical bullets, the Q-09 note, the `[1.4.0]` section, or the 2026-09-15 text above.
+
+**Current unpublished 2.0.0 declarations:** Foundry minimum **14.367**, verified **14.368**; dnd5e minimum **6.0.0**, verified **6.0.3**; lib-wrapper **1.13.5.1**; module ID `sw5e-module`. Minimums are unchanged from the 6.x floor. Live Foundry **14.368** + dnd5e **6.0.3** smoke remains pending.
+
+**Upgrade (supersedes the 14.367 / 6.0.0 install wording for this unpublished line):** back up every world; copy-then-migrate from **SW5e 1.4.3**; never migrate a production original in place; install Foundry **14.368** (minimum **14.367**) and **dnd5e 6.0.3** (minimum **6.0.0**); if a 6.0 pre-release was installed, uninstall/reinstall per dnd5e notes; install lib-wrapper **1.13.5.1**; install SW5e **2.x**; run **dnd5e system migration first**, then **SW5e module migration**. Confirm portraits, tokens, and starship Hull/Shields.
+
 ---
 
 ### [1.4.0] 2026-07-14
