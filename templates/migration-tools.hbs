@@ -1,0 +1,9 @@
+<form class="sw5e-migration-tools">
+  <p>Installed module: {{moduleVersion}} · World migration: {{worldVersion}} · Required: {{requiredVersion}}</p>
+  <p>Migration needed: {{needsMigration}} · Last run: {{lastState}}</p>
+  <pre style="white-space: pre-wrap; max-height: 220px; overflow: auto;">{{report}}</pre>
+  <div class="form-group">
+    <button type="button" data-action="analyze"><i class="fas fa-search"></i> Analyze World</button>
+    <button type="button" data-action="migrate" {{#if busy}}disabled{{/if}}><i class="fas fa-wrench"></i> Repair and Force Migration</button>
+  </div>
+</form>

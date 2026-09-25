@@ -18,6 +18,7 @@ import {
 	normalizeLegacyStarshipItemSource
 } from "./starship-data.mjs";
 import { normalizeAdvancementGrants } from "./proficiency-utils.mjs";
+import { analyzeLegacyItemPack, repairLegacyItemPack } from "./legacy-pack-preflight.mjs";
 import { migrateBlasterWeaponData } from "./blaster-migration.mjs";
 import {
 	foldOrphanPhbCurrencyWallet,
@@ -164,7 +165,7 @@ function wrapUnexpectedMigrationError(err, run) {
 		cause: err,
 		identity: run?.identity ?? null,
 		packLedger: run?.packLedger ?? [],
-		partialWrites: Boolean(run?.sw5eWritesBegun || packCompleted)
+		partialWrites: Boolean(run?.sw5eWritesBegun || run?.legacyRepairsBegun || packCompleted)
 	});
 }
 
@@ -344,7 +345,10 @@ export const needsMigration = function() {
 	// Determine whether a system migration is required and feasible
 	if (!game.user.isGM) return false;
 	const cv = getModuleSettingValue("moduleMigrationVersion", "");
-	const totalDocuments = game.actors.size + game.scenes.size + game.items.size;
+	const worldPacks = [...game.packs].filter(p =>
+		p.metadata?.packageType === "world" && MIGRATABLE_COMPENDIUM_DOCUMENTS.includes(p.documentName)
+	);
+	const totalDocuments = game.actors.size + game.scenes.size + game.items.size + worldPacks.length;
 	const sw5eModule = getModule();
 	if ( !sw5eModule ) return false;
 	if (!cv && totalDocuments === 0) {
@@ -367,6 +371,8 @@ export const needsMigration = function() {
  * @returns {Promise}      A Promise which resolves once the migration is completed
  */
 export const migrateWorld = async function() {
+	if ( !game.user?.isGM ) throw new Error("Only a GM can run the SW5E world migration");
+	if ( activeMigrationRun ) throw new Error("An SW5E world migration is already running");
 	const version = getModule()?.version ?? game.system.version ?? "";
 	ui.notifications.info(game.i18n.format("MIGRATION.sw5eBegin", {version}), {permanent: true});
 
@@ -377,9 +383,9 @@ export const migrateWorld = async function() {
 		phase: "migrate-world-start",
 		documentType: "World"
 	};
-	const migrationData = await getMigrationData();
-	beginStarshipFoodCurrentMigrationReport();
 	try {
+		beginStarshipFoodCurrentMigrationReport();
+		const migrationData = await getMigrationData();
 		applyMigrationTestHook("migrate-world-start", run);
 		run.identity = { phase: "collect-world", documentType: "World" };
 		applyMigrationTestHook("collect-world", run);
@@ -462,30 +468,32 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 
 	// --- Collect World Actors ---
 	const actors = game.actors.map(a => [a, true])
-		.concat(Array.from(game.actors.invalidDocumentIds).map(id => [game.actors.getInvalid(id), false]));
+		.concat(Array.from(game.actors.invalidDocumentIds).map(id => [id, false]));
 	for ( const [actor, valid] of actors ) {
+		const actorId = valid ? actor.id : actor;
 		const flags = { persistSourceMigration: false };
-		const source = valid ? actor.toObject() : getInvalidDocumentSource(game.actors, actor.id, "actors");
-		if ( !source ) continue;
 		run.identity = {
 			phase: run.phase,
 			sourceContext: SOURCE_CONTEXT.ACTOR_EMBEDDED_ITEM,
 			documentType: "Actor",
-			documentId: actor.id,
-			documentName: actor.name,
-			actorId: actor.id
+			documentId: actorId,
+			documentName: valid ? actor.name : null,
+			actorId
 		};
 		const candidate = tryBuildCandidate(run, () => {
+			const document = valid ? actor : game.actors.getInvalid(actorId);
+			const source = valid ? actor.toObject() : getInvalidDocumentSource(game.actors, actorId, "actors");
+			if ( !source ) return null;
 			const updateData = migrateActorData(source, migrationData, flags, {
-				actorUuid: actor.uuid,
+				actorUuid: document?.uuid,
 				context: run.identity
 			});
 			if ( foundry.utils.isEmpty(updateData) ) return null;
 			const preparedUpdate = prepareMigratedSource(source, updateData, flags);
 			return {
 				documentType: "Actor",
-				documentId: actor.id,
-				document: actor,
+				documentId: actorId,
+				document,
 				beforeSource: source,
 				preparedUpdate,
 				options: getDocumentUpdateOptions({
@@ -494,9 +502,9 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 				}),
 				caller: "migrateWorld:Actor",
 				persistSourceMigration: flags.persistSourceMigration,
-				logName: actor.name,
+				logName: source.name,
 				sourceContext: SOURCE_CONTEXT.ACTOR_EMBEDDED_ITEM,
-				actorId: actor.id
+				actorId
 			};
 		});
 		pushCandidate(candidate);
@@ -504,27 +512,29 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 
 	// --- Collect World Items ---
 	const items = game.items.map(i => [i, true])
-		.concat(Array.from(game.items.invalidDocumentIds).map(id => [game.items.getInvalid(id), false]));
+		.concat(Array.from(game.items.invalidDocumentIds).map(id => [id, false]));
 	for ( const [item, valid] of items ) {
+		const itemId = valid ? item.id : item;
 		const flags = { persistSourceMigration: false };
-		const source = valid ? item.toObject() : getInvalidDocumentSource(game.items, item.id, "items");
-		if ( !source ) continue;
 		run.identity = {
 			phase: run.phase,
 			sourceContext: SOURCE_CONTEXT.WORLD_ITEM,
 			documentType: "Item",
-			documentId: item.id,
-			documentName: item.name,
-			itemId: item.id
+			documentId: itemId,
+			documentName: valid ? item.name : null,
+			itemId
 		};
 		const candidate = tryBuildCandidate(run, () => {
+			const document = valid ? item : game.items.getInvalid(itemId);
+			const source = valid ? item.toObject() : getInvalidDocumentSource(game.items, itemId, "items");
+			if ( !source ) return null;
 			const updateData = migrateItemData(source, migrationData, flags, run.identity);
 			if ( foundry.utils.isEmpty(updateData) ) return null;
 			const preparedUpdate = prepareMigratedSource(source, updateData, flags);
 			return {
 				documentType: "Item",
-				documentId: item.id,
-				document: item,
+				documentId: itemId,
+				document,
 				beforeSource: source,
 				preparedUpdate,
 				options: getDocumentUpdateOptions({
@@ -533,9 +543,9 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 				}),
 				caller: "migrateWorld:Item",
 				persistSourceMigration: flags.persistSourceMigration,
-				logName: item.name,
+				logName: source.name,
 				sourceContext: SOURCE_CONTEXT.WORLD_ITEM,
-				itemId: item.id
+				itemId
 			};
 		});
 		pushCandidate(candidate);
@@ -543,7 +553,6 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 
 	// --- Collect World Macros ---
 	for ( const m of game.macros ) {
-		const source = m.toObject();
 		run.identity = {
 			phase: run.phase,
 			documentType: "Macro",
@@ -551,6 +560,7 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 			documentName: m.name
 		};
 		const candidate = tryBuildCandidate(run, () => {
+			const source = m.toObject();
 			const updateData = migrateMacroData(source, migrationData);
 			if ( foundry.utils.isEmpty(updateData) ) return null;
 			return {
@@ -572,7 +582,6 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 
 	// --- Collect World Roll Tables ---
 	for ( const table of game.tables ) {
-		const source = table.toObject();
 		run.identity = {
 			phase: run.phase,
 			documentType: "RollTable",
@@ -580,6 +589,7 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 			documentName: table.name
 		};
 		const candidate = tryBuildCandidate(run, () => {
+			const source = table.toObject();
 			const updateData = migrateRollTableData(source, migrationData);
 			if ( foundry.utils.isEmpty(updateData) ) return null;
 			return {
@@ -601,7 +611,6 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 
 	// --- Collect Scenes + ActorDeltas ---
 	for ( const s of game.scenes ) {
-		const sceneSource = s.toObject?.() ?? s;
 		run.identity = {
 			phase: run.phase,
 			sourceContext: SOURCE_CONTEXT.SCENE_ACTOR_DELTA_ITEM,
@@ -611,6 +620,7 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 			sceneId: s.id
 		};
 		const sceneCandidate = tryBuildCandidate(run, () => {
+			const sceneSource = s.toObject?.() ?? s;
 			const sceneUpdate = migrateSceneData(s, migrationData, run.identity);
 			if ( foundry.utils.isEmpty(sceneUpdate) ) return null;
 			return {
@@ -636,7 +646,6 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 		for ( const token of s.tokens ) {
 			if ( token.actorLink || !token.actor ) continue;
 			const flags = { persistSourceMigration: false };
-			const source = token.actor.toObject();
 			run.identity = {
 				phase: run.phase,
 				sourceContext: SOURCE_CONTEXT.SCENE_ACTOR_DELTA_ITEM,
@@ -650,6 +659,7 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 				actorDeltaPresent: true
 			};
 			const deltaCandidate = tryBuildCandidate(run, () => {
+				const source = token.actor.toObject();
 				const updateData = migrateActorData(source, migrationData, flags, {
 					actorUuid: token.actor.uuid,
 					context: run.identity
@@ -757,7 +767,6 @@ async function _migrateWorldDocuments(migrationData, run=createMigrationRunState
 		});
 		await p.configure({ locked: false });
 		try {
-			await p.migrate();
 			for ( const candidate of forPack ) {
 				console.log(`Migrating ${candidate.documentType} document ${candidate.logName} in Compendium ${p.collection}`);
 				await writeCandidate(run, candidate);
@@ -905,11 +914,21 @@ async function _collectCompendiumMigrationCandidates(pack, migrationData, run=cr
 		documentName,
 		initialLocked: wasLocked,
 		unlockRequired: Boolean(wasLocked),
-		foundryMigrateAttempted: true,
+		foundryMigrateAttempted: false,
 		failurePhase: "collect-pack"
 	});
-	await pack.configure({ locked: false });
 	try {
+		await pack.configure({ locked: false });
+		const legacyItems = await analyzeLegacyItemPack(pack);
+		if ( legacyItems.length ) {
+			run.phase = "repair-legacy-pack";
+			run.identity = { phase: run.phase, packId: pack.collection, documentType: documentName };
+			console.info(`SW5E MODULE | Repairing ${legacyItems.length} legacy Item types in ${pack.collection}`);
+			run.legacyRepairsBegun = true;
+			await repairLegacyItemPack(pack, legacyItems);
+			run.phase = "collect-pack";
+		}
+		upsertPackLedger(run, { packId: pack.collection, foundryMigrateAttempted: true });
 		await pack.migrate();
 		upsertPackLedger(run, {
 			packId: pack.collection,
@@ -995,7 +1014,7 @@ async function _collectCompendiumMigrationCandidates(pack, migrationData, run=cr
 		});
 		return collected;
 	} finally {
-		await pack.configure({ locked: wasLocked });
+		if ( pack.locked !== wasLocked ) await pack.configure({ locked: wasLocked });
 		upsertPackLedger(run, { packId: pack.collection, finalLocked: pack.locked });
 	}
 }
@@ -1023,7 +1042,6 @@ export const migrateCompendium = async function(pack) {
 	const wasLocked = pack.locked;
 	await pack.configure({ locked: false });
 	try {
-		await pack.migrate();
 		for ( const candidate of safeCandidates ) {
 			await writeCandidate(run, candidate);
 			console.log(`Migrated ${documentName} document ${candidate.logName} in Compendium ${pack.collection}`);
