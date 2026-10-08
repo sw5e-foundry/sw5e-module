@@ -424,11 +424,11 @@ function onStarshipWeaponPreRollDamage(config) {
 	if ( isHealDamageRollConfig(config) ) return;
 
 	const multiplier = getDerivedStarshipRuntime(actor).routing?.weaponsMultiplier ?? 1;
-	if ( multiplier === 1 ) return;
-
 	if ( shouldUseStarshipWisAttackAbility(item) ) {
 		applyStarshipWeaponWisModifierToRollConfig(config, getStarshipWisdomModifier(actor));
 	}
+	if ( multiplier === 1 ) return;
+
 	applyStarshipWeaponRoutingToDamageRollConfig(config, multiplier);
 	config.sw5eStarshipWeaponRoutingApplied = true;
 }

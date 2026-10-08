@@ -1327,7 +1327,11 @@ function injectPowercastingMeters(app, html, data) {
 		const effectiveMax = Math.max(0, max + tempmax);
 		const clampedValue = Math.max(0, Math.min(value, effectiveMax || value));
 		const shouldRenderMeter = shouldShowSidebarPowerMeter(data.actor, castType);
-		if ( shouldRenderMeter ) {
+		const casterLevel = Number(castData?.level);
+		const hideEmptyPoolInPlay = !isEditable
+			&& effectiveMax === 0
+			&& (Number.isFinite(casterLevel) ? casterLevel : 0) === 0;
+		if ( shouldRenderMeter && !hideEmptyPoolInPlay ) {
 			const templateData = {
 				'castType': castType,
 				'pointsLabel': localizeOrFallback(`SW5E.Powercasting.${castType.capitalize()}.Point.Label`, castType === "force" ? "Force Points" : "Tech Points"),

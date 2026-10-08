@@ -175,6 +175,25 @@ function addPowerBonusFields(result) {
 	bonusFields.tech = makeCastBonusFields("tech");
 }
 
+/**
+ * Facing and turret are descriptive metadata on every weapon document.
+ * Defaults apply only when the source value is absent.
+ * @param {object} schema
+ */
+function addStarshipWeaponFacingFields(schema) {
+	schema.firingArc = new StringField({
+		required: true,
+		blank: true,
+		initial: "",
+		label: "SW5E.StarshipWeaponFacing"
+	});
+	schema.turreted = new BooleanField({
+		required: true,
+		initial: false,
+		label: "SW5E.StarshipWeaponTurreted"
+	});
+}
+
 function changeProficiency(result, type) {
 	if (type === "creature") {
 		result.skills.model.fields.value.max = 5;
@@ -199,6 +218,12 @@ export function patchDataModels() {
 		changeProficiency(result, "creature");
 		return result;
 	}, 'WRAPPER');
+	// NPCData rebuilds details after CreatureTemplate, so the legacy caster levels have to be added again.
+	libWrapper.register(getModuleId(), 'dnd5e.dataModels.actor.NPCData.defineSchema', function (wrapped, ...args) {
+		const result = wrapped(...args);
+		addLegacyNpcDetailFields(result);
+		return result;
+	}, 'WRAPPER');
 	libWrapper.register(getModuleId(), 'dnd5e.dataModels.item.ToolData.defineSchema', function (wrapped, ...args) {
 		const result = wrapped(...args);
 		changeProficiency(result, "tool");
@@ -207,6 +232,7 @@ export function patchDataModels() {
 	libWrapper.register(getModuleId(), 'dnd5e.dataModels.item.WeaponData.defineSchema', function (wrapped, ...args) {
 		const result = wrapped(...args);
 		changeProficiency(result, "weapon");
+		addStarshipWeaponFacingFields(result);
 		return result;
 	}, 'WRAPPER');
 
