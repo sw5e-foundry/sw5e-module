@@ -864,6 +864,7 @@ items:
               value: melee
           damage:
             critical: {}
+            includeBase: false
             parts:
               - number: 1
                 denomination: 4
@@ -987,10 +988,14 @@ items:
         threshold: null
         damage: ""
       damage:
-        parts:
-          - - 1d8+6
-            - energy
+        parts: []
         versatile: ""
+        base:
+          number: 1
+          denomination: 8
+          bonus: "@mod"
+          types:
+            - energy
       formula: ""
       save:
         ability: ""
@@ -1018,7 +1023,7 @@ items:
       properties: []
       proficient: 1
       type:
-        value: simpleM
+        value: simpleBL
         subtype: ""
         baseItem: ""
       unidentified:
@@ -1051,20 +1056,8 @@ items:
             critical: {}
           damage:
             critical: {}
-            includeBase: false
-            parts:
-              - number: 1
-                denomination: 8
-                bonus: "+6"
-                types:
-                  - energy
-                custom:
-                  enabled: false
-                  formula: ""
-                scaling:
-                  mode: ""
-                  number: null
-                  formula: ""
+            includeBase: true
+            parts: []
           description: {}
           duration:
             units: inst
