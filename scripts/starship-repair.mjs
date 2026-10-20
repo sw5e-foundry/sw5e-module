@@ -19,7 +19,8 @@ import {
 	applyStarshipNaturalShieldDieRoll,
 	buildRecoverStarshipHullDiceItemUpdate,
 	buildRecoverStarshipShieldDiceItemUpdate,
-	buildStarshipHullDiceSpendItemUpdate,
+	findStarshipSizeItem,
+	getSizeLegacyData,
 	getStarshipHullDiceAvailability,
 	getStarshipLiveHp,
 	getStarshipShieldDepleted,
@@ -177,6 +178,33 @@ async function autoStageHullDice(actor, staged) {
 
 function formatPoolFraction(current, max) {
 	return `${current} / ${max}`;
+}
+
+/**
+ * Write hull and shield dice counts in one size-item update.
+ * Separate full-flag updates for the same item replace each other.
+ * @param {Actor} actor
+ * @param {{ hullDiceUsed?: number, shldDiceUsed?: number }} next
+ * @returns {object[]}
+ */
+function buildCombinedSizeDiceUpdate(actor, { hullDiceUsed, shldDiceUsed } = {}) {
+	const sizeItem = findStarshipSizeItem(actor);
+	if ( !sizeItem ) return [];
+	const legacy = { ...getSizeLegacyData(sizeItem) };
+	let changed = false;
+	if ( hullDiceUsed !== undefined && Number(legacy.hullDiceUsed) !== hullDiceUsed ) {
+		legacy.hullDiceUsed = hullDiceUsed;
+		changed = true;
+	}
+	if ( shldDiceUsed !== undefined && Number(legacy.shldDiceUsed) !== shldDiceUsed ) {
+		legacy.shldDiceUsed = shldDiceUsed;
+		changed = true;
+	}
+	if ( !changed ) return [];
+	return [{
+		_id: sizeItem.id,
+		"flags.sw5e.legacyStarshipSize": legacy
+	}];
 }
 
 function buildRepairPowerDiceRecovery(actor) {
@@ -352,13 +380,16 @@ export async function applyRechargeRepair(actor, { staged = {}, newDay = false, 
 		actorEntries.push(["system.attributes.hp.temp", shieldMax]);
 	}
 
-	const itemUpdates = [
-		...buildStarshipHullDiceSpendItemUpdate(actor, stagedSpent)
-	];
 	const shieldRecovery = preview.resetShields
 		? buildRecoverStarshipShieldDiceItemUpdate(actor)
 		: { itemUpdates: [], recovered: 0 };
-	if ( shieldRecovery.itemUpdates.length ) itemUpdates.push(...shieldRecovery.itemUpdates);
+	const sizeItem = findStarshipSizeItem(actor);
+	const sizeLegacy = getSizeLegacyData(sizeItem);
+	const currentHullUsed = Math.max(0, Number(sizeLegacy.hullDiceUsed) || 0);
+	const itemUpdates = buildCombinedSizeDiceUpdate(actor, {
+		hullDiceUsed: stagedSpent > 0 ? currentHullUsed + stagedSpent : undefined,
+		shldDiceUsed: shieldRecovery.recovered > 0 ? 0 : undefined
+	});
 
 	let actorUpdate = buildStarshipLegacyAttributeBatchMirrorUpdate(actorEntries);
 	actorUpdate = { ...actorUpdate, ...buildRepairPowerDiceRecovery(actor) };
@@ -413,6 +444,10 @@ export async function applyRefittingRepair(actor, { newDay = true, reduceSystemD
 
 	const hullRecovery = buildRecoverStarshipHullDiceItemUpdate(actor);
 	const shieldRecovery = buildRecoverStarshipShieldDiceItemUpdate(actor);
+	const itemUpdates = buildCombinedSizeDiceUpdate(actor, {
+		hullDiceUsed: hullRecovery.recovered > 0 ? 0 : undefined,
+		shldDiceUsed: shieldRecovery.recovered > 0 ? 0 : undefined
+	});
 
 	const actorEntries = [
 		["system.attributes.hp.value", hullMax],
@@ -420,11 +455,6 @@ export async function applyRefittingRepair(actor, { newDay = true, reduceSystemD
 	];
 	let actorUpdate = buildStarshipLegacyAttributeBatchMirrorUpdate(actorEntries);
 	actorUpdate = { ...actorUpdate, ...buildRepairPowerDiceRecovery(actor) };
-
-	const itemUpdates = [
-		...hullRecovery.itemUpdates,
-		...shieldRecovery.itemUpdates
-	];
 
 	await actor.update(actorUpdate, { isRest: true });
 	if ( itemUpdates.length ) await actor.updateEmbeddedDocuments("Item", itemUpdates, { isRest: true });
