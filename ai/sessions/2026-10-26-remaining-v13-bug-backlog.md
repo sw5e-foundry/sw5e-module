@@ -335,3 +335,89 @@ Closed for the duplicated actor-level effects. The user confirmed the Foundry te
 ### Status
 
 Closed for the duplicate actor-level effects. Fresh import passed. World actors unchanged. The four other Drake issues remain open.
+
+---
+
+## Addendum — 2026-11-05 — Drake text repairs
+
+### Reason
+
+The four Drake findings left open above were separated. Three were repaired in source. Sublight Drive was only recorded.
+
+### Supersedes
+
+The next-action line above that leaves Fire-Linked, Adaptive Ailerons, Tuned Engines, and Sublight Drive open together.
+
+That line is retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+- Tuned Engines `V2EZCmDU7Sd6qXmi`: description replaced from compendium `Qt0Y1DWiU2ybVirE`; fly +50 effect `aox9hA3SJo66l6cy` removed. SLAM `SodQqzh3yVc4s1Qp` unchanged.
+- Fire-Linked: 35 description-only replacements. No effects added or removed.
+- Adaptive Ailerons: eight turn values changed from `+100` to `-100` only. No actor-level copy remained.
+- Sublight Drive `qf6pDveEwnrkmjNQ`: unresolved mixed-identity record, left unchanged pending an authoritative historical source. Not a confirmed Sublight Drive.
+- Foundry reproduction still required: yes for these three source edits. The pack has not been rebuilt.
+- World actors: not modified.
+- Authoritative source required: still yes for `qf6pDveEwnrkmjNQ` and the older Drake descriptions. No longer required before the three repairs above.
+- Next action: none until a rebuild is authorized. Do not edit the Sublight Drive item without a historical source.
+
+### Status
+
+Three source repairs applied. Sublight Drive unresolved and unchanged. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Drake text repairs packed
+
+### Reason
+
+A pack rebuild was authorized after the three source repairs.
+
+### Supersedes
+
+The line above that says Foundry reproduction is still required because the pack has not been rebuilt, and the next action that waits for a rebuild authorization.
+
+Those lines are retained above as historical evidence and must not be deleted. The fresh-import check is not superseded.
+
+### Revised status
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed 87 actors. The Tuned Engines fly effect was removed from the LevelDB pack.
+
+- Foundry reproduction still required: yes. Import the custom N-1, one Fire-Linked ship, and one Adaptive Ailerons ship.
+- World actors: not modified.
+- Sublight Drive `qf6pDveEwnrkmjNQ`: still unresolved and not edited.
+- Next action: run that fresh-import check. Do not edit Sublight Drive without a historical source.
+
+### Status
+
+Pack rebuilt. Foundry import check pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Tuned Engines, Fire-Linked, and Adaptive Ailerons closed
+
+### Reason
+
+The user reported that the fresh-import Foundry checks passed.
+
+### Supersedes
+
+The next action above that says to run the fresh-import check, and the line "Foundry reproduction still required: yes."
+
+Those lines are retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+Complete for the three repaired findings. The user confirmed the Foundry checks passed on 2026-11-05.
+
+- Tuned Engines: closed.
+- Fire-Linked descriptions: closed.
+- Adaptive Ailerons: closed.
+- Sublight Drive `qf6pDveEwnrkmjNQ`: still open. Unresolved mixed-identity record. Not edited.
+- Foundry reproduction still required: no for the three closed findings. PASS, 2026-11-05, reported by the user.
+- World actors: not modified.
+- Next action: none for the three closed findings. Do not edit Sublight Drive without a historical source.
+
+### Status
+
+Closed for Tuned Engines, Fire-Linked descriptions, and Adaptive Ailerons. Sublight Drive remains open. World actors unchanged.

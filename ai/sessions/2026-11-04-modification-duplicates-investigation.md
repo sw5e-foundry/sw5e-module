@@ -411,3 +411,97 @@ Still open, and separate from this closeout: the 35 Fire-Linked descriptions, Ad
 ### Status
 
 Closed for the duplicate actor-level effects. Fresh import passed. World actors unchanged. Fire-Linked, Adaptive Ailerons, Tuned Engines, and Sublight Drive remain open.
+
+---
+
+## Addendum — 2026-11-05 — Drake text repairs
+
+### Reason
+
+The four findings left open above were handled as separate repairs. Three were edited. Sublight Drive was not.
+
+### Supersedes
+
+The status line above that leaves Fire-Linked, Adaptive Ailerons, Tuned Engines, and Sublight Drive open together.
+
+That line is retained above as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+Tuned Engines on custom N-1 `V2EZCmDU7Sd6qXmi` now uses the description from compendium `Qt0Y1DWiU2ybVirE`. Effect `aox9hA3SJo66l6cy` (fly +50) was removed. No actor-level copy remained. SLAM `SodQqzh3yVc4s1Qp` was not modified.
+
+The 35 Fire-Linked items in section B had only their Slave Circuit description fields replaced from the current base-name compendium items. Names, including the abbreviated and suffixed ones, were kept. No effects were added or removed.
+
+The eight Adaptive Ailerons items in section D had only `system.attributes.movement.turn` changed from `+100` to `-100`. AC +1 and the Dexterity save +1 were unchanged. No actor-level copy of those items remained, so none were edited.
+
+Custom N-1 `qf6pDveEwnrkmjNQ` is an unresolved mixed-identity record, left unchanged pending an authoritative historical source. It is not a confirmed Sublight Drive. Its name and fly +50 resemble Sublight Drive Mk I `SRpx1hrTUFH7MMG0`. Its description resembles Thrusters Mk I. Effect id `5NT4IF3E7iHlj8bR` originates from Thrusters Mk I, whose compendium change is Dexterity +1. Origin id `ySGqfdHlfEjNJRqm` is not in current source.
+
+World actors were not migrated. The pack was not rebuilt.
+
+### Implementation impact
+
+`utils/fix-drakes-text-repairs.mjs`, run separately as `tuned-engines`, `fire-linked`, and `ailerons`. Drake YAML for the custom N-1, the 14 Fire-Linked files, and the eight Adaptive Ailerons files.
+
+### Validation impact
+
+Each repair had a passing dry run, a live write, a reparse, and a second dry run that found the repaired state and wrote nothing. The Sublight Drive item was compared and left unchanged. Foundry was not launched.
+
+### Status
+
+Tuned Engines, Fire-Linked descriptions, and Adaptive Ailerons are repaired in source. Sublight Drive remains unresolved and unchanged. Pack rebuild and Foundry check are not done. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Drake text repairs packed
+
+### Reason
+
+The repaired Drake source was compiled into the LevelDB pack.
+
+### Supersedes
+
+The status line above that says the pack rebuild and Foundry check are not done.
+
+That line is retained above as historical evidence and must not be deleted. The Foundry import check is not superseded.
+
+### Revised decision or behavior
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed 87 actors, including custom N-1 `Ug33oVFGY7Qp3ufC`. The pack step removed the old Tuned Engines effect `!actors.items.effects!Ug33oVFGY7Qp3ufC.V2EZCmDU7Sd6qXmi.aox9hA3SJo66l6cy`. YAML source was not rewritten. Sublight Drive `qf6pDveEwnrkmjNQ` remains an unresolved mixed-identity record and was not edited. World actors were not migrated.
+
+### Validation impact
+
+Foundry was not launched. A fresh import is still required to confirm Tuned Engines, one Fire-Linked item, and one Adaptive Ailerons item.
+
+### Status
+
+Pack rebuilt. Foundry import check pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Tuned Engines, Fire-Linked, and Adaptive Ailerons closed
+
+### Reason
+
+The user reported that the fresh-import Foundry checks passed.
+
+### Supersedes
+
+The status line above that says the Foundry import check is pending.
+
+That line is retained above as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+Complete. The user confirmed on 2026-11-05 that the fresh-import checks passed for Tuned Engines, the Fire-Linked descriptions, and Adaptive Ailerons.
+
+Sublight Drive `qf6pDveEwnrkmjNQ` stays open as an unresolved mixed-identity record. It was not edited. World actors were not migrated.
+
+### Validation impact
+
+- Original result: the Foundry import check was pending after the pack rebuild.
+- User result: PASS, 2026-11-05, for Tuned Engines, Fire-Linked descriptions, and Adaptive Ailerons.
+- Sublight Drive: unchanged and unresolved.
+
+### Status
+
+Closed for Tuned Engines, Fire-Linked descriptions, and Adaptive Ailerons. Sublight Drive remains open. World actors unchanged.

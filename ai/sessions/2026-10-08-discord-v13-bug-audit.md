@@ -1103,3 +1103,73 @@ Fire-Linked descriptions, Adaptive Ailerons, Tuned Engines, and Sublight Drive t
 ### Status
 
 Closed for the duplicate actor-level effects. Fresh import passed. World actors unchanged. The four text and sign issues remain open.
+
+---
+
+## Addendum — 2026-11-05 — Drake text repairs
+
+### Reason
+
+The four open Drake findings named above were handled separately.
+
+### Supersedes
+
+The status line above that leaves all four text and sign issues open.
+
+That line is retained above as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+Source repairs, each verified on its own: custom N-1 Tuned Engines `V2EZCmDU7Sd6qXmi` now matches compendium `Qt0Y1DWiU2ybVirE` and no longer has fly +50; 35 Fire-Linked descriptions no longer use the Slave Circuit text; eight Adaptive Ailerons turn values are `-100`. SLAM `SodQqzh3yVc4s1Qp` was not modified.
+
+`qf6pDveEwnrkmjNQ` is an unresolved mixed-identity record and was not edited. World actors were not migrated. The pack was not rebuilt. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Three source repairs applied. Sublight Drive unresolved and unchanged. Foundry check not done. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Drake text repairs packed
+
+### Reason
+
+The repaired Drake source was compiled.
+
+### Supersedes
+
+The status line above that says the Foundry check is not done.
+
+That line is retained above as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed 87 actors. The old Tuned Engines effect was removed from the pack. Sublight Drive stays unresolved and unedited. World actors were not migrated. A fresh import is still required.
+
+### Status
+
+Pack rebuilt. Foundry import check pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Tuned Engines, Fire-Linked, and Adaptive Ailerons closed
+
+### Reason
+
+The user reported that the fresh-import Foundry checks passed.
+
+### Supersedes
+
+The status line above that says the Foundry import check is pending.
+
+That line is retained above as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+Complete for Tuned Engines, Fire-Linked descriptions, and Adaptive Ailerons. The user confirmed the Foundry checks passed on 2026-11-05.
+
+Sublight Drive `qf6pDveEwnrkmjNQ` remains an unresolved mixed-identity record and was not edited. World actors were not migrated.
+
+### Status
+
+Closed for those three findings. Sublight Drive remains open. World actors unchanged.
