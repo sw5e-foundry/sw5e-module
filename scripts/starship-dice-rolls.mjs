@@ -244,6 +244,8 @@ async function lookupShieldRegenRateFromCompendium(shieldItem) {
 /** Upstream natural regen uses equipped shield `regrateco` → `@attributes.equip.shields.regenRateMult`. */
 export async function getStarshipShieldRegenRateMult(actor) {
 	const shield = findEquippedShield(actor);
+	const localValue = parseFloat(shield?.system?.attributes?.regrateco?.value);
+	if ( localValue === 0 ) return null; // explicit local disable; no fallback
 	const legacySystem = getLegacyStarshipActorSystem(actor);
 	const candidates = [
 		shield?.system?.attributes?.regrateco?.value,
@@ -267,6 +269,8 @@ export async function getStarshipShieldRegenRateMult(actor) {
 
 export function getStarshipShieldRegenRateMultSync(actor) {
 	const shield = findEquippedShield(actor);
+	const localValue = parseFloat(shield?.system?.attributes?.regrateco?.value);
+	if ( localValue === 0 ) return null; // explicit local disable; no fallback
 	const legacySystem = getLegacyStarshipActorSystem(actor);
 	const candidates = [
 		shield?.system?.attributes?.regrateco?.value,
