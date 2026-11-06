@@ -505,3 +505,262 @@ Sublight Drive `qf6pDveEwnrkmjNQ` stays open as an unresolved mixed-identity rec
 ### Status
 
 Closed for Tuned Engines, Fire-Linked descriptions, and Adaptive Ailerons. Sublight Drive remains open. World actors unchanged.
+
+---
+
+## Addendum — 2026-11-05 — Remaining actor effects and Sublight identity
+
+### Reason
+
+The duplicate-effect cleanup left 46 actor-level effects. The custom N-1 Sublight Drive record also needed a separate identity audit. This pass is read-only.
+
+### Supersedes
+
+Nothing in the closed Tuned Engines, Fire-Linked, or Adaptive Ailerons findings. Those remain closed. This addendum adds the remaining-effect inventory and the Sublight outcome.
+
+### Recount
+
+Independent recount of actor-level effects in `packs/_source/drakes-shipyard`: 46. No added, removed, or changed records against the expected population. All 46 have `transfer: false`, `disabled: false`, empty statuses, and empty normalized duration. Actor flags are only `core.statusId: ""` unless noted.
+
+Origin shapes:
+
+- 1 proper `Actor.<id>.Item.<id>`: CR90.
+- 3 `Compendium.world.drakes-shipyard.<actor>.Item.<item>`: Directional Shield.
+- 42 `Actor.<id>` with no item segment.
+
+`msrxS22tzCwEup0n` is not an actor id in this pack.
+
+### Classification counts
+
+| Class | Count |
+| --- | ---: |
+| Required compatibility effect | 1 |
+| Intentional ship-specific effect | 0 |
+| Recoverable item effect | 0 |
+| Orphaned effect | 0 |
+| Duplicate with nonstandard origin | 3 |
+| Unresolved | 42 |
+
+### Required compatibility effect
+
+CR90 Corvette `0S6RxfRRNiswQrya`, effect `ZtUQ6YtH6HkdJH60` "Role: Corvette". Origin `Actor.0S6RxfRRNiswQrya.Item.QV7xhcdNoH8halzL`. Changes, both mode 2 ADD, priority null: Strength +1, Dexterity +1.
+
+Embedded item `QV7xhcdNoH8halzL` effect `qQTMHDrpIch61Q7C` changes the same two fields with mode 0 and priority 1. Foundry mode 0 is CUSTOM. Stock Active Effect application does not add a CUSTOM value, and the local dnd5e 5.2.5 extract has no ability-score handler for mode 0. Mode 2 is ADD. The item description does not support these ability bonuses. It describes a fixed hardpoint and a weapon-damage bonus.
+
+Current deletion impact: yes. Removing the actor effect removes the only applying Strength and Dexterity bonus. Probable canonical owner: the Role item, after its effect is changed from mode 0 to mode 2. Evidence: same item, same fields and values, different mode. The description does not confirm that those ability bonuses are intended. Runtime test required: yes, one fresh import, to confirm the mode 0 changes do not alter the scores. Smallest later fix, not performed: if the +1 scores should remain, change `qQTMHDrpIch61Q7C` from mode 0 to mode 2, then remove `ZtUQ6YtH6HkdJH60`.
+
+### Duplicate with nonstandard origin
+
+Each local Directional Shield item has transfer-true effect `8DZ792d8qqBQeXNh`. That effect matches the actor effect on all six changes (mode 2, priority 20): shield damage resistance acid, cold, fire, and necrotic; shield damage immunity poison and psychic. Statuses and duration are empty on both sides. The actor effect adds no further change. `transfer` differs only because the actor copy is false and the item effect is true.
+
+| File | Actor | Actor effect | Local item |
+| --- | --- | --- | --- |
+| `escape-pod.yml` | Escape Pod `2YtJawA2uITnhq6V` | `b6Faqbwd2sLA9Hgc` | `sQFl4VavPGVYKhXD` |
+| `eta-2-actis-class-interceptor.yml` | ETA-2 `kxOYt1pVQc0rh1OP` | `i98DfifxpUQ6S1qw` | `4u8uwxj0M1atqRwf` |
+| `fang-class.yml` | Fang-class `uAzqh6bUJ4ZfKcol` | `Hk5jIpbt4L79lBIp` | `4m9YNf4FAE0bXjIF` |
+
+Current deletion impact: no calculated change if the item effect applies. Probable canonical owner: the embedded Directional Shield item. Evidence: exact change match and the origin item id is installed. Runtime test required: yes, before deletion, because the `Compendium.world` origin was outside the prior cleanup and may still change how Foundry lists the effect.
+
+### Unresolved actor-only effects
+
+These 42 effects have no matching embedded item. Absence of a matching item is not treated as intent. No size, role, or modification effect on the same ship carries the uncovered changes below. Covered changes are already applied by some other transfer-true effect, so only the uncovered count would change the ship today. Values are mode 2 ADD unless marked mode 5 OVERRIDE. Origin actor `msrxS22tzCwEup0n` is foreign. Other origins name the current actor, except the TIE/D Defender row, whose origin actor is the TIE interceptor `ajAHTOE1nFbXxusm`.
+
+Probable canonical owner for all 42: unknown. Evidence for ownership: the effect is the only applying copy of its uncovered changes, and the origin names an actor rather than an item. Runtime test required: not to prove that deletion would change numbers; yes before choosing an advancement, role, size, or modification to receive them.
+
+| File | Actor effect | Name | Origin actor | Uncovered | Changes |
+| --- | --- | --- | --- | --- | --- |
+| `ef76-nebulon-b-escort-frigate-medical.yml` | `QVV8J6QkJwUgK9tV` | ASI | `msrxS22tzCwEup0n` | 7/8 | Str 3, Dex 1, Con 0, Int 0, Wis 2, Cha 0, fly 50, turn -150 |
+| `ef76-nebulon-b-escort-frigate.yml` | `pqOqJLrepLJt7O0V` | ASI | `msrxS22tzCwEup0n` | 7/8 | Str 3, Dex 0, Con 0, Int 0, Wis 1, Cha 0, fly 50, turn -150 |
+| `escape-pod.yml` | `CvX6D1B00rvifhxM` | ASI | `msrxS22tzCwEup0n` | 6/6 | all six abilities 0 |
+| `eta-2-actis-class-interceptor.yml` | `UvdO1iEhKf8g7CfW` | ASI | `msrxS22tzCwEup0n` | 5/6 | Str 2, Dex 1, Con 0, Int 0, Wis 2, Cha 0 |
+| `fang-class.yml` | `mLJNAvcynpjfy8NT` | ASI | `msrxS22tzCwEup0n` | 5/7 | Str 1, Dex 2, Con 1, Int 0, Wis 1, Cha 0, turn -100 |
+| `gand-starfighter.yml` | `YCeLyX8dFXqxKI2q` | ASI | `msrxS22tzCwEup0n` | 5/6 | Str 0, Dex 1, Con 1, Int 0, Wis 0, Cha 0 |
+| `gat-12-skipray-blastboat.yml` | `Ld1zNnraoTkSCSUo` | ASI | `msrxS22tzCwEup0n` | 6/6 | Str 4, Dex 0, Con 3, Int 0, Wis 0, Cha 0 |
+| `hmp-droid-gunship.yml` | `4WAAiMXDrFy2MipW` | ASI | `msrxS22tzCwEup0n` | 7/7 | Str 0, Dex 0, Con 4, Int 0, Wis 0, Cha 0, turn 400 mode 5 |
+| `k-wing-btl-s8.yml` | `OAfvUZHcxgRUm7NF` | ASI | `msrxS22tzCwEup0n` | 6/6 | Str 2, Dex 0, Con 4, Int 0, Wis 0, Cha 0 |
+| `m12-l-kimogila-heavy-fighter.yml` | `TJIYFIzmVExqVc0D` | ASI | `msrxS22tzCwEup0n` | 6/6 | Str 0, Dex 0, Con 2, Int 0, Wis 2, Cha 0 |
+| `m22-t-krayt-gunship.yml` | `sdBpRmF78iiOot4Z` | ASI | `msrxS22tzCwEup0n` | 5/6 | Str 1, Dex 0, Con 4, Int 0, Wis 2, Cha 0 |
+| `m3-a-scyk-fighter.yml` | `3oOxhRCrZjoHwv4G` | ASI | `msrxS22tzCwEup0n` | 6/6 | all six abilities 0 |
+| `m3-a-scyk-heavy-fighter.yml` | `LEc3T7KOFg6KKkPp` | ASI | `msrxS22tzCwEup0n` | 6/6 | Str 2, Dex 0, Con 1, Int 0, Wis 0, Cha 0 |
+| `m3-a-scyk-tie-killer.yml` | `4Hcr1AmMqhvU7Llh` | ASI | `msrxS22tzCwEup0n` | 5/6 | Str 3, Dex 2, Con 0, Int 0, Wis 1, Cha 0 |
+| `m4-c-dunelizard-fighter.yml` | `2znuu4saWRIWKilI` | ASI | `msrxS22tzCwEup0n` | 6/6 | Str 0, Dex 0, Con 2, Int 0, Wis 0, Cha 0 |
+| `n-1-naboo-starfighter.yml` | `RcQDyiiABgOStw5q` | ASI | `msrxS22tzCwEup0n` | 5/6 | Str 0, Dex 2, Con 0, Int 0, Wis 0, Cha 0 |
+| `nantex-class-territorial-defense-starfighter.yml` | `VC9CbCEjCmhPlFRI` | ASI | `msrxS22tzCwEup0n` | 4/6 | Str 1, Dex 2, Con 0, Int 0, Wis 0, Cha 0 |
+| `starviper-class-attack-platform-prototype.yml` | `0O7HKNqQOEd4OVW8` | ASI | `msrxS22tzCwEup0n` | 5/6 | Str 0, Dex 2, Con 1, Int 0, Wis 4, Cha 2 |
+| `starviper-class-attack-platform.yml` | `onJzcJxxUix0rH3I` | ASI | `msrxS22tzCwEup0n` | 4/6 | Str 1, Dex 1, Con 1, Int 0, Wis 2, Cha 0 |
+| `starviper-mk-ii.yml` | `uPZW3eWBxhBUUU5G` | ASI | `msrxS22tzCwEup0n` | 4/6 | Str 0, Dex 1, Con 1, Int 0, Wis 2, Cha 0 |
+| `tie-advanced-x1.yml` | `mvIuP35d26OjGvbc` | ASI | `msrxS22tzCwEup0n` | 4/6 | Str 1, Dex 1, Con 0, Int 0, Wis 2, Cha 0 |
+| `tie-d-defender.yml` | `GKjlvglk1KRlr5LS` | ASI | `ajAHTOE1nFbXxusm` | 6/6 | Str 2, Dex 3, Con 2, Int 0, Wis 2, Cha 1 |
+| `tie-hu-hunter-multi-role-starfighter.yml` | `N4VQQILD4SFt4gR6` | ASI | current | 2/3 | Str 2, Dex 2, Wis 1 |
+| `tie-in-interceptor.yml` | `XWEx7IMdFqkYzSni` | ASI | current | 1/3 | Dex 2, Str 1, Wis 1 |
+| `tie-sa-bomber-mine-layer.yml` | `kBZ53WHwGwxDHFsy` | ASI | current | 1/2 | Dex 1, Con 1 |
+| `tie-sa-bomber-missile-boat.yml` | `PqvYnyKJE77WZZHt` | ASI | current | 1/2 | Dex 1, Con 1 |
+| `tie-sa-bomber.yml` | `UTRYA2jRi2cgpMnZ` | ASI | current | 1/2 | Dex 1, Con 1 |
+| `u-wing-starfighter-support-craft-ut-60d.yml` | `UzKX8O1hrX2fUG6a` | ASI | current | 2/2 | Con 2, Wis 2 |
+| `v-wing-starfighter-alpha-3-nimbus-class.yml` | `rpFFacilSwiEErzy` | AIS | current | 2/2 | Dex 1, Con 1 |
+| `vt-49-decimator.yml` | `XLUqHYCqcIgHhklz` | ASI | current | 5/5 | Con 1, Int 2, Wis 2, fly 300 mode 5, turn 200 mode 5 |
+| `vulture-droid-cis.yml` | `XoPU25PAVecBJZ1K` | ASI | current | 4/4 | Str 1, Dex 5, Con 2, Wis 1 |
+| `wander-class-jump-freighter.yml` | `Rp7gk0y314hWBN4f` | ASI | current | 2/2 | Str 1, Cha 1 |
+| `wayfarer-class-medium-transport.yml` | `Kntbe9tGWmmm54Lj` | ASI | current | 3/4 | Str 3, Dex -1, Con 1, turn 50 |
+| `x-70b-phantom-class-prototype.yml` | `8Rr449jpbSMrmmId` | ASI | current | 3/3 | Str 3, Con 1, Wis 3 |
+| `x-wing-starfighter-advanced.yml` | `L8dxPRiNxzKWZrgW` | ASI | current | 4/5 | Str 2, Dex 2, Con 1, Int -2, Wis 4 |
+| `y-wing-starfighter-btl-b-s3.yml` | `ABAZbMpjPFeY2lDX` | ASI | current | 2/3 | Str 2, Dex 1, Wis 1 |
+| `yt-1300-heavily-modified.yml` | `qSl5ltd7udAKjzBX` | ASI | current | 4/8 | fly 400 mode 5, turn 150 mode 5, Str 2, Dex 1, Con -1, Int 1, Wis 1, Cha 1 |
+| `yt-1300-modified.yml` | `tstPz7sF3O5hbLsi` | ASI | current | 1/3 | Str 1, Con 1, Wis 2 |
+| `yv-929-armed-freighter.yml` | `OpwEjg658THj3164` | Modifier | current | 2/2 | fly 350 mode 5, turn 300 mode 5 |
+| `z-95-headhunter.yml` | `lHtPlYquq2npPWPr` | Ability Modifiers | current | 2/2 | Str 1, Wis 2 |
+| `z-ceptor.yml` | `5g1eZGdBgFX28yTE` | Modifier | current | 2/2 | Dex 5, Con 5 |
+| `z-tie-fighter.yml` | `aH2aU4GGZ8RGquth` | Role | current | 1/1 | Str 1 |
+
+### Actor-effect conclusion
+
+- Safe source-only deletions: none in this pass. The three Directional Shield actor effects are the only source-supported deletion candidates, and only after the Foundry listing test.
+- Mechanics that must move onto an item first: none identified. The 42 unresolved effects must stay where they are until an owner is established.
+- Effects that must remain: CR90 `ZtUQ6YtH6HkdJH60`, and all 42 unresolved effects.
+- Foundry runtime verification: the three Directional Shield ships, and one CR90 import for the mode 0 check.
+- Smallest later repair supported here: after that shield test, delete only `b6Faqbwd2sLA9Hgc`, `i98DfifxpUQ6S1qw`, and `Hk5jIpbt4L79lBIp`. Leave the CR90 actor effect until a separate decision accepts changing `qQTMHDrpIch61Q7C` from mode 0 to mode 2. Do not delete ASI rows.
+
+### Sublight Drive and Thrusters
+
+This audit is separate from the 46. No Sublight or Thrusters actor-level effect remains in that set. No item was edited.
+
+Current compendium records agree with themselves. Sublight Drive Mk I–V (`SRpx1hrTUFH7MMG0`, `MQ7n6D2MZ8z6vJAA`, `dfrm1Oaz3sut5hZT`, `9QteiCr64GOV5bWd`, `H9YswnFl9Wy2y1Uw`) each grant fly +50 and describe a flying-speed increase. Sublight Drive Makeshift `IJm40Qtgjgq4Hs8L` also grants turn +50. Thrusters Mk I–IV grant Dexterity +1. Thrusters Mk V grants Dexterity +2. Thrusters Makeshift grants Dexterity +1. Effect id `5NT4IF3E7iHlj8bR` is the Thrusters Mk I effect on item `ApKSV7OFLKFAMyMh`.
+
+Drake Thrusters Mark I and Mark II copies, 28 items, use the Dexterity change that matches the same grade and the Thrusters description. Their `flags.core.sourceId` values, including `ySGqfdHlfEjNJRqm`, do not resolve to a current compendium document id. Those copies are stale source id only. Name, description, and mechanics agree. No repair is recommended for them in this pass.
+
+Custom N-1 `Ug33oVFGY7Qp3ufC` item `qf6pDveEwnrkmjNQ` is the only Drake Sublight Drive item. Its signals do not agree:
+
+- Name: Sublight Drive, Mark I.
+- Mechanic: fly +50, mode 2, which matches Sublight Drive Mk I.
+- Description: the Thrusters Mk I Dexterity text. The legacy description agrees with `system.description`.
+- Effect id: `5NT4IF3E7iHlj8bR`, the Thrusters Mk I effect id, whose compendium change is Dexterity +1.
+- Source id: `Compendium.sw5e-module.starshipmodifications.ySGqfdHlfEjNJRqm`, the same unresolved legacy id used by the aligned Thrusters Mark I copies.
+- Tuned Engines repair: unrelated. That item is `V2EZCmDU7Sd6qXmi`.
+
+History, read-only: `git log --all --follow` on the custom N-1 file, and `-S` searches for the item id, effect id, source id, "Sublight Drive, Mark I", and "Thrusters, Mk I". The item exists in `124dca632` ("Add packs"), before YAML conversion. At that commit it was already named Sublight Drive, Mark I, already used the Thrusters description, already used effect `5NT4IF3E7iHlj8bR`, and its change was `system.attributes.movement.space` +50, mode 2. The source id was `Compendium.sw5e.starshipmodifications.ySGqfdHlfEjNJRqm`. In that same commit, Thrusters Mk I `ApKSV7OFLKFAMyMh` has Dexterity +1, and that legacy id appears as an effect origin on the old Thrusters file, not as a document that still exists. `7f7ecc85b` still has `movement.space`. `fb63553d6` renames that key to `movement.fly` and keeps +50. Later commits, including the duplicate-effect cleanup and the Tuned Engines repair, do not create the name and description split.
+
+The earliest known mixed state is the initial pack import. YAML conversion preserved the older defect and renamed the movement key. No commit in this repository is the origin of the mismatch.
+
+Outcome D. History remains mixed. Keep `qf6pDveEwnrkmjNQ` unchanged. Do not standardize it from current compendium data. The functional resemblance to Sublight Drive Mk I is an inference, not a repair authorization.
+
+### Status
+
+Actor-effect inventory recorded. Three shield actor effects are duplicate candidates pending a Foundry listing test. Forty-two actor-only effects remain unresolved and must stay. CR90 remains a required compatibility effect. Sublight Drive remains outcome D, unresolved, and unedited. No source edit, pack rebuild, world migration, commit, or push in this pass.
+
+---
+
+## Addendum — 2026-11-05 — Directional Shield copies removed; parallel research integrated
+
+### Reason
+
+The three Directional Shield actor-level duplicates were removed in source. Read-only research on the 42 actor-only effects, the CR90 ability bonuses, and the custom N-1 Sublight Drive finished in separate reports and is recorded here once.
+
+### Supersedes
+
+The sentence above that leaves the three Directional Shield actor effects as deletion candidates pending a Foundry listing test, and the later sentence that says that deletion is not yet authorized.
+
+Those sentences are retained above as historical evidence and must not be deleted. The CR90 mode-0-to-mode-2 suggestion above is also retained. The research below does not adopt it.
+
+### Revised decision or behavior
+
+`utils/fix-drakes-directional-shield-duplicates.mjs` removed only these actor effects:
+
+- Escape Pod `2YtJawA2uITnhq6V`: `b6Faqbwd2sLA9Hgc`
+- ETA-2 `kxOYt1pVQc0rh1OP`: `i98DfifxpUQ6S1qw`
+- Fang `uAzqh6bUJ4ZfKcol`: `Hk5jIpbt4L79lBIp`
+
+Retained Directional Shield items `sQFl4VavPGVYKhXD`, `4u8uwxj0M1atqRwf`, and `4m9YNf4FAE0bXjIF`, each with transfer-true effect `8DZ792d8qqBQeXNh`. Preflight matched all six resistance and immunity changes. The only duration difference was actor `startTime` 0 versus item `startTime` null. Post-repair dry run exited 0 and wrote nothing. Each ship diff is 0 insertions and 59 deletions. Each ship still has its ASI effect.
+
+The 42 actor-only effects remain. No embedded item was proven to own any of them. Deleting 39 would change a prepared ability score or derived Turn. Escape Pod `CvX6D1B00rvifhxM` and M3-A Scyk Fighter `3oOxhRCrZjoHwv4G` are all zeros. YV-929 `OpwEjg658THj3164` is a mode 5 fly and turn override that current starship preparation does not publish. They stay unresolved.
+
+CR90 `ZtUQ6YtH6HkdJH60` remains. Strength +1 and Dexterity +1 match the tier-0 Corvette role benefit, not the tier-2 specialization `QV7xhcdNoH8halzL`. Changing item effect `qQTMHDrpIch61Q7C` from mode 0 to mode 2 would attach that role bonus to the wrong feature. Do not make that change.
+
+Custom N-1 `qf6pDveEwnrkmjNQ` remains outcome D. The mixed name, Thrusters description, Thrusters effect id, and speed bonus were already present in `124dca632`. No edit.
+
+World actors were not migrated. The pack was not rebuilt. Foundry was not launched.
+
+### Validation impact
+
+Post-repair dry run passed. Hull and shield tests passed 27. Equipment regen tests passed 7. Actor-level effects remaining: 43, of which 42 are actor-only and 1 is CR90.
+
+### Status
+
+Directional Shield actor copies removed in source. Pack rebuild and fresh-import check pending. Forty-two actor-only effects unresolved. CR90 unchanged. Sublight Drive remains outcome D. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Directional Shield pack rebuilt
+
+### Reason
+
+Foundry source for the three removed Directional Shield actor effects was compiled into the LevelDB pack.
+
+### Supersedes
+
+The status line above that says the pack rebuild and fresh-import check are pending.
+
+That line is retained above as historical evidence and must not be deleted. The fresh-import check is not superseded.
+
+### Revised decision or behavior
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed 87 actors. The pack removed `!actors.effects!2YtJawA2uITnhq6V.b6Faqbwd2sLA9Hgc`, `!actors.effects!kxOYt1pVQc0rh1OP.i98DfifxpUQ6S1qw`, and `!actors.effects!uAzqh6bUJ4ZfKcol.Hk5jIpbt4L79lBIp`. YAML source was not rewritten. World actors were not migrated.
+
+### Validation impact
+
+Foundry was not launched. Import Escape Pod, ETA-2, and Fang and confirm one Directional Shield listing on each.
+
+### Status
+
+Pack rebuilt. Fresh-import check pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — CR90 Role: Corvette ability effects removed
+
+### Reason
+
+A fresh CR90 import showed Role: Corvette twice. The rules review showed that neither ability adjustment is a supported specialization benefit.
+
+### Supersedes
+
+The earlier statement that actor effect `ZtUQ6YtH6HkdJH60` was required compatibility data, and the suggestion that the later fix is to change item effect `qQTMHDrpIch61Q7C` from mode 0 to mode 2.
+
+Those statements are retained above as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+Both effects were removed from `packs/_source/drakes-shipyard/cr90-corvette.yml`. Item `QV7xhcdNoH8halzL` remains, with its hardpoint and weapon-damage text and with `effects: []`. No Role: Corvette Strength or Dexterity change remains on the ship. Actor-level effects in the pack went from 43 to 42, and the 42 unresolved actor-only effects were not changed.
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed 87 actors. The pack removed `!actors.effects!0S6RxfRRNiswQrya.ZtUQ6YtH6HkdJH60` and `!actors.items.effects!0S6RxfRRNiswQrya.QV7xhcdNoH8halzL.qQTMHDrpIch61Q7C`. The compendium tier-0 Corvette role feature was not edited and remains a separate question. World actors were not migrated.
+
+### Validation impact
+
+Dry run, live run, and post-repair dry run passed. Hull and shield tests passed 27. Equipment regen tests passed 7. A fresh CR90 import is still required to confirm the sheet lists the specialization once and no longer adds Strength or Dexterity from it.
+
+### Status
+
+CR90 ability effects removed and the pack rebuilt. Fresh CR90 import pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — CR90 Corvette ability bonus restored
+
+### Reason
+
+Removing both Role: Corvette effects was incorrect. The base Corvette role grants Strength +1 and Dexterity +1. The item description is the separate specialization benefit.
+
+### Supersedes
+
+The status above that says both ability effects were removed and that a fresh import should show no Strength or Dexterity bonus from Role: Corvette. Also supersedes the earlier conclusion that `ZtUQ6YtH6HkdJH60` had to stay because it was the only applying copy.
+
+Those statements are retained above as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+Item `QV7xhcdNoH8halzL` again has exactly one embedded effect, `qQTMHDrpIch61Q7C`, with `transfer: true`. Strength +1 and Dexterity +1 are mode 2, priority 1. That id appears only under this item inside the CR90 actor. Actor effect `ZtUQ6YtH6HkdJH60` stays absent. The hardpoint and weapon-damage text is unchanged. The 42 unresolved actor-only effects are unchanged. The compendium tier-0 feature was not edited.
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed 87 actors, including CR90 `0S6RxfRRNiswQrya`. A fresh import should now show the specialization once and apply Strength +1 and Dexterity +1 once.
+
+### Status
+
+Embedded Corvette ability effect restored at mode 2. Actor duplicate remains removed. Pack rebuilt. Fresh CR90 import pending. No commit. No push.

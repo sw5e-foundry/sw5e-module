@@ -421,3 +421,141 @@ Complete for the three repaired findings. The user confirmed the Foundry checks 
 ### Status
 
 Closed for Tuned Engines, Fire-Linked descriptions, and Adaptive Ailerons. Sublight Drive remains open. World actors unchanged.
+
+---
+
+## Addendum — 2026-11-05 — Remaining actor effects and Sublight identity
+
+### Reason
+
+The remaining Drake actor-level effects and the Sublight Drive identity were audited without source edits.
+
+### Supersedes
+
+Nothing in the three closed findings above. Sublight Drive stays open.
+
+### Revised status
+
+- Recount: 46 actor-level effects. No population drift.
+- Required compatibility: 1. CR90 `ZtUQ6YtH6HkdJH60`. Item effect `qQTMHDrpIch61Q7C` is mode 0. Do not remove the actor effect in a later pass unless that item effect is first changed to mode 2 and the ability bonuses are accepted.
+- Duplicate with nonstandard origin: 3 Directional Shield actor effects. Source match supports deletion only after a fresh-import listing test.
+- Unresolved: 42 actor-only effects. Do not delete them. Ownership is not established.
+- Intentional, recoverable, and orphaned: 0.
+- Sublight Drive `qf6pDveEwnrkmjNQ`: outcome D. History shows the mixed name, Thrusters description, Thrusters effect id, and speed bonus were already present in `124dca632`, before YAML conversion. No edit.
+- Next action: none until a separate authorization. The shield deletion and the CR90 mode change are identified, not authorized.
+
+### Status
+
+Inventory recorded. Sublight Drive remains open. No source edit.
+
+---
+
+## Addendum — 2026-11-05 — Directional Shield copies removed; parallel research integrated
+
+### Reason
+
+The shield deletion identified above was authorized and completed in source. The parallel research did not authorize the CR90 mode change or a Sublight Drive edit.
+
+### Supersedes
+
+The next-action line above that says the shield deletion and the CR90 mode change are identified but not authorized.
+
+That line is retained above as historical evidence and must not be deleted. Only the shield deletion is now done. The CR90 mode change stays unauthorized.
+
+### Revised status
+
+- Directional Shield actor effects `b6Faqbwd2sLA9Hgc`, `i98DfifxpUQ6S1qw`, and `Hk5jIpbt4L79lBIp` are removed. Item effect `8DZ792d8qqBQeXNh` remains.
+- Forty-two actor-only effects remain unresolved. No embedded item owns them. Deleting 39 would change prepared scores or derived Turn. Two are all zeros, and the YV-929 mode 5 movement override is not the prepared Turn value.
+- CR90 `ZtUQ6YtH6HkdJH60` remains. Do not change specialization effect `qQTMHDrpIch61Q7C` from mode 0 to mode 2. The ability bonus belongs on the tier-0 Role, which this ship does not have as a separate item.
+- Sublight Drive `qf6pDveEwnrkmjNQ` remains outcome D. No edit.
+- Foundry reproduction still required: yes, after the pack is rebuilt. Confirm one Directional Shield listing on Escape Pod, ETA-2, and Fang.
+- World actors: not modified.
+- Next action: rebuild `drakes-shipyard` only when Foundry is stopped, then run that import check. Do not edit the 42 effects, CR90, or the custom N-1 item without a separate authorization.
+
+### Status
+
+Shield actor copies removed in source. Pack rebuild and Foundry import pending. Sublight Drive remains open. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Directional Shield pack rebuilt
+
+### Reason
+
+The next action to rebuild `drakes-shipyard` was run.
+
+### Supersedes
+
+The next-action line above that says to rebuild when Foundry is stopped, and the status line that says the pack rebuild is pending.
+
+Those lines are retained above as historical evidence and must not be deleted. The import check is not superseded.
+
+### Revised status
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed 87 actors. The pack removed the three Directional Shield actor effects.
+
+- Foundry reproduction still required: yes. Import Escape Pod, ETA-2, and Fang and confirm one Directional Shield listing on each.
+- World actors: not modified.
+- Next action: run that import check. Do not edit the 42 effects, CR90, or the custom N-1 item without a separate authorization.
+
+### Status
+
+Pack rebuilt. Foundry import pending. Sublight Drive remains open. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — CR90 Role: Corvette ability effects removed
+
+### Reason
+
+The Foundry gate showed two Role: Corvette effects. The rules review established that neither ability adjustment is a supported specialization benefit, so the CR90 source was corrected and the pack rebuilt.
+
+### Supersedes
+
+The earlier statement that `ZtUQ6YtH6HkdJH60` must remain as required compatibility data, and the instruction not to change CR90 without a separate authorization for this specific repair.
+
+Those statements are retained above as historical evidence and must not be deleted. The 42 actor-only effects and the custom N-1 item remain unauthorized.
+
+### Revised status
+
+- Removed actor effect `ZtUQ6YtH6HkdJH60` and item effect `qQTMHDrpIch61Q7C`.
+- Kept Role: Corvette `QV7xhcdNoH8halzL` and its hardpoint and weapon-damage text.
+- Actor-level effects in the pack: 42. The unresolved actor-only effects were not changed.
+- `npm run build:db -- drakes-shipyard` exited 0 and removed both effect documents from the pack.
+- Foundry reproduction still required: yes. Import a fresh CR90 and confirm one specialization listing and no Strength or Dexterity bonus from Role: Corvette.
+- The compendium tier-0 Corvette role feature was not edited.
+- World actors: not modified.
+- Next action: run that CR90 import. Do not edit the 42 effects or the custom N-1 item without a separate authorization.
+
+### Status
+
+CR90 ability effects removed and the pack rebuilt. Fresh CR90 import pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — CR90 Corvette ability bonus restored
+
+### Reason
+
+Removing both Role: Corvette effects was incorrect. The base Corvette role grants Strength +1 and Dexterity +1. The item description is the separate specialization benefit.
+
+### Supersedes
+
+The status above that says the ability effects were removed and that a fresh import should show no Strength or Dexterity bonus from Role: Corvette.
+
+That status is retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+- Embedded effect `qQTMHDrpIch61Q7C` restored on item `QV7xhcdNoH8halzL` with Strength +1 and Dexterity +1 at mode 2, priority 1, `transfer: true`.
+- Actor effect `ZtUQ6YtH6HkdJH60` remains absent.
+- The effect id appears once inside the CR90 actor. The same id on other ships was not changed.
+- The hardpoint and weapon-damage text is unchanged.
+- The 42 unresolved actor-only effects are unchanged.
+- `npm run build:db -- drakes-shipyard` exited 0.
+- Foundry reproduction still required: yes. Import a fresh CR90 and confirm one Role: Corvette effect applies Strength +1 and Dexterity +1 once.
+- Next action: run that import. Do not edit the 42 effects or the custom N-1 item without a separate authorization.
+
+### Status
+
+Embedded Corvette ability effect restored at mode 2. Actor duplicate remains removed. Pack rebuilt. Fresh CR90 import pending. No commit. No push.
