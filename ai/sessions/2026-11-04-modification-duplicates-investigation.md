@@ -764,3 +764,23 @@ Item `QV7xhcdNoH8halzL` again has exactly one embedded effect, `qQTMHDrpIch61Q7C
 ### Status
 
 Embedded Corvette ability effect restored at mode 2. Actor duplicate remains removed. Pack rebuilt. Fresh CR90 import pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — Canonical Role ability modes
+
+### Reason
+
+Foundry mode 0 is Custom and does not add an ability bonus. Tier-0 Role ability adjustments must use mode 2, Add.
+
+### Supersedes
+
+The sentence above that says the compendium tier-0 Corvette feature was not edited. That sentence remains as the record of the Drake CR90 repair. The Drake item correction is unchanged.
+
+### Revised decision or behavior
+
+The canonical Role features Corvette `2KEpnIbTdhgY06tF`, Cruiser `pbaT5Kczi8eJD0u0`, and Explorer `SgSw1dDCCvxPsfVs` now store their six ability adjustments at mode 2. Values, priorities, ids, descriptions, and movement entries are unchanged. Movement starting values stay mode 5 on `system.attributes.movement.space` and `system.attributes.movement.turn`. The other 33 tier-0 Role ability changes were already mode 2. The Drake CR90 embedded item was already corrected separately and was not edited here. `npm run build:db -- starships` exited 0. A fresh compendium check should show Add for those ability bonuses and Override for the movement entries.
+
+### Status
+
+Canonical Role ability modes repaired. Drake actor source was not edited. No commit. No push.

@@ -1281,3 +1281,23 @@ Embedded effect `qQTMHDrpIch61Q7C` is restored at mode 2 on item `QV7xhcdNoH8hal
 ### Status
 
 Embedded Corvette ability effect restored at mode 2. Actor duplicate remains removed. Pack rebuilt. Fresh CR90 import pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — Canonical Role ability modes
+
+### Reason
+
+Foundry mode 0 is Custom. Ability adjustments require mode 2, Add. Movement starting values remain mode 5, Override.
+
+### Supersedes
+
+Nothing in the Drake CR90 repair above. This addendum covers the canonical Role features only.
+
+### Revised decision or behavior
+
+Corvette, Cruiser, and Explorer ability changes are now mode 2. The Drake CR90 embedded item was already corrected separately and was not edited. The starships pack was rebuilt. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Canonical Role ability modes repaired. Drake actor source was not edited. No commit. No push.
