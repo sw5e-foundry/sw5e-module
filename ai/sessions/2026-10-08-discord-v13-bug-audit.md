@@ -1301,3 +1301,83 @@ Corvette, Cruiser, and Explorer ability changes are now mode 2. The Drake CR90 e
 ### Status
 
 Canonical Role ability modes repaired. Drake actor source was not edited. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — Drake actor-only effects classified
+
+### Reason
+
+The 42 actor-only effects were classified by family, prepared impact, and ownership. None were deleted.
+
+### Supersedes
+
+The earlier statement that all 42 remain unclassified. That statement stays above.
+
+### Revised decision or behavior
+
+The live set still matches the frozen 42. Seventeen are intentional construction data and change prepared values. Twenty-two are unresolved and still change prepared values. Three are unresolved prepared no-ops: Escape Pod `CvX6D1B00rvifhxM`, M3-A Scyk Fighter `3oOxhRCrZjoHwv4G`, and YV-929 `OpwEjg658THj3164`. The role and size families are empty. No effect belongs on an embedded item yet. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+42 actor-only effects classified. None deleted or edited. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — SotG workbook ownership audit
+
+### Reason
+
+`SotG.xlsx` was used as the build authority for Drake ships that match a worksheet.
+
+### Supersedes
+
+No earlier classification was removed. Workbook results are recorded separately.
+
+### Revised decision or behavior
+
+Five of the 42 effects have a high-confidence sheet. Thirty-seven have no sheet. ETA-2 is a variant mismatch. Fang, Gand, GAT-12, and HMP do not have a proven item owner. No source fix was made. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Workbook audit recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-12 — Fang role, turn, and specialization repair
+
+### Reason
+
+Fang's workbook movement can be reproduced without editing Strike Fighter or canonical Adaptive Ailerons.
+
+### Supersedes
+
+The status above that says no source fix was made. That status remains the record of the read-only audit.
+
+### Revised decision or behavior
+
+Fang now has Role: Superiority Fighter and a separate Superiority Fighter specialization that adds space +50. The actor effect no longer adds Turn -100, and its Dexterity bonus is +1. Prepared space is 450 and prepared turn is 50. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Fang source repaired. Pack rebuild still required. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Fang pack rebuilt
+
+### Reason
+
+Foundry was stopped, so the Drake pack was compiled.
+
+### Supersedes
+
+The status above that says the pack rebuild is still required.
+
+### Revised decision or behavior
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed Fang-class. A fresh import is still required.
+
+### Status
+
+Fang pack rebuilt. Fresh import pending. No commit. No push.

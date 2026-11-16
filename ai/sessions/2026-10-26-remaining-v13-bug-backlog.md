@@ -584,3 +584,102 @@ No Drake CR90 decision above. The earlier note that the compendium tier-0 featur
 ### Status
 
 Canonical Role ability modes repaired. Drake actor source was not edited. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — Drake actor-only effects classified
+
+### Reason
+
+The 42 actor-only effects were classified without deleting them.
+
+### Supersedes
+
+The earlier statement that the 42 remain an unclassified block. That statement stays above.
+
+### Revised status
+
+- Recount matched the frozen 42. No unexplained drift.
+- Family tags and ownership are separate. Prepared no-op is not a deletion reason.
+- YV-929 fly 350 and turn 300, both mode 5, leave prepared space 300, turn 200, and fly 0. Ownership remains unresolved.
+- Escape Pod and M3-A Scyk Fighter are six mode-2 adds of 0. Prepared scores do not change. Ownership remains unresolved.
+- Z-TIE Strength +1 has no embedded Role item. Ownership remains unresolved.
+- Seventeen effects are intentional construction data. Twenty-two unresolved effects still change prepared values. None belong on an embedded item yet.
+- The role family and the size family are empty.
+- Next action: do not delete the set. Investigate the unresolved rows, and test Fang `mLJNAvcynpjfy8NT` because its turn -100 stacks with Adaptive Ailerons.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+42 actor-only effects classified. None deleted or edited. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — SotG workbook ownership audit
+
+### Reason
+
+The workbook audit compared the 42 actor effects with `SotG.xlsx` where a sheet matches.
+
+### Supersedes
+
+The Fang test note above is refined. The earlier text stays. Removing the actor Turn -100 does not produce the worksheet Turn 50.
+
+### Revised status
+
+- High-confidence sheets exist for Fang, ETA-2, Gand, GAT-12, and HMP. The other 37 effects have no worksheet.
+- Fang prepared turn is 0 with both Turn -100 adds, and 100 with only Adaptive Ailerons. The worksheet result is Turn 50 and Fly 450. The ability totals match only while the actor effect remains.
+- ETA-2's sheet role is Superiority Fighter and the actor's role item is Interceptor.
+- No canonical or actor source change was made.
+- Next batch: reconcile Fang's stored space 350 and turn 200 with the worksheet before splitting `mLJNAvcynpjfy8NT`.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Workbook audit recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-12 — Fang role, turn, and specialization repair
+
+### Reason
+
+The Fang reconstruction is now in source. Strike Fighter was not converted into Superiority Fighter.
+
+### Supersedes
+
+The next-batch line above that says to reconcile Fang before splitting the actor effect. That line stays as the prior recommendation.
+
+### Revised status
+
+- Role: Superiority Fighter `RsupFng8kQ2mN4wL` is embedded and publishes space 400 and turn 150.
+- Actor effect `mLJNAvcynpjfy8NT` keeps Strength +1, Dexterity +1, Constitution +1, and Wisdom +1. Its Turn -100 is gone.
+- Role Spec: Superiority Fighter `RspcFng9tY3pQ5xM` adds space +50. Strike Fighter `gqzu99tDjcCvaGNP` is unchanged.
+- Prepared result: space 450, turn 50, fly 0.
+- The pack has not been rebuilt.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Fang source repaired. Pack rebuild still required. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Fang pack rebuilt
+
+### Reason
+
+Foundry was stopped, so the repaired Fang source was compiled.
+
+### Supersedes
+
+The line above that says the pack has not been rebuilt, and the status that says the rebuild is still required. Both stay as the earlier record.
+
+### Revised status
+
+- `npm run build:db -- drakes-shipyard` exited 0 and packed Fang-class `uAzqh6bUJ4ZfKcol`.
+- Fresh import still required to confirm space 450 and turn 50.
+
+### Status
+
+Fang pack rebuilt. Fresh import pending. No commit. No push.

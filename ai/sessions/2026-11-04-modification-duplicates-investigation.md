@@ -784,3 +784,236 @@ The canonical Role features Corvette `2KEpnIbTdhgY06tF`, Cruiser `pbaT5Kczi8eJD0
 ### Status
 
 Canonical Role ability modes repaired. Drake actor source was not edited. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — Drake actor-only effects classified
+
+### Reason
+
+The 42 unresolved actor-only effects needed family tags and a separate ownership conclusion. They were not deleted or moved.
+
+### Supersedes
+
+The sentences above that leave all 42 unclassified, and the earlier claim that deleting 39 would change a prepared number. Those sentences stay as the inventory. This addendum replaces that claim with a per-effect result.
+
+### Recount
+
+Current Drake actor-level effects: 42. The frozen 42 ids are all present. None were added or removed. `ZtUQ6YtH6HkdJH60` and the three Directional Shield actor effects remain absent. No unexplained source drift.
+
+### Rules used
+
+Family tags are not the ownership conclusion. Prepared impact is not ownership. Mode 2 Add stacks, so an embedded item with the same key does not make the actor change redundant. Prepared flying speed is forced to 0. A mode 5 actor value on `movement.turn` or `movement.fly` is not copied into the prepared number. Role publication is mode 5 on `movement.space` or `movement.turn` from an embedded `subtype: role` item. None of these 42 ships publish that movement. The role family and the size family are empty: no actor effect matches an embedded role or size effect on key, mode, value, and priority together.
+
+Two conflicts were resolved here. Z-TIE `aH2aU4GGZ8RGquth` stays Unresolved. The ship has no embedded Role item, so the Strength +1 cannot be assigned to a Role item, and the stored name Role does not by itself make it construction data. N-1 `RcQDyiiABgOStw5q` does not belong on Small Starship. That size item already applies Dexterity +2 at priority 1, while this effect applies Dexterity +2 at priority 20 and also stores Constitution 0. The adds stack, so removing the actor effect still changes prepared Dexterity.
+
+### Required checks
+
+YV-929 `OpwEjg658THj3164`, Modifier, current actor `LY8lY6F9nVqz7Km1`. Stored changes: `movement.fly` 350 mode 5, `movement.turn` 300 mode 5, both priority 20. Role: Freighter `8t3M3oYnzNPb9urY` publishes no movement. Its only change is Constitution +1, mode 2, transfer true. Stored movement is space 300, turn 200, fly 300. Prepared with the effect and without it: space 300, turn 200, fly 0. Fly is a no-op because preparation forces fly to 0. Turn is controlled by this effect, but the 300 is not copied because the Role item publishes no turn. Prepared impact: no-op. Ownership: Unresolved. Next action: investigate. Runtime check: yes.
+
+Escape Pod `CvX6D1B00rvifhxM` and M3-A Scyk Fighter `3oOxhRCrZjoHwv4G`. Both are six ability changes, mode 2, value 0, priority 20. No Override, Upgrade, Downgrade, Multiply, or Custom change. Statuses empty. Duration empty. Flags have no special behavior. Origin is the missing legacy actor `msrxS22tzCwEup0n`. Escape Pod stored scores are Strength 14, Dexterity 13, Constitution 15, Intelligence 10, Wisdom 10, Charisma 10. Scyk stored scores are Strength 14, Dexterity 15, Constitution 13, Intelligence 10, Wisdom 12, Charisma 8. Excluding either effect changes none of those totals. Prepared impact: no-op. Ownership: Unresolved. Next action: investigate. They are not deletion candidates.
+
+Z-TIE `aH2aU4GGZ8RGquth`, name Role, current actor. One change: Strength +1, mode 2, priority 20. `z-tie-fighter.yml` has no embedded Role item and no canonical role feature. Small Starship does not change Strength. Not a duplicate. Ownership: Unresolved. Prepared impact: changes prepared values. Next action: investigate.
+
+### Counts
+
+Each of the 42 ids appears once. Intentional construction data: 17, all of which change prepared values, next action keep. Unresolved and still changing prepared values: 22, next action investigate, except Fang, which is test. Unresolved prepared no-ops: 3, next action investigate. Belongs on an embedded item: 0.
+
+### Intentional construction data
+
+Prepared impact for each row is changes prepared values. Runtime verification is yes only where a movement key is involved.
+
+- `QVV8J6QkJwUgK9tV`, `ef76-nebulon-b-escort-frigate-medical.yml`, EF76 Medical, ASI. Origin: missing legacy actor. Tags: ability-score increase, movement adjustment, custom ship modifier. Changes: Strength +3, Dexterity +1, Wisdom +2, fly +50 mode 2, turn -150 mode 2. Other abilities 0. Related item: none. Deletion lowers those three abilities and raises prepared turn by 150. Fly stays 0. Runtime: yes. Next: keep.
+- `pqOqJLrepLJt7O0V`, `ef76-nebulon-b-escort-frigate.yml`, EF76, ASI. Origin: missing legacy actor. Tags: ability-score increase, movement adjustment, custom ship modifier. Changes: Strength +3, Wisdom +1, fly +50 mode 2, turn -150 mode 2. Other abilities 0. Related item: none. Deletion lowers Strength and Wisdom and raises prepared turn by 150. Runtime: yes. Next: keep.
+- `4WAAiMXDrFy2MipW`, `hmp-droid-gunship.yml`, HMP Droid Gunship, ASI. Origin: missing legacy actor. Tags: ability-score increase, movement override, custom ship modifier. Changes: Constitution +4, turn 400 mode 5. Other abilities 0. Related item: none. Deletion lowers Constitution by 4. Prepared turn number stays on the stored value. Turn control goes away. Runtime: yes. Next: keep.
+- `Kntbe9tGWmmm54Lj`, `wayfarer-class-medium-transport.yml`, Wayfarer, ASI. Origin: current actor. Tags: ability-score increase, movement adjustment, custom ship modifier. Changes: Strength +3, Dexterity -1, Constitution +1, turn +50 mode 2. Related item: none owns the set. Deletion reverses those three abilities and lowers prepared turn by 50. Runtime: yes. Next: keep.
+- `Ld1zNnraoTkSCSUo`, `gat-12-skipray-blastboat.yml`, GAT-12, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Strength +4, Constitution +3. Other abilities 0. Related item: none. Deletion lowers those two scores. Runtime: no. Next: keep.
+- `OAfvUZHcxgRUm7NF`, `k-wing-btl-s8.yml`, K-wing, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Strength +2, Constitution +4. Other abilities 0. Related item: none. Deletion lowers those two scores. Runtime: no. Next: keep.
+- `TJIYFIzmVExqVc0D`, `m12-l-kimogila-heavy-fighter.yml`, Kimogila, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Constitution +2, Wisdom +2. Other abilities 0. Related item: none. Deletion lowers those two scores. Runtime: no. Next: keep.
+- `LEc3T7KOFg6KKkPp`, `m3-a-scyk-heavy-fighter.yml`, Scyk Heavy, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Strength +2, Constitution +1. Other abilities 0. Related item: none. Deletion lowers those two scores. Runtime: no. Next: keep.
+- `2znuu4saWRIWKilI`, `m4-c-dunelizard-fighter.yml`, Dunelizard, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Constitution +2. Other abilities 0. Related item: none. Deletion lowers Constitution by 2. Runtime: no. Next: keep.
+- `GKjlvglk1KRlr5LS`, `tie-d-defender.yml`, TIE/D Defender, ASI. Origin: foreign Drake actor `ajAHTOE1nFbXxusm`. Tag: ability-score increase. Changes: Strength +2, Dexterity +3, Constitution +2, Wisdom +2, Charisma +1. Intelligence 0. Related item: none. Deletion lowers those five scores. Runtime: no. Next: keep.
+- `UzKX8O1hrX2fUG6a`, `u-wing-starfighter-support-craft-ut-60d.yml`, U-wing, ASI. Origin: current actor. Tag: ability-score increase. Changes: Constitution +2, Wisdom +2. Related item: none. Deletion lowers those two scores. Runtime: no. Next: keep.
+- `rpFFacilSwiEErzy`, `v-wing-starfighter-alpha-3-nimbus-class.yml`, V-wing, AIS. Origin: current actor. Tag: ability-score increase. Changes: Dexterity +1, Constitution +1. Related item: none. Deletion lowers those two scores. Runtime: no. Next: keep.
+- `XoPU25PAVecBJZ1K`, `vulture-droid-cis.yml`, Vulture Droid, ASI. Origin: current actor. Tag: ability-score increase. Changes: Strength +1, Dexterity +5, Constitution +2, Wisdom +1. Related item: none. Deletion lowers those four scores. Runtime: no. Next: keep.
+- `Rp7gk0y314hWBN4f`, `wander-class-jump-freighter.yml`, Wander, ASI. Origin: current actor. Tag: ability-score increase. Changes: Strength +1, Charisma +1. Related item: none. Deletion lowers those two scores. Runtime: no. Next: keep.
+- `8Rr449jpbSMrmmId`, `x-70b-phantom-class-prototype.yml`, X-70B, ASI. Origin: current actor. Tag: ability-score increase. Changes: Strength +3, Constitution +1, Wisdom +3. Related item: none owns these values. Deletion lowers those three scores. Runtime: no. Next: keep.
+- `lHtPlYquq2npPWPr`, `z-95-headhunter.yml`, Z-95, Ability Modifiers. Origin: current actor. Tag: ability-score increase. Changes: Strength +1, Wisdom +2. Related item: none. Deletion lowers those two scores. Runtime: no. Next: keep.
+- `5g1eZGdBgFX28yTE`, `z-ceptor.yml`, Z-'ceptor, Modifier. Origin: current actor. Tag: ability-score increase, custom ship modifier. Changes: Dexterity +5, Constitution +5. Related item: none owns these values. Deletion lowers those two scores. Runtime: no. Next: keep.
+
+### Unresolved, prepared values still change
+
+Next action is investigate unless noted. Runtime verification is yes.
+
+- `UvdO1iEhKf8g7CfW`, ETA-2, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Strength +2, Dexterity +1, Wisdom +2. Other abilities 0. Related item: Role: Interceptor matches only Dexterity +1. Deletion lowers Strength, Dexterity, and Wisdom.
+- `YCeLyX8dFXqxKI2q`, Gand, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Dexterity +1, Constitution +1. Other abilities 0. Related item: Frame, Mark I matches only Constitution. Deletion lowers Dexterity and Constitution.
+- `mLJNAvcynpjfy8NT`, Fang, ASI. Origin: missing legacy actor. Tags: ability-score increase, movement adjustment. Changes: Strength +1, Dexterity +2, Constitution +1, Wisdom +1, turn -100 mode 2. Other abilities 0. Related item: Adaptive Ailerons `uqX0yNJkEZ6MAJdD` also adds turn -100, and the adds stack. Deletion lowers the four abilities and raises prepared turn by 100. Next: test.
+- `sdBpRmF78iiOot4Z`, Krayt, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Strength +1, Constitution +4, Wisdom +2. Other abilities 0. Related item: Reactor, Mark I matches only Strength. Deletion lowers those three scores.
+- `4Hcr1AmMqhvU7Llh`, Scyk TIE Killer, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Strength +3, Dexterity +2, Wisdom +1. Other abilities 0. Related item: Small Starship also adds Dexterity +2, and the adds stack. Deletion lowers Strength, Dexterity, and Wisdom.
+- `VC9CbCEjCmhPlFRI`, Nantex, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Strength +1, Dexterity +2. Other abilities 0. Related items: Reactor, Mark I matches Strength, and Small Starship also adds Dexterity +2. No one item owns the effect. Deletion lowers both scores.
+- `0O7HKNqQOEd4OVW8`, StarViper Prototype, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Dexterity +2, Constitution +1, Wisdom +4, Charisma +2. Other abilities 0. Related item: Small Starship also adds Dexterity +2. Deletion lowers all four nonzero scores.
+- `onJzcJxxUix0rH3I`, StarViper, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Strength +1, Dexterity +1, Constitution +1, Wisdom +2. Other abilities 0. Related items: Reactor and Thrusters each match one change. Deletion lowers all four nonzero scores.
+- `uPZW3eWBxhBUUU5G`, StarViper Mk. II, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Dexterity +1, Constitution +1, Wisdom +2. Other abilities 0. Related items: Thrusters and Frame each match one change. Deletion lowers all three nonzero scores.
+- `mvIuP35d26OjGvbc`, TIE Advanced, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Strength +1, Dexterity +1, Wisdom +2. Other abilities 0. Related items: Role: Strike Fighter and two thruster items cover Strength and Dexterity only. Deletion lowers all three nonzero scores.
+- `N4VQQILD4SFt4gR6`, TIE/HU, ASI. Origin: current actor. Tag: ability-score increase. Changes: Strength +2, Dexterity +2, Wisdom +1. Related item: Small Starship also adds Dexterity +2. Deletion lowers all three scores.
+- `XWEx7IMdFqkYzSni`, TIE Interceptor, ASI. Origin: current actor. Tag: ability-score increase. Changes: Dexterity +2, Strength +1, Wisdom +1. Related items: Small Starship and Role: Strike Fighter each match one change. Deletion lowers all three scores.
+- `kBZ53WHwGwxDHFsy`, TIE Bomber Mine Layer, ASI. Origin: current actor. Tag: ability-score increase. Changes: Dexterity +1, Constitution +1. Related item: Frame, Mark I matches only Constitution. Deletion lowers both scores.
+- `PqvYnyKJE77WZZHt`, TIE Bomber Missile Boat, ASI. Origin: current actor. Tag: ability-score increase. Changes: Dexterity +1, Constitution +1. Related item: Frame, Mark I matches only Constitution. Deletion lowers both scores.
+- `UTRYA2jRi2cgpMnZ`, TIE Bomber, ASI. Origin: current actor. Tag: ability-score increase. Changes: Dexterity +1, Constitution +1. Related item: Frame, Mark I matches only Constitution. Deletion lowers both scores.
+- `L8dxPRiNxzKWZrgW`, Advanced X-wing, ASI. Origin: current actor. Tag: ability-score increase. Changes: Strength +2, Dexterity +2, Constitution +1, Intelligence -2, Wisdom +4. Related item: Small Starship also adds Dexterity +2. Deletion reverses all five nonzero scores.
+- `ABAZbMpjPFeY2lDX`, Y-wing, ASI. Origin: current actor. Tag: ability-score increase. Changes: Strength +2, Dexterity +1, Wisdom +1. Related items: Thrusters, Mark I and Role: Interceptor both match Dexterity. Deletion lowers all three scores.
+- `tstPz7sF3O5hbLsi`, YT-1300 Modified, ASI. Origin: current actor. Tag: ability-score increase. Changes: Strength +1, Constitution +1, Wisdom +2. Related items: Reactor, Mark I and Role: Freighter each match one change. Deletion lowers all three scores.
+- `XLUqHYCqcIgHhklz`, VT-49, ASI. Origin: current actor. Tags: ability-score increase, movement override, custom ship modifier. Changes: Constitution +1, Intelligence +2, Wisdom +2, fly 300 mode 5, turn 200 mode 5. Related item: none owns the set. Deletion lowers the three abilities. Prepared space, turn, and fly numbers stay put. Turn control goes away.
+- `qSl5ltd7udAKjzBX`, YT-1300 Heavily Modified, ASI. Origin: current actor. Tags: ability-score increase, movement override, custom ship modifier. Changes: fly 400 mode 5, turn 150 mode 5, Strength +2, Dexterity +1, Constitution -1, Intelligence +1, Wisdom +1, Charisma +1. Related items: individual modifications match some ability keys and stack with this effect. Neither Role: Freighter item publishes movement. Deletion reverses the six abilities. Prepared space, turn, and fly numbers stay put.
+- `RcQDyiiABgOStw5q`, N-1, ASI. Origin: missing legacy actor. Tag: ability-score increase. Changes: Dexterity +2. Other abilities 0. Related item: Small Starship `CUdmIPN5TKpIJg2M` also adds Dexterity +2 at priority 1. The adds stack. Deletion lowers Dexterity by 2. This effect does not belong on that size item.
+- `aH2aU4GGZ8RGquth`, Z-TIE, Role. Origin: current actor. Tag: ability-score increase. Not a role adjustment. Change: Strength +1. Related item: none. Deletion lowers Strength by 1.
+
+### Unresolved prepared no-ops
+
+- `CvX6D1B00rvifhxM`, Escape Pod, ASI. Origin: missing legacy actor. Tag: zero-value remnant. Six ability adds of 0, mode 2, priority 20. Related item: none. Deletion changes no prepared score. Runtime: yes. Next: investigate.
+- `3oOxhRCrZjoHwv4G`, M3-A Scyk Fighter, ASI. Origin: missing legacy actor. Tag: zero-value remnant. Six ability adds of 0, mode 2, priority 20. Related item: none. Deletion changes no prepared score. Runtime: yes. Next: investigate.
+- `OpwEjg658THj3164`, YV-929, Modifier. Origin: current actor. Tags: movement override, custom ship modifier. Changes: fly 350 mode 5, turn 300 mode 5. Related item: Role: Freighter publishes no movement. Deletion changes no prepared speed. Turn control goes away. Runtime: yes. Next: investigate.
+
+### Status
+
+42 actor-only effects classified. None deleted, moved, or edited. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — SotG workbook ownership audit
+
+### Reason
+
+The frozen 42 actor effects were compared with `C:\Users\ckauble\Downloads\SotG.xlsx`. The workbook was read from its ZIP and was not modified. Pack source was not edited during the comparison. Removal tests used the stored numbers in memory.
+
+### Supersedes
+
+Nothing in the classification above is deleted. This addendum adds workbook authority where a sheet matches, and it records that no high-confidence source fix met the gate.
+
+### Workbook and scope
+
+The file has 38 worksheets. `List of Ships` and `Starship Sheet` are not ships. `Example X-wing` and `Copy of Copy of Copy of copy` are not reliable ship sheets. Drake's Shipyard has 87 actors. Only actors with a high-confidence sheet were compared. A final workbook number was not treated as a value to store directly.
+
+High-confidence matches, same ship and same variant:
+
+- A-Z-Z-3 Light Freighter
+- AEG-77 Vigo Gunship
+- Aka'jor-class Shuttle, sheet `Akajor-class Shuttle`
+- Amphibious Fighter
+- ARC-170 Starfighter
+- Arquitens-class Command Cruiser
+- Arquitens-class Light Cruiser
+- DeepWater-class Light Freighter - Legendary, sheet `Deepwater-class- Lengend`
+- DeepWater-class Light Freighter, sheet `Deepwater-class Freighter`, because the legendary sheet accounts for the other Deepwater actor
+- Delta-7 Aethersprite-class light interceptor, sheet `Delta-7`
+- Delta-7 Aethersprite-class light interceptor - Modified, sheet `Modified Delta-7`
+- DP20 Frigate
+- Droid Tri-Fighter
+- Dynamic-class light freighter, sheet `Dynamic-class`
+- ETA-2 Actis-class Interceptor, sheet `ETA-2 Actis`
+- Fang-class
+- Gand Starfighter
+- GAT-12 Skipray Blastboat, sheet `GAT-12`
+- HMP Droid Gunship, sheet `HMP Gunship`
+
+Variant mismatches, not used as authority: `AIATi Transport` is not AIAT/i Gunship; `Baleen-class Freighter` is not the Heavy Freighter; `Raider-Corvette` is not the CR90; `Example X-wing` is not the T-65 or the Advanced X-wing. `Basilisk` and `Crusader XX-777` are not exact actor names, so they were not used. Sheets with no Drake actor: Firespray-31, G9 Rigger, Gamma-class, GAT-24r, the four Gozanti sheets, GR-75, and Lancer Class.
+
+Of the 42 actor effects, five sit on high-confidence ships: Fang, ETA-2, Gand, GAT-12, and HMP. The other 37 are `NEEDS REVIEW: NO WORKBOOK MATCH`. None of the other high-confidence actors have an actor-level effect.
+
+### Fang-class
+
+Actor `uAzqh6bUJ4ZfKcol`. Effect `mLJNAvcynpjfy8NT`, name ASI. The id in the earlier notes is the effect id, not the actor id.
+
+Worksheet result: Fly 450, Turn 50, Turn adjustment -100 attributed to installed Adaptive Ailerons, Tier 0 Role Superiority Fighter, size Small, tier 2. Ability total row: 15, 18, 11, 10, 14, 10.
+
+Stored movement: space 350, turn 200, fly 350. Stored abilities: 14, 14, 12, 10, 13, 10.
+
+Embedded Adaptive Ailerons `uqX0yNJkEZ6MAJdD` has transfer true, turn -100 mode 2, priority 20. Canonical Adaptive Ailerons `H1PmkigBok9ThtyJ` has the same turn change. The actor effect also has turn -100 mode 2. Small Starship adds Dexterity +2 and Constitution -2.
+
+Prepared with the actor effect: space 350, turn 0, fly 0. Abilities 15, 18, 11, 10, 14, 10. Those ability totals match the worksheet total row. Prepared without the actor effect: space 350, turn 100, fly 0. Abilities 14, 16, 10, 10, 13, 10. That misses both the ability totals and Turn 50.
+
+The two turn adds stack: 200 - 100 - 100 = 0. One Adaptive Ailerons contribution would leave turn 100, still not 50. The worksheet also lists Combat Thrusters Mk I and Mk II, which are not embedded on this actor. Canonical Combat Thrusters Mk I and Mk II each add turn -50, but installing them would be a new component, not a proven repair of this effect. Changing canonical Adaptive Ailerons would affect ships outside this workbook match, so it was not changed.
+
+Classification: `NEEDS REVIEW: INSUFFICIENT OWNERSHIP EVIDENCE`. The ability changes are load-bearing for the workbook totals and have no single proven item owner. The turn change duplicates Adaptive Ailerons and still does not produce Turn 50 if removed. No source edit.
+
+### Other matched actor effects
+
+Prepared fly is 0 in all of these. Space and turn below are the prepared space and turn.
+
+- ETA-2 `kxOYt1pVQc0rh1OP`, sheet `ETA-2 Actis`, effect `UvdO1iEhKf8g7CfW`. Worksheet Fly 450, Turn 150, no turn adjustment, role Superiority Fighter. The actor's installed role item is Role: Interceptor, not Superiority Fighter, so the configuration does not agree. Stored space 300, turn 200. Actor changes: Strength +2, Dexterity +1, Wisdom +2, mode 2. Prepared turn 200. Workbook turn 150 is not produced by this effect. Classification: `NEEDS REVIEW: VARIANT MISMATCH`.
+- Gand `DiyflQC8xEhqvrzp`, sheet `Gand Starfighter`, effect `YCeLyX8dFXqxKI2q`. Worksheet Fly 450, Turn 200, role Bomber, no turn adjustment. Stored space 350, turn 250. Actor changes: Dexterity +1, Constitution +1. Frame, Mark I already adds Constitution +1, and the adds stack. Prepared turn 250, not 200. No component on the sheet is named as the source of this ability pair. Classification: `NEEDS REVIEW: INSUFFICIENT OWNERSHIP EVIDENCE`.
+- GAT-12 `Bgqr4WNQpTzEIepj`, sheet `GAT-12`, effect `Ld1zNnraoTkSCSUo`. Worksheet Fly 350, Turn 100, role Attack Fighter, no turn adjustment. Stored space 300, turn 300. Embedded Adaptive Ailerons adds the only turn -100, so prepared turn is 200, not 100. Actor changes are Strength +4 and Constitution +3, mode 2, and do not touch turn. The sheet does not name a component for those ability values. Classification: `NEEDS REVIEW: INSUFFICIENT OWNERSHIP EVIDENCE`.
+- HMP `reNHgyibXInPuEMz`, sheet `HMP Gunship`, effect `4WAAiMXDrFy2MipW`. Worksheet Fly 350, Turn 100, role Shuttle, no turn adjustment. Stored space 250, turn 250. Actor changes: Constitution +4 mode 2, and turn 400 mode 5. The mode 5 turn value is not copied. No role item publishes turn, so prepared turn stays 250. Prepared fly stays 0. Classification: `NEEDS REVIEW: INSUFFICIENT OWNERSHIP EVIDENCE`.
+
+### No workbook match
+
+These 37 effects stay `NEEDS REVIEW: NO WORKBOOK MATCH`. Their earlier family tags and prepared-impact notes remain in the addendum above. They were not given another ship's numbers.
+
+`QVV8J6QkJwUgK9tV`, `pqOqJLrepLJt7O0V`, `CvX6D1B00rvifhxM`, `OAfvUZHcxgRUm7NF`, `TJIYFIzmVExqVc0D`, `sdBpRmF78iiOot4Z`, `3oOxhRCrZjoHwv4G`, `LEc3T7KOFg6KKkPp`, `4Hcr1AmMqhvU7Llh`, `2znuu4saWRIWKilI`, `RcQDyiiABgOStw5q`, `VC9CbCEjCmhPlFRI`, `0O7HKNqQOEd4OVW8`, `onJzcJxxUix0rH3I`, `uPZW3eWBxhBUUU5G`, `mvIuP35d26OjGvbc`, `GKjlvglk1KRlr5LS`, `N4VQQILD4SFt4gR6`, `XWEx7IMdFqkYzSni`, `kBZ53WHwGwxDHFsy`, `PqvYnyKJE77WZZHt`, `UTRYA2jRi2cgpMnZ`, `UzKX8O1hrX2fUG6a`, `rpFFacilSwiEErzy`, `XLUqHYCqcIgHhklz`, `XoPU25PAVecBJZ1K`, `Rp7gk0y314hWBN4f`, `Kntbe9tGWmmm54Lj`, `8Rr449jpbSMrmmId`, `L8dxPRiNxzKWZrgW`, `ABAZbMpjPFeY2lDX`, `qSl5ltd7udAKjzBX`, `tstPz7sF3O5hbLsi`, `OpwEjg658THj3164`, `lHtPlYquq2npPWPr`, `5g1eZGdBgFX28yTE`, `aH2aU4GGZ8RGquth`.
+
+### Counts
+
+- Correct actor ownership: 0
+- Confirmed move: 0
+- Confirmed duplicate: 0
+- Intentional stack: 0
+- Incorrect value: 0
+- Missing item effect: 0
+- Prepared no-op: 0 newly proven from the workbook
+- Needs review, no workbook match: 37
+- Needs review, variant mismatch: 1 (ETA-2)
+- Needs review, insufficient ownership evidence: 4 (Fang, Gand, GAT-12, HMP)
+
+### Cross-ship pattern
+
+Adaptive Ailerons is the only repeated component tied to a matched actor effect. Fang's embedded copy already matches the canonical turn -100. The actor adds a second -100. GAT-12 also has embedded Adaptive Ailerons and no actor turn change, and its prepared turn is still 200 against a worksheet turn of 100. That pattern is a systemic candidate. It was not implemented, because a canonical change would affect actors outside the high-confidence set, and removing Fang's actor turn key does not produce Turn 50.
+
+### Remediation and validation
+
+No source file was changed. No pack was rebuilt. The next batch is a Fang movement reconciliation that can name the stored space 350 and turn 200 against worksheet Fly 450 and Turn 50, including the missing Combat Thrusters rows, before any effect is split or removed. Do not delete `mLJNAvcynpjfy8NT` while its ability changes are what make the workbook ability totals.
+
+### Status
+
+Workbook audit recorded. No high-confidence fix. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-12 — Fang role, turn, and specialization repair
+
+### Reason
+
+The Fang-class worksheet is authoritative for this actor. Role: Superiority Fighter was missing. The actor effect's Turn -100 duplicated Adaptive Ailerons. The workbook specialization is Superiority Fighter, not Strike Fighter.
+
+### Supersedes
+
+The status above that says no Fang source edit was made, and the sentence that says not to remove the actor Turn -100 until a later reconciliation. Those statements stay as the record of the read-only audit.
+
+### Revised behavior
+
+`packs/_source/drakes-shipyard/fang-class.yml` now has embedded Role: Superiority Fighter `RsupFng8kQ2mN4wL`, sourced from canonical item `vyc2GIsA50ilVSyg`. Its transfer-true effect overrides space to 400 and turn to 150, and adds Dexterity +1. Actor effect `mLJNAvcynpjfy8NT` no longer changes turn. Its Dexterity change is +1. It still adds Strength +1, Constitution +1, and Wisdom +1. Strike Fighter `gqzu99tDjcCvaGNP` was not edited. A separate embedded specialization, Role Spec: Superiority Fighter `RspcFng9tY3pQ5xM`, adds `movement.space` +50 mode 2. There is no canonical specialization document for that feature, so this copy is only on Fang.
+
+In-memory prepared result: space 450, turn 50, fly 0, abilities 15, 18, 11, 10, 14, 10. The only Turn -100 is Adaptive Ailerons. The intermediate prepared turn of -50 was not saved. Combat Thrusters were not added. Canonical Adaptive Ailerons was not edited. The pack was not rebuilt.
+
+### Status
+
+Fang source repaired. Pack rebuild still required after Foundry is stopped. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Fang pack rebuilt
+
+### Reason
+
+Foundry was stopped, so the repaired Fang source could be compiled.
+
+### Supersedes
+
+The status above that says the pack rebuild is still required. That status stays as the record of the unrebuilt source.
+
+### Revised behavior
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed Fang-class `uAzqh6bUJ4ZfKcol`. A fresh import is still required to see space 450 and turn 50.
+
+### Status
+
+Fang pack rebuilt. Fresh import pending. No commit. No push.
