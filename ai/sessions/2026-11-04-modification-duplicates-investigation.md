@@ -1791,3 +1791,252 @@ The temporary actor was deleted. Actor count went from 14 to 13, and the only re
 ### Status
 
 Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Final Drake Role and actor-effect pass
+
+### Reason
+
+The remaining shared Roles, blocked actors, and frozen 42 actor effects were reviewed together. No source edit met the creation or repair gates.
+
+### Supersedes
+
+Nothing. Fang, the 11 validated migrations, and the Dynamic-class validation above remain.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Shared Role research
+
+Legacy documents at `4cb468ae4` and `5f519f0d1` store an ability change and no movement speed.
+
+- Interceptor `36dTmDP0uGACXGdi`: Dexterity +1. No current successor. Eight embeddings. Stored ship speeds differ, so no shared speed was taken from them.
+- Gunboat `jgF0iBtvzesRwiTs`: Strength +1. Five embeddings. No commit renames it to Gunship. Current Gunship remains a separate document.
+- Strike Fighter base `nE5oQmhOrK0Coirv`: Strength +1. No Drake actor embeds it. The items that point at `orciEjuUBSjF05Ny` are Role Spec: Strike Fighter.
+- Battleship `BXnWIl4JqYhabKOG`: Wisdom +1 and Strength +1. One embedding, the Imperial Star Destroyer. Current Battleship, Warship, and Flagship are separate documents. Warship matches the ability pair but is the already migrated legacy id `uokunSKATOfWwOP9`. Flagship is Charisma +1 and Wisdom +1. No migration links the legacy Battleship id to the current Battleship file.
+
+No canonical Role was created. Movement is absent from the legacy documents, and a ship total is not a shared Role speed.
+
+### Blocked actors
+
+Each prior blocker stays `STILL BLOCKED`. New Role evidence did not resolve it.
+
+- YV-929: `STILL BLOCKED`. Historical 350/300 still has no worksheet against Freighter 300/150.
+- YT-1300, Heavily Modified: `STILL BLOCKED`. Two Freighter copies and no independent Constitution total.
+- ETA-2 and both Delta-7 actors: `STILL BLOCKED`. Worksheets select Superiority Fighter.
+- GAT-12: `STILL BLOCKED`. Attack Fighter versus Shuttle, and Adaptive Ailerons still conflict with the sheet turn.
+- Gand and HMP: `STILL BLOCKED`. The embedded items are specializations, not a proven missing base Role that this pass can install.
+- AEG-77: `STILL BLOCKED`. The worksheet says Gunship and the actor points at Gunboat.
+
+### Actor effects
+
+All 42 frozen effects have a final disposition. None were edited.
+
+- Seventeen construction effects stay actor-specific. The workbook did not prove another owner.
+- Fang `mLJNAvcynpjfy8NT` was already repaired and validated. It was not reopened.
+- Twenty-one unresolved effects that still change prepared values stay `INSUFFICIENT EVIDENCE`.
+- Escape Pod `CvX6D1B00rvifhxM` and M3-A Scyk `3oOxhRCrZjoHwv4G` stay prepared no-ops. Removal is not proven.
+- YV-929 `OpwEjg658THj3164` stays a prepared no-op with an unresolved historical movement value.
+
+### 87-actor disposition
+
+- Validated repair: 13
+- Blocked by multiple Roles: 1
+- Blocked by unresolved movement: 2
+- Blocked by variant mismatch: 5
+- Blocked by missing authority: 6
+- Needs a shared canonical Role: 8
+- Needs a future data migration: 52
+
+Those counts total 87. The validated 13 are Fang, the 11 Freighter, Yacht, and Warship migrations, and Dynamic-class.
+
+### Implementation and build
+
+No source file changed. No pack was rebuilt. Foundry was not asked to stop. No temporary world actor was created. No commit. No push.
+
+### Status
+
+The pass is closed with no source edit. The working tree has this documentation only.
+
+---
+
+## Addendum — 2026-11-17 — Legacy Role rename evidence
+
+### Reason
+
+The [Role history recovery](3a6cada6-601d-4426-8405-b882a9342668) found a discontinued-system commit that this pass did not inspect. The earlier conclusion that these Roles had no rename and no movement is incomplete.
+
+### Supersedes
+
+The statements above that no commit renames Gunboat to Gunship, that Interceptor and Strike Fighter have no successor, and that Battleship has no later movement profile.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised finding
+
+Legacy commit `210140e2d` (`Starship Compendium Updates`) states the renames and says every Role received a base speed and turning speed. The same document ids were kept at that commit:
+
+- Role: Interceptor `36dTmDP0uGACXGdi` became Role: Superiority Fighter. Current successor `vyc2GIsA50ilVSyg` publishes space 400 and turn 150, with Dexterity +1.
+- Role: Gunboat `jgF0iBtvzesRwiTs` became Role: Gunship. Current successor `NZi3USVLbUTO2CNg` publishes space 300 and turn 150, with Strength +1.
+- Role: Strike Fighter `nE5oQmhOrK0Coirv` became Role: Attack Fighter. Current successor `Xxjz0gT579YzJV29` publishes space 350 and turn 100, with Strength +1. No Drake actor embeds the base id.
+- Role Spec: Strike Fighter `orciEjuUBSjF05Ny` became Role Spec: Attack Fighter. It is still not a base Role.
+- Role: Battleship `BXnWIl4JqYhabKOG` kept its name and later speed is space 200 and turn 400. Current Battleship `wd8brjtWiB4As1x4` publishes those values. It was not renamed to Warship or Flagship.
+- Role: Warship `uokunSKATOfWwOP9` stayed Warship. Its later speed matches the already migrated Executor publication, space 200 and turn 500.
+
+Commit `ce2c0960d` then replaced those original ids with the current ids. The module commit messages do not repeat the rename. That is why the earlier search of this repository found none.
+
+Worksheets that say Superiority Fighter for an actor whose item is still named Interceptor are no longer evidence of two different Roles. ETA-2 and both Delta-7 actors stay unedited because their other documented conflicts were not re-tested in this correction.
+
+### Implementation impact
+
+No source file, canonical Role, or actor was edited. Policy A still keeps the legacy pointers. Applying the successor speeds to the Drake embeddings is a separate repair and was not started.
+
+### Status
+
+Correction recorded. No source edit. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role successor publication
+
+### Reason
+
+Commit `210140e2d` supplies the successor speeds. This pass publishes them on the clean legacy embeddings.
+
+### Supersedes
+
+The statements that Interceptor and Gunboat have no current successor, and any variant mismatch based only on Interceptor versus Superiority Fighter or Gunboat versus Gunship. The note above that this repair was not started is also superseded.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Frozen items
+
+No actor embeds Strike Fighter base `nE5oQmhOrK0Coirv`. The 14 base-Role items are:
+
+- Interceptor `36dTmDP0uGACXGdi`: Clutch `szt1dfLH6V4bltyf`, Delta-7 `JAzyRBH3KzCuhzU6`, Delta-7 Modified `JAzyRBH3KzCuhzU6`, ETA-2 `SD65mkoce1gtVgp3`, RZ-1 `FNNtNwdBeH3blQbk`, VCX auxiliary `uyRRdjE5Gzdh1xdo`, X-ceptor `TYIYieTHKqSqkhRR`, Y-wing `z9wtDYOxE9rke7OF`.
+- Gunboat `jgF0iBtvzesRwiTs`: AEG-77 `MvOUgDzaMc4A6nhA`, ST-70 `iK5J38u5OOuM0K6e`, ST-70 Legendary `yqQOGN6AiWjJ5Ngd`, VT-49 `90UoJVNE1s77x7pB`, Wayfarer `fTXFkx64e099tJOd`.
+- Battleship `BXnWIl4JqYhabKOG`: Imperial `mjTL7BRtcGi6vXWJ`.
+
+### Blockers
+
+The rename resolves the Role-name mismatch. It does not resolve these:
+
+- ETA-2: `STILL BLOCKED BY MOVEMENT`. Sheet fly 450 and turn 150. Successor publication is 400/150. The specialization fly +50 does not raise space.
+- Delta-7: `STILL BLOCKED BY MOVEMENT`. Sheet fly 450 and turn 100, with a -50 adjustment the actor does not have.
+- Delta-7 Modified: `STILL BLOCKED BY EQUIPMENT`. Adaptive Ailerons is turn -100. Successor plus that equipment is 400/50. The sheet is fly 500 and turn 100.
+- VT-49: `STILL BLOCKED BY MOVEMENT`. Actor effect `XLUqHYCqcIgHhklz` is mode 5 fly 300 and turn 200.
+- Wayfarer: `STILL BLOCKED BY MOVEMENT`. Actor effect `Kntbe9tGWmmm54Lj` adds turn +50 without proven equipment ownership.
+- GAT-12: `STILL BLOCKED BY CONFIGURATION`. It does not embed the Strike Fighter base Role.
+
+### Repairs
+
+These nine frozen items gained the successor mode 5 speeds. Legacy pointers and ability effects stayed. Fly specializations stayed and do not change prepared space or turn.
+
+- AEG-77, both ST-70s: space 300, turn 150. AEG prepared abilities remain 18/14/18/12/14/10, matching its worksheet.
+- Clutch, RZ-1, VCX auxiliary, X-ceptor, Y-wing: space 400, turn 150.
+- Imperial: space 200, turn 400.
+
+### 87-actor disposition
+
+- Validated repair: 13
+- Successor publication awaiting pack validation: 9
+- Blocked by multiple Roles: 1
+- Blocked by unresolved movement: 6
+- Blocked by variant or configuration mismatch: 1
+- Blocked by missing authority: 5
+- Needs a future data migration: 52
+
+Those counts total 87.
+
+### Status
+
+Source edits are complete. Foundry is running, so the pack was not rebuilt. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Drake pack rebuild
+
+### Reason
+
+Foundry was stopped, so the nine successor publications could be packed.
+
+### Supersedes
+
+The status line above that says the pack was not rebuilt.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Build
+
+`npm run build:db -- drakes-shipyard` exited 0. The packed effects for AEG-77, both ST-70s, Clutch, RZ-1, VCX auxiliary, X-ceptor, Y-wing, and Imperial contain the successor mode 5 speeds. The `starships` pack was not rebuilt. Live validation has not started.
+
+### Status
+
+Pack rebuilt. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role live validation
+
+### Reason
+
+Foundry was restarted after the Drake pack rebuild.
+
+### Supersedes
+
+The status line above that says live validation has not started.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Live validation
+
+Nine fresh imports from `sw5e-module.drakes-shipyard` were named `TEMP … validation`. Each had one base Role, fly 0, and walk 0. Save, close, reopen, and a browser reload kept the same speeds. The only console warning was Foundry's deprecated `core.sourceId` flag warning. The legacy pointers still do not resolve as current documents.
+
+- AEG-77 `PCIvI5diky2zGXRI`: space 300, turn 150. Abilities 18/14/18/12/14/10. PASS.
+- ST-70 `QU6Uq7Ut53GSmyCy`: space 300, turn 150. Abilities 16/12/14/14/13/10. PASS.
+- ST-70 Legendary `tlMwjzbS7k6alMIx`: space 300, turn 150. Abilities 16/12/15/14/14/12. PASS.
+- Clutch `Ui3MinEKr6PNovmk`: space 400, turn 150. Abilities 12/18/11/11/12/10. PASS.
+- RZ-1 `6fq0q3Hzy2MVNl3w`: space 400, turn 150. Abilities 16/18/11/10/14/11. PASS.
+- VCX auxiliary `Vn5TCtskjJoAIaC5`: space 400, turn 150. Abilities 15/17/11/10/15/11. PASS.
+- X-ceptor `CdW4iXgBBPnwyW8w`: space 400, turn 150. Abilities 15/16/11/10/12/10. PASS.
+- Y-wing `wMrU2VXixGvmMVVq`: space 400, turn 150. Abilities 16/18/11/10/14/11. PASS.
+- Imperial `R8xPBSCN4t1rh9Cm`: space 200, turn 400. Abilities 18/8/17/14/16/16. PASS.
+
+All nine temporary actors were deleted. The world actor count returned from 22 to 13.
+
+### Status
+
+Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role batch closeout
+
+### Reason
+
+The nine successor publications have been packed and live-validated. This closeout moves them out of the pending disposition.
+
+### Supersedes
+
+Only the earlier pending-build and pending-live-validation statuses, including "Successor publication awaiting pack validation: 9" and "Live validation has not started." The PASS results in the addendum immediately above remain the validation evidence and are not repeated here.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised disposition
+
+The nine actors are now `VALIDATED REPAIR`: AEG-77, ST-70, ST-70 Legendary, Clutch, RZ-1, VCX auxiliary, X-ceptor, Y-wing BTL-B/S3, and Imperial I-class Star Destroyer.
+
+Updated 87-actor counts:
+
+- Validated repair: 22
+- Blocked by multiple Roles: 1
+- Blocked by unresolved movement: 6
+- Blocked by variant or configuration mismatch: 1
+- Blocked by missing authority: 5
+- Needs a future data migration: 52
+
+Those counts total 87. The earlier 13 validated repairs remain in the 22.
+
+### Status
+
+The renamed Role successor batch is closed. No commit. No push.

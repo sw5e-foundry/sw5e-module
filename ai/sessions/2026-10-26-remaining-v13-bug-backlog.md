@@ -923,3 +923,151 @@ The superseded content above is retained as historical evidence and must not be 
 ### Status
 
 Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Final Drake Role pass
+
+### Reason
+
+The remaining Drake Role families and the frozen 42 effects needed a closing disposition.
+
+### Supersedes
+
+Nothing. The Dynamic-class status above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- No canonical Interceptor, Gunboat, Strike Fighter, or Battleship document was created.
+- Prior blocked actors remain blocked.
+- All 42 actor effects have a final disposition and were not edited.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+No source edit. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy Role rename correction
+
+### Reason
+
+The closeout above missed the discontinued system's Role rename commit.
+
+### Supersedes
+
+The statement that no successor movement profile was found.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- `210140e2d` renames Interceptor, Gunboat, and Strike Fighter and assigns their speeds.
+- Current Superiority Fighter, Gunship, Attack Fighter, and Battleship files match those speeds.
+- No actor source was edited.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Correction recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role publication
+
+### Reason
+
+Successor speeds were applied where the remaining gates passed.
+
+### Supersedes
+
+The statement that no actor source was edited.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- Nine Drake embeddings publish the renamed Role speeds.
+- Five affected actors remain blocked by movement, equipment, or an actor-level override.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Source edits are complete. No pack rebuild while Foundry is running. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Drake pack rebuild
+
+### Reason
+
+The successor publications were packed after Foundry stopped.
+
+### Supersedes
+
+The status line above that says the pack was not rebuilt.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- Drake's Shipyard rebuilt with exit code 0.
+- The nine repaired Role effects are packed.
+- Live validation has not started.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Pack rebuilt. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role live validation
+
+### Reason
+
+The packed successor Roles were checked in a fresh world import.
+
+### Supersedes
+
+The status line above that says live validation has not started.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- All nine imports passed movement and ability checks.
+- Reload kept the same speeds.
+- The temporary actors were deleted.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role batch closeout
+
+### Reason
+
+The nine validated actors move from pending to validated repair.
+
+### Supersedes
+
+Only the pending-build and pending-live-validation statuses above.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- The nine imports are now `VALIDATED REPAIR`.
+- Validated-repair count for all 87 actors is 22.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+The renamed Role successor batch is closed. No commit. No push.

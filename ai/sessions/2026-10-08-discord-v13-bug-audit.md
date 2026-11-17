@@ -1587,3 +1587,135 @@ The superseded content above is retained as historical evidence and must not be 
 ### Status
 
 Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Final Drake Role pass
+
+### Reason
+
+Interceptor, Gunboat, Strike Fighter, and Battleship were checked for a shared canonical Role.
+
+### Supersedes
+
+Nothing. The Dynamic-class validation above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+None of those Roles has a historical movement profile, so no canonical document was created and no actor was edited. The 42 frozen actor effects stay disposed without a source change. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+No source edit. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy Role rename correction
+
+### Reason
+
+A later discontinued-system commit names the Role changes that the closeout above missed.
+
+### Supersedes
+
+The statement above that none of these Roles has a historical movement profile.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+Commit `210140e2d` renames Interceptor to Superiority Fighter, Gunboat to Gunship, and Strike Fighter to Attack Fighter, and gives the Roles base speeds. Current canonical files match those speeds. No actor was edited in this correction. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Correction recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role publication
+
+### Reason
+
+The confirmed successors were published on the clean Drake embeddings.
+
+### Supersedes
+
+The statement above that no actor was edited.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+Nine embeddings now publish Superiority Fighter 400/150, Gunship 300/150, or Battleship 200/400. ETA-2, both Delta-7s, VT-49, and Wayfarer stay blocked. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Source edits are complete. No pack rebuild while Foundry is running. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Drake pack rebuild
+
+### Reason
+
+The successor publications were packed after Foundry stopped.
+
+### Supersedes
+
+The status line above that says the pack was not rebuilt.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+`npm run build:db -- drakes-shipyard` exited 0. The nine repaired Role effects are in the pack. Live validation has not started. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Pack rebuilt. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role live validation
+
+### Reason
+
+Foundry was restarted after the Drake pack rebuild.
+
+### Supersedes
+
+The status line above that says live validation has not started.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+All nine fresh imports passed movement, abilities, save, close, reopen, and reload. The temporary actors were deleted. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role batch closeout
+
+### Reason
+
+The nine validated actors move from pending to validated repair.
+
+### Supersedes
+
+Only the pending-build and pending-live-validation statuses above.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+The nine imports recorded above are now `VALIDATED REPAIR`. The 87-actor validated-repair count is 22. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+The renamed Role successor batch is closed. No commit. No push.
