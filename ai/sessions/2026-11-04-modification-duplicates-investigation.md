@@ -1532,3 +1532,262 @@ The 11 temporary actors were deleted. YV-929 and YT-1300, Heavily Modified were 
 ### Status
 
 Live validation passed for the 11 repaired actors. Temporary actors removed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — YV-929 movement origin
+
+### Reason
+
+YV-929 was the remaining Freighter embedding. Actor effect `OpwEjg658THj3164` overrides fly 350 and turn 300, and those changes were not removed just because the current preparation ignores them.
+
+### Supersedes
+
+Nothing above is deleted. The block on YV-929 stays until a proven disposition exists.
+
+### Current reconstruction
+
+Actor `LY8lY6F9nVqz7Km1` in `packs/_source/drakes-shipyard/yv-929-armed-freighter.yml`. Tier 2, size Medium. Stored movement is space 300, turn 200, fly 300, walk 30. Role: Freighter `8t3M3oYnzNPb9urY` is subtype `role`, source `VdHmWXHvkK5ZyoWw`, and its only effect change is Constitution +1. It does not publish movement. Nimble Starship has no effect. No equipment item changes space or turn.
+
+`resolveStarshipMovementBase` therefore selects the stored base, space 300 and turn 200. There is no mode 2 space or turn add. Prepared movement is 300/200, and preparation forces fly and walk to 0. The actor overrides do not supply that base.
+
+### Workbook
+
+`SotG.xlsx` has no YV-929 worksheet. The sheet names were read from `xl/workbook.xml`. There is no formula to use, and the workbook is not repair authority.
+
+### Historical origin
+
+The effect first appears in the discontinued system at `fbe2b581f` (2023-05-26), `module/documents/actor/actor.mjs` and `packs/drakes-shipyard/yv-929-armed-freighter.json`. Its original keys are `system.attributes.movement.space` 350 and `system.attributes.movement.turn` 300, both mode 5. Stored movement at that commit is space 0, turn 0, and fly 0. The role subtype is blank, and the role effect is only Constitution +1.
+
+At that commit, `Actor5e.prepareDerivedData` calls `_prepareStarshipData` after `applyActiveEffects`. The starship sheet `_getMovementSpeed` reads `movement.space` as the displayed flying speed and `movement.turn` as turning speed. `_prepareStarshipData` replaces those two fields only when an item has subtype `role`. YV-929 had none, so the actor overrides remained. The old sheet consumed space 350 and turn 300. `movement.fly` was not the displayed flying-speed field, and `movement.space` already existed.
+
+Commit `7f5fe110b` (2026-04-17), "Update starship data: movement and asset paths," renamed effect keys from `system.attributes.movement.space` to `system.attributes.movement.fly` across the starship packs. YV-929's 350 moved with that rename. Turn 300 stayed on `movement.turn`. The current module then prepares flying speed from `movement.space` and forces fly to 0, so the renamed 350 is no longer consumed.
+
+### Simulations
+
+The base below is the value selected before mode 2 additions. Mode 2 space and turn adds are 0 in every state. Fly and walk are prepared as 0. Stored abilities stay 13, 10, 13, 13, 14, 11, and the Role still adds Constitution +1 once. No state changes an ability.
+
+| State | Base before mode 2 | Prepared space/turn | Notes |
+| --- | --- | --- | --- |
+| A. Current | stored 300/200 | 300/200 | No Role publication. Fly 350 and turn 300 are not the base. |
+| B. Add Freighter 300/150 and keep both overrides | published 300/150 | 300/150 | Turn is controlled by both the Role 150 and the actor 300. |
+| C. Add Freighter and remove only fly | published 300/150 | 300/150 | Same turn conflict. Fly never entered the base. |
+| D. Add Freighter and remove only turn | published 300/150 | 300/150 | One turn controller. Fly 350 remains unused. |
+| E. Add Freighter and remove both | published 300/150 | 300/150 | Clean publication. It does not restore the historically displayed 350/300. |
+| F. Add Freighter and put 350 back on space | published 300/150 | 300/150 | The Role still publishes 300, so the restored 350 competes and does not win. |
+| G. Move the change to an embedded owner | not simulated |  | No equipment or specialization text identifies an owner for 350 or 300. |
+
+### Classification
+
+- Fly 350: `MIGRATION ARTIFACT`. The consumed historical value was space 350. The fly key comes from `7f5fe110b`. It is not classified as legacy schema movement merely because a fly value is stored now.
+- Turn 300: `HULL-SPECIFIC MOVEMENT`. It was the turning speed the old sheet displayed. It is not the current Freighter turn of 150, and no same-configuration worksheet chooses between them.
+
+### Repair decision
+
+No source edit. The Freighter migration itself remains valid, but the historically consumed result is space 350 and turn 300, while the current Freighter publication is 300/150. There is no worksheet to choose. Removing the actor changes, or leaving turn 300 beside a new Role override, does not produce one proven result. No rebuild was requested.
+
+### Status
+
+YV-929 remains blocked. No source edit. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — YT-1300 Heavily Modified duplicate Roles
+
+### Reason
+
+The actor has two Freighter items and an actor movement effect. This pass determines whether either item, or either movement value, has a proven disposition before any publication edit.
+
+### Supersedes
+
+Nothing. The Freighter migration and the YV-929 finding above remain.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Current actor
+
+`packs/_source/drakes-shipyard/yt-1300-heavily-modified.yml`, actor `QqgnknDyNxtsaImK`.
+
+Stored abilities are Strength 14, Dexterity 14, Constitution 13, Intelligence 10, Wisdom 12, and Charisma 10. Stored movement is space 350, turn 100, and fly 350.
+
+| Owner | Key | Mode | Value | Disposition |
+| --- | --- | --- | --- | --- |
+| Freighter `PZD6gJAdnXCCofj3` | Constitution | 2 | +1 | transfers; first in the item array |
+| Freighter `EyL27EnUM3jKqVSQ` | Constitution | 2 | +1 | transfers; second in the item array |
+| Actor `qSl5ltd7udAKjzBX` | fly | 5 | 400 | discarded by current preparation |
+| Actor `qSl5ltd7udAKjzBX` | turn | 5 | 150 | does not become the base, because it is not a Role publication |
+| Actor `qSl5ltd7udAKjzBX` | Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma | 2 | +2, +1, −1, +1, +1, +1 | ability changes on the same effect |
+| External Docking System `oNTy7MIekNBGMzmK` | turn | 2 | +50 | retained equipment change |
+| External Docking System | fly | 2 | −50 | discarded |
+
+No Role Spec has a movement or Constitution change. Medium Starship has no Constitution change. Current preparation uses stored space 350 and stored turn 100, then adds the docking +50. Prepared movement is space 350, turn 150, fly 0, and walk 0.
+
+Both Freighter items are subtype `role`, point at `Compendium.sw5e-module.starships.VdHmWXHvkK5ZyoWw`, and contain only Constitution +1. Their names, descriptions, effects, and source pointers match. Their document ids differ. Array order is not evidence that the first item is the intended base Role.
+
+### Constitution layers
+
+The current prepared Constitution is not an authority, because both Role changes contribute to it. The separable layers are stored Constitution 13, no Size change, Role `PZD6gJAdnXCCofj3` +1, Role `EyL27EnUM3jKqVSQ` +1, actor effect −1, and no equipment Constitution change. No workbook gives an independent final total. Removing either Role would change the total by 1, but there is no known total to match.
+
+### History
+
+Both item ids and effect `qSl5ltd7udAKjzBX` are present together in the discontinued system at `fbe2b581f` and in this module at `124dca632`. Neither item was added later. Both point at the same legacy Freighter document. In the system snapshot their subtype is blank. In the module's first copy their subtype is `role`. That is a schema difference between the two snapshots, not a second creation event.
+
+The old preparation assigns movement from a Role only when exactly one item has subtype `role`. With two Role items, or with none because the subtype is blank, it leaves the actor effect in place. At both snapshots that effect is space 400 and turn 150, and the old sheet reads space as flying speed and turn as turning speed. The old sheet therefore consumed 400 and 150.
+
+Commit `7f5fe110b` includes this actor. Its parent has `movement.space` 400. The commit changes that key to `movement.fly` 400 and leaves turn 150. The current module discards fly.
+
+Stored space 350 and turn 100 are present from the YAML conversion `fb63553d6`. They are not the values the old effect displayed.
+
+### Authority
+
+`SotG.xlsx` has no worksheet for YT-1300, Heavily Modified. YT-1300f and a generic Freighter were not used as substitutes.
+
+### Classification
+
+- `PZD6gJAdnXCCofj3`: `INSUFFICIENT EVIDENCE` to call it the sole legitimate base Role. It is one of two copies of the same legacy Freighter.
+- `EyL27EnUM3jKqVSQ`: `INSUFFICIENT EVIDENCE` to call it disposable. It is the other copy, and array position is not identity.
+- Fly 400: `MIGRATION ARTIFACT`. The consumed historical value was space 400.
+- Turn 150: `HULL-SPECIFIC MOVEMENT`. The old sheet displayed it. It matches the current Freighter turn numerically, but that match does not identify its owner.
+
+### Simulations
+
+Mode 2 turn addition is +50 from External Docking System. Space addition is 0.
+
+| State | Base before mode 2 | Prepared space / turn | Structural result |
+| --- | --- | --- | --- |
+| A. Current | stored 350 / 100 | 350 / 150 | two unexplained base Roles and two Constitution +1 changes |
+| B. Publish both | first publisher 300 / 150 | 300 / 200 | still two base Roles; second publication is redundant |
+| C. Publish only the first | 300 / 150 | 300 / 200 | second Role and its Constitution +1 remain |
+| D. Publish only the second | 300 / 150 | 300 / 200 | first Role and its Constitution +1 remain |
+| E. Keep one and remove the other | 300 / 150 if the survivor publishes | 300 / 200 | one Role, but no independent Constitution total |
+| F. Convert the other | not simulated |  | no proven destination type |
+| G. Keep both actor movement changes | published 300 / 150 | 300 / 200 | actor turn competes with the Role |
+| H. Remove fly only | 300 / 150 | 300 / 200 | historical 400 is not restored |
+| I. Remove turn only | 300 / 150 | 300 / 200 | fly 400 remains unused |
+| J. Remove both movement changes | 300 / 150 | 300 / 200 | ability changes on the same effect must remain |
+| K. Restore space 400 and publish the Role | published 300 / 150 | 300 / 200 | 400 competes and does not win |
+
+State B is invalid even though it produces a number. A matching speed does not authorize two base Roles or two Constitution bonuses.
+
+### Repair decision
+
+No source edit. Both items have the same origin, but neither has a proven sole purpose. The Constitution total is not independently known. The historical consumed movement is 400/150, while the current Freighter publication is 300/150, and there is no worksheet to choose. The actor effect also carries ability changes, so it cannot be removed as a movement-only cleanup. No rebuild was requested.
+
+### Status
+
+YT-1300, Heavily Modified remains blocked. No source edit. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Role-named non-publishers
+
+### Reason
+
+The earlier inventory left 32 Drake actors whose `Role:` item does not have subtype `role`. This pass recovers the exact legacy document for each item and edits only a base Role that passes every repair gate.
+
+### Supersedes
+
+Nothing. Fang, the 11 live-validated Freighter, Yacht, and Warship embeddings, YV-929, and YT-1300, Heavily Modified remain as recorded above.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Frozen inventory
+
+All 87 Drake actors were parsed again with the saved classifier in `C:\Users\ckauble\AppData\Local\Temp\sw5e-role-publication\inventory.mjs`. The regenerated `role-named-subtype-not-role` actor set matches the saved 32 ids. There are no additions and no omissions. Those 32 actors contain 32 qualifying `Role:` items, all with a blank subtype. No repaired actor also held a separate qualifying item, so the overlap rule did not add anyone.
+
+Actors whose every Role-named item is a Role Spec or subtype `roleSpecialization` stay in the separate `role-spec-only` group. They are not part of this 32. Gand remains in that other group.
+
+The freeze is outside the repository at `C:\Users\ckauble\AppData\Local\Temp\sw5e-role-named-32\`.
+
+### How the old runtime identified a Role
+
+At legacy commit `5f519f0d1`, starship movement preparation did not select a Role by subtype. With `oldStarshipMovement` off, it left stored movement. With that setting on, it used the size base speeds. Both `Role:` and `Role Spec:` documents stored type `feat` (earlier `starshipfeature`), feature type `starship`, and a blank subtype. The base Role was identified by the `Role:` name, the tier 0 sentence, and an ability-score effect. A specialization was identified by the `Role Spec:` name, the tier 2 sentence, and a `details.role` effect. Later discontinued-system code selects movement only from subtype `role` and from item speed fields. These recovered documents have neither. A blank subtype was the old schema. It is a migration defect only where the document is a base Role and the module never wrote subtype `role`.
+
+### Recovered identities
+
+All 11 source ids were recovered from `packs/packs/starshipfeatures.db` at `4cb468ae4` and `5f519f0d1`. None is a current module document id. Raw copies are under `C:\Users\ckauble\AppData\Local\Temp\sw5e-role-named-32\recovered\`.
+
+| Legacy id | Recovered document | Movement on that document | Current successor |
+| --- | --- | --- | --- |
+| `VdHmWXHvkK5ZyoWw` | Role: Freighter, Constitution +1 | none | `QY7jBe7EgKLz8z1p`, space 300, turn 150. Confirmed by the earlier migration of this same id. |
+| `U1S8haQSb90YulZq` | Role: Yacht, Charisma +1 | none | `dfqRcgIokd6o0G0A`, space 350, turn 200. Confirmed by the earlier migration of this same id. |
+| `jgF0iBtvzesRwiTs` | Role: Gunboat, Strength +1 | none | none. Current Role: Gunship `NZi3USVLbUTO2CNg` is a different name. |
+| `36dTmDP0uGACXGdi` | Role: Interceptor, Dexterity +1 | none | none. No current Interceptor document. |
+| `BXnWIl4JqYhabKOG` | Role: Battleship, Wisdom +1 and Strength +1 | none | not confirmed. Current Role: Battleship `wd8brjtWiB4As1x4` has the same ability bonuses and publishes 200/400, but no migration links the ids. |
+| `d1gzEqho7W1pNVN8` | Role Spec: Bomber | none | not a base Role |
+| `4Rdl3p0fg55B7VZP` | Role Spec: Shuttle | none | not a base Role |
+| `B5L1PCdWLWoedo7g` | Role Spec: Cruiser | none | not a base Role |
+| `rr9JZdItlbpvsVyr` | Role Spec: Explorer | none | not a base Role |
+| `orciEjuUBSjF05Ny` | Role Spec: Strike Fighter | none | not a base Role |
+| `sp5NlnjG1oX34pDp` | Role Spec: Courier, fly +50 | specialization fly add | not a base Role |
+
+The legacy base Role: Strike Fighter is a different document, `nE5oQmhOrK0Coirv`, Strength +1, with no movement and no current canonical file. It is not one of the 32 embeddings. No canonical Role was created.
+
+### Classifications
+
+- Confirmed specialization: 19. The embedded name says `Role:`, and the source document says `Role Spec:`.
+- Missing subtype on a proven base Role with a confirmed successor: 4. Three Freighters and one Yacht.
+- Legacy base Role with no current successor: 7. Two Gunboats, four Interceptors, and one Battleship.
+- Variant mismatch: 2. Delta-7 and ETA-2. Both workbook sheets for Delta-7, and the ETA-2 sheet, select Superiority Fighter.
+
+For every no-successor row: historical movement is absent from the legacy document, not merely unpublished. A current canonical document is not the only missing piece, because the legacy item also has no movement profile. An actor-local copy would diverge across ships that share the legacy id. No actor-local publication was made.
+
+### Actor conflicts and the one simulation that passes
+
+Same-configuration worksheets exist for Dynamic-class, AEG-77, Aka'jor, both Arquitens, Baleen, Delta-7, Modified Delta-7, ETA-2, and HMP. No worksheet was used for a different variant. Barloz, Baudo-class, YT-1300 Modified, Wayfarer, the Imperial Star Destroyer, and the remaining Interceptors have no exact worksheet in `SotG.xlsx`.
+
+Dynamic-class Light Freighter, actor `gawTKA6kzr7qNnnD`, item `HZSgtPcTxZoJVKxW`, is Medium, tier 1, and the only Role item. The worksheet separates base 14/14/13/10/12/10, Strength ASI +1, Constitution ASI +1, no Size adjustment, and Freighter Constitution +1. Its totals are 15/14/15/10/12/10. Fly speed is 300 and turn speed is 150. The actor's prepared abilities already match those totals. There is no actor, equipment, or specialization movement change.
+
+| State | Base before mode 2 | Prepared space / turn | Result |
+| --- | --- | --- | --- |
+| A. Current | stored 300 / 200 | 300 / 200 | does not match the sheet turn of 150 |
+| B. Subtype only | stored 300 / 200 | 300 / 200 | still no publication |
+| C. Historical movement | none stored on the legacy Role | 300 / 200 | the legacy Role defines no speed |
+| D. Subtype plus Freighter 300 / 150 | published 300 / 150 | 300 / 150 | matches the sheet; one base Role; abilities unchanged |
+
+The other three proven Freighter or Yacht embeddings do not pass. Barloz would change turn 200 to 150, YT-1300 Modified would change space 350 to 300, and Baudo-class would change space 300 to 350. None has its own worksheet. AEG-77's sheet says Gunship, not Gunboat, and Wayfarer also has an actor turn +50. Delta-7 and ETA-2 contradict their sheets. HMP, Aka'jor, both Arquitens, and Baleen point at specialization documents even where the sheet names a base Role. Those pointers were not rebound.
+
+### Repair
+
+`packs/_source/drakes-shipyard/dynamic-class-light-freighter.yml` only. Item `HZSgtPcTxZoJVKxW` keeps its id, Constitution +1, and legacy pointer `VdHmWXHvkK5ZyoWw`. Its subtype is now `role`, and the same effect publishes space 300 and turn 150. No other actor, canonical Role, or pack database was edited.
+
+### Status
+
+One source file is changed. The other 31 items remain blocked. No pack rebuild was run. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Dynamic-class build and live validation
+
+### Reason
+
+Foundry was stopped, so the Dynamic-class Light Freighter repair could be packed and then checked in a fresh world import.
+
+### Supersedes
+
+The status line above, which said no pack rebuild had been run. That statement remains the status at the time of the repair addendum.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Build
+
+`npm run build:db -- drakes-shipyard` exited 0. Actor `gawTKA6kzr7qNnnD` was packed. The packed Role effect is enabled and contains Constitution +1, space Override 300, and turn Override 150. The legacy pointers remain `VdHmWXHvkK5ZyoWw`. The `starships` pack was not rebuilt.
+
+### Live validation
+
+A fresh import from `sw5e-module.drakes-shipyard`, actor `gawTKA6kzr7qNnnD`, was named `TEMP Dynamic-class validation`, world id `IrfAdacuESm0s2M7`. No existing world Dynamic-class actor was present.
+
+- Movement: PASS. Published and prepared space 300, turn 150, fly 0, walk 0.
+- Abilities: PASS. 15 / 14 / 15 / 10 / 12 / 10.
+- Embedded Role: one base Role, item `HZSgtPcTxZoJVKxW`, subtype `role`, one Constitution +1, and the two enabled mode 5 movement changes.
+- `fromUuid` on `Compendium.sw5e-module.starships.VdHmWXHvkK5ZyoWw` returns null. `_stats.compendiumSource` still stores that id, and `getFlag("core", "sourceId")` returns it with Foundry's Version 12 deprecation warning. Preparation succeeded, so the unresolved link is not a mechanical failure.
+- Save, close, reopen, and browser reload: PASS. The same movement and abilities remained.
+- Console: no import, Active Effect, Role publication, or starship preparation error. The only related warning is the deprecated `core.sourceId` flag warning.
+
+### Cleanup
+
+The temporary actor was deleted. Actor count went from 14 to 13, and the only removed actor was `IrfAdacuESm0s2M7`. No Dynamic-class world actor remains.
+
+### Status
+
+Live validation passed. No commit. No push.

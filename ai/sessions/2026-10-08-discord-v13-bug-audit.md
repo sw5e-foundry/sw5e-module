@@ -1501,3 +1501,89 @@ All 11 repaired actors passed prepared movement in Foundry, including reload. Th
 ### Status
 
 Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — YV-929 movement origin
+
+### Reason
+
+The unused YV-929 fly and turn overrides were traced before any Freighter publication was added.
+
+### Supersedes
+
+No earlier validation result is removed.
+
+### Revised decision or behavior
+
+The old system displayed space 350 and turn 300 from actor effect `OpwEjg658THj3164`. A later rename moved 350 onto fly, which the current preparation discards. There is no YV-929 worksheet, so the actor was not edited. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+YV-929 remains blocked. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — YT-1300 duplicate Roles
+
+### Reason
+
+The heavily modified YT-1300 has two Freighter copies and a historical space 400 / turn 150 effect.
+
+### Supersedes
+
+Nothing. The YV-929 finding above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+Both Freighter items arrived together and point at the same legacy document. The old sheet consumed space 400 and turn 150. A later commit moved 400 onto fly. There is no worksheet and no independent Constitution total, so the actor was not edited. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+YT-1300, Heavily Modified remains blocked. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Role-named non-publishers
+
+### Reason
+
+The 32 Role-named non-publishers were recovered by legacy document id.
+
+### Supersedes
+
+Nothing. The YT-1300 finding above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+Nineteen items are legacy specializations stored under a `Role:` name. Seven are base Roles with no confirmed current successor. Two contradict a Superiority Fighter worksheet. Dynamic-class Light Freighter is the one item that passed every gate: subtype `role` and Freighter space 300 / turn 150 were added, and its legacy pointer was kept. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+One Drake source file is changed. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Dynamic-class live validation
+
+### Reason
+
+The Dynamic-class Freighter repair was packed and checked in Foundry.
+
+### Supersedes
+
+The status line above that said no pack rebuild had been run. That statement remains historical.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+`npm run build:db -- drakes-shipyard` exited 0. A fresh import prepared space 300, turn 150, fly 0, and walk 0, with abilities 15/14/15/10/12/10. The temporary actor was deleted. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Live validation passed. No commit. No push.

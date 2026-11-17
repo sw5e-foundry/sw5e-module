@@ -823,3 +823,103 @@ No earlier result is removed.
 ### Status
 
 Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — YV-929 movement origin
+
+### Reason
+
+YV-929's actor movement overrides needed an origin before the Freighter publication could be added.
+
+### Supersedes
+
+No earlier validation result is removed.
+
+### Revised status
+
+- The old sheet consumed space 350 and turn 300.
+- Commit `7f5fe110b` moved the 350 onto fly.
+- No YV-929 worksheet exists, so no source edit was made.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+YV-929 remains blocked. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — YT-1300 duplicate Roles
+
+### Reason
+
+The next blocked Drake actor is YT-1300, Heavily Modified, which has two Freighter items.
+
+### Supersedes
+
+Nothing. The YV-929 status above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- Both Freighter items are copies of the same legacy Role and arrived together.
+- The old sheet consumed space 400 and turn 150.
+- No exact worksheet exists, and the Constitution total is not independently known.
+- No source edit was made.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+YT-1300, Heavily Modified remains blocked. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Role-named non-publishers
+
+### Reason
+
+The next Drake batch is the 32 Role-named items whose subtype is blank.
+
+### Supersedes
+
+Nothing. The YT-1300 status above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- The regenerated actor set matches the saved 32.
+- Nineteen items are legacy specializations. Seven base Roles have no confirmed successor. Two are worksheet mismatches.
+- Dynamic-class Light Freighter now publishes Freighter space 300 and turn 150.
+- The other 31 items were not edited.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+One source file is changed. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Dynamic-class live validation
+
+### Reason
+
+The packed Dynamic-class Freighter was validated in a live world.
+
+### Supersedes
+
+The status line above that said no pack rebuild had been run. That statement remains historical.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- Drake's Shipyard rebuilt with exit code 0.
+- Fresh import passed movement, abilities, persistence, and reload.
+- The temporary actor was deleted.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Live validation passed. No commit. No push.
