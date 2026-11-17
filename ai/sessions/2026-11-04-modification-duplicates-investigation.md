@@ -1017,3 +1017,518 @@ The status above that says the pack rebuild is still required. That status stays
 ### Status
 
 Fang pack rebuilt. Fresh import pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Fang validation closeout and remaining workbook actors
+
+### Reason
+
+The rebuilt Fang import was validated in Foundry, and the four remaining workbook-related actor effects were reconstructed from `SotG.xlsx`. The workbook was read from its ZIP and was not modified.
+
+### Supersedes
+
+The status above that says the fresh import is pending. That sentence stays as the record from before this validation. The 2026-11-06 classifications of Gand, GAT-12, HMP, and ETA-2 stay as the earlier audit. This addendum records the later reconstruction and the decision not to edit them.
+
+### Fang live validation
+
+Source actor `uAzqh6bUJ4ZfKcol` in `packs/_source/drakes-shipyard/fang-class.yml` still matches the repaired state. It was not edited.
+
+A fresh import, world actor `TEMP Fang validation` `gKxHhkEF5TF4xIZy`, came from `Compendium.sw5e-module.drakes-shipyard.Actor.uAzqh6bUJ4ZfKcol`. The older world actor `Fang-class` `WDquFVQDLxNBnfrw` was not opened or changed.
+
+Prepared and displayed values: space 450, turn 50, fly 0, abilities 15, 18, 11, 10, 14, 10. Save, close, reopen, and a browser reload kept those values. No Fang, Active Effect, or starship-preparation console error was recorded.
+
+Contributions, each once:
+
+- Role: Superiority Fighter `RsupFng8kQ2mN4wL`: space Override 400, turn Override 150, Dexterity Add +1.
+- Role Spec: Superiority Fighter `RspcFng9tY3pQ5xM`: space Add +50. This item exists only on Fang. No canonical specialization document was found.
+- Adaptive Ailerons `uqX0yNJkEZ6MAJdD`: one turn Add -100. Canonical Adaptive Ailerons was not changed.
+- Actor effect ASI `mLJNAvcynpjfy8NT`: no movement change. Strength +1, Dexterity +1, Constitution +1, Wisdom +1. Intelligence and Charisma remain stored as +0.
+- Small Starship `5rjtIrFtcMNL3D5c`: Dexterity +2, Constitution -2.
+- Role Spec: Strike Fighter `gqzu99tDjcCvaGNP` is still present and unchanged. It sets the role text to Strike Fighter and adds a weapon attack bonus of +1. It does not change space or turn.
+
+Strike Fighter and Superiority Fighter both appearing is an unresolved semantic issue. It is not a failed movement repair. Combat Thrusters were not added. The intermediate turn of -50 was never saved.
+
+`TEMP Fang validation` `gKxHhkEF5TF4xIZy` was deleted after the results were recorded. `WDquFVQDLxNBnfrw` is still present.
+
+### Read-only reconstructions
+
+Reports, outside the repository: `C:\Users\ckauble\AppData\Local\Temp\sw5e-remaining-actors\gand.md`, `gat-12.md`, `hmp.md`, and `eta-2.md`. Preparation was simulated in memory. No source document was edited and reverted. Canonical role files were checked and not edited: Bomber `53B9y7SQ99ZK5hup` publishes space 450 and turn 200; Attack Fighter `Xxjz0gT579YzJV29` publishes space 350 and turn 100 plus Strength +1; Shuttle `9Y0nzFMxL2BanNd7` publishes space 350 and turn 100 plus Constitution +1.
+
+Prepared flying speed is `movement.space`. `movement.fly` is forced to 0. Only subtype `role` with mode 5 publishes movement. Mode 2 adds stack.
+
+#### Gand Starfighter
+
+Actor `DiyflQC8xEhqvrzp`, sheet `Gand Starfighter` (`sheet26.xml`). Mapping is high for the named hull, tier 1, Small, and the ability bases. Armor, reactor, coupling, scanner name, cannon count, and ammunition count do not match the sheet, so the actor is not a clean copy of the whole worksheet.
+
+Workbook ability totals are 14, 16, 13, 10, 14, 11. Fly formula caches 450 and turn formula caches 200, both from role Bomber, with no specialization or manual speed adjustment. Prepared abilities match those totals. Prepared space is 350 and prepared turn is 250 because no item has subtype `role`. Stored movement is 350 / 250. Embedded Role: Bomber `XjPLikTzuibn7Cbd` is subtype `roleSpecialization`, adds only Wisdom +1, and does not publish movement.
+
+Effect ASI `YCeLyX8dFXqxKI2q`, transfer false, disabled false, priority 20 on every change:
+
+| Key | Mode | Value | Raw | Prepared | Workbook | Owner | Embedded | Canonical | Class | Confidence | Action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `system.abilities.str.value` | 2 | 0 | 14 | 14 | 14 | none | none | none | PREPARED NO-OP | high that it adds nothing | NO EDIT |
+| `system.abilities.dex.value` | 2 | 1 | 13 | 16 | 16, ASI cell `I6` = 1 | actor ASI | Small Starship `QwtcDqpGqxtwz0K7` owns the separate +2 | ASI feature `xs1MlcfBFFiUyCQv` has no effect | CORRECT ACTOR OWNERSHIP | high | NO EDIT |
+| `system.abilities.con.value` | 2 | 1 | 13 | 13 | 13, ASI `J6` = 1 and modifications `J7` = 1 | actor ASI, stacked with Frame | Frame, Mark I `rbJMhzfvYhYUutSU` +1; Small Starship -2 | Frame `DIrqTk8nPYStxC1A` | INTENTIONAL STACK | high | NO EDIT |
+| `system.abilities.int.value` | 2 | 0 | 10 | 10 | 10 | none | none | none | PREPARED NO-OP | high that it adds nothing | NO EDIT |
+| `system.abilities.wis.value` | 2 | 0 | 13 | 14 | 14, role formula +1 | role item, not this +0 | Role: Bomber `XjPLikTzuibn7Cbd` +1 | Role: Bomber `53B9y7SQ99ZK5hup` | PREPARED NO-OP | high that the actor change adds nothing | NO EDIT |
+| `system.abilities.cha.value` | 2 | 0 | 11 | 11 | 11 | none | none | none | PREPARED NO-OP | high that it adds nothing | NO EDIT |
+
+The effect stayed unresolved earlier because Constitution +1 shares a key and value with Frame, while the sheet keeps those rows separate. Both adds are required. Replacing the embedded role with the canonical Bomber publication would be a different edit, and the rest of the loadout does not match the sheet. No Gand source edit.
+
+#### GAT-12 Skipray Blastboat
+
+Actor `Bgqr4WNQpTzEIepj`, sheet `GAT-12` (`sheet27.xml`). Identity, tier 3, Small, bases, hull 44, and shields 75 match. Tier 0 role `F9` is Attack Fighter. Tier 2 specialization `H111` is Shuttle. Those are two slots on the same sheet, not two variants. The actor has Role Spec: Shuttle `j79orFtk8oqMH6Nx` and no subtype-`role` item. Coupling and suite do not match the sheet.
+
+Workbook totals are 18, 14, 17, 10, 14, 8. Fly caches 350 and turn caches 100 from Attack Fighter. The turn formula does not subtract Adaptive Ailerons. Prepared abilities match the totals. Prepared space is 300 and prepared turn is 200, because stored turn 300 plus Adaptive Ailerons `hQ1wwoqMfU6ZGRZI` turn -100 is the only movement math.
+
+Effect ASI `Ld1zNnraoTkSCSUo`, transfer false, disabled false, priority 20:
+
+| Key | Mode | Value | Raw | Prepared | Workbook | Owner | Embedded | Canonical | Class | Confidence | Action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `system.abilities.str.value` | 2 | 4 | 14 | 18 | 18 = ASI 3 + Attack Fighter 1 | split: 3 actor, 1 missing role | none | Role: Attack Fighter `Xxjz0gT579YzJV29` | INCORRECT VALUE | high for the split | NO EDIT |
+| `system.abilities.dex.value` | 2 | 0 | 12 | 14 | 14 | size, not this 0 | Small Starship `mUjAwBxUg9shADPv` +2 | `6BN8l5E8QtYt103T` | PREPARED NO-OP | high | NO EDIT |
+| `system.abilities.con.value` | 2 | 3 | 15 | 17 | 17, ASI `J6` = 3 | actor ASI | Frame `mOrIRQ69lPkIeSrz` +1; size -2 | Frame `DIrqTk8nPYStxC1A` | CORRECT ACTOR OWNERSHIP | high | NO EDIT |
+| `system.abilities.int.value` | 2 | 0 | 10 | 10 | 10 | none | none | none | PREPARED NO-OP | high | NO EDIT |
+| `system.abilities.wis.value` | 2 | 0 | 13 | 14 | 14 | sensor array, not this 0 | Sensor Array, Mark I `Qj2qbRkB814zCApR` +1 | `CncE9bLKYn5iZlwD` | PREPARED NO-OP | high | NO EDIT |
+| `system.abilities.cha.value` | 2 | 0 | 8 | 8 | 8 | none | none | none | PREPARED NO-OP | high | NO EDIT |
+
+Changing Strength from +4 to +3 without the role prepares 17. Adding the role on top of +4 prepares 19. Doing both prepares Strength 18 and then turn 0, because the role publishes turn 100 and Adaptive Ailerons still adds -100. The sheet turn is 100. That atomic state fails. Canonical Adaptive Ailerons was not changed. Drake actors that embed it are GAT-12, Aka'jor, the modified Delta-7, both Nebulon-B actors, Fang, Nantex, and the U-wing. No GAT-12 source edit.
+
+#### HMP Droid Gunship
+
+Actor `reNHgyibXInPuEMz`, sheet `HMP Gunship` (`sheet34.xml`). Bases, tier 2, Small, role Shuttle, and specialization Bomber match. Armor and reactor type do not. Workbook totals are 14, 12, 18, 12, 14, 8. Fly caches 350 and turn caches 100 from Shuttle. Prepared abilities match. Prepared space and turn stay 250. The actor mode 5 turn 400 is not published.
+
+Effect ASI `4WAAiMXDrFy2MipW`, transfer false, disabled false, priority 20:
+
+| Key | Mode | Value | Raw | Prepared | Workbook | Owner | Embedded | Canonical | Class | Confidence | Action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `system.abilities.str.value` | 2 | 0 | 13 | 14 | 14 | reactor, not this 0 | Reactor, Mark I `XRY9uQOXkhRgd1DE` +1 | `IQRWfBEpxMKLROOx` | PREPARED NO-OP | high | NO EDIT |
+| `system.abilities.dex.value` | 2 | 0 | 10 | 12 | 12 | size, not this 0 | Small Starship `PANrDEtEOnvvheyy` +2 | `6BN8l5E8QtYt103T` | PREPARED NO-OP | high | NO EDIT |
+| `system.abilities.con.value` | 2 | 4 | 15 | 18 | 18, ASI `J6` = 4 | actor ASI | size -2; Role: Shuttle `rMgwICJ0JdiA9Glv` +1 | ASI feature has no effect | CORRECT ACTOR OWNERSHIP | high | NO EDIT |
+| `system.abilities.int.value` | 2 | 0 | 12 | 12 | 12 | none | none | none | PREPARED NO-OP | high | NO EDIT |
+| `system.abilities.wis.value` | 2 | 0 | 14 | 14 | 14 | none | none | none | PREPARED NO-OP | high | NO EDIT |
+| `system.abilities.cha.value` | 2 | 0 | 8 | 8 | 8 | none | none | none | PREPARED NO-OP | high | NO EDIT |
+| `system.attributes.movement.turn` | 5 | 400 | 250 | 250 | 100 | none | Role: Shuttle publishes nothing | Role: Shuttle `9Y0nzFMxL2BanNd7` publishes 100, not 400 | PREPARED NO-OP | high that 400 is not prepared | NO EDIT |
+
+Role Spec: Bomber `FlcZuegIatuxuEJt` matches `H111` and was not converted into the role. Publishing the canonical Shuttle speeds on this embedded item would also leave the actor mode 5 controller in place, and the embedded item's description and compendium id are not the current canonical role. The same missing publication appears on other Drake Shuttle items. No HMP source edit.
+
+#### ETA-2 Actis-class Interceptor
+
+Actor `kxOYt1pVQc0rh1OP`, sheet `ETA-2 Actis` (`sheet21.xml`). The sheet is a different configuration. Both are Small, tier 2, and share the base scores, but the sheet role and specialization are Superiority Fighter, while the actor embeds Role: Interceptor `SD65mkoce1gtVgp3` and Role Spec: Interceptor `CSXdf6NzOarL8rI5`. Comms, scanner, thrusters, weapons, shield, coupling, and whether the hyperdrive ring is installed also differ. The Role discrepancy is not an isolated defect on the same build. Conclusion: `NEEDS REVIEW: VARIANT MISMATCH`. Do not install Superiority Fighter or remove Interceptor.
+
+Workbook totals are 16, 18, 11, 10, 12, 12. Fly caches 450 (role 400 plus specialization +50). Turn caches 150. Prepared actor movement is space 300, turn 200, fly 0. The specialization's `movement.fly` +50 does not raise space.
+
+Effect ASI `UvdO1iEhKf8g7CfW`, transfer false, disabled false, priority 20:
+
+| Key | Mode | Value | Raw | Prepared | Workbook | Owner | Embedded | Canonical | Class | Confidence | Action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `system.abilities.str.value` | 2 | 2 | 13 | 16 | 16, ASI `H6` = 2 | actor ASI | Reactor, Mark I `cOg3lvfvyh57kRMF` +1 | ASI feature has no effect | CORRECT ACTOR OWNERSHIP | high for this layer only | NO EDIT |
+| `system.abilities.dex.value` | 2 | 1 | 14 | 18 | 18, but ASI Dexterity is empty | unresolved | size +2; Role: Interceptor +1 | Thrusters, Mark I is the sheet's modification +1 and is not installed here | NEEDS REVIEW: VARIANT MISMATCH | low | NO EDIT |
+| `system.abilities.con.value` | 2 | 0 | 13 | 11 | 11 | none | Small Starship `cKwWxbNj3gMbJNrP` -2 | `6BN8l5E8QtYt103T` | PREPARED NO-OP | high | NO EDIT |
+| `system.abilities.int.value` | 2 | 0 | 10 | 10 | 10 | none | none | none | PREPARED NO-OP | high | NO EDIT |
+| `system.abilities.wis.value` | 2 | 2 | 12 | 14 | 12 | actor choice the sheet does not make | none | none | NEEDS REVIEW: VARIANT MISMATCH | low against this sheet | NO EDIT |
+| `system.abilities.cha.value` | 2 | 0 | 12 | 12 | 12 | none | none | none | PREPARED NO-OP | high | NO EDIT |
+
+No ETA-2 source edit.
+
+### Classification counts for the inspected changes
+
+- CORRECT ACTOR OWNERSHIP: 4
+- INTENTIONAL STACK: 1
+- INCORRECT VALUE: 1
+- PREPARED NO-OP: 17
+- NEEDS REVIEW: VARIANT MISMATCH: 2
+- CONFIRMED MOVE, CONFIRMED DUPLICATE, MISSING ITEM EFFECT, and NEEDS REVIEW: NO WORKBOOK MATCH: 0 among these changes
+
+The 37 effects with no worksheet remain `NEEDS REVIEW: NO WORKBOOK MATCH`. Missing role publication on Gand and HMP, and the missing Attack Fighter item on GAT-12, are recorded above and were not given an actor-effect class.
+
+### Implementation
+
+No Drake actor source was edited. No canonical item was edited. No pack was rebuilt. Foundry was running, and no rebuild was required because no source changed. No fresh Gand, GAT-12, HMP, or ETA-2 import was created. No existing world actor other than the disposable Fang validation copy was modified.
+
+### Unresolved
+
+- Fang still has both Strike Fighter and Superiority Fighter specializations.
+- Gand, GAT-12, and HMP still prepare movement from stored values because their tier-0 role items do not publish mode 5 space and turn. Repairing that publication is a later batch. It is not safe as a one-ship edit in this pass.
+- GAT-12 Strength +4 stands in for ASI +3 plus the missing Attack Fighter +1. Installing that role while Adaptive Ailerons remains would prepare turn 0.
+- ETA-2 remains a variant mismatch.
+- The other 37 actor effects still have no worksheet.
+
+### Status
+
+Fang validation recorded and the temporary actor removed. Gand, GAT-12, HMP, and ETA-2 reconstructed. No source edit. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Drake Role movement publication inventory
+
+### Reason
+
+Every Drake actor was checked for a publishing Role. The question was why prepared movement stays on the stored value for ships other than Fang.
+
+### Supersedes
+
+Nothing above is removed. Gand, GAT-12, ETA-2, and Fang stay out of this repair batch.
+
+### Read-only inventory
+
+87 actors were parsed from `packs/_source/drakes-shipyard`. 36 canonical Role features were indexed under `packs/_source/starships/starship-features`. Publication uses `isRoleSpeedProfileItem`: subtype must be exactly `role`, and only an enabled mode 5 change on `system.attributes.movement.space` or `.turn` publishes. Prepared movement is that published value when an applicable override controls the field, otherwise the stored value, plus mode 2 space and turn deltas. `movement.fly` is forced to 0.
+
+Inventory groups:
+
+- Correct publishing Role: 1 (Fang-class)
+- Role-named item whose subtype is not `role`: 32 actors
+- Subtype `role` with no enabled mode 5 movement: 17 actors
+- Incomplete publication: 0
+- Complete publication with intentional custom values: 0
+- Complete publication with an unexplained canonical mismatch: 0
+- Only Role Spec or `roleSpecialization`, no base Role: 26 actors
+- No Role item: 10 actors
+- Multiple base Roles: 1 (YT-1300, Heavily Modified)
+
+Item counts: 73 items are named `Role:`. 53 of those do not have subtype `role`. 20 items have subtype `role`. 64 items are a Role Spec by name or by subtype `roleSpecialization`.
+
+Of the 73 base-role source pointers, 72 do not resolve to a current starship document. They use 14 stale ids. The only resolving pointer is Fang's Role: Superiority Fighter, `Compendium.sw5e-module.starships.vyc2GIsA50ilVSyg`. The shared effect id `qQTMHDrpIch61Q7C` appears on many different roles, so it does not identify a Role.
+
+### Root cause
+
+`utils/packs.mjs` does not assign Role subtypes or copy canonical movement onto embedded items.
+
+At `fb63553d6`, canonical Role: Freighter `QY7jBe7EgKLz8z1p` already had subtype `role` and only Constitution +1. Drake's A-Z-Z-3 already had subtype `role` and the same ability change. Commit `0da62ca1d` then added mode 5 space and turn overrides to the canonical Role features only. Its message says old world Roles may need a compendium refresh. That commit did not update `packs/_source/drakes-shipyard`.
+
+The missing publication is therefore old embedded copies that never received the Bug 11 movement changes. A second set cannot publish even if those keys were copied, because the embedded item's subtype is blank or `roleSpecialization`. There is no evidence of one conversion script stripping subtypes. Names with no current canonical Role are Interceptor, Gunboat, and Strike Fighter.
+
+### Decision
+
+No actor passed all ten gates. No source file was edited. No canonical Role was edited. No repair was simulated as a saved target. Current prepared movement was simulated for all 87 actors: it matches stored movement plus mode 2 deltas, except Fang, whose Role publishes 400/150 and whose prepared result is 450/50.
+
+Actor-level mode 5 changes that do not publish, and that would make turn control ambiguous if a Role began publishing while they remained:
+
+- HMP `4WAAiMXDrFy2MipW`, turn 400
+- VT-49 Decimator `XLUqHYCqcIgHhklz`, fly 300 and turn 200
+- YV-929 `OpwEjg658THj3164`, fly 350 and turn 300
+- YT-1300, Heavily Modified `qSl5ltd7udAKjzBX`, fly 400 and turn 150
+
+The closest later batch is the 12 stale subtype-`role` items whose name and size match a current canonical Role, but whose source UUID does not. Freighter (`QY7jBe7EgKLz8z1p`) publishes 300/150. Yacht (`dfqRcgIokd6o0G0A`) publishes 350/200. Warship (`72graKov2mme5CB0`) publishes 200/500. Those actors are A-Z-Z-3, AIAT/i, both DeepWaters, both VCX-100s, YT-1300f, YV-929, Baudo modified, Horizon legendary, X-70B, and Executor. They were not repaired, because the stale UUID does not prove the current document and several still have actor-level movement changes.
+
+Gand, GAT-12, ETA-2, and Fang were not edited.
+
+### Classification counts
+
+- CORRECT ROLE PUBLICATION: 1
+- STALE EMBEDDED ROLE: 12
+- NON-PUBLISHING ROLE: 32
+- MISSING BASE ROLE: 36
+- INSUFFICIENT EVIDENCE: 5
+- MULTIPLE ROLE CONFLICT: 1
+- INCOMPLETE ROLE EFFECT, INTENTIONAL CUSTOM ROLE, and VARIANT MISMATCH: 0 in this Role-publication classification
+
+Prepared space/turn below is the in-memory result. Published `-/-` means no Role publication.
+
+| Actor | ID | File | Current Role | Subtype | Published | Prepared | Class | Action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A-Z-Z-3 Light Freighter | Ec0jtuoGKx6dPdXL | a-z-z-3-light-freighter.yml | Role: Freighter 8WM96RjJKxq4v5EZ | role | -/- | 50/50 | STALE EMBEDDED ROLE | NO EDIT |
+| A/SF-01 B-wing starfighter | Y0Vf2Yi6pPQjliD1 | a-sf-01-b-wing-starfighter.yml | Role: Bomber 60nHLQxcoMBitVrQ | (blank) | -/- | 250/250 | NON-PUBLISHING ROLE | NO EDIT |
+| AEG-77 Vigo Gunship | g7Rc7hHyyWraZ9xB | aeg-77-vigo-gunship.yml | Role: Gunboat MvOUgDzaMc4A6nhA | (blank) | -/- | 300/200 | NON-PUBLISHING ROLE | NO EDIT |
+| AIAT/i Gunship | EAiaXORMgRRDVsz9 | aiat-i-gunship.yml | Role: Freighter ReQ4aQ33Dw9VK5EV | role | -/- | 300/200 | STALE EMBEDDED ROLE | NO EDIT |
+| Aka'jor-class Shuttle | tRnGAAILKowm8n4T | akajor-class-shuttle.yml | Role: Shuttle 4lOzKTxQ6X75iRE3 | (blank) | -/- | 300/100 | NON-PUBLISHING ROLE | NO EDIT |
+| Amphibious Fighter | LGffjLPNJFnU0dFw | amphibious-fighter.yml | Role: Strike Fighter cn8vBB6vWd0lknLm | roleSpecialization | -/- | 300/200 | MISSING BASE ROLE | NO EDIT |
+| ARC-170 Starfighter | B5AmMDBTT6TrfW5E | arc-170-starfighter.yml | Role: Shuttle 546iyB7I0mfBCOgu | roleSpecialization | -/- | 300/250 | MISSING BASE ROLE | NO EDIT |
+| Arquitens-class Command Cruiser | mpt1kUtoAefmMm2J | arquitens-class-command-cruiser.yml | Role: Cruiser BNntHepC9RhyIwjO | (blank) | -/- | 300/200 | NON-PUBLISHING ROLE | NO EDIT |
+| Arquitens-class Light Cruiser | gcbEAITXaFubk3Te | arquitens-class-light-cruiser.yml | Role: Cruiser xFHd6rI1xtRGo9Yw | (blank) | -/- | 300/200 | NON-PUBLISHING ROLE | NO EDIT |
+| Baleen-class Heavy Freighter | gDIld1heRHyZAON9 | baleen-class-heavy-freighter.yml | Role: Explorer uq9rp0qorjKNfWFF | (blank) | -/- | 300/300 | NON-PUBLISHING ROLE | NO EDIT |
+| Baradium Missile | cfolyngp2wsTmiAI | baradium-missile.yml | (none) | - | -/- | 450/150 | MISSING BASE ROLE | NO EDIT |
+| Barloz Class Medium Freighter | cczypZPh7owYKxX1 | barloz-class-medium-freighter.yml | Role: Freighter PmbL9tsxdUSOYQRb | (blank) | -/- | 300/200 | NON-PUBLISHING ROLE | NO EDIT |
+| Basilisk Space Droid | 7X4txvq9CcL2MPdL | basilisk-space-droid.yml | (none) | - | -/- | 100/100 | MISSING BASE ROLE | NO EDIT |
+| Baudo-class Star Yacht | e5uv8tcM0cFQLI7R | baudo-class-star-yacht.yml | Role: Yacht VHtmsBGq3mQy2sGk | (blank) | -/- | 300/200 | NON-PUBLISHING ROLE | NO EDIT |
+| Baudo-class Star Yacht - Modified | IbM8uXHEpvvdf0TN | baudo-class-star-yacht-modified.yml | Role: Yacht VHtmsBGq3mQy2sGk | role | -/- | 350/250 | STALE EMBEDDED ROLE | NO EDIT |
+| C-wing Corellian/B-wing | NYWhs7E7dXECVXNq | c-wing-corellian-b-wing.yml | Role: Shuttle 6w11XCnEdQejeh9p | roleSpecialization | -/- | 300/300 | MISSING BASE ROLE | NO EDIT |
+| Chir'daki Deathseed | OMMoXTxtFhVheNdP | chirdaki-deathseed.yml | Role: Strike Fighter SUIHKYejNmPDlkIy | roleSpecialization | -/- | 300/150 | MISSING BASE ROLE | NO EDIT |
+| Clutch Tri-Fighter | jzfWoZefO4jrwMP5 | clutch-tri-fighter.yml | Role: Interceptor szt1dfLH6V4bltyf | (blank) | -/- | 300/200 | NON-PUBLISHING ROLE | NO EDIT |
+| CR90 Corvette | 0S6RxfRRNiswQrya | cr90-corvette.yml | Role: Corvette QV7xhcdNoH8halzL | roleSpecialization | -/- | 400/150 | MISSING BASE ROLE | NO EDIT |
+| Crusader XX-777 Prototype Droid Frigate | G0XGdRHTGz8BXfmN | crusader-xx-777-prototype-droid-frigate.yml | Role: Explorer OvgclZ4y1q5WML2y | roleSpecialization | -/- | 250/250 | MISSING BASE ROLE | NO EDIT |
+| DeepWater-class Light Freighter | 8X549fFDsnYcpJY7 | deepwater-class-light-freighter.yml | Role: Freighter 31JjWKLxLWEnjbAA | role | -/- | 350/100 | STALE EMBEDDED ROLE | NO EDIT |
+| DeepWater-class Light Freighter - Legendary | NdFAYbYXP78V2jqD | deepwater-class-light-freighter-legendary.yml | Role: Freighter 31JjWKLxLWEnjbAA | role | -/- | 400/100 | STALE EMBEDDED ROLE | NO EDIT |
+| Delta-7 Aethersprite-class light interceptor | fqQgg2zi7i1ZWjly | delta-7-aethersprite-class-light-interceptor.yml | Role: Interceptor JAzyRBH3KzCuhzU6 | (blank) | -/- | 350/200 | NON-PUBLISHING ROLE | NO EDIT |
+| Delta-7 Aethersprite-class light interceptor - Modified | FbzPxDn1FfeRvDym | delta-7-aethersprite-class-light-interceptor-modified.yml | Role: Interceptor JAzyRBH3KzCuhzU6 | role | -/- | 50/-50 | INSUFFICIENT EVIDENCE | NO EDIT |
+| DP20 Frigate | NRhEjklvSBU3e1e2 | dp20-frigate.yml | Role: Cruiser NpxDWTCaikWW0Iwu | roleSpecialization | -/- | 400/150 | MISSING BASE ROLE | NO EDIT |
+| Droid Tri-Fighter | Twk5AisCbp7TvL9M | droid-tri-fighter.yml | (none) | - | -/- | 300/300 | MISSING BASE ROLE | NO EDIT |
+| Dynamic-class light freighter | gawTKA6kzr7qNnnD | dynamic-class-light-freighter.yml | Role: Freighter HZSgtPcTxZoJVKxW | (blank) | -/- | 300/200 | NON-PUBLISHING ROLE | NO EDIT |
+| EF76 Nebulon-B Escort Frigate | MBlMVJlmhIjF9IqH | ef76-nebulon-b-escort-frigate.yml | Role: Picket Ship hPR9d0SurUXfVjST | roleSpecialization | -/- | 300/0 | MISSING BASE ROLE | NO EDIT |
+| EF76 Nebulon-B Escort Frigate (Medical) | 8uUUatfcGjYMSKZr | ef76-nebulon-b-escort-frigate-medical.yml | Role: Picket Ship SmRAAX8SFDt14PXt | roleSpecialization | -/- | 300/0 | MISSING BASE ROLE | NO EDIT |
+| Escape Pod | 2YtJawA2uITnhq6V | escape-pod.yml | Role: Shuttle Bz7uDdJLZKJDymsd | roleSpecialization | -/- | 300/300 | MISSING BASE ROLE | NO EDIT |
+| ETA-2 Actis-class Interceptor | kxOYt1pVQc0rh1OP | eta-2-actis-class-interceptor.yml | Role: Interceptor SD65mkoce1gtVgp3 | (blank) | -/- | 300/200 | NON-PUBLISHING ROLE | NO EDIT excluded |
+| Executor I-class Star Dreadnought | RMKgV514aBS7LwMo | executor-i-class-star-dreadnought.yml | Role: Warship ZfdETGmnmIaJQIWS | role | -/- | 200/200 | STALE EMBEDDED ROLE | NO EDIT |
+| Fang-class | uAzqh6bUJ4ZfKcol | fang-class.yml | Role: Superiority Fighter RsupFng8kQ2mN4wL | role | 400/150 | 450/50 | CORRECT ROLE PUBLICATION | NO EDIT excluded |
+| Gand Starfighter | DiyflQC8xEhqvrzp | gand-starfighter.yml | Role: Bomber XjPLikTzuibn7Cbd | roleSpecialization | -/- | 350/250 | MISSING BASE ROLE | NO EDIT excluded |
+| GAT-12 Skipray Blastboat | Bgqr4WNQpTzEIepj | gat-12-skipray-blastboat.yml | (none) | - | -/- | 300/200 | MISSING BASE ROLE | NO EDIT excluded |
+| HMP Droid Gunship | reNHgyibXInPuEMz | hmp-droid-gunship.yml | Role: Shuttle rMgwICJ0JdiA9Glv | (blank) | -/- | 250/250 | NON-PUBLISHING ROLE | NO EDIT |
+| Horizon-class Star Yacht - Legendary | LVFuVcFl4gF7tNoR | horizon-class-star-yacht-legendary.yml | Role: Yacht NKCzhjklp8NVXV8h | role | -/- | 400/350 | STALE EMBEDDED ROLE | NO EDIT |
+| Imperial I-class Star Destroyer | eLlCXi97DAtixinm | imperial-i-class-star-destroyer.yml | Role: Battleship mjTL7BRtcGi6vXWJ | (blank) | -/- | 350/100 | NON-PUBLISHING ROLE | NO EDIT |
+| K-wing - BTL-S8 | vuT2zQ9MkT4bl9sX | k-wing-btl-s8.yml | Role: Bomber lbPSZPPNil7p3sGd | (blank) | -/- | 300/300 | NON-PUBLISHING ROLE | NO EDIT |
+| M12-L Kimogila Heavy Fighter | zEXFY5OjrHTSUdjm | m12-l-kimogila-heavy-fighter.yml | Role: Strike Fighter 7oCOOnClarE5h1nL | (blank) | -/- | 300/250 | NON-PUBLISHING ROLE | NO EDIT |
+| M22-T Krayt Gunship | 9pA2rg6Eme3DtR1h | m22-t-krayt-gunship.yml | (none) | - | -/- | 300/250 | MISSING BASE ROLE | NO EDIT |
+| M3-A Scyk "Heavy" Fighter | 1r4jBr6JMShi7Uay | m3-a-scyk-heavy-fighter.yml | (none) | - | -/- | 350/200 | MISSING BASE ROLE | NO EDIT |
+| M3-A Scyk "TIE Killer" | ZDQ7jvM0EdDgQCoy | m3-a-scyk-tie-killer.yml | Role: Strike Fighter KSvmP8uQ9VAb5lxp | (blank) | -/- | 350/200 | NON-PUBLISHING ROLE | NO EDIT |
+| M3-A Scyk Fighter | Gc58wD4Yv0HoMsZW | m3-a-scyk-fighter.yml | Role: Strike Fighter gg50XLuCHnx0fKUs | roleSpecialization | -/- | 350/200 | MISSING BASE ROLE | NO EDIT |
+| M4-C Dunelizard Fighter | WTLl7aWFzvM6C5TV | m4-c-dunelizard-fighter.yml | Role: Strike Fighter VhKlzHq1TZsA0ul6 | (blank) | -/- | 350/200 | NON-PUBLISHING ROLE | NO EDIT |
+| N-1 Naboo Starfighter | lKELcx2njLSJrP5Q | n-1-naboo-starfighter.yml | Role: Strike Fighter 3TpM5sbRkmgAjjXj | (blank) | -/- | 300/250 | NON-PUBLISHING ROLE | NO EDIT |
+| N-1 Naboo Starfighter, Custom | Ug33oVFGY7Qp3ufC | n-1-naboo-starfighter-custom.yml | Role: Strike Fighter XZsfE2Uab4PYy3Bk | (blank) | -/- | 350/150 | NON-PUBLISHING ROLE | NO EDIT |
+| Nantex-class Territorial Defense Starfighter | bc83jDYGauWHxSjB | nantex-class-territorial-defense-starfighter.yml | (none) | - | -/- | 350/100 | MISSING BASE ROLE | NO EDIT |
+| Probe-Mate Hyperspace Pod | eMVRexg9Xh6wKFUe | probe-mate-hyperspace-pod.yml | (none) | - | -/- | 450/150 | MISSING BASE ROLE | NO EDIT |
+| RZ-1 A-wing Interceptor | bE202kqpwHSmKTaI | rz-1-a-wing-interceptor.yml | Role: Interceptor FNNtNwdBeH3blQbk | (blank) | -/- | 400/200 | NON-PUBLISHING ROLE | NO EDIT |
+| ST-70 Razor Crest Assault Ship | MsLkNfJG6uHWftYA | st-70-razor-crest-assault-ship.yml | Role: Gunboat iK5J38u5OOuM0K6e | role | -/- | 50/50 | INSUFFICIENT EVIDENCE | NO EDIT |
+| ST-70 Razor Crest Assault Ship - Legendary | 0X0Aklqyf02hbyBb | st-70-razor-crest-assault-ship-legendary.yml | Role: Gunboat yqQOGN6AiWjJ5Ngd | role | -/- | 50/50 | INSUFFICIENT EVIDENCE | NO EDIT |
+| StarViper Mk. II | CvOvBLzu6qwpXdBM | starviper-mk-ii.yml | Role: Strike Fighter O9CHgOzc65JFbhGf | roleSpecialization | -/- | 350/200 | MISSING BASE ROLE | NO EDIT |
+| StarViper-class Attack Platform | O5nM5NhXI4h9WW9P | starviper-class-attack-platform.yml | (none) | - | -/- | 350/200 | MISSING BASE ROLE | NO EDIT |
+| StarViper-class Attack Platform - Prototype | JmiBJf3Wa2OcBpte | starviper-class-attack-platform-prototype.yml | Role: Strike Fighter Ha6GXTqZtsiXF2pv | roleSpecialization | -/- | 350/200 | MISSING BASE ROLE | NO EDIT |
+| T-65 X-Wing Starfighter | KIYZmULvhfmiOrC2 | t-65-x-wing-starfighter.yml | Role: Strike Fighter zJBEDSrGi0PjgWWY | roleSpecialization | -/- | 300/250 | MISSING BASE ROLE | NO EDIT |
+| TIE Advanced x1 | 4LttOGkwmXWfxQhQ | tie-advanced-x1.yml | Role: Strike Fighter RoY1VArOZMSmsKYX | roleSpecialization | -/- | 350/250 | MISSING BASE ROLE | NO EDIT |
+| TIE/D Defender | SuqAQa6LsY1hNJnI | tie-d-defender.yml | (none) | - | -/- | 350/250 | MISSING BASE ROLE | NO EDIT |
+| TIE/HU Hunter Multi-role Starfighter | xAvg4N6BLjZ1AW8x | tie-hu-hunter-multi-role-starfighter.yml | (none) | - | -/- | 350/250 | MISSING BASE ROLE | NO EDIT |
+| TIE/IN Interceptor | ajAHTOE1nFbXxusm | tie-in-interceptor.yml | Role: Strike Fighter ZxCGoh3JEglb0k2B | (blank) | -/- | 350/250 | NON-PUBLISHING ROLE | NO EDIT |
+| TIE/LN Starfighter | CyMwaR1CkveFBSb7 | tie-ln-starfighter.yml | Role: Strike Fighter 9RVJh2fz4f8tOIBO | roleSpecialization | -/- | 350/200 | MISSING BASE ROLE | NO EDIT |
+| TIE/sa Bomber | Y36w1nGrrDghf1bq | tie-sa-bomber.yml | Role: Bomber LI6pWRK2LS9L1YTO | (blank) | -/- | 350/250 | NON-PUBLISHING ROLE | NO EDIT |
+| TIE/sa Bomber (Mine Layer) | PgRFaYvoWARHlfUS | tie-sa-bomber-mine-layer.yml | Role: Bomber B1ilCGzuL6vbpQQz | roleSpecialization | -/- | 350/250 | MISSING BASE ROLE | NO EDIT |
+| TIE/sa Bomber (Missile Boat) | Yj3aH9iBLduHKl4q | tie-sa-bomber-missile-boat.yml | Role: Bomber 13VsMnXRW4VFzu0F | (blank) | -/- | 350/250 | NON-PUBLISHING ROLE | NO EDIT |
+| TYE-wing | WUJlWDH4enxYeX4n | tye-wing.yml | Role: Bomber W0VI2y88ZGyYkuYz | (blank) | -/- | 300/300 | NON-PUBLISHING ROLE | NO EDIT |
+| U-wing Starfighter/Support Craft - UT-60D | 8rxZGWKJJ2XbyhNl | u-wing-starfighter-support-craft-ut-60d.yml | Role: Shuttle N1N52oykBJ5Folkw | roleSpecialization | -/- | 300/200 | MISSING BASE ROLE | NO EDIT |
+| V-wing Starfighter - Alpha-3 Nimbus-class | qiAPxTVe39l5Su3w | v-wing-starfighter-alpha-3-nimbus-class.yml | Role: Strike Fighter yDAdS0t2j0tiK69b | (blank) | -/- | 300/200 | NON-PUBLISHING ROLE | NO EDIT |
+| VCX-100 light freighter | GWyrReJAN9ByMpoa | vcx-100-light-freighter.yml | Role: Freighter yPpe28ywR6DyomR3 | role | -/- | 300/200 | STALE EMBEDDED ROLE | NO EDIT |
+| VCX-100 light freighter, Modified | 474155zgDsAVDg5N | vcx-100-light-freighter-modified.yml | Role: Freighter yPpe28ywR6DyomR3 | role | -/- | 350/150 | STALE EMBEDDED ROLE | NO EDIT |
+| VCX-series auxiliary starfighter | DaTKXigeX6pTNsO2 | vcx-series-auxiliary-starfighter.yml | Role: Interceptor uyRRdjE5Gzdh1xdo | role | -/- | 50/50 | INSUFFICIENT EVIDENCE | NO EDIT |
+| VT-49 Decimator | 0PlzcuyrY9qaDM4q | vt-49-decimator.yml | Role: Gunboat 90UoJVNE1s77x7pB | role | -/- | 50/100 | INSUFFICIENT EVIDENCE | NO EDIT |
+| Vulture Droid - CIS | 8yjv1R0XJQ7QPbmy | vulture-droid-cis.yml | (none) | - | -/- | 350/300 | MISSING BASE ROLE | NO EDIT |
+| Wander-class Jump Freighter | otFcy4156sFvukFS | wander-class-jump-freighter.yml | Role: Courier x0ud7Ku4CVdMBeck | (blank) | -/- | 300/200 | NON-PUBLISHING ROLE | NO EDIT |
+| Wayfarer-class Medium Transport | edvK3te9EEg9kZcU | wayfarer-class-medium-transport.yml | Role: Gunboat fTXFkx64e099tJOd | (blank) | -/- | 350/200 | NON-PUBLISHING ROLE | NO EDIT |
+| X-70B Phantom-class Prototype | CXI1rlrERTsjeoSo | x-70b-phantom-class-prototype.yml | Role: Yacht PdUDYATxSiO9PPm5 | role | -/- | 350/200 | STALE EMBEDDED ROLE | NO EDIT |
+| X-ceptor | U7Pstus7Kt5jGaxq | x-ceptor.yml | Role: Interceptor TYIYieTHKqSqkhRR | (blank) | -/- | 350/250 | NON-PUBLISHING ROLE | NO EDIT |
+| X-TIE Fighter | Z9GLGFS5bmGEF188 | x-tie-fighter.yml | Role: Strike Fighter maxowxYTHhP6ZJZr | (blank) | -/- | 300/300 | NON-PUBLISHING ROLE | NO EDIT |
+| X-Wing Starfighter - Advanced | 1iE0TPVtIaqWPKRH | x-wing-starfighter-advanced.yml | Role: Strike Fighter J6e9J3OH7gLcGc37 | roleSpecialization | -/- | 350/200 | MISSING BASE ROLE | NO EDIT |
+| Y-TIE Fighter | 2TkLW4TUmB9mulsx | y-tie-fighter.yml | Role: Strike Fighter 4s2jNzrWpnDiAasN | roleSpecialization | -/- | 250/250 | MISSING BASE ROLE | NO EDIT |
+| Y-Wing Starfighter - BTL-B/S3 | lHFf29mWBxshx6HO | y-wing-starfighter-btl-b-s3.yml | Role: Interceptor z9wtDYOxE9rke7OF | (blank) | -/- | 350/250 | NON-PUBLISHING ROLE | NO EDIT |
+| YT-1300, Heavily Modified | QqgnknDyNxtsaImK | yt-1300-heavily-modified.yml | Role: Freighter PZD6gJAdnXCCofj3; Role: Freighter EyL27EnUM3jKqVSQ | role | -/- | 350/150 | MULTIPLE ROLE CONFLICT | NO EDIT |
+| YT-1300, Modified | t5oz29L2QV5lFlYr | yt-1300-modified.yml | Role: Freighter TWPkOS1qbBm9qs85 | (blank) | -/- | 350/150 | NON-PUBLISHING ROLE | NO EDIT |
+| YT-1300f Light Freighter | BZkA48rDJKsKCX3C | yt-1300f-light-freighter.yml | Role: Freighter tL6NzVoptTVl9LDQ | role | -/- | 350/100 | STALE EMBEDDED ROLE | NO EDIT |
+| YV-929 Armed Freighter | LY8lY6F9nVqz7Km1 | yv-929-armed-freighter.yml | Role: Freighter 8t3M3oYnzNPb9urY | role | -/- | 300/200 | STALE EMBEDDED ROLE | NO EDIT |
+| Z-'ceptor | pzpo8Hny7SqtrP7C | z-ceptor.yml | (none) | - | -/- | 400/250 | MISSING BASE ROLE | NO EDIT |
+| Z-95 Headhunter | Y0qIHIctfGjGcgmI | z-95-headhunter.yml | (none) | - | -/- | 350/200 | MISSING BASE ROLE | NO EDIT |
+| Z-TIE Fighter | pzL1SI9raUYuSpv8 | z-tie-fighter.yml | (none) | - | -/- | 350/250 | MISSING BASE ROLE | NO EDIT |
+
+### Implementation
+
+No source edit. No pack rebuild. Foundry was running, and a rebuild was not required.
+
+### Status
+
+Role publication inventory recorded. No actor passed the repair gates. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Stale Freighter, Yacht, and Warship identity
+
+### Reason
+
+The 12 subtype-`role` embeddings whose source ids do not resolve were checked against the current Freighter, Yacht, and Warship documents. Equivalence was not treated as lineage.
+
+### Supersedes
+
+Nothing above is removed. The earlier `STALE EMBEDDED ROLE` label stays as the inventory class. This addendum adds the identity result.
+
+### Read-only identity
+
+Current fingerprints, with no Activities:
+
+- Freighter `QY7jBe7EgKLz8z1p`, medium, subtype `role`. Before and after `0da62ca1d` the id is the same. Before that commit the only change is Constitution +1, mode 2, priority 1. After it, space 300 and turn 150, mode 5, priority 20. The rules heading is Freighter.
+- Yacht `dfqRcgIokd6o0G0A`, medium, subtype `role`. Same history shape. Ability is Charisma +1. After `0da62ca1d`, space 350 and turn 200. The rules heading is Yacht.
+- Warship `72graKov2mme5CB0`, gargantuan, subtype `role`. Abilities are Wisdom +1 and Strength +1. After `0da62ca1d`, space 200 and turn 500. The rules heading on this document is Flagship, not Warship.
+
+At `124dca632` the embeddings already pointed at `Compendium.sw5e.starshipfeatures`, not at `sw5e-module.starships`. The ids were `VdHmWXHvkK5ZyoWw` (Freighter), `U1S8haQSb90YulZq` (Yacht), and `uokunSKATOfWwOP9` (Warship). Those ids are not document `_id` values anywhere in that commit, and they are not the current Role ids. `fb63553d6` rewrote the pointer string to `Compendium.sw5e-module.starships.<same stale id>`. That rewrite did not make the stale id the current document. `0da62ca1d` added movement to the current documents and left their ids unchanged. The shared effect id `qQTMHDrpIch61Q7C` is not identity.
+
+The embedded changes still match the pre-movement ability row: Freighter Constitution +1, Yacht Charisma +1, Warship Wisdom +1 and Strength +1. None has a movement change, an Activity, or a second effect. The Freighter and Yacht rules headings match those names. The Executor embedding's heading is Warship, while the current Warship document's heading is Flagship.
+
+That is a structural match to the pre-movement shape, plus a source pointer from a different compendium. It does not prove the embedding was copied from the current document. No embedding is `CONFIRMED STALE CANONICAL COPY`.
+
+| Actor | ID | Role item | Stale UUID | Candidate | Class | Action |
+| --- | --- | --- | --- | --- | --- | --- |
+| A-Z-Z-3 Light Freighter | `Ec0jtuoGKx6dPdXL` | `8WM96RjJKxq4v5EZ` | `VdHmWXHvkK5ZyoWw` | Freighter `QY7jBe7EgKLz8z1p` | PROBABLE STALE COPY | NO EDIT |
+| AIAT/i Gunship | `EAiaXORMgRRDVsz9` | `ReQ4aQ33Dw9VK5EV` | `VdHmWXHvkK5ZyoWw` | Freighter `QY7jBe7EgKLz8z1p` | PROBABLE STALE COPY | NO EDIT |
+| DeepWater-class Light Freighter | `8X549fFDsnYcpJY7` | `31JjWKLxLWEnjbAA` | `VdHmWXHvkK5ZyoWw` | Freighter `QY7jBe7EgKLz8z1p` | PROBABLE STALE COPY | NO EDIT |
+| DeepWater-class Light Freighter - Legendary | `NdFAYbYXP78V2jqD` | `31JjWKLxLWEnjbAA` | `VdHmWXHvkK5ZyoWw` | Freighter `QY7jBe7EgKLz8z1p` | PROBABLE STALE COPY | NO EDIT |
+| VCX-100 light freighter | `GWyrReJAN9ByMpoa` | `yPpe28ywR6DyomR3` | `VdHmWXHvkK5ZyoWw` | Freighter `QY7jBe7EgKLz8z1p` | PROBABLE STALE COPY | NO EDIT |
+| VCX-100 light freighter, Modified | `474155zgDsAVDg5N` | `yPpe28ywR6DyomR3` | `VdHmWXHvkK5ZyoWw` | Freighter `QY7jBe7EgKLz8z1p` | PROBABLE STALE COPY | NO EDIT |
+| YT-1300f Light Freighter | `BZkA48rDJKsKCX3C` | `tL6NzVoptTVl9LDQ` | `VdHmWXHvkK5ZyoWw` | Freighter `QY7jBe7EgKLz8z1p` | PROBABLE STALE COPY | NO EDIT |
+| YV-929 Armed Freighter | `LY8lY6F9nVqz7Km1` | `8t3M3oYnzNPb9urY` | `VdHmWXHvkK5ZyoWw` | Freighter `QY7jBe7EgKLz8z1p` | PROBABLE STALE COPY | NO EDIT |
+| Baudo-class Star Yacht - Modified | `IbM8uXHEpvvdf0TN` | `VHtmsBGq3mQy2sGk` | `U1S8haQSb90YulZq` | Yacht `dfqRcgIokd6o0G0A` | PROBABLE STALE COPY | NO EDIT |
+| Horizon-class Star Yacht - Legendary | `LVFuVcFl4gF7tNoR` | `NKCzhjklp8NVXV8h` | `U1S8haQSb90YulZq` | Yacht `dfqRcgIokd6o0G0A` | PROBABLE STALE COPY | NO EDIT |
+| X-70B Phantom-class Prototype | `CXI1rlrERTsjeoSo` | `PdUDYATxSiO9PPm5` | `U1S8haQSb90YulZq` | Yacht `dfqRcgIokd6o0G0A` | PROBABLE STALE COPY | NO EDIT |
+| Executor I-class Star Dreadnought | `RMKgV514aBS7LwMo` | `ZfdETGmnmIaJQIWS` | `uokunSKATOfWwOP9` | Warship `72graKov2mme5CB0` | AMBIGUOUS ROLE IDENTITY | NO EDIT |
+
+Counts: confirmed stale copy 0, confirmed custom 0, probable stale copy 11, ambiguous 1, not the current Role 0.
+
+Current prepared movement stays on the stored value plus mode 2 deltas, because nothing publishes. External Docking System adds turn +50 and fly -50 on both VCX-100 actors, the modified Baudo yacht, and YT-1300, Heavily Modified. The fly add is discarded. A hypothetical Freighter publication of 300/150 would then prepare turn 200 on those docking ships and would change space on the ships whose stored space is not 300. That simulation was not saved. Abilities would not change, because the ability row is already present. Source UUIDs were not rewritten.
+
+### Actor-level mode 5
+
+None of these changes is consumed. Preparation does not publish actor mode 5, and fly is forced to 0.
+
+- HMP `reNHgyibXInPuEMz`, effect `4WAAiMXDrFy2MipW`: turn 400. Prepared turn stays 250. The value is not the workbook turn of 100 and not a current Role value. Origin unresolved.
+- VT-49 `0PlzcuyrY9qaDM4q`, effect `XLUqHYCqcIgHhklz`: fly 300 and turn 200. Prepared turn is 100 because stored turn is 50 and another effect adds +50. Origin unresolved. Gunboat is not a current canonical Role.
+- YV-929 `LY8lY6F9nVqz7Km1`, effect `OpwEjg658THj3164`: fly 350 and turn 300. Prepared movement stays 300/200. Adding Freighter publication would put a second mode 5 controller on turn. Origin unresolved, so YV-929 stays blocked even though its Role shape is a probable match.
+- YT-1300, Heavily Modified `QqgnknDyNxtsaImK`, effect `qSl5ltd7udAKjzBX`: fly 400 and turn 150. Prepared turn is 150 from stored 100 plus docking +50. The actor turn 150 is the same number a Freighter override would publish, but that is not proof it was copied from the Role.
+
+### YT-1300, Heavily Modified
+
+`PZD6gJAdnXCCofj3` and `EyL27EnUM3jKqVSQ` are duplicate base Roles. Both are subtype `role`, both point at `VdHmWXHvkK5ZyoWw`, and both add only Constitution +1. Neither is a specialization. Publication uses the first Role item that publishes and then stops, so giving both the same override would publish `PZD6gJAdnXCCofj3` and leave two mode 5 controllers, plus the actor turn controller. Giving the override to only one item leaves the other duplicate and the actor controller. The actor was not repaired.
+
+### Implementation
+
+No source file was edited. No canonical Role was edited. No pack was rebuilt. Foundry was running, and a rebuild was not required.
+
+### Status
+
+Identity check recorded. No candidate was a confirmed copy of the current Role. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy starshipfeatures Role recovery
+
+### Reason
+
+The three stale ids were recovered from the discontinued system repository https://github.com/sw5e-foundry/sw5e. A full clone is at `C:\Users\ckauble\AppData\Local\Temp\sw5e-legacy-system`. Raw matching lines are at `C:\Users\ckauble\AppData\Local\Temp\sw5e-legacy-role-recovery`.
+
+### Supersedes
+
+The statement above that these ids were never document ids. That was true inside this module repository. It is not true in the discontinued system. The earlier text stays.
+
+### Recovered documents
+
+Pack name `starshipfeatures`, label Starship Features, entity Item. First record: commit `4cb468ae4` (2021-12-23), path `packs/packs/starshipfeatures.db`, declared in `system.json`. Last record of the documents themselves: commit `5f519f0d1` (2023-03-15), same path, system version `2.1.4.2.4.0`, core `10.291`. By `fbe2b581f` (2023-05-26) the NeDB file is gone. Later hits are Drake actor pointers only. No commit in that repository rewrites these ids into `QY7jBe7EgKLz8z1p`, `dfqRcgIokd6o0G0A`, or `72graKov2mme5CB0`.
+
+The mechanical content does not change between the first and last pack copies. The schema does. There is no movement change and no Activity in either copy. Effect id `qQTMHDrpIch61Q7C`, disabled false, transfer true.
+
+| ID | Name | Size | First schema | Last schema | Ability |
+| --- | --- | --- | --- | --- | --- |
+| `VdHmWXHvkK5ZyoWw` | Role: Freighter | Medium | type `starshipfeature`, key `data.abilities.con.value` | type `feat`, subtype blank, key `system.abilities.con.value` | Constitution +1, mode 2, priority 1 |
+| `U1S8haQSb90YulZq` | Role: Yacht | Medium | type `starshipfeature`, key `data.abilities.cha.value` | type `feat`, subtype blank, key `system.abilities.cha.value` | Charisma +1, mode 2, priority 1 |
+| `uokunSKATOfWwOP9` | Role: Warship | Gargantuan | type `starshipfeature`, Wisdom and Strength on `data.abilities` | type `feat`, subtype blank, keys `system.abilities.wis.value` and `system.abilities.str.value` | Wisdom +1 and Strength +1, mode 2, priority 1 |
+
+Each description says that at tier 0 the ship adopts a style, then names Freighter, Yacht, or Warship and states the ability bonus above. The Warship heading is Warship. Image paths are `systems/sw5e/packs/Icons/Starship Features/Medium.webp` or `Gargantuan.webp`.
+
+### Relationship to the current Roles
+
+Classification for all three: `LEGACY PREDECESSOR WITH EXPECTED SCHEMA MIGRATION`.
+
+The current Freighter `QY7jBe7EgKLz8z1p` and Yacht `dfqRcgIokd6o0G0A` keep the same size, the same ability, and the same rules sentence. They add subtype `role` and the mode 5 movement from `0da62ca1d`: Freighter 300/150, Yacht 350/200. Those movement keys are not in the legacy documents. The key rename from `data.abilities` to `system.abilities` and the type rename from `starshipfeature` to `feat` are schema migration.
+
+The current Warship `72graKov2mme5CB0` keeps Gargantuan, Wisdom +1, and Strength +1, and adds space 200 and turn 500. Its current rules heading says Flagship. The recovered document says Warship. That heading difference is on the current file. It does not make the recovered document a different role.
+
+### Embeddings
+
+The 12 Drake embeddings can now be confirmed as copies of these recovered pack documents. Their ability changes and the absence of movement match the last legacy copy, and their original pointer was `Compendium.sw5e.starshipfeatures.<id>`. They are not confirmed copies of the current module document ids. No embedding was edited. YV-929 still has an unresolved actor-level mode 5 turn, and YT-1300, Heavily Modified still has two Freighter items. Those blocks remain.
+
+### Implementation
+
+No actor, canonical item, pack, workbook, world, or archive was modified. The temporary clone was not checked out onto another commit. No pack was rebuilt. No commit. No push.
+
+### Status
+
+Legacy documents recovered. Identity is a schema-migrated predecessor, not an id-preserving rewrite. No Drake repair. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy-to-current Role migration
+
+### Reason
+
+The recovered `starshipfeatures` documents were tested as a migration map to the current module Roles, and movement publication was simulated for the 12 embeddings.
+
+### Supersedes
+
+The earlier statement that `VdHmWXHvkK5ZyoWw`, `U1S8haQSb90YulZq`, and `uokunSKATOfWwOP9` were never documents. That sentence stays in the chronology. The recovered pack records supersede it: those ids are the Freighter, Yacht, and Warship documents in `packs/packs/starshipfeatures.db`.
+
+The status above that says no Drake repair was made. That status stays as the record before this migration edit.
+
+### Migration proof
+
+| Legacy | Current | Class |
+| --- | --- | --- |
+| Freighter `VdHmWXHvkK5ZyoWw`, Medium, Constitution +1, no movement | `QY7jBe7EgKLz8z1p`, Medium, Constitution +1, space 300 and turn 150 mode 5 | CONFIRMED LEGACY-TO-CURRENT MIGRATION |
+| Yacht `U1S8haQSb90YulZq`, Medium, Charisma +1, no movement | `dfqRcgIokd6o0G0A`, Medium, Charisma +1, space 350 and turn 200 mode 5 | CONFIRMED LEGACY-TO-CURRENT MIGRATION |
+| Warship `uokunSKATOfWwOP9`, Gargantuan, Wisdom +1 and Strength +1, no movement | `72graKov2mme5CB0`, Gargantuan, Wisdom +1 and Strength +1, space 200 and turn 500 mode 5 | CONFIRMED LEGACY-TO-CURRENT MIGRATION |
+
+The only mechanical addition on the current documents is the mode 5 movement from `0da62ca1d`, plus subtype `role` and the `system.abilities` key names. Flagship is a different Role: Charisma +1 and Wisdom +1, with the same 200/500 movement numbers. The current Warship effect and ability sentence are Wisdom and Strength. Its heading says Flagship. That heading is a title mismatch, not a mechanical replacement, so Executor uses the Warship movement and keeps its Warship description.
+
+### Source-pointer policy
+
+Policy A. This repository has no successor-rebinding convention for item source pointers. `flags.core.sourceId` and `_stats.compendiumSource` stay on the legacy ids. No provenance field was created.
+
+### Simulations and blocks
+
+Prepared movement is the published Role value plus intentional mode 2 turn adds. Fly adds are discarded. Abilities on these Role items were not changed.
+
+| Actor | Item | Published | Prepared | Action |
+| --- | --- | --- | --- | --- |
+| A-Z-Z-3 | `8WM96RjJKxq4v5EZ` | 300/150 | 300/150 | edited |
+| AIAT/i | `ReQ4aQ33Dw9VK5EV` | 300/150 | 300/150 | edited |
+| DeepWater | `31JjWKLxLWEnjbAA` | 300/150 | 300/150 | edited |
+| DeepWater Legendary | `31JjWKLxLWEnjbAA` | 300/150 | 300/150 | edited |
+| VCX-100 | `yPpe28ywR6DyomR3` | 300/150 | 300/200 | edited |
+| VCX-100 Modified | `yPpe28ywR6DyomR3` | 300/150 | 300/200 | edited |
+| YT-1300f | `tL6NzVoptTVl9LDQ` | 300/150 | 300/150 | edited |
+| YV-929 | `8t3M3oYnzNPb9urY` | none | 300/200 | blocked |
+| Baudo Modified | `VHtmsBGq3mQy2sGk` | 350/200 | 350/250 | edited |
+| Horizon Legendary | `NKCzhjklp8NVXV8h` | 350/200 | 350/200 | edited |
+| X-70B | `PdUDYATxSiO9PPm5` | 350/200 | 350/200 | edited |
+| Executor | `ZfdETGmnmIaJQIWS` | 200/500 | 200/500 | edited |
+
+VCX-100, VCX-100 Modified, and Baudo Modified keep External Docking System turn +50. Its rules text says turning speed increases by 50 feet while a ship is coupled. That add stays. Courier and Freighter specialization fly +50 changes, and DeepWater's amphibious swim formula, stay and do not change space or turn. These prepared numbers are Role publication. They are not workbook totals.
+
+YV-929 stays blocked. Actor effect `OpwEjg658THj3164` overrides fly 350 and turn 300. Preparation does not consume it, and that does not explain its origin or disposition. YT-1300, Heavily Modified stays out of this edit. It has two subtype-`role` Freighter items.
+
+### Implementation
+
+Eleven embedded Role effects gained the successor mode 5 space and turn changes. Item ids, ability changes, descriptions, specializations, equipment, and legacy source UUIDs were kept. Canonical Role files were not edited. No pack was rebuilt. Foundry is running.
+
+### Status
+
+Migration map confirmed. Eleven embeddings now publish Role movement. YV-929 and YT-1300, Heavily Modified remain blocked. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Drake Role movement live validation
+
+### Reason
+
+Foundry was restarted after `npm run build:db -- drakes-shipyard` exited 0. Fresh imports of the 11 repaired actors were checked in the world Vanilla.
+
+### Supersedes
+
+The implementation note above that says the pack was not rebuilt and Foundry was running. That note stays as the record before the build.
+
+### Validation
+
+Login was Curso with a blank password. Each import came from `Compendium.sw5e-module.drakes-shipyard.Actor.<repaired id>`. Existing world actors were not opened or updated. All 11 passed prepared movement, fly 0, walk 0, one subtype-`role` publisher, the legacy source pointer, and a single copy of the original ability change.
+
+| Actor | Published | Prepared | Result |
+| --- | --- | --- | --- |
+| A-Z-Z-3 `Ec0jtuoGKx6dPdXL` | 300/150 | 300/150 | PASS |
+| AIAT/i `EAiaXORMgRRDVsz9` | 300/150 | 300/150 | PASS |
+| DeepWater `8X549fFDsnYcpJY7` | 300/150 | 300/150 | PASS |
+| DeepWater Legendary `NdFAYbYXP78V2jqD` | 300/150 | 300/150 | PASS |
+| YT-1300f `BZkA48rDJKsKCX3C` | 300/150 | 300/150 | PASS |
+| VCX-100 `GWyrReJAN9ByMpoa` | 300/150 | 300/200 | PASS |
+| VCX-100 Modified `474155zgDsAVDg5N` | 300/150 | 300/200 | PASS |
+| Horizon Legendary `LVFuVcFl4gF7tNoR` | 350/200 | 350/200 | PASS |
+| X-70B `CXI1rlrERTsjeoSo` | 350/200 | 350/200 | PASS |
+| Baudo Modified `IbM8uXHEpvvdf0TN` | 350/200 | 350/250 | PASS |
+| Executor `RMKgV514aBS7LwMo` | 200/500 | 200/500 | PASS |
+
+The sheet showed those prepared speeds for A-Z-Z-3, VCX-100, Horizon Legendary, Baudo Modified, and Executor. External Docking System supplied the extra turn +50 only on the two VCX actors and Baudo Modified. After close, reopen, and one browser reload, those five still had the same prepared movement. No console error or warning was recorded for import, Active Effects, Role publication, or starship preparation. The legacy source ids remain on the Role items and are not current document ids; no console message reported that during import.
+
+The 11 temporary actors were deleted. YV-929 and YT-1300, Heavily Modified were not imported.
+
+### Status
+
+Live validation passed for the 11 repaired actors. Temporary actors removed. No commit. No push.

@@ -683,3 +683,143 @@ The line above that says the pack has not been rebuilt, and the status that says
 ### Status
 
 Fang pack rebuilt. Fresh import pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Fang validation closeout and remaining workbook actors
+
+### Reason
+
+The Fang import was checked in Foundry, and the remaining workbook-matched actor effects were reconstructed.
+
+### Supersedes
+
+The status above that says the fresh import is pending. That status stays as the earlier record.
+
+### Revised status
+
+- Fang's fresh import prepared space 450 and turn 50. The temporary validation actor was deleted. Strike Fighter remains beside the new Superiority Fighter specialization.
+- Gand, GAT-12, and HMP were not edited. Their role items still do not publish movement.
+- ETA-2 stays `NEEDS REVIEW: VARIANT MISMATCH`.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Fang validation recorded. No further source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Drake Role movement publication inventory
+
+### Reason
+
+The shared missing Role publication was inventoried before any repair.
+
+### Supersedes
+
+No earlier decision is removed. Gand, GAT-12, ETA-2, and Fang stay excluded from this batch.
+
+### Revised status
+
+- 1 of 87 actors publishes Role movement.
+- 26 actors have only a Role Spec. 32 have a Role-named item whose subtype is not `role`. 12 have a stale subtype-`role` copy with no mode 5 movement.
+- Canonical movement was added in `0da62ca1d` and was not copied into Drake embeddings.
+- No source edit.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Role inventory recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Stale Freighter, Yacht, and Warship identity
+
+### Reason
+
+The 12 stale Role embeddings needed a lineage check before any movement repair.
+
+### Supersedes
+
+No earlier decision is removed.
+
+### Revised status
+
+- 11 embeddings are probable stale copies. Executor is ambiguous because the current Warship text is headed Flagship.
+- None is a confirmed copy of the current Role document.
+- YV-929 and YT-1300, Heavily Modified stay blocked by actor-level mode 5 movement. The YT-1300 has two Freighter items.
+- No source edit.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Identity check recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy starshipfeatures Role recovery
+
+### Reason
+
+The three legacy Role ids were recovered from the discontinued system.
+
+### Supersedes
+
+The line above that says none is a confirmed copy of the current Role document. That line stays. This addendum records the legacy documents themselves.
+
+### Revised status
+
+- The ids exist in `packs/packs/starshipfeatures.db` from `4cb468ae4` through `5f519f0d1`.
+- Freighter, Yacht, and Warship match the current Roles' size and ability bonuses. The legacy copies have no movement overrides.
+- The 12 embeddings match those recovered documents. They were not edited.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Legacy documents recovered. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy-to-current Role migration
+
+### Reason
+
+The legacy Role ids were mapped to the current module Roles and tested on the 12 embeddings.
+
+### Supersedes
+
+No earlier decision is removed. The pack recovery remains the correction to the claim that those ids were never documents.
+
+### Revised status
+
+- Freighter, Yacht, and Warship migrations are confirmed. Flagship is a separate Charisma and Wisdom Role.
+- Eleven embeddings publish the current movement and keep the legacy source ids.
+- YV-929 and YT-1300, Heavily Modified were not edited.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Eleven Role embeddings publish movement. Two actors remain blocked. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Drake Role movement live validation
+
+### Reason
+
+The rebuilt Drake pack was checked with fresh imports.
+
+### Supersedes
+
+No earlier result is removed.
+
+### Revised status
+
+- All 11 repaired actors passed prepared movement, including one reload.
+- Temporary validation actors were deleted.
+- YV-929 and YT-1300, Heavily Modified were not imported.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Live validation passed. No commit. No push.

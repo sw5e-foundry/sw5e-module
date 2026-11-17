@@ -1381,3 +1381,123 @@ The status above that says the pack rebuild is still required.
 ### Status
 
 Fang pack rebuilt. Fresh import pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Fang validation closeout and remaining workbook actors
+
+### Reason
+
+The Fang import was checked in Foundry, and Gand, GAT-12, HMP, and ETA-2 were reconstructed against the workbook.
+
+### Supersedes
+
+The status above that says the fresh import is pending. That status stays as the earlier record.
+
+### Revised decision or behavior
+
+Fang's fresh import prepared space 450, turn 50, and abilities 15, 18, 11, 10, 14, 10. The temporary world actor was deleted. Gand, GAT-12, and HMP did not receive a source edit. ETA-2 remains a variant mismatch. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Fang validation recorded. No further source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Drake Role movement publication inventory
+
+### Reason
+
+The Drake Role items were inventoried against the publication rule.
+
+### Supersedes
+
+No earlier repair decision is removed.
+
+### Revised decision or behavior
+
+One of 87 Drake actors publishes Role movement: Fang. The other embedded Roles are stale copies, non-publishing subtypes, or missing base Roles. No source edit was made. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Role inventory recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Stale Freighter, Yacht, and Warship identity
+
+### Reason
+
+The 12 unresolved Role pointers were checked against the current Freighter, Yacht, and Warship documents.
+
+### Supersedes
+
+No earlier inventory result is removed.
+
+### Revised decision or behavior
+
+None of the 12 is a confirmed copy of the current Role. Their source ids come from `Compendium.sw5e.starshipfeatures` and were never the current document ids. No source edit was made. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Identity check recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy starshipfeatures Role recovery
+
+### Reason
+
+The discontinued system repository was searched for the three exact Role ids.
+
+### Supersedes
+
+The sentence above that says those ids were never document ids. That sentence stays as the record of the module repository. The system repository does contain the documents.
+
+### Revised decision or behavior
+
+`VdHmWXHvkK5ZyoWw`, `U1S8haQSb90YulZq`, and `uokunSKATOfWwOP9` were recovered from `packs/packs/starshipfeatures.db`. They are legacy predecessors of the current Freighter, Yacht, and Warship Roles, with a schema migration and no movement overrides. The 12 embeddings match those documents. No actor was edited. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Legacy documents recovered. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy-to-current Role migration
+
+### Reason
+
+The recovered Role documents were tested as the migration map for Drake embeddings.
+
+### Supersedes
+
+No earlier sentence is removed. The recovered pack records remain the correction to the claim that those ids were never documents.
+
+### Revised decision or behavior
+
+Freighter, Yacht, and Warship are confirmed migrations. Eleven embeddings now publish the current Role movement and keep the legacy source ids. YV-929 and YT-1300, Heavily Modified were not edited. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Eleven Role embeddings publish movement. Two actors remain blocked. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Drake Role movement live validation
+
+### Reason
+
+The rebuilt Drake pack was checked with fresh imports.
+
+### Supersedes
+
+No earlier result is removed.
+
+### Revised decision or behavior
+
+All 11 repaired actors passed prepared movement in Foundry, including reload. The temporary actors were deleted. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Live validation passed. No commit. No push.
