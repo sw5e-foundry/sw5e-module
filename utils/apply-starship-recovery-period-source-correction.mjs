@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Apply approved Starship Feature recovery-period source corrections.
- * Gate: exactly 103 high-confidence rows across 65 YAML files.
+ * Gate: the current approved recovery-period census, with zero rows still awaiting correction.
  * Changes only uses.per recharge→sr and refitting→lr for proven ship-rest wording.
  */
 import fs from "node:fs";
@@ -274,19 +274,21 @@ console.log(JSON.stringify({
 	ambiguous: summary.ambiguous
 }, null, 2));
 
-const EXPECT_ROWS = 103;
-const EXPECT_FILES = 65;
-const EXPECT_SR = 58;
-const EXPECT_LR = 45;
+const EXPECT_ROWS = 134;
+const EXPECT_FILES = 78;
+const EXPECT_SR = 83;
+const EXPECT_LR = 51;
 
 if ( summary.approvedRows !== EXPECT_ROWS
+	|| summary.correctionRows !== 0
 	|| summary.files !== EXPECT_FILES
 	|| summary.toSr !== EXPECT_SR
 	|| summary.toLr !== EXPECT_LR
 	|| summary.standaloneSr !== 5
-	|| summary.drakeSr !== 53
+	|| summary.drakeSr !== 78
 	|| summary.standaloneLr !== 5
-	|| summary.drakeLr !== 40 ) {
+	|| summary.drakeLr !== 46
+	|| summary.ambiguous !== 0 ) {
 	console.error("LEDGER GATE FAILED — refusing to edit YAML");
 	process.exit(2);
 }

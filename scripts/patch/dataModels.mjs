@@ -238,7 +238,7 @@ export function patchDataModels() {
 	}, 'WRAPPER');
 	libWrapper.register(getModuleId(), 'dnd5e.dataModels.item.EquipmentData.defineSchema', function (wrapped, ...args) {
 		const result = wrapped(...args);
-		addStarshipEquipmentRegenRateField(result, { SchemaField, NumberField });
+		addStarshipEquipmentRegenRateField(result, { SchemaField, NumberField, StringField });
 		return result;
 	}, 'WRAPPER');
 

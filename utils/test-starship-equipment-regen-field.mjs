@@ -25,7 +25,13 @@ class SchemaField {
 	}
 }
 
-const fields = { SchemaField, NumberField };
+class StringField {
+	constructor(options) {
+		this.options = options;
+	}
+}
+
+const fields = { SchemaField, NumberField, StringField };
 
 function shieldItem({ live, source, legacyFlag } = {}) {
 	const item = {
@@ -102,6 +108,27 @@ test("extends an existing attributes SchemaField instead of replacing it", () =>
 	assert.equal(schema.attributes, existing);
 	assert.ok(schema.attributes.fields.capx);
 	assert.ok(schema.attributes.fields.regrateco.fields.value instanceof NumberField);
+});
+
+test("keeps power-coupling capacities and the reactor recovery formula", () => {
+	const schema = {};
+	addStarshipEquipmentRegenRateField(schema, fields);
+	const cscap = schema.attributes.fields.cscap.fields.value;
+	const sscap = schema.attributes.fields.sscap.fields.value;
+	const formula = schema.attributes.fields.powerdicerec.fields.value;
+	assert.ok(cscap instanceof NumberField);
+	assert.ok(sscap instanceof NumberField);
+	assert.equal(cscap.options.nullable, true);
+	assert.equal(sscap.options.nullable, true);
+	assert.equal(cscap.options.initial, null);
+	assert.equal(sscap.options.initial, null);
+	assert.equal(cscap.options.required, false);
+	assert.equal(sscap.options.required, false);
+	assert.ok(formula instanceof StringField);
+	assert.equal(formula.options.nullable, true);
+	assert.equal(formula.options.blank, true);
+	assert.equal(formula.options.initial, "");
+	assert.equal(formula.options.required, false);
 });
 
 test("positive live coefficient is used", () => {
