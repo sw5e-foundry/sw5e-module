@@ -1071,3 +1071,27 @@ The superseded content above is retained as historical evidence and must not be 
 ### Status
 
 The renamed Role successor batch is closed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-18 — Future data migration design
+
+### Reason
+
+The next Drake batch is a migration design, not another manual repair.
+
+### Supersedes
+
+Nothing. The validated-repair count above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- The 52-actor set regenerated at the expected count.
+- The dry run proposes zero operations.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Design only. No source migration. No commit. No push.

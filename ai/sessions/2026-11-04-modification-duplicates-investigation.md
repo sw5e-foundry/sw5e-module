@@ -2040,3 +2040,27 @@ Those counts total 87. The earlier 13 validated repairs remain in the 22.
 ### Status
 
 The renamed Role successor batch is closed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-18 — Future data migration design
+
+### Reason
+
+The 52 future-migration actors need one repeatable migration design before any further source edit.
+
+### Supersedes
+
+Nothing. The closed disposition counts above remain the baseline.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Design result
+
+The closeout counts regenerated exactly: 22 validated, 1 multiple-Role, 6 unresolved-movement, 1 configuration, 5 missing-authority, and 52 future-migration. The dry run proposes zero operations. All 52 stay manual because their ability totals are not independently known, and the allowed operations would either change prepared behavior or lack a proven disposition. `UPDATE_CONFIRMED_SUCCESSOR_POINTER` stays disabled under Policy A.
+
+The recommended layer is a developer dry-run script for pack source, not a world migration by actor name. The scanner, registry, tests, and reports are temporary files under `C:\Users\ckauble\AppData\Local\Temp\sw5e-drake-migration\`. No Drake YAML was written.
+
+### Status
+
+Design only. Apply mode has not started. No commit. No push.

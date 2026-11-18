@@ -1719,3 +1719,25 @@ The nine imports recorded above are now `VALIDATED REPAIR`. The 87-actor validat
 ### Status
 
 The renamed Role successor batch is closed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-18 — Future data migration design
+
+### Reason
+
+The 52 remaining Drake actors were classified for a future migration.
+
+### Supersedes
+
+Nothing. The validated-repair closeout above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised decision or behavior
+
+The dry run proposes no automatic edits. All 52 stay manual. Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Design only. No source migration. No commit. No push.
