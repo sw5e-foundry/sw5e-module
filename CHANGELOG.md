@@ -1,5 +1,39 @@
 ## Changelog
 
+### [1.4.4] 2026-11-19
+
+Candidate date until publication.
+
+### Fixed
+- **Drake's Shipyard movement:** Fang, Dynamic-class, the eleven Freighter, Yacht, and Warship embeddings, and the renamed Superiority Fighter, Gunship, and Battleship successors publish their recovered Role speeds. Legacy source ids stay in place.
+- **Role ability bonuses:** Corvette, Cruiser, and Explorer ability bonuses apply once. Duplicate Drake actor effects, Directional Shield copies, and matching Role Spec copies are removed. The CR90 Corvette bonus applies once.
+- **Drake equipment text and movement effects:** Fire-Linked items no longer carry Slave Circuit text. Tuned Engines no longer add a fly bonus. Adaptive Ailerons no longer raise turn speed.
+- **Hull and shield dice:** Huge and Gargantuan compendium size identifiers grant two hull and shield dice per tier. A recharge or refit that also restores shields no longer clears a spent hull die.
+- **Commando IWS:** Blaster, Sniper, and Antiarmor are separate activities. Blaster and Hidden Blade damage rolls use Dexterity once.
+- **Starship sheet rolls and facing:** Starship weapon damage applies Wisdom before the routing check. Zero-capacity Force and Tech meters stay hidden in Play at caster level zero, while Edit configuration remains. Pilot keeps rank controls without level advancements. Weapon facing and turret status save, including a blank or custom facing, without jumping the sheet.
+- **Legacy world Item packs:** Item packs can be repaired before Foundry migration.
+- **Starship equipment fields:** Equipment saves keep shield regeneration (`regrateco`), power-coupling capacities (`cscap`, `sscap`), and the reactor recovery formula (`powerdicerec`). An explicit regeneration value of zero disables regeneration. An unavailable power die cannot be spent.
+
+### [1.4.3] 2026-08-26
+
+### Changed
+- **Stable release:** Foundry v13 and dnd5e 5.2.5.
+
+### [1.4.2] 2026-08-13
+
+Prerelease.
+
+### Fixed
+- **World migration:** Hotfix for the migration issue that held the world hostage. Recovered from commit `294fe3101`: migration continues after an individual document error instead of stopping the batch.
+
+### [1.4.1] 2026-08-11
+
+Prerelease.
+
+### Fixed
+- **Actor and NPC images:** `_migrateImage` no longer sanitizes Actor and NPC images.
+- **Token artwork:** Recovered from commit `4cd6da1d1`: migration also preserves token artwork.
+
 ### [1.4.0] 2026-07-14
 
 ### Added
