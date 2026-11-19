@@ -9,6 +9,7 @@ import {
 	getStarshipEffectiveShieldRegenRateMult
 } from "./starship-system-damage.mjs";
 import { getSpaceStationHullDieBonus, isActiveSpaceStationActor } from "./space-station.mjs";
+import { resolveStarshipRegenRateFromCandidates } from "./patch/starship-equipment-schema.mjs";
 
 function localizeOrFallback(key, fallback, data = {}) {
 	const formatted = game?.i18n?.format?.(key, data);
@@ -361,20 +362,21 @@ async function lookupShieldRegenRateFromCompendium(shieldItem) {
 	return null;
 }
 
-/** Upstream natural regen uses equipped shield `regrateco` → `@attributes.equip.shields.regenRateMult`. */
-export async function getStarshipShieldRegenRateMult(actor) {
-	const shield = findEquippedShield(actor);
+function starshipShieldRegenCandidates(actor, shield) {
 	const legacySystem = getLegacyStarshipActorSystem(actor);
-	const candidates = [
+	return [
 		shield?.system?.attributes?.regrateco?.value,
 		shield?._source?.system?.attributes?.regrateco?.value,
 		shield?.flags?.sw5e?.legacyStarshipEquipment?.attributes?.regrateco?.value,
 		legacySystem?.attributes?.equip?.shields?.regenRateMult
 	];
-	for ( const candidate of candidates ) {
-		const value = parseFloat(candidate);
-		if ( Number.isFinite(value) && value > 0 ) return value;
-	}
+}
+
+/** Upstream natural regen uses equipped shield `regrateco` → `@attributes.equip.shields.regenRateMult`. */
+export async function getStarshipShieldRegenRateMult(actor) {
+	const shield = findEquippedShield(actor);
+	const resolved = resolveStarshipRegenRateFromCandidates(starshipShieldRegenCandidates(actor, shield));
+	if ( resolved !== null ) return resolved;
 
 	const compendiumSource = shield?._stats?.compendiumSource ?? shield?.flags?.core?.sourceId;
 	if ( compendiumSource || shield?.name ) {
@@ -387,18 +389,7 @@ export async function getStarshipShieldRegenRateMult(actor) {
 
 export function getStarshipShieldRegenRateMultSync(actor) {
 	const shield = findEquippedShield(actor);
-	const legacySystem = getLegacyStarshipActorSystem(actor);
-	const candidates = [
-		shield?.system?.attributes?.regrateco?.value,
-		shield?._source?.system?.attributes?.regrateco?.value,
-		shield?.flags?.sw5e?.legacyStarshipEquipment?.attributes?.regrateco?.value,
-		legacySystem?.attributes?.equip?.shields?.regenRateMult
-	];
-	for ( const candidate of candidates ) {
-		const value = parseFloat(candidate);
-		if ( Number.isFinite(value) && value > 0 ) return value;
-	}
-	return null;
+	return resolveStarshipRegenRateFromCandidates(starshipShieldRegenCandidates(actor, shield));
 }
 
 export function getStarshipShieldDiceAvailability(actor) {

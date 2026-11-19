@@ -6,6 +6,7 @@ import {
 	makeLegacyPowerAttackFields,
 	makeLegacyPowerBonusFields
 } from "./power-bonuses.mjs";
+import { addStarshipEquipmentRegenRateField } from "./starship-equipment-schema.mjs";
 
 const { BooleanField, NumberField, SchemaField, SetField, StringField } = foundry.data.fields;
 
@@ -214,6 +215,11 @@ export function patchDataModels() {
 	libWrapper.register(getModuleId(), 'dnd5e.dataModels.item.WeaponData.defineSchema', function (wrapped, ...args) {
 		const result = wrapped(...args);
 		changeProficiency(result, "weapon");
+		return result;
+	}, 'WRAPPER');
+	libWrapper.register(getModuleId(), 'dnd5e.dataModels.item.EquipmentData.defineSchema', function (wrapped, ...args) {
+		const result = wrapped(...args);
+		addStarshipEquipmentRegenRateField(result, { SchemaField, NumberField, StringField });
 		return result;
 	}, 'WRAPPER');
 

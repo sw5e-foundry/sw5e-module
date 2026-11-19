@@ -84,6 +84,15 @@ function toFiniteNumber(value, fallback = null) {
 	return Number.isFinite(number) ? number : fallback;
 }
 
+/** Pool capacities are numbers. Null and non-numeric values contribute 0. Negatives clamp to 0. */
+function normalizeStarshipCapacityForPools(value) {
+	if ( value === null || value === undefined ) return 0;
+	if ( typeof value === "string" && value.trim() === "" ) return 0;
+	const number = typeof value === "number" ? value : Number(String(value).trim());
+	if ( !Number.isFinite(number) ) return 0;
+	return Math.max(0, number);
+}
+
 /**
  * Starship ability check/save rolls do not use d20 min/max die bounds.
  * No current SW5E Starship feature configures these ranges; stored 0/0 and
@@ -1558,8 +1567,8 @@ export function deriveStarshipPools(actor) {
 		return typeVal === "powerc" && equipped !== false;
 	});
 	const pcSystem = powerCoupling?.system?.attributes ? powerCoupling.system : powerCoupling?._source?.system ?? {};
-	const cscap = toFiniteNumber(pcSystem?.attributes?.cscap?.value, 0);
-	const sscap = toFiniteNumber(pcSystem?.attributes?.sscap?.value, 0);
+	const cscap = normalizeStarshipCapacityForPools(pcSystem?.attributes?.cscap?.value);
+	const sscap = normalizeStarshipCapacityForPools(pcSystem?.attributes?.sscap?.value);
 	const powerDie = POWER_DIE_BY_TIER[tier] ?? "";
 
 	// Modification slot budget.
