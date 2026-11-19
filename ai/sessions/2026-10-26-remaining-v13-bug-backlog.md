@@ -1,0 +1,1097 @@
+# Remaining v13 bug backlog — 2026-10-26
+
+Branch `v.next` at `592b0bd3801d5482ab250c44839f4df8df55ab83`. Runtime checked: Foundry 13.351, dnd5e 5.2.5, `sw5e-module` active. This note is the current backlog only. Settled power, tool, trait, deployment, crew, repair, shield-bar, weapon-ability, Hidden Blade, and Commando IWS results stay in the 2026-10-08 audit and are not repeated here.
+
+## 1. Runtime defects reproduced and still open
+
+None from this pass. The Engines Spend presentation defect was reproduced and corrected. Gargantuan tier gain passed.
+
+## 2. Runtime defects corrected in this pass
+
+**Engines Spend stays enabled at zero**
+
+- Scope: runtime sheet control.
+- Evidence: Play rendered Engines Spend enabled at stored value 0. The click wrote nothing and created no chat. `applyCoreOperationsControlState` then set `disabled` from edit permission only, after the template had already disabled `canSpend === false`. Recover already kept `data-can-recover`.
+- Files: `templates/starship-sheet-layer.hbs`, `scripts/patch/starship-sheet.mjs`.
+- Foundry reproduction still required: no. Retest passed. Engines at 0 is disabled. Central above 0 still spends one die.
+- Authoritative source required: no.
+- Next action: none for this control. Do not change the spend rule.
+
+## 3. Runtime checks passed or not reproduced
+
+**Gargantuan suffix mapping**
+
+- Scope: runtime pool derivation.
+- Evidence: actor `BdsHxKZ2reGwdeZd`, size `sbR9MRdzWB4R447W`, identifier `gargantuan-starship`. Tiers 0, 1, and 2 were 11, 13, and 15 `d20`. Decreasing tier restored 13. Hull used 1 and shield used 2 survived a tier increase and a reopen.
+- File: `scripts/starship-data.mjs` (`canonicalizeStarshipSizeProfileKey`), unchanged this pass.
+- Foundry reproduction still required: no.
+- Authoritative source required: no.
+- Next action: none.
+
+Older reports that no later addendum closed were not retested. They are not active defects. They stay unverified until a new 13.351 / 5.2.5 report asks for that case. That list includes use-based empty point bars, bars disappearing after an update, theme advancement editing, migration, power DC 0, starship armor on Features, `1d20min1max1` saves, move and turn overwrite, the Uses column, Scout superiority, theme legibility and lag, the NPC point tracker, Kushiban AC, and the older unnamed item reports. Reports closed only by a “fixed” reply were not reopened.
+
+## 4. Compatibility still untested
+
+**Stock shield bar with Bar Brawl absent**
+
+- Scope: compatibility.
+- Evidence: the 2026-10-21 sweep passed `sw5e.starshipShields` with Bar Brawl 1.9.0 already active. A world without that module was not tested. This pass did not change that.
+- File: `scripts/starship-token-resources.mjs`.
+- Foundry reproduction still required: yes, only for a Bar-Brawl-off world.
+- Authoritative source required: no.
+- Next action: leave it untested unless a world without Bar Brawl is available. Do not install the module.
+
+## 5. Pack/build discrepancies
+
+**Quick-Charge Shield `regrateco`**
+
+- Scope: DataModel construction. The installed pack still stores the value.
+- Evidence: source `system.attributes.regrateco.value` is 1.5 on `M7igMGsBIosGA4dS`. The installed index returns 1.5. `EquipmentData` has no `attributes` field, so the constructed document and a fresh world copy drop it. `getStarshipShieldRegenRateMult` still reads that path when it is present.
+- File: `packs/_source/starships/starship-equipment/shields/quick-charge-shield.yml`. Runtime reader: `scripts/starship-dice-rolls.mjs`.
+- Foundry reproduction still required: no for the loss stage. Yes before any schema change is called fixed, and that validation needs a pack rebuild that this pass did not authorize.
+- Authoritative source required: no for the field loss. Yes before changing the coefficient.
+- Next action: a later pass may add the field to the equipment schema or keep it on a preserved flag. Do not rebuild or edit the YAML until that pass is authorized.
+
+## 6. Content accuracy awaiting authoritative comparison
+
+**YT-1300, Modified movement**
+
+- Scope: source observation.
+- Evidence: actor `t5oz29L2QV5lFlYr` stores `baseTurnSpeed` 200 and movement fly 350 / turn 150. No local book source states the expected numbers.
+- File: `packs/_source/drakes-shipyard/yt-1300-modified.yml`.
+- Foundry reproduction still required: no.
+- Authoritative source required: yes.
+- Next action: do not rewrite the numbers.
+
+**Drake freshness and Role Specialization**
+
+- Scope: source observation.
+- Evidence: the audit names no other numeric Drake mismatch. Some Role Specialization items exist. No completeness checklist and no local book source were established.
+- Foundry reproduction still required: no.
+- Authoritative source required: yes.
+- Next action: do not start a Drake stat rewrite.
+
+**Modification descriptions and duplicated effects**
+
+- Scope: unnamed source claim.
+- Evidence: the audit does not name an item. The crew thread `1548441058432786472` was inaccessible. No pack scan was run.
+- Foundry reproduction still required: no.
+- Authoritative source required: yes, and a named item is required first.
+- Next action: leave both unnamed.
+
+**Tier 3 Medium Versatile Transport**
+
+- Scope: missing compendium feature record, not a confirmed rules defect.
+- Evidence: no top-level document of that name is in source or in the installed starships or Drake indexes. Embedded copies exist, including on tier-3 medium `QqgnknDyNxtsaImK`, and point at missing compendium id `OiZHrN5BsNYW1W3F`. No local book passage was found.
+- File: embedded feat on `packs/_source/drakes-shipyard/yt-1300-heavily-modified.yml`. Medium feature folder has no `Versatile Transport` file.
+- Foundry reproduction still required: no.
+- Authoritative source required: yes before creating the feature.
+- Next action: do not create the record.
+
+**Commando, Demolitions and Sith Usurper**
+
+- Scope: source observation. Hidden Blade and both Commando IWS actors stay closed.
+- Evidence: Commando, Demolitions remains the 2026-10-08 stored-field note, with no book citation. Sith Usurper exists at `packs/_source/snv-monsters/humanoid/sith-usurper.yml`. Its flat-check claim was not compared.
+- Foundry reproduction still required: no.
+- Authoritative source required: yes before either statblock is called defective.
+- Next action: do not edit SnV source.
+
+## 7. Discord coverage limitations
+
+The configured bot could not read guild `727847839631278110` or thread `1548441058432786472` on 2026-10-26. No new replies and no new 13.351 / 5.2.5 reports were retrieved. Inaccessible thread text was not inferred.
+
+- Foundry reproduction still required: no.
+- Authoritative source required: no.
+- Next action: retry only the unresolved threads when a bot can access them.
+
+## 8. Recommended implementation order
+
+1. Leave the Spend correction as the only code change from this pass.
+2. Authorize a separate schema pass before touching Quick-Charge Shield. That pass needs a pack rebuild to validate.
+3. Wait for a local Starships of the Galaxy or SnV citation before any Drake, Versatile Transport, modification, duplicate-effect, or statblock edit.
+4. Do not retest the settled 2026-10-20 and 2026-10-21 workflows unless a new report names a different case.
+
+---
+
+## Addendum — 2026-10-26 — Quick-Charge Shield coefficient preserved
+
+### Reason
+
+The schema pass named in section 5 and in recommended step 2 was implemented.
+
+### Supersedes
+
+Section 5's statement that validation of a schema change needs a pack rebuild, and recommended step 2's same requirement. The installed `sw5e-module.starships` index already stored `regrateco` 1.5, and Foundry constructed that value after the `EquipmentData` field was added. No pack rebuild was run.
+
+Section 5 and recommended step 2 are retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+Quick-Charge Shield `M7igMGsBIosGA4dS` now keeps `system.attributes.regrateco.value` 1.5 on a fresh import. An explicit live 0 disables regen without a compendium fallback. A stored 1.25 is used. Details and deleted fixture ids are in the 2026-10-26 addendum of [2026-10-08-discord-v13-bug-audit.md](2026-10-08-discord-v13-bug-audit.md).
+
+- Foundry reproduction still required: no for this coefficient.
+- Authoritative source required: no. The coefficient value was not changed.
+- Next action: none for `regrateco`. Sibling starship-equipment attributes (`cscap`, `sscap`, `powerdicerec`, and the others) remain stripped and are still a follow-up. No rebuild is required for the coefficient fix.
+
+---
+
+## Addendum — 2026-11-04 — YT-1300 movement closed
+
+### Reason
+
+The Drake's Shipyard YT-1300, Modified was opened in Foundry and compared with world export `G5y5nQHUBa2j5T6R`.
+
+### Supersedes
+
+Section 6, "YT-1300, Modified movement," which left the 200 versus 150 figures as an unresolved source observation awaiting a book citation.
+
+That section is retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+Closed. No pack or code change. Actor `t5oz29L2QV5lFlYr` stores this hull's speeds as space 350 and turn 150, which is what the Movement dialog and sidebar show. `baseTurnSpeed` 200 and `baseSpaceSpeed` 300 belong to the embedded Medium size item. Preparation clears the live fly and walk rows, so the dialog shows Fly 0 and Speed 0 while the stored fly 350 and walk 30 remain on the actor. The export is a fresh world copy of that compendium actor and matches those fields.
+
+- Foundry reproduction still required: no.
+- Authoritative source required: no for this speed pair.
+- Next action: none for this ship. The next open content report is Drake freshness and Role Specialization.
+
+---
+
+## Addendum — 2026-11-04 — Drake Role Spec duplicates removed
+
+### Reason
+
+The duplicate slice of the Drake freshness and Role Specialization item in section 6 was removed from pack source.
+
+### Supersedes
+
+Section 6's "do not start a Drake stat rewrite" only for these five `Role Spec:` duplicates. Numeric Drake freshness, Yacht description pairs, unique-effect Role Spec items, and Role Spec items with no matching `Role:` item are unchanged and stay open.
+
+Section 6 is retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+Five embedded `Role Spec:` items and their actor-level effect copies were deleted by fixed id. The matching `Role:` items stay.
+
+| File | Removed item | Removed actor effect | Retained item |
+| --- | --- | --- | --- |
+| `akajor-class-shuttle.yml` | `BQ1QP4pDtSswfpEk` | `vrbxUmzq0uXtKnJ4` | `4lOzKTxQ6X75iRE3` |
+| `arc-170-starfighter.yml` | `3LpnhMKSnfj2kweZ` | `cYTnq6omxIAHtLjz` | `546iyB7I0mfBCOgu` |
+| `u-wing-starfighter-support-craft-ut-60d.yml` | `CuY0bUBgTMQ5QG5t` | `gW3SJJLUPgQdHGuX` | `N1N52oykBJ5Folkw` |
+| `ef76-nebulon-b-escort-frigate.yml` | `zkaANU1XMiQGdlf0` | `iaFkhGXZPYZSPcJ9` | `hPR9d0SurUXfVjST` |
+| `ef76-nebulon-b-escort-frigate-medical.yml` | `PDWg1DWCwL0eiu32` | `chOWaILOZPSmcELU` | `SmRAAX8SFDt14PXt` |
+
+Descriptions matched. System data matched except the allowed `subtype` and `attributes.speed` fields. The duplicate's only extra effect change was `system.details.role`. The retained effect's empty `flags.core.statusId` matched an empty flags object. 42 `Role Spec:` items remain: 4 Yacht description differences, 21 unique effects, and 17 with no matching `Role:` item. No specialization compendium record was created.
+
+- Foundry reproduction still required: yes, after an authorized `npm run build:db -- drakes-shipyard` with Foundry stopped. Import ARC-170 and confirm one `Role: Shuttle`, Constitution +1, and no `Role Spec: Shuttle`.
+- Authoritative source required: no for these five pairs. Still yes before any numeric Drake rewrite.
+- Next action: rebuild only when authorized. Do not rewrite the retained Role Spec items. Details are in the 2026-11-04 addendum of [2026-10-08-discord-v13-bug-audit.md](2026-10-08-discord-v13-bug-audit.md).
+
+---
+
+## Addendum — 2026-11-04 — Drake's Shipyard pack rebuilt
+
+### Reason
+
+The rebuild named above was authorized and run with Foundry stopped.
+
+### Supersedes
+
+The "rebuild only when authorized" next action in the addendum above. The instruction not to rewrite retained Role Spec items still stands.
+
+That next-action line is retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+`npm run build` passed. Lint, styles, and the full pack compile finished. `drakes-shipyard` compiled and ARC-170 `B5AmMDBTT6TrfW5E` was packed.
+
+- Foundry reproduction still required: yes. Restart Foundry, import ARC-170, and confirm one `Role: Shuttle`, Constitution +1, and no `Role Spec: Shuttle`.
+- Authoritative source required: no for these five pairs.
+- Next action: the sheet check. Do not edit the retained Role Spec items.
+
+---
+
+## Addendum — 2026-11-04 — Drake Role Spec duplicate removal closed
+
+### Reason
+
+The user marked the five-pair duplicate removal done after the pack rebuild.
+
+### Supersedes
+
+The "sheet check" next action in the addendum above. The instruction not to edit retained Role Spec items still stands.
+
+That next-action line is retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+Closed for the five removed pairs. `drakes-shipyard` was packed by `npm run build`, including ARC-170 `B5AmMDBTT6TrfW5E`. No separate sheet transcript was recorded in this session. Yacht pairs, unique-effect Role Spec items, Role Spec items with no matching `Role:` item, and numeric Drake freshness stay open.
+
+- Foundry reproduction still required: no for these five pairs, closed by the user after the rebuild.
+- Authoritative source required: still yes before any numeric Drake rewrite.
+- Next action: none for these five duplicates. Do not edit the retained Role Spec items.
+
+---
+
+## Addendum — 2026-11-04 — Modification descriptions and duplicated effects reproduced
+
+### Reason
+
+Section 6 left this report unnamed because the crew thread was inaccessible and no pack scan had been run.
+
+### Supersedes
+
+Section 6, "Modification descriptions and duplicated effects," including its next action to leave both unnamed.
+
+That section is retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+Reproduced from pack source. Named items and the repair scope are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+- 893 Drake actor-level effects repeat a `transfer: true` item effect. `legacyTransferral` is false, so the copy applies again. Four Makeshift copies also hold the −1. Two shield copies originate on another actor.
+- 35 Fire-Linked items on 17 ships store the Slave Circuit description and have no effect.
+- Compendium `starship-modifications` and `enhanceditems/item-modifications` did not reproduce a duplicate.
+- Adaptive Ailerons turn `+100` on eight ships is a Drake freshness mismatch, not a duplicate.
+- Foundry reproduction still required: no for the source finding. The Basilisk PLAY double-apply is already recorded in [2026-07-20-basilisk-play-edit-ability-investigation.md](2026-07-20-basilisk-play-edit-ability-investigation.md).
+- Authoritative source required: no for the 893 copies and the 35 descriptions. Still yes before rewriting the 872 older Drake descriptions.
+- Next action: do not edit source until the repair scope in the investigation note is authorized. No world migration.
+
+---
+
+## Addendum — 2026-11-05 — Drake duplicated actor effects removed from source
+
+### Reason
+
+The actor-level duplicate portion of the investigation repair scope was authorized and applied.
+
+### Supersedes
+
+The next-action line above that says not to edit source until the repair scope is authorized.
+
+That line is retained above as historical evidence and must not be deleted. The instruction not to migrate world actors still stands.
+
+### Revised status
+
+Drake `packs/_source/drakes-shipyard/*.yml` no longer stores the 927 duplicated actor-level effects (852 same-actor nonempty, 37 clone-source nonempty, 4 Makeshift, 2 orphans, 32 inert Lightweight Armor). The 893 figure omitted the 32 empty-change pairs. CR90 `ZtUQ6YtH6HkdJH60` was not an exact duplicate and remains. Counts, per-file deletions, and the Makeshift penalty moves are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+- Foundry reproduction still required: yes. The pack has not been rebuilt, and a fresh Drake import has not been checked.
+- Authoritative source required: no for this actor-effect removal. Still yes before the 35 Fire-Linked descriptions, Adaptive Ailerons, Tuned Engines, Sublight Drive text, or the older Drake descriptions.
+- Next action: with Foundry stopped, `npm run build:db -- drakes-shipyard`, then import one fresh Drake ship and confirm each ability is stored once. Do not migrate world actors in this pass. Do not start Fire-Linked, Adaptive Ailerons, Tuned Engines, or Sublight Drive without a separate authorization.
+
+### Status
+
+Source repair applied. Pack rebuild and Foundry gate pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Drake's Shipyard pack rebuilt
+
+### Reason
+
+Foundry was stopped, so the next action to compile `drakes-shipyard` could run.
+
+### Supersedes
+
+The next action above that says to run `npm run build:db -- drakes-shipyard` before the fresh-import check.
+
+That next action is retained above as historical evidence and must not be deleted. The fresh-import check is not superseded.
+
+### Revised status
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed 87 actors. Stale actor-effect documents were removed from the LevelDB pack.
+
+- Foundry reproduction still required: yes. Import one fresh Drake ship and confirm each ability is stored once and the Effects tab lists one entry per effect.
+- Authoritative source required: unchanged. Still yes before Fire-Linked descriptions, Adaptive Ailerons, Tuned Engines, Sublight Drive text, or the older Drake descriptions.
+- Next action: restart Foundry and run that fresh-import check. Do not migrate world actors. Do not start the other Drake text repairs without a separate authorization.
+
+### Status
+
+Pack rebuilt. Foundry gate pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Duplicate actor effects closed
+
+### Reason
+
+The user reported that the fresh-import Foundry test passed.
+
+### Supersedes
+
+The next action above that says to restart Foundry and run the fresh-import check, and the line "Foundry reproduction still required: yes."
+
+Those lines are retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+Closed for the duplicated actor-level effects. The user confirmed the Foundry test passed on 2026-11-05.
+
+- Foundry reproduction still required: no for this duplicate-effect issue. PASS, 2026-11-05, reported by the user for a fresh Drake import.
+- World actors: not cleaned. Older imports still contain the duplicates and require re-importing or a separately authorized migration.
+- Authoritative source required: still yes before Fire-Linked descriptions, Adaptive Ailerons, Tuned Engines, Sublight Drive text, or the older Drake descriptions.
+- Next action: none for the duplicate actor effects. Leave Fire-Linked, Adaptive Ailerons, Tuned Engines, and Sublight Drive as separate open issues.
+
+### Status
+
+Closed for the duplicate actor-level effects. Fresh import passed. World actors unchanged. The four other Drake issues remain open.
+
+---
+
+## Addendum — 2026-11-05 — Drake text repairs
+
+### Reason
+
+The four Drake findings left open above were separated. Three were repaired in source. Sublight Drive was only recorded.
+
+### Supersedes
+
+The next-action line above that leaves Fire-Linked, Adaptive Ailerons, Tuned Engines, and Sublight Drive open together.
+
+That line is retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+- Tuned Engines `V2EZCmDU7Sd6qXmi`: description replaced from compendium `Qt0Y1DWiU2ybVirE`; fly +50 effect `aox9hA3SJo66l6cy` removed. SLAM `SodQqzh3yVc4s1Qp` unchanged.
+- Fire-Linked: 35 description-only replacements. No effects added or removed.
+- Adaptive Ailerons: eight turn values changed from `+100` to `-100` only. No actor-level copy remained.
+- Sublight Drive `qf6pDveEwnrkmjNQ`: unresolved mixed-identity record, left unchanged pending an authoritative historical source. Not a confirmed Sublight Drive.
+- Foundry reproduction still required: yes for these three source edits. The pack has not been rebuilt.
+- World actors: not modified.
+- Authoritative source required: still yes for `qf6pDveEwnrkmjNQ` and the older Drake descriptions. No longer required before the three repairs above.
+- Next action: none until a rebuild is authorized. Do not edit the Sublight Drive item without a historical source.
+
+### Status
+
+Three source repairs applied. Sublight Drive unresolved and unchanged. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Drake text repairs packed
+
+### Reason
+
+A pack rebuild was authorized after the three source repairs.
+
+### Supersedes
+
+The line above that says Foundry reproduction is still required because the pack has not been rebuilt, and the next action that waits for a rebuild authorization.
+
+Those lines are retained above as historical evidence and must not be deleted. The fresh-import check is not superseded.
+
+### Revised status
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed 87 actors. The Tuned Engines fly effect was removed from the LevelDB pack.
+
+- Foundry reproduction still required: yes. Import the custom N-1, one Fire-Linked ship, and one Adaptive Ailerons ship.
+- World actors: not modified.
+- Sublight Drive `qf6pDveEwnrkmjNQ`: still unresolved and not edited.
+- Next action: run that fresh-import check. Do not edit Sublight Drive without a historical source.
+
+### Status
+
+Pack rebuilt. Foundry import check pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Tuned Engines, Fire-Linked, and Adaptive Ailerons closed
+
+### Reason
+
+The user reported that the fresh-import Foundry checks passed.
+
+### Supersedes
+
+The next action above that says to run the fresh-import check, and the line "Foundry reproduction still required: yes."
+
+Those lines are retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+Complete for the three repaired findings. The user confirmed the Foundry checks passed on 2026-11-05.
+
+- Tuned Engines: closed.
+- Fire-Linked descriptions: closed.
+- Adaptive Ailerons: closed.
+- Sublight Drive `qf6pDveEwnrkmjNQ`: still open. Unresolved mixed-identity record. Not edited.
+- Foundry reproduction still required: no for the three closed findings. PASS, 2026-11-05, reported by the user.
+- World actors: not modified.
+- Next action: none for the three closed findings. Do not edit Sublight Drive without a historical source.
+
+### Status
+
+Closed for Tuned Engines, Fire-Linked descriptions, and Adaptive Ailerons. Sublight Drive remains open. World actors unchanged.
+
+---
+
+## Addendum — 2026-11-05 — Remaining actor effects and Sublight identity
+
+### Reason
+
+The remaining Drake actor-level effects and the Sublight Drive identity were audited without source edits.
+
+### Supersedes
+
+Nothing in the three closed findings above. Sublight Drive stays open.
+
+### Revised status
+
+- Recount: 46 actor-level effects. No population drift.
+- Required compatibility: 1. CR90 `ZtUQ6YtH6HkdJH60`. Item effect `qQTMHDrpIch61Q7C` is mode 0. Do not remove the actor effect in a later pass unless that item effect is first changed to mode 2 and the ability bonuses are accepted.
+- Duplicate with nonstandard origin: 3 Directional Shield actor effects. Source match supports deletion only after a fresh-import listing test.
+- Unresolved: 42 actor-only effects. Do not delete them. Ownership is not established.
+- Intentional, recoverable, and orphaned: 0.
+- Sublight Drive `qf6pDveEwnrkmjNQ`: outcome D. History shows the mixed name, Thrusters description, Thrusters effect id, and speed bonus were already present in `124dca632`, before YAML conversion. No edit.
+- Next action: none until a separate authorization. The shield deletion and the CR90 mode change are identified, not authorized.
+
+### Status
+
+Inventory recorded. Sublight Drive remains open. No source edit.
+
+---
+
+## Addendum — 2026-11-05 — Directional Shield copies removed; parallel research integrated
+
+### Reason
+
+The shield deletion identified above was authorized and completed in source. The parallel research did not authorize the CR90 mode change or a Sublight Drive edit.
+
+### Supersedes
+
+The next-action line above that says the shield deletion and the CR90 mode change are identified but not authorized.
+
+That line is retained above as historical evidence and must not be deleted. Only the shield deletion is now done. The CR90 mode change stays unauthorized.
+
+### Revised status
+
+- Directional Shield actor effects `b6Faqbwd2sLA9Hgc`, `i98DfifxpUQ6S1qw`, and `Hk5jIpbt4L79lBIp` are removed. Item effect `8DZ792d8qqBQeXNh` remains.
+- Forty-two actor-only effects remain unresolved. No embedded item owns them. Deleting 39 would change prepared scores or derived Turn. Two are all zeros, and the YV-929 mode 5 movement override is not the prepared Turn value.
+- CR90 `ZtUQ6YtH6HkdJH60` remains. Do not change specialization effect `qQTMHDrpIch61Q7C` from mode 0 to mode 2. The ability bonus belongs on the tier-0 Role, which this ship does not have as a separate item.
+- Sublight Drive `qf6pDveEwnrkmjNQ` remains outcome D. No edit.
+- Foundry reproduction still required: yes, after the pack is rebuilt. Confirm one Directional Shield listing on Escape Pod, ETA-2, and Fang.
+- World actors: not modified.
+- Next action: rebuild `drakes-shipyard` only when Foundry is stopped, then run that import check. Do not edit the 42 effects, CR90, or the custom N-1 item without a separate authorization.
+
+### Status
+
+Shield actor copies removed in source. Pack rebuild and Foundry import pending. Sublight Drive remains open. No commit. No push.
+
+---
+
+## Addendum — 2026-11-05 — Directional Shield pack rebuilt
+
+### Reason
+
+The next action to rebuild `drakes-shipyard` was run.
+
+### Supersedes
+
+The next-action line above that says to rebuild when Foundry is stopped, and the status line that says the pack rebuild is pending.
+
+Those lines are retained above as historical evidence and must not be deleted. The import check is not superseded.
+
+### Revised status
+
+`npm run build:db -- drakes-shipyard` exited 0 and packed 87 actors. The pack removed the three Directional Shield actor effects.
+
+- Foundry reproduction still required: yes. Import Escape Pod, ETA-2, and Fang and confirm one Directional Shield listing on each.
+- World actors: not modified.
+- Next action: run that import check. Do not edit the 42 effects, CR90, or the custom N-1 item without a separate authorization.
+
+### Status
+
+Pack rebuilt. Foundry import pending. Sublight Drive remains open. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — CR90 Role: Corvette ability effects removed
+
+### Reason
+
+The Foundry gate showed two Role: Corvette effects. The rules review established that neither ability adjustment is a supported specialization benefit, so the CR90 source was corrected and the pack rebuilt.
+
+### Supersedes
+
+The earlier statement that `ZtUQ6YtH6HkdJH60` must remain as required compatibility data, and the instruction not to change CR90 without a separate authorization for this specific repair.
+
+Those statements are retained above as historical evidence and must not be deleted. The 42 actor-only effects and the custom N-1 item remain unauthorized.
+
+### Revised status
+
+- Removed actor effect `ZtUQ6YtH6HkdJH60` and item effect `qQTMHDrpIch61Q7C`.
+- Kept Role: Corvette `QV7xhcdNoH8halzL` and its hardpoint and weapon-damage text.
+- Actor-level effects in the pack: 42. The unresolved actor-only effects were not changed.
+- `npm run build:db -- drakes-shipyard` exited 0 and removed both effect documents from the pack.
+- Foundry reproduction still required: yes. Import a fresh CR90 and confirm one specialization listing and no Strength or Dexterity bonus from Role: Corvette.
+- The compendium tier-0 Corvette role feature was not edited.
+- World actors: not modified.
+- Next action: run that CR90 import. Do not edit the 42 effects or the custom N-1 item without a separate authorization.
+
+### Status
+
+CR90 ability effects removed and the pack rebuilt. Fresh CR90 import pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — CR90 Corvette ability bonus restored
+
+### Reason
+
+Removing both Role: Corvette effects was incorrect. The base Corvette role grants Strength +1 and Dexterity +1. The item description is the separate specialization benefit.
+
+### Supersedes
+
+The status above that says the ability effects were removed and that a fresh import should show no Strength or Dexterity bonus from Role: Corvette.
+
+That status is retained above as historical evidence and must not be deleted.
+
+### Revised status
+
+- Embedded effect `qQTMHDrpIch61Q7C` restored on item `QV7xhcdNoH8halzL` with Strength +1 and Dexterity +1 at mode 2, priority 1, `transfer: true`.
+- Actor effect `ZtUQ6YtH6HkdJH60` remains absent.
+- The effect id appears once inside the CR90 actor. The same id on other ships was not changed.
+- The hardpoint and weapon-damage text is unchanged.
+- The 42 unresolved actor-only effects are unchanged.
+- `npm run build:db -- drakes-shipyard` exited 0.
+- Foundry reproduction still required: yes. Import a fresh CR90 and confirm one Role: Corvette effect applies Strength +1 and Dexterity +1 once.
+- Next action: run that import. Do not edit the 42 effects or the custom N-1 item without a separate authorization.
+
+### Status
+
+Embedded Corvette ability effect restored at mode 2. Actor duplicate remains removed. Pack rebuilt. Fresh CR90 import pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — Canonical Role ability modes
+
+### Reason
+
+Foundry mode 0 is Custom and does not apply the Role ability bonus. Those adjustments require mode 2, Add.
+
+### Supersedes
+
+No Drake CR90 decision above. The earlier note that the compendium tier-0 feature was left unchanged applies only to the Drake repair. This addendum records the later canonical repair.
+
+### Revised status
+
+- Corvette, Cruiser, and Explorer: six ability changes moved from mode 0 to mode 2. Values, priorities, and ids are unchanged.
+- Movement entries stay mode 5, Override, on `system.attributes.movement.space` and `system.attributes.movement.turn`.
+- The other tier-0 Role ability changes were already mode 2.
+- The Drake CR90 embedded item was already corrected separately. Drake actor source was not edited.
+- `npm run build:db -- starships` exited 0.
+- Foundry reproduction still required: open Role: Ambassador as the unchanged comparison, Role: Corvette, Role: Cruiser, and Role: Explorer. Corvette should show Strength +1 and Dexterity +1 as Add, space 400 and turn 300 as Override, applied once.
+
+### Status
+
+Canonical Role ability modes repaired. Drake actor source was not edited. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — Drake actor-only effects classified
+
+### Reason
+
+The 42 actor-only effects were classified without deleting them.
+
+### Supersedes
+
+The earlier statement that the 42 remain an unclassified block. That statement stays above.
+
+### Revised status
+
+- Recount matched the frozen 42. No unexplained drift.
+- Family tags and ownership are separate. Prepared no-op is not a deletion reason.
+- YV-929 fly 350 and turn 300, both mode 5, leave prepared space 300, turn 200, and fly 0. Ownership remains unresolved.
+- Escape Pod and M3-A Scyk Fighter are six mode-2 adds of 0. Prepared scores do not change. Ownership remains unresolved.
+- Z-TIE Strength +1 has no embedded Role item. Ownership remains unresolved.
+- Seventeen effects are intentional construction data. Twenty-two unresolved effects still change prepared values. None belong on an embedded item yet.
+- The role family and the size family are empty.
+- Next action: do not delete the set. Investigate the unresolved rows, and test Fang `mLJNAvcynpjfy8NT` because its turn -100 stacks with Adaptive Ailerons.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+42 actor-only effects classified. None deleted or edited. No commit. No push.
+
+---
+
+## Addendum — 2026-11-06 — SotG workbook ownership audit
+
+### Reason
+
+The workbook audit compared the 42 actor effects with `SotG.xlsx` where a sheet matches.
+
+### Supersedes
+
+The Fang test note above is refined. The earlier text stays. Removing the actor Turn -100 does not produce the worksheet Turn 50.
+
+### Revised status
+
+- High-confidence sheets exist for Fang, ETA-2, Gand, GAT-12, and HMP. The other 37 effects have no worksheet.
+- Fang prepared turn is 0 with both Turn -100 adds, and 100 with only Adaptive Ailerons. The worksheet result is Turn 50 and Fly 450. The ability totals match only while the actor effect remains.
+- ETA-2's sheet role is Superiority Fighter and the actor's role item is Interceptor.
+- No canonical or actor source change was made.
+- Next batch: reconcile Fang's stored space 350 and turn 200 with the worksheet before splitting `mLJNAvcynpjfy8NT`.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Workbook audit recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-12 — Fang role, turn, and specialization repair
+
+### Reason
+
+The Fang reconstruction is now in source. Strike Fighter was not converted into Superiority Fighter.
+
+### Supersedes
+
+The next-batch line above that says to reconcile Fang before splitting the actor effect. That line stays as the prior recommendation.
+
+### Revised status
+
+- Role: Superiority Fighter `RsupFng8kQ2mN4wL` is embedded and publishes space 400 and turn 150.
+- Actor effect `mLJNAvcynpjfy8NT` keeps Strength +1, Dexterity +1, Constitution +1, and Wisdom +1. Its Turn -100 is gone.
+- Role Spec: Superiority Fighter `RspcFng9tY3pQ5xM` adds space +50. Strike Fighter `gqzu99tDjcCvaGNP` is unchanged.
+- Prepared result: space 450, turn 50, fly 0.
+- The pack has not been rebuilt.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Fang source repaired. Pack rebuild still required. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Fang pack rebuilt
+
+### Reason
+
+Foundry was stopped, so the repaired Fang source was compiled.
+
+### Supersedes
+
+The line above that says the pack has not been rebuilt, and the status that says the rebuild is still required. Both stay as the earlier record.
+
+### Revised status
+
+- `npm run build:db -- drakes-shipyard` exited 0 and packed Fang-class `uAzqh6bUJ4ZfKcol`.
+- Fresh import still required to confirm space 450 and turn 50.
+
+### Status
+
+Fang pack rebuilt. Fresh import pending. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Fang validation closeout and remaining workbook actors
+
+### Reason
+
+The Fang import was checked in Foundry, and the remaining workbook-matched actor effects were reconstructed.
+
+### Supersedes
+
+The status above that says the fresh import is pending. That status stays as the earlier record.
+
+### Revised status
+
+- Fang's fresh import prepared space 450 and turn 50. The temporary validation actor was deleted. Strike Fighter remains beside the new Superiority Fighter specialization.
+- Gand, GAT-12, and HMP were not edited. Their role items still do not publish movement.
+- ETA-2 stays `NEEDS REVIEW: VARIANT MISMATCH`.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Fang validation recorded. No further source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Drake Role movement publication inventory
+
+### Reason
+
+The shared missing Role publication was inventoried before any repair.
+
+### Supersedes
+
+No earlier decision is removed. Gand, GAT-12, ETA-2, and Fang stay excluded from this batch.
+
+### Revised status
+
+- 1 of 87 actors publishes Role movement.
+- 26 actors have only a Role Spec. 32 have a Role-named item whose subtype is not `role`. 12 have a stale subtype-`role` copy with no mode 5 movement.
+- Canonical movement was added in `0da62ca1d` and was not copied into Drake embeddings.
+- No source edit.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Role inventory recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-16 — Stale Freighter, Yacht, and Warship identity
+
+### Reason
+
+The 12 stale Role embeddings needed a lineage check before any movement repair.
+
+### Supersedes
+
+No earlier decision is removed.
+
+### Revised status
+
+- 11 embeddings are probable stale copies. Executor is ambiguous because the current Warship text is headed Flagship.
+- None is a confirmed copy of the current Role document.
+- YV-929 and YT-1300, Heavily Modified stay blocked by actor-level mode 5 movement. The YT-1300 has two Freighter items.
+- No source edit.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Identity check recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy starshipfeatures Role recovery
+
+### Reason
+
+The three legacy Role ids were recovered from the discontinued system.
+
+### Supersedes
+
+The line above that says none is a confirmed copy of the current Role document. That line stays. This addendum records the legacy documents themselves.
+
+### Revised status
+
+- The ids exist in `packs/packs/starshipfeatures.db` from `4cb468ae4` through `5f519f0d1`.
+- Freighter, Yacht, and Warship match the current Roles' size and ability bonuses. The legacy copies have no movement overrides.
+- The 12 embeddings match those recovered documents. They were not edited.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Legacy documents recovered. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy-to-current Role migration
+
+### Reason
+
+The legacy Role ids were mapped to the current module Roles and tested on the 12 embeddings.
+
+### Supersedes
+
+No earlier decision is removed. The pack recovery remains the correction to the claim that those ids were never documents.
+
+### Revised status
+
+- Freighter, Yacht, and Warship migrations are confirmed. Flagship is a separate Charisma and Wisdom Role.
+- Eleven embeddings publish the current movement and keep the legacy source ids.
+- YV-929 and YT-1300, Heavily Modified were not edited.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Eleven Role embeddings publish movement. Two actors remain blocked. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Drake Role movement live validation
+
+### Reason
+
+The rebuilt Drake pack was checked with fresh imports.
+
+### Supersedes
+
+No earlier result is removed.
+
+### Revised status
+
+- All 11 repaired actors passed prepared movement, including one reload.
+- Temporary validation actors were deleted.
+- YV-929 and YT-1300, Heavily Modified were not imported.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — YV-929 movement origin
+
+### Reason
+
+YV-929's actor movement overrides needed an origin before the Freighter publication could be added.
+
+### Supersedes
+
+No earlier validation result is removed.
+
+### Revised status
+
+- The old sheet consumed space 350 and turn 300.
+- Commit `7f5fe110b` moved the 350 onto fly.
+- No YV-929 worksheet exists, so no source edit was made.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+YV-929 remains blocked. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — YT-1300 duplicate Roles
+
+### Reason
+
+The next blocked Drake actor is YT-1300, Heavily Modified, which has two Freighter items.
+
+### Supersedes
+
+Nothing. The YV-929 status above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- Both Freighter items are copies of the same legacy Role and arrived together.
+- The old sheet consumed space 400 and turn 150.
+- No exact worksheet exists, and the Constitution total is not independently known.
+- No source edit was made.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+YT-1300, Heavily Modified remains blocked. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Role-named non-publishers
+
+### Reason
+
+The next Drake batch is the 32 Role-named items whose subtype is blank.
+
+### Supersedes
+
+Nothing. The YT-1300 status above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- The regenerated actor set matches the saved 32.
+- Nineteen items are legacy specializations. Seven base Roles have no confirmed successor. Two are worksheet mismatches.
+- Dynamic-class Light Freighter now publishes Freighter space 300 and turn 150.
+- The other 31 items were not edited.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+One source file is changed. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Dynamic-class live validation
+
+### Reason
+
+The packed Dynamic-class Freighter was validated in a live world.
+
+### Supersedes
+
+The status line above that said no pack rebuild had been run. That statement remains historical.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- Drake's Shipyard rebuilt with exit code 0.
+- Fresh import passed movement, abilities, persistence, and reload.
+- The temporary actor was deleted.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Final Drake Role pass
+
+### Reason
+
+The remaining Drake Role families and the frozen 42 effects needed a closing disposition.
+
+### Supersedes
+
+Nothing. The Dynamic-class status above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- No canonical Interceptor, Gunboat, Strike Fighter, or Battleship document was created.
+- Prior blocked actors remain blocked.
+- All 42 actor effects have a final disposition and were not edited.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+No source edit. No pack rebuild. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Legacy Role rename correction
+
+### Reason
+
+The closeout above missed the discontinued system's Role rename commit.
+
+### Supersedes
+
+The statement that no successor movement profile was found.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- `210140e2d` renames Interceptor, Gunboat, and Strike Fighter and assigns their speeds.
+- Current Superiority Fighter, Gunship, Attack Fighter, and Battleship files match those speeds.
+- No actor source was edited.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Correction recorded. No source edit. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role publication
+
+### Reason
+
+Successor speeds were applied where the remaining gates passed.
+
+### Supersedes
+
+The statement that no actor source was edited.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- Nine Drake embeddings publish the renamed Role speeds.
+- Five affected actors remain blocked by movement, equipment, or an actor-level override.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Source edits are complete. No pack rebuild while Foundry is running. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Drake pack rebuild
+
+### Reason
+
+The successor publications were packed after Foundry stopped.
+
+### Supersedes
+
+The status line above that says the pack was not rebuilt.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- Drake's Shipyard rebuilt with exit code 0.
+- The nine repaired Role effects are packed.
+- Live validation has not started.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Pack rebuilt. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role live validation
+
+### Reason
+
+The packed successor Roles were checked in a fresh world import.
+
+### Supersedes
+
+The status line above that says live validation has not started.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- All nine imports passed movement and ability checks.
+- Reload kept the same speeds.
+- The temporary actors were deleted.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Live validation passed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-17 — Renamed Role batch closeout
+
+### Reason
+
+The nine validated actors move from pending to validated repair.
+
+### Supersedes
+
+Only the pending-build and pending-live-validation statuses above.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- The nine imports are now `VALIDATED REPAIR`.
+- Validated-repair count for all 87 actors is 22.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+The renamed Role successor batch is closed. No commit. No push.
+
+---
+
+## Addendum — 2026-11-18 — Future data migration design
+
+### Reason
+
+The next Drake batch is a migration design, not another manual repair.
+
+### Supersedes
+
+Nothing. The validated-repair count above remains.
+
+The superseded content above is retained as historical evidence and must not be deleted.
+
+### Revised status
+
+- The 52-actor set regenerated at the expected count.
+- The dry run proposes zero operations.
+- Details are in [2026-11-04-modification-duplicates-investigation.md](2026-11-04-modification-duplicates-investigation.md).
+
+### Status
+
+Design only. No source migration. No commit. No push.

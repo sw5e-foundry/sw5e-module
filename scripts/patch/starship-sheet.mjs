@@ -508,7 +508,9 @@ function applyCoreOperationsControlState(app, starshipPanel) {
 		if ( btn instanceof HTMLButtonElement ) btn.disabled = !routingEditable;
 	}
 	for ( const btn of overview.querySelectorAll("[data-sw5e-advanced-power-action='spend']") ) {
-		if ( btn instanceof HTMLButtonElement ) btn.disabled = !routingEditable;
+		if ( btn instanceof HTMLButtonElement ) {
+			btn.disabled = !routingEditable || btn.dataset.canSpend !== "1";
+		}
 	}
 	const recoverBtn = overview.querySelector("[data-sw5e-advanced-power-action='recover']");
 	if ( recoverBtn instanceof HTMLButtonElement ) {

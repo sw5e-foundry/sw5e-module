@@ -221,6 +221,22 @@ test("ordinary vehicle without starship flag: tier 0; no per-tier inflation", ()
 	assert.equal(pools.shld.max, 7);
 });
 
+test("compendium identifiers *-starship use the same gain as the size profile", () => {
+	for ( const sizeId of ["huge", "gargantuan"] ) {
+		const actor = makeStarship({ sizeId, tier: 1, identifier: `${sizeId}-starship` });
+		const pools = deriveStarshipPools(actor);
+		const expected = SIZE_PROFILES[sizeId].hullDiceStart + 2;
+		assert.equal(pools.hull.die, SIZE_PROFILES[sizeId].hullDice, sizeId);
+		assert.equal(pools.hull.max, expected, sizeId);
+		assert.equal(pools.shld.max, expected, sizeId);
+	}
+	const medium = makeStarship({ sizeId: "medium", tier: 1, identifier: "medium-starship" });
+	const pools = deriveStarshipPools(medium);
+	assert.equal(pools.hull.die, "d8");
+	assert.equal(pools.hull.max, 5 + 1);
+	assert.equal(pools.shld.max, 6);
+});
+
 test("Tiny–Large no longer use universal 2×tier (regression)", () => {
 	const actor = makeStarship({ sizeId: "small", tier: 2 });
 	const pools = deriveStarshipPools(actor);

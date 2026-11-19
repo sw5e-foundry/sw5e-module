@@ -18,6 +18,15 @@ const LEGACY_FEAT_LIKE_ITEM_TYPES = {
 	venture: { value: "deployment", subtype: "venture" }
 }
 
+/** Resolve a historical SW5E Item type without constructing its obsolete DataModel. */
+export function getLegacyItemTypeTarget(type) {
+	if ( typeof type !== "string" ) return null
+	const normalizedType = type.split(".").at(-1) ?? type
+	return LEGACY_ITEM_TYPE_REMAPS[normalizedType]
+		?? (LEGACY_FEAT_LIKE_ITEM_TYPES[normalizedType] ? "feat" : null)
+		?? (normalizedType === "maneuver" ? "sw5e-module.maneuver" : null)
+}
+
 const STANDARD_DND5E_SPELL_SCHOOLS = new Set(["abj", "con", "div", "enc", "evo", "ill", "nec", "trs", "trn"])
 const TOOL_TYPE_VALUE_MAP = {
 	art: "artisan",

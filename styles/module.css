@@ -5216,6 +5216,75 @@ section.sw5e-droid-customizations-manager .sw5e-aug-actions .sw5e-aug-remove:foc
 .sw5e-starship-power-recovery-combined .sw5e-starship-power-recovery-available-fixed {
   font-weight: 600;
 }
+/* Starship weapon facing suggestions. The menu is mounted on the sheet frame, outside the scrolling Details part. */
+.sw5e-starship-weapon-facing .form-fields {
+  align-items: center;
+}
+.sw5e-firing-arc-control {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: stretch;
+  min-width: 0;
+  height: var(--form-field-height, var(--input-height, 26px));
+}
+.sw5e-starship-weapon-facing .sw5e-firing-arc-control > input[name="system.firingArc"] {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding-inline-end: 1.35rem;
+}
+.sw5e-starship-weapon-facing .sw5e-firing-arc-control > button.sw5e-firing-arc-toggle {
+  position: absolute;
+  inset-inline-end: 1px;
+  top: 1px;
+  bottom: 1px;
+  width: 1.15rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  font-size: 0.75rem;
+  line-height: 1;
+  --input-focus-outline-color: var(--color-cool-3);
+}
+.sw5e-starship-weapon-facing .sw5e-firing-arc-control > input[name="system.firingArc"]:focus,
+.sw5e-starship-weapon-facing .sw5e-firing-arc-control > button.sw5e-firing-arc-toggle:focus {
+  outline: 2px solid var(--input-focus-outline-color);
+  outline-offset: -2px;
+}
+.sw5e-firing-arc-menu {
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0.25rem 0;
+  background: var(--dnd5e-background-card, var(--dnd5e-color-light));
+  color: var(--color-text-primary);
+  border: 1px solid var(--dnd5e-color-gold);
+  box-shadow: 0 0 8px var(--dnd5e-shadow-45, rgba(0, 0, 0, 0.35));
+}
+.sw5e-firing-arc-option {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+}
+.sw5e-firing-arc-option:hover,
+.sw5e-firing-arc-option:focus {
+  background: var(--dnd5e-background-5, rgba(0, 0, 0, 0.08));
+  outline: none;
+}
 /* Starship crew search / grouping — Add Crew dialog + assigned Core roster.
  * Narrowly scoped; does not restyle unrelated Foundry search fields. */
 /* —— Add Crew dialog —— */

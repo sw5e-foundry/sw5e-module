@@ -14,7 +14,13 @@ const LAYER = fs.readFileSync(path.join(ROOT, "templates/starship-sheet-layer.hb
 const DELEGATES = fs.readFileSync(path.join(ROOT, "scripts/patch/starship-sheet-delegates.mjs"), "utf8");
 const PARTIAL = fs.readFileSync(path.join(ROOT, "scripts/patch/starship-sheet-partial.mjs"), "utf8");
 const SHEET = fs.readFileSync(path.join(ROOT, "scripts/patch/starship-sheet.mjs"), "utf8");
-const FA_CSS = "C:\\Program Files\\Foundry Virtual Tabletop\\resources\\app\\public\\fonts\\fontawesome\\css\\all.min.css";
+const FA_RELATIVE = path.join("resources", "app", "public", "fonts", "fontawesome", "css", "all.min.css");
+const FA_CANDIDATES = [
+	process.env.FOUNDRY_VTT_PATH,
+	"C:\\Foundry\\FoundryV13\\App",
+	"C:\\Program Files\\Foundry Virtual Tabletop"
+].filter(Boolean).map(root => path.join(root, FA_RELATIVE));
+const FA_CSS = FA_CANDIDATES.find(candidate => fs.existsSync(candidate));
 
 let passed = 0;
 function test(name, fn) {
@@ -93,12 +99,16 @@ test("Flight Manifest and Bug 6 membership-hidden markup remain", () => {
 	assert.doesNotMatch(LAYER, /sw5e-starship-crew-status/);
 });
 
-test("Foundry runtime Font Awesome includes all three approved icons", () => {
-	assert.equal(fs.existsSync(FA_CSS), true, `Missing Foundry FA CSS at ${FA_CSS}`);
-	const css = fs.readFileSync(FA_CSS, "utf8");
-	for ( const icon of ["fa-screwdriver-wrench", "fa-anchor", "fa-shield-plus"] ) {
-		assert.equal(css.includes(icon), true, `Font Awesome missing ${icon}`);
-	}
-});
+if ( FA_CSS ) {
+	test("Foundry runtime Font Awesome includes all three approved icons", () => {
+		const css = fs.readFileSync(FA_CSS, "utf8");
+		for ( const icon of ["fa-screwdriver-wrench", "fa-anchor", "fa-shield-plus"] ) {
+			assert.equal(css.includes(icon), true, `Font Awesome missing ${icon}`);
+		}
+	});
+} else {
+	console.log("SKIP - Foundry Font Awesome stylesheet was not found. Searched:");
+	for ( const candidate of FA_CANDIDATES ) console.log(`  ${candidate}`);
+}
 
 console.log(`\n${passed} tests passed`);

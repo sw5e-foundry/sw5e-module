@@ -541,6 +541,7 @@
             class="sw5e-starship-advanced-power-spend"
             data-sw5e-advanced-power-action="spend"
             data-power-slot="{{key}}"
+            data-can-spend="{{#if canSpend}}1{{else}}0{{/if}}"
             title="{{@root.systemsCore.advancedPower.spendTooltip}}"
             {{#unless canSpend}}disabled{{/unless}}
             {{#unless @root.systemsRoutingEditable}}disabled{{/unless}}
