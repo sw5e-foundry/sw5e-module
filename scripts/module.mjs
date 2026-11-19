@@ -8,6 +8,7 @@ import { patchMedpac } from "./patch/medpac.mjs";
 import { patchBlasterReload } from "./patch/blaster-reload.mjs";
 import { patchBlasterAmmoUx } from "./patch/blaster-ammo-ux.mjs";
 import { patchChassisItemSheet } from "./patch/chassis-item-sheet.mjs";
+import { patchStarshipWeaponFacing } from "./patch/starship-weapon-facing.mjs";
 import { patchPowercasting } from "./patch/powercasting.mjs";
 import { patchForceRecovery } from "./patch/force-recovery.mjs";
 import { patchIdealOfTheTranquil } from "./patch/ideal-of-the-tranquil.mjs";
@@ -111,6 +112,7 @@ Hooks.once('init', async function() {
 	patchProperties();
 	patchEquippableAttunement();
 	patchChassisItemSheet();
+	patchStarshipWeaponFacing();
 	patchStarshipCreate();
 	patchStarshipPrepare();
 	patchStarshipArmorClassConfig();

@@ -9,6 +9,7 @@ import {
 	getStarshipEffectiveShieldRegenRateMult
 } from "./starship-system-damage.mjs";
 import { getSpaceStationHullDieBonus, isActiveSpaceStationActor } from "./space-station.mjs";
+import { resolveStarshipRegenRateFromCandidates } from "./patch/starship-equipment-schema.mjs";
 
 function localizeOrFallback(key, fallback, data = {}) {
 	const formatted = game?.i18n?.format?.(key, data);
@@ -197,6 +198,126 @@ export function buildStarshipHullDiceSpendItemUpdate(actor, spendCount) {
 	return [{ _id: sizeItem.id, "flags.sw5e.legacyStarshipSize": legacy }];
 }
 
+function isPlainUpdateObject(value) {
+	return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function deepMergeUpdate(target, source) {
+	for ( const [key, value] of Object.entries(source) ) {
+		const existing = target[key];
+		if ( isPlainUpdateObject(existing) && isPlainUpdateObject(value) ) deepMergeUpdate(existing, value);
+		else target[key] = isPlainUpdateObject(value) ? deepMergeUpdate({}, value) : value;
+	}
+	return target;
+}
+
+/**
+ * Collapse embedded Item updates that share `_id`.
+ * Object values on the same path are deep-merged so a hull change and a shield
+ * change survive together. Later leaf values win. Updates without `_id` stay in order.
+ * @param {object[]} updates
+ * @returns {object[]}
+ */
+export function mergeEmbeddedItemUpdates(updates) {
+	const order = [];
+	const byId = new Map();
+	const anonymous = [];
+	for ( const update of updates ?? [] ) {
+		if ( !isPlainUpdateObject(update) ) continue;
+		const id = update._id;
+		if ( !id ) {
+			anonymous.push({ ...update });
+			continue;
+		}
+		if ( !byId.has(id) ) {
+			byId.set(id, {});
+			order.push(id);
+		}
+		deepMergeUpdate(byId.get(id), update);
+	}
+	return [...order.map(id => byId.get(id)), ...anonymous];
+}
+
+/**
+ * Write hull and shield dice counts in one size-item update.
+ * Separate full-flag updates for the same item replace each other.
+ * @param {Actor} actor
+ * @param {{ hullDiceUsed?: number, shldDiceUsed?: number }} next
+ * @returns {object[]}
+ */
+export function buildCombinedSizeDiceUpdate(actor, { hullDiceUsed, shldDiceUsed } = {}) {
+	const sizeItem = findStarshipSizeItem(actor);
+	if ( !sizeItem ) return [];
+	const legacy = { ...getSizeLegacyData(sizeItem) };
+	let changed = false;
+	if ( hullDiceUsed !== undefined && Number(legacy.hullDiceUsed) !== hullDiceUsed ) {
+		legacy.hullDiceUsed = hullDiceUsed;
+		changed = true;
+	}
+	if ( shldDiceUsed !== undefined && Number(legacy.shldDiceUsed) !== shldDiceUsed ) {
+		legacy.shldDiceUsed = shldDiceUsed;
+		changed = true;
+	}
+	if ( !changed ) return [];
+	return [{
+		_id: sizeItem.id ?? sizeItem._id,
+		"flags.sw5e.legacyStarshipSize": legacy
+	}];
+}
+
+/**
+ * One size-item update for repair hull spend and shield/hull recovery.
+ * A requested hull spend above the remaining pool is clamped to the remaining pool.
+ * Recovery of an already-full pool (used 0) emits no change for that pool.
+ * @param {Actor} actor
+ * @param {{ hullDiceSpend?: number, recoverHull?: boolean, recoverShield?: boolean }} request
+ * @returns {{ itemUpdates: object[], hullDiceSpent: number, hullDiceRecovered: number, shieldDiceRecovered: number }}
+ */
+export function buildStarshipRepairSizeDiceUpdate(actor, {
+	hullDiceSpend = 0,
+	recoverHull = false,
+	recoverShield = false
+} = {}) {
+	const empty = { itemUpdates: [], hullDiceSpent: 0, hullDiceRecovered: 0, shieldDiceRecovered: 0 };
+	const sizeItem = findStarshipSizeItem(actor);
+	if ( !sizeItem ) return empty;
+	const legacy = getSizeLegacyData(sizeItem);
+	const currentHullUsed = Math.max(0, Number(legacy.hullDiceUsed) || 0);
+	const currentShieldUsed = Math.max(0, Number(legacy.shldDiceUsed) || 0);
+	let nextHull;
+	let hullDiceSpent = 0;
+	let hullDiceRecovered = 0;
+	if ( recoverHull ) {
+		if ( currentHullUsed > 0 ) {
+			nextHull = 0;
+			hullDiceRecovered = currentHullUsed;
+		}
+	} else {
+		const requested = Math.max(0, Number(hullDiceSpend) || 0);
+		const remaining = getStarshipHullDiceAvailability(actor).remaining;
+		const spend = Math.min(requested, remaining);
+		if ( spend > 0 ) {
+			nextHull = currentHullUsed + spend;
+			hullDiceSpent = spend;
+		}
+	}
+	let nextShield;
+	let shieldDiceRecovered = 0;
+	if ( recoverShield && currentShieldUsed > 0 ) {
+		nextShield = 0;
+		shieldDiceRecovered = currentShieldUsed;
+	}
+	return {
+		itemUpdates: buildCombinedSizeDiceUpdate(actor, {
+			hullDiceUsed: nextHull,
+			shldDiceUsed: nextShield
+		}),
+		hullDiceSpent,
+		hullDiceRecovered,
+		shieldDiceRecovered
+	};
+}
+
 export function findEquippedShield(actor) {
 	const items = actor?.items?.contents ?? [];
 	return items.find(item => {
@@ -241,20 +362,21 @@ async function lookupShieldRegenRateFromCompendium(shieldItem) {
 	return null;
 }
 
-/** Upstream natural regen uses equipped shield `regrateco` → `@attributes.equip.shields.regenRateMult`. */
-export async function getStarshipShieldRegenRateMult(actor) {
-	const shield = findEquippedShield(actor);
+function starshipShieldRegenCandidates(actor, shield) {
 	const legacySystem = getLegacyStarshipActorSystem(actor);
-	const candidates = [
+	return [
 		shield?.system?.attributes?.regrateco?.value,
 		shield?._source?.system?.attributes?.regrateco?.value,
 		shield?.flags?.sw5e?.legacyStarshipEquipment?.attributes?.regrateco?.value,
 		legacySystem?.attributes?.equip?.shields?.regenRateMult
 	];
-	for ( const candidate of candidates ) {
-		const value = parseFloat(candidate);
-		if ( Number.isFinite(value) && value > 0 ) return value;
-	}
+}
+
+/** Upstream natural regen uses equipped shield `regrateco` → `@attributes.equip.shields.regenRateMult`. */
+export async function getStarshipShieldRegenRateMult(actor) {
+	const shield = findEquippedShield(actor);
+	const resolved = resolveStarshipRegenRateFromCandidates(starshipShieldRegenCandidates(actor, shield));
+	if ( resolved !== null ) return resolved;
 
 	const compendiumSource = shield?._stats?.compendiumSource ?? shield?.flags?.core?.sourceId;
 	if ( compendiumSource || shield?.name ) {
@@ -267,18 +389,7 @@ export async function getStarshipShieldRegenRateMult(actor) {
 
 export function getStarshipShieldRegenRateMultSync(actor) {
 	const shield = findEquippedShield(actor);
-	const legacySystem = getLegacyStarshipActorSystem(actor);
-	const candidates = [
-		shield?.system?.attributes?.regrateco?.value,
-		shield?._source?.system?.attributes?.regrateco?.value,
-		shield?.flags?.sw5e?.legacyStarshipEquipment?.attributes?.regrateco?.value,
-		legacySystem?.attributes?.equip?.shields?.regenRateMult
-	];
-	for ( const candidate of candidates ) {
-		const value = parseFloat(candidate);
-		if ( Number.isFinite(value) && value > 0 ) return value;
-	}
-	return null;
+	return resolveStarshipRegenRateFromCandidates(starshipShieldRegenCandidates(actor, shield));
 }
 
 export function getStarshipShieldDiceAvailability(actor) {

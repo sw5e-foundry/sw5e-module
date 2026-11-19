@@ -84,6 +84,15 @@ function toFiniteNumber(value, fallback = null) {
 	return Number.isFinite(number) ? number : fallback;
 }
 
+/** Pool capacities are numbers. Null and non-numeric values contribute 0. Negatives clamp to 0. */
+function normalizeStarshipCapacityForPools(value) {
+	if ( value === null || value === undefined ) return 0;
+	if ( typeof value === "string" && value.trim() === "" ) return 0;
+	const number = typeof value === "number" ? value : Number(String(value).trim());
+	if ( !Number.isFinite(number) ) return 0;
+	return Math.max(0, number);
+}
+
 /**
  * Starship ability check/save rolls do not use d20 min/max die bounds.
  * No current SW5E Starship feature configures these ranges; stored 0/0 and
@@ -1443,6 +1452,22 @@ export function getStarshipHullShieldDicePerTierGain(sizeIdentifier) {
 }
 
 /**
+ * Map a size identifier onto a {@link STARSHIP_SIZE_PROFILES} key.
+ * Compendium size feats use `huge-starship`; pool gain keys are `huge`.
+ * Unknown identifiers are returned unchanged so homebrew sizes keep gain 1.
+ * @param {string} identifier
+ * @returns {string}
+ */
+function canonicalizeStarshipSizeProfileKey(identifier) {
+	const key = String(identifier ?? "").trim().toLowerCase();
+	if ( !key ) return "";
+	if ( Object.hasOwn(STARSHIP_SIZE_PROFILES, key) ) return key;
+	const stem = key.endsWith("-starship") ? key.slice(0, -"-starship".length) : "";
+	if ( stem && Object.hasOwn(STARSHIP_SIZE_PROFILES, stem) ) return stem;
+	return key;
+}
+
+/**
  * Resolve Starship size identifier for pool derivation (same identity path as size profiles).
  * @param {object} actor
  * @param {object} [sizeSystem]
@@ -1450,11 +1475,11 @@ export function getStarshipHullShieldDicePerTierGain(sizeIdentifier) {
  * @returns {string}
  */
 function resolveStarshipSizeIdentifierForPools(actor, sizeSystem={}, liveSizeItem=null) {
-	const fromItem = String(
+	const fromItem = canonicalizeStarshipSizeProfileKey(
 		liveSizeItem?.system?.identifier
 		?? sizeSystem?.identifier
 		?? ""
-	).trim().toLowerCase();
+	);
 	if ( fromItem ) return fromItem;
 	const actorSize = actor?.system?.traits?.size ?? "";
 	return ACTOR_SIZE_TO_IDENTIFIER[actorSize] ?? "";
@@ -1478,7 +1503,9 @@ function resolveStarshipSizeSystemForPools(actor) {
 		?? {};
 
 	if ( !sizeSystem.hullDice ) {
-		const identifier = liveSizeItem?.system?.identifier ?? sourceSizeItem?.system?.identifier ?? "";
+		const identifier = canonicalizeStarshipSizeProfileKey(
+			liveSizeItem?.system?.identifier ?? sourceSizeItem?.system?.identifier ?? ""
+		);
 		const actorSize = actor?.system?.traits?.size ?? "";
 		const profile = STARSHIP_SIZE_PROFILES[identifier] ?? STARSHIP_SIZE_PROFILES[ACTOR_SIZE_TO_IDENTIFIER[actorSize]];
 		if ( profile ) sizeSystem = { ...sizeSystem, ...profile };
@@ -1540,8 +1567,8 @@ export function deriveStarshipPools(actor) {
 		return typeVal === "powerc" && equipped !== false;
 	});
 	const pcSystem = powerCoupling?.system?.attributes ? powerCoupling.system : powerCoupling?._source?.system ?? {};
-	const cscap = toFiniteNumber(pcSystem?.attributes?.cscap?.value, 0);
-	const sscap = toFiniteNumber(pcSystem?.attributes?.sscap?.value, 0);
+	const cscap = normalizeStarshipCapacityForPools(pcSystem?.attributes?.cscap?.value);
+	const sscap = normalizeStarshipCapacityForPools(pcSystem?.attributes?.sscap?.value);
 	const powerDie = POWER_DIE_BY_TIER[tier] ?? "";
 
 	// Modification slot budget.

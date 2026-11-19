@@ -17,9 +17,7 @@ import {
 import { resetStarshipDestructionSaves } from "./starship-destruction-saves.mjs";
 import {
 	applyStarshipNaturalShieldDieRoll,
-	buildRecoverStarshipHullDiceItemUpdate,
-	buildRecoverStarshipShieldDiceItemUpdate,
-	buildStarshipHullDiceSpendItemUpdate,
+	buildStarshipRepairSizeDiceUpdate,
 	getStarshipHullDiceAvailability,
 	getStarshipLiveHp,
 	getStarshipShieldDepleted,
@@ -352,13 +350,11 @@ export async function applyRechargeRepair(actor, { staged = {}, newDay = false, 
 		actorEntries.push(["system.attributes.hp.temp", shieldMax]);
 	}
 
-	const itemUpdates = [
-		...buildStarshipHullDiceSpendItemUpdate(actor, stagedSpent)
-	];
-	const shieldRecovery = preview.resetShields
-		? buildRecoverStarshipShieldDiceItemUpdate(actor)
-		: { itemUpdates: [], recovered: 0 };
-	if ( shieldRecovery.itemUpdates.length ) itemUpdates.push(...shieldRecovery.itemUpdates);
+	const sizeRepair = buildStarshipRepairSizeDiceUpdate(actor, {
+		hullDiceSpend: stagedSpent,
+		recoverShield: preview.resetShields
+	});
+	const itemUpdates = sizeRepair.itemUpdates;
 
 	let actorUpdate = buildStarshipLegacyAttributeBatchMirrorUpdate(actorEntries);
 	actorUpdate = { ...actorUpdate, ...buildRepairPowerDiceRecovery(actor) };
@@ -382,12 +378,12 @@ export async function applyRechargeRepair(actor, { staged = {}, newDay = false, 
 
 	const result = {
 		hullPointsGained: stagedHp,
-		hullDiceSpent: stagedSpent,
+		hullDiceSpent: sizeRepair.hullDiceSpent,
 		hullDiceRecovered: 0,
 		shieldPointsGained: preview.resetShields
 			? Math.max(0, getShieldCapacity(actor) - Math.max(0, Number(hp.temp) || 0))
 			: 0,
-		shieldDiceRecovered: shieldRecovery.recovered,
+		shieldDiceRecovered: sizeRepair.shieldDiceRecovered,
 		newDay
 	};
 
@@ -411,8 +407,10 @@ export async function applyRefittingRepair(actor, { newDay = true, reduceSystemD
 	const hullBefore = Math.max(0, Number(hp.value) || 0);
 	const shieldBefore = Math.max(0, Number(hp.temp) || 0);
 
-	const hullRecovery = buildRecoverStarshipHullDiceItemUpdate(actor);
-	const shieldRecovery = buildRecoverStarshipShieldDiceItemUpdate(actor);
+	const sizeRepair = buildStarshipRepairSizeDiceUpdate(actor, {
+		recoverHull: true,
+		recoverShield: true
+	});
 
 	const actorEntries = [
 		["system.attributes.hp.value", hullMax],
@@ -421,10 +419,7 @@ export async function applyRefittingRepair(actor, { newDay = true, reduceSystemD
 	let actorUpdate = buildStarshipLegacyAttributeBatchMirrorUpdate(actorEntries);
 	actorUpdate = { ...actorUpdate, ...buildRepairPowerDiceRecovery(actor) };
 
-	const itemUpdates = [
-		...hullRecovery.itemUpdates,
-		...shieldRecovery.itemUpdates
-	];
+	const itemUpdates = sizeRepair.itemUpdates;
 
 	await actor.update(actorUpdate, { isRest: true });
 	if ( itemUpdates.length ) await actor.updateEmbeddedDocuments("Item", itemUpdates, { isRest: true });
@@ -434,9 +429,9 @@ export async function applyRefittingRepair(actor, { newDay = true, reduceSystemD
 	const result = {
 		hullPointsGained: Math.max(0, hullMax - hullBefore),
 		hullDiceSpent: 0,
-		hullDiceRecovered: hullRecovery.recovered,
+		hullDiceRecovered: sizeRepair.hullDiceRecovered,
 		shieldPointsGained: Math.max(0, shieldMax - shieldBefore),
-		shieldDiceRecovered: shieldRecovery.recovered,
+		shieldDiceRecovered: sizeRepair.shieldDiceRecovered,
 		systemDamageBefore,
 		systemDamageAfter,
 		newDay
