@@ -577,10 +577,10 @@ export function registerStarshipEffectsSlowedToggleGuard() {
 	if ( !EffectsElement?.prototype?._onToggleCondition ) return;
 
 	try {
-		libWrapper.register(getModuleId(), "dnd5e.applications.components.EffectsElement.prototype._onToggleCondition", async function(wrapped, conditionId) {
+		libWrapper.register(getModuleId(), "dnd5e.applications.components.EffectsElement.prototype._onToggleCondition", async function(wrapped, conditionId, ...args) {
 			if ( conditionId === STARSHIP_LEVELED_SLOWED_CONDITION_ID ) return;
 			if ( conditionId === STARSHIP_USED_CONDITION_ID ) return;
-			return wrapped.call(this, conditionId);
+			return wrapped.call(this, conditionId, ...args);
 		}, "MIXED");
 	} catch ( err ) {
 		console.warn("SW5E MODULE | Could not wrap EffectsElement _onToggleCondition for starship Slowed.", err);

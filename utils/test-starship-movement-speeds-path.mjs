@@ -63,6 +63,19 @@ test("source update writes speeds and strips sibling keys", () => {
 	assert.deepEqual(resolved.savedFields, ["space", "turn"]);
 });
 
+test("source update does not persist dnd5e 6.1 derived jump speed", () => {
+	const resolved = resolveStarshipMovementSourceUpdate({
+		underlying: { space: 40, turn: 30 },
+		proposedMovement: {
+			jump: 5,
+			speeds: { space: 40, turn: 30, jump: 5, burrow: 0, climb: 0, swim: 0 }
+		},
+		pendingKeys: new Set(["space", "turn"])
+	});
+	assert.equal("jump" in resolved.movement, false);
+	assert.equal(resolved.movement.speeds, undefined);
+});
+
 test("ordinary-vehicle isolation is identification-based (keys remain starship-only constants)", () => {
 	assert.match(STARSHIP_ROLE_MOVEMENT_SPACE_KEY, /\.speeds\.space$/);
 	assert.match(STARSHIP_ROLE_MOVEMENT_TURN_KEY, /\.speeds\.turn$/);

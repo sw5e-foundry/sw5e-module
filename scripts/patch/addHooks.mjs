@@ -55,7 +55,8 @@ export function addHooks() {
 	//-----------------//
 
 	// ActorData Hooks
-	addHook('dnd5e.dataModels.ActorDataModel.prototype._prepareScaleValues', 'ActorDataModel._prepareScaleValues');
+	// ActorDataModel is not exported in dnd5e 6.1. CommonTemplate is the public parent that owns the method.
+	addHook('dnd5e.dataModels.actor.CommonTemplate.prototype._prepareScaleValues', 'ActorDataModel._prepareScaleValues');
 	// SpellData Hooks
 	addHookAsync('dnd5e.dataModels.item.SpellData.prototype.getSheetData', 'SpellData.getSheetData');
 	addHook('dnd5e.dataModels.item.SpellData.prototype.availableAbilities', 'SpellData.availableAbilities');

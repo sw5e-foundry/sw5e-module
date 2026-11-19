@@ -100,8 +100,9 @@ export function applyFlatDamageReductionToDamages(damages, dr) {
 	const amount = Math.max(0, Number(dr) || 0);
 	if ( !(amount > 0) || !Array.isArray(damages) ) return false;
 
-	const parts = damages.filter(d => d && d.type !== "temphp" && Number(d.value) > 0);
+	const parts = damages.filter(d => d && d.type !== "temphp" && d.type !== "maximum" && Number(d.value) > 0);
 	if ( !parts.length ) return false;
+	if ( parts.some(part => part.active?.sw5eFlatDamageReduction) ) return false;
 
 	const total = parts.reduce((sum, d) => sum + Number(d.value), 0);
 	if ( !(total > 0) ) return false;
@@ -119,6 +120,26 @@ export function applyFlatDamageReductionToDamages(damages, dr) {
 }
 
 /**
+ * Apply flat DR for an attack-context damage summary and keep `damages.amount` aligned.
+ * Non-attack damage is left unchanged. A second call does not reduce again.
+ * @param {object[]} damages
+ * @param {number} dr
+ * @param {object} [options]
+ * @returns {boolean}
+ */
+export function applyStarshipAttackDamageReduction(damages, dr, options={}) {
+	if ( options?.sw5e?.fromAttack !== true ) return false;
+	const applied = applyFlatDamageReductionToDamages(damages, dr);
+	if ( !applied || typeof damages.amount !== "number" ) return applied;
+	// dnd5e sums `damages.amount` before this hook. Keep that total in step with the reduced parts.
+	damages.amount = Math.trunc(damages.reduce((sum, part) => {
+		if ( !part || part.type === "temphp" || part.type === "maximum" ) return sum;
+		return sum + Number(part.value);
+	}, 0));
+	return true;
+}
+
+/**
  * @param {Actor5e} actor
  * @param {object[]} damages
  * @param {object} options
@@ -128,11 +149,10 @@ function onCalculateDamage(actor, damages, options) {
 	if ( !isSw5eStarshipActor(actor) ) return;
 	if ( options?.ignore === true ) return;
 	if ( options?.only === "healing" ) return;
-	if ( options?.sw5e?.fromAttack !== true ) return;
 
 	const dr = getStarshipFlatDamageReduction(actor);
 	if ( !(dr > 0) ) return;
-	applyFlatDamageReductionToDamages(damages, dr);
+	applyStarshipAttackDamageReduction(damages, dr, options);
 }
 
 /**
@@ -180,14 +200,24 @@ function registerDamageApplicationAttackContextWrapper() {
 /**
  * Register starship flat Damage Reduction hooks and wrappers.
  */
+function isDamageTargetWrapped() {
+	const fn = globalThis.dnd5e?.applications?.components?.DamageApplicationElement?.prototype?.getTargetOptions
+		?? customElements.get?.("damage-application")?.prototype?.getTargetOptions;
+	return typeof fn === "function" && fn.name.includes("\u{1F381}");
+}
+
 export function registerStarshipDamageReductionHooks() {
 	Hooks.on("dnd5e.calculateDamage", onCalculateDamage);
 
-	const register = () => registerDamageApplicationAttackContextWrapper();
+	const register = () => {
+		if ( isDamageTargetWrapped() ) return;
+		registerDamageApplicationAttackContextWrapper();
+	};
 	if ( !globalThis.libWrapper ) {
 		console.warn("SW5E MODULE | libWrapper not available; starship DR attack-context wrapper not registered.");
 		return;
 	}
 	if ( libWrapper.ready ) register();
 	else Hooks.once("libWrapper.Ready", register);
+	if ( !isDamageTargetWrapped() ) Hooks.once("ready", register);
 }

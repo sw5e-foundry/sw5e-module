@@ -1206,6 +1206,12 @@ export function resolveStarshipMovementSourceUpdate({
 
 	delete movement.space;
 	delete movement.turn;
+	// dnd5e 6.1 derives jump on prepare and hides it. Never persist that derived value,
+	// or any other non-starship speed the movement form may submit.
+	delete movement.jump;
+	for ( const key of Object.keys(speeds) ) {
+		if ( key !== "space" && key !== "turn" ) delete speeds[key];
+	}
 	if ( Object.keys(speeds).length ) movement.speeds = speeds;
 	else delete movement.speeds;
 
