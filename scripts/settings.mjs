@@ -3,6 +3,7 @@ import { LEGACY_SETTINGS_NAMESPACE, SETTINGS_NAMESPACE } from "./module-support.
 import { SHOW_LEGACY_POWER_ROUTING_SETTING } from "./starship-routing-gate.mjs";
 import { SPACE_STATION_VARIANT_SETTING } from "./space-station.mjs";
 import { STARSHIP_FLAT_DR_SETTING } from "./starship-damage-reduction.mjs";
+import { MigrationTools } from "./migration-tools.mjs";
 
 /** Client-side diagnostic logs for Features-tab Deployment pill injection (default off). */
 export const DEPLOYMENT_CARD_DEBUG_SETTING = "deploymentCardDebug";
@@ -19,6 +20,14 @@ function registerHiddenWorldSetting(namespace, key, data) {
  * Register all of the module's settings.
  */
 export function registerModuleSettings() {
+	game.settings.registerMenu(SETTINGS_NAMESPACE, "migrationTools", {
+		name: "SW5E Migration Tools",
+		label: "Open Migration Tools",
+		hint: "Analyze legacy world packs or repair them and rerun the world migration.",
+		icon: "fas fa-wrench",
+		type: MigrationTools,
+		restricted: true
+	});
 	// Internal Module Migration Version
 	const hiddenNamespaces = Array.from(new Set([SETTINGS_NAMESPACE, LEGACY_SETTINGS_NAMESPACE]));
 

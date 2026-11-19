@@ -1177,6 +1177,13 @@ export const migrateCompendium = async function(pack, run=null) {
 
 	await pack.configure({ locked: false });
 	try {
+		if ( documentName === "Item" ) {
+			const { analyzeLegacyItemPack, repairLegacyItemPack } = await import("./legacy-pack-preflight.mjs");
+			const report = await analyzeLegacyItemPack(pack);
+			run.legacyPackPreflight ??= [];
+			run.legacyPackPreflight.push(report);
+			if ( report.entries?.length ) await repairLegacyItemPack(pack, report.entries);
+		}
 		await pack.migrate();
 		upsertPackLedger(run, {
 			packId: pack.collection,

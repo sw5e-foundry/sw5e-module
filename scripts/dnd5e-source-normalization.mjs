@@ -14,6 +14,15 @@ const LEGACY_ITEM_TYPE_REMAPS = {
 	modification: "loot"
 }
 
+/** Resolve a historical SW5E Item type without constructing its obsolete DataModel. */
+export function getLegacyItemTypeTarget(type) {
+	if ( typeof type !== "string" ) return null;
+	const normalizedType = type.split(".").at(-1) ?? type;
+	return LEGACY_ITEM_TYPE_REMAPS[normalizedType]
+		?? (LEGACY_FEAT_LIKE_ITEM_TYPES[normalizedType] ? "feat" : null)
+		?? (normalizedType === "maneuver" ? "sw5e-module.maneuver" : null);
+}
+
 const LEGACY_FEAT_LIKE_ITEM_TYPES = {
 	deploymentfeature: { value: "deployment" },
 	classfeature: { value: "class" },
