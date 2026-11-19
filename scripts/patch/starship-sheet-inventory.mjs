@@ -20,6 +20,7 @@ import {
 } from "../starship-sheet-categorize.mjs";
 import { localizeOrFallback } from "../starship-sheet-html.mjs";
 import { isSw5eStarshipActor, STARSHIP_FEATURES_TAB_ID } from "../starship-sheet-ids.mjs";
+import { isStarshipWeaponItem } from "../starship-weapon-rolls.mjs";
 import {
 	applyStarshipFeatureRecoveryRowContext,
 	getStarshipFeaturesFeatColumns
@@ -511,6 +512,26 @@ export function injectStarshipFeaturesSections(sheet, context) {
 	return categorized;
 }
 
+/**
+ * Add facing and turret text to the stock inventory subtitle.
+ * The stock string is left as prepared. Only the added pieces are escaped.
+ * @param {Item} item
+ * @param {object} ctx
+ */
+function appendStarshipWeaponInventorySubtitle(item, ctx) {
+	if ( !isStarshipWeaponItem(item) ) return;
+	const parts = [];
+	const facing = typeof item.system?.firingArc === "string" ? item.system.firingArc.trim() : "";
+	if ( facing ) parts.push(foundry.utils.escapeHTML(facing));
+	if ( item.system?.turreted === true ) {
+		const turreted = localizeOrFallback("SW5E.StarshipWeaponTurreted", "Turreted");
+		parts.push(foundry.utils.escapeHTML(turreted));
+	}
+	if ( !parts.length ) return;
+	const addition = parts.join(" • ");
+	ctx.subtitle = ctx.subtitle ? `${ctx.subtitle} • ${addition}` : addition;
+}
+
 export function registerStarshipCargoInventoryWrappers() {
 	if ( vehicleSheetStarshipCargoInventoryWrapped ) return;
 	vehicleSheetStarshipCargoInventoryWrapped = true;
@@ -519,6 +540,7 @@ export function registerStarshipCargoInventoryWrappers() {
 	const physicalWrapper = async function(wrapped, item, ctx) {
 		await wrapped.call(this, item, ctx);
 		if ( !isSw5eStarshipActor(this.actor) ) return;
+		appendStarshipWeaponInventorySubtitle(item, ctx);
 		const group = resolveStarshipItemGroup(item);
 		if ( !group ) return;
 		if ( group === "weapons" || group === "equipment" || group === "modifications" ) ctx.groups = { sw5eInventory: group };
