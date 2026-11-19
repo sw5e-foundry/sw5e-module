@@ -1443,6 +1443,22 @@ export function getStarshipHullShieldDicePerTierGain(sizeIdentifier) {
 }
 
 /**
+ * Map a size identifier onto a {@link STARSHIP_SIZE_PROFILES} key.
+ * Compendium size feats use `huge-starship`; pool gain keys are `huge`.
+ * Unknown identifiers are returned unchanged so homebrew sizes keep gain 1.
+ * @param {string} identifier
+ * @returns {string}
+ */
+function canonicalizeStarshipSizeProfileKey(identifier) {
+	const key = String(identifier ?? "").trim().toLowerCase();
+	if ( !key ) return "";
+	if ( Object.hasOwn(STARSHIP_SIZE_PROFILES, key) ) return key;
+	const stem = key.endsWith("-starship") ? key.slice(0, -"-starship".length) : "";
+	if ( stem && Object.hasOwn(STARSHIP_SIZE_PROFILES, stem) ) return stem;
+	return key;
+}
+
+/**
  * Resolve Starship size identifier for pool derivation (same identity path as size profiles).
  * @param {object} actor
  * @param {object} [sizeSystem]
@@ -1450,11 +1466,11 @@ export function getStarshipHullShieldDicePerTierGain(sizeIdentifier) {
  * @returns {string}
  */
 function resolveStarshipSizeIdentifierForPools(actor, sizeSystem={}, liveSizeItem=null) {
-	const fromItem = String(
+	const fromItem = canonicalizeStarshipSizeProfileKey(
 		liveSizeItem?.system?.identifier
 		?? sizeSystem?.identifier
 		?? ""
-	).trim().toLowerCase();
+	);
 	if ( fromItem ) return fromItem;
 	const actorSize = actor?.system?.traits?.size ?? "";
 	return ACTOR_SIZE_TO_IDENTIFIER[actorSize] ?? "";
@@ -1478,7 +1494,9 @@ function resolveStarshipSizeSystemForPools(actor) {
 		?? {};
 
 	if ( !sizeSystem.hullDice ) {
-		const identifier = liveSizeItem?.system?.identifier ?? sourceSizeItem?.system?.identifier ?? "";
+		const identifier = canonicalizeStarshipSizeProfileKey(
+			liveSizeItem?.system?.identifier ?? sourceSizeItem?.system?.identifier ?? ""
+		);
 		const actorSize = actor?.system?.traits?.size ?? "";
 		const profile = STARSHIP_SIZE_PROFILES[identifier] ?? STARSHIP_SIZE_PROFILES[ACTOR_SIZE_TO_IDENTIFIER[actorSize]];
 		if ( profile ) sizeSystem = { ...sizeSystem, ...profile };
