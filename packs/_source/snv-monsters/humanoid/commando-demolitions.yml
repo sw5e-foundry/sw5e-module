@@ -600,112 +600,6 @@ items:
       compendiumSource: null
       duplicateSource: null
     _key: "!actors.items!c6d80aa895fe24e1.f4992bddfe79a10e"
-  - _id: 8c08b48407f02a1f
-    name: IWS Antiarmor Mode (6/Day)
-    type: feat
-    sort: 0
-    flags:
-      sw5e:
-        snvMonsters:
-          prototype: false
-          classification: non-weapon
-          kind: featAction
-          sourceSection: actions
-          prePublication: false
-          trackedPack: snv-monsters
-          sandboxTemp: false
-          approvedBatch: fts-auto-10
-          limitedUses:
-            family: per-day
-            max: 6
-            runtimeAutomation: true
-    img: systems/dnd5e/icons/svg/actors/npc.svg
-    effects: []
-    folder: null
-    system:
-      description:
-        value: >-
-          <p>The commando fires a grenade, choosing a point within 60/240 feet. Each creature within 10 feet must make a
-          DC 19 Dexterity saving throw. If the grenade is fired at long range, this saving throw is made at advantage. A
-          creature takes 18 (4d6 + 4) kinetic damage on a failed save, or half as much as on a successful one.</p>
-        chat: ""
-      requirements: ""
-      source:
-        custom: SnV
-      activation:
-        type: action
-        cost: 1
-        condition: ""
-      duration:
-        value: ""
-        units: ""
-      cover: null
-      crewed: false
-      target:
-        value: ""
-        width: null
-        units: ""
-        type: ""
-        prompt: true
-      range:
-        value: null
-        long: null
-        units: ""
-      uses:
-        value: 6
-        max: "6"
-        per: day
-        recovery: ""
-        prompt: true
-      consume:
-        type: ""
-        target: null
-        amount: null
-        scale: false
-      ability: ""
-      actionType: ""
-      chatFlavor: ""
-      critical:
-        threshold: null
-        damage: ""
-      damage:
-        parts: []
-        versatile: ""
-      formula: ""
-      save:
-        ability: ""
-        dc: null
-        scaling: spell
-      type:
-        value: ""
-        subtype: ""
-      recharge:
-        value: null
-        charged: false
-      attributes:
-        speed:
-          space: null
-          turn: null
-      attack:
-        bonus: ""
-        flat: false
-      enchantment: null
-      summons: null
-      prerequisites:
-        level: null
-      properties: []
-    ownership:
-      default: 0
-    _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: "12.330"
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    _key: "!actors.items!c6d80aa895fe24e1.8c08b48407f02a1f"
   - name: Hidden Blade
     flags:
       sw5e-importer:
@@ -912,7 +806,7 @@ items:
       duplicateSource: null
     _key: "!actors.items!c6d80aa895fe24e1.a85aa332e6287c2d"
   - _id: 30dcd7cc6f55d009
-    name: IWS Blaster Mode
+    name: IWS
     type: weapon
     sort: 0
     flags:
@@ -922,7 +816,10 @@ items:
           classification: source-specific
           kind: weaponSourceSpecific
           sourceActionNames:
+            - IWS
             - IWS Blaster Mode
+            - IWS Sniper Mode
+            - IWS Antiarmor Mode (6/Day)
           duplicateActionProhibited: true
           canonicalWeaponSource: null
           ammoSource: null
@@ -930,13 +827,17 @@ items:
           trackedPack: snv-monsters
           sandboxTemp: false
           approvedBatch: fts-auto-10
+          limitedUses:
+            family: per-day
+            max: 6
+            runtimeAutomation: true
     img: systems/dnd5e/icons/svg/actors/npc.svg
     effects: []
     folder: null
     system:
       description:
-        value: <p>*Ranged Weapon Attack:* +11 to hit, range 80/320 ft., one target. *Hit:* 10 (1d8 + 6) energy damage.</p>
-        chat: ""
+        value: <p>*Ranged Weapon Attack:* +11 to hit, range 80/320 ft., one target. *Hit:* 10 (1d8 + 6) energy damage.</p><p>*Ranged Weapon Attack:* +11 to hit, range 120/480 ft., one target. *Hit:* 12 (1d12 + 6) energy damage.</p><p>The commando fires a grenade, choosing a point within 60/240 feet. Each creature within 10 feet must make a DC 19 Dexterity saving throw. If the grenade is fired at long range, this saving throw is made at advantage. A creature takes 18 (4d6 + 4) kinetic damage on a failed save, or half as much as on a successful one.</p>
+        chat: ''
       source:
         custom: SnV
       quantity: 1
@@ -946,24 +847,24 @@ items:
       price:
         value: 0
         denomination: gc
-      attunement: ""
+      attunement: ''
       equipped: false
       rarities: []
       identified: true
       activation:
         type: action
         cost: 1
-        condition: ""
+        condition: ''
       duration:
-        value: ""
-        units: ""
+        value: ''
+        units: ''
       cover: null
       crewed: false
       target:
-        value: ""
+        value: ''
         width: null
-        units: ""
-        type: ""
+        units: ''
+        type: ''
         prompt: true
       range:
         value: 80
@@ -971,29 +872,29 @@ items:
         units: ft
       uses:
         value: null
-        max: ""
+        max: ''
         per: null
-        recovery: ""
+        recovery: ''
         prompt: true
       consume:
-        type: ""
+        type: ''
         target: null
         amount: null
         scale: false
       ability: dex
       actionType: rwak
-      chatFlavor: ""
+      chatFlavor: ''
       critical:
         threshold: null
-        damage: ""
+        damage: ''
       damage:
         parts:
-          - - 1d8+6
+          - - 1d8 + @mod
             - energy
-        versatile: ""
-      formula: ""
+        versatile: ''
+      formula: ''
       save:
-        ability: ""
+        ability: ''
         dc: null
         scaling: spell
       armor:
@@ -1002,14 +903,14 @@ items:
         value: 0
         max: 0
         dt: null
-        conditions: ""
+        conditions: ''
       modify:
         chassis: none
         augmentSlots: 0
         modSlots: 4
         items: []
         changes: {}
-      weaponClass: ""
+      weaponClass: ''
       ammo:
         target: null
         value: null
@@ -1019,31 +920,32 @@ items:
       proficient: 1
       type:
         value: simpleM
-        subtype: ""
-        baseItem: ""
+        subtype: ''
+        baseItem: ''
       unidentified:
-        description: ""
+        description: ''
       attack:
-        bonus: ""
+        bonus: ''
         flat: false
       container: null
       attuned: false
       enchantment: null
       summons: null
       magicalBonus: null
-      firingArc: ""
+      firingArc: ''
       activities:
         1b656e25d9bb175d:
           _id: 1b656e25d9bb175d
           type: attack
+          name: Blaster Mode
           activation:
             type: action
             value: 1
-            condition: ""
+            condition: ''
             override: false
           attack:
-            ability: ""
-            bonus: "11"
+            ability: dex
+            bonus: '11'
             flat: true
             type:
               classification: weapon
@@ -1055,16 +957,16 @@ items:
             parts:
               - number: 1
                 denomination: 8
-                bonus: "+6"
+                bonus: '@mod'
                 types:
                   - energy
                 custom:
                   enabled: false
-                  formula: ""
+                  formula: ''
                 scaling:
-                  mode: ""
+                  mode: ''
                   number: null
-                  formula: ""
+                  formula: ''
           description: {}
           duration:
             units: inst
@@ -1072,18 +974,18 @@ items:
             override: false
           effects: []
           range:
-            override: false
-            units: ft
-            value: "80"
+            override: true
+            units: spec
+            special: 80/320 ft
           target:
             template:
               contiguous: false
               units: ft
-              type: ""
+              type: ''
             affects:
               choice: false
               type: creature
-              count: "1"
+              count: '1'
             override: false
             prompt: true
           consumption:
@@ -1093,155 +995,21 @@ items:
             spellSlot: true
           uses:
             spent: 0
-            max: ""
+            max: ''
             recovery: []
           sort: 0
-      attackBonus: "11"
-    ownership:
-      default: 0
-    _stats:
-      systemId: null
-      systemVersion: null
-      coreVersion: "12.330"
-      createdTime: null
-      modifiedTime: null
-      lastModifiedBy: null
-      compendiumSource: null
-      duplicateSource: null
-    _key: "!actors.items!c6d80aa895fe24e1.30dcd7cc6f55d009"
-  - _id: 60ca1dfae9850586
-    name: IWS Sniper Mode
-    type: weapon
-    sort: 0
-    flags:
-      sw5e:
-        snvMonsters:
-          prototype: false
-          classification: source-specific
-          kind: weaponSourceSpecific
-          sourceActionNames:
-            - IWS Sniper Mode
-          duplicateActionProhibited: true
-          canonicalWeaponSource: null
-          ammoSource: null
-          prePublication: false
-          trackedPack: snv-monsters
-          sandboxTemp: false
-          approvedBatch: fts-auto-10
-    img: systems/dnd5e/icons/svg/actors/npc.svg
-    effects: []
-    folder: null
-    system:
-      description:
-        value: <p>*Ranged Weapon Attack:* +11 to hit, range 120/480 ft., one target. *Hit:* 12 (1d12 + 6) energy damage.</p>
-        chat: ""
-      source:
-        custom: SnV
-      quantity: 1
-      weight:
-        value: 1
-        units: lb
-      price:
-        value: 0
-        denomination: gc
-      attunement: ""
-      equipped: false
-      rarities: []
-      identified: true
-      activation:
-        type: action
-        cost: 1
-        condition: ""
-      duration:
-        value: ""
-        units: ""
-      cover: null
-      crewed: false
-      target:
-        value: ""
-        width: null
-        units: ""
-        type: ""
-        prompt: true
-      range:
-        value: 120
-        long: 480
-        units: ft
-      uses:
-        value: null
-        max: ""
-        per: null
-        recovery: ""
-        prompt: true
-      consume:
-        type: ""
-        target: null
-        amount: null
-        scale: false
-      ability: dex
-      actionType: rwak
-      chatFlavor: ""
-      critical:
-        threshold: null
-        damage: ""
-      damage:
-        parts:
-          - - 1d12+6
-            - energy
-        versatile: ""
-      formula: ""
-      save:
-        ability: ""
-        dc: null
-        scaling: spell
-      armor:
-        value: 10
-      hp:
-        value: 0
-        max: 0
-        dt: null
-        conditions: ""
-      modify:
-        chassis: none
-        augmentSlots: 0
-        modSlots: 4
-        items: []
-        changes: {}
-      weaponClass: ""
-      ammo:
-        target: null
-        value: null
-        use: null
-        types: []
-      properties: []
-      proficient: 1
-      type:
-        value: simpleM
-        subtype: ""
-        baseItem: ""
-      unidentified:
-        description: ""
-      attack:
-        bonus: ""
-        flat: false
-      container: null
-      attuned: false
-      enchantment: null
-      summons: null
-      magicalBonus: null
-      firingArc: ""
-      activities:
         371b42da852795f0:
           _id: 371b42da852795f0
           type: attack
+          name: Sniper Mode
           activation:
             type: action
             value: 1
-            condition: ""
+            condition: ''
             override: false
           attack:
-            ability: ""
-            bonus: "11"
+            ability: dex
+            bonus: '11'
             flat: true
             type:
               classification: weapon
@@ -1253,16 +1021,16 @@ items:
             parts:
               - number: 1
                 denomination: 12
-                bonus: "+6"
+                bonus: '@mod'
                 types:
                   - energy
                 custom:
                   enabled: false
-                  formula: ""
+                  formula: ''
                 scaling:
-                  mode: ""
+                  mode: ''
                   number: null
-                  formula: ""
+                  formula: ''
           description: {}
           duration:
             units: inst
@@ -1270,18 +1038,18 @@ items:
             override: false
           effects: []
           range:
-            override: false
-            units: ft
-            value: "120"
+            override: true
+            units: spec
+            special: 120/480 ft
           target:
             template:
               contiguous: false
               units: ft
-              type: ""
+              type: ''
             affects:
               choice: false
               type: creature
-              count: "1"
+              count: '1'
             override: false
             prompt: true
           consumption:
@@ -1291,22 +1059,80 @@ items:
             spellSlot: true
           uses:
             spent: 0
-            max: ""
+            max: ''
             recovery: []
-          sort: 0
-      attackBonus: "11"
+          sort: 100000
+        499973630fae46c1:
+          _id: 499973630fae46c1
+          type: save
+          name: Antiarmor Mode
+          activation:
+            type: action
+            value: 1
+            condition: ''
+            override: false
+          damage:
+            onSave: half
+            parts:
+              - number: 2
+                denomination: 6
+                bonus: ''
+                types:
+                  - kinetic
+                custom:
+                  enabled: false
+                  formula: ''
+                scaling:
+                  mode: ''
+                  number: null
+                  formula: ''
+          save:
+            ability:
+              - dex
+            dc:
+              calculation: ''
+              formula: '19'
+          description: {}
+          duration:
+            units: inst
+            concentration: false
+            override: false
+          effects: []
+          range:
+            override: true
+            units: spec
+            special: 60/240
+          target:
+            template:
+              contiguous: false
+              units: ft
+              type: circle
+              size: '10'
+            affects:
+              choice: false
+              type: any
+            override: false
+            prompt: true
+          uses:
+            spent: 0
+            max: '6'
+            recovery:
+              - period: day
+                type: recoverAll
+          sort: 200000
+      attackBonus: '11'
     ownership:
       default: 0
     _stats:
       systemId: null
       systemVersion: null
-      coreVersion: "12.330"
+      coreVersion: '12.330'
       createdTime: null
       modifiedTime: null
       lastModifiedBy: null
       compendiumSource: null
       duplicateSource: null
-    _key: "!actors.items!c6d80aa895fe24e1.60ca1dfae9850586"
+    _key: '!actors.items!c6d80aa895fe24e1.30dcd7cc6f55d009'
   - _id: 5f599cb847dc479b
     _key: "!actors.items!c6d80aa895fe24e1.5f599cb847dc479b"
     name: Innate Techcasting
