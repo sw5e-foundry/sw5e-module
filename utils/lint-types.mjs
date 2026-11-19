@@ -3,7 +3,7 @@ import { promises as fs } from "node:fs";
 import { spawnSync } from "node:child_process";
 
 const rootDir = process.cwd();
-const syntaxRoots = ["applications", "scripts", "utils"];
+const syntaxRoots = ["scripts", "utils"];
 const jsonFiles = [
 	"module.json",
 	"package.json",
