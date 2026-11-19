@@ -74,6 +74,22 @@ This addendum does not rewrite the 5.3.3 historical bullets, the Q-09 note, the 
 
 **Upgrade (supersedes the 14.367 / 6.0.0 install wording for this unpublished line):** back up every world; copy-then-migrate from **SW5e 1.4.3**; never migrate a production original in place; install Foundry **14.368** (minimum **14.367**) and **dnd5e 6.0.3** (minimum **6.0.0**); if a 6.0 pre-release was installed, uninstall/reinstall per dnd5e notes; install lib-wrapper **1.13.5.1**; install SW5e **2.x**; run **dnd5e system migration first**, then **SW5e module migration**. Confirm portraits, tokens, and starship Hull/Shields.
 
+#### Addendum — 2026-11-19 — ported v.next behavior, live gates pending
+
+This addendum does not rewrite the sections above, the `[1.4.0]` history, or the compatibility minimums. Verified pins stay Foundry **14.368** and dnd5e **6.0.3**. Foundry **14.370** / dnd5e **6.1.1** was not run.
+
+Offline evidence exists for these ports:
+
+- Compendium size identifiers such as `huge-starship` use the Huge/Gargantuan hull and shield tier gain.
+- Hull spend and shield recovery write one size-item update.
+- Equipment fields `regrateco`, `cscap`, `sscap`, and `powerdicerec` stay on EquipmentData. Explicit regeneration `0` disables regeneration.
+- Each Commando source actor has one IWS weapon whose Blaster Mode activity is Dexterity `1d8 + @mod` energy.
+- Drake role ability bonuses for Corvette, Cruiser, and Explorer use add mode. Listed Freighter, Yacht, Warship, Gunship, Battleship, and renamed fighter embeddings publish movement on `system.attributes.movement.speeds`. Fire-Linked descriptions that still said “slave circuit” now use the canonical modification text. No Drake remediation script ships with this change.
+- World Item packs are scanned and repaired before `pack.migrate()`. A partial repair does not stamp `2.0.0`.
+- Starship weapons can store facing and turret status. Weapon damage applies Wisdom before the routing check. Empty Force/Tech meters stay hidden in Play when caster level is zero. The Pilot compendium item no longer carries level advancements.
+
+Live Foundry checks for both version combinations remain pending. Do not treat this addendum as a compatibility bump.
+
 ---
 
 ### [1.4.0] 2026-07-14
