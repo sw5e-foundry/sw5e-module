@@ -13,6 +13,65 @@ export function patchVariantRules() {
 	patchAllowFeatsAndASI();
 }
 
+/**
+ * Forward dnd5e ASI apply arguments, including `options.initial`.
+ * The normal path returns the native result directly. The feat-plus-ASI path
+ * returns the native feat result after preserving the companion ability assignments.
+ * @param {Function} wrapped
+ * @param {number} level
+ * @param {object} data
+ * @param {object} [options]
+ * @param {{ enabled: boolean, advancement: object }} context
+ * @returns {Promise<*>|*}
+ */
+export function forwardAbilityScoreImprovementApply(wrapped, level, data, options, { enabled, advancement }) {
+	if ( data?.type !== "both" || !enabled ) return wrapped(level, data, options);
+	return applyFeatPlusAsi(wrapped, level, data, options, advancement);
+}
+
+/**
+ * @param {Function} wrapped
+ * @param {number} level
+ * @param {object} data
+ * @param {object} [options]
+ * @param {object} advancement
+ * @returns {Promise<*>}
+ */
+async function applyFeatPlusAsi(wrapped, level, data, options, advancement) {
+	const asiResult = await wrapped(level, {
+		type: "asi",
+		assignments: data.assignments,
+		retainedItems: data.retainedItems
+	}, options);
+
+	const uuid = data.featUuid ?? data.uuid;
+	if ( !uuid ) return asiResult;
+
+	const assignments = foundry.utils.deepClone(advancement.value.assignments ?? {});
+	const originalReverse = advancement.reverse;
+	advancement.reverse = function () {
+		return this.value?.toObject?.() ?? {};
+	};
+	let featResult;
+	try {
+		featResult = await wrapped(level, {
+			type: "feat",
+			uuid,
+			retainedItems: data.retainedItems
+		}, options);
+	} finally {
+		advancement.reverse = originalReverse;
+	}
+
+	if ( !foundry.utils.isEmpty(assignments) ) {
+		advancement.updateSource({
+			"value.assignments": assignments,
+			"value.type": "feat"
+		});
+	}
+	return featResult;
+}
+
 function patchAllowFeatsAndASI() {
 	function isEnabled() {
 		return game.settings.get(SETTINGS_NAMESPACE, "allowFeatsAndASI");
@@ -43,39 +102,11 @@ function patchAllowFeatsAndASI() {
 	libWrapper.register(
 		getModuleId(),
 		"CONFIG.DND5E.advancementTypes.AbilityScoreImprovement.documentClass.prototype.apply",
-		async function (wrapped, level, data) {
-			if ( data?.type !== "both" || !isEnabled() ) return wrapped(level, data);
-
-			await wrapped(level, {
-				type: "asi",
-				assignments: data.assignments,
-				retainedItems: data.retainedItems
+		function (wrapped, level, data, options) {
+			return forwardAbilityScoreImprovementApply(wrapped, level, data, options, {
+				enabled: isEnabled(),
+				advancement: this
 			});
-
-			const uuid = data.featUuid ?? data.uuid;
-			if ( !uuid ) return;
-
-			const assignments = foundry.utils.deepClone(this.value.assignments ?? {});
-			const originalReverse = this.reverse;
-			this.reverse = function () {
-				return this.value?.toObject?.() ?? {};
-			};
-			try {
-				await wrapped(level, {
-					type: "feat",
-					uuid,
-					retainedItems: data.retainedItems
-				});
-			} finally {
-				this.reverse = originalReverse;
-			}
-
-			if ( !foundry.utils.isEmpty(assignments) ) {
-				this.updateSource({
-					"value.assignments": assignments,
-					"value.type": "feat"
-				});
-			}
 		},
 		"WRAPPER"
 	);

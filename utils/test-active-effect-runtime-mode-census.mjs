@@ -20,7 +20,9 @@ const FORBIDDEN = [
 /** Persisted-source or create-data lines that may retain numeric mode. */
 const ALLOW_REL = new Set([
 	"scripts/installed-mod-effects.mjs",
-	"scripts/space-station.mjs"
+	"scripts/space-station.mjs",
+	// Pack compilation reads persisted source mode 0. It does not run during prepared effect application.
+	"scripts/dae-custom-bonus-value.mjs"
 ]);
 
 let passed = 0;

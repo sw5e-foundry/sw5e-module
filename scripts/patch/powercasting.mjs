@@ -16,6 +16,11 @@ import {
 	resolveSchoolPowerDc
 } from "../powercasting-overrides.mjs";
 import { getSchoolPowerAttackBonus, patchPowerBonuses } from "./power-bonuses.mjs";
+import {
+	formatPowerAttackBonus,
+	formatSchoolAttackBonus,
+	readPreparedAttackValue
+} from "../power-attack-display.mjs";
 import { applySpecialTraitsTabLabel } from "./special-traits-sheet.mjs";
 import { applyStarshipTabsContext } from "./starship-sheet.mjs";
 import { hasSuperiorityStyleGrant } from "../superiority-style.mjs";
@@ -114,26 +119,16 @@ function getPreparedPowercastingCards(actor) {
 	const superiorityPool = formatSuperiorityPool(superiority);
 	const rollData = actor?.getRollData?.() ?? {};
 
-	const formatAttack = total => {
-		if ( !Number.isFinite(Number(total)) ) return "-";
-		const n = Number(total);
-		return n >= 0 ? `+${n}` : `${n}`;
-	};
-
 	/** Ability-only attack (superiority cards). */
-	const makeAbilityAttack = ability => {
-		const attack = abilities?.[ability]?.attack;
-		if ( !Number.isFinite(Number(attack)) ) return "-";
-		return formatAttack(attack);
-	};
+	const makeAbilityAttack = ability => formatPowerAttackBonus(
+		readPreparedAttackValue(abilities?.[ability]?.attack)
+	);
 
 	/** Ability attack + force/tech school bonuses (Focus Generator, etc.). */
-	const makeSchoolAttack = (ability, castType, school) => {
-		const base = Number(abilities?.[ability]?.attack);
-		if ( !Number.isFinite(base) ) return "-";
-		const bonus = getSchoolPowerAttackBonus(actor, castType, school, rollData);
-		return formatAttack(base + bonus);
-	};
+	const makeSchoolAttack = (ability, castType, school) => formatSchoolAttackBonus(
+		abilities?.[ability]?.attack,
+		getSchoolPowerAttackBonus(actor, castType, school, rollData)
+	);
 
 	const techAttr = getEffectivePowercastingAbility(actor, { castType: "tech", school: "tec", purpose: "attack" }).id || "int";
 

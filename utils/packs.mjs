@@ -20,6 +20,7 @@ import {
 	normalizeLegacyStarshipActorSource,
 	normalizeLegacyStarshipItemSource
 } from "../scripts/starship-data.mjs";
+import { normalizeDaeCustomBonusChanges } from "../scripts/dae-custom-bonus-value.mjs";
 
 const CANONICAL_MODULE_ID = "sw5e-module";
 
@@ -84,11 +85,14 @@ const PACK_DEST = "packs";
 const PACK_SRC = "packs/_source";
 
 
-// eslint-disable-next-line
-const argv = yargs(hideBin(process.argv))
-	.command(packageCommand())
-	.help().alias("help", "h")
-	.argv;
+const isPackCli = process.argv[1]?.endsWith(`${path.sep}packs.mjs`) || process.argv[1]?.endsWith("/packs.mjs");
+if ( isPackCli ) {
+	// eslint-disable-next-line
+	yargs(hideBin(process.argv))
+		.command(packageCommand())
+		.help().alias("help", "h")
+		.argv;
+}
 
 
 // eslint-disable-next-line
@@ -539,7 +543,7 @@ function packageCommand() {
  * @param {boolean} [options.clearSourceId=true]  Should the core sourceId flag be deleted.
  * @param {number} [options.ownership=0]          Value to reset default ownership to.
  */
-function cleanPackEntry(data, { clearSourceId=true, ownership=0 }={}) {
+export function cleanPackEntry(data, { clearSourceId=true, ownership=0 }={}) {
 //	forceConvert = convertSW5EPackEntry(data, { forceConvert });
 //	backfillNpcWeapons(data, { packName });
 
@@ -584,6 +588,8 @@ function cleanPackEntry(data, { clearSourceId=true, ownership=0 }={}) {
 		data.prototypeToken.texture.src = "";
 	}
 
+	normalizeDaeCustomBonusChanges(data.changes);
+	normalizeDaeCustomBonusChanges(data.system?.changes);
 	if ( data.effects ) data.effects.forEach(i => cleanPackEntry(i, { clearSourceId: false }));
 	if ( data.items ) data.items.forEach(i => cleanPackEntry(i, { clearSourceId: false }));
 	if ( data.pages ) data.pages.forEach(i => cleanPackEntry(i, { ownership: -1 }));
